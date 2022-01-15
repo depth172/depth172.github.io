@@ -58,7 +58,7 @@ span.title {
     font-weight: bold;
 }
 
-@media screen and (max-width:640px) {
+@media screen and (max-width: 640px) {
 
 	.main {
     width: 92%;
