@@ -104,3 +104,17 @@ a.back{
 .date{
     color: #222222;
 }
+
+@media screen and (max-width: 640px) {
+    h3{
+        font-size: 100%;
+    }
+    table.long {
+      display: block;
+      overflow-x: scroll;
+      white-space: nowrap;
+    }
+    .box{
+        width: 90%;
+    }
+}

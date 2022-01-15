@@ -57,3 +57,21 @@ span.title {
     font-size: 300%;
     font-weight: bold;
 }
+
+@media screen and (max-width:640px) {
+
+	.main {
+    width: 92%;
+    margin: auto;
+    padding: 15px;
+  }
+
+  details{
+    background: #d8f1f8;
+    width: 90%;
+    margin: 5px;
+    padding: 15px;
+    border: 1px solid #cccccc;
+  }
+ 
+}
