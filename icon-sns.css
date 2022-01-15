@@ -1,0 +1,338 @@
+@charset "UTF-8";
+/*--------------------------------------------------
+  Template by espace（https://espace.monbalcon.net/）
+  Copyright: 2020 espace.
+
+  利用規約を遵守の上、ご利用ください。
+  二次配布、販売は禁止しています。
+  --------------------------------------------------*/
+@font-face {
+  font-family: "icon-sns-espace";
+  src: url("fonts/icon-sns-espace.eot?xhj2at");
+  src: url("fonts/icon-sns-espace.eot?xhj2at#iefix") format("embedded-opentype"), url("fonts/icon-sns-espace.ttf?xhj2at") format("truetype"), url("fonts/icon-sns-espace.woff?xhj2at") format("woff"), url("fonts/icon-sns-espace.svg?xhj2at#icon-sns-espace") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.ic-sns {
+  display: inline-block;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 10px 11px 12px;
+  margin: 5px 0;
+  font-family: "icon-sns-espace" !important;
+  text-align: center;
+  vertical-align: -10%;
+  line-height: 22px !important;
+  font-size: 22px;
+}
+
+a.ic-sns {
+  text-decoration: none;
+  background: #fff;
+}
+
+.ic-sm {
+  padding: 9px;
+  line-height: 18px !important;
+  font-size: 18px;
+}
+
+.ic-lg {
+  padding: 14px;
+  line-height: 28px !important;
+  font-size: 28px;
+}
+
+.ic-xl {
+  padding: 18px 17px 18px 19px;
+  line-height: 36px !important;
+  font-size: 36px;
+}
+
+.ic-border {
+  vertical-align: top;
+  background: #fff;
+}
+
+.ic-shadow {
+  background: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ic-btn {
+  background: #fff;
+  box-shadow: 0 3px #ccc;
+}
+
+.ic-rounded {
+  border-radius: 12%;
+}
+
+.ic-circle {
+  border-radius: 50%;
+}
+
+a.ic-sns,
+a.ic-sns::before,
+a.ic-sns::after {
+  transition: background 0.15s;
+}
+
+a.ic-twitter:not(.ic-btn):hover, a.ic-twitter:not(.ic-btn):active,
+a.ic-facebook:not(.ic-btn):hover,
+a.ic-facebook:not(.ic-btn):active,
+a.ic-instagram:not(.ic-btn):hover,
+a.ic-instagram:not(.ic-btn):active,
+a.ic-marshmallow:not(.ic-btn):hover,
+a.ic-marshmallow:not(.ic-btn):active,
+a.ic-pixiv:not(.ic-btn):hover,
+a.ic-pixiv:not(.ic-btn):active,
+a.ic-web:not(.ic-btn):hover,
+a.ic-web:not(.ic-btn):active {
+  color: #fff !important;
+}
+
+.ic-twitter {
+  color: #1da1f2 !important;
+}
+
+.ic-twitter:before {
+  content: "";
+}
+
+.ic-twitter.ic-border {
+  border: 1px solid #1da1f2;
+}
+
+.ic-twitter.ic-border.ic-btn {
+  box-shadow: 0 2px #1da1f2;
+}
+
+a.ic-twitter:not(.ic-btn):hover, a.ic-twitter:not(.ic-btn):active {
+  background: #1da1f2 !important;
+}
+
+a.ic-twitter.ic-btn {
+  color: #1da1f2 !important;
+}
+
+a.ic-twitter.ic-btn:hover, a.ic-twitter.ic-btn:active {
+  box-shadow: 0 0 #1da1f2;
+  transform: translateY(2px);
+}
+
+.ic-facebook {
+  color: #1877f2 !important;
+}
+
+.ic-facebook:before {
+  content: "";
+}
+
+.ic-facebook.ic-border {
+  border: 1px solid #1877f2;
+}
+
+.ic-facebook.ic-border.ic-btn {
+  box-shadow: 0 2px #1877f2;
+}
+
+a.ic-facebook:not(.ic-btn):hover, a.ic-facebook:not(.ic-btn):active {
+  background: #1877f2 !important;
+}
+
+a.ic-facebook.ic-btn {
+  color: #1877f2 !important;
+}
+
+a.ic-facebook.ic-btn:hover, a.ic-facebook.ic-btn:active {
+  box-shadow: 0 0 #1877f2;
+  transform: translateY(2px);
+}
+
+.ic-instagram {
+  color: #e4405f !important;
+}
+
+.ic-instagram:before {
+  content: "";
+}
+
+.ic-instagram.ic-border {
+  border: 1px solid #e4405f;
+}
+
+.ic-instagram.ic-border.ic-btn {
+  box-shadow: 0 2px #e4405f;
+}
+
+a.ic-instagram:not(.ic-btn):hover, a.ic-instagram:not(.ic-btn):active {
+  background: #e4405f !important;
+}
+
+a.ic-instagram.ic-btn {
+  color: #e4405f !important;
+}
+
+a.ic-instagram.ic-btn:hover, a.ic-instagram.ic-btn:active {
+  box-shadow: 0 0 #e4405f;
+  transform: translateY(2px);
+}
+
+.ic-marshmallow {
+  color: #eb5158 !important;
+}
+
+.ic-marshmallow:before {
+  content: "";
+}
+
+.ic-marshmallow.ic-border {
+  border: 1px solid #eb5158;
+}
+
+.ic-marshmallow.ic-border.ic-btn {
+  box-shadow: 0 2px #eb5158;
+}
+
+a.ic-marshmallow:not(.ic-btn):hover, a.ic-marshmallow:not(.ic-btn):active {
+  background: #eb5158 !important;
+}
+
+a.ic-marshmallow.ic-btn {
+  color: #eb5158 !important;
+}
+
+a.ic-marshmallow.ic-btn:hover, a.ic-marshmallow.ic-btn:active {
+  box-shadow: 0 0 #eb5158;
+  transform: translateY(2px);
+}
+
+.ic-pixiv {
+  color: #0096fa !important;
+}
+
+.ic-pixiv:before {
+  content: "";
+}
+
+.ic-pixiv.ic-border {
+  border: 1px solid #0096fa;
+}
+
+.ic-pixiv.ic-border.ic-btn {
+  box-shadow: 0 2px #0096fa;
+}
+
+a.ic-pixiv:not(.ic-btn):hover, a.ic-pixiv:not(.ic-btn):active {
+  background: #0096fa !important;
+}
+
+a.ic-pixiv.ic-btn {
+  color: #0096fa !important;
+}
+
+a.ic-pixiv.ic-btn:hover, a.ic-pixiv.ic-btn:active {
+  box-shadow: 0 0 #0096fa;
+  transform: translateY(2px);
+}
+
+.ic-web {
+  color: #999 !important;
+}
+
+.ic-web:before {
+  content: "";
+}
+
+.ic-web.ic-border {
+  border: 1px solid #999;
+}
+
+.ic-web.ic-border.ic-btn {
+  box-shadow: 0 2px #999;
+}
+
+a.ic-web:not(.ic-btn):hover, a.ic-web:not(.ic-btn):active {
+  background: #999 !important;
+}
+
+a.ic-web.ic-btn {
+  color: #999 !important;
+}
+
+a.ic-web.ic-btn:hover, a.ic-web.ic-btn:active {
+  box-shadow: 0 0 #999;
+  transform: translateY(2px);
+}
+
+@media only screen and (max-width: 720px) {
+  a.ic-btn:not(.ic-border):hover {
+    box-shadow: 0 3px #ccc;
+  }
+  a.ic-twitter:hover {
+    color: #1da1f2 !important;
+  }
+  a.ic-twitter.ic-border.ic-btn:hover {
+    box-shadow: 0 2px #1da1f2;
+  }
+  a.ic-twitter.ic-btn:hover {
+    transform: translateY(0);
+  }
+  a.ic-facebook:hover {
+    color: #1877f2 !important;
+  }
+  a.ic-facebook.ic-border.ic-btn:hover {
+    box-shadow: 0 2px #1877f2;
+  }
+  a.ic-facebook.ic-btn:hover {
+    transform: translateY(0);
+  }
+  a.ic-instagram:hover {
+    color: #e4405f !important;
+  }
+  a.ic-instagram.ic-border.ic-btn:hover {
+    box-shadow: 0 2px #e4405f;
+  }
+  a.ic-instagram.ic-btn:hover {
+    transform: translateY(0);
+  }
+  a.ic-marshmallow:hover {
+    color: #eb5158 !important;
+  }
+  a.ic-marshmallow.ic-border.ic-btn:hover {
+    box-shadow: 0 2px #eb5158;
+  }
+  a.ic-marshmallow.ic-btn:hover {
+    transform: translateY(0);
+  }
+  a.ic-pixiv:hover {
+    color: #0096fa !important;
+  }
+  a.ic-pixiv.ic-border.ic-btn:hover {
+    box-shadow: 0 2px #0096fa;
+  }
+  a.ic-pixiv.ic-btn:hover {
+    transform: translateY(0);
+  }
+  a.ic-web:hover {
+    color: #999 !important;
+  }
+  a.ic-web.ic-border.ic-btn:hover {
+    box-shadow: 0 2px #999;
+  }
+  a.ic-web.ic-btn:hover {
+    transform: translateY(0);
+  }
+  a.ic-twitter:not(.ic-btn):active,
+  a.ic-facebook:not(.ic-btn):active,
+  a.ic-instagram:not(.ic-btn):active,
+  a.ic-marshmallow:not(.ic-btn):active,
+  a.ic-pixiv:not(.ic-btn):active,
+  a.ic-web:not(.ic-btn):active {
+    color: #fff !important;
+  }
+}
