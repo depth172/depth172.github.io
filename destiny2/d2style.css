@@ -84,13 +84,6 @@ img.h3 {
     color: #7e4d4d;
 }
 
-a.back {
-    color: #b1d4df;
-    font-size: 80%;
-    display: flex;
-    justify-content: flex-end;
-}
-
 .box {
     background: #d9f1f5;
     color: #666666;

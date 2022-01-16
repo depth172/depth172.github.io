@@ -42,11 +42,10 @@ a:active {
     color: #138f53;
 }
 
-a.footer {
+.footer {
     color: #2885a1;
     font-size: 70%;
-    display: flex;
-    justify-content: flex-end;
+    text-align: right;
 }
 
 summary {
@@ -66,9 +65,19 @@ a.title {
     text-decoration: none;
 }
 
+.back {
+    color: #b1d4df;
+    font-size: 80%;
+    text-align: right;
+}
+
 span.title {
     font-size: 300%;
     font-weight: bold;
+}
+
+.twitter-share-button {
+    float: right;
 }
 
 #HCB_comment_box h3 {
