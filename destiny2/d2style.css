@@ -1,4 +1,4 @@
-ul.stats{
+ul.stats {
     list-style-type: none;
     padding-left: 0em;
     padding-bottom: 0.5em;
@@ -6,38 +6,40 @@ ul.stats{
     margin-bottom: 0em;
 }
 
-ul.stats2{
+ul.stats2 {
     list-style-type: none;
     padding-left: 1.2em;
     margin-top: 0em;
     margin-bottom: 0em;
 }
 
-ul.toc{
+ul.toc {
     font-size: 90%
 }
 
-dt{
+dt {
     background: #d9f1f5;
     margin-left: 1em;
     font-weight: bold;
 }
 
-table, td, th {
+table,
+td,
+th {
     border-collapse: collapse;
-    border:1px solid #a3a3a3;
+    border: 1px solid #a3a3a3;
 }
 
-th{
+th {
     background: #ccdae4;
     padding-inline: 0.7em;
 }
 
-td{
+td {
     padding: 0.4em;
 }
 
-h3{
+h3 {
     border-bottom: 2px solid #646464;
     position: relative;
     height: 2em;
@@ -48,73 +50,74 @@ h3{
     margin-bottom: 0.4em;
 }
 
-h3:before{
+h3:before {
     content: '';
     left: 0;
     position: absolute;
 }
 
-img.h3{
+img.h3 {
     background: #737f81;
     border: 2px solid #5e5e5e;
     margin-left: 0.3em;
     margin-right: 0.5em;
     width: 2.3m;
     height: 2.3em;
-    transform: translate(0,12%);
+    transform: translate(0, 12%);
 }
 
-.base{
+.base {
     background: #e1f5f8;
     font-size: 90%;
     font-style: italic;
     margin-bottom: 0.7em;
 }
 
-.indepth{
+.indepth {
     margin-left: 1em;
     margin-bottom: 0.7em;
 }
 
-.info{
+.info {
     margin-left: -0.6em;
     font-size: 80%;
-    color: #7c7c7c;
+    color: #7e4d4d;
 }
 
-a.back{
+a.back {
     color: #b1d4df;
     font-size: 80%;
     display: flex;
     justify-content: flex-end;
-  }
+}
 
 .box {
-  background: #d9f1f5;
-  color: #666666;
-  font-size: 80%;
-  font-family: 'Courier New';
-  width: 650px;
-  height: 100px;
-  margin: 10px;
-  padding: 12px;
-  border: 1px solid #adadad;
-  overflow-y: scroll;
+    background: #d9f1f5;
+    color: #666666;
+    font-size: 80%;
+    font-family: 'Courier New';
+    width: 650px;
+    height: 100px;
+    margin: 10px;
+    padding: 12px;
+    border: 1px solid #adadad;
+    overflow-y: scroll;
 }
-.date{
+
+.date {
     color: #222222;
 }
 
 @media screen and (max-width: 768px) {
-  h3{
-    font-size: 110%;
-  }
-  table.long {
-    display: block;
-    overflow-x: scroll;
-    white-space: nowrap;
-  }
-  .box{
-    width: 90%;
-  }
+    h3 {
+        font-size: 110%;
+    }
+    table.long {
+        display: block;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+    .box {
+        width: 90%;
+    }
 }
