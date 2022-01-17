@@ -64,9 +64,8 @@ details {
     border: 1px solid #cccccc;
 }
 
-ul.toc {
+.toc {
     padding: 10px;
-    padding-left: 2.6em;
     background: #d8f1f8;
     border: 1px solid #cccccc;
 }
