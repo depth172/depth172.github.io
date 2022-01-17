@@ -43,12 +43,16 @@ a:active {
 }
 
 .footer {
-    color: #2885a1;
     font-size: 70%;
     text-align: right;
 }
 
+.footer a {
+    color: #2885a1;
+}
+
 summary {
+    user-select: none;
     cursor: pointer;
 }
 
@@ -60,15 +64,35 @@ details {
     border: 1px solid #cccccc;
 }
 
+ul.toc {
+    padding: 10px;
+    padding-left: 2.6em;
+    background: #d8f1f8;
+    border: 1px solid #cccccc;
+}
+
+.toc details {
+    background: none;
+    width: 93.5%;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 0.6em;
+    border: none;
+}
+
 a.title {
     color: #2f2a46;
     text-decoration: none;
 }
 
 .back {
-    color: #b1d4df;
-    font-size: 80%;
+    font-size: 90%;
     text-align: right;
+}
+
+.back a {
+    color: #7da6b3;
+    text-decoration: none;
 }
 
 span.title {
