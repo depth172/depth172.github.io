@@ -21,9 +21,24 @@ h2 {
     margin-bottom: 0.5em;
 }
 
+.power {
+    font-weight: bold;
+    font-size: 172%
+}
+
+.weak {
+    color: #999;
+    font-size: 85%;
+}
+
 ul {
     margin-top: 0.2em;
-    margin-bottom: 0em;
+    margin-bottom: 0.8em;
+}
+
+li ul {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
 }
 
 a {
@@ -79,7 +94,12 @@ details {
     border: none;
 }
 
-.top a {
+.portrait {
+    width: 250px;
+    border: 2px solid #2b539c;
+}
+
+.top_guide a {
     color: #2f2a46;
     text-decoration: none;
 }
@@ -97,6 +117,15 @@ details {
 span.title {
     font-size: 300%;
     font-weight: bold;
+}
+
+.fab {
+    padding: 0.6em;
+}
+
+.fas {
+    padding: 0.3em 0.4em;
+    padding-left: 0em;
 }
 
 .twitter-share-button {
