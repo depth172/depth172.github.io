@@ -16,6 +16,72 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+    $('#sight_table1').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#sight_table2').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#sight_table_omolon').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#sight_table_suros').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#sight_table_hc').tablesorter({
+        headers: {
+            0: { sorter: false },
+            4: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#sight_table_sa').tablesorter({
+        headers: {
+            0: { sorter: false },
+            4: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#sight_table_sr').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#launcher_barrel_table').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
     $('#magazine_table1').tablesorter({
         headers: {
             0: { sorter: false },
@@ -35,6 +101,30 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('#magazine_table_sg').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#magazine_table_gl1').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#magazine_table_gl2').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#magazine_table_rl').tablesorter({
         headers: {
             0: { sorter: false },
         }
