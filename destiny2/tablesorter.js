@@ -82,6 +82,22 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+    $('#bowstring_table').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#blade_table').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
     $('#magazine_table1').tablesorter({
         headers: {
             0: { sorter: false },
@@ -141,6 +157,22 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('#battery_table_tr').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#arrow_table').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#guard_table').tablesorter({
         headers: {
             0: { sorter: false },
         }

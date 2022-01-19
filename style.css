@@ -121,6 +121,10 @@ details {
     font-weight: bold;
 }
 
+.title img {
+    width: 60%;
+}
+
 .top_logo {
     float: right;
 }
@@ -173,12 +177,15 @@ p.intro {
         margin: 5px;
         padding: 15px;
     }
+    .title img {
+        width: 80%;
+    }
     .top_logo {
         float: none;
         text-align: center;
     }
     .top_logo img {
         height: auto;
-        width: 75%
+        width: 60%
     }
 }
