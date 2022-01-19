@@ -29,12 +29,27 @@
 <body>
     <a name="top"></a>
     <div class="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
         <span class="top_guide"><a href="../">depth's Toybox</a></span>
         <h1>Destiny 2</h1>
         <hr>
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 まとめ" data-url="https://depth172.github.io/destiny2/" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <p>自分はしばらくDestiny 2にお熱なのでゲーム内外問わずいろいろ作っています。<br>プレイ中に個人的にあって便利だと思うものを、日本人プレイヤーへの共有のために翻訳して公開したりもしています。</p>
+        <div class="title_bar">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 まとめ" data-url="https://depth172.github.io/destiny2/" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                const last = new Date(document.lastModified);
+                const year = last.getFullYear();
+                const month = last.getMonth() + 1;
+                const date = last.getDate();
+
+                const target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+        <p class="intro">自分はしばらくDestiny 2にお熱なのでゲーム内外問わずいろいろ作っています。<br>プレイ中に個人的にあって便利だと思うものを、日本人プレイヤーへの共有のために翻訳して公開したりもしています。</p>
 
         <h2>ゲーム情報</h2>
         <p>リンクが設定されていないものは製作中です。</p>
@@ -45,7 +60,15 @@
                     <li><a href="./weapon_parts.html">バレル・マガジン等詳細</a></li>
                     <li><a href="./weapon_perks.html">武器パーク・武器改造パーツ詳細</a></li>
                     <li>防具改造MOD詳細</li>
-                    <li>エキゾチック装備詳細</li>
+                    <li>
+                        エキゾチック装備詳細
+                        <ul>
+                            <li>武器</li>
+                            <li>タイタン防具</li>
+                            <li>ハンター防具</li>
+                            <li>ウォーロック防具</li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>

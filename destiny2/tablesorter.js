@@ -130,3 +130,19 @@ $(document).ready(function() {
         }
     });
 });
+
+$(document).ready(function() {
+    $('#battery_table_fr').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#battery_table_tr').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});

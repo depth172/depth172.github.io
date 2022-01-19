@@ -114,9 +114,15 @@ details {
     text-decoration: none;
 }
 
-span.title {
+.title {
+    text-align: center;
+    padding: 0px 0px;
     font-size: 300%;
     font-weight: bold;
+}
+
+.top_logo {
+    float: right;
 }
 
 .fab {
@@ -128,8 +134,21 @@ span.title {
     padding-left: 0em;
 }
 
-.twitter-share-button {
-    float: right;
+.title_bar {
+    text-align: right;
+}
+
+.top_logo img {
+    height: 83px
+}
+
+.title_bar span {
+    vertical-align: top;
+    font-size: 80%;
+}
+
+p.intro {
+    margin-top: 0em;
 }
 
 #HCB_comment_box h3 {
@@ -153,5 +172,13 @@ span.title {
         width: 90%;
         margin: 5px;
         padding: 15px;
+    }
+    .top_logo {
+        float: none;
+        text-align: center;
+    }
+    .top_logo img {
+        height: auto;
+        width: 75%
     }
 }

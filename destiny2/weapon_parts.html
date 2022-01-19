@@ -29,13 +29,28 @@
 <body>
     <a name="top"></a>
     <div class="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
         <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
         <h1>Destiny 2 バレル・マガジン等効果まとめ</h1>
         <hr>
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 バレル・マガジン等効果まとめ" data-url="https://depth172.github.io/destiny2/weapon_parts.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="title_bar">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 バレル・マガジン等効果まとめ" data-url="https://depth172.github.io/destiny2/weapon_parts.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                const last = new Date(document.lastModified);
+                const year = last.getFullYear();
+                const month = last.getMonth() + 1;
+                const date = last.getDate();
 
-        <p>バレルやマガジン、バッテリー、矢など、主に武器パークの1列目・2列目に付与されるものの効果、性能をまとめたページです。</p>
+                const target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+
+        <p class="intro">バレルやマガジン、バッテリー、矢など、主に武器パークの1列目・2列目に付与されるものの効果、性能をまとめたページです。</p>
 
         <p>3・4列目につく武器パークや武器改造パーツについては<a href="./weapon_perks.html">こちらをご覧ください。</a></p>
         <h2>目次</h2>
@@ -159,9 +174,23 @@
                         <li><a href="#concussion_grenades">衝撃グレネード</a></li>
                     </ul>
                 </details>
+                <details>
+                    <summary>バッテリー</summary>
+                    <li><a href="#battery">ステータス早見表</a></li>
+                    <ul>
+                        <li><a href="#enhanced_battery">強化バッテリー</a></li>
+                        <li><a href="#ionized_battery">イオンバッテリー</a></li>
+                        <li><a href="#projection_fuse">投射フューズ</a></li>
+                        <li><a href="#particle_repeater">粒子リピーター</a></li>
+                        <li><a href="#accelerated_coils">加速コイル</a></li>
+                        <li><a href="#liquid_coils">液体コイル</a></li>
+                        <li><a href="#tactical_battery">戦略的バッテリー</a></li>
+                        <li><a href="#light_battery">軽量バッテリー</a></li>
+                    </ul>
+                </details>
             </ul>
         </div>
-        </details>
+
         <p>
             右三角形はクリックすることで展開できます。
             <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
@@ -188,6 +217,7 @@
 
         <a name="barrel"></a>
         <h2>バレル</h2>
+        <p>バレルは、多くの武器の1列目に付与される。</p>
 
         <details>
             <summary>バレルステータス早見表（一般武器用）</summary>
@@ -366,7 +396,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="chambered_compensator"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/7a0a23f9622636cea92387d50d368333.png" class="h3">搭載型補正器</h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/376aa9bd8c392567f501012fc3b3d4d0.png" class="h3">搭載型補正器</h3>
         <div class="base">安定型のバレルアタッチメント。</div>
         <div class="indepth">
             <span class="info">&lt;効果量&gt;</span><br>
@@ -470,8 +500,8 @@
             <span class="info">&lt;備考&gt;</span><br>ショットガンにのみ付与される。<br>
             <span class="info">&lt;効果量&gt;</span><br>
             <ul class="stats">
-                <li>射程距離: <strong>+14</strong></li>
-                <li>ハンドリング: <strong>-9</strong></li>
+                <li>射程距離: <strong>+9</strong></li>
+                <li>ハンドリング: <strong>-13</strong></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -521,7 +551,7 @@
 
         <a name="sights"></a>
         <h2>サイト・スコープ</h2>
-        <p>サイトやスコープは、バレルの代わりに一部の武器に付与される。</p>
+        <p>サイトやスコープは、バレルの代わりに一部の武器の1列目に付与される。</p>
 
         <details>
             <summary>バレルステータス早見表（一般武器用1）</summary>
@@ -1581,7 +1611,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/7a0a23f9622636cea92387d50d368333.png" class="table"></td>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c9439f5d740d017dc9551a60a902c797.png" class="table"></td>
                         <td><a href="#confined_launch">コンファインローンチ</a></td>
                         <td>+5</td>
                         <td>-9</td>
@@ -1738,8 +1768,94 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
+        <a name="bowstring"></a>
+        <h2>弓の弦</h2>
+        <p>弓の弦は、弓の1列目に付与される。</p>
+
+        <details>
+            <summary>ランチャーバレルステータス早見表</summary>
+            <table class="tablesorter" id="launcher_barrel_table">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="name">名前</th>
+                        <th>爆</th>
+                        <th>速</th>
+                        <th>安</th>
+                        <th>ハ</th>
+                        <th>反</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c9439f5d740d017dc9551a60a902c797.png" class="table"></td>
+                        <td><a href="#confined_launch">コンファインローンチ</a></td>
+                        <td>+5</td>
+                        <td>-9</td>
+                        <td>+5</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b1e34eabc2ad012b6258436e80705b49.png" class="table"></td>
+                        <td><a href="#countermass">カウンターマス</a></td>
+                        <td></td>
+                        <td></td>
+                        <td>+9</td>
+                        <td>+9</td>
+                        <td>+30</td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/823b8ae4f48bca3bb5586167c1666781.png" class="table"></td>
+                        <td><a href="#hard_launch">ハードローンチ</a></td>
+                        <td>-2</td>
+                        <td>+14</td>
+                        <td>-9</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/eab8eeedc70188ad3798b6ca84fbb7cb.png" class="table"></td>
+                        <td><a href="#linear_compensator">リニア・コンペンセイター</a></td>
+                        <td>+3</td>
+                        <td>+4</td>
+                        <td>+4</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/11664d61e115d9a59bd969b87081f1a6.png" class="table"></td>
+                        <td><a href="#quick_launch">クイックローンチ</a></td>
+                        <td></td>
+                        <td>+9</td>
+                        <td></td>
+                        <td>+13</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/52a4646804b96ed190f1e1ae97b64e17.png" class="table"></td>
+                        <td><a href="#smart_drift_control">高性能ドリフト制御</a></td>
+                        <td></td>
+                        <td>+4</td>
+                        <td>+9</td>
+                        <td>+9</td>
+                        <td>+15</td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/402765b86ff7b1d97078ac43d5ca39ad.png" class="table"></td>
+                        <td><a href="#volatile_launch">ボラタイルローンチ</a></td>
+                        <td>+7</td>
+                        <td>-5</td>
+                        <td></td>
+                        <td>-5</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
         <a name="magazine"></a>
         <h2>マガジン</h2>
+        <p>マガジンは、多くの武器の2列目に付与される。</p>
 
         <details>
             <summary>マガジンステータス早見表（一般武器用1）</summary>
@@ -2648,6 +2764,259 @@
             <ul class="stats">
                 <li>爆発時、付近にいた敵をスタンさせる。</li>
                 <li>爆発範囲: <strong>-50</strong></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="battery"></a>
+        <h2>バッテリー</h2>
+        <p>バッテリーは、マガジンの代わりにフュージョンライフルかリニア・フュージョンライフルかトレースライフルの2列目に付与される。</p>
+
+        <details>
+            <summary>バッテリーステータス早見表（フュージョンライフル、リニア・フュージョンライフル用）</summary>
+            <table class="tablesorter" id="battery_table_fr">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="name">名前</th>
+                        <th>威</th>
+                        <th>射</th>
+                        <th>安</th>
+                        <th>リ速</th>
+                        <th>マ</th>
+                        <th>チ時</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/fba0bbb5a21b74ebe59f394f2319098c.png" class="table"></td>
+                        <td><a href="#enhanced_battery">強化バッテリー</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>+20</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/51460192e92adf82869709d44073774c.png" class="table"></td>
+                        <td><a href="#ionized_battery">イオンバッテリー</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-18</td>
+                        <td>+40</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/253e7147a06242e8305ddf1c5571a9fc.png" class="table"></td>
+                        <td><a href="#projection_fuse">投射フューズ</a></td>
+                        <td></td>
+                        <td>+9</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c38ffa488ea6747f8acbfbdb93f3e5a2.png" class="table"></td>
+                        <td><a href="#particle_repeater">粒子リピーター</a></td>
+                        <td></td>
+                        <td></td>
+                        <td>+9</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/231f0b02ac3bb5a19aa4b4c82fbf90a4.png" class="table"></td>
+                        <td><a href="#accelerated_coils">加速コイル</a></td>
+                        <td>-5</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-20</td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/381b7a519ca06b70b5ff8f793dfad038.png" class="table"></td>
+                        <td><a href="#liquid_coils">液体コイル</a></td>
+                        <td>+5</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>+20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>バッテリーステータス早見表（トレースライフル用）</summary>
+            <table class="tablesorter" id="battery_table_tr">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="name">名前</th>
+                        <th>射</th>
+                        <th>安</th>
+                        <th>ハ</th>
+                        <th>リ速</th>
+                        <th>マ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/fba0bbb5a21b74ebe59f394f2319098c.png" class="table"></td>
+                        <td><a href="#enhanced_battery">強化バッテリー</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>+20</td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/51460192e92adf82869709d44073774c.png" class="table"></td>
+                        <td><a href="#ionized_battery">イオンバッテリー</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-18</td>
+                        <td>+40</td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/253e7147a06242e8305ddf1c5571a9fc.png" class="table"></td>
+                        <td><a href="#projection_fuse">投射フューズ</a></td>
+                        <td>+9</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c38ffa488ea6747f8acbfbdb93f3e5a2.png" class="table"></td>
+                        <td><a href="#particle_repeater">粒子リピーター</a></td>
+                        <td></td>
+                        <td>+9</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/214f4b73b1d77b9a2b7a4a44fe563af0.png" class="table"></td>
+                        <td><a href="#tactical_battery">戦略的バッテリー</a></td>
+                        <td>+5</td>
+                        <td>+5</td>
+                        <td></td>
+                        <td>+9</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/8d2956c9138e0857acf2860266d73b42.png" class="table"></td>
+                        <td><a href="#light_battery">軽量バッテリー</a></td>
+                        <td></td>
+                        <td></td>
+                        <td>+9</td>
+                        <td>+9</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <a name="enhanced_battery"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/fba0bbb5a21b74ebe59f394f2319098c.png" class="h3">強化バッテリー</h3>
+        <div class="base">バッテリー寿命が長くなる。</div>
+        <div class="indepth">
+            <span class="info">&lt;効果量&gt;</span><br>
+            <ul class="stats">
+                <li>マガジンサイズ: <strong>+20</strong></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="ionized_battery"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/51460192e92adf82869709d44073774c.png" class="h3">イオンバッテリー</h3>
+        <div class="base">大きくて重いバッテリー。</div>
+        <div class="indepth">
+            <span class="info">&lt;効果量&gt;</span><br>
+            <ul class="stats">
+                <li>マガジンサイズ: <strong>+40</strong></li>
+                <li>リロード速度: <strong>-18</strong></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="projection_fuse"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/253e7147a06242e8305ddf1c5571a9fc.png" class="h3">投射フューズ</h3>
+        <div class="base">距離の最適化。</div>
+        <div class="indepth">
+            <span class="info">&lt;効果量&gt;</span><br>
+            <ul class="stats">
+                <li>射程距離: <strong>+9</strong></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="particle_repeater"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/c38ffa488ea6747f8acbfbdb93f3e5a2.png" class="h3">粒子リピーター</h3>
+        <div class="base">各ボルトの反動を抑制する。</div>
+        <div class="indepth">
+            <span class="info">&lt;効果量&gt;</span><br>
+            <ul class="stats">
+                <li>安定性: <strong>+9</strong></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="accelerated_coils"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/231f0b02ac3bb5a19aa4b4c82fbf90a4.png" class="h3">加速コイル</h3>
+        <div class="base">チャージ時間が短縮される。</div>
+        <div class="indepth">
+            <span class="info">&lt;備考&gt;</span><br>フュージョンライフル、リニア・フュージョンライフルにのみ付与される。<br>
+            <span class="info">&lt;効果量&gt;</span><br>
+            <ul class="stats">
+                <li>チャージ時間: <strong>-20</strong></li>
+                <li>威力: <strong>-5</strong></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="liquid_coils"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/381b7a519ca06b70b5ff8f793dfad038.png" class="h3">液体コイル</h3>
+        <div class="base">チャージ速度を犠牲にしてダメージを増加させる。</div>
+        <div class="indepth">
+            <span class="info">&lt;備考&gt;</span><br>フュージョンライフル、リニア・フュージョンライフルにのみ付与される。<br>
+            <span class="info">&lt;効果量&gt;</span><br>
+            <ul class="stats">
+                <li>威力: <strong>+5</strong></li>
+                <li>チャージ時間: <strong>+20</strong></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="tactical_battery"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/214f4b73b1d77b9a2b7a4a44fe563af0.png" class="h3">戦略的バッテリー</h3>
+        <div class="base">この武器には複数の小さな改善が見られる。</div>
+        <div class="indepth">
+            <span class="info">&lt;備考&gt;</span><br>トレースライフルにのみ付与される。<br>
+            <span class="info">&lt;効果量&gt;</span><br>
+            <ul class="stats">
+                <li>射程距離: <strong>+5</strong></li>
+                <li>安定性: <strong>+5</strong></li>
+                <li>リロード速度: <strong>+9</strong></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="light_battery"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/8d2956c9138e0857acf2860266d73b42.png" class="h3">軽量バッテリー</h3>
+        <div class="base">軽量で持ち運び易いバッテリー。</div>
+        <div class="indepth">
+            <span class="info">&lt;備考&gt;</span><br>トレースライフルにのみ付与される。<br>
+            <span class="info">&lt;効果量&gt;</span><br>
+            <ul class="stats">
+                <li>ハンドリング: <strong>+9</strong></li>
+                <li>リロード速度: <strong>+9</strong></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>

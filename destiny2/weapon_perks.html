@@ -24,13 +24,28 @@
 <body>
     <a name="top"></a>
     <div class="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
         <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
         <h1>Destiny 2 武器パーク効果まとめ</h1>
         <hr>
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 武器パーク効果まとめ" data-url="https://depth172.github.io/destiny2/weapon_perks.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="title_bar">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 バレル・マガジン等効果まとめ" data-url="https://depth172.github.io/destiny2/weapon_parts.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                const last = new Date(document.lastModified);
+                const year = last.getFullYear();
+                const month = last.getMonth() + 1;
+                const date = last.getDate();
 
-        <p>主に武器の3列目・4列目に付与されるパークや、武器改造パーツに関する様々な性能をまとめたページです。</p>
+                const target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+
+        <p class="intro">主に武器の3列目・4列目に付与されるパークや、武器改造パーツに関する様々な性能をまとめたページです。</p>
 
         <p>バレルやマガジンなどの、1・2列目につくパークについては<a href="./weapon_parts.html">こちらをご覧ください。</a></p>
 
