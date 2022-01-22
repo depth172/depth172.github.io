@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Destiny_Keys';
+    src: url(./fonts/Destiny_Keys.otf);
+}
+
+body {
+    font-family: 'Yu Gothic', Destiny_Keys;
+}
+
 ul.stats {
     list-style-type: none;
     padding-left: 0em;
@@ -10,7 +19,7 @@ ul.stats2 {
     list-style-type: none;
     padding-left: 1.2em;
     margin-top: 0em;
-    margin-bottom: 0em;
+    margin-bottom: 0.2em;
 }
 
 .toc {
