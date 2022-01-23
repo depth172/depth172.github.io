@@ -3,6 +3,30 @@
     src: url(./fonts/Destiny_Keys.otf);
 }
 
+.solar::before {
+    padding: 1.2em 0.3em;
+    content: "\e140";
+    color: #e7601d;
+}
+
+.arc::before {
+    padding: 1.2em 0.3em;
+    content: "\e143";
+    color: #81b5e4;
+}
+
+.void::before {
+    padding: 1.2em 0.3em;
+    content: "\e144";
+    color: #b07cdb;
+}
+
+.stasis::before {
+    padding: 1.2em 0.3em;
+    content: "\e139";
+    color: #5e7afd;
+}
+
 body {
     font-family: 'Yu Gothic', Destiny_Keys;
 }
