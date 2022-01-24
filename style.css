@@ -129,11 +129,12 @@ details {
     float: right;
 }
 
-.fab {
+.fab,
+.fas {
     padding: 0.6em;
 }
 
-.fas {
+ul li ul li i.fas {
     padding: 0.3em 0.4em;
     padding-left: 0em;
 }

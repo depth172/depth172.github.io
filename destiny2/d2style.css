@@ -183,6 +183,11 @@ th.sorter-false {
     overflow-y: scroll;
 }
 
+.box ul {
+    list-style: "- ";
+    padding-left: 1.2em;
+}
+
 .date {
     color: #222222;
 }
