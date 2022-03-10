@@ -98,6 +98,14 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+    $('#haft_table').tablesorter({
+        headers: {
+            0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
     $('#magazine_table1').tablesorter({
         headers: {
             0: { sorter: false },
@@ -119,6 +127,15 @@ $(document).ready(function() {
     $('#magazine_table_sg').tablesorter({
         headers: {
             0: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
+    $('#magazine_table_glaive').tablesorter({
+        headers: {
+            0: { sorter: false },
+            6: { sorter: false },
         }
     });
 });

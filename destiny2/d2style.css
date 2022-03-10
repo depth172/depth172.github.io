@@ -61,10 +61,13 @@ td,
 th {
     border-collapse: collapse;
     border: 1px solid #a3a3a3;
+    margin: 0.4em;
 }
 
 th {
     background: #ccdae4;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
 }
 
 td {
@@ -150,6 +153,10 @@ td.icon {
 
 th.sorter-false {
     padding-right: 0.4em;
+}
+
+.tablesorter td .none {
+    display: none;
 }
 
 .base {
