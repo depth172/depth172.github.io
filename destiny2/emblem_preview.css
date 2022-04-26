@@ -1,0 +1,58 @@
+.ft_list {
+    position: relative;
+}
+
+.ft_list p {
+    position: absolute;
+    color: #fff;
+    top: -0.8em;
+    left: 3.7em;
+    font-size: 150%;
+    font-weight: bold;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.character {
+    position: relative;
+}
+
+.character p {
+    position: absolute;
+    color: #fff;
+    top: -0.4em;
+    left: 5em;
+    font-size: 100%;
+    font-weight: bold;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.ft_list img {
+    padding-bottom: 1em;
+}
+
+.character img.bg {
+    background-color: #3f4045;
+    object-fit: cover;
+    object-position: bottom;
+    height: 2.3em;
+    width: 48em;
+    padding-bottom: 1.5em;
+}
+
+.character img.icon {
+    position: absolute;
+    width: 2.3em;
+    top: 0.65em;
+    left: 2.3em;
+}
+
+@media screen and (max-width: 768px) {
+    .ft_list {
+        overflow: scroll;
+    }
+    .character {
+        overflow: scroll;
+    }
+}
