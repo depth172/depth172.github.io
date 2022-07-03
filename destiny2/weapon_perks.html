@@ -1108,7 +1108,7 @@
             手動リロード、狙撃手の回避、ドラゴン・シャドーのみリセットされる。
             <br>横断のブーツなどのリロードではリセットされない。
             <div class="info">&lt;効果量&gt;</div>
-            <table class="long">
+            <table>
                 <thead>
                     <tr>
                         <th></th>
@@ -1169,14 +1169,14 @@
                         <td><b>-15%</b></td>
                     </tr>
                     <tr>
-                        <td>オートライフル（順応フレーム）</td>
-                        <td><b>+30%</b></td>
-                        <td><b>-20%</b></td>
-                    </tr>
-                    <tr>
                         <td>オートライフル（速射フレーム）</td>
                         <td><b>+30%</b></td>
                         <td><b>-15%</b></td>
+                    </tr>
+                    <tr>
+                        <td>オートライフル（上記以外）</td>
+                        <td><b>+30%</b></td>
+                        <td><b>-20%</b></td>
                     </tr>
                     <tr>
                         <td>弓</td>
@@ -1491,7 +1491,7 @@
             <ul class="stats">
                 <li>効果時間: <b>2秒</b></li>
             </ul>
-            <table>
+            <table class="long">
                 <thead>
                     <tr>
                         <th></th>
@@ -1665,9 +1665,9 @@
         <a name="chill_clip"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/166c98f42220eda8bb68a9cd3123c80d.png" class="h3">チルクリップ</h3>
         <div class="base">マガジンの半分以上残弾があるとき、敵に弾を当てると遅延を発生させる爆発を起こす。</div>
-        <div class="info">&lt;備考&gt;</div>
-        フュージョンライフルは、一回の射撃で敵1体に対して一回だけ発動する。
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            フュージョンライフルは、一回の射撃で敵1体に対して一回だけ発動する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>遅延付与数: <b>x50</b></li>
@@ -3280,20 +3280,15 @@
         <div class="base">光のオーブを拾うと、次の射撃時ダメージと爆発範囲が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
-            光のオーブ取得時にスタックが1個付与される。最大 <b>6個</b>。
+            光のオーブ取得時にスタックが1個付与される。最大 <b>6個</b> まで貯められる。
             <br>1発発射するたびに1個消費される。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>グレネードランチャー:
+                <li>爆発範囲: <b>+100</b></li>
+                <li>ダメージ増加量:
                     <ul class="stats2">
-                        <li>ダメージ増加量: <b>+44%</b></li>
-                        <li>爆発範囲は <b>55</b> に設定される。</li>
-                    </ul>
-                </li>
-                <li>ロケットランチャー:
-                    <ul class="stats2">
-                        <li>ダメージ増加量: <b>+25%</b></li>
-                        <li>爆発範囲は <b>100</b> に設定される。</li>
+                        <li>グレネードランチャー: <b>+44%</b></li>
+                        <li>ロケットランチャー: <b>+25%</b></li>
                     </ul>
                 </li>
             </ul>
@@ -3679,7 +3674,7 @@
 
         <a name="flash_counter"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/a9170ded6471b4afd2d8218ccddd644e.png" class="h3">フラッシュカウンター</h3>
-        <div class="base">敵の攻撃を直前にブロックすると、敵を鎮圧・弱体化させる。</div>
+        <div class="base">敵の近接攻撃を直前にブロックすると、敵を鎮圧・弱体化させる。</div>
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
             ガード開始から <b>0.5秒以内</b> にガード成功すると発動する。
@@ -3699,10 +3694,6 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             受けたダメージ量に応じて回復量が変化する。
-            <div class="info">&lt;効果量&gt;</div>
-            <ul class="stats">
-                <li>HPバーの半分程度の攻撃を受けると全回復できる。</li>
-            </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3747,7 +3738,7 @@
             <div class="info">&lt;強化特性&gt;</div>
             武器エネルギーの回復量が増加する。
             <ul class="stats2">
-                <li>回復量: +30% → <b>40%</b></li>
+                <li>回復量: +30% → <b>+40%</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
