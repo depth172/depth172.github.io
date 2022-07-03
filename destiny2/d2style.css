@@ -46,6 +46,13 @@ ul.stats2 {
     margin-bottom: 0.2em;
 }
 
+ul.stats3 {
+    list-style-type: none;
+    padding-left: 1.2em;
+    margin-top: 0em;
+    margin-bottom: 0.2em;
+}
+
 .toc {
     font-size: 90%
 }

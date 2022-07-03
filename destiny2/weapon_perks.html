@@ -55,6 +55,7 @@
         <div class="toc">
             <ul>
                 <li><a href="#notice">注意事項・用語解説</a></li>
+                <li><a href="#calcurate">増加量の計算について</a></li>
                 <details>
                     <summary>武器改造パーツ</summary>
                     <ul>
@@ -268,14 +269,12 @@
         <a name="notice"></a>
         <h2>注意事項・用語解説</h2>
         <ul>
-            <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。<br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
+            <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。
+                <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
             <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについてはパーク自体が記載されていない場合もあります。</li>
-            <li>ステータスが増減するパークは、武器の種類やフレームによって増減量が実際の値より若干の誤差が出ることがあります。</li>
             <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">赤文字</span>で記載しています。</li>
         </ul>
         <dl>
-            <dt>成分</dt>
-            <dd>そのパークが付与された武器から抽出できる、または武器形成時にそのパークの付与に用いる成分の種類。</dd>
             <dt>強化特性</dt>
             <dd>形成した武器にのみ付与できる、強化されたパークのこと。様々な追加効果がある。</dd>
             <dt>キル</dt>
@@ -298,6 +297,12 @@
             <dd>右クリックの強攻撃のことではなく、弾薬がある状態での剣攻撃のこと。</dd>
         </dl>
         <div class="back"><a href="#top">▲</a></div>
+
+        <a name="calcurate"></a>
+        <h2>増加量の計算について</h2>
+        <p>すべての数値は、何もバフ・デバフを受けていない状態を100%としています。
+            <br>例として、暴れん坊をx1付与した際の増加率は +11% ですが、この場合は100%に+11%のバフがかかり合計で111%、つまり通常の1.11倍のダメージを与えられるということになります。
+        </p>
 
         <a name="weapon_mod"></a>
         <h2>武器改造パーツ</h2>
@@ -421,19 +426,21 @@
 
         <a name="rampage_spec"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/b3eadd1fcadf34e389fad3e7a75acc26.jpg" class="h3">暴れん坊特化</h3>
-        <div class="base">パーク「暴れん坊」の持続時間を増加させる。</div>
+        <div class="base">パーク「<a href="#rampage">暴れん坊</a>」の持続時間を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>持続時間: <b>+1秒</b>（合計 <b>4.5秒</b> ）</li>
+                <li>持続時間: <b>+1秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="dragonfly_spec"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/bb2c1c71fa26132557b1e75515df8c45.jpg" class="h3">ドラゴンフライ特化</h3>
-        <div class="base">パーク「ドラゴンフライ」のダメージと爆発範囲を増加させる。</div>
+        <div class="base">パーク「<a href="#dragonfly">ドラゴンフライ</a>」のダメージと爆発範囲を増加させる。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            <a href="#chain_reaction">連鎖反応</a> や <a href="#firefly">ホタル</a> 、<a href="#incandescent">インカンデセント</a>などには<b>効果がない。</b>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ダメージ増加量: <b>+50%</b></li>
@@ -444,11 +451,11 @@
 
         <a name="surrounded_spec"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/077fe0d989557b5c9f62c8f9f8bca9ed.jpg" class="h3">包囲網特化</h3>
-        <div class="base">パーク「包囲網」で増加するダメージ量が強化され、条件を満たさなくなってもしばらく効果が残るようになる。</div>
+        <div class="base">パーク「<a href="#surrounded">包囲網</a>」で増加するダメージ量が強化され、条件を満たさなくなってもしばらく効果が残るようになる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>ダメージ増加量: <b>+10%</b></li>
+                <li>ダメージ増加量: <b>+10%</b>（合計 <b>+40%</b> 、剣は <b>+35%</b>）</li>
                 <li>効果残留時間: <b>1.5秒</b></li>
             </ul>
         </div>
@@ -662,6 +669,11 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             バイスト製の武器に付与される。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>5秒</b></li>
+                <li>発射時間: <b>-54</b></li>
+            </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -835,6 +847,12 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             幻影のシーズンで入手できる武器に付与される。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            <b>15m</b> の範囲内に、敵が <b>3体以上</b> もしくはナイトメアがいると発動する。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>回復量: <b>40 HP</b></li>
+            </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -847,7 +865,8 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>12秒</b></li>
-                <li>増加量: <b>+20</b></li>
+                <li>鍛錬: <b>+20</b></li>
+                <li>腕力: <b>+20</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -858,6 +877,9 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             迷宮「デュアリティ」で入手できる武器に付与される。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            <b>20</b> 以上のダメージを受けると、ビタースパイトのスタックを1個チャージする。
+            <br>スタック数に応じて、次のリロード速度を増加させる。リロードを行うか武器をしまうとスタックは消滅する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -891,8 +913,9 @@
                 </tbody>
             </table>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+0.5秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 3.5秒 → <b>4秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -914,8 +937,9 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+0.5秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 5秒 → <b>5.5秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -952,8 +976,9 @@
                 </tbody>
             </table>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+0.5秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 5秒 → <b>5.5秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -991,8 +1016,9 @@
                 </tbody>
             </table>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+2秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 4.5秒 → <b>6.5秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1030,8 +1056,9 @@
                 </tbody>
             </table>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+0.5秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 4.5秒 → <b>5秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1066,8 +1093,9 @@
                 </tbody>
             </table>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>x1の効果時間: <b>+1秒</b></li>
+            x1有効時に武器でキルをすると、効果時間がさらに増加する。
+            <ul class="stats2">
+                <li>x1の効果時間: 7秒 → <b>8秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1076,6 +1104,9 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/03e2db0c911d07fc0e9f505927aab055.png" class="h3">タリーキリング</h3>
         <div class="base">キルをすると、この武器をしまうかリロードするまで武器ダメージが増加する。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            手動リロード、狙撃手の回避、ドラゴン・シャドーのみリセットされる。
+            <br>横断のブーツなどのリロードではリセットされない。
             <div class="info">&lt;効果量&gt;</div>
             <table class="long">
                 <thead>
@@ -1096,7 +1127,8 @@
                 </tbody>
             </table>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            マガジンサイズが増加する。
+            <ul class="stats2">
                 <li>マガジンサイズ: <b>+10</b></li>
                 <li>戦略的マガジンと同等の増加量。</li>
             </ul>
@@ -1174,8 +1206,9 @@
                 </tbody>
             </table>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+1秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 7秒 → <b>8秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1193,8 +1226,9 @@
                 <li>ハンドリング: <b>+15</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li><b>効果時間延長</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 7秒 → <b>8秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1296,8 +1330,9 @@
                 <li>ダメージ増加量: <b>+20%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+1秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 11秒 → <b>12秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1312,8 +1347,9 @@
                 <li>ダメージ増加量: <b>+35%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+2秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 10秒 → <b>11秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1343,7 +1379,8 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的にリロード速度が増加する。
+            <ul class="stats2">
                 <li>リロード速度: <b>+5</b></li>
             </ul>
         </div>
@@ -1426,6 +1463,8 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果中のリロード速度がさらに増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1440,9 +1479,7 @@
                 <li>リロード時間: <b>x0.9</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li><b>効果時間延長</b></li>
-            </ul>
+            効果時間が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1493,9 +1530,7 @@
                 </tbody>
             </table>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li><b>効果強化</b></li>
-            </ul>
+            効果がさらに強化される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1510,9 +1545,7 @@
                 <li>発射速度: <b>+35%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li><b>リロード速度増加</b></li>
-            </ul>
+            リロード速度がさらに増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1526,6 +1559,8 @@
             <ul class="stats">
                 <li>リロード速度: <b>+20</b></li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            キル後 6秒以内 → <b>7秒以内</b> にリロードすると発動する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1541,8 +1576,9 @@
                 <li>リロード時間: <b>x0.95</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果中のリロード速度: <b>+5</b></li>
+            効果中のリロード速度がさらに増加する。
+            <ul class="stats2">
+                <li>リロード速度: +50 → <b>+55</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1552,14 +1588,14 @@
         <div class="base">精密キルをすると属性爆発が起こる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            属性は
-            <b>武器に依存</b>し、爆発は他パークの効果を受けない。
+            属性は<b>武器に依存</b>し、爆発は他パークの効果を受けない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>爆発半径: <b>3m</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的にリロード速度が増加する。
+            <ul class="stats2">
                 <li>リロード速度: <b>+5</b></li>
             </ul>
         </div>
@@ -1586,15 +1622,17 @@
         <div class="base">キルをすると爆発が起こり、周囲の敵にスコーチを付与する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            強力な敵やガーディアンを倒すと、爆発の範囲が増加する。
-            <br>ソーラーのかけら「灰の名残」の効果は<b>適用されない。</b>
+            強力な敵やガーディアンを倒すと、爆発の範囲が <b>8m</b> まで増加する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>スコーチ付与数: <b>x40</b></li>
+                <li>スコーチ付与数: <b>x30</b></li>
+                <li>ソーラーのかけら「灰の名残」適用時は <b>x40</b> となる。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>スコーチ付与時間: <b>+0.1秒</b></li>
+            スコーチの付与スタック数が増加する。
+            <ul class="stats2">
+                <li>スコーチ付与数: x30 → <b>x80</b></li>
+                <li>ソーラーのかけら「灰の名残」適用時は x40 → <b>x85</b> となる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1617,7 +1655,8 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に安定性が増加する。
+            <ul class="stats2">
                 <li>安定性: <b>+5</b></li>
             </ul>
         </div>
@@ -1634,7 +1673,8 @@
                 <li>遅延付与数: <b>x50</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に安定性が増加する。
+            <ul class="stats2">
                 <li>安定性: <b>+5</b></li>
             </ul>
         </div>
@@ -1646,6 +1686,7 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             グレネードによるリロード効果は <b>3秒</b> のクールダウンがある。
+            <br>特殊弾を使用する武器は回復量が高いが、グレイブ、グレネードランチャー、トレースライフルは例外。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>グレネードエネルギー回復量:
@@ -1656,8 +1697,14 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>グレネードエネルギー回復量増加: <b>+1%</b></li>
+            回復量がさらに増加する。
+            <ul class="stats2">
+                <li>グレネードエネルギー回復量:
+                    <ul class="stats3">
+                        <li>メイン弾/ヘビー弾: 10% → <b>11%</b></li>
+                        <li>特殊弾: 11% → <b>22%</b></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1674,8 +1721,9 @@
                 <li>回復量: <b>8%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>スキルエネルギー回復量増加: <b>+1%</b></li>
+            回復量がさらに増加する。
+            <ul class="stats2">
+                <li>回復量: 8% → <b>9%</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1695,8 +1743,14 @@
                 <li>PvPにおける回復量は一律 <b>1%</b> となる。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>スキルエネルギー回復量増加: <b>+30%</b></li>
+            回復量がさらに増加する。
+            <ul class="stats2">
+                <li>回復量:
+                    <ul class="stats3">
+                        <li>メイン弾/ヘビー弾: 1% → <b>1.5%</b></li>
+                        <li>特殊弾: 1.5% → <b>2%</b></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1706,9 +1760,7 @@
         <div class="base">複数キルで体力が回復する。</div>
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div> 3ポイントを集めることで体力が回復する。
-
             <br>ポイント配分:
-            <br>
             <ul class="stats2">
                 <li>マイナー: 1</li>
                 <li>メジャー/ガーディアン: 2</li>
@@ -1721,7 +1773,8 @@
                 <li><b>自然再生開始</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的にハンドリングが増加する。
+            <ul class="stats2">
                 <li>ハンドリング: <b>+5</b></li>
             </ul>
         </div>
@@ -1732,8 +1785,7 @@
         <div class="base">長時間の戦闘でハンドリング、リロード速度、ダメージが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            この戦闘とは、
-            <b>5秒以内</b> にダメージを受けるか与えることを意味する。
+            この戦闘とは、<b>5秒以内</b> にダメージを受けるか与えることを意味する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li><b>12秒以上</b> の戦闘で発動する。
@@ -1747,7 +1799,7 @@
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>「戦闘中」の判定が <b>+0.5秒</b> 長くなる。</li>
+                <li>「戦闘中」の判定が 5秒以内 → <b>5.5秒以内</b> まで長くなる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1766,8 +1818,10 @@
                         <li>精度: <b>+40%</b></li>
                     </ul>
                 </li>
-                <li>フュージョンライフルでは上記効果はすべて半分の効果量となる。</li>
+                <li>フュージョンライフルでは上記効果はすべて<b>半分の効果量</b>となる。</li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果がさらに強化される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1775,6 +1829,8 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/9f3c3ae1bddbed21af1cc6487338028e.png" class="h3">腰だめ用グリップ</h3>
         <div class="base">腰だめ撃ちの精度、安定性、精密ショット判定が向上する。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            距離減衰開始距離の増加効果は、<a href="./exotic_weapons.html#the_last_word">ラスト・ワード</a>、ショットガン、スナイパーライフル、フュージョンライフルには<b>効果がない。</b>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>腰だめ撃ち時:
@@ -1784,7 +1840,7 @@
                         <li>精密判定増加 <b>+2.7°</b></li>
                         <li>精度: 最大 <b>+30%</b><br></li>
                         <li>安定性: 最大 <b>+30</b></li>
-                        <li>距離減衰開始距離: <b>+20%</b>（ショットガン、スナイパーライフル、フュージョンライフルには効果なし）</li>
+                        <li>距離減衰開始距離: <b>+20%</b></li>
                     </ul>
                 </li>
             </ul>
@@ -1801,9 +1857,7 @@
                 <li>照準補佐: <b>+10</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>照準補佐: <b>+1</b></li>
-            </ul>
+            照準補佐がわずかに増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1811,17 +1865,15 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/0fd9dbe1c09b8cc7d0be888c68ff4526.png" class="h3">オープニングショット</h3>
         <div class="base">最初の射撃の精度と射程距離が増加する。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            パルスライフルやフュージョンライフルは、バースト射撃のうち一発目のみ効果がある。
             <div class="info">&lt;発動条件詳細&gt;</div>
             射撃せずに <b>3.1秒</b> 経過するともう一度発動する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>初弾のボーナス:
-                    <ul class="stats2">
-                        <li>射程距離: <b>+25</b></li>
-                        <li>照準補佐: <b>+20</b></li>
-                        <li>精度: <b>+25%</b></li>
-                    </ul>
-                </li>
+                <li>射程距離: <b>+25</b></li>
+                <li>照準補佐: <b>+20</b></li>
+                <li>精度: <b>+25%</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1832,19 +1884,20 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             射程増加効果はステータスに変動があるわけではなく、ズーム倍率向上によって減衰距離が増加する効果を得られているというもの。
-            <br>ズームが+10%されれば実質的な射程も+10%されると考えてよい。
+            <br>ズームが+10%されれば実質的な射程も+10%されると考えられる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ADS時:
                     <ul class="stats2">
                         <li>ズーム倍率: <b>+10%</b></li>
-                        <li>エイムアシスト減衰開始距離: <b>+30$</b></li>
+                        <li>エイムアシスト減衰開始距離: <b>+30%</b></li>
                         <li>発射速度: <b>+5%</b></li>
                     </ul>
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的にハンドリングが増加する。
+            <ul class="stats2">
                 <li>ハンドリング: <b>+5</b></li>
             </ul>
         </div>
@@ -1862,7 +1915,7 @@
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>再発動までの時間が<b>減少する。</b></li>
+                <li>再発動までの時間が 5秒 → <b>4秒</b> に減少する。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1883,7 +1936,8 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に射程距離が増加する。
+            <ul class="stats2">
                 <li>射程距離: <b>+5</b></li>
             </ul>
         </div>
@@ -1900,6 +1954,12 @@
             <ul class="stats">
                 <li>ハンドリング: <b>+30</b></li>
                 <li>リロード速度: <b>+40</b></li>
+            </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果中のハンドリングとリロード速度がさらに増加する。
+            <ul class="stats2">
+                <li>ハンドリング: +30 → <b>+35</b></li>
+                <li>リロード速度: +40 → <b>+45</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1925,10 +1985,12 @@
         <div class="base">キルをするとすべての武器のハンドリングが向上する。</div>
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
-            発動後にもキルをすることで効果時間を <b>6秒</b> までリセット可能。
+            発動後にもキルをすることで効果時間を <b>6.5秒</b> までリセット可能。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>効果時間: <b>8秒</b></li>
+                <li>効果時間: <b>8.5秒</b></li>
+                <li>ハンドリング: <b>+100</b></li>
+                <li>持ち替え時間: <b>x0.825</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1968,8 +2030,9 @@
                 </tbody>
             </table>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li><b>効果時間延長</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 5.5秒 → <b>6.5秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1983,7 +2046,8 @@
                 <li>ハンドリング: <b>+100</b>（<b>1秒経過</b>もしくは<b>ADSするまで</b>）</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的にハンドリングが増加する。
+            <ul class="stats2">
                 <li>ハンドリング: <b>+5</b></li>
             </ul>
         </div>
@@ -1993,10 +2057,40 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/ea2b3d386b58cfa4da6c504a19e9fced.png" class="h3">多才</h3>
         <div class="base">グレネードを投げるか、近接スキルを敵に当てるか、スーパースキルを使用すると、この武器の射程距離、安定性、ハンドリングが増加する。</div>
         <div class="indepth">
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            スーパースキル発動時はスタックが <b>2x</b> 付与される。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>4.5秒</b></li>
             </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>射程距離</td>
+                        <td><b>+10</b></td>
+                        <td><b>+20</b></td>
+                    </tr>
+                    <tr>
+                        <td>安定性</td>
+                        <td><b>+10</b></td>
+                        <td><b>+20</b></td>
+                    </tr>
+                    <tr>
+                        <td>ハンドリング</td>
+                        <td><b>+10</b></td>
+                        <td><b>+20</b></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果がさらに強化される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2004,8 +2098,6 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/fd815414532978ad2e5decbfc416b9e4.png" class="h3">フィールドプレップ</h3>
         <div class="base">予備弾薬が増加し、しゃがみ中のリロード速度と射撃準備、しまう速度が向上する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハンドリングに関しては、ステータス値ではなく持ち替えのアニメーションの速度に倍率がかかる仕組みになっている。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li><b>予備弾薬増加</b></li>
@@ -2017,6 +2109,8 @@
                     </ul>
                 </li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果がさらに強化される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2026,12 +2120,13 @@
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>全体ダメージの <b>50%</b> を、 <b>+30%</b> ダメージが増加した<b>距離減衰のない</b>爆発に乗せる。</li>
+                <li>全体ダメージの <b>50%</b> を、<b>+30%</b> ダメージが増加した<b>距離減衰のない</b>爆発に乗せる。</li>
                 <li>総合すると通常ヒットでは <b>約 +15%</b> のダメージ増加。精密ダメージは武器の種類によって変わる。</li>
                 <li>ただし、PvPにおいてはほぼ同じダメージ。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に射程距離が増加する。
+            <ul class="stats2">
                 <li>射程距離: <b>+5</b></li>
             </ul>
         </div>
@@ -2043,7 +2138,7 @@
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>全体ダメージの <b>55%</b> を、 <b>+30%</b> ダメージが増加した<b>距離減衰のない</b>爆発に乗せる。</li>
+                <li>全体ダメージの <b>55%</b> を、<b>+30%</b> ダメージが増加した<b>距離減衰のない</b>爆発に乗せる。</li>
                 <li>着弾から <b>0.6秒後</b> に爆発する。</li>
                 <li>総合すると通常ヒットでは <b>約 +16%</b> のダメージ増加、精密ダメージは武器の種類によって変わる。</li>
                 <li>ただし、PvPにおいてはほぼ同じダメージ。</li>
@@ -2055,12 +2150,12 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/16d063d66a8d90643a409dfa4283c4e2.png" class="h3">ブレ軽減</h3>
         <div class="base">射撃を続けると、精度と安定性が段階的に向上する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            空中での精度は最大まで向上しない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射撃から <b>0.6秒</b> で最大となり、安定性は最大 <b>+10</b> まで上がる。</li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果が最大となるまでの時間が短縮される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2071,6 +2166,9 @@
             <div class="info">&lt;備考&gt;</div>
             フュージョンライフルは効果が低下する。
             <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>0.6秒</b></li>
+            </ul>
             <table>
                 <thead>
                     <tr>
@@ -2097,6 +2195,8 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果がさらに強化される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2108,7 +2208,8 @@
             ダメージを与えることにより揺れは少なくなるが、
             <b>数値上の安定性に影響はない</b>。
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に安定性が増加する。
+            <ul class="stats2">
                 <li>安定性: <b>+5</b></li>
             </ul>
         </div>
@@ -2120,9 +2221,10 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             武器をしまっている間でも移動し続ければ、武器を取り出した際に発動する。
+            <br>自分で動く必要はなく、移動する足場に乗っているときや敵に吹き飛ばされている間にも発動する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li><b>0.5秒間</b> 停止すると効果を失う。</li>
+                <li><b>0.5秒間</b> 、移動速度が <b>2 m/s</b> を下回ると効果を失う。</li>
             </ul>
             <table>
                 <thead>
@@ -2136,7 +2238,7 @@
                     <tr>
                         <td>発動までの時間</td>
                         <td><b>2秒</b></td>
-                        <td><b>12秒</b></td>
+                        <td><b>10秒</b></td>
                     </tr>
                     <tr>
                         <td>安定性</td>
@@ -2157,7 +2259,7 @@
             </table>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>停止までの判定が <b>+0.5秒</b> 長くなる。</li>
+                <li>停止までの判定が 0.5秒 → <b>1秒</b> まで長くなる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2194,6 +2296,8 @@
             <div class="info">&lt;備考&gt;</div>
             収納時の他の武器やスキルでのキルで手練のスタックを1個貯める。
             <br>この武器を取り出したときにスタックをすべて消費し、数に応じてステータスを増加させる。
+            <div class="info">&lt;強化特性&gt;</div>
+            効果時間が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2209,6 +2313,8 @@
                 <li>精度: <b>+20%</b></li>
                 <li>ハンドリング: <b>+30</b>（ADS移行時のみ）</li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果時間が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2224,7 +2330,7 @@
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>ダメージ増加が、マガジン残量 <b>75%</b> を下回ると開始する。</li>
+                <li>ダメージ増加が、マガジン残量 50% → <b>75%</b> を下回ると開始する。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2238,6 +2344,8 @@
                 <li>マガジン残量が <b>50%</b> を切ったところから増加開始。この時点の精度向上は <b>+25%</b>。</li>
                 <li>最大で <b>約 +50%</b> 程の精度向上と、<b>+30</b> の安定性増加効果を得られる。</li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果がさらに強化される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2249,11 +2357,12 @@
             オートライフル、サブマシンガンは多くリロードされる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>リロード量: <b>10%～17%</b></li>
+                <li>リロード量: <b>10%</b>（AR、SMGは <b>17%</b> ）</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>リロード量が <b>20%</b> に増加する。</li>
+            リロードされる弾薬数がさらに増加する。
+            <ul class="stats2">
+                <li>リロード量: 10%～17% → <b>20%</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2272,8 +2381,14 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>発動率: <b>+5%</b></li>
+            発動率がさらに増加する。
+            <ul class="stats2">
+                <li>発動率:
+                    <ul class="stats3">
+                        <li>メイン弾: 35% → <b>40%</b></li>
+                        <li>特殊/ヘビー弾: 20% → <b>25%</b></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2295,8 +2410,9 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>ダメージ増加量: <b>+5%</b></li>
+            発動中のダメージがさらに増加する。
+            <ul class="stats2">
+                <li>ダメージ増加量: x1.00 → <b>x1.05</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2336,6 +2452,8 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果がさらに強化される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2354,6 +2472,8 @@
                     </ul>
                 </li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            より高いHPでも発動するようになる。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2386,9 +2506,9 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>ステータス増加量: <b>+5</b></li>
-                <li>ステイシスでは不明。</li>
+            対応するステータスがさらに増加する。ステイシスでの効果は不明。
+            <ul class="stats2">
+                <li>対応ステータス: <b>+5</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2430,6 +2550,8 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果がさらに強化される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2440,7 +2562,8 @@
             <div class="info">&lt;備考&gt;</div>
             リロードで発動する他のパークは <b>発動しない</b>。
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的にリロード速度が増加する。
+            <ul class="stats2">
                 <li>リロード速度: <b>+5</b></li>
             </ul>
         </div>
@@ -2450,10 +2573,11 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/e5d9d70aadec948e851d443c64ff5d9d.png" class="h3">オーバーフロー</h3>
         <div class="base">特殊弾/ヘビー弾を拾うと、この武器が装弾数の2倍までリロードされる。</div>
         <div class="indepth">
-            <div class="info">&lt;発動条件詳細&gt;</div> 特殊弾/ヘビー弾のどちらを使用する武器であっても、どちらかを拾えば発動する。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            特殊弾/ヘビー弾のどちらを使用する武器であっても、どちらかを拾えば発動する。
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>リロードされる弾薬数が <b>+5%～+22%</b> 増加する。</li>
+                <li>リロードされる弾薬数が 200% → <b>205%～222%</b> まで増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2468,9 +2592,7 @@
                 <li>ヘビー弾1箱につき <b>特殊弾1箱分</b> と同量補充される。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>取得する特殊弾の数が増加する。</li>
-            </ul>
+            取得する特殊弾の数が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2482,7 +2604,8 @@
             所持弾薬が最大だと発動しない。
             <br>弾薬を拾うことで発動する他パークのトリガーになる。
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に射程距離が増加する。
+            <ul class="stats2">
                 <li>射程距離: <b>+5</b></li>
             </ul>
         </div>
@@ -2499,7 +2622,8 @@
                 <li>最大で ハンドリング <b>+27</b>、精度 <b>+40%</b> 程の効果。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に安定性が増加する。
+            <ul class="stats2">
                 <li>安定性: <b>+5</b></li>
             </ul>
         </div>
@@ -2507,17 +2631,19 @@
 
         <a name="air_assault"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/34e3043d3f29eb8d38c8e0f5d5138f57.png" class="h3">空爆</h3>
-        <div class="base">体力が減少するほど、空中効果が向上する。</div>
+        <div class="base">空中効果が向上する。体力が減少するほど、さらに向上する。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
+                <li><span class="further">空中効果: <b>+10</b></span></li>
                 <li>体力が <b>150</b> を切ったところからステータス向上開始。</li>
                 <li>そこからは一次関数的に効果を得られる。瀕死時、効果は最大になる。</li>
                 <li>最大で 空中効果 <b>+60</b> を得られる。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果中の空中効果がさらに最大 <b>+6</b> される。</li>
+            体力減少時の空中効果の最大値がさらに増加する。
+            <ul class="stats2">
+                <li>最大空中効果: +60 → <b>+66</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2545,8 +2671,8 @@
             <b>弾薬は生成される（予備弾薬を消費しない）</b>。
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>メイン弾を使用する武器はシールド破壊時にマガジンが <b>+33%</b> オーバーフローする。</li>
-                <li>この効果は際限なく重ねることができる。</li>
+                <li>メイン弾を使用する武器は、シールド破壊時にマガジンが <b>+33%</b> オーバーフローする。</li>
+                <li>この効果は何度でも重ねることができる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2573,11 +2699,13 @@
                         <li>リニア・フュージョンライフル: <b>+150%</b></li>
                     </ul>
                 </li>
-                <li>ダメージは最大 <b>+500%</b> まで増加する。リニア・フュージョンライフルのみ <b>450%</b> まで。</li>
+                <li>ダメージは最大 <b>+500%</b> まで増加する。リニア・フュージョンライフルのみ <b>+450%</b> まで。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>増加するダメージ量がさらに <b>+20%</b> 増加する。</li>
+            シールドへのダメージがさらに増加する。
+            <ul class="stats2">
+                <li>最大ダメージ量: +500% → <b>+600%</b></li>
+                <li>リニア・フュージョンライフルのみ +450% → <b>+540%</b> まで。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2596,9 +2724,7 @@
                 <li>キネティックダメージ増加量: <b>+50%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li><b>効果時間延長</b></li>
-            </ul>
+            効果時間が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2614,8 +2740,9 @@
                 <li>シールドHP: <b>30</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+1.4秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 10秒 → <b>11.4秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2637,7 +2764,8 @@
         <div class="base">グレネードを投げると、この武器をしまうまで、この武器の属性がサブクラスと同じものになる。</div>
         <div class="indepth">
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的にハンドリングが増加する。
+            <ul class="stats2">
                 <li>ハンドリング: <b>+5</b></li>
             </ul>
         </div>
@@ -2653,8 +2781,9 @@
                 <li>シールドHP: <b>45</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li><b>効果時間延長</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 8秒 → <b>9秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2688,8 +2817,10 @@
                 <li>安定性: <b>+20</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>スライディング時のステータス: <b>+5</b></li>
+            効果中のハンドリングと安定性がさらに増加する。
+            <ul class="stats2">
+                <li>ハンドリング: +20 → <b>+25</b></li>
+                <li>安定性: +20 → <b>+25</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2699,11 +2830,13 @@
         <div class="base">3回精密ヒットをすると1発リロードされる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            <b>リロード時、弾薬は生成される（予備弾薬を消費しない）</b>。
+            リロード時、弾薬は<b>生成される（予備弾薬を消費しない）</b>。
             <div class="info">&lt;発動条件詳細&gt;</div>
             <ul class="stats">
                 <li><b>2秒以内</b> に3回精密ヒットをすると発動する。</li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            発動に必要な精密ヒットの間隔が長くなる。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2712,11 +2845,13 @@
         <div class="base">4回精密ヒットをすると2発リロードされる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            <b>リロード時、弾薬は生成される（予備弾薬を消費しない）</b>。
+            リロード時、弾薬は<b>生成される（予備弾薬を消費しない）</b>。
             <div class="info">&lt;発動条件詳細&gt;</div>
             <ul class="stats">
                 <li><b>2秒以内</b> に4回精密ヒットをすると発動する。</li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            発動に必要な精密ヒットの間隔が長くなる。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2737,7 +2872,8 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に安定性が増加する。
+            <ul class="stats2">
                 <li>安定性: <b>+5</b></li>
             </ul>
         </div>
@@ -2763,8 +2899,9 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>発動までの時間が <b>1.4秒</b> に短縮される。</li>
+            発動までの時間が短縮される。
+            <ul class="stats2">
+                <li>発動までの時間: 1.5秒 → <b>1.4秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2780,6 +2917,8 @@
                 <li>発動までの時間: <b>1秒</b></li>
                 <li>ひるみ軽減量: <b>-35%</b></li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            発動までの時間が短縮される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -2806,8 +2945,9 @@
                 <li>最大 <b>50%</b> まで増加。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>装弾数がさらに増加する。</li>
+            恒常的にリロード速度が増加する。
+            <ul class="stats2">
+                <li>リロード速度: <b>+5</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2824,8 +2964,9 @@
                 <li>ダメージ増加量: <b>+35%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+1秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 10秒 → <b>11秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2842,13 +2983,14 @@
                 <li>射程距離: <b>+10</b></li>
                 <li>距離減衰開始距離: <b>+5%</b></li>
                 <li>安定性: <b>+10</b></li>
-                <li>ハンドリング: <b>+30</b></li>
+                <li>ハンドリング: <b>+35</b></li>
                 <li>リロード速度: <b>+35</b></li>
                 <li>リロード時間: <b>x0.95</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+1秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 10秒 → <b>11秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2875,8 +3017,9 @@
                 <li>リロードされるまでの時間: <b>2.5秒</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>リロードまでの時間が <b>2.3秒</b> に短縮される。</li>
+            リロードまでの時間が短縮される。
+            <ul class="stats2">
+                <li>リロードされるまでの時間: 2.5秒 → <b>2.3秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2892,9 +3035,7 @@
                 <li>マガジン増加量: <b>10%～50%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>より多い装弾数になる確率が増加する。</li>
-            </ul>
+            より多い装弾数になる確率が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3002,7 +3143,8 @@
                 <li>ダメージ増加量: <b>+8%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に安定性が増加する。
+            <ul class="stats2">
                 <li>安定性: <b>+5</b></li>
             </ul>
         </div>
@@ -3022,9 +3164,7 @@
                 <li>発射後のディレイが <b>-30%</b> 減少する。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li><b>効果時間延長</b></li>
-            </ul>
+            効果時間が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3070,7 +3210,8 @@
                 <li>爆発範囲が <b>100</b> に設定され、自爆ダメージが <b>40%</b> 軽減される。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に爆発範囲が増加する。
+            <ul class="stats2">
                 <li>爆発範囲: <b>+5</b></li>
             </ul>
         </div>
@@ -3083,7 +3224,8 @@
             <div class="info">&lt;備考&gt;</div>
             PvPでは、距離が長くなるほど追尾性能が低下する。
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に爆発範囲が増加する。
+            <ul class="stats2">
                 <li>爆発範囲: <b>+5</b></li>
             </ul>
         </div>
@@ -3103,7 +3245,8 @@
                 <li>爆発範囲: <b>+50</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に爆発範囲が増加する。
+            <ul class="stats2">
                 <li>爆発範囲: <b>+5</b></li>
             </ul>
         </div>
@@ -3128,9 +3271,7 @@
             <div class="info">&lt;備考&gt;</div>
             改造MOD「ドラゴンフライ特化」の効果は <b>受けない</b>。
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li><b>予備弾薬増加</b></li>
-            </ul>
+            予備弾薬が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3157,7 +3298,8 @@
                 </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に速度が増加する。
+            <ul class="stats2">
                 <li>速度: <b>+5</b></li>
             </ul>
         </div>
@@ -3204,7 +3346,7 @@
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>発動に必要なペレットのヒット数が <b>10</b> まで減少する。</li>
+                <li>発動に必要なペレットのヒット数が 12 → <b>10</b> まで減少する。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -3219,6 +3361,8 @@
                 <li>ダメージ増加量: <b>+50%</b></li>
                 <li>ハンドリング: <b>+30</b></li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果中のハンドリングとリロード速度がさらに増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3232,7 +3376,8 @@
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>一度に <b>3発</b> リロードする。リロード速度の減少量は変化しない。</li>
+                <li>一度に 2発 → <b>3発</b> リロードする。</li>
+                <li>リロード速度の減少量は変化しない。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -3264,7 +3409,8 @@
                 <li>マガジンサイズ: <b>+30</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に安定性が増加する。
+            <ul class="stats2">
                 <li>安定性: <b>+5</b></li>
             </ul>
         </div>
@@ -3296,8 +3442,9 @@
                 <li>発射時間: <b>-25%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+1秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 3秒 → <b>4秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -3314,7 +3461,8 @@
                 <li>ただし、PvPにおいてはほぼ同じダメージ。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に命中精度が増加する。
+            <ul class="stats2">
                 <li>命中精度: <b>+5</b></li>
             </ul>
         </div>
@@ -3342,8 +3490,9 @@
                 <li>チャージ/発射時間: <b>-37.5%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>キル時の効果時間増加: <b>+1秒</b></li>
+            発動中のキルによる効果時間延長がさらに増加する。
+            <ul class="stats2">
+                <li>延長時の効果時間: +4秒 → <b>+5秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -3361,7 +3510,8 @@
                 <li>チャージ/発射時間: <b>-100</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
+            恒常的に安定性が増加する。
+            <ul class="stats2">
                 <li>安定性: <b>+5</b></li>
             </ul>
         </div>
@@ -3375,7 +3525,7 @@
             ガードすると効果は消滅する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>効果時間: 発動から <b>3.5秒</b></li>
+                <li>効果時間: <b>3.5秒</b></li>
             </ul>
             <table class="long">
                 <thead>
@@ -3522,6 +3672,8 @@
                 <li>効果時間: <b>2秒</b></li>
                 <li>ダメージ増加量: <b>+50%</b></li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果時間が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3536,6 +3688,8 @@
                 <li>効果時間: <b>4秒</b></li>
                 <li>敵ダメージ耐性: <b>-20%</b></li>
             </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            予備弾薬が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3558,7 +3712,8 @@
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
             ガードをやめると効果は消滅する。
-            <br>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果時間が増加する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3574,8 +3729,9 @@
                 <li>ダメージ増加量: <b>+30%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            <ul class="stats">
-                <li>効果時間延長: <b>+1秒</b></li>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 4秒 → <b>5秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -3584,6 +3740,15 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/eafb687e0ea19ebaf28a96de63db6d41.png" class="h3">不動の物体</h3>
         <div class="base">グレイブでガード中に静止して投射物をヒットさせると、武器のエネルギーが追加で回復する。</div>
         <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>回復量: <b>+30%</b></li>
+            </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            武器エネルギーの回復量が増加する。
+            <ul class="stats2">
+                <li>回復量: +30% → <b>40%</b></li>
+            </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3598,6 +3763,11 @@
 
         <div class="box">
             <div>
+                <span class="date">2022/07/03</span>
+                <ul>
+                    <li>強化特性の表記を一新</li>
+                    <li>詳細効果が判明したパークの書き換え</li>
+                </ul>
                 <span class="date">2022/06/06</span>
                 <ul>
                     <li>幻影のシーズンで追加された新パーク・特性を追加</li>

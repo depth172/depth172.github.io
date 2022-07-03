@@ -109,7 +109,7 @@ $(document).ready(function() {
     $('#magazine_table1').tablesorter({
         headers: {
             0: { sorter: false },
-            6: { sorter: false },
+            7: { sorter: false },
         }
     });
 });
@@ -118,7 +118,7 @@ $(document).ready(function() {
     $('#magazine_table2').tablesorter({
         headers: {
             0: { sorter: false },
-            7: { sorter: false },
+            8: { sorter: false },
         }
     });
 });
@@ -135,7 +135,7 @@ $(document).ready(function() {
     $('#magazine_table_glaive').tablesorter({
         headers: {
             0: { sorter: false },
-            6: { sorter: false },
+            7: { sorter: false },
         }
     });
 });
