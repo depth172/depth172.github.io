@@ -106,7 +106,7 @@
                         <li><a href="#alacrity">迅速</a></li>
                         <li><a href="#skulking_wolf">潜む狼</a></li>
                         <li><a href="#invader_tracker">侵入者追跡</a></li>
-                        <li><a href="#psychohack">サイコハック</a></li>
+                        <li><a href="#chohack">サイコハック</a></li>
                         <li><a href="#souldrinker">ソウルドリンカー</a></li>
                         <li><a href="#land_tank">ランドタンク</a></li>
                         <li><a href="#classy_contender">クラス候補</a></li>
@@ -301,7 +301,7 @@
         <a name="calcurate"></a>
         <h2>増加量の計算について</h2>
         <p>すべての数値は、何もバフ・デバフを受けていない状態を100%としています。
-            <br>例として、暴れん坊をx1付与した際の増加率は +11% ですが、この場合は100%に+11%のバフがかかり合計で111%、つまり通常の1.11倍のダメージを与えられるということになります。
+            <br>例として、暴れん坊をx1付与した際の増加率は +10% ですが、この場合は100%に+11%のバフがかかり合計で110%、つまり通常の1.1倍のダメージを与えられるということになります。
         </p>
 
         <a name="weapon_mod"></a>
@@ -1025,13 +1025,14 @@
 
         <a name="adrenaline_junkie"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/92111c4f872db8112e71a1bb4c684609.png" class="h3">アドレナリン中毒</h3>
-        <div class="base">武器によるキル、もしくはグレネードキルをすると武器ダメージが増加する。</div>
+        <div class="base">武器によるキル、もしくはグレネードキルをすると武器ダメージとハンドリングが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
             グレネードキルをすると直ちに5xまで蓄積される。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>4.5秒</b></li>
+                <li>ハンドリング: <b>+20</b></li>
             </ul>
             <table class="long">
                 <thead>
@@ -1398,7 +1399,7 @@
             <br>「通常戦闘員」と「強力な戦闘員」の区分けは<b>マイナー間でも存在</b>し、敵の種類に依存する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>x4以下は1発につき一つ、x5以上は攻撃時に全てのスタックを消費する。</li>
+                <li>x4以下は攻撃時に全てのスタックを、x5以上は1発につきx5のスタックを消費する。</li>
             </ul>
             <table class="long">
                 <thead>
@@ -1538,6 +1539,8 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/4e93f5797efdcddc3dcfadf2831f3095.png" class="h3">インパルス増幅器</h3>
         <div class="base">恒久的に発射速度・リロード速度が向上する。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            グレイブの投射物速度は、射程距離に依存するためこのパークの効果を受けない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>リロード速度: <b>+10</b></li>
@@ -1685,7 +1688,7 @@
         <div class="base">キルをするとグレネードが回復する。グレネードを投げるとリロードされる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            グレネードによるリロード効果は <b>3秒</b> のクールダウンがある。
+            グレネードによるリロード効果は <b>3秒間</b> のクールダウンがある。
             <br>特殊弾を使用する武器は回復量が高いが、グレイブ、グレネードランチャー、トレースライフルは例外。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -2041,9 +2044,12 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/b04cf9a75031115055678b71c3c58443.png" class="h3">クイックドロー</h3>
         <div class="base">武器を素早く構えられる。</div>
         <div class="indepth">
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            効果は持ち替えから <b>1秒経過</b> するか、 <b>ADSするまで</b> 持続する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>ハンドリング: <b>+100</b>（<b>1秒経過</b>もしくは<b>ADSするまで</b>）</li>
+                <li>ハンドリング: <b>+100</b></li>
+                <li>持ち替え時間: <b>x0.95</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             恒常的にハンドリングが増加する。
@@ -2121,7 +2127,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>全体ダメージの <b>50%</b> を、<b>+30%</b> ダメージが増加した<b>距離減衰のない</b>爆発に乗せる。</li>
-                <li>総合すると通常ヒットでは <b>約 +15%</b> のダメージ増加。精密ダメージは武器の種類によって変わる。</li>
+                <li>総合すると通常ヒットでは <b>約 +15%</b> のダメージ増加。精密ダメージは武器や敵の種類によって変わる。</li>
                 <li>ただし、PvPにおいてはほぼ同じダメージ。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -2279,10 +2285,15 @@
                     </ul>
                 </li>
                 <li>
-                    非精密キル時（スタックが1x以上ある場合のみ）:
+                    非精密キル時:
                     <ul class="stats2">
-                        <li>安定性: <b>+30</b></li>
-                        <li><b>精度向上</b></li>
+                        <li>スタックを1個減らす。0になったとき、以下の効果を得る。</li>
+                        <li>
+                            <ul class="stats3">
+                                <li>安定性: <b>+30</b></li>
+                                <li><b>精度向上</b></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -2294,8 +2305,42 @@
         <div class="base">この武器を使用していない間、他の武器やスキルでキルをすると、この武器の安定性、ハンドリング、リロード速度が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            収納時の他の武器やスキルでのキルで手練のスタックを1個貯める。
-            <br>この武器を取り出したときにスタックをすべて消費し、数に応じてステータスを増加させる。
+            収納時の他の武器やスキルでのキルで手練のスタックを1個貯める。スタックは <b>3.5秒間</b> 持続し、<b>最大3個</b> まで貯められる。
+            <br>この武器を取り出したときにスタックをすべて消費し、その数に応じてステータスを増加させる。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>7.5秒</b><br></li>
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>安定性</td>
+                        <td><b>+10</b></td>
+                        <td><b>+20</b></td>
+                        <td><b>+30</b></td>
+                    </tr>
+                    <tr>
+                        <td>ハンドリング</td>
+                        <td><b>+10</b></td>
+                        <td><b>+20</b></td>
+                        <td><b>+30</b></td>
+                    </tr>
+                    <tr>
+                        <td>リロード速度</td>
+                        <td><b>+10</b></td>
+                        <td><b>+20</b></td>
+                        <td><b>+30</b></td>
+                    </tr>
+                </tbody>
+            </table>
             <div class="info">&lt;強化特性&gt;</div>
             効果時間が増加する。
         </div>
@@ -2619,7 +2664,7 @@
             <ul class="stats">
                 <li>体力が <b>150</b> を切ったところからステータス向上開始。</li>
                 <li>そこからは一次関数的に効果を得られる。瀕死時、効果は最大になる。</li>
-                <li>最大で ハンドリング <b>+27</b>、精度 <b>+40%</b> 程の効果。</li>
+                <li>最大で ハンドリング <b>+30</b>、精度 <b>+40%</b> 程の効果。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             恒常的に安定性が増加する。
@@ -2695,17 +2740,19 @@
                         <li>ハンドキャノン: <b>+166.6%</b></li>
                         <li>スカウトライフル: <b>+166.6%</b></li>
                         <li>弓: <b>+166.6%</b></li>
+                        <li>グレイブ: <b>+166.6%</b></li>
                         <li>フュージョンライフル: <b>+29%</b></li>
+                        <li>マシンガン: <b>+33.3%</b></li>
                         <li>リニア・フュージョンライフル: <b>+150%</b></li>
                     </ul>
                 </li>
-                <li>ダメージは最大 <b>+500%</b> まで増加する。リニア・フュージョンライフルのみ <b>+450%</b> まで。</li>
+                <li>ダメージは最大 <b>+500%</b> まで増加する。フュージョンライフルは <b>+435%</b> 、リニア・フュージョンライフルは <b>+450%</b> まで。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             シールドへのダメージがさらに増加する。
             <ul class="stats2">
                 <li>最大ダメージ量: +500% → <b>+600%</b></li>
-                <li>リニア・フュージョンライフルのみ +450% → <b>+540%</b> まで。</li>
+                <li>フュージョンライフルは +450% → <b>+522%</b> 、リニア・フュージョンライフルは +450% → <b>+540%</b> まで。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2775,6 +2822,8 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/d4e363e155b7d836a3bc6383d72666db.png" class="h3">リパルサーブレース</h3>
         <div class="base">ボイドのデバフを受けた敵を倒すと、自身にオーバーシールドを付与する。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            ボイドの弱体化だけでなく、神性を除くすべての弱体化効果でも発動する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>8秒</b></li>
@@ -2881,10 +2930,11 @@
 
         <a name="box_breathing"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/711aa76b6ac8087d3744260fa03c154c.png" class="h3">戦略的呼吸</h3>
-        <div class="base">ADS状態でしばらく待ってから射撃することで、1発のみ射程距離と精密ダメージが増加する。</div>
+        <div class="base">ADS状態でしばらく待ってから射撃することで、1発のみ精密ダメージが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            武器によってダメージ増加量は異なる。
+            説明文には射程距離増加とあるが、<b>実際は増加していない</b>模様。
+            <br>武器によってダメージ増加量は異なる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>発動までの時間: <b>1.5秒</b></li>
@@ -3135,7 +3185,7 @@
 
         <a name="headseeker"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/1f0a13d78a9acb919a688adcc21bfdcf.png" class="h3">ヘッドシーカー</h3>
-        <div class="base">パルスライフルのボディショット後の精密ダメージが短時間増加する。</div>
+        <div class="base">バースト射撃中、ボディショット後の精密ダメージが一時的に増加する。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -3277,8 +3327,11 @@
 
         <a name="explosive_light"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/7381a042ca97533623f6dff66d8f0347.png" class="h3">爆発の光</h3>
-        <div class="base">光のオーブを拾うと、次の射撃時ダメージと爆発範囲が増加する。</div>
+        <div class="base">力のオーブを拾うと、次の射撃時ダメージと爆発範囲が増加する。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            このパークのついた武器を装備すると、スーパーエネルギーが最大のときも力のオーブを拾うようになる。
+            <br>グレネードランチャーは爆発ダメージのみ、ロケットランチャーは爆発ダメージと直撃ダメージの両方に効果がある。
             <div class="info">&lt;発動条件詳細&gt;</div>
             光のオーブ取得時にスタックが1個付与される。最大 <b>6個</b> まで貯められる。
             <br>1発発射するたびに1個消費される。
@@ -3287,7 +3340,11 @@
                 <li>爆発範囲: <b>+100</b></li>
                 <li>ダメージ増加量:
                     <ul class="stats2">
-                        <li>グレネードランチャー: <b>+44%</b></li>
+                        <li>グレネードランチャー: <b>+65% ～ +84%</b>
+                            <ul class="stats3">
+                                <li>直撃ダメージと合わせると総合して <b>+52%</b> のダメージ増加。</li>
+                            </ul>
+                        </li>
                         <li>ロケットランチャー: <b>+25%</b></li>
                     </ul>
                 </li>
@@ -3328,8 +3385,7 @@
                     </ul>
                 </li>
                 <li>ハンターでライアーハンドシェイクを装備した場合、ダメージ増加量は一律で <b>80%</b> となる。</li>
-                <li>
-                    以下のスキルは敵の種類に関係なく<b>常に +200%</b> のダメージ増加効果となる。
+                <li>以下のスキルは敵の種類に関係なく<b>常に +200%</b> のダメージ増加効果となる。
                     <ul>
                         <li>嵐の打撃（アークストライダー）</li>
                         <li>投げナイフ（ガンスリンガー）</li>
@@ -3452,7 +3508,7 @@
             <ul class="stats">
                 <li>全体ダメージの <b>50%</b> を、 <b>+30%</b> ダメージが増加した<b>距離減衰のない</b>爆発に乗せる。</li>
                 <li>爆発までの時間は弓を引いた時間に反比例する。</li>
-                <li>総合すると通常ヒットでは <b>約 +15%</b> のダメージ増加、精密ヒットでは <b>約 +12%</b> のダメージ増加を得られる。</li>
+                <li>総合すると通常ヒットでは <b>約 +15%</b> のダメージ増加、精密ダメージはフレームや敵の種類によって変わる。</li>
                 <li>ただし、PvPにおいてはほぼ同じダメージ。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -3698,7 +3754,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="tilting_at_windmills"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/8a42d3e3d7b4c1c38755f5e0ac186f0b.png" class="h3">無謀な挑戦</h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/7e73a6a98a5ffbd9967d305c6a0d16d6.png" class="h3">無謀な挑戦</h3>
         <div class="base">グレイブで敵の攻撃をブロックすると、移動速度が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
@@ -3754,6 +3810,21 @@
 
         <div class="box">
             <div>
+                <span class="date">2022/07/31</span>
+                <ul>
+                    <li>以下のパークを更新</li>
+                    <ul>
+                        <li>アドレナリン中毒</li>
+                        <li>方向修正</li>
+                        <li>インパルス増幅器</li>
+                        <li>クイックドロー</li>
+                        <li>アンコール</li>
+                        <li>手練</li>
+                        <li>リパルサーブレース</li>
+                        <li>戦略的呼吸</li>
+                        <li>爆発の光</li>
+                    </ul>
+                </ul>
                 <span class="date">2022/07/03</span>
                 <ul>
                     <li>強化特性の表記を一新</li>
