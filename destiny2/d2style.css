@@ -27,6 +27,11 @@
     color: #5e7afd;
 }
 
+.bow::before {
+    padding: 1.2em 0.3em;
+    content: "\e099";
+}
+
 body {
     font-family: 'Yu Gothic', Destiny_Keys;
 }
@@ -63,12 +68,24 @@ dt {
     font-weight: bold;
 }
 
-table,
+table {
+    border-spacing: 0;
+    margin: 0.4em;
+}
+
 td,
 th {
-    border-collapse: collapse;
-    border: 1px solid #a3a3a3;
+    border-right: 1px solid #a3a3a3;
+    border-bottom: 1px solid #a3a3a3;
     margin: 0.4em;
+}
+
+thead tr:first-child th {
+    border-top: 1px solid #a3a3a3;
+}
+
+th:first-child {
+    border-left: 1px solid #a3a3a3;
 }
 
 th {
@@ -78,7 +95,12 @@ th {
 }
 
 td {
+    text-align: right;
     padding: 0.4em;
+}
+
+td.name {
+    text-align: left;
 }
 
 h3 {
@@ -129,7 +151,7 @@ table.tablesorter {
     padding-right: 0.5em;
 }
 
-td.icon {
+th.icon {
     background: #737f81;
     padding: 0em;
 }
@@ -214,11 +236,23 @@ th.sorter-false {
     h3 {
         font-size: 110%;
     }
-    table.long,
+    table,
     .tablesorter {
+        border: none;
+        overflow-x: auto;
         display: block;
-        overflow-x: scroll;
+    }
+    th:first-child {
         white-space: nowrap;
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+    td {
+        white-space: nowrap;
+    }
+    th:first-child {
+        z-index: 1;
     }
     .box {
         width: 90%;
