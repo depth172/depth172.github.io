@@ -4,7 +4,7 @@
 }
 
 .solar::before {
-    padding: 1.2em 0.3em;
+    padding: 1.2em 0.38em;
     content: "\e140";
     color: #e7601d;
 }
@@ -16,7 +16,7 @@
 }
 
 .void::before {
-    padding: 1.2em 0.3em;
+    padding: 1.2em 0.28em;
     content: "\e144";
     color: #b07cdb;
 }
@@ -92,6 +92,7 @@ th {
     background: #ccdae4;
     padding-left: 0.4em;
     padding-right: 0.4em;
+    font-weight: normal;
 }
 
 td {
