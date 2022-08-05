@@ -36,6 +36,24 @@ body {
     font-family: 'Yu Gothic', Destiny_Keys;
 }
 
+.indent {
+    padding-left: 1.5em;
+    padding-block: 0.3em;
+    line-height: 1.85em;
+}
+
+.small {
+    font-size: 90%;
+}
+
+.c_solar {
+    color: #bd4c14;
+}
+
+.c_void {
+    color: #9853d0;
+}
+
 ul.stats {
     list-style-type: none;
     padding-left: 0em;
@@ -90,14 +108,64 @@ th:first-child {
 
 th {
     background: #ccdae4;
-    padding-left: 0.4em;
-    padding-right: 0.4em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     font-weight: normal;
+}
+
+table.debuff {
+    border: 2px solid hsl(273, 23%, 32%);
+}
+
+.debuff tr {
+    background: hsl(273, 57%, 87%);
+}
+
+.debuff td {
+    text-align: left;
+}
+
+table.buff {
+    border: 2px solid hsl(20, 21%, 36%);
+}
+
+.buff tr {
+    background: hsl(20, 71%, 81%);
+}
+
+.buff td {
+    text-align: left;
+}
+
+.buff td.icon {
+    text-align: center;
 }
 
 td {
     text-align: right;
-    padding: 0.4em;
+    padding-inline: 0.4em;
+}
+
+.debuff td.icon {
+    background: hsl(273, 12%, 42%);
+    padding: 0em;
+}
+
+.debuff img.table {
+    width: 3em;
+    height: 3em;
+    vertical-align: bottom;
+}
+
+.buff td.icon {
+    background: hsl(20, 31%, 31%);
+    padding: 0em;
+}
+
+.buff img.table {
+    width: 3em;
+    height: 3em;
+    vertical-align: bottom;
 }
 
 td.name {
@@ -105,17 +173,28 @@ td.name {
 }
 
 h3 {
+    box-decoration-break: clone;
+    border-bottom: 2px solid #646464;
+    position: relative;
+    background: #d2deff;
+    padding-left: 0.7em;
+    padding-top: 0.7em;
+    padding-bottom: 0.1em;
+}
+
+h3.item {
     border-bottom: 2px solid #646464;
     position: relative;
     height: 2em;
     background: #d2deff;
+    padding-left: 0;
     padding-top: 0em;
     margin-top: 0.3em;
     padding-bottom: 1.1em;
     margin-bottom: 0.4em;
 }
 
-h3:before {
+h3.item:before {
     content: '';
     left: 0;
     position: absolute;
@@ -131,10 +210,18 @@ img.h3 {
     transform: translate(0, 12%);
 }
 
-img.table {
+img.head {
+    width: 1.8em;
+    height: 1.8em;
+    margin-right: 0.5em;
+    margin-bottom: 0.1em;
+}
+
+.tablesorter img.table {
     width: 2em;
     height: 2em;
-    transform: translate(0, 12%);
+    vertical-align: bottom;
+    padding-block: 0.2em;
 }
 
 table.tablesorter {
