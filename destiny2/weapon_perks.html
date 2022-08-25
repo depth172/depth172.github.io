@@ -65,7 +65,8 @@
                         <li><a href="#targeting_adjuster">標的捕捉装置</a></li>
                         <li><a href="#radar_booster">レーダーブースター</a></li>
                         <li><a href="#radar_tuner">レーダーチューナー</a></li>
-                        <li><a href="#ikaros_grip">イカロスグリップ</a></li>
+                        <li><a href="#icarus_grip">イカロスグリップ</a></li>
+                        <li><a href="#full_auto_retrofit">フルオート改造</a></li>
                         <li><a href="#minor_spec">マイナー特化</a></li>
                         <li><a href="#major_spec">メジャー特化</a></li>
                         <li><a href="#boss_spec">ボス特化</a></li>
@@ -83,14 +84,16 @@
                         <li><a href="#adept_handling">熟練のハンドリング</a></li>
                         <li><a href="#adept_reload">熟練のリロード</a></li>
                         <li><a href="#adept_magazine">熟練のマガジン</a></li>
-                        <li><a href="#adept_aim_assist">熟練の標的捕捉</a></li>
+                        <li><a href="#adept_targeting">熟練の標的捕捉</a></li>
                         <li><a href="#adept_counterbalance">熟練のカウンターバランス</a></li>
+                        <li><a href="#adept_accuracy">熟練の命中精度</a></li>
+                        <li><a href="#adept_draw_time">熟練の発射時間</a></li>
                         <li><a href="#adept_charge_time">熟練のチャージ時間</a></li>
                         <li><a href="#adept_blast_radius">熟練の爆発範囲</a></li>
                         <li><a href="#adept_projectile_speed">熟練の投射物速度</a></li>
                         <li><a href="#adept_impact">熟練の威力</a></li>
-                        <li><a href="#adept_ikaros_grip">イカロスグリップ(熟練)</a></li>
-                        <li><a href="#adept_big_one_spec">大物技術兵(熟練)</a></li>
+                        <li><a href="#adept_icarus_grip">イカロスグリップ(熟練)</a></li>
+                        <li><a href="#adept_big_ones_spec">大物技術兵(熟練)</a></li>
                     </ul>
                 </details>
                 <details>
@@ -129,6 +132,7 @@
                         <li><a href="#harmony">調和</a></li>
                         <li><a href="#recombination">再結合</a></li>
                         <li><a href="#focused_fury">集束した憤怒</a></li>
+                        <li><a href="#gutshot_straight">ストレート・ボディショット</a></li>
                         <li><a href="#vorpal_weapon">ヴォーパル武器</a></li>
                         <li><a href="#redirection">方向修正</a></li>
                         <li><a href="#feeding_frenzy">狂乱索餌</a></li>
@@ -143,6 +147,7 @@
                         <li><a href="#headstone">墓石</a></li>
                         <li><a href="#chill_clip">チルクリップ</a></li>
                         <li><a href="#demolitionist">解体業者</a></li>
+                        <li><a href="#puglist">拳闘士</a></li>
                         <li><a href="#wellspring">源泉</a></li>
                         <li><a href="#thresh">スレッシュ</a></li>
                         <li><a href="#unrelenting">容赦なし</a></li>
@@ -170,6 +175,7 @@
                         <li><a href="#encore">アンコール</a></li>
                         <li><a href="#sleight_of_hand">手練</a></li>
                         <li><a href="#tunnel_vision">トンネルビジョン</a></li>
+                        <li><a href="#voltshot">ボルトショット</a></li>
                         <li><a href="#high-impact_reserve">高衝撃リザーブ</a></li>
                         <li><a href="#under_pressure">追い詰められた獣</a></li>
                         <li><a href="#subsistence">サブシステンス</a></li>
@@ -188,6 +194,7 @@
                         <li><a href="#underdog">負け犬</a></li>
                         <li><a href="#genesis">起源</a></li>
                         <li><a href="#adaptive_munitions">適応性弾薬</a></li>
+                        <li><a href="#under-over">アンダー・オーバー</a></li>
                         <li><a href="#disruption_break">崩壊の始まり</a></li>
                         <li><a href="#turnabout">報復</a></li>
                         <li><a href="#shield_disorient">障壁障害</a></li>
@@ -211,6 +218,7 @@
                         <li><a href="#iron_gaze">鉄の眼差し</a></li>
                         <li><a href="#iron_grip">鉄の掌握</a></li>
                         <li><a href="#iron_reach">アイアン・リーチ</a></li>
+                        <li><a href="#slickdraw">スリックドロー</a></li>
                         <li><a href="#bottomless_grief">底なしの悲しみ</a></li>
                         <li><a href="#celerity">機敏</a></li>
                     </ul>
@@ -281,16 +289,16 @@
             <dd>敵を倒すこと。特別に記述がなければ「そのパークのついた武器によるキル」という意味。</dd>
             <dt>リロードで発動</dt>
             <dd>通常のリロードに加え、ハンターの狙撃手の回避、ハンターのエキゾチック防具「ドラゴン・シャドー」のリロード効果によって発動する。それ以外のリロード効果では発動しない。</dd>
-            <dt>近接スキル</dt>
+            <dt>近接スキル（チャージ近接）</dt>
             <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
             <dt>リロード速度・リロード時間</dt>
             <dd>リロード速度はステータス値、リロード時間は実際にリロードにかかる時間のこと。</dd>
             <dt>反動方向</dt>
-            <dd>武器の内部ステータスの一種。大きいほど反動が垂直に近くなる。<a href="https://app.destinyitemmanager.com/">DIM</a>で確認可能。</dd>
+            <dd>武器のステータスの一種。大きいほど反動が垂直に近くなる。</dd>
             <dt>照準補佐</dt>
-            <dd>武器の内部ステータスの一種。大きいほどエイムアシストが強くかかる。<a href="https://app.destinyitemmanager.com/">DIM</a>で確認可能。</dd>
+            <dd>武器のステータスの一種。大きいほどエイムアシストが強くかかる。</dd>
             <dt>空中効果</dt>
-            <dd>武器の内部ステータスの一種。大きいほど空中から射撃したときの命中精度が上がる。<a href="https://app.destinyitemmanager.com/">DIM</a>で確認可能。</dd>
+            <dd>武器のステータスの一種。大きいほど空中から射撃したときの命中精度が上がる。</dd>
             <dt>マガジンサイズ</dt>
             <dd>実際の装弾数ではなくマガジンサイズのステータス内部値を指す。実際に増減するサイズは武器種によって異なる。</dd>
             <dt>強力な剣攻撃</dt>
@@ -308,7 +316,7 @@
         <h2>武器改造パーツ</h2>
 
         <a name="backup_mag"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a6bb5abff979e398b0f417040b091171.jpg" class="h3">予備マガジン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/91249b250f177023c34a32d89730a7a1.png" class="h3">予備マガジン</h3>
         <div class="base">マガジンサイズを増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -319,7 +327,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="counterbalance_stock"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c537bdf090f114963cce60636c98d7c2.jpg" class="h3">平衡化ストック</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/617890b95e63d34b2c603dd1f3b2856a.png" class="h3">平衡化ストック</h3>
         <div class="base">反動方向を向上させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -330,7 +338,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="quick_access_sling"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/da4d74b0d8ee25ca038d4053811573fc.jpg" class="h3">クイックアクセス・スリング</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e6c3bb0bcfdf668b4089621b7d11f520.png" class="h3">クイックアクセス・スリング</h3>
         <div class="base">武器の持ち替えが素早くなる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -341,7 +349,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="targeting_adjuster"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/34959be63128a82fe6382b800b2d775d.jpg" class="h3">標的捕捉装置</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/10e3ec017d83d36cc95d275dfc1761cf.png" class="h3">標的捕捉装置</h3>
         <div class="base">照準補佐を向上させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -352,7 +360,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="radar_booster"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2a9af15b6da28299230919bee2072c53.jpg" class="h3">レーダーブースター</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7d89097409ffd26722b20dd336b7fb04.png" class="h3">レーダーブースター</h3>
         <div class="base">レーダーに表示される距離を長くする。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -361,16 +369,21 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="radar_tuner"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c0f1d2d9d818cee5c740fa6123730b54.jpg" class="h3">レーダーチューナー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0853c6e653882affbf60ee7353096ae3.png" class="h3">レーダーチューナー</h3>
         <div class="base">ADSをやめた際、レーダーを再表示させるまでの時間を短くする。</div>
         <div class="indepth">
-            <div class="info">&lt;効果量&gt;</div>
+            <div class="info">&lt;効果詳細&gt;</div>
             ADSをやめてから<b>直ちに</b>レーダーを表示させる（通常は表示まで1.5秒かかる）。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
-        <a name="ikaros_grip"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/87283ef665c15177108da57f33551a3b.jpg" class="h3">イカロスグリップ</h3>
+        <a name="full_auto_retrofit"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0853c6e653882affbf60ee7353096ae3.png" class="h3">フルオート改造</h3>
+        <div class="base">この武器をフルオートで射撃可能にする。</div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="icarus_grip"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d78d479e802f0c0daca8f1939c59bb43.png" class="h3">イカロスグリップ</h3>
         <div class="base">空中効果が向上する。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -381,8 +394,8 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="minor_spec"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/02c21091a41663aeaff7e26ab233bc20.jpg" class="h3">マイナー特化</h3>
-        <div class="base">マイナー（赤HPバー）へのダメージを増加させる。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e81a8c8140243bd59ea988476dcb87b3.png" class="h3">マイナー特化</h3>
+        <div class="base">マイナーへのダメージを増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -392,8 +405,8 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="major_spec"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4e3573080845b4ee9efcb000d4924cb0.jpg" class="h3">メジャー特化</h3>
-        <div class="base">エリート（橙HPバー）とチャンピオン、ミニボスへのダメージを増加させる。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7f11f76c848ed7bc034acc08875d6326.png" class="h3">メジャー特化</h3>
+        <div class="base">エリートとチャンピオン、ミニボスへのダメージを増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -403,7 +416,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="boss_spec"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fad820780bbac2625070353769c628ef.jpg" class="h3">ボス特化</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/761bf64a085dd4789b958489ebc6a467.png" class="h3">ボス特化</h3>
         <div class="base">ボスとビークルへのダメージを増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -414,7 +427,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="taken_spec"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ef7e4b348f4396b8b4dc3be4289cdc15.jpg" class="h3">宿られた兵特化</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4a88f7047a3b996ae6a3f4e98f80cd02.png" class="h3">宿られた兵特化</h3>
         <div class="base">宿られた兵へのダメージを増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -425,7 +438,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="rampage_spec"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b3eadd1fcadf34e389fad3e7a75acc26.jpg" class="h3">暴れん坊特化</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8fb859ce78bf1fbc2c677fa013d3961e.png" class="h3">暴れん坊特化</h3>
         <div class="base">パーク「<a href="#rampage">暴れん坊</a>」の持続時間を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -436,7 +449,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="dragonfly_spec"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bb2c1c71fa26132557b1e75515df8c45.jpg" class="h3">ドラゴンフライ特化</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/622264b56b9ee8208a3b5fb40857dd80.png" class="h3">ドラゴンフライ特化</h3>
         <div class="base">パーク「<a href="#dragonfly">ドラゴンフライ</a>」のダメージと爆発範囲を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
@@ -450,7 +463,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="surrounded_spec"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/077fe0d989557b5c9f62c8f9f8bca9ed.jpg" class="h3">包囲網特化</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4dbb9d48d837549c8828b1786370128f.png" class="h3">包囲網特化</h3>
         <div class="base">パーク「<a href="#surrounded">包囲網</a>」で増加するダメージ量が強化され、条件を満たさなくなってもしばらく効果が残るようになる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -467,7 +480,7 @@
         <p>熟練改造パーツは武器名の最初に「新・」とつく武器、もしくは最後に「(時間超越)」がつく武器にのみ装備可能。</p>
 
         <a name="adept_range"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7e21a4f2d0cebdaca2ab09374959dcac.jpg" class="h3">熟練の射程距離</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7a3d0704e2aac453bed2b6aa3419ffaf.png" class="h3">熟練の射程距離</h3>
         <div class="base">射程距離を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -478,7 +491,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="adept_stablity"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fa383ab7cefd294e4f3c8f7802f56461.jpg" class="h3">熟練の安定性</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/be885a3dd30520731e0e253bd7e71d36.png" class="h3">熟練の安定性</h3>
         <div class="base">安定性を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -489,7 +502,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="adept_handling"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a64c2265e8107e1904a8a12d151ba084.jpg" class="h3">熟練のハンドリング</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/150e2ac67d8e157a3e5f1882680e619b.png" class="h3">熟練のハンドリング</h3>
         <div class="base">ハンドリングを増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -500,7 +513,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="adept_reload"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b307319a9e970034e45dbef668b10f83.jpg" class="h3">熟練のリロード</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f455ad1e03ecfcc4ea24836c89b607bd.png" class="h3">熟練のリロード</h3>
         <div class="base">リロード速度を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -511,7 +524,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="adept_magazine"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/50ecd52f2417087d9d432e94fadba106.jpg" class="h3">熟練のマガジン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2f7167763d1552f15de0a17b8e7cfc2e.png" class="h3">熟練のマガジン</h3>
         <div class="base">ハンドリングを低下させる代わりに、マガジンサイズを大幅に増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -522,8 +535,8 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
-        <a name="adept_aim_assist"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fceec53cab0622a1cab0f2184c719fe6.jpg" class="h3">熟練の標的捕捉</h3>
+        <a name="adept_targeting"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c4d45895bc82e8899c3a0505eb6dc733.png" class="h3">熟練の標的捕捉</h3>
         <div class="base">安定性を低下させる代わりに、照準補佐を大幅に増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -535,7 +548,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="adept_counterbalance"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e9fed2368e6c822ab457dea52e5df822.jpg" class="h3">熟練のカウンターバランス</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5a07ab33971784cf69f3782522f4b6ed.png" class="h3">熟練のカウンターバランス</h3>
         <div class="base">射程距離を低下させる代わりに、反動方向を大幅に増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -546,12 +559,38 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
+        <a name="adept_accuracy"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/392606d2c442ac4b4f1c47b94fe144c4.png" class="h3">熟練の命中精度</h3>
+        <div class="base">命中精度を増加させる。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            弓にのみ装備可能。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>命中精度: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="adept_draw_time"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/47cd36943715bf09a782ddc4c374fc33.png" class="h3">熟練の発射時間</h3>
+        <div class="base">発射時間を短縮させる。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            弓にのみ装備可能。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>発射時間: <b>-40</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
         <a name="adept_charge_time"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b2c1724faa3cf68ffaad43bfa41128e8.jpg" class="h3">熟練のチャージ時間</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4614ce72feb711c2dfd702b258f19f93.png" class="h3">熟練のチャージ時間</h3>
         <div class="base">チャージ時間を短縮させる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            フュージョンライフルにのみ装備可能。
+            フュージョンライフル、リニア・フュージョンライフルにのみ装備可能。
             <br>このパーツでチャージ時間を短縮させても <b>威力は低下しない。</b>
             <br>ステータス表示上は変化しないが実際の時間には反映されている。
             <div class="info">&lt;効果量&gt;</div>
@@ -562,7 +601,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="adept_blast_radius"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c1c502dcc8b3fa6ce4277afc43fbdc11.jpg" class="h3">熟練の爆発範囲</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4f817c7eaf245048e2543755e9645896.png" class="h3">熟練の爆発範囲</h3>
         <div class="base">爆発範囲を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
@@ -574,9 +613,8 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
-
         <a name="adept_projectile_speed"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c6dd8db2e61f456dfdc0291ab49692da.jpg" class="h3">熟練の投射物速度</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0d76cd672f5fae7a3532117ae4353cd2.png" class="h3">熟練の投射物速度</h3>
         <div class="base">速度を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
@@ -589,7 +627,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="adept_impact"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/009d97872ad0d8bc3e7ba082fda7776b.jpg" class="h3">熟練の威力</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1bf843aeb9a26796dfc2076078a2cb21.png" class="h3">熟練の威力</h3>
         <div class="base">威力を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
@@ -601,8 +639,8 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
-        <a name="adept_ikaros_grip"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/98d53a5e969ee80bcba5e656e8986f7e.jpg" class="h3">イカロスグリップ(熟練)</h3>
+        <a name="adept_icarus_grip"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cc967ddb7c3691e738aec610eb9fe095.png" class="h3">イカロスグリップ(熟練)</h3>
         <div class="base">空中効果とハンドリングを向上させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -613,8 +651,8 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
-        <a name="adept_big_one_spec"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/677efd6c996df107c9e15dc55c1892bf.jpg" class="h3">大物技術兵(熟練)</h3>
+        <a name="adept_big_ones_spec"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9af1387ac0a298f3e9ce17ce80179fc4.png" class="h3">大物技術兵(熟練)</h3>
         <div class="base">エリート（橙HPバー）とチャンピオン、ミニボス、ボスへのダメージを増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
@@ -705,6 +743,28 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
+        <a name="one_quiet_moment"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/823bf29510b2720dd561835d5192c47a.png" class="h3">ある静寂の瞬間</h3>
+        <div class="base">非戦闘時のリロード速度が上昇する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            クルーシブル限定で入手できる武器に付与される。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>リロード速度: <b>+40</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="gun_and_run"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1b6d5c1f7f2afa74bd5ff7ec9dc63c89.png" class="h3">ガン・アンド・ラン</h3>
+        <div class="base">複数キルをすると、ダッシュ速度が向上する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            ギャンビット限定で入手できる武器に付与される。
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
         <a name="stunning_recovery"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7dd7ed5046af087e05708447a461955e.png" class="h3">驚異的回復</h3>
         <div class="base">チャンピオンをスタンさせるとマガジンが一部リロードされHPが回復し、回復力が増加する。</div>
@@ -716,19 +776,6 @@
                 <li>効果時間: <b>3秒</b></li>
                 <li>HP回復量: <b>60</b></li>
                 <li>回復力: <b>+40</b></li>
-            </ul>
-        </div>
-        <div class="back"><a href="#top">▲</a></div>
-
-        <a name="one_quiet_moment"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/823bf29510b2720dd561835d5192c47a.png" class="h3">ある静寂の瞬間</h3>
-        <div class="base">非戦闘時のリロード速度が上昇する。</div>
-        <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            クルーシブル限定で入手できる武器に付与される。
-            <div class="info">&lt;効果量&gt;</div>
-            <ul class="stats">
-                <li>リロード速度: <b>+40</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -751,19 +798,19 @@
 
         <a name="skulking_wolf"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a80e7c5edc83fc573b7fba87f73940f2.png" class="h3">潜む狼</h3>
-        <div class="base"><s>アイアンバナーでの狩り中か、味方がスパークを運んでいる間</s><span class="further">瀕死の状態で</span>、この武器でキルをすると自身のレーダーが強化され、敵のレーダーに探知されなくなる。</div>
+        <div class="base">瀕死の状態でこの武器でキルをすると、自身のレーダーが強化され、敵のレーダーに探知されなくなる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             アイアンバナー限定で入手できる武器に付与される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
-        <a name="invader_tracker"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1b6d5c1f7f2afa74bd5ff7ec9dc63c89.png" class="h3">侵入者追跡</h3>
-        <div class="base"><s>ギャンビットで侵入者を攻撃すると、味方が見えるようにマークされる。</s><span class="further">複数キルをすると、ダッシュ速度が向上する。</span></div>
+        <a name="hot_swap"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b1980930bcedb2d2ab72e42685b48bb0.png" class="h3">ホット・スワップ</h3>
+        <div class="base">瀕死の状態でこの武器に持ち替えると、ハンドリングが増加する。また、剣のチャージ速度、ガード耐性、ガード持続時間が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            ギャンビット限定で入手できる武器に付与される。
+            永遠の挑戦限定で入手できる武器に付与される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -778,16 +825,6 @@
                 <li>効果時間: <b>3秒</b></li>
                 <li>敵の与ダメージ量: <b>-10%</b></li>
             </ul>
-        </div>
-        <div class="back"><a href="#top">▲</a></div>
-
-        <a name="souldrinker"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ee8b95ece2642697b33e6dd6f9ae0de7.png" class="h3">ソウルドリンカー</h3>
-        <div class="base">リロード前にヒットさせた回数に応じてHPが回復する。</div>
-        <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            レイド「門弟の誓い」で入手できる武器に付与される。
-            <br>回復量は武器によって異なる。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -828,25 +865,12 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
-        <a name="classy_contender"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ca855d250bb449c3e7239308312ae2d6.png" class="h3">クラス候補</h3>
-        <div class="base">キルをするとクラススキルエネルギーを回復する。</div>
-        <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ガーディアン・ゲームで入手できる武器に付与される。
-            <div class="info">&lt;効果量&gt;</div>
-            <ul class="stats">
-                <li>回復量: <b>5%</b></li>
-            </ul>
-        </div>
-        <div class="back"><a href="#top">▲</a></div>
-
         <a name="extrovert"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c92f13735fb08df887bc670024a0d5a0.png" class="h3">エクストロバート</h3>
         <div class="base">複数の敵やナイトメアが近くにいるときにキルをすると、HPが回復する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            幻影のシーズンで入手できる武器に付与される。
+            幻影のシーズンの武器に付与される。
             <div class="info">&lt;発動条件詳細&gt;</div>
             <b>15m</b> の範囲内に、敵が <b>3体以上</b> もしくはナイトメアがいると発動する。
             <div class="info">&lt;効果量&gt;</div>
@@ -871,6 +895,43 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
+        <a name="right_hook"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/106659d6a16404c05dbaba1d9de17a2a.png" class="h3">右フック</h3>
+        <div class="base">近接攻撃をすると、この武器の射程距離と照準補佐が増加する。さらに近接攻撃をすると効果時間が延びる。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            宙賊のシーズンの武器に付与される。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>10秒</b></li>
+                <li>さらに近接攻撃をすると効果時間が <b>+10秒</b> され、最大 <b>20秒</b> まで増加する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="souldrinker"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ee8b95ece2642697b33e6dd6f9ae0de7.png" class="h3">ソウルドリンカー</h3>
+        <div class="base">リロード前にヒットさせた回数に応じてHPが回復する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            レイド「門弟の誓い」で入手できる武器に付与される。
+            <br>ヒット数と回復量の比率は武器によって異なる。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>回復量: <b>20～80 HP</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="runneth_over"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8bd6b162b61c768108f64c5b70a33282.png" class="h3">装填過多</h3>
+        <div class="base">近くに味方がいる状態でリロードすると、マガジンがオーバーフローする。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            レイド「邪神、滅びる」で入手できる武器に付与される。
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
         <a name="bitterspite"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/67ab37ffd005b9bc5ed6fa3ff1b33a5b.png" class="h3">ビタースパイト</h3>
         <div class="base">敵からダメージを受けると、次のリロード速度が増加する。</div>
@@ -880,6 +941,42 @@
             <div class="info">&lt;発動条件詳細&gt;</div>
             <b>20</b> 以上のダメージを受けると、ビタースパイトのスタックを1個チャージする。
             <br>スタック数に応じて、次のリロード速度を増加させる。リロードを行うか武器をしまうとスタックは消滅する。
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="classy_contender"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ca855d250bb449c3e7239308312ae2d6.png" class="h3">クラス候補</h3>
+        <div class="base">キルをするとクラススキルエネルギーを回復する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            ガーディアン・ゲームで入手できる武器に付与される。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>回復量: <b>5%</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="dream_work"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c28c145ba3e2b67635fb48f50d157dc5.png" class="h3">ドリームワーク</h3>
+        <div class="base">味方をアシストするか、アシストされるとこの武器のマガジンがリロードされる。最大量を超える場合もある。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            夏季の宴で入手できる武器に付与される。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>リロード量: <b>66%</b></li>
+                <li>このリロードはマガジンを無尽蔵に<b>オーバーフロー</b>する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="search_party"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a389e9ce0e6f1e584bd845517d1c84e1.png" class="h3">捜索隊</h3>
+        <div class="base">ADS時、ハンドリングが増加する。また、近くに味方がいない状態でADSをすると可動性が向上する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            死者の祭りで入手できる武器に付与される。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1338,6 +1435,19 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
+        <a name="gutshot_straight"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d27f76f13af534ff634c607046c3e056.png" class="h3">ストレート・ボディショット</h3>
+        <div class="base">ADS時、通常ヒットのダメージが増加するが、照準補佐が減少する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>ダメージ増加量: <b>+10%</b></li>
+            </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            照準補佐の減少量が低減される。
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
         <a name="bait_and_switch"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/45f3abf37a1c72fbd0dd573621bdc604.png" class="h3">囮攻撃</h3>
         <div class="base">装備しているすべての武器で攻撃すると、この武器のダメージが増加する。</div>
@@ -1684,7 +1794,7 @@
 
         <a name="demolitionist"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/53ead908917c9156457c7c9dd453d649.png" class="h3">解体業者</h3>
-        <div class="base">キルをするとグレネードが回復する。グレネードを投げるとリロードされる。</div>
+        <div class="base">キルをするとグレネードエネルギーが回復する。グレネードを投げるとこの武器がリロードされる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             グレネードによるリロード効果は <b>3秒間</b> のクールダウンがある。
@@ -1702,6 +1812,32 @@
             回復量がさらに増加する。
             <ul class="stats2">
                 <li>グレネードエネルギー回復量:
+                    <ul class="stats3">
+                        <li>メイン弾/ヘビー弾: 10% → <b>11%</b></li>
+                        <li>特殊弾: 11% → <b>22%</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="puglist"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/391c674efee7852092c36c1b82b097ca.png" class="h3">拳闘士</h3>
+        <div class="base">キルをすると近接エネルギーが回復する。近接攻撃をするとこの武器のハンドリングが増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>近接エネルギー回復量:
+                    <ul class="stats2">
+                        <li>メイン弾/ヘビー弾: <b>10%</b></li>
+                        <li>特殊弾: <b>20%</b></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            回復量がさらに増加する。
+            <ul class="stats2">
+                <li>近接エネルギー回復量:
                     <ul class="stats3">
                         <li>メイン弾/ヘビー弾: 10% → <b>11%</b></li>
                         <li>特殊弾: 11% → <b>22%</b></li>
@@ -2362,6 +2498,11 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
+        <a name="voltshot"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e6a9671086dbd70567f453ccdc696997.png" class="h3">ボルトショット</h3>
+        <div class="base">キル後のリロードで、敵をショック状態にする弾を発射できる。</div>
+        <div class="back"><a href="#top">▲</a></div>
+
         <a name="high-impact_reserve"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bee920445b5d0ccb01814d2e6fcea27b.png" class="h3">高衝撃リザーブ</h3>
         <div class="base">マガジンの残弾が少ないほどダメージが増加する。</div>
@@ -2757,6 +2898,15 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
+        <a name="under-over"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8131da59d3ee4dccc3363339f3e2079f.png" class="h3">アンダー・オーバー</h3>
+        <div class="base">オーバーシールドと属性シールドに対するダメージが増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            <b>オーバーシールドと属性シールド</b>に効果がある。オーバーシールドに対する効果が大きい。
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
         <a name="disruption_break"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5b83b3c3fc474c9716e54b4dfe4a862b.png" class="h3">崩壊の始まり</h3>
         <div class="base">シールドを破壊すると敵のキネティックダメージへの耐性が下がる。</div>
@@ -3138,6 +3288,11 @@
                 <li>安定性: <b>-30</b></li>
             </ul>
         </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="slickdraw"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6eb2968284b8634ea7581c19f510397f.png" class="h3">スリックドロー</h3>
+        <div class="base">照準補佐が大幅に低下する代わりに、ハンドリングが大幅に増加する。</div>
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="bottomless_grief"></a>
@@ -3809,6 +3964,11 @@
 
         <div class="box">
             <div>
+                <span class="date">2022/08/25</span>
+                <ul>
+                    <li>シーズン18で追加された武器改造パーツ、起源特性、パークを追加</li>
+                    <li>更新内容を適用</li>
+                </ul>
                 <span class="date">2022/08/12</span>
                 <ul>
                     <li>今週のBungieで発表された内容について記載</li>
