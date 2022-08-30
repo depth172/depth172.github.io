@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Destiny 2 防具基礎ステータスの詳細について - depth's Toybox</title>
+    <meta name="description" content="防具の基礎ステータスである、可動性、耐久力、回復力、鍛錬、知性、腕力の6つが実際にプレイに及ぼす影響と、その効果量などを解説しています。">
+
+    <!-- Twitterバナーの設定 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@depth172">
+    <meta name="twitter:title" content="Destiny 2 防具基礎ステータスの詳細について - depth's Toybox">
+    <meta name="twitter:description" content="基礎ステータスである、可動性、耐久力、回復力などの実際の効果や詳細について解説しています。">
+    <meta name="twitter:image" content="https://depth172.github.io/img/card-summary.png">
+
+    <!-- デザイン関連 -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="d2style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <a name="top"></a>
+    <div class="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
+        <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
+        <h1>防具基礎ステータスの詳細について</h1>
+        <hr>
+        <div class="title_bar">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 防具基礎ステータスの詳細について" data-url="https://depth172.github.io/destiny2/base_stats.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                const last = new Date(document.lastModified);
+                const year = last.getFullYear();
+                const month = last.getMonth() + 1;
+                const date = last.getDate();
+
+                const target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+
+        <p class="intro">防具の基礎ステータスである、可動性、耐久力、回復力、鍛錬、知性、腕力の6つが実際にプレイに及ぼす影響と、その効果量などを解説しています。</p>
+
+        <h2>目次</h2>
+
+        <div class="toc">
+            <ul>
+                <li><a href="#status">ステータスの基本仕様</a></li>
+                <ul>
+                    <li><a href="#mobility">可動性</a></li>
+                    <li><a href="#resilience">耐久力</a></li>
+                    <li><a href="#recovery">回復力</a></li>
+                    <li><a href="#discipline">鍛錬</a></li>
+                    <li><a href="#intellect">知性</a></li>
+                    <li><a href="#strength">腕力</a></li>
+                </ul>
+                <li><a href="#source">出典</a></li>
+                <li><a href="#challenge_log">更新履歴</a></li>
+                <li><a href="#comments">コメント</a></li>
+            </ul>
+        </div>
+
+        <p>
+            右三角形はクリックすることで展開できます。
+            <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
+        </p>
+
+        <a name="status"></a>
+        <h2>ステータスの基本仕様</h2>
+
+        <div class="text">
+            防具のステータスは、それぞれ可動性、耐久力、回復力、鍛錬、知性、腕力の6個に分かれて存在します。
+            <br>ステータスはランダムに割り振られており、防具にMODを装備することでさらに伸ばすことができます。
+            <br>また、サブクラスに設定できるかけらや、一部の武器パーク、武器のフレームなどによっても変動します。
+            <br>ステータスが10上がるごとに効果が一段階増加します。<b>一の位の大きさは一切関係ありません。</b>
+        </div>
+
+        <a name="mobility"></a>
+        <h2><img src="https://www.bungie.net/common/destiny2_content/icons/e26e0e93a9daf4fdd21bf64eb9246340.png" class="h2">可動性</h2>
+
+        <h3>可動性について</h3>
+        <div class="text">
+            可動性は、ガーディアンの移動に関する大部分を左右するステータスです。歩行、ジャンプ高度などはこれによって変化します。さらに、ハンターの場合は可動性が高いほど回避のクールダウンも短縮されます。
+        </div>
+
+        <h3>可動性の詳細</h3>
+        <div class="text">
+            左右や後ろへの移動速度は通常に比べて <b>-15%</b> 遅くなります。
+            <br>また、ADSしながらの移動は <b>-25%</b> 遅くなります。ただし、ピストルでは <b>-15%</b> となります。
+            <br>さらに、しゃがみながらの移動は <b>-45%</b> 遅くなります。
+            <br>ジャンプの高度は可動性によって変化します。
+            <br>
+            <br><b>ダッシュの速度は可動性によって変化しません。</b>
+            <br>また、ジャンプスキル（リフト、ダブルジャンプ、グライディング）は<b>可動性によって影響を受けることはありません。</b>
+            <br>さらに、<b>スライディングの距離に関しても影響はありません。</b>
+            <br>
+            <br>軽量フレームの武器や一部エキゾチック武器・防具は、<b>ダッシュ速度を上げる効果</b>があります。
+            <br>これらの効果は重複しますが、合計で <b>+12.5%</b>（<b>9 m/s</b>）を超えて効果を得ることはありません。
+        </div>
+
+        <h3>テーブル</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>可動性</th>
+                    <th>0</th>
+                    <th>10</th>
+                    <th>20</th>
+                    <th>30</th>
+                    <th>40</th>
+                    <th>50</th>
+                    <th>60</th>
+                    <th>70</th>
+                    <th>80</th>
+                    <th>90</th>
+                    <th>100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>歩行速度 (m/s)</th>
+                    <td><b>5</b></td>
+                    <td><b>5.2</b></td>
+                    <td><b>5.4</b></td>
+                    <td><b>5.6</b></td>
+                    <td><b>5.8</b></td>
+                    <td><b>6</b></td>
+                    <td><b>6.2</b></td>
+                    <td><b>6.4</b></td>
+                    <td><b>6.6</b></td>
+                    <td><b>6.8</b></td>
+                    <td><b>7</b></td>
+                </tr>
+                <tr>
+                    <th>横移動速度 (m/s)</th>
+                    <td><b>4.25</b></td>
+                    <td><b>4.42</b></td>
+                    <td><b>4.59</b></td>
+                    <td><b>4.76</b></td>
+                    <td><b>4.93</b></td>
+                    <td><b>5.1</b></td>
+                    <td><b>5.27</b></td>
+                    <td><b>5.44</b></td>
+                    <td><b>5.61</b></td>
+                    <td><b>5.78</b></td>
+                    <td><b>5.95</b></td>
+                </tr>
+                <tr>
+                    <th>しゃがみ移動速度 (m/s)</th>
+                    <td><b>2.75</b></td>
+                    <td><b>2.86</b></td>
+                    <td><b>2.97</b></td>
+                    <td><b>3.08</b></td>
+                    <td><b>3.19</b></td>
+                    <td><b>3.3</b></td>
+                    <td><b>3.41</b></td>
+                    <td><b>3.52</b></td>
+                    <td><b>3.63</b></td>
+                    <td><b>3.74</b></td>
+                    <td><b>3.85</b></td>
+                </tr>
+                <tr>
+                    <th>ダッシュ速度 (m/s)</th>
+                    <td colspan="11" style="text-align: center;"><b>8</b></td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>可動性</th>
+                    <th>0</th>
+                    <th>10</th>
+                    <th>20</th>
+                    <th>30</th>
+                    <th>40</th>
+                    <th>50</th>
+                    <th>60</th>
+                    <th>70</th>
+                    <th>80</th>
+                    <th>90</th>
+                    <th>100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>勝負師の回避 (秒)</th>
+                    <td><b>54</b></td>
+                    <td><b>47</b></td>
+                    <td><b>42</b></td>
+                    <td><b>38</b></td>
+                    <td><b>36</b></td>
+                    <td><b>31</b></td>
+                    <td><b>29</b></td>
+                    <td><b>27</b></td>
+                    <td><b>23</b></td>
+                    <td><b>21</b></td>
+                    <td><b>19</b></td>
+                </tr>
+                <tr>
+                    <th>狙撃手の回避 (秒)</th>
+                    <td><b>41</b></td>
+                    <td><b>36</b></td>
+                    <td><b>32</b></td>
+                    <td><b>29</b></td>
+                    <td><b>26</b></td>
+                    <td><b>24</b></td>
+                    <td><b>22</b></td>
+                    <td><b>20</b></td>
+                    <td><b>18</b></td>
+                    <td><b>16</b></td>
+                    <td><b>14</b></td>
+                </tr>
+                <tr>
+                    <th>曲芸師の回避 (秒)</th>
+                    <td><b>117</b></td>
+                    <td><b>102</b></td>
+                    <td><b>91</b></td>
+                    <td><b>82</b></td>
+                    <td><b>74</b></td>
+                    <td><b>67</b></td>
+                    <td><b>63</b></td>
+                    <td><b>59</b></td>
+                    <td><b>51</b></td>
+                    <td><b>46</b></td>
+                    <td><b>41</b></td>
+                </tr>
+                <tr>
+                    <th>基本クールダウンとの差</th>
+                    <td>+43%</td>
+                    <td>+26%</td>
+                    <td>+11%</td>
+                    <td>0%</td>
+                    <td>-9%</td>
+                    <td>-17%</td>
+                    <td>-23%</td>
+                    <td>-28%</td>
+                    <td>-38%</td>
+                    <td>-44%</td>
+                    <td>-50%</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="resilience"></a>
+        <h2><img src="https://www.bungie.net/common/destiny2_content/icons/202ecc1c6febeb6b97dafc856e863140.png" class="h2">耐久力</h2>
+
+        <h3>耐久力について</h3>
+        <div class="text">
+            耐久力は、自身のHPのシールド量や、受けるひるみの軽減量、戦闘員から受けるダメージの軽減量などに影響します。さらに、タイタンの場合は耐久力が高いほどバリケードのクールダウンも短縮されます。
+        </div>
+
+        <h3>耐久力の詳細</h3>
+        <div class="text">
+            <img src="./img/resilience_hpbar.jpg" height="100px">
+            <br>上の画像はHPバーを色分けしたものです。赤い部分は<b>ガーディアン自身のHP</b>、青い部分は<b>シールドのHP</b>となっています。耐久力はシールドのHPを増加させる効果があります。
+            <br>また、ダメージを軽減する効果は<b>PvEでのみ発動</b>します。
+        </div>
+
+        <h3>テーブル</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>耐久力</th>
+                    <th>0</th>
+                    <th>10</th>
+                    <th>20</th>
+                    <th>30</th>
+                    <th>40</th>
+                    <th>50</th>
+                    <th>60</th>
+                    <th>70</th>
+                    <th>80</th>
+                    <th>90</th>
+                    <th>100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>シールドHP</th>
+                    <td><b>115.01</b></td>
+                    <td><b>116.01</b></td>
+                    <td><b>117.01</b></td>
+                    <td><b>118.01</b></td>
+                    <td><b>119.01</b></td>
+                    <td><b>120.01</b></td>
+                    <td><b>122.01</b></td>
+                    <td><b>124.01</b></td>
+                    <td><b>126.01</b></td>
+                    <td><b>128.01</b></td>
+                    <td><b>130</b></td>
+                </tr>
+                <tr>
+                    <th>本体HP</th>
+                    <td colspan="11" style="text-align: center;"><b>70</b></td>
+                </tr>
+                <tr>
+                    <th>合計HP</th>
+                    <td><b>185.01</b></td>
+                    <td><b>186.01</b></td>
+                    <td><b>187.01</b></td>
+                    <td><b>188.01</b></td>
+                    <td><b>189.01</b></td>
+                    <td><b>190.01</b></td>
+                    <td><b>192.01</b></td>
+                    <td><b>194.01</b></td>
+                    <td><b>196.01</b></td>
+                    <td><b>198.01</b></td>
+                    <td><b>200</b></td>
+                </tr>
+                <tr>
+                    <th>ひるみ軽減量</th>
+                    <td><b>0%</b></td>
+                    <td><b>-1%</b></td>
+                    <td><b>-2%</b></td>
+                    <td><b>-3%</b></td>
+                    <td><b>-4%</b></td>
+                    <td><b>-5%</b></td>
+                    <td><b>-6%</b></td>
+                    <td><b>-7%</b></td>
+                    <td><b>-8%</b></td>
+                    <td><b>-9%</b></td>
+                    <td><b>-10%</b></td>
+                </tr>
+                <tr>
+                    <th>ダメージ軽減量</th>
+                    <td><b>0%</b></td>
+                    <td><b>-1%</b></td>
+                    <td><b>-2%</b></td>
+                    <td><b>-3%</b></td>
+                    <td><b>-4%</b></td>
+                    <td><b>-8%</b></td>
+                    <td><b>-14%</b></td>
+                    <td><b>-20%</b></td>
+                    <td><b>-26%</b></td>
+                    <td><b>-32%</b></td>
+                    <td><b>-40%</b></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>耐久力</th>
+                    <th>0</th>
+                    <th>10</th>
+                    <th>20</th>
+                    <th>30</th>
+                    <th>40</th>
+                    <th>50</th>
+                    <th>60</th>
+                    <th>70</th>
+                    <th>80</th>
+                    <th>90</th>
+                    <th>100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>頑強なバリケード (秒)</th>
+                    <td><b>57</b></td>
+                    <td><b>50</b></td>
+                    <td><b>44</b></td>
+                    <td><b>40</b></td>
+                    <td><b>36</b></td>
+                    <td><b>33</b></td>
+                    <td><b>30</b></td>
+                    <td><b>28</b></td>
+                    <td><b>24</b></td>
+                    <td><b>22</b></td>
+                    <td><b>20</b></td>
+                </tr>
+                <tr>
+                    <th>反撃のバリケード (秒)</th>
+                    <td><b>45</b></td>
+                    <td><b>40</b></td>
+                    <td><b>35</b></td>
+                    <td><b>32</b></td>
+                    <td><b>29</b></td>
+                    <td><b>26</b></td>
+                    <td><b>24</b></td>
+                    <td><b>23</b></td>
+                    <td><b>19</b></td>
+                    <td><b>17</b></td>
+                    <td><b>16</b></td>
+                </tr>
+                <tr>
+                    <th>バスティオン (秒)</th>
+                    <td><b>117</b></td>
+                    <td><b>102</b></td>
+                    <td><b>91</b></td>
+                    <td><b>82</b></td>
+                    <td><b>74</b></td>
+                    <td><b>67</b></td>
+                    <td><b>63</b></td>
+                    <td><b>59</b></td>
+                    <td><b>51</b></td>
+                    <td><b>46</b></td>
+                    <td><b>41</b></td>
+                </tr>
+                <tr>
+                    <th>スラスター (秒)</th>
+                    <td><b>43</b></td>
+                    <td><b>38</b></td>
+                    <td><b>34</b></td>
+                    <td><b>30</b></td>
+                    <td><b>28</b></td>
+                    <td><b>25</b></td>
+                    <td><b>22</b></td>
+                    <td><b>20</b></td>
+                    <td><b>17</b></td>
+                    <td><b>14</b></td>
+                    <td><b>12</b></td>
+                </tr>
+                <tr>
+                    <th>基本クールダウンとの差</th>
+                    <td>+43%</td>
+                    <td>+26%</td>
+                    <td>+11%</td>
+                    <td>0%</td>
+                    <td>-9%</td>
+                    <td>-17%</td>
+                    <td>-23%</td>
+                    <td>-28%</td>
+                    <td>-38%</td>
+                    <td>-44%</td>
+                    <td>-50%</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="recovery"></a>
+        <h2><img src="https://www.bungie.net/common/destiny2_content/icons/128eee4ee7fc127851ab32eac6ca91cf.png" class="h2">回復力</h2>
+
+        <h3>回復力について</h3>
+        <div class="text">
+            回復力は、ダメージを受けてからどれだけ早く回復できるかを決定するステータスです。さらに、ウォーロックの場合は回復力が高いほどリフトのクールダウンも短縮されます。
+        </div>
+
+        <h3>回復力の詳細</h3>
+        <div class="text">
+            <img src="./img/resilience_hpbar.jpg" height="100px">
+            <br>上の画像はHPバーを色分けしたものです。赤い部分は<b>ガーディアン自身のHP</b>、青い部分は<b>シールドのHP</b>となっています。
+            <br>回復のプロセスは、「<b>回復が開始するまでの遅延</b>」と「<b>全回復までの時間</b>」の2つに分けられます。HPとシールドにそれぞれ存在します。
+            <br>回復が開始するまでの遅延は、ダメージを受けた瞬間から回復が開始するまでの秒数です。<b>1.35</b> 以上のダメージを受けるたびにタイマーがリセットされます。回復力を増加させるとこれが短縮され、回復が早く始まるようになります。
+            <br>全回復までの時間は、実際にHPやシールドの回復が始まってから、全回復するまでの時間です。回復力を増加させるとこの時間も早くなります。
+            <br>
+            <br>HPとシールドの回復は同じタイマーではないため、これらを同時に回復させることも可能です。
+        </div>
+
+        <h3>テーブル</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>回復力</th>
+                    <th>0</th>
+                    <th>10</th>
+                    <th>20</th>
+                    <th>30</th>
+                    <th>40</th>
+                    <th>50</th>
+                    <th>60</th>
+                    <th>70</th>
+                    <th>80</th>
+                    <th>90</th>
+                    <th>100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>HP回復遅延 (秒)</th>
+                    <td><b>3.25</b></td>
+                    <td><b>3.15</b></td>
+                    <td><b>3.05</b></td>
+                    <td><b>2.95</b></td>
+                    <td><b>2.85</b></td>
+                    <td><b>2.75</b></td>
+                    <td><b>2.65</b></td>
+                    <td><b>2.45</b></td>
+                    <td><b>2.25</b></td>
+                    <td><b>2.05</b></td>
+                    <td><b>1.75</b></td>
+                </tr>
+                <tr>
+                    <th>シールド回復遅延 (秒)</th>
+                    <td><b>5.5</b></td>
+                    <td><b>5.4</b></td>
+                    <td><b>5.3</b></td>
+                    <td><b>5.2</b></td>
+                    <td><b>5.1</b></td>
+                    <td><b>5</b></td>
+                    <td><b>4.9</b></td>
+                    <td><b>4.7</b></td>
+                    <td><b>4.5</b></td>
+                    <td><b>4.3</b></td>
+                    <td><b>4</b></td>
+                </tr>
+                <tr>
+                    <th>HP全回復時間 (秒)</th>
+                    <td><b>3.45</b></td>
+                    <td><b>3.35</b></td>
+                    <td><b>3.25</b></td>
+                    <td><b>3.15</b></td>
+                    <td><b>3.05</b></td>
+                    <td><b>2.95</b></td>
+                    <td><b>2.85</b></td>
+                    <td><b>2.65</b></td>
+                    <td><b>2.45</b></td>
+                    <td><b>2.25</b></td>
+                    <td><b>2</b></td>
+                </tr>
+                <tr>
+                    <th>シールド全回復時間 (秒)</th>
+                    <td><b>3.5</b></td>
+                    <td><b>3.4</b></td>
+                    <td><b>3.3</b></td>
+                    <td><b>3.2</b></td>
+                    <td><b>3.1</b></td>
+                    <td><b>3</b></td>
+                    <td><b>2.9</b></td>
+                    <td><b>2.7</b></td>
+                    <td><b>2.5</b></td>
+                    <td><b>2.3</b></td>
+                    <td><b>2</b></td>
+                </tr>
+                <tr>
+                    <th>HP+シールド全回復時間 (秒)</th>
+                    <td><b>5.75</b></td>
+                    <td><b>5.65</b></td>
+                    <td><b>5.55</b></td>
+                    <td><b>5.45</b></td>
+                    <td><b>5.35</b></td>
+                    <td><b>5.25</b></td>
+                    <td><b>5.15</b></td>
+                    <td><b>4.95</b></td>
+                    <td><b>4.75</b></td>
+                    <td><b>4.55</b></td>
+                    <td><b>4.25</b></td>
+                </tr>
+                <tr>
+                    <th>トータル全回復時間 (秒)</th>
+                    <td><b>9</b></td>
+                    <td><b>8.8</b></td>
+                    <td><b>8.6</b></td>
+                    <td><b>8.4</b></td>
+                    <td><b>8.2</b></td>
+                    <td><b>8</b></td>
+                    <td><b>7.8</b></td>
+                    <td><b>7.4</b></td>
+                    <td><b>7</b></td>
+                    <td><b>6.6</b></td>
+                    <td><b>6</b></td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>回復力</th>
+                    <th>0</th>
+                    <th>10</th>
+                    <th>20</th>
+                    <th>30</th>
+                    <th>40</th>
+                    <th>50</th>
+                    <th>60</th>
+                    <th>70</th>
+                    <th>80</th>
+                    <th>90</th>
+                    <th>100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>回復のリフト (秒)</th>
+                    <td><b>117</b></td>
+                    <td><b>102</b></td>
+                    <td><b>91</b></td>
+                    <td><b>82</b></td>
+                    <td><b>74</b></td>
+                    <td><b>67</b></td>
+                    <td><b>63</b></td>
+                    <td><b>59</b></td>
+                    <td><b>51</b></td>
+                    <td><b>46</b></td>
+                    <td><b>41</b></td>
+                </tr>
+                <tr>
+                    <th>強化のリフト (秒)</th>
+                    <td><b>117</b></td>
+                    <td><b>102</b></td>
+                    <td><b>91</b></td>
+                    <td><b>82</b></td>
+                    <td><b>74</b></td>
+                    <td><b>67</b></td>
+                    <td><b>63</b></td>
+                    <td><b>59</b></td>
+                    <td><b>51</b></td>
+                    <td><b>46</b></td>
+                    <td><b>41</b></td>
+                </tr>
+                <tr>
+                    <th>フェニックスダイブ (秒)</th>
+                    <td><b>117</b></td>
+                    <td><b>102</b></td>
+                    <td><b>91</b></td>
+                    <td><b>82</b></td>
+                    <td><b>74</b></td>
+                    <td><b>67</b></td>
+                    <td><b>63</b></td>
+                    <td><b>59</b></td>
+                    <td><b>51</b></td>
+                    <td><b>46</b></td>
+                    <td><b>41</b></td>
+                </tr>
+                <tr>
+                    <th>基本クールダウンとの差</th>
+                    <td>+43%</td>
+                    <td>+26%</td>
+                    <td>+11%</td>
+                    <td>0%</td>
+                    <td>-9%</td>
+                    <td>-17%</td>
+                    <td>-23%</td>
+                    <td>-28%</td>
+                    <td>-38%</td>
+                    <td>-44%</td>
+                    <td>-50%</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="discipline"></a>
+        <h2><img src="https://www.bungie.net/common/destiny2_content/icons/ca62128071dc254fe75891211b98b237.png" class="h2">鍛錬</h2>
+
+        <h3>鍛錬について</h3>
+        <div class="text">
+            鍛錬は、グレネードのクールダウン時間を短縮するステータスです。短縮量はグレネードの種類によって異なりますが、短縮される割合はどのグレネードでも同じです。
+        </div>
+
+        <h3>テーブル</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>鍛錬</th>
+                    <th>0</th>
+                    <th>10</th>
+                    <th>20</th>
+                    <th>30</th>
+                    <th>40</th>
+                    <th>50</th>
+                    <th>60</th>
+                    <th>70</th>
+                    <th>80</th>
+                    <th>90</th>
+                    <th>100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>基本クールダウンとの差</th>
+                    <td><b>+25%</b></td>
+                    <td><b>+14%</b></td>
+                    <td><b>+4%</b></td>
+                    <td><b>0%</b></td>
+                    <td><b>-17%</b></td>
+                    <td><b>-28%</b></td>
+                    <td><b>-38%</b></td>
+                    <td><b>-45%</b></td>
+                    <td><b>-50%</b></td>
+                    <td><b>-55%</b></td>
+                    <td><b>-60%</b></td>
+                </tr>
+                <tr>
+                    <th>一つ前のレベルとの差</th>
+                    <td style="text-align: center;">-</td>
+                    <td><b>-9%</b></td>
+                    <td><b>-8%</b></td>
+                    <td><b>-4%</b></td>
+                    <td><b>-17%</b></td>
+                    <td><b>-14%</b></td>
+                    <td><b>-13%</b></td>
+                    <td><b>-11%</b></td>
+                    <td><b>-10%</b></td>
+                    <td><b>-9%</b></td>
+                    <td><b>-15%</b></td>
+                </tr>
+                <tr>
+                    <th>基本とのチャージ速度の差</th>
+                    <td><b>-20%</b></td>
+                    <td><b>-12%</b></td>
+                    <td><b>-4%</b></td>
+                    <td><b>0%</b></td>
+                    <td><b>+20%</b></td>
+                    <td><b>+40%</b></td>
+                    <td><b>+60%</b></td>
+                    <td><b>+80%</b></td>
+                    <td><b>+100%</b></td>
+                    <td><b>+120%</b></td>
+                    <td><b>+160%</b></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="intellect"></a>
+        <h2><img src="https://www.bungie.net/common/destiny2_content/icons/59732534ce7060dba681d1ba84c055a6.png" class="h2">知性</h2>
+
+        <h3>知性について</h3>
+        <div class="text">
+            知性は、スーパースキルのクールダウン時間を短縮するステータスです。通常はこのクールダウンに加え、敵にダメージを与えたりキルをすることでスーパースキルエネルギーが回復する効果を受けます。短縮量はスーパースキルの種類によって異なりますが、短縮される割合はどのスーパースキルでも同じです。
+        </div>
+
+        <h3>テーブル</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>鍛錬</th>
+                    <th>0</th>
+                    <th>10</th>
+                    <th>20</th>
+                    <th>30</th>
+                    <th>40</th>
+                    <th>50</th>
+                    <th>60</th>
+                    <th>70</th>
+                    <th>80</th>
+                    <th>90</th>
+                    <th>100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>基本クールダウンとの差</th>
+                    <td><b>+31%</b></td>
+                    <td><b>+21%</b></td>
+                    <td><b>+13%</b></td>
+                    <td><b>0%</b></td>
+                    <td><b>-6%</b></td>
+                    <td><b>-11%</b></td>
+                    <td><b>-16%</b></td>
+                    <td><b>-22%</b></td>
+                    <td><b>-25%</b></td>
+                    <td><b>-29%</b></td>
+                    <td><b>-30%</b></td>
+                </tr>
+                <tr>
+                    <th>一つ前のレベルとの差</th>
+                    <td style="text-align: center;">-</td>
+                    <td><b>-12%</b></td>
+                    <td><b>-10%</b></td>
+                    <td><b>-13%</b></td>
+                    <td><b>-6%</b></td>
+                    <td><b>-5%</b></td>
+                    <td><b>-5%</b></td>
+                    <td><b>-5%</b></td>
+                    <td><b>-3%</b></td>
+                    <td><b>-3%</b></td>
+                    <td><b>-1%</b></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="strength"></a>
+        <h2><img src="https://www.bungie.net/common/destiny2_content/icons/c7eefc8abbaa586eeab79e962a79d6ad.png" class="h2">腕力</h2>
+
+        <h3>腕力について</h3>
+        <div class="text">
+            腕力は、近接スキルのクールダウン時間を短縮するステータスです。短縮量は近接スキルの種類によって異なりますが、短縮される割合はどの近接スキルでも同じです。
+        </div>
+
+        <h3>テーブル</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>腕力</th>
+                    <th>0</th>
+                    <th>10</th>
+                    <th>20</th>
+                    <th>30</th>
+                    <th>40</th>
+                    <th>50</th>
+                    <th>60</th>
+                    <th>70</th>
+                    <th>80</th>
+                    <th>90</th>
+                    <th>100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>基本クールダウンとの差</th>
+                    <td><b>+25%</b></td>
+                    <td><b>+14%</b></td>
+                    <td><b>+4%</b></td>
+                    <td><b>0%</b></td>
+                    <td><b>-17%</b></td>
+                    <td><b>-28%</b></td>
+                    <td><b>-38%</b></td>
+                    <td><b>-45%</b></td>
+                    <td><b>-50%</b></td>
+                    <td><b>-55%</b></td>
+                    <td><b>-60%</b></td>
+                </tr>
+                <tr>
+                    <th>一つ前のレベルとの差</th>
+                    <td style="text-align: center;">-</td>
+                    <td><b>-9%</b></td>
+                    <td><b>-8%</b></td>
+                    <td><b>-4%</b></td>
+                    <td><b>-17%</b></td>
+                    <td><b>-14%</b></td>
+                    <td><b>-13%</b></td>
+                    <td><b>-11%</b></td>
+                    <td><b>-10%</b></td>
+                    <td><b>-9%</b></td>
+                    <td><b>-15%</b></td>
+                </tr>
+                <tr>
+                    <th>基本とのチャージ速度の差</th>
+                    <td><b>-20%</b></td>
+                    <td><b>-12%</b></td>
+                    <td><b>-4%</b></td>
+                    <td><b>0%</b></td>
+                    <td><b>+20%</b></td>
+                    <td><b>+40%</b></td>
+                    <td><b>+60%</b></td>
+                    <td><b>+80%</b></td>
+                    <td><b>+100%</b></td>
+                    <td><b>+120%</b></td>
+                    <td><b>+160%</b></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="source"></a>
+        <h2>出典</h2>
+
+        <a href="https://docs.google.com/spreadsheets/d/1WaxvbLx7UoSZaBqdFr1u32F2uWVLo-CJunJB4nlGUE4/edit#gid=1800463143">The Destiny Data Compendium</a><br>
+        <a href="https://www.reddit.com/r/IshtarAcademy/comments/fjadjy/breakdown_of_mobility_ultimate_edition/">Breakdown of Mobility: Ultimate Edition</a><br>
+
+        <a name="challenge_log"></a>
+        <h2>更新履歴</h2>
+
+        <div class="box">
+            <div>
+                <span class="date">2022/08/30</span>
+                <ul>
+                    <li>初版完成</li>
+                </ul>
+            </div>
+        </div>
+
+        <a name="comments"></a>
+        <!-- begin wwww.htmlcommentbox.com -->
+        <script type="text/javascript" src="../js/htmlcommentbox.js"></script>
+
+        <div id="HCB_comment_box">コメントを読み込んでいます...</div>
+        <link rel="stylesheet" type="text/css" href="/css/twitter-bootstrap.css" />
+        <script type="text/javascript" id="hcb">
+            /*<!--*/
+            if (!window.hcb_user) {
+                hcb_user = {};
+            }(function() {
+                var s = document.createElement("script"),
+                    l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
+                    h = "https://www.htmlcommentbox.com";
+                s.setAttribute("type", "text/javascript");
+                s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%240S16uY.Oh6y9MR3cBrjg21" + "&opts=16798&num=10&ts=1642331857298");
+                if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s);
+            })(); /*-->*/
+        </script>
+        <!-- end www.htmlcommentbox.com -->
+
+        <hr>
+        <div class="footer"><a href="#top">一番上に戻る ▲</a></div>
+    </div>
+</body>
+
+</html>

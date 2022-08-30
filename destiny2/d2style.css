@@ -87,15 +87,33 @@ dt {
 }
 
 table {
+    border: none;
+    overflow-x: auto;
+    display: block;
+    table-layout: fixed;
     border-spacing: 0;
     margin: 0.4em;
+    padding-right: 0.1em;
+}
+
+th:first-child {
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+th:first-child {
+    z-index: 1;
 }
 
 td,
 th {
     border-right: 1px solid #a3a3a3;
     border-bottom: 1px solid #a3a3a3;
-    margin: 0.4em;
+    margin: 0em;
+    min-width: 3.2em;
+    white-space: nowrap;
 }
 
 thead tr:first-child th {
@@ -113,20 +131,12 @@ th {
     font-weight: normal;
 }
 
-table.debuff {
-    border: 2px solid hsl(273, 23%, 32%);
-}
-
 .debuff tr {
     background: hsl(273, 57%, 87%);
 }
 
 .debuff td {
     text-align: left;
-}
-
-table.buff {
-    border: 2px solid hsl(20, 21%, 36%);
 }
 
 .buff tr {
@@ -137,7 +147,9 @@ table.buff {
     text-align: left;
 }
 
+.debuff td.icon,
 .buff td.icon {
+    min-width: 0em;
     text-align: center;
 }
 
@@ -162,6 +174,7 @@ td {
     padding: 0em;
 }
 
+.debuff img.table,
 .buff img.table {
     width: 3em;
     height: 3em;
@@ -200,6 +213,11 @@ h3.item:before {
     position: absolute;
 }
 
+p img,
+.text img {
+    margin-block: 0.4em;
+}
+
 img.h3 {
     background: #737f81;
     border: 2px solid #5e5e5e;
@@ -207,6 +225,16 @@ img.h3 {
     margin-right: 0.5em;
     width: 2.3em;
     height: 2.3em;
+    transform: translate(0, 12%);
+}
+
+img.h2 {
+    background: #4e8992;
+    border: 2px solid #5e5e5e;
+    border-radius: 10px;
+    margin-right: 0.5em;
+    width: 2em;
+    height: 2em;
     transform: translate(0, 12%);
 }
 
@@ -225,7 +253,7 @@ img.head {
 }
 
 table.tablesorter {
-    background: #eef8ff;
+    background-size: 100% 100%;
     margin-bottom: 0.9em;
     font-size: 90%
 }
@@ -233,6 +261,10 @@ table.tablesorter {
 .tablesorter th {
     padding-left: 0.5em;
     padding-right: 1.2em;
+}
+
+.tablesorter td {
+    background: #eef8ff;
 }
 
 .tablesorter th.name {
@@ -323,24 +355,6 @@ th.sorter-false {
 @media screen and (max-width: 768px) {
     h3 {
         font-size: 110%;
-    }
-    table,
-    .tablesorter {
-        border: none;
-        overflow-x: auto;
-        display: block;
-    }
-    th:first-child {
-        white-space: nowrap;
-        position: sticky;
-        top: 0;
-        left: 0;
-    }
-    td {
-        white-space: nowrap;
-    }
-    th:first-child {
-        z-index: 1;
     }
     .box {
         width: 90%;

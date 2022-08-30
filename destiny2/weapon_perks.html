@@ -104,18 +104,23 @@
                         <li><a href="#veist_stinger">バイスト・スティンガー</a></li>
                         <li><a href="#omolon_fluid_dynamics">オモロン流体力学</a></li>
                         <li><a href="#vanguards_vindication">バンガードの釈明</a></li>
-                        <li><a href="#stunning_recovery">驚異的回復</a></li>
                         <li><a href="#one_quiet_moment">ある静寂の瞬間</a></li>
+                        <li><a href="#gun_and_run">ガン・アンド・ラン</a></li>
+                        <li><a href="#stunning_recovery">驚異的回復</a></li>
                         <li><a href="#alacrity">迅速</a></li>
                         <li><a href="#skulking_wolf">潜む狼</a></li>
-                        <li><a href="#invader_tracker">侵入者追跡</a></li>
+                        <li><a href="#hot_swap">ホット・スワップ</a></li>
                         <li><a href="#psychohack">サイコハック</a></li>
-                        <li><a href="#souldrinker">ソウルドリンカー</a></li>
                         <li><a href="#land_tank">ランドタンク</a></li>
-                        <li><a href="#classy_contender">クラス候補</a></li>
                         <li><a href="#extrovert">エクストロバート</a></li>
                         <li><a href="#to_excess">トゥー・エクセス</a></li>
+                        <li><a href="#right_hook">右フック</a></li>
+                        <li><a href="#souldrinker">ソウルドリンカー</a></li>
+                        <li><a href="#runneth_over">装填過多</a></li>
                         <li><a href="#bitterspite">ビタースパイト</a></li>
+                        <li><a href="#classy_contender">クラス候補</a></li>
+                        <li><a href="#dream_work">ドリームワーク</a></li>
+                        <li><a href="#search_party">捜索隊</a></li>
                     </ul>
                 </details>
                 <details>
@@ -299,6 +304,8 @@
             <dd>武器のステータスの一種。大きいほどエイムアシストが強くかかる。</dd>
             <dt>空中効果</dt>
             <dd>武器のステータスの一種。大きいほど空中から射撃したときの命中精度が上がる。</dd>
+            <dt>HPとシールド</dt>
+            <dd>自身のHPバーのうち <b>70</b> HPは自身の体力で、それ以上の部分はシールドとなっている。シールドのHPは耐久力によって <b>115.01</b> ～ <b>130</b> まで変動する。詳しくは<a href="./base_stats.html#resilience">耐久力</a>の項目を参照。</dd>
             <dt>マガジンサイズ</dt>
             <dd>実際の装弾数ではなくマガジンサイズのステータス内部値を指す。実際に増減するサイズは武器種によって異なる。</dd>
             <dt>強力な剣攻撃</dt>
@@ -710,7 +717,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>5秒</b></li>
-                <li>発射時間: <b>-54</b></li>
+                <li>発射時間: <b>-16%</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -738,7 +745,7 @@
             ストライクやナイトフォール限定で入手できる武器に付与される。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>回復量: <b>7</b></li>
+                <li>HP回復量: <b>7</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -798,10 +805,16 @@
 
         <a name="skulking_wolf"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a80e7c5edc83fc573b7fba87f73940f2.png" class="h3">潜む狼</h3>
-        <div class="base">瀕死の状態でこの武器でキルをすると、自身のレーダーが強化され、敵のレーダーに探知されなくなる。</div>
+        <div class="base">瀕死の状態、もしくはアイアンバナーでの狩り中にこの武器でキルをすると、自身のレーダーが強化され、敵のレーダーに探知されなくなる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             アイアンバナー限定で入手できる武器に付与される。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            HPが <b>63</b> を下回ると発動する。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>10秒</b></li>
+            </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -931,6 +944,12 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             レイド「邪神、滅びる」で入手できる武器に付与される。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            <b>15m</b> の範囲内で判定される。味方の数で効果が変動する。最大 <b>x5</b> まで。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>増加量: 味方一人につき <b>+10%</b></li>
+            </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1205,9 +1224,10 @@
         <div class="base">キルをすると、この武器をしまうかリロードするまで武器ダメージが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            手動リロード、狙撃手の回避、ドラゴン・シャドーのみリセットされる。
-            <br>横断のブーツなどのリロードではリセットされない。
+            手動リロード、狙撃手の回避、ドラゴン・シャドーによるリロードのみ効果が失われる。
+            <br>横断のブーツなどのリロードでは効果が失われない。
             <div class="info">&lt;効果量&gt;</div>
+            <caption>ダメージ増加量:</caption>
             <table>
                 <thead>
                     <tr>
@@ -1219,10 +1239,16 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>ダメージ増加量</th>
+                        <th>PvE</th>
                         <td><b>+10%</b></td>
                         <td><b>+20%</b></td>
                         <td><b>+30%</b></td>
+                    </tr>
+                    <tr>
+                        <th>PvP</th>
+                        <td><b>+5%</b></td>
+                        <td><b>+10%</b></td>
+                        <td><b>+15%</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -1340,81 +1366,78 @@
             <div class="info">&lt;発動条件詳細&gt;</div>
             属性キルの内容は問わない。エネルギーウェポンでもスキルでも可。
             <div class="info">&lt;効果量&gt;</div>
-            <ul class="stats">
-                <li>ダメージ増加量:
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>武器</th>
-                                <th>1x</th>
-                                <th>2x</th>
-                                <th>3x</th>
-                                <th>4x</th>
-                                <th>5x</th>
-                                <th>6x</th>
-                                <th>7x</th>
-                                <th>8x</th>
-                                <th>9x</th>
-                                <th>10x</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>遺産</th>
-                                <td><b>+8%</b></td>
-                                <td><b>+15%</b></td>
-                                <td><b>+24%</b></td>
-                                <td><b>+33%</b></td>
-                                <td><b>+42%</b></td>
-                                <td><b>+50%</b></td>
-                                <td><b>+59%</b></td>
-                                <td><b>+70%</b></td>
-                                <td><b>+80%</b></td>
-                                <td><b>+88%</b></td>
-                            </tr>
-                            <tr>
-                                <th>継承</th>
-                                <td><b>+8%</b></td>
-                                <td><b>+17%</b></td>
-                                <td><b>+27%</b></td>
-                                <td><b>+38%</b></td>
-                                <td><b>+46%</b></td>
-                                <td><b>+57%</b></td>
-                                <td><b>+68%</b></td>
-                                <td><b>+80%</b></td>
-                                <td><b>+89%</b></td>
-                                <td><b>+101%</b></td>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th>PvP（全武器共通）</th>
-                                <td><b>+5%</b></td>
-                                <td><b>+10%</b></td>
-                                <td><b>+15%</b></td>
-                                <td><b>+20%</b></td>
-                                <td><b>+25%</b></td>
-                                <td><b>+30%</b></td>
-                                <td><b>+35%</b></td>
-                                <td><b>+40%</b></td>
-                                <td><b>+45%</b></td>
-                                <td><b>+50%</b></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </li>
-            </ul>
+            <caption>ダメージ増加量:</caption>
+            <table>
+                <thead>
+                    <tr>
+                        <th>武器</th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                        <th>4x</th>
+                        <th>5x</th>
+                        <th>6x</th>
+                        <th>7x</th>
+                        <th>8x</th>
+                        <th>9x</th>
+                        <th>10x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>遺産</th>
+                        <td><b>+8%</b></td>
+                        <td><b>+15%</b></td>
+                        <td><b>+24%</b></td>
+                        <td><b>+33%</b></td>
+                        <td><b>+42%</b></td>
+                        <td><b>+50%</b></td>
+                        <td><b>+59%</b></td>
+                        <td><b>+70%</b></td>
+                        <td><b>+80%</b></td>
+                        <td><b>+88%</b></td>
+                    </tr>
+                    <tr>
+                        <th>継承</th>
+                        <td><b>+8%</b></td>
+                        <td><b>+17%</b></td>
+                        <td><b>+27%</b></td>
+                        <td><b>+38%</b></td>
+                        <td><b>+46%</b></td>
+                        <td><b>+57%</b></td>
+                        <td><b>+68%</b></td>
+                        <td><b>+80%</b></td>
+                        <td><b>+89%</b></td>
+                        <td><b>+101%</b></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>PvP（全武器共通）</th>
+                        <td><b>+5%</b></td>
+                        <td><b>+10%</b></td>
+                        <td><b>+15%</b></td>
+                        <td><b>+20%</b></td>
+                        <td><b>+25%</b></td>
+                        <td><b>+30%</b></td>
+                        <td><b>+35%</b></td>
+                        <td><b>+40%</b></td>
+                        <td><b>+45%</b></td>
+                        <td><b>+50%</b></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1443,8 +1466,42 @@
         <div class="indepth">
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>ダメージ増加量: <b>+10%</b></li>
+                <li>照準補佐: <b>-35</b></li>
             </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>武器の種類</th>
+                        <th>ダメージ増加量</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>オートライフル</th>
+                        <td><b>+10%</b></td>
+                    </tr>
+                    <tr>
+                        <th>サブマシンガン</th>
+                        <td><b>+10%</b></td>
+                    </tr>
+                    <tr>
+                        <th>ピストル</th>
+                        <td><b>+10%</b></td>
+                    </tr>
+                    <tr>
+                        <th>ハンドキャノン</th>
+                        <td><b>+20%</b></td>
+                    </tr>
+                    <tr>
+                        <th>パルスライフル</th>
+                        <td><b>+10%</b></td>
+                    </tr>
+                    <tr>
+                        <th>弓</th>
+                        <td><b>+20%</b></td>
+                    </tr>
+                </tbody>
+            </table>
             <div class="info">&lt;強化特性&gt;</div>
             照準補佐の減少量が低減される。
         </div>
@@ -1568,7 +1625,7 @@
                     </tr>
                     <tr>
                         <th>リロード時間</th>
-                        <td>-</td>
+                        <td style="text-align: center;">-</td>
                         <td><b>x0.9</b></td>
                         <td><b>x0.88</b></td>
                         <td><b>x0.85</b></td>
@@ -1666,7 +1723,7 @@
 
         <a name="sympathetic_arsenal"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4476e3ab32b8e644da04aba087b369c7.png" class="h3">共鳴兵器</h3>
-        <div class="base">恒久的にリロード速度が向上し、キル後にリロードをすると使用していない武器もリロードされる。</div>
+        <div class="base">恒常的にリロード速度が向上し、キル後にリロードをすると使用していない武器もリロードされる。</div>
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
             キル後 <b>6秒以内</b> にリロードすると発動する。
@@ -1704,9 +1761,11 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             属性は<b>武器に依存</b>し、爆発は他パークの効果を受けない。
+            <br>PvEではダメージが <b>x1.3</b> される。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>爆発半径: <b>3m</b></li>
+                <li>ダメージ: <b>65</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             恒常的にリロード速度が増加する。
@@ -1721,13 +1780,14 @@
         <div class="base">精密キルをするとソーラー爆発が起こり、リロード速度が上昇する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            爆発ダメージはドラゴンフライと比較すると <b>25%</b> 高い。
+            <br>PvEではダメージが <b>x1.3</b> される。
             <br>改造MOD「ドラゴンフライ特化」の効果は <b>受けない。</b>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
+                <li>爆発半径: <b>3m</b></li>
+                <li>ダメージ: <b>80</b></li>
                 <li>リロード速度: <b>+50</b></li>
                 <li>効果時間: <b>6秒</b></li>
-                <li>爆発半径: <b>3m</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1781,7 +1841,7 @@
         <div class="base">マガジンの半分以上残弾があるとき、敵に弾を当てると遅延を発生させる爆発を起こす。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            フュージョンライフルは、一回の射撃で敵1体に対して一回だけ発動する。
+            一回の射撃で一回だけ発動する（ウルフパック弾による複数攻撃を除く）。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>遅延付与数: <b>x50</b></li>
@@ -1827,6 +1887,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/391c674efee7852092c36c1b82b097ca.png" class="h3">拳闘士</h3>
         <div class="base">キルをすると近接エネルギーが回復する。近接攻撃をするとこの武器のハンドリングが増加する。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            特殊弾を使用する武器は回復量が高いが、グレネードランチャーは例外。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>近接エネルギー回復量:
@@ -2070,16 +2132,9 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d20201c3a2512d582af9be538f29d4f8.png" class="h3">第一線</h3>
         <div class="base">味方が2人以上近くにいると精密ダメージが増加する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            武器の種類によって増加量が異なる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>精密ダメージ増加量:
-                    <ul class="stats2">
-                        <li>スナイパーライフル/マシンガン: <b>+20%</b></li>
-                        <li>リニア・フュージョンライフル: <b>+21.3%</b></li>
-                    </ul>
-                </li>
+                <li>精密ダメージ増加量: <b>+20%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             恒常的に射程距離が増加する。
@@ -2313,37 +2368,14 @@
         <div class="base">射撃開始時、短時間安定性と精度が向上する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            フュージョンライフルは効果が低下する。
+            フュージョンライフルは通常の1/4の効果となる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>0.6秒</b></li>
+                <li>安定性: <b>+40</b></li>
+                <li>縦反動: <b>-50%</b></li>
+                <li>精度: <b>+10%</b></li>
             </ul>
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>通常武器</th>
-                        <th>フュージョンライフル</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>安定性</th>
-                        <td><b>+40</b></td>
-                        <td><b>+10</b></td>
-                    </tr>
-                    <tr>
-                        <th>縦反動</th>
-                        <td><b>-50%</b></td>
-                        <td><b>-12.5%</b></td>
-                    </tr>
-                    <tr>
-                        <th>精度</th>
-                        <td><b>+10%</b></td>
-                        <td><b>+2.5%</b></td>
-                    </tr>
-                </tbody>
-            </table>
             <div class="info">&lt;強化特性&gt;</div>
             効果がさらに強化される。
         </div>
@@ -2619,7 +2651,13 @@
             <div class="info">&lt;強化特性&gt;</div>
             発動中のダメージがさらに増加する。
             <ul class="stats2">
-                <li>ダメージ増加量: x1.00 → <b>x1.05</b></li>
+                <li>
+                    ダメージ増加量:
+                    <ul class="stats3">
+                        <li>剣以外の武器: +30% → <b>+36.5%</b></li>
+                        <li>剣: +25% → <b>+31.25%</b></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2671,7 +2709,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>
-                    瀕死（シールドが <b>30</b> を下回った）時:
+                    瀕死（HPが <b>110</b> を下回った）時:
                     <ul class="stats2">
                         <li>武器を使用中かどうかにかかわらず、<b>全弾リロード</b>される。</li>
                         <li>ハンドリング: <b>+50</b></li>
@@ -2915,7 +2953,7 @@
             シールドへのダメージがさらに増加する。
             <ul class="stats2">
                 <li>最大ダメージ量: +500% → <b>+600%</b></li>
-                <li>フュージョンライフルは +450% → <b>+522%</b> 、リニア・フュージョンライフルは +450% → <b>+540%</b> まで。</li>
+                <li>フュージョンライフルは +435% → <b>+522%</b> 、リニア・フュージョンライフルは +450% → <b>+540%</b> まで。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -3058,6 +3096,9 @@
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             発動に必要な精密ヒットの間隔が長くなる。
+            <ul class="stats2">
+                <li>2秒以内 → <b>3秒以内</b> に3回精密ヒットをすると発動する。</li>
+            </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3073,6 +3114,9 @@
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             発動に必要な精密ヒットの間隔が長くなる。
+            <ul class="stats2">
+                <li>2秒以内 → <b>3秒以内</b> に3回精密ヒットをすると発動する。</li>
+            </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -3105,18 +3149,17 @@
         <div class="base">ADS状態でしばらく待ってから射撃することで、1発のみ精密ダメージが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            説明文には射程距離増加とあるが、<b>実際は増加していない</b>模様。
-            <br>武器によってダメージ増加量は異なる。
+            効果中、精密ダメージの倍率を <b>+1x</b> している。
+            <br>説明文には射程距離増加とあるが、<b>実際は増加していない</b>模様。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>発動までの時間: <b>1.5秒</b></li>
                 <li>
-                    ダメージ増加量:
+                    ダメージ倍率増加量:
                     <ul class="stats2">
-                        <li>スカウトライフル: <b>+66%</b></li>
-                        <li>リニア・フュージョンライフル: <b>+33%</b></li>
-                        <li>スナイパーライフル（好戦的）: <b>+37%</b></li>
-                        <li>スナイパーライフル（順応/速射）: <b>+31%</b></li>
+                        <li>スカウトライフル: x1.6 → <b>x2.6</b> (<b>+62.75%</b>)</li>
+                        <li>スナイパーライフル: x3 → <b>x4</b> (<b>+33.22%</b>)</li>
+                        <li>リニア・フュージョンライフル: x3.44 → <b>x4.44</b> (<b>+29%</b>)</li>
                     </ul>
                 </li>
             </ul>
@@ -3162,8 +3205,8 @@
             <br>装弾数1発の中折れ式グレネードランチャーやロケットランチャーなどは1キルでもすると2発リロードされる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>1キルごとに <s>10%</s> <span class="further"><b>20%</b></span> ずつマガジンが増える。</li>
-                <li>最大 <s>+50%</s> <span class="further"><b>+150%</b></span> まで増加。</li>
+                <li>1キルごとに <b>+20%</b>（特殊/ヘビー弾は <b>+10%</b>）ずつマガジンが増える。</li>
+                <li>最大 <b>+150%</b> まで増加。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             恒常的にリロード速度が増加する。
@@ -3653,7 +3696,7 @@
             <div class="info">&lt;発動条件詳細&gt;</div> 発動までに <b>1.5秒</b> のダッシュが必要。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>チャージ時間: <b>-100</b></li>
+                <li>チャージ時間: <b>-20%</b></li>
                 <li>ダメージ増加量: <b>+20%</b></li>
             </ul>
         </div>
@@ -3734,7 +3777,7 @@
             <b>15m</b> の範囲内に敵が <b>2体以上</b> いると発動する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>チャージ/発射時間: <b>-100</b></li>
+                <li>チャージ/発射時間: <b>-15%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             恒常的に安定性が増加する。
@@ -3857,6 +3900,11 @@
             <ul class="stats">
                 <li>効果時間: 剣を取り出してから <b>1秒</b></li>
                 <li>増加量: <b>+75%</b></li>
+            </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 剣を取り出してから 1秒 → <b>1.5秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>

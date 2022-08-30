@@ -192,6 +192,8 @@
             <dd>武器のステータスの一種。大きいほど反動が垂直に近くなる。</dd>
             <dt>照準補佐</dt>
             <dd>武器のステータスの一種。大きいほどエイムアシストが強くかかる。</dd>
+            <dt>HPとシールド</dt>
+            <dd>自身のHPバーのうち <b>70</b> HPは自身の体力で、それ以上の部分はシールドとなっている。シールドのHPは耐久力によって <b>115.01</b> ～ <b>130</b> まで変動する。詳しくは<a href="./base_stats.html#resilience">耐久力</a>の項目を参照。</dd>
             <dt>強力な剣攻撃</dt>
             <dd>右クリックの強攻撃のことではなく、弾薬がある状態での剣攻撃のこと。</dd>
         </dl>
@@ -842,7 +844,7 @@
                 <li>ダメージ増加量:
                     <ul class="stats2">
                         <li>PvE: <span class="c_solar"><b>+35%</b></span></li>
-                        <li>PvP: <span class="c_solar"><b>+20%</b></span></li>
+                        <li>PvP: <span class="c_solar"><b>+15%</b></span></li>
                     </ul>
                 </li>
             </ul>
@@ -1229,6 +1231,49 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
+        <a name="quicksilver_storm"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/94c469ee1cb67c6e0ed590f00e8d4f2f.jpg" class="h3">クイックシルバー・ストーム</h3>
+        <div class="base"><b>ロケット・トレーサー</b> - 複数発命中させると、次の1発が追尾式マイクロロケットになる。</div>
+        <div class="indepth">
+            <div class="info">&lt;フレーム&gt;</div>
+            <ul class="stats">
+                <li>速射フレーム</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>10回</b> ヒットさせると、通常弾が<b>アーク属性</b>の追尾ロケットになる。</li>
+                <li>ロケットは敵を精密に追尾し、<b>105</b>（PvPでは <b>24</b>）ダメージを与える。<b>50m</b> 以上の距離には届かない。</li>
+                <li>さらに、ロケットのヒット時に<b>グレネード弾</b>を1個チャージする。これは最大 <b>3個</b> まで貯められる。</li>
+                <li>グレネード弾が1個以上ある状態でリロードボタンを長押しすると、<b>グレネードランチャーモード</b>に移行する。</li>
+                <li>グレネードランチャーモードはキネティック属性の<b>グレネードを発射</b>し、3.3m以内の敵に<b>1160</b>（PvPでは <b>81 + 14</b>）ダメージを与える。これに自爆ダメージはない。</li>
+                <li>発射後、グレネード弾が残っていればグレネードランチャーのリロードを、そうでない場合は通常のリロードを行う。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="touch_of_malice"></a>
+        <h3 class="item"><img src="https://cdn.discordapp.com/attachments/942075857139286077/1012993108809629736/unknown.png" class="h3">悪意の手</h3>
+        <div class="base"><b>悪意の手</b> - マガジンの最後の1発が、所持者の生命力を奪って追加ダメージを与え、その後自動的に再生する。</div>
+        <div class="indepth">
+            <div class="info">&lt;フレーム&gt;</div>
+            <ul class="stats">
+                <li>速射フレーム</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>マガジンの最後の一発は、弾薬の代わりに<b>HPを消費</b>し、通常より <b>+100%</b>（PvPでは <b>+30%</b>）高いダメージを与える。</li>
+                <li>また、複数キルをするとHPが回復する。</li>
+                <li>さらに、精密ヒットを <b>10回</b> し、リロードボタンを長押しすると、<b>暗黒の球体</b>を発射できるモードに入る。</li>
+                <li>暗黒の球体は敵を<b>盲目状態</b>にし、この武器もしくは <a href="./exotic_weapons.html#thorn">トルン</a> 、 <a href="./exotic_weapons.html#osteo_striga">オステオ・ストライガ</a> から受けるダメージを <b>+50%</b> 増加させる。</li>
+                <li>最後の一発で暗黒の球体を撃つと、ダメージが <b>+100%</b>（PvPでは <b>+30%</b>）増加する。</li>
+            </ul>
+            <div class="info">&lt;媒体効果&gt;</div>
+            <ul class="stats">
+                <li><a href="./weapon_perks.html#rapid_hit">高速ヒット</a></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
         <a name="energy"></a>
         <h2>エネルギーウェポン</h2>
         <p>存在するものについては基になったフレーム名を記載しているが、エキゾチック武器は特筆しない限りフレームの内在効果（軽量フレームの移動速度向上など）を受けない。</p>
@@ -1348,8 +1393,8 @@
                     <ul class="stats2">
                         <li>武器ダメージが <b>+10%</b> 、ハンドリングが <b>+100</b> 増加する。</li>
                         <li>アーク属性のダメージを <b>50%</b> 軽減する。</li>
-                        <li>撃った弾が最大 <b>75%</b> の確率でマガジンに戻ってくる。</li>
-                        <li>撃った弾が一定確率で周囲 <b>8m</b> の敵に雷を連鎖させる。連鎖した雷は通常弾の <b>76%</b> のダメージ量。</li>
+                        <li>撃った弾がマガジンに戻ってくる。</li>
+                        <li>撃った弾が周囲 <b>8m</b> の敵に雷を連鎖させる。連鎖した雷は通常弾の <b>76%</b> のダメージ量。</li>
                         <li>この武器で敵をキルすると効果時間が <b>+3秒</b> 延びる。</li>
                     </ul>
                 </li>
@@ -1372,7 +1417,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>リロードボタンを長押しすると、ボイド→アーク→ソーラー→ボイドといった順番に<b>属性を変更</b>できる。</li>
-                <li>距離減衰が発生しづらく、通常のものと比較すると減衰率は <b>0.7倍</b> となっている。</li>
+                <li>距離減衰が発生しづらく、通常のものと比較すると減衰率は <b>x0.7</b> となっている。</li>
                 <li>弾は <b>2回まで壁や床で跳ね返り</b>、1回でも跳ね返った弾は<b>追加ダメージ</b>を与える。</li>
                 <li>ダメージ増加量:
                     <ul class="stats2">
@@ -2148,10 +2193,11 @@
                 <li>腰だめ撃ちのダメージが <b>+20%</b> 増加する。</li>
                 <li>敵を倒すと、一定確率で<b>イオントレース</b>が発生する。<b>エリート以上の敵</b>を倒すと必ず生成される。</li>
                 <li>イオントレースを取得すると、次の弾が敵を<b>ショック状態</b>にさせるチャージ弾となる。</li>
+                <li>チャージ弾は射撃するか <b>14秒間</b> 経つと失われる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>イオントレースを取得すると、マガジンの一部がリロードされる。</li>
+                <li>イオントレースを取得すると、<b>4発</b> リロードされる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -2412,11 +2458,11 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>&#xe071; オーバーロード効果</b></li>
                 <li><a href="./weapon_perks.html#dynamic_sway_reduction">ブレ軽減</a>の効果を持つ。</li>
                 <li>撃ち続けると、<a href="./weapon_perks.html#zen_moment">禅モーメント</a>のような反動制御を発揮する。</li>
                 <li>連続して <b>13発</b> 射撃するごとに発射レートが <b>450</b> → <b>600</b> → <b>720</b> と変化する。</li>
                 <li>連続して <b>13発</b> 射撃するか、敵をキルすると<b>落雷を発生させる。</b></li>
+                <li>この落雷には <b>&#xe071; オーバーロード効果</b> がある。</li>
                 <li>落雷のダメージ量は通常弾より <b>190%</b> 高い。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -2670,6 +2716,16 @@
 
         <div class="box">
             <div>
+                <span class="date">2022/08/29</span>
+                <ul>
+                    <li>以下の武器を追加
+                        <ul>
+                            <li>クイックシルバー・ストーム</li>
+                            <li>悪意の手</li>
+                        </ul>
+                    </li>
+                    <li>細かな修正</li>
+                </ul>
                 <span class="date">2022/08/25</span>
                 <ul>
                     <li>シーズン18で追加された武器、媒体を追加</li>
