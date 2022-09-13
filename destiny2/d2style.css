@@ -147,10 +147,23 @@ th {
     text-align: left;
 }
 
-.debuff td.icon,
-.buff td.icon {
+th.icon {
+    background: #737f81;
+    min-width: 0em;
+    padding: 0em;
+}
+
+td.icon {
+    background: #737f81;
     min-width: 0em;
     text-align: center;
+    padding: 0em;
+}
+
+img.table {
+    width: 2em;
+    height: 2em;
+    vertical-align: bottom;
 }
 
 td {
@@ -160,29 +173,19 @@ td {
 
 .debuff td.icon {
     background: hsl(273, 12%, 42%);
-    padding: 0em;
-}
-
-.debuff img.table {
-    width: 3em;
-    height: 3em;
-    vertical-align: bottom;
 }
 
 .buff td.icon {
     background: hsl(20, 31%, 31%);
-    padding: 0em;
-}
-
-.debuff img.table,
-.buff img.table {
-    width: 3em;
-    height: 3em;
-    vertical-align: bottom;
 }
 
 td.name {
     text-align: left;
+}
+
+table.grenade {
+    margin-bottom: 0.9em;
+    font-size: 90%
 }
 
 h3 {
@@ -253,7 +256,6 @@ img.head {
 }
 
 table.tablesorter {
-    background-size: 100% 100%;
     margin-bottom: 0.9em;
     font-size: 90%
 }
@@ -269,11 +271,6 @@ table.tablesorter {
 
 .tablesorter th.name {
     padding-right: 0.5em;
-}
-
-th.icon {
-    background: #737f81;
-    padding: 0em;
 }
 
 .tablesorter-headerUnSorted {
