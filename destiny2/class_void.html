@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Destiny 2 クラス解説 - ボイド - depth's Toybox</title>
+    <meta name="description" content="ページの説明">
+
+    <!-- Twitterバナーの設定 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@depth172">
+    <meta name="twitter:title" content="Destiny 2 クラス解説 - ボイド - depth's Toybox">
+    <meta name="twitter:description" content="Destiny 2のボイド属性に関する効果、サブクラスのスキル、特性、かけらなどについて解説しています。">
+    <meta name="twitter:image" content="https://depth172.github.io/img/card-summary.png">
+
+    <!-- デザイン関連 -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="d2style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <a name="top"></a>
+    <div class="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
+        <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
+        <h1>クラス解説 - ボイド</h1>
+        <hr>
+        <div class="title_bar">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 クラス解説 - ボイド" data-url="http://depth172.github.io/destiny2/class_void.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                const last = new Date(document.lastModified);
+                const year = last.getFullYear();
+                const month = last.getMonth() + 1;
+                const date = last.getDate();
+
+                const target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+
+        <p class="intro">Destiny 2のボイドに関する効果、サブクラスのスキル、特性、かけらなどについて解説します。</p>
+
+        <h2>目次</h2>
+
+        <div class="toc">
+            <ul>
+                <li><a href="#notice">注意事項・用語解説</a></li>
+                <details>
+                    <summary>ボイド属性の固有効果</summary>
+                    <ul>
+                        <li><a href="#devour">吸引</a></li>
+                        <li><a href="#invisibility">透明化</a></li>
+                        <li><a href="#overshield">オーバーシールド</a></li>
+                        <li><a href="#suppression">抑制</a></li>
+                        <li><a href="#volatile">不安定化</a></li>
+                        <li><a href="#weaken">弱体化</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ボイド属性のかけら</summary>
+                    <ul>
+                        <li><a href="#echo_of_expulsion">駆逐の残響</a></li>
+                        <li><a href="#echo_of_provision">備蓄の残響</a></li>
+                        <li><a href="#echo_of_exchange">交換の残響</a></li>
+                        <li><a href="#echo_of_remnants">名残の残響</a></li>
+                        <li><a href="#echo_of_reprisal">報復の残響</a></li>
+                        <li><a href="#echo_of_undermining">侵食の残響</a></li>
+                        <li><a href="#echo_of_persistence">固執の残響</a></li>
+                        <li><a href="#echo_of_leeching">吸収の残響</a></li>
+                        <li><a href="#echo_of_domineering">圧制の残響</a></li>
+                        <li><a href="#echo_of_dilation">拡張の残響</a></li>
+                        <li><a href="#echo_of_instability">不安定の残響</a></li>
+                        <li><a href="#echo_of_harvest">収穫の残響</a></li>
+                        <li><a href="#echo_of_obscurity">闇の残響</a></li>
+                        <li><a href="#echo_of_starvation">飢餓の残響</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ボイド属性のグレネード</summary>
+                    <ul>
+                        <li><a href="#grenades">グレネードスキル一覧</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>センティネル（タイタン）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#ward_of_dawn">ドーン・ウォード</a></li>
+                                <li><a href="#ward_of_dawn">センティネルシールド</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#shield_bash">シールドバッシュ</a></li>
+                                <li><a href="#shield_throw">シールド投げ</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#controlled_demorition">爆破解体</a></li>
+                                <li><a href="#bastion">バスティオン</a></li>
+                                <li><a href="#offensive_bulwark">攻性防壁</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ナイトクローラー（ハンター）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#deadfall">シャドウショット: 落罠</a></li>
+                                <li><a href="#moebius_quiver">シャドウショット: メビウスの矢筒</a></li>
+                                <li><a href="#spectral_blades">亡霊の刃</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#snare_bomb">スネア爆弾</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#trappers_ambush">罠師の奇襲</a></li>
+                                <li><a href="#vanishing_step">消足</a></li>
+                                <li><a href="#stylish_executioner">粋な処刑人</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ボイドウォーカー（ウォーロック）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#cataclysm">ノヴァボム: 大変動</a></li>
+                                <li><a href="#vortex">ノヴァボム: ボルテックス</a></li>
+                                <li><a href="#nova_warp">ノヴァワープ</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#pocket_singularity">懐中特異点</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#child_of_the_old_gods">古き神々の子</a></li>
+                                <li><a href="#chaos_accelerant">カオス促進剤</a></li>
+                                <li><a href="#feed_the_void">ボイドの餌</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <li><a href="#source">出典</a></li>
+                <li><a href="#challenge_log">更新履歴</a></li>
+                <li><a href="#comments">コメント</a></li>
+            </ul>
+        </div>
+
+        <p>
+            右三角形はクリックすることで展開できます。
+            <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
+        </p>
+
+        <a name="notice"></a>
+        <h2>注意事項・用語解説</h2>
+        <ul>
+            <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。
+                <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
+            <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについてはパーク自体が記載されていない場合もあります。</li>
+            <li>PvEでのダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
+            <li>武器ダメージが増加するものに関して、<span class="c_void">全体デバフ</span>や<span class="c_solar">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
+                <a href="./buff_stacking.html">強化・弱体化の種類と重複について</a> をお読みください。</li>
+            <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
+        </ul>
+        <dl>
+            <dt>キル</dt>
+            <dd>敵を倒すこと。</dd>
+            <dt>近接スキル（チャージ近接）</dt>
+            <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
+            <dt>HPとシールド</dt>
+            <dd>自身のHPバーのうち <b>70</b> HPは自身の体力で、それ以上の部分はシールドとなっている。シールドのHPは耐久力によって <b>115.01</b> ～ <b>130</b> まで変動する。詳しくは<a href="./base_stats.html#resilience">耐久力</a>の項目を参照。</dd>
+        </dl>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <!-- 最初 -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="3593793015" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+        <h2>ボイド属性の固有効果</h2>
+
+        <a name="devour"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/30256671e72d3fa3fa07883a37c92790.png" class="head">吸引</h3>
+        <div class="text">
+            発動時にHPを<b>全回復</b>し、グレネードエネルギーを <b>20%</b> 回復させる。
+            <br>また、吸引が発動している間にキルをすると、HPを<b>全回復</b>し、グレネードエネルギーを <b>16%～24%</b> 回復させる。
+            <br>回復量は敵のランクによって変動する。
+        </div>
+
+        <a name="invisibility"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/e57deeeb72f8e4e483d909553cdbe615.png" class="head">透明化</h3>
+        <div class="text">
+            透明化すると敵から<b>視認されづらく</b>なり、<b>敵のレーダーから消える。</b>
+            <br>ただし、<b>激しい行動</b>は透明化中でもレーダーに反応し、<b>攻撃的な行動</b>を取ると透明化は解除される。
+            <br>PvPでは、激しい行動を起こしていなくとも <b>5秒ごと</b> に <b>0.6秒間</b> レーダーに反応する。
+            <details>
+                <summary>レーダーに反応・透明化を解除させる行動について</summary>
+                <ul>
+                    <li>透明化に<b>影響しない</b>行動
+                        <ul>
+                            <li>立つ・しゃがむ</li>
+                            <li>歩く・しゃがみ歩き</li>
+                            <li>通常のジャンプ</li>
+                            <li>ダッシュの継続（<b>ダッシュ中に</b>透明化した場合）</li>
+                            <li>武器を持ち替える</li>
+                            <li>マップに落ちているレリックや武器を拾う</li>
+                        </ul>
+                    </li>
+                    <li>透明化中でも、<b>レーダーに反応される</b>行動
+                        <ul>
+                            <li>ダッシュを開始する</li>
+                            <li>ジャンプスキル（リフト、ダブルジャンプ、グライディング）を使用する</li>
+                            <li>ハンターで回避をする</li>
+                        </ul>
+                    </li>
+                    <li><b>透明化を解除する</b>行動
+                        <ul>
+                            <li>武器を使用する</li>
+                            <li>グレネードを投げる・消費する</li>
+                            <li>近接攻撃をする・近接スキルを使用する</li>
+                            <li>スーパースキルを発動する</li>
+                            <li>バリケードやリフトを展開する</li>
+                            <li>ボイドウォーカーでブリンクを使用する</li>
+                            <li>スパローを召喚する</li>
+                        </ul>
+                    </li>
+                </ul>
+            </details>
+        </div>
+
+        <a name="overshield"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/da2abbeeac9dcc81469f046d0dffa960.png" class="head">オーバーシールド</h3>
+        <div class="text">
+            通常のHP・シールドに加え、追加でダメージを <b>10秒間</b> 肩代わりするシールド。PvEのみ、敵からのダメージを <b>-25%</b> 軽減する。
+            <br>近接キルをすると、効果時間が <b>+6秒</b> 延長される。シールドのHPは、付与するスキルによって変化することがある。特筆しない場合は <b>45HP</b> 。
+            <br>ただし、回復のリフトの中ではオーバーシールドは得られない。
+        </div>
+
+        <a name="suppression"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/42f76ab49aa30e675e87c9ea84cc3045.png" class="head">抑制（鎮圧）</h3>
+        <div class="text">
+            PvEでは、抑制された敵は<b>攻撃を停止</b>し、さらに<b>盲目状態</b>となり、腕で弱点を隠そうとする。
+            <br>PvPでは<b>あらゆるスキルを使用不能</b>にさせる。
+            <details>
+                <summary>効果発動の詳細</summary>
+                PvEでは、以下の敵には抑制による攻撃停止効果はない。
+                <ul>
+                    <li>ボス</li>
+                    <li>チャンピオン</li>
+                    <li>ビークル</li>
+                    <li>タレット</li>
+                </ul>
+                また、サイクロプスやシュリーカーは通常とは異なる挙動を示す。
+                <ul>
+                    <li>サイクロプスは抑制時、HPが減ったときのようにキャノンを乱射する。</li>
+                    <li>シュリーカーは抑制時、外殻を閉じる。</li>
+                </ul>
+                PvPでは、抑制した敵に以下の行動をすべて禁止させる。発動中だった場合は<b>中断</b>させる。
+                <ul>
+                    <li>ジャンプスキル（リフト、ダブルジャンプ、グライディング、ブリンク）</li>
+                    <li>グレネードを投げる・消費する</li>
+                    <li>近接スキルを使用する</li>
+                    <li>クラススキルを使用する</li>
+                    <li>スーパースキルを発動する</li>
+                </ul>
+            </details>
+        </div>
+
+        <a name="volatile"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/85e220ef679948dab46382d330fcf720.png" class="head">不安定化（ボラタイル）</h3>
+        <div class="text">
+            不安定なボイドエネルギーに侵され、死亡するか <b>200</b> ダメージを受けた際に<b>爆発</b>する。
+            <br>爆発時、周囲に <b>160</b> ダメージ（PvPでは不明）を与える。
+        </div>
+
+        <a name="weaken"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/230cdbac8318da3ea7d9c11e71a33c67.png" class="head">弱体化</h3>
+        <div class="text">
+            弱体化を付与されると、受けるダメージが <b>+15%</b>（PvPでは <b>+7.5%</b> ）増加する。PvEの敵は、<b>動きが遅く</b>なる。
+            <br>PvPでは、効果時間が<b>半分</b>になる。<span class="c_void">全体デバフ</span>に分類され、他の全体デバフがある場合はそちらに上書きされる。
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="grenades"></a>
+        <h2>グレネードスキル一覧</h2>
+        <div class="text">
+            継続タイプのグレネードは、複数の同じグレネードを投げてもダメージは1個分しかない。
+            <br><b>例</b>: ボルテックスグレネード2個は1個分のダメージしか与えられないが、ボルテックスグレネードとボイドスパイクを同時に投げると相応のダメージを与えられる。
+        </div>
+
+        <table class="grenade">
+            <thead>
+                <tr>
+                    <th class="icon" style="background: #ccdae4;"></th>
+                    <th>名称</th>
+                    <th>タイプ</th>
+                    <th>ダメージ</th>
+                    <th>クール<br>ダウン (秒)</th>
+                    <th>持続時間<br>(秒)</th>
+                    <th>範囲 (m)</th>
+                    <th>起動までの<br>準備時間 (秒)</th>
+                    <th>初ヒットから<br>の遅延 (秒)</th>
+                    <th>ダメージ<br>頻度 (秒)</th>
+                    <th>備考</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/aa8480964870b6b8be7d19ee68814b14.jpg" class="table"></th>
+                    <th>ボイドスパイク</th>
+                    <td style="text-align: center;"><b>接着 / 継続</b></td>
+                    <td><b>199</b></td>
+                    <td><b>91</b></td>
+                    <td><b>4</b></td>
+                    <td style="text-align: center;">x</td>
+                    <td><b>0.3</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>0.27</b></td>
+                    <td class="name">グレネード本体のHPは10。<br>初回の3ヒットは29ダメージ。それ以降は28ダメージ。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e1fe72608ed560d20f81ff41c8997fb7.jpg" class="table"></th>
+                    <th>ボイドウォール</th>
+                    <td style="text-align: center;"><b>継続</b></td>
+                    <td><b>192</b></td>
+                    <td><b>105</b></td>
+                    <td><b>4</b></td>
+                    <td><b>10</b></td>
+                    <td><b>0.43</b></td>
+                    <td style="text-align: center;">x</td>
+                    <td><b>0.27</b></td>
+                    <td class="name">初回のヒットは52ダメージ。それ以降は35ダメージ。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/bbdf2e0f41bad0fdf167aace75b88b8a.jpg" class="table"></th>
+                    <th>サプレッサーグレネード</th>
+                    <td style="text-align: center;"><b>通常</b></td>
+                    <td><b>150</b></td>
+                    <td><b>121</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>9</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td class="name">敵を <b>10秒間</b> 抑制状態にする。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c0380f98212741e67092cb0a5080ee16.jpg" class="table"></th>
+                    <th>ボルテックスグレネード</th>
+                    <td style="text-align: center;"><b>継続</b></td>
+                    <td><b>200</b></td>
+                    <td><b>121</b></td>
+                    <td><b>4</b></td>
+                    <td><b>5</b> (着弾時)<br><b>4</b> (継続)</td>
+                    <td><b>0.3</b></td>
+                    <td><b>1.07</b></td>
+                    <td><b>0.27</b></td>
+                    <td class="name">初回のヒットは25ダメージ。それ以降は20ダメージ。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/4809222d69a67300601706cc70fec814.jpg" class="table"></th>
+                    <th>スキャッターグレネード</th>
+                    <td style="text-align: center;"><b>通常 / 複数回</b></td>
+                    <td><b>(20 + 16)×8</b></td>
+                    <td><b>121</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>4</b> (拡散時)<br><b>4</b> (爆発時)</td>
+                    <td style="text-align: center;">x</td>
+                    <td>不明</td>
+                    <td>不明</td>
+                    <td class="name">
+                        8個の子弾に拡散し、2回爆発。1回目で20ダメージ、2回目で16ダメージを与える。
+                        <br>着弾時は4mの範囲で拡散し、子弾が4mの範囲で爆発するため、合計の効果範囲は8m。
+                    </td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1be0be8f8b7d67414b6f96ff0562f527.jpg" class="table"></th>
+                    <th>磁気グレネード</th>
+                    <td style="text-align: center;"><b>接着 / 複数回</b></td>
+                    <td><b>151</b></td>
+                    <td><b>121</b></td>
+                    <td><b>1.5</b></td>
+                    <td><b>5</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>1.07</b></td>
+                    <td><b>0.5</b></td>
+                    <td class="name">爆発時75ダメージ×2。直撃すると2ダメージ。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/5212672b29258f5fe2dce884083f69e1.jpg" class="table"></th>
+                    <th>アクシオンボルト</th>
+                    <td style="text-align: center;"><b>検知</b></td>
+                    <td><b>102</b></td>
+                    <td><b>91</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>13</b></td>
+                    <td><b>1.07</b></td>
+                    <td>不明</td>
+                    <td style="text-align: center;">-</td>
+                    <td class="name">爆発時100ダメージ。直撃すると2ダメージ。</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <!-- 間1 -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="8271404627" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+        <h2>ボイド属性のかけら一覧</h2>
+
+        <a name="echo_of_expulsion"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d6500235bb175f0fc3752cab0a170fd2.jpg" class="h3">駆逐の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ボイドスキルで敵をキルすると、敵が<b>爆発</b>し、<b>7m以内</b> の敵に一定量のダメージ（PvPでは <b>130</b> ダメージ）を与える。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>知性: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_provision"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1c16b5205d6a648b9898cce6ac3a01b3.jpg" class="h3">備蓄の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードでダメージを与えると、<b>近接エネルギーが回復</b>する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>腕力: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_exchange"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e5a6ac0f38df212a40dc541bb46f354f.jpg" class="h3">交換の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>近接攻撃で敵をキルすると、グレネードエネルギーが <b>15%</b> 回復する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_remnants"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ce12bd0f246e834c8f7e102079814bf9.jpg" class="h3">名残の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードの効果時間が <b>+2秒</b> 延長される。</li>
+                <li>カオス促進剤などの、グレネードに関する他の効果の影響を受けない。</li>
+                <li>効果があるのは以下のグレネードのみ。
+                    <ul>
+                        <li>ボイドスパイク</li>
+                        <li>ボイドウォール</li>
+                        <li>ボルテックスグレネード</li>
+                        <li>アクシオンボルト</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_reprisal"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6a0118280ba432e796048648993d7765.jpg" class="h3">報復の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>8m以内</b> に <b>3体以上</b> の敵がいる状態で敵を倒すと、<b>スーパーエネルギーが回復</b>する。</li>
+                <li><b>3体以上</b> を連続で倒すと、さらに多くのスーパーエネルギーが回復する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_undermining"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b114e9d97c42a68b19ab7876a221b354.jpg" class="h3">侵食の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードがヒットした敵を、<b>5秒間</b> <a href="#weaken">弱体化</a>させる。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>鍛錬: <b>-20</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_persistence"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/914309029085289921f77d8207765150.jpg" class="h3">固執の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#devour">吸引</a>、<a href="#invisibility">透明化</a>、<a href="overshield">オーバーシールド</a>の<b>効果時間を延長</b>する。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間増加量:
+                    <ul class="stats2">
+                        <li>吸引: <b>+5秒</b></li>
+                        <li>透明化: <b>+41.5%</b></li>
+                        <li>オーバーシールド: <b>+5秒</b></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>クラススキルステータス: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_leeching"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6aa22ca5ba309f264af5231969ec840a.jpg" class="h3">吸収の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>近接攻撃でキルをすると、自身と周囲の味方のHPの<b>自然再生が開始</b>する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>耐久力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_domineering"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/958ff340ae4ce16d7cf71c5268a13919.jpg" class="h3">圧制の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵を<a href="#supression">抑制</a>状態にすると、<b>10秒間</b> 可動性が <b>+30</b> され、使用中の武器が<b>リロード</b>される。</li>
+                <li>効果時間中の再発動はできない。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>鍛錬: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_dilation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/029faa3dc0d82eefef581dec7820d643.jpg" class="h3">拡張の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>しゃがみ歩きの速度が <b>4 m/s</b> に固定され、遅延の影響を受けなくなる。</li>
+                <li>また、しゃがみ中に<b>レーダーが強化</b>される。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>可動性: <b>+10</b></li>
+                <li>知性: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_instability"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0ad46f9c0c14535c4d5776daf48e871e.jpg" class="h3">不安定の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードで敵をキルすると、<b>10秒間</b> 自身のボイド属性武器に<b>ボラタイル弾</b>を付与する。</li>
+                <li>ボラタイル弾は、攻撃した敵を<a href="#volatile">不安定化</a>状態にする効果がある。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>腕力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_harvest"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6bd23524f7129761043724acbe90c7b5.jpg" class="h3">収穫の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#weaken">弱体化</a>した敵を精密キルすると、<b>力のオーブが生成</b>される。</li>
+                <li>この効果には <b>10秒間</b> のクールダウンがある。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>知性: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_obscurity"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7d711ce4bcfb264da29c289ff70b9876.jpg" class="h3">闇の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>フィニッシャーで敵をキルすると、<b>4.8秒間</b> <a href="#invisibility">透明化</a>する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>回復力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="echo_of_starvation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/19219ecd56fef82e9ead65aed8fea63a.jpg" class="h3">飢餓の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>力のオーブを拾うと、<b>5秒間</b> <a href="#devour">吸引</a>状態になる。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>回復力: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <!-- 間2 -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="8649597005" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+        <h2>センティネルのスーパースキル</h2>
+
+        <a name="ward_of_dawn"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/91eec50f00de84db8b666ec299859a21.png" class="head">ドーン・ウォード</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>417秒</b> (ランク5)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>半径3m</b> のドームを展開し、中にいる味方に <b>625HP</b> の精密ダメージを阻止するオーバーシールドを付与する。</li>
+                <li>ドームの外側から内側へ、または内側から外側へ攻撃を通すことはできない。</li>
+                <li>ドームを通ると、<b>15秒間</b> 武器ダメージが <span class="c_solar"><b>+25%</b></span> 増加する。</li>
+                <li>ドームは <b>13500HP</b> で、これを超えるダメージを受けると破壊される。ガーディアンのスキルからは、より大きなダメージを受ける。</li>
+                <li>また、ボスからの攻撃は、使用者の耐久力に応じて <b>+600%</b> ～ <b>-75%</b> のダメージを受ける。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="sentinel_shield"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/f02fd0d90b8d3d7182b9c7cab1a46f64.png" class="head">センティネルシールド</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>556秒</b> (ランク2)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>シールドによる攻撃を行える。グレネードボタンを押すことで<b>シールドを投げる</b>ことができる。</li>
+                <li>また、ブロックボタンを押すことで<b>防御</b>をし、後ろにいる味方を守ることができる。</li>
+                <li>これによって防御されている味方は、武器ダメージが <span class="c_solar"><b>+40%</b></span> 増加する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <h2>センティネルの近接スキル</h2>
+
+        <a name="shield_bash"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ea6c9bcd39c249ea1acfab188e93cd85.jpg" class="h3">シールドバッシュ</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>90秒</b></li>
+                <li>ダメージ: <b>120</b> (直撃) + <b>40</b> (範囲ダメージ)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>1.25秒</b> 以上のダッシュ中か、その後のスライディング中に近接攻撃ボタンを押すと、前方にシールドを構えながら突撃する。</li>
+                <li>この攻撃がヒットした敵は<a href="#supression">抑制</a>状態になる。</li>
+                <li>さらに、この攻撃で敵をキルすると、自身に <b>45HP</b> の<a href="#overshield">ボイドのオーバーシールド</a>を付与する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="shield_throw"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/aec868e7b28d12707c7b5d7f54d68616.jpg" class="h3">シールド投げ</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>100秒</b></li>
+                <li>ダメージ: <b>70</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>前方にシールドを投げる。シールドは敵や障害物に当たると跳ね返る。</li>
+                <li>この攻撃がヒットすると、自身に <b>15HP</b> の<a href="#overshield">ボイドのオーバーシールド</a>が付与される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <h2>センティネルの特性</h2>
+
+        <a name="controlled_demolition"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ab2545998f350de7b29549d2b19996e2.jpg" class="h3">爆破解体</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ボイドのスキルダメージ、もしくは<a href="#volatile">不安定化</a>の爆発ダメージを受けた敵を<a href="#volatile">不安定化</a>状態にさせる。</li>
+                <li>また、一定範囲内で不安定化状態の敵が爆発すると、自身と周囲の味方のHPを <b>90HP</b> 回復する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="bastion"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5428b311ff07d2bacb073e551ed2bea1.jpg" class="h3">バスティオン</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>1個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>自身と周囲の味方に <b>45HP</b> の<a href="#overshield">ボイドのオーバーシールド</a>を付与する、<b>特殊なバリケード</b>を展開する。</li>
+                <li>バリケードの後ろに立つと、オーバーシールドが1秒につき <b>10HP</b> 回復し、オーバーシールドの<b>効果時間がリセット</b>される。</li>
+                <li>このバリケードはガーディアンから受けるダメージが <b>+20%</b> 増加しており、頑強・反撃のどちらを選んでいても基本クールダウンが <b>82秒</b> に変更される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="offensive_bulwark"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/68683d4544848844a1fe0acdf7417019.jpg" class="h3">攻性防壁</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>センティネルシールド発動時、シールド投げのチャージが <b>1個 追加</b>される。</li>
+                <li>また、<a href="#overshield">ボイドのオーバーシールド</a>が付与されているかドーン・ウォード内にいる間、グレネードエネルギーの<b>回復速度が増加</b>し、近接攻撃の<b>ダメージと射程距離が増加</b>する。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>グレネード回復速度</th>
+                        <th>近接攻撃ダメージ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>PvE</th>
+                        <td><b>+400%</b></td>
+                        <td><b>+100%</b></td>
+                    </tr>
+                    <tr>
+                        <th>PvP</th>
+                        <td><b>+160%</b></td>
+                        <td><b>+20%</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <!-- 間3 -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="4240165438" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+        <h2>ナイトクローラーのスーパースキル</h2>
+
+        <a name="moebius_quiver"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/af58a42be4e803d1b5a7885b13985977.png" class="head">シャドウショット: メビウスの矢筒</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>500秒</b> (ランク3)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵を追尾する3本の矢を発射する。再度スーパースキル発動ボタンを押すことで、矢を <b>2回</b> まで発射可能。</li>
+                <li>矢は刺さった場所で<b>ボイドアンカー</b>となり、近くの敵を<b>束縛</b>する。</li>
+                <li>束縛された敵は<a href="#weaken">弱体化</a>、<a href="#suppression">抑制</a>、<a href="#volatile">不安定化</a>状態になり、受けるダメージが <span class="c_void"><b>+30%</b></span> （PvPでは <span class="c_void"><b>+50%</b></span> ）増加する。</li>
+                <li>また、束縛状態の敵を倒すと、ボイドアンカーの効果時間が延びる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="deadfall"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/a30563f95eea66ef729a4e65a7152fa7.png" class="head">シャドウショット: 落罠</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>455秒</b> (ランク4)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵を追尾する矢を発射する。矢は着弾時に<b>周囲の敵を引き寄せる。</b></li>
+                <li>矢は刺さった場所で<b>ボイドアンカー</b>となり、近くの敵を<b>束縛</b>する。</li>
+                <li>束縛された敵は<a href="#weaken">弱体化</a>、<a href="#suppression">抑制</a>、<a href="#volatile">不安定化</a>状態になり、受けるダメージが <span class="c_void"><b>+30%</b></span> （PvPでは <span class="c_void"><b>+50%</b></span> ）増加する。</li>
+                <li>また、束縛された敵は <b>30秒間</b>（PvPでは <b>10秒間</b> ）マークされ、壁越しに視認できるようになる。</li>
+                <li>さらに、束縛状態の敵を倒すと、ボイドアンカーの効果時間が延びる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="spectral_blades"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/a219dacf9847a5c6174d096ce394e460.png" class="head">亡霊の刃</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>625秒</b> (ランク1)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>弱攻撃で素早い近接攻撃を繰り出し、強攻撃で攻撃と共に<a href="#invisibility">透明化</a>する。</li>
+                <li>このスキルの発動中は、透明化状態で走っても<b>レーダーに映らない。</b></li>
+                <li>透明化中は、時間経過によるスーパーエネルギーの消費量が <b>-50%</b> 軽減される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <h2>ナイトクローラーの近接スキル</h2>
+
+        <a name="snare_bomb"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/528606d6c47a06743088250148150e63.jpg" class="h3">スネア爆弾</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>90秒</b></li>
+                <li>ダメージ: <b>10</b> (直撃) + <b>40 + 9</b> (範囲ダメージ)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>壁や床に接着して設置し、<b>10秒間</b> 持続するスモーク爆弾を設置する。</li>
+                <li>設置から <b>5秒間</b> 、敵のレーダーに反応し、敵が近づくと起爆する。</li>
+                <li>起爆後、煙の中に入っていた敵は <b>5秒間</b>（PvPでは <b>2.5秒間</b> ）<a href="#weaken">弱体化</a>し、<b>移動速度が低下</b>し、<b>視界とHUDが阻害</b>される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <h2>ナイトクローラーの特性</h2>
+
+        <a name="vanishing_step"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f23323d11f0ad79781f91c70f4c644ac.jpg" class="h3">消足</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>回避をすると、<b>4.8秒間</b> <a href="#invisibility">透明化</a>する。</li>
+                <li>元の効果時間が <b>5秒以上</b> ある透明化を既にしていた場合は、その効果時間をリセットする。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="trappers_ambush"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e91760df2b81d191da9e2c62cb3fcda7.jpg" class="h3">罠師の奇襲</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>空中戦術ボタンを押すと、近接エネルギーを <b>1個</b> 消費し、地上へ<b>急降下</b>する。着地時、地面に<b>煙の雲</b>を生成する。</li>
+                <li>煙の雲内にいる敵は<a href="#weaken">弱体化</a>し、味方は <b>6.3秒間</b> <a href="#invisibility">透明化</a>する。</li>
+                <li>さらに、スネア爆弾が設置された際、その近くにいる自身や味方は <b>4.8秒間</b> <a href="#invisibility">透明化</a>するようになる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <a name="stylish_executioner"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ed7f8c49b77fa46f4eec87a3c167c4b1.jpg" class="h3">粋な処刑人</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>1個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ボイドのデバフを受けた敵を倒すと、<a href="#invisibility">透明化</a>が <b>7.8秒間</b>、トゥルーサイトが <b>4秒間</b> 付与される。</li>
+                <li>トゥルーサイト発動中は、最大 <b>63m</b> までの敵を透視できる。</li>
+                <li>また、これによって得た透明化中に、敵に近接攻撃をすると、その威力が <b>+150%</b>（PvPでは <b>+20%</b> ）増加し、対象の敵を <b>3秒間</b> <a href="#weaken">弱体化</a>させる。</li>
+                <li>この特性を発動させると <b>スタイリッシュ過剰</b> のデバフが <b>2秒間</b>（PvPでは <b>12秒間</b> ）付与され、この間は効果を再発動できない。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <!-- 間4 -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="6674757086" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+        <a name="source"></a>
+        <h2>出典</h2>
+
+        <a href="https://docs.google.com/spreadsheets/d/1WaxvbLx7UoSZaBqdFr1u32F2uWVLo-CJunJB4nlGUE4">The Destiny Data Compendium</a><br>
+        <a href="https://docs.google.com/spreadsheets/d/1i1KUwgVkd8qhwYj481gkV9sZNJQCE-C3Q-dpQutPCi4">The Comprehensive Destiny 2 Data & Information</a>
+
+        <a name="challenge_log"></a>
+        <h2>更新履歴</h2>
+
+        <div class="box">
+            <div>
+                <span class="date">今日の日付</span>
+                <ul>
+                    <li>初版完成</li>
+                </ul>
+            </div>
+        </div>
+
+        <a name="comments"></a>
+        <!-- begin wwww.htmlcommentbox.com -->
+        <script type="text/javascript" src="../js/htmlcommentbox.js"></script>
+
+        <div id="HCB_comment_box">コメントを読み込んでいます...</div>
+        <link rel="stylesheet" type="text/css" href="/css/twitter-bootstrap.css" />
+        <script type="text/javascript" id="hcb">
+            /*<!--*/
+            if (!window.hcb_user) {
+                hcb_user = {};
+            }(function() {
+                var s = document.createElement("script"),
+                    l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
+                    h = "https://www.htmlcommentbox.com";
+                s.setAttribute("type", "text/javascript");
+                s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%240S16uY.Oh6y9MR3cBrjg21" + "&opts=16798&num=10&ts=1642331857298");
+                if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s);
+            })(); /*-->*/
+        </script>
+        <!-- end www.htmlcommentbox.com -->
+
+        <hr>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <!-- 最後 -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="2253130494" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="footer"><a href="#top">一番上に戻る ▲</a></div>
+    </div>
+</body>
+
+</html>
