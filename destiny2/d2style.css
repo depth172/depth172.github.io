@@ -86,7 +86,7 @@ dt {
     font-weight: bold;
 }
 
-table {
+table.list {
     border: none;
     overflow-x: auto;
     display: block;
@@ -96,19 +96,18 @@ table {
     padding-right: 0.1em;
 }
 
-th:first-child {
+.list th:first-child {
     white-space: nowrap;
     position: sticky;
     top: 0;
     left: 0;
-}
-
-th:first-child {
     z-index: 1;
 }
 
-td,
-th {
+.tablesorter td,
+.tablesorter th,
+.list td,
+.list th {
     border-right: 1px solid #a3a3a3;
     border-bottom: 1px solid #a3a3a3;
     margin: 0em;
@@ -116,19 +115,40 @@ th {
     white-space: nowrap;
 }
 
-thead tr:first-child th {
+.tablesorter thead tr:first-child th,
+.list thead tr:first-child th {
     border-top: 1px solid #a3a3a3;
 }
 
-th:first-child {
+.tablesorter th:first-child,
+.list th:first-child {
     border-left: 1px solid #a3a3a3;
 }
 
-th {
+.list th {
     background: #ccdae4;
     padding-left: 0.5em;
     padding-right: 0.5em;
     font-weight: normal;
+}
+
+table.debuff,
+table.buff {
+    border-collapse: collapse;
+    margin: 0.4em;
+}
+
+.debuff td,
+.debuff th,
+.buff td,
+.buff th {
+    border: 1px solid #a3a3a3;
+    padding: 0.4em 0.4em 0em;
+}
+
+.debuff th,
+.buff th {
+    background: #ccdae4;
 }
 
 .debuff tr {
@@ -161,12 +181,12 @@ td.icon {
 }
 
 img.table {
-    width: 2em;
-    height: 2em;
+    width: 2.5em;
+    height: 2.5em;
     vertical-align: bottom;
 }
 
-td {
+.list td {
     text-align: right;
     padding-inline: 0.4em;
 }
@@ -249,20 +269,41 @@ img.head {
 }
 
 .tablesorter img.table {
-    width: 2em;
-    height: 2em;
+    width: 2.2em;
+    height: 2.2em;
     vertical-align: bottom;
-    padding-block: 0.2em;
+    padding: 0.1em;
+}
+
+.tablesorter td,
+.tablesorter th {
+    padding-inline: 0.4em;
+    min-width: 0px;
+}
+
+.tablesorter th:first-child {
+    padding: 0em;
 }
 
 table.tablesorter {
+    border-collapse: collapse;
     margin-bottom: 0.9em;
-    font-size: 90%
+    font-size: 90%;
+    border: none;
+    overflow-x: auto;
+    display: block;
+    table-layout: fixed;
+    border-spacing: 0;
+    margin: 0.4em;
 }
 
 .tablesorter th {
     padding-left: 0.5em;
     padding-right: 1.2em;
+}
+
+.tablesorter-header {
+    background: #ccdae4;
 }
 
 .tablesorter td {
@@ -273,23 +314,33 @@ table.tablesorter {
     padding-right: 0.5em;
 }
 
+.tablesorter .num {
+    text-align: right;
+    padding-inline: 0.6em 0.4em;
+}
+
 .tablesorter-headerUnSorted {
     background-image: url('../img/sort.png');
     background-repeat: no-repeat;
     background-position: center right;
+    padding-bottom: 2px;
 }
 
-.tablesorter-headerAsc {
+th.tablesorter-headerAsc {
     background-image: url('../img/sort_u.png');
     background-repeat: no-repeat;
     background-position: center right;
+    border: none;
+    border-right: 1px solid #a3a3a3;
     border-bottom: #222 2px solid;
 }
 
-.tablesorter-headerDesc {
+th.tablesorter-headerDesc {
     background-image: url('../img/sort_d.png');
     background-repeat: no-repeat;
     background-position: center right;
+    border: none;
+    border-right: 1px solid #a3a3a3;
     border-bottom: #222 2px solid;
 }
 
