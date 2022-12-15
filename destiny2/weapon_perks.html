@@ -121,6 +121,7 @@
                         <li><a href="#souldrinker">ソウルドリンカー</a></li>
                         <li><a href="#runneth_over">装填過多</a></li>
                         <li><a href="#bitterspite">ビタースパイト</a></li>
+                        <li><a href="#tex_balanced_stock">テックス・バランスストック</a></li>
                         <li><a href="#classy_contender">クラス候補</a></li>
                         <li><a href="#dream_work">ドリームワーク</a></li>
                         <li><a href="#search_party">捜索隊</a></li>
@@ -325,7 +326,7 @@
         <div class="back"><a href="#top">▲</a></div>
 
         <a name="calcurate"></a>
-        <h2>増加量の計算について</h2>e
+        <h2>増加量の計算について</h2>
         <p>すべての数値は、何もバフ・デバフを受けていない状態を100%としています。
             <br>例として、暴れん坊をx1付与した際の増加率は +10% ですが、この場合は100%に+10%のバフがかかり合計で110%、つまり通常の1.1倍のダメージを与えられるということになります。
         </p>
@@ -769,6 +770,7 @@
             クルーシブル限定で入手できる武器に付与される。
             <div class="info">&lt;発動条件詳細&gt;</div>
             <b>5秒間</b> ダメージを与えるか受けるかしていないと発動する。
+            <br>キルをすると、このタイマーが <b>1.5秒間</b> まで減少する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>リロード速度: <b>+40</b></li>
@@ -800,6 +802,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>3秒</b></li>
+                <li>リロード量: <b>25%</b></li>
                 <li>HP回復量: <b>60</b></li>
                 <li>回復力: <b>+40</b></li>
             </ul>
@@ -858,9 +861,15 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             玉座の世界で入手できる武器に付与される。
+            <br>効果中の再発動はできない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>効果時間: <b>3秒</b></li>
+                <li>効果時間:
+                    <ul class="stats2">
+                        <li>PvE: <b>5秒</b></li>
+                        <li>PvP: <b>3秒</b></li>
+                    </ul>
+                </li>
                 <li>敵の与ダメージ量: <b>-10%</b></li>
             </ul>
         </div>
@@ -912,6 +921,7 @@
             幻影のシーズンの武器に付与される。
             <div class="info">&lt;発動条件詳細&gt;</div>
             <b>15m</b> の範囲内に、敵が <b>3体以上</b> もしくはナイトメアがいると発動する。
+            <br>発動はキルから <b>0.25秒</b> のディレイがあり、発動すると <b>3秒間</b> のクールダウンが発生する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>回復量: <b>40 HP</b></li>
@@ -956,13 +966,19 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             熾天使のシーズンの武器に付与される。
+            <br>この戦闘とは、ダメージを受けるか与えることを意味する。
             <br>ダメージ増加効果は<b>PvEの戦闘員</b>にのみ適用される。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: 戦闘開始から <b>2秒</b></li>
-                <li>ダメージ増加量: <b>+10%</b></li>
                 <li>射程距離: <b>+15</b></li>
                 <li>ハンドリング: <b>+10</b></li>
+                <li>ダメージ増加量:
+                    <ul class="stats2">
+                        <li>リニア・フュージョンライフル: <b>+8.88%</b></li>
+                        <li>それ以外の武器: <b>+10.78%</b></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1030,6 +1046,17 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
+        <a name="tex_balanced_stock"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1286620ab25dffda981c88b62bb4b3fe.png" class="h3">テックス・バランスストック</h3>
+        <div class="base">腰だめ撃ちで複数回ヒットさせると、ハンドリング、リロード速度、ADS時の移動速度が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            迷宮「監視者のスパイア」で入手できる武器に付与される。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            <b>4秒以内</b> に腰だめ撃ちでのヒットを <b>4回</b> すると発動する。
+        </div>
+        <div class="back"><a href="#top">▲</a></div>
+
         <a name="classy_contender"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ca855d250bb449c3e7239308312ae2d6.png" class="h3">クラス候補</h3>
         <div class="base">キルをするとクラススキルエネルギーを回復する。</div>
@@ -1079,6 +1106,7 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             暁旦で入手できる武器に付与される。
+            <br>暁旦の贈り物は、拾うとスキルエネルギーとHPが回復する。
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
@@ -1573,13 +1601,14 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             ダメージ増加効果は一次関数的なものであるため、スタック数は単なる増加の目安。
+            <br>バリケードや<a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a>などのオブジェクトはヒット判定にならない。
             <div class="info">&lt;発動条件詳細&gt;</div>
-            <b>0.2秒間</b> 射撃していないと効果は失われる。
+            <b>0.2秒間</b> 標的にヒットしないと効果は失われる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>スタック数 x1 で <b>+16.7%</b> 増加し、そこから段階的にダメージが増加していく。</li>
-                <li>スタック数 <b>x5</b> で最大となり、<b>+40%</b> の増加。</li>
-                <li>平均すると全体で約 <b>+25%</b> のダメージ増加効果となる。</li>
+                <li>マガジンの <b>105%</b> を射撃するとスタック数 <b>x5</b> で最大となり、<b>+40%</b> の増加。</li>
+                <li>装弾数を増加させるパークを使用しない場合、平均すると全体で約 <b>+25%</b> のダメージ増加効果となる。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             ダメージがさらに増加する。
@@ -1684,11 +1713,28 @@
         <div class="base">この武器で連続で精密ヒットするか別の武器でキルをすると、この武器の発射レートが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
-            他の武器でキルしてから <b>5.5秒以内</b> に持ち替えると発動する。
+            他の武器でキルをした場合は、キルをしてから <b>5.5秒以内</b> に持ち替えると発動する。
+            <br>精密ヒットで発動させる場合は、武器ごとに指定された回数の精密ヒットをすると発動する。
+            <ul class="stats">
+                <li>
+                    必要精密ヒット数:
+                    <ul class="stats2">
+                        <li>弓 / リニア・フュージョンライフル / ショットガン / スナイパーライフル: <b>2回</b></li>
+                        <li>ピストル / ハンドキャノン / スカウトライフル: <b>6回</b></li>
+                        <li>サブマシンガン / マシンガン: <b>13回</b></li>
+                    </ul>
+                </li>
+            </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>2.5秒</b></li>
-                <li>発射レート増加量: <b>+70%</b></li>
+                <li>
+                    発射レート増加量:
+                    <ul class="stats2">
+                        <li>オートライフル / スナイパーライフル: <b>+70%</b></li>
+                        <li>マシンガン: <b>+43%</b></li>
+                    </ul>
+                </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             効果時間が増加する。
@@ -1881,7 +1927,6 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             PvEではダメージが <b>x1.3</b> される。
-            <br>改造MOD「ドラゴンフライ特化」の効果は <b>受けない。</b>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>爆発半径: <b>3m</b></li>
@@ -2110,6 +2155,7 @@
                             <li>ハンドリング: <b>+50</b></li>
                         </ul>
                     </li>
+                </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
@@ -2123,7 +2169,17 @@
         <div class="base">長時間の戦闘で空中効果が向上し、ひるみが軽減される。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            空中効果のステータスは増加せず、空中にいる際の精度のみが向上する。
+            この戦闘とは、<b>6秒以内</b> にダメージを受けるか与えることを意味する。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li><b>6秒以上</b> の戦闘で発動する。
+                    <li>発動時:
+                        <ul class="stats2">
+                            <li>空中効果: <b>+30</b></li>
+                        </ul>
+                    </li>
+                </li>
+            </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
                 <li>「戦闘中」の判定が長くなる。</li>
@@ -2191,6 +2247,15 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c2f069ff4090c67e6976590765f13910.png" class="h3">オフハンド・ストライク</h3>
         <div class="base">キルをすると、腰だめ撃ちのときに限り、射程距離、安定性、精度が向上する。</div>
         <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>腰だめ撃ち時:
+                    <ul class="stats2">
+                        <li>精密判定増加 <b>+2.7°</b></li>
+                        <li>精度: <b>+100%</b><br></li>
+                    </ul>
+                </li>
+            </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
                 <li>効果時間が延長される。</li>
