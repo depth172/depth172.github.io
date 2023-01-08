@@ -40,12 +40,12 @@
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <span>最終更新日: <time id="modify"></time></span>
             <script>
-                const last = new Date(document.lastModified);
-                const year = last.getFullYear();
-                const month = last.getMonth() + 1;
-                const date = last.getDate();
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
 
-                const target = document.getElementById('modify');
+                var target = document.getElementById('modify');
                 target.textContent = year + '年' + month + '月' + date + '日';
             </script>
         </div>
@@ -1293,7 +1293,7 @@
             <table class="list">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>敵の数</th>
                         <th>0x</th>
                         <th>1x</th>
                         <th>2x</th>
@@ -1595,7 +1595,7 @@
                         <li><span class="stasis" />: 敵に遅延を <b>2秒間</b> 付与し、すでに遅延が付与されていた場合はその<b>持続時間をリセット</b>する。</li>
                     </ul>
                 </li>
-                <li>抑制効果はスーパースキル発動中のガーディアンには効果がなく、抑制させることで発動する他の効果は発動しない。</li>
+                <li>抑制効果はスーパースキル発動中のガーディアンには効果がない（軽度の抑制）。</li>
                 <li>また、遅延のスタック数は増加しない。</li>
             </ul>
         </div>
@@ -1656,9 +1656,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#snare_bomb">スネア爆弾</a>のチャージが <b>1回 追加</b>される。</li>
-                <li>また、味方を透明化させると、味方1体につき近接エネルギーが <b>50%</b> 回復する。</li>
+                <li>また、<a href="./class_void.html#trappers_ambush">罠師の奇襲</a>使用時、味方を<a href="./class_void.html#invisibility">透明化</a>させると、味方1体につき近接エネルギーが <b>50%</b> 回復する。</li>
                 <li>さらに、透明化中は受けるダメージを <b>-50%</b>（PvPでは <b>-10%</b> ）軽減する。透明化させた味方にも同様に効果が付与される。</li>
-                <li>スーパースキル発動中はダメージを軽減しない。</li>
+                <li>ただし、スーパースキル発動中はダメージを軽減しない。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1691,22 +1691,14 @@
                         <th>2x</th>
                         <th>3x</th>
                         <th>4x</th>
-                        <th>5x</th>
-                        <th>6x</th>
-                        <th>7x</th>
-                        <th>8x</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th>ダメージ増加量</th>
-                        <td><b>+14%</b></td>
-                        <td><b>+27%</b></td>
-                        <td><b>+40%</b></td>
-                        <td><b>+55%</b></td>
-                        <td><b>+62%</b></td>
-                        <td><b>+66%</b></td>
-                        <td><b>+70%</b></td>
+                        <td><b>+27.3%</b></td>
+                        <td><b>+54.6%</b></td>
+                        <td><b>+62.3%</b></td>
                         <td><b>+70%</b></td>
                     </tr>
                 </tbody>
@@ -1729,7 +1721,7 @@
                     <li>ゴールデンガン
                         <ul>
                             <li>全ての弾が対象。</li>
-                            <li><a href="#celestial_nighthawk">セレスティアル・ナイトホーク</a> と比較すると、光の祝宴をx8溜め、マークスマンの3発を全て精密ヒットさせた場合は、星喰らいの鱗の方が総火力は <b>+23.5%</b> 高くなる。</li>
+                            <li><a href="#celestial_nighthawk">セレスティアル・ナイトホーク</a> と比較すると、光の祝宴をx4溜め、マークスマンの3発を全て精密ヒットさせた場合は、星喰らいの鱗の方が総火力は <b>+23.5%</b> 高くなる。</li>
                         </ul>
                     </li>
                     <li>刃の雨
@@ -1741,7 +1733,7 @@
                         <ul>
                             <li>直撃ダメージ、継続ダメージ、束縛した敵が死亡した時の爆発ダメージが対象。</li>
                             <li>被ダメージ増加効果は <b>+30%</b> で固定で、これは光の祝宴によって変動しない。</li>
-                            <li><a href="#orpheus_rig">オルフェウス・リグ</a> と比較すると、光の祝宴をx8溜めた場合は、星喰らいの鱗の方が総火力は <b>+15%</b> 高くなる。</li>
+                            <li><a href="#orpheus_rig">オルフェウス・リグ</a> と比較すると、光の祝宴をx4溜めた場合は、星喰らいの鱗の方が総火力は <b>+15%</b> 高くなる。</li>
                         </ul>
                     </li>
                     <li><a href="./class_void.html#spectral_blades">亡霊の刃</a>
@@ -1832,8 +1824,9 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="class_void.html#invisibility">ボイド透明化</a>が解除されたとき、<b>6秒間</b>（PvPでは <b>3秒間</b>）<span class="further"><s>自身の武器ダメージが +35%（PvPでは +15%）増加する。</s>自身の武器に<a href="class_void.html#echo_of_instability">ボラタイル弾</a>を付与する。</span></li>
-                <li>また、透明化中にフィニッシャーをすると<span class="further"><s>周囲の敵に不安定化を付与し、</s></span>さらに<span class="further"><s>自身と</s></span> <b>24m以内</b> の味方に<b>予備シールド</b>を付与し、クラススキルエネルギーの回復速度を <b>+375%</b> 増加させる。<span class="further">自身は武器ダメージが増加する。</span>この効果は死亡するか、クラススキルを使用するまで継続する。</li>
+                <li><a href="class_void.html#invisibility">ボイド透明化</a>が解除されたとき、<b>10秒間</b>（PvPでは <b>4秒間</b>）自身の武器に<a href="class_void.html#echo_of_instability">ボラタイル弾</a>を付与する。</span>
+                </li>
+                <li>また、透明化中にフィニッシャーをすると、自身の武器ダメージを <span class="c_solar"><b>+35%</b></span> 増加させ、自身と <b>24m以内</b> の味方に<b>予備シールド</b>を付与し、クラススキルエネルギーの回復速度を <b>+375%</b> 増加させる。この効果は死亡するか、クラススキルを使用するまで継続する。</li>
                 <li>予備シールドは、クラススキルを使用したときに <b>40HP</b> の<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>として展開される。</li>
             </ul>
         </div>
@@ -2262,11 +2255,9 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/96fdb1cd590b2212006d128dd0bc32a4.jpg" class="h3">星状細胞の詩</h3>
         <div class="base"><b>動き回り生き残れ</b> - より頻繁に、より遠くにブリンクできるようになる。ブリンクから素早く武器を構えることができ、レーダーも表示されたままになる。全ての武器の空中効果ステータスに中程度の恩恵を与える。</div>
         <div class="indepth">
-            <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />ボイドウォーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ブリンクの移動距離が <b>+25%</b> 増加し、クールダウンが <b>約 -16%</b> 短縮される。</li>
+                <li>ブリンクの移動距離が <b>+25%</b> 増加し、クールダウンが短縮される。</li>
                 <li>さらに、ブリンク直後に武器を取り出す際のハンドリングが <b>+100</b> され、レーダーも<b>表示されたまま</b>となる。</li>
                 <li>また、すべての武器の空中効果を恒常的に <b>+30</b> 増加させる。</li>
             </ul>
@@ -2406,7 +2397,7 @@
                 <li>吸収セル:
                     <ul class="stats2">
                         <li>効果時間: <b>6秒</b>（PvPでは <b>3.5秒</b> ）</li>
-                        <li>サブクラスと一致する属性の武器のダメージが <b><span class="c_solar">+20%</span></b> 増加する。</li>
+                        <li>サブクラスと一致する属性の武器のダメージが <b><span class="c_solar">+20%</span></b>（PvPでは <span class="c_solar"><b>+15%</b></span> ）増加する。</li>
                         <li>キルをすると効果時間が <b>+4秒</b>（PvPでは <b>+2秒</b> ）延長され、最大 <b>10秒</b>（PvPでは <b>6秒</b> ）まで延長できる。</li>
                         <li>武器を持ち替えると<b>効果が失われる。</b></li>
                     </ul>
@@ -2424,6 +2415,7 @@
                 <li>リフトに立つと、<b>5秒</b> ごとに<b>ノーブルシーカー</b>を生成する。</li>
                 <li>シーカーは <b>35m以内</b> の味方に自動的に飛んでいき、バフを適用する。バフは<b>リフトの種類</b>によって変わる。</li>
                 <li>バフを適用すると、リフトの効果時間が <b>5秒間</b> 延びる。</li>
+                <li>また、ソーラーのかけら「慈悲の名残」の効果は、これによっても発動する。</li>
                 <li>回復のリフト:
                     <ul class="stats2">
                         <li>味方のHPを <b>75</b> 回復させ、自然再生を開始する。</li>
@@ -2432,7 +2424,7 @@
                 <li>強化のリフト:
                     <ul class="stats2">
                         <li>効果時間: <b>5秒</b></li>
-                        <li><b>空の祝福</b>を付与し、空の祝福発動中は武器ダメージが <b>+35%</b>（PvPでは <b>+15%</b> ）増加する。</li>
+                        <li><b>空の祝福</b>を付与し、空の祝福発動中は武器ダメージが <span class="c_solar"><b>+35%</b></span>（PvPでは <span class="c_solar"><b>+15%</b></span> ）増加する。</li>
                     </ul>
                 </li>
                 <li>また、<a href="./exotic_weapons.html#lumina">ルミナ</a> の空中効果を恒常的に <b>+30</b> 増加させる。</li>
@@ -2486,7 +2478,8 @@
             <span class="void" />ボイドウォーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>強化のリフトを生成すると、<a href="./class_void.html#devour">吸引</a>が付与される。</li>
+                <li>強化のリフトを生成すると、<a href="./class_void.html#devour">吸引</a>が <b>11秒間</b>（<a href="./class_void.html#echo_of_persistence">固執の残響</a>適用時は <b>17秒間</b> ）付与される。</li>
+                <li>吸引は敵を倒すと、最大で <b>11秒</b>（<a href="#echo_of_persistence">固執の残響</a>適用時は <b>22秒</b> ）まで延長できる。</li>
                 <li>また、強化のリフト内からの攻撃に <b>&#xe071; オーバーロード効果</b>を付与する。</li>
                 <li>ただし、元から対チャンピオン性能を持った武器では効果を得られない。</li>
                 <li>輝く泉では<b>効果を発動しない。</b></li>

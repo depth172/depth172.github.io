@@ -40,12 +40,12 @@
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <span>最終更新日: <time id="modify"></time></span>
             <script>
-                const last = new Date(document.lastModified);
-                const year = last.getFullYear();
-                const month = last.getMonth() + 1;
-                const date = last.getDate();
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
 
-                const target = document.getElementById('modify');
+                var target = document.getElementById('modify');
                 target.textContent = year + '年' + month + '月' + date + '日';
             </script>
         </div>
@@ -210,18 +210,25 @@
         <a name="devour"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/30256671e72d3fa3fa07883a37c92790.png" class="head">吸引</h3>
         <div class="text">
-            発動時にHPを<b>全回復</b>し、グレネードエネルギーを <b>20%</b> 回復させる。
-            <br>また、吸引が発動している間にキルをすると、HPを<b>全回復</b>し、グレネードエネルギーを <b>8%～24%</b> 回復させる。
-            <br>回復量は敵のランクによって変動する。
+            発動時にHPを<b>全回復</b>する。
+            <br>また、吸引が発動している間にキルをすると、HPを<b>全回復</b>し、吸引の<b>効果時間が延長</b>される。
+            <br>さらに、<b>グレネードエネルギーを回復</b>させ、その回復量は敵のランクによって変動する。
+            <ul class="stats2">
+                <li>低ランクのマイナー: <b>7.6%</b></li>
+                <li>中ランクのマイナー / 低ランクのエリート: <b>11.6%</b></li>
+                <li>高ランクのマイナー / 中ランクのエリート: <b>13.75%</b></li>
+                <li>高ランクのエリート / ミニボス / ボス: <b>20%</b></li>
+            </ul>
         </div>
 
         <a name="invisibility"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/e57deeeb72f8e4e483d909553cdbe615.png" class="head">透明化</h3>
         <div class="text">
-            透明化すると敵から<b>視認されづらく</b>なり、<b>敵のレーダーから消える。</b>
-            <br>ただし、<b>激しい行動</b>は透明化中でもレーダーに反応し、<b>攻撃的な行動</b>を取ると透明化は解除される。
-            <br><span class="further">また、透明化中は自身のレーダーの検知範囲が最大 <b>24m</b> となり、外周の円が見えなくなる。</span>
-            <br>PvPでは、激しい行動を起こしていなくとも <b>5秒ごと</b> に <b>0.6秒間</b> レーダーに反応する。
+            透明化すると敵から<b>視認されづらく</b>なり、透明化から <b>1.5秒後</b> に<b>敵のレーダーから消える。</b>
+            <br>ただし、激しい行動を起こしていなくとも <b>5秒ごと</b> に <b>0.6秒間</b> レーダーに反応し、敵の <b>6m以内</b> に近づくと、透明化をしていてもレーダーに反応する。
+            <br>さらに、<b>激しい行動</b>を取ると透明化中でもレーダーに反応し、<b>攻撃的な行動</b>を取ると透明化は解除される。
+            <br>そして、透明化中は自身のレーダーの検知範囲が最大 <b>24m</b> となり、外周の円が見えなくなる。
+            <br>PvEでは、透明化をすると、敵はプレイヤーが<b>最後にいた位置</b>を攻撃する。激しい行動を取ると、プレイヤーの位置に<b>注意を向ける</b>が、攻撃をしてくることはない。
             <details>
                 <summary>レーダーに反応・透明化を解除させる行動について</summary>
                 <ul>
@@ -231,25 +238,26 @@
                             <li>歩く・しゃがみ歩き</li>
                             <li>通常のジャンプ</li>
                             <li>ダッシュの継続（<b>ダッシュ中に</b>透明化した場合）</li>
+                            <li>スライディング</li>
                             <li>武器を持ち替える</li>
                             <li>マップに落ちているレリックや武器を拾う</li>
                         </ul>
                     </li>
-                    <li>透明化中でも、<b>レーダーに反応される</b>行動
+                    <li>透明化中でも、<b>レーダーに反応される</b>行動（激しい行動）
                         <ul>
                             <li>ダッシュを開始する</li>
                             <li>ジャンプスキル（リフト、ダブルジャンプ、グライディング）を使用する</li>
                             <li>ハンターで回避をする</li>
                         </ul>
                     </li>
-                    <li><b>透明化を解除する</b>行動
+                    <li><b>透明化を解除する</b>行動（攻撃的な行動）
                         <ul>
                             <li>武器を使用する</li>
                             <li>グレネードを投げる・消費する</li>
                             <li>近接攻撃をする・近接スキルを使用する</li>
                             <li>スーパースキルを発動する</li>
                             <li>バリケードやリフトを展開する</li>
-                            <li>ボイドウォーカーでブリンクを使用する</li>
+                            <li>ボイドウォーカー、アークストライダーでブリンクを使用する</li>
                             <li>スパローを召喚する</li>
                         </ul>
                     </li>
@@ -261,8 +269,9 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/da2abbeeac9dcc81469f046d0dffa960.png" class="head">オーバーシールド</h3>
         <div class="text">
             通常のHP・シールドに加え、追加でダメージを <b>10秒間</b> 肩代わりするシールド。PvEのみ、敵からのダメージを <b>-50%</b> 軽減する。
-            <br>近接キルをすると、効果時間が <b>+6秒</b> 延長される。シールドのHPは、付与するスキルによって変化することがある。特筆しない場合は <b>45HP</b> 。
+            <br>シールドのHPは、付与するスキルによって変化することがある。特筆しない場合は <b>45HP</b> 。
             <br>ただし、回復のリフトの中ではオーバーシールドは得られない。
+            <br>他のオーバーシールドを付与する効果との関係はバグが多く、重複する場合や、効果時間のみを延長する場合など様々。
         </div>
 
         <a name="suppression"></a>
@@ -270,6 +279,8 @@
         <div class="text">
             PvEでは、抑制された敵は<b>攻撃を停止</b>し、さらに<b>盲目状態</b>となり、腕で弱点を隠そうとする。
             <br>PvPでは<b>あらゆるスキルを使用不能</b>にさせる。
+            <br>ただし、スーパースキルを中断させない<b>軽度の抑制</b>状態も存在し、付与する武器やスキルによって変わる。
+            <br>このサイトでは、特筆しない限りは、「抑制状態にする」といった文言は通常の抑制を付与するものとする。
             <details>
                 <summary>効果発動の詳細</summary>
                 PvEでは、以下の敵には抑制による攻撃停止効果はない。
@@ -290,7 +301,7 @@
                     <li>グレネードを投げる・消費する</li>
                     <li>近接スキルを使用する</li>
                     <li>クラススキルを使用する</li>
-                    <li>スーパースキルを発動する</li>
+                    <li>スーパースキルを発動する（中断させるのは通常の抑制のみ）</li>
                 </ul>
             </details>
         </div>
@@ -300,12 +311,14 @@
         <div class="text">
             不安定なボイドエネルギーに侵され、死亡するか <b>200</b> ダメージを受けた際に<b>爆発</b>する。
             <br>爆発時、周囲に <b>160</b> ダメージ（PvPでは不明）を与える。
+            <br>爆発が発生しないまま <b>10秒間</b> 経過すると、効果は消滅する。
         </div>
 
         <a name="weaken"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/230cdbac8318da3ea7d9c11e71a33c67.png" class="head">弱体化</h3>
         <div class="text">
-            弱体化を付与されると、受けるダメージが <b>+15%</b>（PvPでは <b>+7.5%</b> ）増加する。PvEの敵は、<b>動きが遅く</b>なる。
+            弱体化を付与されると、受けるダメージが <span class="c_void"><b>+15%</b></span>（PvPでは <span class="c_void"><b>+7.5%</b></span> ）増加し、<b>移動速度が低下</b>する。
+            <br>また、PvEで弱体化された敵は射撃の精度が低下する。
             <br>PvPでは、効果時間が<b>半分</b>になる。<span class="c_void">全体デバフ</span>に分類され、他の全体デバフがある場合はそちらに上書きされる。
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -313,6 +326,14 @@
         <a name="grenades"></a>
         <h2>グレネードスキル一覧</h2>
         <div class="text">
+            グレネードタイプについて
+            <ul>
+                <li><b>通常</b>: 投擲後、一定時間してから爆発する。</li>
+                <li><b>継続</b>: 着弾地点に残留し、範囲内にいる敵に継続的なダメージを与える。</li>
+                <li><b>接着</b>: 敵や障害物に接着して発動する。継続タイプと違い、対象が動いても効果がある。</li>
+                <li><b>検知</b>: 着弾地点から一定範囲内にいる敵を検知し、自動的にダメージを与える。</li>
+                <li><b>複数回</b>: 一個のグレネードが敵に複数回のダメージを与える。継続タイプと違い、同じグレネードを複数個投げても効果がある。</li>
+            </ul>
             継続タイプのグレネードは、複数の同じグレネードを投げてもダメージは1個分しかない。
             <br><b>例</b>: ボルテックスグレネード2個は1個分のダメージしか与えられないが、ボルテックスグレネードとボイドスパイクを同時に投げると相応のダメージを与えられる。
         </div>
@@ -338,95 +359,95 @@
                     <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/aa8480964870b6b8be7d19ee68814b14.jpg" class="table"></th>
                     <th>ボイドスパイク</th>
                     <td style="text-align: center;"><b>接着 / 継続</b></td>
-                    <td><b>199</b></td>
+                    <td style="text-align: left;">PvE: 80 × 16 = <b>1,280</b><br>PvP: 28 × 16 = <b>448</b></td>
                     <td><b>91</b></td>
-                    <td><b>4</b></td>
-                    <td style="text-align: center;">x</td>
+                    <td><b>10</b></td>
+                    <td>長さ <b>11.5</b> × 幅 <b>6</b></td>
                     <td><b>0.3</b></td>
                     <td style="text-align: center;">-</td>
                     <td><b>0.27</b></td>
-                    <td class="name">グレネード本体のHPは10。<br>初回の3ヒットは29ダメージ。それ以降は28ダメージ。</td>
+                    <td class="name">継続して <b>16回</b> のダメージを与える。グレネード本体のHPは <b>10</b> 。</td>
                 </tr>
                 <tr>
                     <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e1fe72608ed560d20f81ff41c8997fb7.jpg" class="table"></th>
                     <th>ボイドウォール</th>
                     <td style="text-align: center;"><b>継続</b></td>
-                    <td><b>192</b></td>
+                    <td style="text-align: left;">PvE: 171 + 120 × 18 = <b>2,331</b><br>PvP: 60 + 35 × 18 = <b>690</b></td>
                     <td><b>105</b></td>
                     <td><b>4</b></td>
                     <td><b>10</b></td>
                     <td><b>0.43</b></td>
                     <td style="text-align: center;">x</td>
                     <td><b>0.27</b></td>
-                    <td class="name">初回のヒットは52ダメージ。それ以降は35ダメージ。</td>
+                    <td class="name">最初の爆発と、その後に残留したボイドライトが継続して <b>18回</b> のダメージを与える。</td>
                 </tr>
                 <tr>
                     <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/bbdf2e0f41bad0fdf167aace75b88b8a.jpg" class="table"></th>
                     <th>サプレッサーグレネード</th>
                     <td style="text-align: center;"><b>通常</b></td>
-                    <td><b>150</b></td>
+                    <td style="text-align: left;">PvE: <b>863</b><br>PvP: <b>150</b></td>
                     <td><b>121</b></td>
                     <td style="text-align: center;">-</td>
                     <td><b>9</b></td>
                     <td style="text-align: center;">-</td>
                     <td style="text-align: center;">-</td>
                     <td style="text-align: center;">-</td>
-                    <td class="name">敵を <b>10秒間</b> 抑制状態にする。</td>
+                    <td class="name">敵を <b>10秒間</b>（PvPでは <b>5秒間</b> ）<a href="#suppression">抑制状態</a>にする。</td>
                 </tr>
                 <tr>
                     <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c0380f98212741e67092cb0a5080ee16.jpg" class="table"></th>
                     <th>ボルテックスグレネード</th>
                     <td style="text-align: center;"><b>継続</b></td>
-                    <td><b>200</b></td>
+                    <td style="text-align: left;">PvE: 144 + 69 × 13 = <b>1,041</b><br>PvP: 25 + 20 × 13 = <b>280</b></td>
                     <td><b>121</b></td>
                     <td><b>4</b></td>
                     <td><b>5</b> (着弾時)<br><b>4</b> (継続)</td>
                     <td><b>0.3</b></td>
                     <td><b>1.07</b></td>
                     <td><b>0.27</b></td>
-                    <td class="name">初回のヒットは25ダメージ。それ以降は20ダメージ。</td>
+                    <td class="name">初回のヒットは144ダメージ。それ以降は69ダメージを継続して <b>13回</b> 与える。</td>
                 </tr>
                 <tr>
                     <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/4809222d69a67300601706cc70fec814.jpg" class="table"></th>
                     <th>スキャッターグレネード</th>
                     <td style="text-align: center;"><b>通常 / 複数回</b></td>
-                    <td><b>(20 + 16)×8</b></td>
+                    <td style="text-align: left;">PvE: (115 + 69) × 8 = <b>1,472</b><br>PvP: (20 + 16) × 8 = <b>288</b></td>
                     <td><b>121</b></td>
                     <td style="text-align: center;">-</td>
                     <td><b>4</b> (拡散時)<br><b>4</b> (爆発時)</td>
-                    <td style="text-align: center;">x</td>
+                    <td>不明</td>
                     <td>不明</td>
                     <td>不明</td>
                     <td class="name">
-                        8個の子弾に拡散し、2回爆発。1回目で20ダメージ、2回目で16ダメージを与える。
-                        <br>着弾時は4mの範囲で拡散し、子弾が4mの範囲で爆発するため、合計の効果範囲は8m。
+                        グレネードが8個の子弾に拡散し、2回爆発する。1回目で115ダメージ、2回目で69ダメージを与える。
+                        <br>着弾時は4mの範囲で拡散し、子弾が4mの範囲で爆発するため、合計の効果範囲は約8m。
                     </td>
                 </tr>
                 <tr>
                     <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1be0be8f8b7d67414b6f96ff0562f527.jpg" class="table"></th>
                     <th>磁気グレネード</th>
                     <td style="text-align: center;"><b>接着 / 複数回</b></td>
-                    <td><b>151</b></td>
+                    <td style="text-align: left;">PvE: 472.5 × 2 = <b>945</b><br>PvP: 75 × 2 = <b>150</b></td>
                     <td><b>121</b></td>
                     <td><b>1.5</b></td>
                     <td><b>5</b></td>
                     <td style="text-align: center;">-</td>
                     <td><b>1.07</b></td>
                     <td><b>0.5</b></td>
-                    <td class="name">爆発時75ダメージ×2。直撃すると2ダメージ。</td>
+                    <td class="name">爆発時472.5ダメージ×2。直撃すると2ダメージ。</td>
                 </tr>
                 <tr>
                     <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/5212672b29258f5fe2dce884083f69e1.jpg" class="table"></th>
                     <th>アクシオンボルト</th>
                     <td style="text-align: center;"><b>検知</b></td>
-                    <td><b>102</b></td>
-                    <td><b>91</b></td>
+                    <td style="text-align: left;">PvE: <b>575</b><br>PvP: <b>100</b></td>
+                    <td><b>152</b></td>
                     <td style="text-align: center;">-</td>
                     <td><b>13</b></td>
                     <td><b>1.07</b></td>
                     <td>不明</td>
                     <td style="text-align: center;">-</td>
-                    <td class="name">爆発時100ダメージ。直撃すると2ダメージ。</td>
+                    <td class="name">子弾が敵を追尾し、爆発時575ダメージ。投擲したグレネードが直撃すると2ダメージ。</td>
                 </tr>
             </tbody>
         </table>
@@ -462,6 +483,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>グレネードでダメージを与えると、<b>近接エネルギーが回復</b>する。</li>
+                <li>回復量はグレネードの種類によって変動する。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -475,7 +497,19 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>近接攻撃で敵をキルすると、グレネードエネルギーが <b>15%</b> 回復する。</li>
+                <li>近接攻撃で敵をキルすると、グレネードエネルギーが回復する。</li>
+                <li>回復量は敵のランクによって変動する。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>回復量:
+                    <ul class="stats2">
+                        <li>低ランクのマイナー: <b>8%</b></li>
+                        <li>中ランクのマイナー / 低ランクのエリート: <b>14%</b></li>
+                        <li>高ランクのマイナー / 中ランクのエリート: <b>18%</b></li>
+                        <li>高ランクのエリート / ミニボス / ボス: <b>26%</b></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -486,7 +520,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>グレネードの効果時間が <b>+2秒</b> 延長される。</li>
-                <li>カオス促進剤などの、グレネードに関する他の効果の影響を受けない。</li>
+                <li><a href="#chaos_accelerant">カオス促進剤</a>など、他の効果には関係なく常に+2秒延長される。</li>
                 <li>効果があるのは以下のグレネードのみ。
                     <ul>
                         <li>ボイドスパイク</li>
@@ -505,7 +539,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>8m以内</b> に <b>3体以上</b> の敵がいる状態で敵を倒すと、<b>スーパーエネルギーが回復</b>する。</li>
-                <li><b>3体以上</b> を連続で倒すと、さらに多くのスーパーエネルギーが回復する。</li>
+                <li>敵に囲まれた状態のまま、 <b>3体以上</b> を連続で倒すと、さらに多くのスーパーエネルギーが回復する。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -515,7 +549,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>グレネードがヒットした敵を、<b>5秒間</b> <a href="#weaken">弱体化</a>させる。</li>
+                <li>グレネードがヒットした敵を、<b>5秒間</b>（PvPでは <b>2.5秒間</b> ）<a href="#weaken">弱体化</a>させる。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -567,8 +601,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>敵を<a href="#supression">抑制</a>状態にすると、<b>10秒間</b> 可動性が <b>+30</b> され、使用中の武器が<b>リロード</b>される。</li>
-                <li>効果時間中の再発動はできない。</li>
+                <li>敵を<a href="#suppression">抑制</a>状態にすると、<b>10秒間</b> 可動性が <b>+30</b> 、前方への移動速度が <b>+4%</b> され、使用中の武器が<b>リロード</b>される。</li>
+                <li>効果時間中の再発動はできない。また、「軽度の抑制」状態では発動しない。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -642,7 +676,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>力のオーブを拾うと、<b>5秒間</b> <a href="#devour">吸引</a>状態になる。</li>
+                <li>力のオーブを拾うと、<b>5秒間</b>（<a href="#echo_of_persistence">固執の残響</a>適用時は <b>8秒間</b> ）<a href="#devour">吸引</a>状態になる。</li>
+                <li>吸引は敵を倒すと、最大で <b>10秒</b>（<a href="#echo_of_persistence">固執の残響</a>適用時は <b>15秒</b> ）まで延長できる。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -673,11 +708,11 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>半径3m</b> のドームを展開し、中にいる味方に <b>625HP</b> の精密ダメージを阻止するオーバーシールドを付与する。</li>
+                <li><b>半径3m</b> のドームを展開し、中にいる味方に <b>425HP</b> の<a href="#overshield">オーバーシールド</a>を付与する。このオーバーシールドは付与者に対する<b>精密ヒット判定を消滅</b>させ、ドームを出ると解除される。</li>
                 <li>ドームの外側から内側へ、または内側から外側へ攻撃を通すことはできない。</li>
                 <li>ドームを通ると、<b>光の武器</b>が付与され、<b>15秒間</b> 武器ダメージが <span class="c_solar"><b>+25%</b></span> 増加する。</li>
                 <li>ドームは <b>13500HP</b> で、これを超えるダメージを受けると破壊される。ガーディアンのスキルからは、より大きなダメージを受ける。</li>
-                <li>また、ボスからの攻撃は、使用者の耐久力に応じて <b>+600%</b> ～ <b>-75%</b> のダメージを受ける。</li>
+                <li>また、ボスからの攻撃は、使用者の<a href="./base_stats.html#resilience">耐久力</a>に応じて <b>+600%</b> ～ <b>-75%</b> のダメージを受ける。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -692,8 +727,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>シールドによる攻撃を行える。グレネードボタンを押すことで<b>シールドを投げる</b>ことができる。</li>
-                <li>また、ブロックボタンを押すことで<b>防御</b>をし、後ろにいる味方を守ることができる。</li>
-                <li>これによって防御されている味方は<b>光の武器</b>が付与され、武器ダメージが <span class="c_solar"><b>+40%</b></span> 増加する。</li>
+                <li>また、強攻撃ボタンを押すことでシールドを張り<b>防御</b>をし、後ろにいる味方を守ることができる。味方はシールド越しに射撃ができる。</li>
+                <li>これによって防御されている味方は<b>光の武器</b>が付与され、武器ダメージが <span class="c_solar"><b>+40%</b></span> 増加し、武器のハンドリングとリロード速度が <b>+50</b> される。</li>
+                <li>味方を防御している間は、スーパーエネルギーの消費が <b>-20%</b> 軽減される。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -711,7 +747,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>1.25秒</b> 以上のダッシュ中か、その後のスライディング中に近接攻撃ボタンを押すと、前方にシールドを構えながら突撃する。</li>
-                <li>この攻撃がヒットした敵は<a href="#supression">抑制</a>状態になる。</li>
+                <li>この攻撃がヒットした敵は<a href="#suppression">抑制</a>状態になる。</li>
                 <li>さらに、この攻撃で敵をキルすると、自身に <b>45HP</b> の<a href="#overshield">ボイドのオーバーシールド</a>を付与する。</li>
             </ul>
         </div>
@@ -991,7 +1027,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ボイドエネルギーを纏い、自分を中心とした爆発を起こす。</li>
-                <li>射撃ボタンを長押しすることでチャージでき、爆発範囲が最大 <b>5m</b> まで増加する。</li>
+                <li>射撃ボタンを最大 <b>1秒間</b> 長押しすることでチャージでき、爆発範囲が最大 <b>5m</b> まで増加する。</li>
                 <li>また、ADSボタンを押すことで、スーパーエネルギーを消費して前方にテレポートできる。</li>
             </ul>
         </div>
@@ -1063,7 +1099,8 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>スキルでキルをすると、<b>10秒間</b> <a href="#devour">吸引</a>状態になる。</li>
+                <li>スキルでキルをすると、<b>5秒間</b>（<a href="#echo_of_persistence">固執の残響</a>適用時は <b>10秒間</b> ）<a href="#devour">吸引</a>状態になる。</li>
+                <li>吸引は敵を倒すと、最大で <b>10秒</b>（<a href="#echo_of_persistence">固執の残響</a>適用時は <b>15秒</b> ）まで延長できる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>

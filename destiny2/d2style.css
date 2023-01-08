@@ -186,6 +186,12 @@ img.table {
     vertical-align: bottom;
 }
 
+.grenade img.table {
+    width: 3.3em;
+    height: 3.3em;
+    vertical-align: bottom;
+}
+
 .list td {
     text-align: right;
     padding-inline: 0.4em;

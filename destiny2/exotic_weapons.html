@@ -40,12 +40,12 @@
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <span>最終更新日: <time id="modify"></time></span>
             <script>
-                const last = new Date(document.lastModified);
-                const year = last.getFullYear();
-                const month = last.getMonth() + 1;
-                const date = last.getDate();
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
 
-                const target = document.getElementById('modify');
+                var target = document.getElementById('modify');
                 target.textContent = year + '年' + month + '月' + date + '日';
             </script>
         </div>
@@ -776,7 +776,7 @@
                 <li>弾が敵に<b>毒ダメージ</b>を与える。</li>
                 <li>毒ダメージ量:
                     <ul class="stats2">
-                        <li>PvE: 不明</li>
+                        <li>PvE: <b>8.5</b></li>
                         <li>PvP: <b>0.4</b></li>
                     </ul>
                 </li>
@@ -786,7 +786,7 @@
                 <li>残余物をもう一度拾うことで効果時間を延長でき、最大効果時間は <b>10秒</b>。</li>
                 <li>毒ダメージ量（魂を食らう者有効時）:
                     <ul class="stats2">
-                        <li>PvE: 不明</li>
+                        <li>PvE: <b>+200%</b></li>
                         <li>PvP: <b>+1750%</b></li>
                     </ul>
                 </li>
@@ -1334,7 +1334,7 @@
                 <li><b>&#xe070; アンチバリア効果</b></li>
                 <li>高威力フレームと同等の<b>2点バーストモード</b>と、軽量フレームと同等の<b>4点バーストモード</b>の切り替えが可能。</li>
                 <li>精密ヒットを複数回すると、<b>標的捕捉データ</b>のスタックを1個チャージする。</li>
-                <li>モード変更すると、スタック数に応じてこの武器のダメージが増加する。</li>
+                <li>モード変更すると、スタック数に応じて高威力弾を発射できる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             以下の4つから選択できる。
@@ -2646,8 +2646,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>一回の射撃で <b>2発のロケットを発射する。</b></li>
-                <li>ボイドロケットは敵を抑制させ、<b>スキルを使用不能にする。</b></li>
-                <li>ソーラーロケットは敵を<b>燃焼</b>させる。</li>
+                <li>ボイドロケットは敵を<a href="./class_void.html#suppression">抑制</a>し、ソーラーロケットは敵を<b>燃焼</b>させる。</li>
                 <li>2つのロケットは同じ標的を追尾する。</li>
             </ul>
         </div>
@@ -2845,7 +2844,7 @@
                     <ul class="stats2">
                         <li><b>精密ダメージを無効化</b>する。</li>
                         <li>キネティックダメージを <b>50%</b> 、属性ダメージを <b>15%</b> 軽減する。</li>
-                        <li>アークダメージのみ軽減せず、これによってシールドが破壊されると使用者は <b>130</b> ダメージを受ける。</li>[
+                        <li>アークダメージのみ軽減せず、これによってシールドが破壊されると使用者は <b>130</b> ダメージを受ける。</li>
                         <li>このダメージに、他のダメージ耐性は適用されない。</li>
                     </ul>
                 </li>
@@ -2935,7 +2934,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>敵をキルするとワームの飢えのスタックをチャージする。</li>
+                <li>敵をキルすると<b>ワームの飢え</b>のスタックをチャージする。</li>
                 <li>
                     <ul class="stats2">
                         <li>マイナーは1個、それ以外の敵は4個チャージされる。</li>
@@ -2972,14 +2971,14 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>チャージされた強攻撃をすると、<b>6.3秒間</b> <b>透明化</b>する。</li>
+                <li>チャージされた強攻撃をすると、扇状に<b>投射物</b>を放ち、<b>6.3秒間</b> <a href="./class_void.html#invisibility">透明化</a>する。</li>
                 <li>透明化中と、透明化解除から <b>2.5秒間</b> はこの剣のダメージが <b>+25%</b> 増加する。</li>
-                <li>また、透明化中に投射物をヒットさせると、<b><span class="c_void">弱体化</span></b>を <b>6秒間</b>（PvPでは <b>3秒間</b> ）付与する。</b>
+                <li>また、透明化中に投射物をヒットさせると、<a href="./class_void.html#weaken">弱体化</a>を <b>6秒間</b>（PvPでは <b>3秒間</b> ）付与する。</b>
                 </li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li><b>弾薬数増加</b></li>
+                <li>弾薬数: <b>+6</b></li>
                 <li>透明化中の<b>移動速度が増加</b>する。</li>
             </ul>
         </div>

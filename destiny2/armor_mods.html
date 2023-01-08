@@ -40,12 +40,12 @@
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <span>最終更新日: <time id="modify"></time></span>
             <script>
-                const last = new Date(document.lastModified);
-                const year = last.getFullYear();
-                const month = last.getMonth() + 1;
-                const date = last.getDate();
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
 
-                const target = document.getElementById('modify');
+                var target = document.getElementById('modify');
                 target.textContent = year + '年' + month + '月' + date + '日';
             </script>
         </div>
@@ -183,7 +183,7 @@
                             <li><a href="#power_of_rasputin">ラスプーチンの力</a></li>
                             <li><a href="#warminds_protection">ウォーマインドの守護</a></li>
                             <li><a href="#grasp_of_the_warmind">ウォーマインドの掌握</a></li>
-                            <li><a href="#cellular_supression">セルの抑制</a></li>
+                            <li><a href="#cellular_suppression">セルの抑制</a></li>
                             <li><a href="#light_from_darkness">暗黒から生まれし光</a></li>
                         </ul>
                     </ul>
@@ -3779,9 +3779,9 @@
         </div>
         <div class="back"><a href="#top">▲</a></div>
 
-        <a name="cellular_supression"></a>
+        <a name="cellular_suppression"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ba4111a459ca971860571ef9ce5ca4ed.png" class="h3">セルの抑制</h3>
-        <div class="base">セルを撃ったとき、周囲の敵を抑制する。</div>
+        <div class="base">セルを撃ったとき、周囲の敵を<a href="./class_void.html#suppression">抑制</a>状態にする。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -3790,6 +3790,7 @@
                 <li>累積: <b>なし</b></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
+            <br>この抑制はハイヴガーディアンのスーパースキルを中断できない（軽度の抑制）。
             <b>4秒間</b> のクールダウンがある。
             <br>このパーツを装備すると、自身がセルに対して与えるダメージが <b>66%</b> 減少する。
             <div class="info">&lt;効果量&gt;</div>

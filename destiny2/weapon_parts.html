@@ -46,12 +46,12 @@
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <span>最終更新日: <time id="modify"></time></span>
             <script>
-                const last = new Date(document.lastModified);
-                const year = last.getFullYear();
-                const month = last.getMonth() + 1;
-                const date = last.getDate();
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
 
-                const target = document.getElementById('modify');
+                var target = document.getElementById('modify');
                 target.textContent = year + '年' + month + '月' + date + '日';
             </script>
         </div>
@@ -514,8 +514,8 @@
                         <th class="icon"><img src="https://bungie.net/common/destiny2_content/icons/7c81469db03f7111f8d248b54c83d7cf.png" class="table"></th>
                         <td class="name"><a href="#extended_barrel">拡張バレル</a></td>
                         <td class="num">+10</td>
-                        <td class="num">-10</td>
                         <td><span class="none">0</span></td>
+                        <td class="num">-10</td>
                         <td class="num">+10</td>
                     </tr>
                     <tr>

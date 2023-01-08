@@ -40,12 +40,12 @@
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <span>最終更新日: <time id="modify"></time></span>
             <script>
-                const last = new Date(document.lastModified);
-                const year = last.getFullYear();
-                const month = last.getMonth() + 1;
-                const date = last.getDate();
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
 
-                const target = document.getElementById('modify');
+                var target = document.getElementById('modify');
                 target.textContent = year + '年' + month + '月' + date + '日';
             </script>
         </div>
@@ -4308,8 +4308,10 @@
 
         <a name="flash_counter"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a9170ded6471b4afd2d8218ccddd644e.png" class="h3">フラッシュカウンター</h3>
-        <div class="base">敵の近接攻撃を直前にブロックすると、敵を鎮圧・弱体化させる。</div>
+        <div class="base">敵の近接攻撃を直前にブロックすると、敵を抑制・弱体化させる。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            これによって付与される<a href="./class_void.html#suppression">抑制</a>は、敵のスーパースキルを中断できない（軽度の抑制）。
             <div class="info">&lt;発動条件詳細&gt;</div>
             ガード開始から <b>0.5秒以内</b> にガード成功すると発動する。
             <div class="info">&lt;効果量&gt;</div>
