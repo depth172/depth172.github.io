@@ -3,6 +3,10 @@ body {
     font-family: 'Yu Gothic';
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .main {
     background: #eef8ff;
     width: 850px;
@@ -106,6 +110,14 @@ details {
     padding: 0px;
     padding-left: 0.6em;
     border: none;
+}
+
+.right_fixed {
+    text-align: right;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
 }
 
 .portrait {

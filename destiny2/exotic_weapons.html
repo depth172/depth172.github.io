@@ -22,13 +22,74 @@
     <link rel="stylesheet" href="d2style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- 表示内容切り替え用スクリプト -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        function getUrlQueries() {
+            var queryStr = window.location.search.slice(1); // 文頭?を除外
+            queries = {};
+
+            // クエリがない場合は空のオブジェクトを返す
+            if (!queryStr) {
+                return queries;
+            }
+
+            // クエリ文字列を & で分割して処理
+            queryStr.split('&').forEach(function(queryStr) {
+                // = で分割してkey,valueをオブジェクトに格納
+                var queryArr = queryStr.split('=');
+                queries[queryArr[0]] = queryArr[1];
+            });
+
+            return queries;
+        }
+
+        $(document).ready(function() {
+            var cookies = document.cookie;
+            const array = cookies.split(';');
+
+            document.cookie = "setmode=pve";
+            console.log(document.cookie);
+
+            var query = getUrlQueries()
+            if (query['mode'] == 'pvp') {
+                $('.pve').hide();
+                $('.pvp').show();
+                $('#main').toggleClass('pvp');
+                $('#p_toggle').toggleClass('on');
+            } else {
+                $('.pve').show();
+                $('.pvp').hide();
+            }
+
+            $('.toggle_button').click(function() {
+                $('#main').toggleClass('pvp');
+                $('#p_toggle').toggleClass('on');
+
+                if ($('#main').hasClass('pvp')) {
+                    $('.pve').hide();
+                    $('.pvp').show();
+                } else {
+                    $('.pve').show();
+                    $('.pvp').hide();
+                }
+            });
+        });
+    </script>
+
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <a name="top"></a>
-    <div class="main">
+
+    <div class="right_fixed">
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button><br>
+        <button class="fixed">ボタン</button>
+    </div>
+
+    <div class="main" id="main">
         <div class="top_logo">
             <a href="../"><img src="../img/banner_transparent.png"></a>
         </div>
@@ -187,7 +248,7 @@
         <ul>
             <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。<br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
             <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについては数値等の詳細な記載がない場合もあります。</li>
-            <li>PvEでのダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
+            <li class="pve">ダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
             <li>武器ダメージが増加するものに関して、<span class="c_void">全体デバフ</span>や<span class="c_solar">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
                 <a href="./buff_stacking.html">強化・弱体化の種類と重複について</a> をお読みください。</li>
             <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
@@ -258,14 +319,8 @@
             <ul class="stats">
                 <li>キルをすると、エネルギーウェポンがリロードされる。</li>
                 <li>ドラングによるキルで、この武器の<b>オーバーチャージ弾</b>を1発、マガジン最大量を超えて得る。</li>
-                <li>オーバーチャージ弾は敵に<b>追加ダメージ</b>を与える。</li>
+                <li>オーバーチャージ弾は敵に <b><span class="pve">+262%</span><span class="pvp">+80%</span></b> の<b>追加ダメージ</b>を与える。</li>
                 <li>オーバーチャージ弾は最大 <b>99発</b> まで溜められ、<b>死亡時に全て消滅</b>する。</li>
-                <li>ダメージ増加量:
-                    <ul class="stats2">
-                        <li>PvE: <b>+262%</b></li>
-                        <li>PvP: <b>+80%</b></li>
-                    </ul>
-                </li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -285,11 +340,11 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>24m</b> 以内の味方が死亡した時、自身に<b>情け無用</b>を <b>6秒間</b> 付与する。</li>
+                <li><b>24m以内</b> の味方が死亡した時、自身に<b>情け無用</b>を <b>6秒間</b> 付与する。</li>
                 <li>情け無用:
                     <ul class="stats2">
-                        <li><b>自然再生開始</b></li>
-                        <li><b>可動性向上</b></li>
+                        <li>HPの<b>自然再生開始</b></li>
+                        <li>可動性: <b>+20</b></li>
                         <li>スライディング距離: <b>+33%</b></li>
                         <li>ダッシュ速度増加: <b>+6.25%</b></li>
                     </ul>
@@ -383,9 +438,9 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
+                <li><b><a href="./weapon_parts.html#lightweight_frame">軽量フレーム</a>の内在効果</b>を得る。</li>
                 <li>ADS中の<b>レーダーが有効化される。</b></li>
                 <li>前方への移動速度が <b>+10%</b> 増加する。</li>
-                <li>可動性: <b>+20</b></li>
                 <li>MIDAミニツールを装備すると、ミニツール使用中も上記効果を得られる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -458,7 +513,6 @@
                 <li>キルをすると、<b>マガジンの半分（15発）</b>がリロードされ、<b>3.5秒間</b> ダメージが増加する。</li>
                 <li>この武器に付与される暴れん坊は<a href="./weapon_perks.html#rampage">通常のもの</a>とはダメージ増加量が異なる。</li>
             </ul>
-            <caption>ダメージ増加量:</caption>
             <table class="list">
                 <thead>
                     <tr>
@@ -469,14 +523,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>PvE</th>
+                    <tr class="pve">
+                        <th>ダメージ増加量</th>
                         <td><b>+20%</b></td>
                         <td><b>+41%</b></td>
                         <td><b>+66%</b></td>
                     </tr>
-                    <tr>
-                        <th>PvP</th>
+                    <tr class="pvp">
+                        <th>ダメージ増加量</th>
                         <td><b>+10%</b></td>
                         <td><b>+21%</b></td>
                         <td><b>+33%</b></td>
@@ -570,10 +624,9 @@
             <ul class="stats">
                 <li><b>&#xe070; アンチバリア効果</b></li>
                 <li>最大状態まで引いた状態でADSすると、最大 <b>64m</b> までの敵を透視できる。</li>
-                <li>矢は敵を<b>無制限に貫通</b>し、1度に <b>3回</b>（PvPでは <b>2回</b>）ダメージを与える。</li>
-                <li>貫通時のダメージは刺突時より <b>90%</b> 高い。PvPでは <b>30</b> ダメージで固定。</li>
-                <li>宿られた兵へのダメージが <b>10%</b> 増加する。</li>
-                <li>また、<a href="#witherhoard">ウィザーホード</a>の弾を受けた敵に対するダメージが <b>+25%</b> 増加する。</li>
+                <li>矢は敵を<b>無制限に貫通</b>し、1度に <b><span class="pve">3回</span><span class="pvp">2回</span></b> ダメージを与える。</li>
+                <li><span class="pve">貫通時の追加ダメージは刺突時より <b>90%</b> 高い。</span><span class="pvp">貫通時、矢は追加で <b>30</b> ダメージを与える。</span></li>
+                <li>さらに、宿られた兵へのダメージが <b>10%</b> 、<a href="#witherhoard">ウィザーホード</a>の弾を受けた敵に対するダメージが <b>+25%</b> 増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -588,15 +641,9 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ヒット時、敵に<b>スラグ弾</b>を埋め込む。スラグ弾は <b>5個</b> 撃ち込まれると爆発する。</li>
+                <li>ヒット時、敵に<b>スラグ弾</b>を埋め込む。スラグ弾は <b>5個</b> 撃ち込まれると爆発し、追加で <b><span class="pve">130</span><span class="pvp">45</span></b> ダメージを与える。</li>
                 <li>この爆発には <b>&#xe072; アンストッパブル効果</b>がある。</li>
                 <li>宿られた兵、ギャンビットの侵入者、<a href="#witherhoard">ウィザーホード</a>の弾を受けた敵に対するダメージが <b>+25%</b> 増加する。</li>
-                <li>スラグ弾爆発ダメージ:
-                    <ul class="stats2">
-                        <li>PvE: <b>130</b></li>
-                        <li>PvP: <b>45</b></li>
-                    </ul>
-                </li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -616,29 +663,12 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ADS中の<b>レーダーが有効化される。</b></li>
-                <li>キル後 <b>2.3秒以内</b> にリロードすると<b>メメント・モリ</b>が発動し、 <b>6発</b> の<b>高威力弾</b>を得る。</li>
-                <li>メメント・モリダメージ増加量:
-                    <ul class="stats2">
-                        <li>PvE: <b>+50%</b></li>
-                        <li>PvP: <b>+28.5%</b></li>
-                    </ul>
-                </li>
-                <li>精密キル時:
-                    <ul class="stats2">
-                        <li><b>ソーラー爆発</b>を起こす。</li>
-                        <li>リロード速度: <b>+50</b></li>
-                    </ul>
-                </li>
+                <li>キル後 <b>2.3秒以内</b> にリロードすると<b>メメント・モリ</b>が発動し、 次に射撃する <b>6発</b> のダメージが <b><span class="pve">+50%</span><span class="pvp">+28.5%</span></b> 増加する。</li>
+                <li>また、精密キルに<b>ソーラー爆発</b>を起こし、リロード速度が <b>+50</b> 増加する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>メメント・モリ有効時、ソーラー爆発の<b>ダメージを増加</b>させる。</li>
-                <li>ダメージ増加量:
-                    <ul class="stats2">
-                        <li>PvE: <b>+50%</b></li>
-                        <li>PvP: <b>+57%</b></li>
-                    </ul>
-                </li>
+                <li>メメント・モリ有効時、ソーラー爆発のダメージを <b><span class="pve">+50%</span><span class="pvp">+57%</span></b> 増加させる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -686,7 +716,6 @@
                 <li>リロードボタンを長押しすると、<b>弾薬を消費</b>して<b>ダメージの増加した1発の弾</b>を込める。</li>
                 <li>リロード速度上昇の効果はこのリロードに<b>適用されない。</b></li>
             </ul>
-            <caption>ダメージ増加量:</caption>
             <table class="list">
                 <thead>
                     <tr>
@@ -697,14 +726,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>PvE</th>
+                    <tr class="pve">
+                        <th>ダメージ増加量</th>
                         <td><b>+100%</b></td>
                         <td><b>+200%</b></td>
                         <td><b>+300%</b></td>
                     </tr>
-                    <tr>
-                        <th>PvP</th>
+                    <tr class="pvp">
+                        <th>ダメージ増加量</th>
                         <td><b>+18.3%</b></td>
                         <td><b>+41.2%</b></td>
                         <td><b>+150.4%</b></td>
@@ -713,8 +742,7 @@
             </table>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>磨かれた刃 x4 時のダメージ量を <b>+80%</b> させる。</li>
-                <li>合計で <b>+380%</b>（PvPでは <b>+200%</b> ）となる。</li>
+                <li>磨かれた刃 x4 時のダメージ量を <b>x1.2</b> にし、合計すると <b><span class="pve">+380%</span><span class="pvp">+200%</span></b> となる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -773,23 +801,11 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>弾が敵に<b>毒ダメージ</b>を与える。</li>
-                <li>毒ダメージ量:
-                    <ul class="stats2">
-                        <li>PvE: <b>8.5</b></li>
-                        <li>PvP: <b>0.4</b></li>
-                    </ul>
-                </li>
-                <li>敵をキルすると残余物を生成する。</li>
+                <li>弾が <b>0.5秒</b> ごとに <b><span class="pve">8.5</span><span class="pvp">0.4</span></b> の<b>毒ダメージ</b>を <b>4回</b> 与える。</li>
+                <li>また、敵をキルすると<b>残余物</b>を生成する。</li>
                 <li>残余物を拾うとマガジンを <b>4発</b> リロードし、<b>魂を貪る者</b>を <b>7秒間</b> 付与する。</li>
-                <li>魂を貪る者は<b>毒ダメージを強化</b>する。</li>
-                <li>残余物をもう一度拾うことで効果時間を延長でき、最大効果時間は <b>10秒</b>。</li>
-                <li>毒ダメージ量（魂を食らう者有効時）:
-                    <ul class="stats2">
-                        <li>PvE: <b>+200%</b></li>
-                        <li>PvP: <b>+1750%</b></li>
-                    </ul>
-                </li>
+                <li>魂を貪る者発動中は毒ダメージが <b><span class="pve">+200%</span><span class="pvp">+1750%</span></b> 強化される。</li>
+                <li>残余物をもう一度拾うことで効果時間を延長でき、最大で <b>10秒</b> まで延長できる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -810,23 +826,12 @@
                 <li>ナノロボットは、自動的に付近の敵に張り付いて<b>継続的なダメージ</b>を与える。</li>
                 <li>ナノロボットは <b>6秒間</b> 持続するが、新しくナノロボットを付着させると持続時間はリセットされる。</li>
                 <li>また、付着したナノロボットの数に応じて<b>この武器のダメージが増加</b>する。</li>
-                <li>ダメージ増加量:
-                    <ul class="stats2">
-                        <li>PvE: 最初の5体までは 1体につき <b>+30%</b> 、以降は1体につき <b>+2%</b>（最大 <b>+450%</b>）</li>
-                        <li>PvP: 1体につき <b>+15%</b> 、4体目のみ <b>+30%</b></li>
-                    </ul>
-                </li>
+                <li>ダメージは、<span class="pve">最初の5体までは 1体につき <b>+30%</b> 、以降は1体につき <b>+2%</b>（最大 <b>+450%</b>）</span><span class="pvp">ナノボット1体につき <b>+15%</b> 、4体目のみ <b>+30%</b></span>増加する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>ナノロボット影響下の敵を倒すと、ナノロボットを追加で <b>4体</b> 生成する。</li>
-                <li>ナノロボット自身の<b>攻撃力を増加</b>させる。</li>
-                <li>ダメージ増加量:
-                    <ul class="stats2">
-                        <li>PvE: <b>+25%</b></li>
-                        <li>PvP: <b>+18%</b></li>
-                    </ul>
-                </li>
+                <li>さらに、ナノロボット自身の攻撃力を <b><span class="pve">+25%</span><span class="pvp">+18%</span></b> 増加させる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -872,14 +877,9 @@
                 <li>残余物を複数個拾うことでノーブルラウンドを蓄積でき、最大蓄積数は <b>5個</b>。</li>
                 <li>ノーブルラウンドは<b>腰だめ撃ちで発射</b>でき、味方を追尾して動く。</li>
                 <li>ヒット時、味方のHPを <b>90</b> 回復し、自身とその味方に<b>空の祝福</b>を <b>11秒間</b> 付与する。</li>
-                <li>空の祝福は<b>付与された対象の武器ダメージを増加</b>させる。</li>
-                <li>また、ソーラーのかけら「慈悲の名残」の効果は、これによっても発動する。</li>
-                <li>ダメージ増加量:
-                    <ul class="stats2">
-                        <li>PvE: <span class="c_solar"><b>+35%</b></span></li>
-                        <li>PvP: <span class="c_solar"><b>+15%</b></span></li>
-                    </ul>
-                </li>
+                <li>空の祝福は付与された対象の<b>武器ダメージ</b>を <span class="c_solar"><b><span class="pve">+35%</span><span class="pvp">+15%</span></b>
+                    </span> 増加させる。</li>
+                <li>また、ソーラーのかけら「<a href="./class_solar.html#ember_of_benevolence">慈悲の名残</a>」の効果は、これによっても発動する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -916,7 +916,6 @@
                 <li>近接キルをするとリロードされる。</li>
                 <li>キルや近接キルでマルコフ連鎖のスタックがチャージされ、<b>武器ダメージが増加</b>する。</li>
             </ul>
-            <caption>ダメージ増加量:</caption>
             <table class="list">
                 <thead>
                     <tr>
@@ -929,16 +928,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>PvE</th>
+                    <tr class="pve">
+                        <th>ダメージ増加量</th>
                         <td><b>+13%</b></td>
                         <td><b>+26%</b></td>
                         <td><b>+39%</b></td>
                         <td><b>+52%</b></td>
                         <td><b>+65%</b></td>
                     </tr>
-                    <tr>
-                        <th>PvP</th>
+                    <tr class="pvp">
+                        <th>ダメージ増加量</th>
                         <td><b>+5%</b></td>
                         <td><b>+12%</b></td>
                         <td><b>+19%</b></td>
@@ -969,8 +968,8 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>床に命中時、半径 <b>4.5m</b> の汚染を <b>4.5秒間</b> 生成する。</li>
-                <li>汚染に立っている敵は<b>継続的にダメージを受ける。</b></li>
-                <li>敵に命中時、<b>9.5秒間</b> 敵を汚染し、<b>継続的にダメージを与える。</b></li>
+                <li>汚染に立っている敵は <b>0.26秒</b> ごとに<b>継続的なダメージ</b>を受ける。</li>
+                <li>敵に命中時、<b>9.5秒間</b> 敵を汚染し、<b>0.5秒</b> ごとに<b>継続的にダメージを与える。</b></li>
                 <li>汚染された敵は倒されると<b>その場に汚染を生成する。</b></li>
                 <li>範囲ダメージと直撃ダメージは<b>重複する。</b></li>
             </ul>
@@ -996,7 +995,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>キルをすると、<b>光の集積</b>のスタックを1個チャージする。ガーディアンキル時は2個チャージする。
+                <li>キルをすると、<b>光の集積</b>のスタックを<span class="pve">1個</span><span class="pvp">2個</span>チャージする。
                     <ul class="stats2">
                         <li>スタック1個につき、ハンドリングとリロード速度が <b>+15</b> 、照準補佐が <b>+2</b> 増加する。</li>
                         <li>リロードボタンを長押しすると、スタックを全て消費して<b>全スキルエネルギーを 1スタックにつき 10% 回復</b>する。</li>
@@ -1029,16 +1028,10 @@
             <ul class="stats">
                 <li>精密ヒットか遅延/凍結状態の敵を攻撃すると、撃った弾をリロードし、<b>再巻き戻し</b>のスタックを1個チャージする。
                     <ul class="stats2">
-                        <li>スタックが10個溜まると、<b>9秒間</b> <b>時空の裂け目</b>を出現させる。</li>
-                        <li>時空の裂け目は最大 <b>40m</b> までの敵を <b>1.25秒</b> ごとに自動的にバースト射撃で攻撃する。距離減衰はない。</li>
-                        <li>再巻き戻しをチャージすると効果時間が延長される。</li>
+                        <li>スタックが10個溜まると、<b>時空の裂け目</b>を <b>9秒間</b> 出現させる。</li>
+                        <li>時空の裂け目は最大 <b>40m</b> までの敵を <b>1.25秒</b> ごとに自動的にバースト射撃で攻撃し、<span class="pve">通常弾の <b>+10%</b> のダメージ</span><span class="pvp">1発につき <b>10.2</b> のダメージ</span>を与える。距離減衰はない。</li>
+                        <li>スタックをチャージすると、時空の裂け目の効果時間が延長される。</li>
                     </ul>
-                    <li>ダメージ量:
-                        <ul class="stats2">
-                            <li>PvE: 通常弾の <b>+10%</b> のダメージ量</li>
-                            <li>PvP: 1発につき <b>11</b></li>
-                        </ul>
-                    </li>
                 </li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -1065,7 +1058,6 @@
                     </ul>
                 </li>
             </ul>
-            <caption>ダメージ増加量:</caption>
             <table class="list">
                 <thead>
                     <tr>
@@ -1080,8 +1072,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>PvE</th>
+                    <tr class="pve">
+                        <th>ダメージ増加量</th>
                         <td><b>+292%</b></td>
                         <td><b>+300%</b></td>
                         <td><b>+340%</b></td>
@@ -1090,8 +1082,8 @@
                         <td><b>+1071%</b></td>
                         <td><b>+1736%</b></td>
                     </tr>
-                    <tr>
-                        <th>PvP</th>
+                    <tr class="pvp">
+                        <th>ダメージ増加量</th>
                         <td><b>+1%</b></td>
                         <td><b>+3%</b></td>
                         <td><b>+13%</b></td>
@@ -1105,7 +1097,7 @@
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>装弾数: <b>+1</b></li>
-                <li>スタック1個につき、射程距離、ハンドリング、リロード速度が <b>+10 増加</b>するようになる。</li>
+                <li>スタック1個につき、射程距離、ハンドリング、リロード速度が <b>+10</b> 増加するようになる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1119,7 +1111,7 @@
                 <li>一回につき2発の弾をリロードする。</li>
                 <li>精密ヒットをすると、<b>クラニアル・スパイク</b>のスタックを1個チャージする。
                     <ul class="stats2">
-                        <li>スタック数に応じて、<b>射程距離、リロード速度、照準補佐</b>が増加し、PvEではさらに<b>武器ダメージ</b>も増加する。</li>
+                        <li>スタック数に応じて、<b>射程距離、リロード速度、照準補佐</b>が増加<span class="pve">し、この武器の<b>ダメージが増加</b></span>する。</li>
                         <li>スタックは最大x5まで溜められる。</li>
                     </ul>
                 </li>
@@ -1137,13 +1129,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>武器ダメージ（PvEのみ）</th>
-                        <td><b>+3.26%</b></td>
-                        <td><b>+6.49%</b></td>
-                        <td><b>+9.76%</b></td>
+                    <tr class="pve">
+                        <th>ダメージ増加量</th>
+                        <td><b>+3.25%</b></td>
+                        <td><b>+6.5%</b></td>
+                        <td><b>+9.75%</b></td>
                         <td><b>+13%</b></td>
-                        <td><b>+16.2%</b></td>
+                        <td><b>+16.25%</b></td>
                     </tr>
                     <tr>
                         <th>射程距離</th>
@@ -1173,8 +1165,8 @@
             </table>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>腰だめ撃ち時、発射レートが <b>+10</b> され、<b>精度が大幅に向上する。</b></li>
-                <li>また、クラニアル・スパイクがx5まで溜まると、腰だめ撃ちの発射レートがさらに <b>+50</b> 増加する。</li>
+                <li>腰だめ撃ち時、発射レートが 120 → <b>130</b> に増加し、<b>精度が大幅に向上する。</b></li>
+                <li>また、クラニアル・スパイクがx5まで溜まると、この武器のダメージが <b>-20%</b> 減少する代わりに、腰だめ撃ちの発射レートが 130 → <b>180</b> まで増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1192,7 +1184,7 @@
                 <li>キルをすると <b>10秒間</b> 準備状態となり、チャージショットがリロードできるようになる。</li>
                 <li>その状態でリロードボタンを長押しすると、<b>チャージショットモード</b>に入る。</li>
                 <li>チャージショットモードは長押しで一発だけ、<b>直撃した敵を凍結状態にさせる</b>弾を撃てる。</li>
-                <li>凍結弾は着弾地点で破裂し、<b>周囲の敵も凍結</b>させる。ガーディアンは<b>遅延状態</b>になる。</li>
+                <li>凍結弾は着弾地点で破裂し、<span class="pve">周囲の敵も<b>凍結</b>させる。</span><span class="pvp">周囲の敵に <b>x50</b> の遅延を付与する。</span></li>
                 <li>凍結弾発射後は元のピストルに戻る。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -1208,8 +1200,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>キルをすると半径 <b>10m以内</b> の敵に遅延を <b>x100</b>（PvPでは <b>x50</b> ）付与する。</li>
-                <li>ステイシスでキルをすると、マガジンを <b>10発</b> リロードする。</li>
+                <li>キルをすると半径 <b>10m以内</b> の敵に遅延を <b><span class="pve">x100</span><span class="pvp">x50</span></b> 付与する。</li>
+                <li>また、ステイシス属性でキルをすると、マガジンを <b>10発</b> リロードする。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1217,9 +1209,8 @@
                     <b>意志の具現化モード</b>を追加する。スーパーエネルギーが最大の状態でリロードボタンを長押しすると切り替え可能。
                     <ul class="stats2">
                         <li>モード変更時スーパーエネルギーを <b>20%</b> 消費し、マガジンを <b>192</b> までオーバーフローさせる。</li>
-                        <li>このモードの間はスーパーエネルギーを1秒につき <b>2.6%</b> 消費し続ける。</li>
-                        <li>ダメージが <b>+80%</b> 増加し、ヒットした敵に一回につき <b>x20</b> の遅延を <b>4秒間</b> 付与する。PvPでは遅延効果はない。</li>
-                        <li>残弾かスーパーエネルギーが尽きるか、この武器をしまうまで継続する。</li>
+                        <li>このモードの間はスーパーエネルギーを1秒につき <b>2.6%</b> 消費し続ける代わりに、この武器のダメージが <b>+80%</b> 増加<span class="pve">し、ヒットした敵に一回につき <b>x20</b> の遅延を <b>4秒間</b> 付与</span>する。</li>
+                        <li>意思の具現化モードは、残弾かスーパーエネルギーが尽きるか、この武器をしまうまで継続する。</li>
                     </ul>
                 </li>
             </ul>
@@ -1233,7 +1224,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>特殊弾を使用</b>する。</li>
-                <li>PvEでは <b>x4</b> の精密ダメージ倍率。</li>
+                <li><span class="pve">精密ダメージ倍率が <b>x4</b> となっている。</span></li>
                 <li>タップ撃ちをすると、縦反動が <b>-30%</b> 軽減され、精度が向上する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -1292,11 +1283,11 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>10回</b> ヒットさせると、通常弾が<b>追尾ロケット</b>になる。</li>
-                <li>ロケットは敵を精密に追尾し、<b>105</b>（PvPでは <b>24</b>）ダメージを与える。<b>50m</b> 以上の距離には届かない。</li>
+                <li><b>10回</b> ヒットさせると、次に発射する通常弾が<b>追尾ロケット</b>になる。</li>
+                <li>ロケットは敵を精密に追尾し、<b><span class="pve">105</span><span class="pvp">24</span></b> ダメージを与える。<b>50m</b> 以上の距離には届かない。</li>
                 <li>さらに、ロケットのヒット時に<b>グレネード弾</b>を1個チャージする。これは最大 <b>3個</b> まで貯められる。</li>
                 <li>グレネード弾が1個以上ある状態でリロードボタンを長押しすると、<b>グレネードランチャーモード</b>に移行する。</li>
-                <li>グレネードランチャーモードはキネティック属性の<b>グレネードを発射</b>し、<b>4m</b> 以内の敵に<b>1160</b>（PvPでは <b>120 + 14</b>）ダメージを与える。これに自爆ダメージはない。</li>
+                <li>グレネードランチャーモードはキネティック属性の<b>グレネードを発射</b>し、<b>4m</b> 以内の敵に <b><span class="pve">960</span><span class="pvp">110 + 24</span></b> ダメージを与える。これに自爆ダメージはない。</li>
                 <li>発射後、グレネード弾が残っていればグレネードランチャーのリロードを、そうでない場合は通常のリロードを行う。</li>
             </ul>
         </div>
@@ -1312,11 +1303,11 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>マガジンの最後の一発は、弾薬の代わりにHPを <b>10.01</b> 消費し、通常より <b>+100%</b>（PvPでは <b>+30%</b>）高いダメージを与える。</li>
+                <li>マガジンの最後の一発は、弾薬の代わりにHPを <b>10.01</b> 消費し、通常より <b><span class="pve">+100%</span><span class="pvp">+30%</span></b> 高いダメージを与える。</li>
                 <li>また、複数キルをするとHPが <b>30</b> 回復し、<b>自然再生が開始</b>する。</li>
                 <li>さらに、精密ヒットを <b>10回</b> し、リロードボタンを長押しすると、<b>暗黒の球体</b>を発射できるモードに入る。</li>
                 <li>暗黒の球体は敵を<b>盲目状態</b>にし、この武器もしくは <a href="./exotic_weapons.html#thorn">トルン</a> 、 <a href="./exotic_weapons.html#osteo_striga">オステオ・ストライガ</a> から受けるダメージを <b>+50%</b> 増加させる。</li>
-                <li>最後の一発で暗黒の球体を撃つと、ダメージが <b>+100%</b>（PvPでは <b>+30%</b>）増加する。</li>
+                <li>最後の一発で暗黒の球体を撃つと、そのダメージが <b><span class="pve">+100%</span><span class="pvp">+30%</span></b> 増加する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1332,17 +1323,19 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>&#xe070; アンチバリア効果</b></li>
-                <li>高威力フレームと同等の<b>2点バーストモード</b>と、軽量フレームと同等の<b>4点バーストモード</b>の切り替えが可能。</li>
-                <li>精密ヒットを複数回すると、<b>標的捕捉データ</b>のスタックを1個チャージする。</li>
-                <li>モード変更すると、スタック数に応じて高威力弾を発射できる。</li>
+                <li>高威力フレームと同等の<b>2点バーストモード</b>と、アグレッシブバーストと同等の<b>4点バーストモード</b>の切り替えが可能。</li>
+                <li>精密ヒットを <b>12回</b> すると、<b>標的捕捉データ</b>のスタックを1個チャージする。</li>
+                <li>スタックが1個以上溜まった状態でリロードボタンを長押しすると、<b>スコープを展開</b>し、ズーム倍率が <b>50</b> に設定される。</li>
+                <li>スコープ展開中は、精密ダメージ倍率が <b>x3</b> の<b>高威力弾</b>をスタック数と同数発射できる。高威力弾は <b><span class="pve">245</span><span class="pvp">158.2</span></b> ダメージを与える。</li>
+                <li>高威力弾を全弾発射するまで、モードを元に戻すことはできない。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             以下の4つから選択できる。
             <ul>
                 <li><a href="./weapon_perks.html#feeding_frenzy">狂乱索餌</a></li>
+                <li><a href="./weapon_perks.html#under_pressure">追い詰められた獣</a></li>
                 <li><a href="./weapon_perks.html#outlaw">アウトロー</a></li>
                 <li><a href="./weapon_perks.html#fourth_times_the_charm">4度目の正直</a></li>
-                <li><a href="./weapon_perks.html#under_pressure">追い詰められた獣</a></li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1431,10 +1424,9 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>2点バーストで発射する。2発目はダメージが <b>271%</b> 高く、<b>距離減衰が発生しない。</b></li>
+                <li>2点バーストで発射する。2発目は反動が大きい代わりにダメージが <b>+271%</b> 増加しており、<b>距離減衰が発生しない。</b></li>
                 <li>キルをすると半径 <b>3m</b> の爆発を起こし、<b>ボイドオーブ</b>を出現させる。</li>
                 <li>ボイドオーブは<b>敵を追尾</b>しダメージを与える。</li>
-                <li>爆発は通常弾の <b>1300%</b> 、ボイドオーブは通常弾の <b>3%</b> のダメージ量。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1450,7 +1442,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>腰だめ撃ちの弾は<b>敵を追尾</b>し、スコーチを <b>x3</b> （灰の名残適用時は <b>x5</b> ）付与する。発射レートは <b>200</b> 。</li>
+                <li>腰だめ撃ちの弾は<b>敵を追尾</b>し、スコーチを <b>x3</b> <span class="ash">(<b>x5</b>)<span class="ash-balloon">かけら「灰の遺産」適用時の数値</span></span> 付与する。発射レートは <b>200</b> 。</li>
                 <li>ADS中の弾は<b>弾速が上がる</b>が、スコーチ効果はない。ダメージ量が腰だめ撃ちより <b>53%</b> 高い。発射レートは <b>150</b> 。</li>
                 <li>カバルへのダメージが <b>+18%</b> 増加し、<b>ファランクスの盾を貫通</b>する。</li>
             </ul>
@@ -1476,9 +1468,9 @@
                     アーク伝導体:
                     <ul class="stats2">
                         <li>武器ダメージが <b>+10%</b> 、ハンドリングが <b>+100</b> 増加する。</li>
-                        <li>アーク属性のダメージを <b>50%</b> 軽減する。</li>
+                        <li>アーク属性のダメージを <b><span class="pve">-50%</span><span class="pvp">-15%</span></b> 軽減する。</li>
                         <li>撃った弾がマガジンに戻ってくる。</li>
-                        <li>撃った弾が周囲 <b>8m</b> の敵に雷を連鎖させる。連鎖した雷は通常弾の <b>76%</b> のダメージ量。</li>
+                        <li>撃った弾が周囲 <b>8m</b> の敵に雷を連鎖させてダメージを与える。</li>
                         <li>この武器で敵をキルすると効果時間が <b>+3秒</b> 延びる。</li>
                     </ul>
                 </li>
@@ -1502,14 +1494,8 @@
             <ul class="stats">
                 <li>リロードボタンを長押しすると、ボイド→アーク→ソーラー→ボイドといった順番に<b>属性を変更</b>できる。</li>
                 <li>属性に応じて<b>武器のステータスが変化</b>する。</li>
-                <li>距離減衰が発生しづらく、通常のものと比較すると減衰率は <b>x0.7</b> となっている。</li>
-                <li>弾は <b>2回まで壁や床で跳ね返り</b>、1回でも跳ね返った弾は<b>追加ダメージ</b>を与える。</li>
-                <li>ダメージ増加量:
-                    <ul class="stats2">
-                        <li>PvE: <b>+100%</b></li>
-                        <li>PvP: <b>+35%</b></li>
-                    </ul>
-                </li>
+                <li>距離減衰が発生しづらく、ダメージが <b>x0.7</b> を下回ることはなくなっている。</li>
+                <li>弾は <b>2回まで壁や床で跳ね返り</b>、1回でも跳ね返った弾は <b><span class="pve">+100%</span><span class="pvp">+35%</span></b> 増加したダメージ</b>を与える。</li>
                 <li>属性によるステータス変化量:
                     <ul>
                         <li><span class="void" />: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
@@ -1535,10 +1521,10 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>敵に弾を当てると、チャージ時間が <b>x0.97</b> 短縮される。<b>15発</b> 当てると最大化され、<b>x0.2</b> まで短縮できる。</li>
-                <li>この効果は <b>5秒間</b> 持続し、敵に弾をヒットさせるたびに持続時間はリセットされる。キルをすると短縮はリセットされる。</li>
-                <li>キルをすると <b>6秒間</b> リロード時間が <b>x0.66</b> される。</li>
-                <li>敵を倒してから <b>6秒以内</b> にリロードすると、<b>4.5秒間</b> ダメージが <b>50%</b> 増加する。</li>
+                <li>敵に弾を当てると、この武器のダメージが <b>-0.84%</b> 減少する代わりに、チャージ時間が <b>x0.97</b> 短縮される。</li>
+                <li><b>15発</b> 当てると効果は最大化され、ダメージは <b>-11.93%</b> 減少するが、チャージ時間は <b>x0.2</b> まで短縮できる。</li>
+                <li>この効果は <b>5秒間</b> 持続し、敵に弾をヒットさせるたびに効果時間はリセットされる。</li>
+                <li>キルをすると <b>6秒間</b> リロード時間が <b>x0.66</b> され、敵を倒してから <b>6秒以内</b> にリロードすると、<b>4.5秒間</b> この武器のダメージが <b>50%</b> 増加する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1561,13 +1547,8 @@
                 <li>リロードボタンを長押しすると、ボイド→アーク→ソーラー→ボイドといった順番に<b>属性を変更</b>できる。</li>
                 <li>属性に応じて<b>武器のステータスが変化</b>する。</li>
                 <li>敵のシールドを破壊すると、マガジンが <b>1発</b> リロードされる。</li>
-                <li>敵のシールドを属性一致で破壊すると、マガジンが<b>すべて</b>リロードされ、<b>5発</b> 発射するまで<b>武器のダメージが増加</b>する。</li>
-                <li>ダメージ増加量:
-                    <ul class="stats2">
-                        <li>PvE: <b>+40%</b></li>
-                        <li>PvP: <b>+15%</b></li>
-                    </ul>
-                </li>
+                <li>敵のシールドを属性一致で破壊すると、マガジンが<b>すべて</b>リロードされ、<b>5発</b> 発射するまで、<b>イオンの返却</b>が付与される。</li>
+                <li>イオンの返却発動中は、この武器のダメージが <b><span class="pve">+40%</span><span class="pvp">+15%</span></b> 増加する。</li>
                 <li>属性によるステータス変化量:
                     <ul>
                         <li><span class="void" />: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
@@ -1592,7 +1573,7 @@
                 <ul class="stats">
                     <li>レーザーを撃ち続けると、範囲内の敵にスコーチを付与する<b>燃焼フィールド</b>をゆっくりと展開する。</li>
                     <li><b>4秒間</b> 撃ち続けると、燃焼フィールドは <b>1m</b> で最大化される。</li>
-                    <li>燃焼フィールドは、<b>2.5秒</b> ごとにスコーチを <b>x10</b>（灰の名残適用時は <b>x20</b> ）付与する。</li>
+                    <li>燃焼フィールドは、<b>2.5秒</b> ごとにスコーチを <b>x10</b> <span class="ash">(<b>x20</b>)<span class="ash-balloon">かけら「灰の遺産」適用時の数値</span></span> 付与する。</li>
                     <li>キルをするとリロードされる。</li>
                 </ul>
             </ul>
@@ -1640,8 +1621,8 @@
             <ul class="stats">
                 <li>精密ヒットをすると、マガジンが <b>1発</b> リロードされる。</li>
                 <li>4回精密ヒットをすると、次の弾がソーラー爆発を起こす。</li>
-                <li>爆発のダメージ量は通常弾より <b>95%</b> 高く、半径 <b>2m</b> 以内の敵を燃焼させる。</li>
-                <li>リロードをするか、爆発弾準備完了から <b>6秒間</b> 撃たないでいると回数がリセットされる。</li>
+                <li>爆発のダメージ量は通常弾より <b>+95%</b> 増加しており、半径 <b>2m</b> 以内の敵を<b>燃焼</b>させる。</li>
+                <li>リロードをするか、爆発弾準備完了から <b>6秒間</b> 撃たずにいると、カウントはリセットされる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1671,24 +1652,12 @@
             <ul class="stats">
                 <li>一度に3本の矢を発射する。</li>
                 <li>精密キルをすると<b>稲妻の杖</b>が発動し、次に撃った矢が周囲 <b>8m</b> の敵に雷を連鎖させるようになる。</li>
-                <li>直撃した矢に落ちた雷と、連鎖してきた雷でダメージ量が異なる。</li>
-                <li>直撃雷ダメージ:
-                    <ul class="stats2">
-                        <li>PvE: 通常弾の <b>38%</b> × 3</li>
-                        <li>PvP: <b>10</b></li>
-                    </ul>
-                </li>
-                <li>連鎖雷ダメージ:
-                    <ul class="stats2">
-                        <li>PvE: 通常弾の <b>177%</b></li>
-                        <li>PvP: <b>51</b></li>
-                    </ul>
-                </li>
+                <li>直撃した矢に落ちた雷は <span class="pve">通常弾の <b>38%</b> × 3 の</span><span class="pvp"><b>10</b></span> ダメージを、連鎖した雷は <span class="pve">通常弾の <b>177%</b> の</span><span class="pvp"><b>51</b></span> ダメージを与える。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>発射時間: <b>-108</b></li>
-                <li><b>あらゆるアークキルで</b>稲妻の杖が発動する。</li>
+                <li><b>あらゆるアークキルで</b>稲妻の杖が発動するようになる。</li>
             </ul>
         </div>
         <div class="back"><a href="#top">▲</a></div>
@@ -1774,15 +1743,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b><a href="./weapon_parts.html#lightweight_frame">軽量フレーム</a>の内在効果</b>を得る。</li>
-                <li>最大まで引くと、矢が敵に<b>毒ダメージを 8回 与える。</b></li>
+                <li>最大まで引いた瞬間に発射すると、命中した矢が <b>0.5秒</b> ごとに <b><span class="pve">29</span><span class="pvp">1.88</span></b> の毒ダメージを <b>6回</b> 与える。</li>
                 <li>毒には <b>&#xe071; オーバーロード効果</b>がある。</li>
-                <li>さらに精密ヒットをすると、毒を半径 <b>3m以内</b> の敵に広げる。</li>
-                <li>毒ダメージ量:
-                    <ul class="stats2">
-                        <li>PvE: <b>30</b> × 8</li>
-                        <li>PvP: <b>1.88</b> × 8</li>
-                    </ul>
-                </li>
+                <li>毒矢で精密ヒットをすると、毒を半径 <b>3m以内</b> の敵に広げる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1808,22 +1771,16 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ダメージを与えるか受けると、<b>飢えた獣</b>のチャージを溜める。</li>
-                <li>武器をしまうと、チャージが <b>50%</b> 減る。</li>
-                <li>チャージ量:
-                    <ul class="stats2">
-                        <li>PvE: 1発につき <b>2%</b></li>
-                        <li>PvP: 1発につき <b>5%</b></li>
-                        <li>被弾時は一律 <b>3%</b> 。</li>
-                    </ul>
-                </li>
+                <li>ダメージを与えると <b><span class="pve">2%</span><span class="pvp">5%</span></b> 、ダメージを受けると <b>3%</b> のチャージが溜まる。</li>
+                <li>武器をしまうと、チャージが <b>50%</b> 減少する。</li>
                 <li>チャージが溜まった状態でリロードボタンを長押しすると、<b>飢えた獣</b>を発動する。</li>
                 <li>飢えた獣:
                     <ul class="stats2">
                         <li>武器の通常ダメージが <b>+187%</b> 、精密ダメージが <b>+99%</b> 増加する。</li>
                         <li>さらに発射レートが <b>900</b> まで上がり、リロード速度が <b>+100</b> 、リロード時間が <b>x0.8</b> される。</li>
                         <li>また、自身の可動性が <b>+100</b> 、スライディング距離が <b>+33%</b> 増加する。</li>
-                        <li>効果時間は <b>8秒間</b> だが、敵に弾を当てると効果時間が <b>0.05秒</b> 追加される。</li>
-                        <li>効果時間が <b>3秒</b> を切った状態で、マイナーかエリートを撃った場合は効果時間がさらに <b>0.3秒</b> 追加される。最大で <b>3秒</b> まで追加できる。</li>
+                        <li>効果時間は <b>8秒間</b> <span class="pve">だが、敵に弾を当てると効果時間が <b>0.05秒</b> 追加される</span>。</li>
+                        <li><span class="pve">効果時間が <b>3秒</b> を切った状態で、マイナーかエリートを撃った場合は効果時間がさらに <b>0.3秒</b> 追加される。最大で <b>3秒</b> まで追加できる。</span></li>
                     </ul>
                 </li>
             </ul>
@@ -1866,7 +1823,8 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>&#xe071; オーバーロード効果</b></li>
-                <li>敵に <b>0.65秒間</b> ダメージを与えると、敵が弱体化し、その敵に対する全ての武器ダメージが <span class="c_void"><b>+15%</b></span> 増加する。</li>
+                <li>敵に <b>0.65秒間</b> ダメージを与えると、敵が弱体化し、その敵に対する全てのダメージが <span class="c_void"><b>+15%</b></span> 増加する。</li>
+                <li>神性自体が対象に与えるダメージは <b>+30%</b> 増加する。</li>
                 <li>さらに<b>ケージが形成</b>され、そこにヒットした弾は全て<b>精密ヒットになる。</b></li>
                 <li>爆発物やフュージョンライフルなど、精密ヒット判定がない武器は精密ヒット化しない。</li>
                 <li>敵に <b>70発分</b> ダメージを与え続けると、その敵に追加で <b>625</b> ダメージを与える。</li>
@@ -1889,7 +1847,7 @@
                 <li>アークシーカーモード:
                     <ul class="stats2">
                         <li>モード変更時、ダイナミックチャージの<b>数と同じ量</b>マガジンをリロードする。</li>
-                        <li>さらに <b>+30% × チャージの数</b>、シーカーのダメージ量を増加させる。</li>
+                        <li>さらに <b>+30% × チャージの数</b>、シーカーが与えるダメージを増加させる。</li>
                         <li>発射レートは <b>100</b> に下がる。</li>
                     </ul>
                 </li>
@@ -1933,7 +1891,7 @@
                 <li><b>20発</b> 撃ち続けると、<b>オーバーヒート</b>が付与される。</li>
                 <li>オーバーヒート:
                     <ul class="stats2">
-                        <li>武器のダメージが <b>+99%</b>（PvPでは <b>+55%</b> ）増加する。</li>
+                        <li>この武器のダメージが <b><span class="pve">+99%</span><span class="pvp">+55%</span></b> 増加する。</li>
                         <li>しかし、自身が瀕死になるまで <b>0.4秒</b> ごとに <b>16</b> ダメージを受け続ける。</li>
                         <li>腰だめ撃ちをすると自傷ダメージを <b>20%</b> 軽減できる。</li>
                     </ul>
@@ -1952,9 +1910,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>フルオートによる射撃をすると、一発ごとにダメージが増加するが、拡散が大きくなる。</li>
+                <li>フルオートによる射撃をすると、一発ごとにこの武器のダメージが増加するが、拡散が大きくなる。</li>
             </ul>
-            <caption>ダメージ増加量:</caption>
             <table class="list">
                 <thead>
                     <tr>
@@ -1967,7 +1924,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>武器ダメージ</th>
+                        <th>ダメージ増加量</th>
                         <td><b>+18%</b></td>
                         <td><b>+39%</b></td>
                         <td><b>+59%</b></td>
@@ -1989,41 +1946,19 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>この武器でキルした敵を、<b>変質スフィア</b>として拾い攻撃に利用できる。</li>
+                <li>この武器でキルした敵を<b>変質スフィア</b>として拾い、攻撃に利用できる。</li>
                 <li>変質スフィア:
                     <ul class="stats2">
                         <li>使用回数: <b>30回</b></li>
-                        <li>所持しているだけで毎秒使用回数を <b>1回ずつ</b> 消費する。</li>
-                        <li><b>通常攻撃</b>は回数を <b>1回</b> 消費し、<b>強攻撃</b>は回数を全て消費して半径 <b>9m以内</b> の敵にダメージを与える。</li>
-                        <li>ガードをすると使用回数を毎秒 <b>2回ずつ</b> 消費し、半径 <b>7m以内</b> の敵から<b>HPを吸収する。</b>このとき、ダメージを <b>-80%</b> 軽減する。</li>
+                        <li>武器として使用していない間は、使用回数を毎秒 <b>1回ずつ</b> 消費する。武器を持ち替えると即座に消滅する。</li>
+                        <li><b>通常攻撃</b>は回数を <b>1回</b> 消費して近接攻撃を行い、<b><span class="pve">300</span><span class="pvp">150</span></b> ダメージを与える。空中では、与えるダメージが <b>-25%</b> 減少する。</li>
+                        <li><b>強攻撃</b>は回数を全て消費してスフィアを地面に叩きつけ、半径 <b>5m以内</b> の敵に <b><span class="pve">1500</span><span class="pvp">300</span></b> ダメージを与える。この攻撃に<b>距離減衰はなく</b>、残りの使用回数によってダメージは<b>変動しない</b>。</li>
+                        <li><b>ガード</b>をすると使用回数を <b>0.25秒</b> ごとに <b>1回ずつ</b> 消費し、自分を中心に<b>吸収フィールド</b>を形成する。このとき、自身が受けるダメージを <b>-80%</b> 軽減する。</li>
+                        <li>吸収フィールド内にいる敵は<span class="pve"><b>盲目状態</b>になり、</span> <b>0.3秒</b> ごとに <b><span class="pve">30</span><span class="pvp">12</span></b> ダメージを受ける。この間、自身のHPを <b>5</b> ずつ回復する。</li>
+                        <li>残り使用回数が1のときに吸収フィールドを形成すると、ガードをやめるか死亡するまでHPの回復効果が<b>無効化</b>され、自身は<b>徐々に増加するダメージ</b>を受ける。</li>
                     </ul>
                 </li>
             </ul>
-            <caption>ダメージ量:</caption>
-            <table class="list">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>通常攻撃</th>
-                        <th>強攻撃</th>
-                        <th>吸収</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>PvE</th>
-                        <td><b>300</b></td>
-                        <td><b>1500</b></td>
-                        <td>不明</td>
-                    </tr>
-                    <tr>
-                        <th>PvP</th>
-                        <td><b>150</b></td>
-                        <td><b>300</b></td>
-                        <td>一回 <b>10</b></td>
-                    </tr>
-                </tbody>
-            </table>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>変質スフィアの攻撃を受けた敵に対し、<b>15秒間</b> この武器のダメージを <b>+30%</b> 増加させる。</li>
@@ -2041,17 +1976,13 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>2.5秒以内</b> に3回精密ヒットをすると、<b>落雷が発生</b>する。
+                <li><b>2.5秒以内</b> に3回精密ヒットをすると、周囲のダメージを与える<b>雷雲</b>が発生する。
                     <ul class="stats2">
-                        <li>雷雲はウォーロックのストームグレネードと概ね同じ挙動を示す。</li>
+                        <li>雷雲はストームグレネードと概ね同じ挙動を示す。</li>
                         <li>1回目の落雷は <b>300</b> ダメージ、2回目の落雷は <b>180</b> ダメージを与える。</li>
                     </ul>
                 </li>
-                <li>精密キルをすると、<b>落雷が発生</b>する。
-                    <ul class="stats2">
-                        <li>落雷は <b>300</b> ダメージを与える。</li>
-                    </ul>
-                </li>
+                <li>精密キルをすると、周囲の敵に <b>300</b> ダメージを与える<b>落雷</b>が発生する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -2068,10 +1999,10 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>腰だめ撃ちで<b>ペレット弾</b>、ADS時は <b>37%</b> ダメージ量の高い<b>スラグ弾</b>を発射する。</li>
-                <li>ペレット弾によるキルで、<b>精密ダメージが増加</b>し<b>リロード速度が上昇</b>する。</li>
-                <li>効果は <b>7秒間</b> 持続し、精密ヒットをすると<b>効果時間をリセット</b>できる。</li>
+                <li>ペレット弾によるキルをすると、<b>黒い翼</b>が付与される。</li>
+                <li>黒い翼発動中は、<b>精密ダメージが増加</b>し、<b>リロード速度が上昇</b>する。</li>
+                <li>効果は <b>7秒間</b> 持続し、スラグ弾で精密ヒットをすると、黒い翼の<b>効果時間をリセット</b>できる。</li>
             </ul>
-            <caption>精密ダメージ増加量:</caption>
             <table class="list">
                 <thead>
                     <tr>
@@ -2084,16 +2015,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>PvE</th>
+                    <tr class="pve">
+                        <th>精密ダメージ増加量</th>
                         <td><b>+15%</b></td>
                         <td><b>+31%</b></td>
                         <td><b>+39%</b></td>
                         <td><b>+47%</b></td>
                         <td><b>+55%</b></td>
                     </tr>
-                    <tr>
-                        <th>PvP</th>
+                    <tr class="pvp">
+                        <th>精密ダメージ増加量</th>
                         <td><b>+8%</b></td>
                         <td><b>+21%</b></td>
                         <td><b>+31%</b></td>
@@ -2123,17 +2054,18 @@
                 <li>腰だめ撃ちは敵を最大 <b>3体</b> 高速で追尾し、わずかなダメージと共に<b>聖火</b>を付与する。</li>
                 <li>聖火:
                     <ul class="stats2">
-                        <li>効果時間: <b>10秒</b>（PvPは <b>5秒</b>）</li>
-                        <li>倒されたとき、もしくはこの武器をADSして撃たれたときに<b>爆発する。</b></li>
+                        <li>効果時間: <b><span class="pve">10秒</span><span class="pvp">5秒</span></b></li>
+                        <li>倒されたとき、もしくはこの武器をADSして撃たれたときに<b>爆発</b>する。</li>
                         <li>爆発ダメージを受けた敵が聖火を付与されていた場合、<b>その敵も爆発</b>する。</li>
                     </ul>
                 </li>
-                <li>聖火が付与された敵に対して、ADS状態で弓を最大まで引いて精密ヒットをすると、爆発ダメージが <b>2倍</b> になる。</li>
+                <li>聖火が付与された敵に対して、ADS状態で弓を最大まで引いて精密ヒットをすると、爆発ダメージが <b>x2</b> になる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>聖火を爆発させると <b>5.5秒間</b> 矢のダメージが増加する。</li>
-                <li>聖火を付与されていない敵にダメージを与えると効果時間をリセットできる。</li>
+                <li>聖火を爆発させると<b>因果の矢</b>が <b>5.5秒間</b> 付与される。</li>
+                <li>因果の矢発動中は、この武器の<b>ダメージが増加</b>する。</li>
+                <li>聖火を付与されていない敵に聖火を付与すると、効果時間をリセットできる。</li>
             </ul>
             <caption>ダメージ増加量:</caption>
             <table class="list">
@@ -2149,8 +2081,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>PvE</th>
+                    <tr class="pve">
+                        <th>ダメージ増加量</th>
                         <td><b>+17%</b></td>
                         <td><b>+37%</b></td>
                         <td><b>+57%</b></td>
@@ -2158,8 +2090,8 @@
                         <td><b>+105%</b></td>
                         <td><b>+105%</b></td>
                     </tr>
-                    <tr>
-                        <th>PvP</th>
+                    <tr class="pvp">
+                        <th>ダメージ増加量</th>
                         <td><b>+3.64%</b></td>
                         <td><b>+11%</b></td>
                         <td><b>+12%</b></td>
@@ -2180,11 +2112,12 @@
             <ul class="stats">
                 <li><b>メイン弾を使用</b>する。</li>
                 <li>フルオート状態で敵をキルすると、<b>オーバーチャージ</b>を溜める。</li>
-                <li>マイナーは1体につき <b>1個</b> 、それ以外は1体につき <b>2個</b> 溜まる。</li>
+                <li><span class="pve">マイナーは1体につき <b>1個</b> 、それ以外は1体につき <b>2個</b> 溜まる。</span></li>
+                <li><span class="pvp">オーバーチャージは、敵1体につき <b>2個</b> 溜めることができる。</span></li>
                 <li>チャージが <b>6個</b> 溜まった状態でリロードボタンを長押しすると、<b>テンポラル・アンリミッター</b>を発動する。</li>
                 <li>テンポラル・アンリミッター:
                     <ul class="stats2">
-                        <li>リニア・フュージョンライフルと同じ挙動で、通常時と比べ <b>840%</b> （PvPは <b>555%</b> ）ダメージ量の高い弾を発射する。</li>
+                        <li>リニア・フュージョンライフルと同じ動作で、精密ダメージ倍率が <b>x3</b> の <b><span class="pve">308</span><span class="pvp">166</span></b> ダメージを与える弾を発射する。</li>
                         <li>一回射撃するごとに、チャージを <b>2個</b> 消費する。</li>
                         <li>発動中他の武器に持ち替えると、モードは元に戻る。</li>
                     </ul>
