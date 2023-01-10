@@ -24,6 +24,7 @@
 
     <!-- 表示内容切り替え用スクリプト -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
         function getUrlQueries() {
             var queryStr = window.location.search.slice(1); // 文頭?を除外
@@ -45,14 +46,21 @@
         }
 
         $(document).ready(function() {
-            var cookies = document.cookie;
-            const array = cookies.split(';');
+            var mode = Cookies.get("setmode");
 
-            document.cookie = "setmode=pve";
-            console.log(document.cookie);
+            if (mode == undefined) {
+                Cookies.set("setmode", "pve");
+                mode = "pve";
+            }
 
             var query = getUrlQueries()
-            if (query['mode'] == 'pvp') {
+            if (query['mode'] == 'pve') {
+                mode = "pve";
+            } else if (query['mode'] == 'pvp') {
+                mode = "pvp";
+            }
+
+            if (mode == "pvp") {
                 $('.pve').hide();
                 $('.pvp').show();
                 $('#main').toggleClass('pvp');
@@ -67,9 +75,11 @@
                 $('#p_toggle').toggleClass('on');
 
                 if ($('#main').hasClass('pvp')) {
+                    Cookies.set("setmode", "pvp");
                     $('.pve').hide();
                     $('.pvp').show();
                 } else {
+                    Cookies.set("setmode", "pve");
                     $('.pve').show();
                     $('.pvp').hide();
                 }
