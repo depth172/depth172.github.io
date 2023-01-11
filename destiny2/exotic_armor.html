@@ -20,15 +20,48 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="d2style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
+
+    <!-- 表示内容切り替え用スクリプト -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="./modetoggle.js"></script>
+
+    <!-- 通知表示 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".overlay").show();
+            $.cookie('btnFlg') == 'on' ? $(".overlay").hide() : $(".overlay").show();
+            $(".btn_area button").click(function() {
+                $(".overlay").fadeOut();
+                $.cookie('btnFlg', 'on', {
+                    expires: 30,
+                    path: '/'
+                }); //cookieの保存
+            });
+        });
+    </script>
 
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <a name="top"></a>
-    <div class="main">
+    <div class="overlay">
+        <div class="btn_area">
+            <p class="ttl">新機能のお知らせ</p>
+            <p>右下のボタンを押すことで、PvE用の情報とPvP用の情報が切り替えられるようになりました！ぜひご利用ください。</p>
+            <button>閉じる</button>
+        </div>
+    </div>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+    </div>
+
+    <div class="main" id="main">
         <div class="top_logo">
             <a href="../"><img src="../img/banner_transparent.png"></a>
         </div>
@@ -196,6 +229,7 @@
         <p>
             右三角形はクリックすることで展開できます。
             <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
+            <br>また、右下のボタンを押すことで、PvE向けの情報とPvP向けの情報が切り替えられます。
         </p>
 
         <a name="notice"></a>
@@ -203,7 +237,9 @@
         <ul>
             <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。<br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
             <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについては数値等の詳細な記載がない場合もあります。</li>
-            <li>PvEでのダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
+            <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
+            <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li class="pve">ダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
             <li>武器ダメージが増加するものに関して、<span class="c_void">全体デバフ</span>や<span class="c_solar">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
                 <a href="./buff_stacking.html">強化・弱体化の種類と重複について</a> をお読みください。</li>
             <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
@@ -226,7 +262,7 @@
             <dt>強力な剣攻撃</dt>
             <dd>右クリックの強攻撃のことではなく、弾薬がある状態での剣攻撃のこと。</dd>
         </dl>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!-- 
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -251,7 +287,7 @@
                 <li>アークの近接スキルでキルをすると、近接エネルギーが<b>最大まで回復</b>し、HPの<b>自然再生が開始</b>する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="mask_of_the_quiet_one"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cd76e4a21cb89cd5b850eba34a8df41c.jpg" class="h3">寡黙な者のマスク</h3>
@@ -260,10 +296,10 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>瀕死の状態でキルをすると、シールド部分以外のHPが<b>全回復</b>する。</li>
-                <li>ダメージを受けると、グレネード、近接、クラススキルエネルギーが <b>5%</b> 回復する。この効果にはクールダウンがある。</li>
+                <li>ダメージを受けると、グレネード、近接、クラススキルエネルギーが <b>5%</b> 回復する。この効果には <b>1秒間</b> のクールダウンがある。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="acd0_feedback_fence"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/51fd51c3b825f132198ccbf02b4de7d2.jpg" class="h3">ACD/0 フィードバック・フェンス</h3>
@@ -271,13 +307,12 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>近接攻撃をすると、<b>怒りの導体</b>のスタックを1個チャージする。グレイブの近接攻撃でも発動する。</li>
-                <li>近接攻撃を受けると、範囲 <b>5m</b> のアーク爆発が発生し、怒りの導体のスタック数に応じて<b>周囲の敵にダメージ</b>を与える。</li>
-                <li>また、怒りの導体のスタック数に応じて<b>近接攻撃への耐性が上がる。</b></li>
+                <li>近接攻撃を受けると、<b>5m以内</b> の敵に <b>40</b> ダメージを与えるアーク爆発が発生する。</li>
+                <li>また、近接攻撃をすると、<b>怒りの導体</b>のスタックを1個チャージする。グレイブの近接攻撃でもチャージできる。</li>
+                <li>怒りの導体のスタック数に応じて<b>近接攻撃への耐性が上がり</b>、アーク爆発の<b>ダメージが増加</b>する。</li>
                 <li>近接攻撃を受けるか、近接攻撃をせずに <b>10秒間</b> 経過するとスタックは消滅する。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
-            <caption>爆発ダメージ量は、自身の通常の近接攻撃を100%とする。</caption>
             <table class="list">
                 <thead>
                     <tr>
@@ -290,20 +325,20 @@
                 <tbody>
                     <tr>
                         <th>爆発ダメージ量</th>
-                        <td><b>22%</b></td>
-                        <td><b>44%</b></td>
-                        <td><b>66%</b></td>
+                        <td><b>+100%</b></td>
+                        <td><b>+200%</b></td>
+                        <td><b>+300%</b></td>
                     </tr>
                     <tr>
-                        <th>近接ダメージ耐性</th>
-                        <td><b>33%</b></td>
-                        <td><b>57%</b></td>
-                        <td><b>70%</b></td>
+                        <th>近接ダメージ軽減量</th>
+                        <td><b>-33%</b></td>
+                        <td><b>-55%</b></td>
+                        <td><b>-70%</b></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="doom_fang_pauldron"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1e6af1d4e6ec8568434b1c8f8604b122.jpg" class="h3">死の牙の肩甲</h3>
@@ -313,12 +348,12 @@
             <span class="void" />センティネル
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ボイドの近接スキルで敵をキルすると、スーパーエネルギーが <b>20%</b>（PvPは <b>10%</b> ）回復する。</li>
+                <li>ボイドの近接スキルで敵をキルすると、スーパーエネルギーが <b><span class="pve">+20%</span><span class="pvp">+10%</span></b> 回復する。</li>
                 <li>一回のスキル使用で複数キルをしても、回復するのは一度のみ。</li>
                 <li>また、<a href="./class_void.html#sentinel_shield">センティネルシールド</a>のシールド投げを当てるとスーパーエネルギーが <b>10%</b> 回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="synthoceps"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/21d1f1aaf807996e1cfff5fc283fb59e.jpg" class="h3">シンソセプス</h3>
@@ -329,14 +364,14 @@
                 <li>3体以上の敵に囲まれると、<b>生体強化</b>が <b>8秒間</b> 発動する。</li>
                 <li>生体強化:
                     <ul class="stats2">
-                        <li>近接攻撃（グレイブも含む）ダメージを <b>+200%</b>（PvPでは <b>+100%</b> ）増加させる。</li>
+                        <li>近接攻撃（グレイブも含む）ダメージを <b><span class="pve">+200%</span><span class="pvp">+100%</span></b> 増加させる。</li>
                         <li>また、近接攻撃の射程が <b>7m</b> まで伸びる。</li>
                         <li>さらに、スーパースキルのダメージを <b>+50%</b> 増加させる。</li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="actium_war_rig"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/957eae3f0e2e00ee7f8dba4b1f03c1e7.jpg" class="h3">アクティウム・ウォーリグ</h3>
@@ -348,7 +383,7 @@
                 <li>また、オートライフルとマシンガンの空中効果を恒常的に <b>+30</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="crest_of_alpha_lupi"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5d9110e516e5828d881ffe17e7c1482e.jpg" class="h3">アルファ・ルピの紋章</h3>
@@ -361,7 +396,7 @@
                 <li>また、スーパースキルで生成できる力のオーブが <b>1個</b> 増加する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="hallowfire_heart"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9f337b76f1abf670fac270b272818c2f.jpg" class="h3">ハロウファイアの心</h3>
@@ -376,7 +411,7 @@
                 <li>また、すべての武器の空中効果を恒常的に <b>+20</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="dunemarchers"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a2e2f285d70d2fe23511278c071666f6.jpg" class="h3">砂漠を歩む者</h3>
@@ -385,21 +420,12 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>恒常的にダッシュ速度を <b>+6.25%</b> 、スライディング距離を <b>+33%</b> 増加させる。</li>
-                <li>また、<b>1.5秒間</b> ダッシュすると、<b>リニア作動装置</b>が <b>7秒間</b> 付与される。</li>
-                <li>リニア作動装置発動中に敵に近接攻撃をすると敵に<b>ショック</b>を付与し、ショック状態の敵からは、<b>20m以内</b> にいる敵に<b>電撃が連鎖しダメージ</b>を与える。連鎖できる敵が存在する限り、ショック状態は<b>継続</b>される。</li>
-                <li>PvPでは、一度連鎖させると、同じ敵に <b>2秒間</b> 連鎖ダメージは入らない。</li>
-            </ul>
-            <div class="info">&lt;効果量&gt;</div>
-            <ul class="stats">
-                <li>ダメージ量:
-                    <ul class="stats2">
-                        <li>PvE: 近接攻撃の <b>300%</b></li>
-                        <li>PvP: <b>85</b></li>
-                    </ul>
-                </li>
+                <li><b>1.5秒間</b> ダッシュすると、<b>リニア作動装置</b>が <b>7秒間</b> 付与される。</li>
+                <li>リニア作動装置発動中に敵に近接攻撃をすると敵に<b>ショック</b>を付与し、ショック状態の敵からは、<b>20m以内</b> にいる敵に<b>電撃が連鎖</b>し、<b><span class="pve">220</span><span class="pvp">85</span></b> ダメージを与える。連鎖できる敵が存在する限り、ショック状態は<b>継続</b>される。</li>
+                <li><span class="pvp">ただし、一度連鎖させると、同じ敵に <b>2秒間</b> 連鎖ダメージは入らない。</span></li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="lion_rampant"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bd9977d2267655736adc7c72a8fb4659.jpg" class="h3">ライオン・ランパント</h3>
@@ -421,7 +447,7 @@
                 </li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="peacekeepers"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/592dc38dd7a785ad28e83236559fc6ea.jpg" class="h3">ピースキーパー</h3>
@@ -443,7 +469,7 @@
                 <li>また、サブマシンガンの空中効果を恒常的に <b>+40</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -461,11 +487,11 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#sentinel_shield">センティネルシールド</a>でガード時、<b>7m以内</b> にいる敵を <b>5秒間</b> <b>盲目状態にする。</b></li>
-                <li>また、発動した<a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a>や <a href="./exotic_weapons.html#edge_of_action">行動の果て</a> で生成したシールドに入ると<b>星なき夜</b>が発動し、星なき夜発動中は <b>65HP</b> のボイドのオーバーシールドを得られる。</li>
+                <li>また、発動した<a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a>や<a href="./exotic_weapons.html#edge_of_action">行動の果て</a>で生成したシールドに入ると<b>星なき夜</b>が発動し、星なき夜発動中は <b>65HP</b> のボイドのオーバーシールドを得られる。</li>
                 <li>ドーン・ウォードや行動の果てのシールド内に入った敵も同様に盲目状態となる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="khepris_horn"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/835191598407f6a2d3305db51c49e892.jpg" class="h3">ケプリの角</h3>
@@ -473,11 +499,11 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>バリケード展開時、射程 <b>18.5m</b> の<b>ソーラーの波動</b>を放つ。</li>
+                <li>バリケード展開時、射程 <b>18.5m</b> の<b>ソーラーの波動</b>を放ち、触れた敵に <b><span class="pve">240</span><span class="pvp">100</span></b> ダメージを与える。</li>
                 <li>また、ソーラー属性でのキルでクラススキルエネルギーが <b>25%</b> 回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="aeon_safe"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1bd2569de3ca26038dca9c2a406b0fb5.jpg" class="h3">イーオン・セーフ</h3>
@@ -487,7 +513,7 @@
                 <li><a href="#aeon_cults">イーオン教団の装備</a> を参照。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="mk44_stand_asides"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/869138d14fc6be5650522b1372739172.jpg" class="h3">MK. 44 スタンド・アサイド</h3>
@@ -495,19 +521,19 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>対象の近接スキルがエネルギー最大時、ダッシュをすると最大 <b>75HP</b> のオーバーシールドが徐々に生成される。</li>
+                <li>対象の近接スキルがエネルギー最大時、<b>0.5秒間</b> ダッシュをすると、最大 <b>75HP</b> のオーバーシールドが <b>3秒</b> かけて生成される。</li>
                 <li>また、対象の近接スキルが敵にヒットすると、近接エネルギーが <b>50%</b> 回復する。</li>
                 <li>対象の近接スキル:
                     <ul>
                         <li>振動ストライク</li>
                         <li>バリスティックスラム</li>
-                        <li>ハンマーストライク</li>
-                        <li>シールドバッシュ</li>
+                        <li><a href="./class_solar.html#hammer_strike">ハンマーストライク</a></li>
+                        <li><a href="./class_void.html#shield_bash">シールドバッシュ</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="eternal_warrior"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a070ad591d0bee08fc4711bd01581486.jpg" class="h3">エターナル・ウォリアー</h3>
@@ -521,7 +547,7 @@
                 <li>このオーバーシールドは<b>精密ダメージを無効化</b>する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ashen_wake"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a48952be6f94003a71b317486532eb10.jpg" class="h3">アシェン・ウェイク</h3>
@@ -531,21 +557,21 @@
             <span class="solar" />サンブレーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>フュージョングレネードに <a href="./armor_mods.html#fastball">ファストボール</a> と同じ効果が付与され、<b>直撃時に爆発</b>するようになる。</li>
+                <li>フュージョングレネードに<a href="./armor_mods.html#fastball">ファストボール</a>と同じ効果が付与され、<b>直撃時に爆発</b>するようになる。</li>
                 <li>また、フュージョングレネードでのキルで<b>グレネードエネルギーが回復</b>する。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>回復量:
+                <li>回復量: <span class="pvp"><b>100%</b></span>
                     <ul class="stats2">
-                        <li>マイナー: <b>25%</b></li>
-                        <li>メジャー: <b>50%</b></li>
-                        <li>ボス / ガーディアン: <b>100%</b></li>
+                        <li><span class="pve">マイナー: <b>25%</b></span></li>
+                        <li><span class="pve">メジャー: <b>50%</b></span></li>
+                        <li><span class="pve">ボス: <b>100%</b></span></li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="wormgod_caress"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/aadd6b6efdd9e70cb2849d08a0755a54.jpg" class="h3">ワームゴッド・カレス</h3>
@@ -580,7 +606,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="armamentum"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9482dc5d359231558d9ac7f70e5bbd86.jpg" class="h3">医療設備</h3>
@@ -592,7 +618,7 @@
                 <li>ストライカーの特性「雷の造形」とは重複しない。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -613,7 +639,7 @@
                 <li>その敵をキルすると<b>復讐</b>が <b>6秒間</b> 付与され、復讐発動中は <b>95HP</b> のオーバーシールドを得られる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ursa_furiosa"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fcb345a9ab4c3c6a1afecb75f379c289.jpg" class="h3">アーサ・フリオーサ</h3>
@@ -627,7 +653,7 @@
                 <li>また、発動終了時、ガードしたダメージを最大 <b>50%</b> のスーパーエネルギーに変換する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="heart_of_inmost_light"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ff43a8718ef112640f519346e169d994.jpg" class="h3">深部の光の心</h3>
@@ -635,15 +661,14 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>スキルを使うと、使用しなかった他のスキルが <b>10秒間 強化</b>される。
+                <li>スキルを使うと、使用しなかった他のスキルが <b><span class="pve">10秒間</span><span class="pvp">5秒間</span></b> <b>強化</b>される。
                     <ul class="stats2">
-                        <li>例: バリケードを発動すると、グレネードと近接スキルが強化</li>
+                        <li><b>例</b>: バリケードを発動すると、グレネードと近接スキルが強化</li>
                     </ul>
                 </li>
                 <li>バリケードは、クールダウン減少以外の恩恵を<b>受けない。</b></li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
-            ()内はPvP時の数値。<br>
             <caption>グレネード:</caption>
             <table class="list">
                 <thead>
@@ -654,15 +679,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="pve">
                         <th>ダメージ増加量</th>
-                        <td><b>+20%</b> (<b>+10%</b>)</td>
-                        <td><b>+35%</b> (<b>+20%</b>)</td>
+                        <td><b>+20%</b></td>
+                        <td><b>+35%</b></td>
                     </tr>
-                    <tr>
+                    <tr class="pve">
                         <th>チャージ速度</th>
-                        <td><b>+400%</b> (<b>+100%</b>)</td>
-                        <td><b>+800%</b> (<b>+200%</b>)</td>
+                        <td><b>+400%</b></td>
+                        <td><b>+800%</b></td>
+                    </tr>
+                    <tr class="pvp">
+                        <th>ダメージ増加量</th>
+                        <td><b>+10%</b></td>
+                        <td><b>+20%</b></td>
+                    </tr>
+                    <tr class="pvp">
+                        <th>チャージ速度</th>
+                        <td><b>+100%</b></td>
+                        <td><b>+200%</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -677,15 +712,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="pve">
                         <th>ダメージ増加量</th>
                         <td><b>+10%</b></td>
                         <td><b>+20%</b></td>
                     </tr>
-                    <tr>
+                    <tr class="pve">
                         <th>チャージ速度</th>
-                        <td><b>+400%</b> (<b>+100%</b>)</td>
-                        <td><b>+800%</b> (<b>+200%</b>)</td>
+                        <td><b>+400%</b></td>
+                        <td><b>+800%</b></td>
+                    </tr>
+                    <tr class="pvp">
+                        <th>ダメージ増加量</th>
+                        <td><b>+10%</b></td>
+                        <td><b>+20%</b></td>
+                    </tr>
+                    <tr class="pvp">
+                        <th>チャージ速度</th>
+                        <td><b>+100%</b></td>
+                        <td><b>+200%</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -700,15 +745,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="pve">
                         <th>チャージ速度</th>
-                        <td><b>+150%</b> (<b>+37.5%</b>)</td>
-                        <td><b>+300%</b> (<b>+75%</b>)</td>
+                        <td><b>+150%</b></td>
+                        <td><b>+300%</b></td>
+                    </tr>
+                    <tr class="pvp">
+                        <th>チャージ速度</th>
+                        <td><b>+37.5%</b></td>
+                        <td><b>+75%</b></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="antaeus_wards"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e9f3ca5b7e0853c963102f6d1cb35fb9.jpg" class="h3">アンタイオス・ウォード</h3>
@@ -720,7 +770,7 @@
                 <li>また、恒常的にスライディング距離を <b>+33%</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="stronghold"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/623ebc54e5a3bb481991df4513c543d7.jpg" class="h3">牙城</h3>
@@ -733,7 +783,7 @@
                 <li>剣でガード中はダメージを <b>90%</b> 軽減し、ガード成功やガード持続によって<b>剣のエネルギーが減らない。</b></li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="peregrine_greaves"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e190a700d56bedadee4344970e8f2133.jpg" class="h3">ペレグリン・グリーブ</h3>
@@ -746,7 +796,7 @@
                 <li>また、すべての武器の空中効果を恒常的に <b>+20</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -769,7 +819,7 @@
                 <li>また、サンスポットが<b>味方にも効果を与える</b>ようになる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="severance_enclosure"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/eefd8a59d6e89563de1b79b0f9945944.jpg" class="h3">断絶の囲い</h3>
@@ -778,10 +828,11 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>近接スキルかフィニッシャーで敵をキルすると、敵を中心とした<b>爆発を発生</b>させる。</li>
+                <li>爆発には <b>4秒間</b> のクールダウンがある。</li>
                 <li>爆発ダメージや範囲は敵のランクによって変動する。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
-            <caption>爆発ダメージ:</caption>
+            <caption>爆発ダメージ量:</caption>
             <table class="list">
                 <thead>
                     <tr>
@@ -793,18 +844,18 @@
                 <tbody>
                     <tr>
                         <th>マイナー</th>
-                        <td>100%</td>
-                        <td><b>144%</b></td>
+                        <td><b>250</b></td>
+                        <td><b>333</b></td>
                     </tr>
                     <tr>
                         <th>ミニボス</th>
-                        <td><b>197%</b></td>
-                        <td><b>268%</b></td>
+                        <td><b>416</b></td>
+                        <td><b>500</b></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="citans_ramparts"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/410990b1b05932c0380eb5c808a9c22e.jpg" class="h3">シタンの城壁</h3>
@@ -815,7 +866,7 @@
                 <li>頑強なバリケードのHPを 600 → <b>350</b> に、効果時間を 20秒 → <b>10秒</b> に減少させる代わりに、<b>バリケード越しに射撃可能</b>にする。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="precious_scars"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e69888e5592b50c6e36aa7206236aacb.jpg" class="h3">大義の傷跡</h3>
@@ -825,10 +876,10 @@
             <ul class="stats">
                 <li>味方を蘇生するか、味方に蘇生されると、<b>15m以内</b> にいる味方に <b>100HP</b> のオーバーシールドを <b>10秒間</b> 付与する。</li>
                 <li>範囲から出るとオーバーシールドは失われる。また、装備者がオーバーシールドを失うと範囲内の味方も同様に失う。</li>
-                <li>さらに、サブクラスと一致する属性の武器で敵を倒すと、<b>15m以内</b> にいる味方のHPを <b>60</b> 回復する。この効果には <b>3秒間</b> のクールダウンがある。</li>
+                <li>さらに、サブクラスと一致する属性の武器で敵を倒すと、自身と <b>15m以内</b> にいる味方のHPを <b>60</b> 回復する。この効果には <b>3秒間</b> のクールダウンがある。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="icefall_mantle"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/83eaeca380ae46c3747b07af22d2923e.jpg" class="h3">氷瀑のマントル</h3>
@@ -839,12 +890,12 @@
                 <li>バリケードを<b>氷河の守り</b>に変更する。このとき、クラススキルのクールダウンは<b>反撃のバリケード</b>と同等のものとなる。</li>
                 <li>発動時、<b>7m以内</b> の戦闘員に遅延を <b>x40</b> 付与し、自身に <b>100HP</b> のオーバーシールドを付与する。</li>
                 <li>シールドは <b>20秒間</b> 持続し、ダメージを受けると効果時間がリセットされる。</li>
-                <li>PvEのみ、シールドはダメージを <b>62.5%</b> 軽減する。</li>
+                <li><span class="pve">シールドはダメージを <b>62.5%</b> 軽減する。</span></li>
                 <li>ただし、シールド発動中はダッシュ、スライディング、リフトが<b>使用不可</b>になり、クラススキルエネルギーが<b>回復しなくなる。</b></li>
                 <li>効果中にクラススキル発動ボタンをもう一度押すことで、<b>効果を解除</b>できる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="cuirass_of_the_falling_star"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ea1b68b6afd0da11a98d814774cc8900.jpg" class="h3">流星のキュイラス</h3>
@@ -855,10 +906,10 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>サンダークラッシュのダメージが <b>+100%</b> 増加する。</li>
-                <li>また、サンダークラッシュ発動中の移動距離に応じて <b>7～20秒間</b> 、<b>100HP</b> の<b>オーバーシールドが付与</b>される。</li>
+                <li>また、サンダークラッシュ発動中の移動距離に応じて、<b>100HP</b> の<b>オーバーシールド</b>が <b>7 ～ 20秒間</b> 付与される。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_path_of_burning_steps"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/42c3009229b1e7126edf4e6f32ecb218.jpg" class="h3">燃え盛る歩みの道</h3>
@@ -866,13 +917,12 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ソーラー属性でキルをすると一定確率で<b>火渡り師</b>が発動し、火渡り師のスタック数に応じて<b>武器ダメージが増加</b>する。</li>
-                <li>自身が凍結すると火渡り師のスタックを1個得る。このバフは輝く泉や強化のリフトなどと重複しない。</li>
-                <li>またこの防具を装備中は、遅延のスタック数と持続時間が<b>半減</b>される。</li>
-                <li>さらに、凍結から自力で回復するとき、<b>粉砕ダメージを受けず</b>に <b>9m以内</b> にソーラー属性の爆発を起こす。</li>
+                <li>ソーラー属性でキルをすると一定確率で<b>火渡り師</b>が発動し、火渡り師のスタック数に応じて自身の<b>武器ダメージが増加</b>する。</li>
+                <li>自身が凍結すると、火渡り師のスタックを <b>1個</b> 得る。</li>
+                <li>また、この防具を装備中は、遅延のスタック数と持続時間が<b>半減</b>される。</li>
+                <li>さらに、凍結から自力で回復するとき、<b>粉砕ダメージを受けず</b>に <b>9m</b> の範囲にソーラー属性の爆発を起こし、<b>105</b> ダメージを与える。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
-            <caption>ダメージ増加量:</caption>
             <table class="list">
                 <thead>
                     <tr>
@@ -884,15 +934,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>PvE</th>
+                    <tr class="pve">
+                        <th>ダメージ増加量</th>
                         <td><b><span class="c_solar">+20%</span></b></td>
                         <td><b><span class="c_solar">+25%</span></b></td>
                         <td><b><span class="c_solar">+35%</span></b></td>
                         <td><b><span class="c_solar">+40%</span></b></td>
                     </tr>
-                    <tr>
-                        <th>PvP</th>
+                    <tr class="pvp">
+                        <th>ダメージ増加量</th>
                         <td><b><span class="c_solar">+15%</span></b></td>
                         <td><b><span class="c_solar">+25%</span></b></td>
                         <td><b><span class="c_solar">+20%</span></b></td>
@@ -901,7 +951,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="no_backup_plans"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/51979dd9ebfc73e66685fa18fb65c5c9.jpg" class="h3">代替案なし</h3>
@@ -909,21 +959,23 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ショットガンでキルをすると、<b>近接エネルギーが回復</b>する。</li>
-                <li>さらに、センティネル使用中かつ近接エネルギーが最大のとき、ショットガンでのキル時近接エネルギーをすべて消費して<b>ボイドのオーバーシールドを生成</b>する。</li>
+                <li>ショットガンでキルをすると、<b>近接エネルギーが回復</b>する。<span class="pve">回復量は敵のランクによって変動する。</span></li>
+                <li>さらに、センティネル使用中かつ近接エネルギーが最大のとき、ショットガンでのキル時、近接エネルギーをすべて消費して<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>を生成する。</li>
                 <li>また、ショットガンの空中効果を恒常的に <b>+30</b> 増加させる。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>エネルギー回復量:
+                <li>エネルギー回復量: <span class="pvp"><b>10%</b></span>
                     <ul class="stats2">
-                        <li>マイナー: <b>10%</b></li>
-                        <li>マイナー以外の敵: <b>25%</b></li>
+                        <li><span class="pve">低ランクのマイナー: <b>5%</b></span></li>
+                        <li><span class="pve">中ランクのマイナー / 低ランクのエリート: <b>9%</b></span></li>
+                        <li><span class="pve">高ランクのマイナー / 中ランクのエリート: <b>15%</b></span></li>
+                        <li><span class="pve">高ランクのエリート / ミニボス / ボス: <b>25%</b></span></li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -936,17 +988,17 @@
 
         <a name="loreley_splendor_helm"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/84fcf9589ae5320f282abe89bd0c5fff.jpg" class="h3">ローレライの輝きのヘルム</h3>
-        <div class="base"><b>治癒の炎</b> - クラススキルエネルギーがフルの時に瀕死状態になるか、バリケードを設置すると、自分のいる場所に回復効果の強化されたサンスポットが生成される。</div>
+        <div class="base"><b>治癒の炎</b> - クラススキルエネルギーがフルの時に瀕死状態になるか、バリケードを設置すると、自分のいる場所にサンスポットが生成される。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
             <span class="solar" />サンブレーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>サンスポットで付与される回復のスタック数が <b>x2</b> になる。</li>
-                <li>また、バリケードを発動するか、クラススキルエネルギーが最大のとき瀕死になると、<b>サンスポットが生成</b>される。</li>
+                <li>バリケードを発動するか、クラススキルエネルギーが最大のとき瀕死になると、<b>サンスポットが生成</b>される。</li>
+                <li>特性の「<a href="./class_solar.html#sol_invictus">ソル・インビクタス</a>」を装備していなくても恩恵を受けられる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="hoarfrost-z"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f5cba8e2772072b819e6c35a80726ba4.jpg" class="h3">ホアフロストZ</h3>
@@ -957,11 +1009,11 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>バリケードの代わりに、<b>ステイシス・クリスタルの壁</b>を生成する。壁は <b>14秒間</b> 持続する。</li>
-                <li>大きさは中サイズのクリスタル7個分ほどで、中央のクリスタルのみ小サイズになっている。</li>
-                <li>反撃のバリケードの効果は、クリスタルが破壊されていたとしても<b>通常通り発動</b>する。</li>
+                <li>大きさは中サイズのクリスタル5個分ほどで、中央のクリスタルのみ小サイズになっている。</li>
+                <li>効果は反撃のバリケードと同じものとなり、クリスタルが破壊されていても<b>効果は持続</b>する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="second_chance"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/804b7ca7817b82515764adcf277d1c87.jpg" class="h3">セカンドチャンス</h3>
@@ -975,7 +1027,7 @@
                 <li>また、シールド投げに <b>&#xe070; アンチバリア効果</b>が付与される。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="point-contact_cannon_brace"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/51b1c4168179d7b2d115f1278b729624.jpg" class="h3">ポイントコンタクト・キャノンブレース</h3>
@@ -983,8 +1035,14 @@
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
             <span class="arc" />ストライカー
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>雷鳴で敵を倒すと、<b>近接エネルギーが回復</b>する。</li>
+                <li>また、雷鳴発動時、付近にいる敵は<b>落雷</b>により、<b>50</b> ダメージを受ける。</li>
+                <li>増幅中は、この落雷の範囲が拡大する。</li>
+            </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -1007,11 +1065,11 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ゴールデンガンの装弾数が<b>1発だけ</b>になり、ダメージが <b>+500%</b> 、発動中の空中効果が <b>+100</b> 増加する。</li>
-                <li>通常のゴールデンガン: マークスマンの3発と比較すると、ダメージは <b>37%</b> 高い。</li>
+                <li>通常の<a href="./class_solar.html#marksman">ゴールデンガン: マークスマン</a>の3発と比較すると、ダメージは <b>37%</b> 高い。</li>
                 <li>このゴールデンガンでキルをすると、スーパーエネルギーが <b>33%</b> 回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="foetracer"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5e995f3d538bbfdc83f887b11a1f747c.jpg" class="h3">エネミートレーサー</h3>
@@ -1022,13 +1080,13 @@
                 <li><b>1秒間</b> 照準を合わせた敵を、<b>5秒間</b> マークする。マークは<b>壁越しに視認</b>できる。</li>
                 <li>さらに、HPが <b>30%</b> を下回った敵に対して、武器とスキルのダメージをHP残量 <b>-1% ごとに +1%</b> する。
                     <ul class="stats2">
-                        <li>例: HP残量10%の敵に対しては、与えるダメージが+20%増加する。</li>
+                        <li><b>例</b>: HP残量10%の敵に対しては、与えるダメージが+20%増加する。</li>
                     </ul>
                 </li>
                 <li>また、すべての武器の空中効果を恒常的に <b>+20</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="knucklehead_radar"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5c085a24228eff7815014f82a6caeadf.jpg" class="h3">間抜け探知機</h3>
@@ -1040,7 +1098,7 @@
                 <li>また、しゃがむと<b>レーダーが強化</b>される。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="mechaneers_tricksleeve"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a11c0abd3b5a9d9ac128ff37aec61425.jpg" class="h3">メカニーアのトリックスリーブ</h3>
@@ -1055,11 +1113,11 @@
                         <li>空中効果: <b>+50</b></li>
                     </ul>
                 </li>
-                <li>瀕死状態でピストルに持ち替えると、そのピストルがリロードされ、ダメージが <b>+100%</b>（PvPでは <b>+35%</b> ）増加する。</li>
+                <li>瀕死状態でピストルに持ち替えると、そのピストルがリロードされ、ダメージが <b><span class="pve">+100%</span><span class="pvp">+35%</span></b> 増加する。</li>
                 <li>効果は瀕死でなくなるまで持続する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="young_ahamkaras_spine"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e7ccbff166a5a543df4f475f69f3ebf8.jpg" class="h3">ヤング・アハンカーラの背骨</h3>
@@ -1072,17 +1130,17 @@
                 <li>トリップマイングレネードが以下のように<b>強化</b>される。
                     <ul>
                         <li><a href="./armor_mods.html#fastball">ファストボール</a> の効果を持つ。</li>
-                        <li>爆発ダメージが <b>14%</b> 増加する。</li>
+                        <li>爆発ダメージが <b>+14%</b> 増加する。</li>
                         <li>爆発範囲が増加し、距離によるダメージ減衰がなくなる。</li>
-                        <li><b>自爆ダメージが無効化</b>される。</li>
-                        <li>グレネードのHPは 10 → <b>100</b> に増加し、PvPではグレネード本体に対するダメージを <b>50%</b> 軽減する。</li>
+                        <li>グレネードによる<b>自爆ダメージが無効化</b>される。</li>
+                        <li>グレネードのHPが 10 → <b>100</b> に増加<span class="pvp">し、グレネード本体に対するダメージを <b>50%</b> 軽減</span>する。</li>
                         <li>壁や床に設置してからの持続時間が <b>+20秒</b> 延びる。</li>
                     </ul>
                 </li>
                 <li>トリップマイングレネードで敵を倒すと、グレネードエネルギーが <b>33%</b> 回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="lucky_raspberry"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/710504ae0aedfaa671f29e37dd041a4b.jpg" class="h3">ラッキーラズベリー</h3>
@@ -1093,11 +1151,11 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>アークボルトグレネードが連鎖できる敵が <b>1体</b> 増加する。</li>
-                <li>また、アークボルトグレネードがヒットすると、一定確率で<b>グレネードがリチャージ</b>される。</li>
+                <li>また、アークボルトグレネードがヒットすると、一定確率でグレネードエネルギーが<b>全回復</b>する。</li>
                 <li>一回のグレネードで1体ヒットする毎に、リチャージされる確率が <b>+25%</b> 増加する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="raiden_flux"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e065a7ce827f8a1c624052595c4e7916.jpg" class="h3">レイデン・フラックス</h3>
@@ -1129,7 +1187,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="dragons_shadow"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5501d47a7916022c737494682c0c73ec.jpg" class="h3">ドラゴン・シャドー</h3>
@@ -1150,7 +1208,7 @@
                 </li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="lucky_pants"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/68dc68ed3ce3f9361460b7d4a69bd351.jpg" class="h3">ラッキーズボン</h3>
@@ -1161,7 +1219,7 @@
                 <li><a href="./armor_mods.html#holster">ハンドキャノンホルスター</a> の効果を持つ。</li>
                 <li>ハンドキャノンを取り出してから <b>4秒間</b> 、ハンドリングが <b>+100</b>、精度が <b>+40%</b> 、空中効果が <b>+20</b> 増加する。</li>
                 <li>このとき、ハンドキャノンの属性がキネティックもしくはサブクラスに一致する属性であり、かつマガジンが満タンだった場合、取り出してから <b>5秒間</b> 、ヒットするたびにそのハンドキャノンのダメージが <b>+60%</b> 増加する。最大で <b>+600%</b> まで増加する。</li>
-                <li>5秒経過した後に武器を持ち替えるかもう一度射撃すると、<b>10秒間</b> は上記効果を受けられない。</li>
+                <li>5秒経過した後に武器を持ち替えるかもう一度射撃すると、<b>10秒間</b> <b>運を使い果たした</b>状態になり、その間は上記効果を受けられない。</li>
             </ul>
             <details>
                 <summary>エキゾチックハンドキャノンとの併用について</summary>
@@ -1225,7 +1283,7 @@
                 </ul>
             </details>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="orpheus_rig"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0d6ae4296f1435209070142cf26dfd37.jpg" class="h3">オルフェウス・リグ</h3>
@@ -1239,7 +1297,7 @@
                 <li><a href="./class_solar.html#moebius_quiver">シャドウショット: メビウスの矢筒</a>で射撃できる回数が <b>1回</b> 増加する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="st0mp-ee5"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8c7681f1e93ee996a724e55554e079e9.jpg" class="h3">ストンプ EE5</h3>
@@ -1262,7 +1320,7 @@
                 </li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -1289,7 +1347,6 @@
                 </li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
-            <caption>近接エネルギー回復速度増加量:</caption>
             <table class="list">
                 <thead>
                     <tr>
@@ -1300,14 +1357,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>PvE</th>
+                    <tr class="pve">
+                        <th>近接回復速度</th>
                         <td><b>+400%</b></td>
                         <td><b>+600%</b></td>
                         <td><b>+800%</b></td>
                     </tr>
-                    <tr>
-                        <th>PvP</th>
+                    <tr class="pvp">
+                        <th>近接回復速度</th>
                         <td><b>+100%</b></td>
                         <td><b>+200%</b></td>
                         <td><b>+300%</b></td>
@@ -1315,7 +1372,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="aeon_swift"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2e98cefd54e09b7383c000e2501358e0.jpg" class="h3">イーオン・スイフト</h3>
@@ -1325,7 +1382,7 @@
                 <li><a href="#aeon_cults">イーオン教団の装備</a> を参照。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="shinobus_vow"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/41d16b23c1af5dbf3363bc34bd591ce6.jpg" class="h3">忍の誓い</h3>
@@ -1337,10 +1394,10 @@
             <ul class="stats">
                 <li>スキップグレネードのチャージが <b>1回 追加</b>される。</li>
                 <li>さらに、スキップグレネードのドローンが <b>1個 増え</b>、敵を<b>より精密に追尾</b>するようになる。</li>
-                <li>また、スキップグレネードがヒットするとグレネードエネルギーが <b>10%</b>（PvPでは <b>3%</b> ） 回復する。</li>
+                <li>また、スキップグレネードがヒットするとグレネードエネルギーが <b><span class="pve">10%</span><span class="pvp">3%</span></b> 回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="gemini_jester"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2e17b501b613c225728347e8da10723d.jpg" class="h3">双子座の道化師</h3>
@@ -1348,12 +1405,11 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>回避時、<b>22m以内</b> の敵に <b>1</b> ダメージを与え、<b>方向の誤り</b>を <b>5秒間</b> 付与する。</li>
-                <li>方向の誤りは、PvEではマイナーとエリートに対し<b>盲目効果</b>を発生させる。</li>
-                <li>PvPでは一瞬の<b>盲目効果</b>を発生させ、<b>レーダーが見えなく</b>なり、音声に<b>ノイズ</b>を含ませる。</li>
+                <li>回避時、<b>22m以内</b> の敵に微量なダメージを与え、<b>方向の誤り</b>を <b>5秒間</b> 付与する。</li>
+                <li>方向の誤りは、<span class="pve">マイナーとエリートに対し<b>盲目効果</b>を発生させる。</span><span class="pvp">一瞬の<b>盲目効果</b>を発生させ、<b>レーダーが見えなく</b>なり、音声に<b>ノイズ</b>を含ませる。</span></li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="wormhusk_crown"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/95eb480d723f510afd9fd3e2bbb1d92d.jpg" class="h3">ワームハスクの王冠</h3>
@@ -1364,7 +1420,7 @@
                 <li>回避時、自身のHPを <b>67</b> 回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="sealed_ahamkara_grasps"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1f1c77866e270996058590849422f1d0.jpg" class="h3">封されたアハンカーラのグラスプ</h3>
@@ -1376,7 +1432,7 @@
                 <li>連続では発動せず、<b>7秒間</b> のクールダウンがある。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ophidia_spathe"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e1be553c40f233880f9ad18b8687c385.jpg" class="h3">オフィディア・スペイス</h3>
@@ -1388,10 +1444,10 @@
             <ul class="stats">
                 <li>近接スキルのチャージが <b>1回 追加</b>される。</li>
                 <li>勝負師の回避では、効果発動時 <b>2回分</b> のチャージが回復する。</li>
-                <li>一網打尽の装備時、発光中のナイフキルでチャージは <b>1個</b> 、ナイフトリックで精密キルをするか点火させてキルするとチャージは <b>2個</b> 回復する。</li>
+                <li><a href="./class_solar.html#knock_em_down">一網打尽</a>の装備時、<a href="./class_solar.html#radiant">発光</a>中のナイフキルでチャージは <b>1個</b> 、<a href="./class_solar.html#knife_trick">ナイフトリック</a>で精密キルをするか<a href="#ignition">点火</a>させてキルするとチャージは <b>2個</b>                    回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="fr0st-ee5"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/308f4e5bd5b86d095904b878f70d8ee8.jpg" class="h3">フロスト EE5</h3>
@@ -1399,12 +1455,12 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ダッシュ中、グレネードエネルギー、近接エネルギー、クラススキルエネルギーの回復速度が <b>+100%</b> 増加する。</li>
-                <li>PvPのみ、クラススキルエネルギーの回復速度は <b>+200%</b> 増加する。</li>
-                <li>また、回避後に <b>10秒間</b> ダッシュ速度を <b>+6.25%</b> 増加させる。</li>
+                <li>ダッシュ中、グレネードエネルギー、近接エネルギー<span class="pve">、クラススキルエネルギー</span>の回復速度が <b>+100%</b> 増加する。</li>
+                <li><span class="pvp">また、クラススキルエネルギーの回復速度が <b>+200%</b> 増加する。</span></li>
+                <li>さらに、回避後に <b>10秒間</b> ダッシュ速度を <b>+6.25%</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -1425,7 +1481,7 @@
                 <li>さらに、弓の発射時間を <b>-30</b> し、空中効果を <b>+40</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="shards_of_galanor"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3c9400f304fc1d7976d6f6784b21b85f.jpg" class="h3">ガラノールの破片</h3>
@@ -1439,7 +1495,7 @@
                 <li>回復量はヒット数やキル数、敵のランクに応じて変化する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="gwisin_vest"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/598126991a4bfe56b2901f1e1dca6147.jpg" class="h3">鬼神のベスト</h3>
@@ -1465,16 +1521,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>PvE</th>
+                    <tr class="pve">
+                        <th>回復量</th>
                         <td><b>11.1%</b></td>
                         <td><b>14.3%</b></td>
                         <td><b>16.5%</b></td>
                         <td><b>16.9%</b></td>
                         <td><b>17.1%</b></td>
                     </tr>
-                    <tr>
-                        <th>PvP</th>
+                    <tr class="pvp">
+                        <th>回復量</th>
                         <td><b>8.3%</b></td>
                         <td><b>12.5%</b></td>
                         <td><b>14.2%</b></td>
@@ -1484,7 +1540,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_sixth_coyote"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f6a2a1450f6020cd7fb1c368c44593b6.jpg" class="h3">6番目のコヨーテ</h3>
@@ -1495,7 +1551,7 @@
                 <li>回避のチャージが <b>1回 追加</b>される。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="liars_handshake"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c0a7faba69ffaf9ecd84183c606a506e.jpg" class="h3">ライアーハンドシェイク</h3>
@@ -1509,7 +1565,7 @@
                 <li>クロスカウンターは近接攻撃のダメージを <b>+200%</b> 増加させ、近接攻撃時に<b>自身のHPを回復</b>させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="khepris_sting"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6c80680f2a60f304fcc871c639974070.jpg" class="h3">ケプリ・スティング</h3>
@@ -1519,11 +1575,11 @@
             <span class="void" />ナイトクローラー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>近接エネルギー最大時に通常の近接攻撃をすると、<a href="./class_void.html#snare_bomb">スネア爆弾</a>が発動する。このとき、スネア爆弾のダメージが <b>+150%</b> 増加する。</li>
+                <li>近接エネルギー最大時に通常の近接攻撃をすると、<b><a href="./class_void.html#snare_bomb">スネア爆弾</a>が発動</b>する。このとき、スネア爆弾のダメージが <b>+150%</b> 増加する。</li>
                 <li>また、発動した煙の中に立つと、<b>3秒間</b> 最大 <b>64m</b> までの敵を透視できる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -1540,7 +1596,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>近接スキルでキルをすると、<a href="./class_void.html#invisibility">透明化</a>し、<b>HPが回復</b>する。</li>
+                <li>近接スキルでキルをすると、<b><a href="./class_void.html#invisibility">透明化</a></b>し、<b>HPが回復</b>する。</li>
                 <li>フィニッシャーをすると透明化の<b>効果時間が延び</b>、HPの<b>回復量も増加</b>する。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
@@ -1577,7 +1633,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_bombardiers"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cd4edf7ec937a158820acef78f7eda43.jpg" class="h3">爆撃手</h3>
@@ -1589,9 +1645,9 @@
                 <li>爆弾は壁や床、敵などに<b>接触すると即座に爆発</b>する。</li>
                 <li>また、使用しているサブクラスの属性に応じて以下の様々な効果が発生する。
                     <ul>
-                        <li><span class="arc" />: 敵を <b>7秒間</b>（PvPでは <b>3秒間</b> ）盲目状態にする。</li>
-                        <li><span class="solar" />: 敵にスコーチを <b>x40</b>（灰の名残適用時は <b>x60</b> ）付与する。</li>
-                        <li><span class="void" />: 敵を <b>9秒間</b>（PvPでは <b>7秒間</b> ）<a href="./class_void.html#suppression">抑制状態</a>にする。</li>
+                        <li><span class="arc" />: 敵を <b><span class="pve">7秒間</span><span class="pvp">3秒間</span></b> 盲目状態にする。</li>
+                        <li><span class="solar" />: 敵にスコーチを <b>x40</b> <span class="ash">(<b>x60</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与する。</li>
+                        <li><span class="void" />: 敵を <b><span class="pve">9秒間</span><span class="pvp">7秒間</span></b> <a href="./class_void.html#suppression">抑制状態</a>にする。</li>
                         <li><span class="stasis" />: 敵に遅延を <b>2秒間</b> 付与し、すでに遅延が付与されていた場合はその<b>持続時間をリセット</b>する。</li>
                     </ul>
                 </li>
@@ -1599,7 +1655,7 @@
                 <li>また、遅延のスタック数は増加しない。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="raijus_harness"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3a1b6b0ed4381607dc6e47d8c51758b3.jpg" class="h3">雷獣のハーネス</h3>
@@ -1613,7 +1669,7 @@
                 <li>また、アークポール中にスーパースキル発動ボタンをもう一度押すことで<b>発動を終了</b>し、早く終了するほどスーパーエネルギーが最大 <b>62.5%</b> 回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="mask_of_bakris"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0040eb348bcfe0d26dea72cd5f7ed667.jpg" class="h3">バクリスのマスク</h3>
@@ -1624,12 +1680,13 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>回避を、<b>転移</b>に変更する。転移は <b>10m</b> 移動可能で、移動中は<b>透明化</b>し軌跡だけが残る。</li>
-                <li>回避をすると<b>光の転移</b>が付与され、PvEのみ光の転移発動中はアーク武器と遅延/凍結状態の敵に対するダメージが <b>+10%</b> 増加する。</li>
-                <li>アーク武器で遅延/凍結状態の敵を攻撃すると、<b>+21%</b> のダメージ増加を得られる。</li>
-                <li>ただし、光の転移発動中はクラススキルエネルギーが<b>回復しない。</b></li>
+                <li><span class="pve">回避をすると<b>光の転移</b>が付与され、光の転移発動中は、アーク武器と、遅延/凍結状態の敵に対するダメージが <b>+10%</b> 増加する。</span></li>
+                <li><span class="pve">アーク武器で遅延/凍結状態の敵を攻撃すると、<b>+21%</b> のダメージ増加を得られる。</span></li>
+                <li><span class="pve">ただし、光の転移発動中はクラススキルエネルギーが<b>回復しない。</b></span></li>
+                <li><span class="pvp">回避をすると<b>光の転移</b>が付与され、光の転移発動中はクラススキルエネルギーが<b>回復しない。</b></span></li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="athryss_embrace"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/51dac9557cd6c46c6f427a26f46392e3.jpg" class="h3">アスリスの抱擁</h3>
@@ -1641,11 +1698,11 @@
             <ul class="stats">
                 <li>加重ナイフが<b>2回跳ね返り</b>、このとき<b>標的捕捉力が大幅に上昇</b>する。</li>
                 <li>また、<b>2.5秒以内</b> に <b>3回</b> 精密ヒットをすると、加重ナイフが<b>強化</b>される。追加で精密ヒットをすると効果時間が <b>5秒間</b> 延長される。</li>
-                <li>強化された加重ナイフはダメージが <b>+200%</b>（PvPでは <b>+100%</b> ）増加し、<b>&#xe072; アンストッパブル効果</b>を持つ。</li>
+                <li>強化された加重ナイフはダメージが <b><span class="pve">+200%</span><span class="pvp">+100%</span></b> 増加しており、<b>&#xe072; アンストッパブル効果</b>を持つ。</li>
                 <li>一度ナイフを投げると強化は解除される。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="omnioculus"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8d8c8f37d34c121441571fda7e8e3b7a.jpg" class="h3">オムニオキュラス</h3>
@@ -1657,11 +1714,11 @@
             <ul class="stats">
                 <li><a href="./class_void.html#snare_bomb">スネア爆弾</a>のチャージが <b>1回 追加</b>される。</li>
                 <li>また、<a href="./class_void.html#trappers_ambush">罠師の奇襲</a>使用時、味方を<a href="./class_void.html#invisibility">透明化</a>させると、味方1体につき近接エネルギーが <b>50%</b> 回復する。</li>
-                <li>さらに、透明化中は受けるダメージを <b>-50%</b>（PvPでは <b>-10%</b> ）軽減する。透明化させた味方にも同様に効果が付与される。</li>
+                <li>さらに、透明化中は受けるダメージを <b><span class="pve">-50%</span><span class="pvp">-10%</span></b> 軽減する。透明化させた味方にも同様に効果が付与される。</li>
                 <li>ただし、スーパースキル発動中はダメージを軽減しない。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="star-eater_scales"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/90190addf444371b5817524982b9ee5c.jpg" class="h3">星喰らいの鱗</h3>
@@ -1718,13 +1775,13 @@
                             <li>直撃ダメージ、継続ダメージが対象。</li>
                         </ul>
                     </li>
-                    <li>ゴールデンガン
+                    <li><a href="./class_solar.html#deadshot">ゴールデンガン</a>
                         <ul>
                             <li>全ての弾が対象。</li>
-                            <li><a href="#celestial_nighthawk">セレスティアル・ナイトホーク</a> と比較すると、光の祝宴をx4溜め、マークスマンの3発を全て精密ヒットさせた場合は、星喰らいの鱗の方が総火力は <b>+23.5%</b> 高くなる。</li>
+                            <li><a href="#celestial_nighthawk">セレスティアル・ナイトホーク</a>と比較すると、光の祝宴をx4溜め、<a href="./class_solar.html#marksman">マークスマン</a>の3発を全て精密ヒットさせた場合は、星喰らいの鱗の方が総火力は <b>+23.5%</b> 高くなる。</li>
                         </ul>
                     </li>
-                    <li>刃の雨
+                    <li><a href="./class_solar.html#blade_barrage">刃の雨</a>
                         <ul>
                             <li>全ての弾が対象。</li>
                         </ul>
@@ -1733,7 +1790,7 @@
                         <ul>
                             <li>直撃ダメージ、継続ダメージ、束縛した敵が死亡した時の爆発ダメージが対象。</li>
                             <li>被ダメージ増加効果は <b>+30%</b> で固定で、これは光の祝宴によって変動しない。</li>
-                            <li><a href="#orpheus_rig">オルフェウス・リグ</a> と比較すると、光の祝宴をx4溜めた場合は、星喰らいの鱗の方が総火力は <b>+15%</b> 高くなる。</li>
+                            <li><a href="#orpheus_rig">オルフェウス・リグ</a>と比較すると、光の祝宴をx4溜めた場合は、星喰らいの鱗の方が総火力は <b>+15%</b> 高くなる。</li>
                         </ul>
                     </li>
                     <li><a href="./class_void.html#spectral_blades">亡霊の刃</a>
@@ -1750,7 +1807,7 @@
                 </ul>
             </details>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="radiant_dance_machine"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/85646c1db4b0b485931de01623711970.jpg" class="h3">ラディエント・ダンスマシン</h3>
@@ -1760,11 +1817,11 @@
             <ul class="stats">
                 <li><b>15m以内</b> に敵がいると<b>マルチ回避可能</b>が表示される。</li>
                 <li>この状態で回避をすると、<b>6秒間</b> <b>無制限に回避可能</b>となる。</li>
-                <li>このときの回避は、<a href="./armor_mods.html#dynamo">発電装置</a> などのクラススキルを発動することで発動するMODの効果などを受けない。</li>
+                <li>このときの回避は、<a href="./armor_mods.html#dynamo">発電装置</a>などのクラススキルを発動することで発動するMODの効果などを受けない。</li>
                 <li>敵から <b>15m以上</b> 離れると、効果は即座に終了する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -1787,7 +1844,7 @@
                 <li>また、投射物を反射すると<b>力のオーブが生成</b>される。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="renewal_grasp"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ad3dd5ac839c584dd0ec5c5ca33c3c54.jpg" class="h3">再誕のグラスプ</h3>
@@ -1798,11 +1855,11 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ダスクフィールドグレネードの<b>範囲が増加</b>するが、クールダウンは<b>グレーシャーグレネードと同等の長さ</b>になる。</li>
-                <li>範囲内にいる敵は与えるダメージが <b>-50%</b>（PvPでは <b>-20%</b> ）減衰し、範囲内の味方が受けるダメージは <b>-25%</b>（PvPでは <b>-15%</b> ）軽減される。</li>
+                <li>範囲内にいる敵は与えるダメージが <b><span class="pve">-50%</span><span class="pvp">-20%</span></b> 減衰し、範囲内の味方が受けるダメージは <b><span class="pve">-25%</span><span class="pvp">-15%</span></b> 軽減される。</li>
                 <li>ハンター特性の冬の気配と合わせると、生成されるクリスタルが<b>大きく</b>なり、範囲が<b>さらに増加</b>する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="calibans_hand"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4c1535b83a443f15f2115b5d3ba58c0f.jpg" class="h3">カリバンの手</h3>
@@ -1812,11 +1869,11 @@
             <span class="solar" />ガンスリンガー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>近接爆破ナイフが、爆発時にスコーチを <b>x60</b> 付与するようになる。また、直撃させてキルすると<b>点火</b>する。</li>
+                <li>近接爆破ナイフが、爆発時にスコーチを <b>x60</b> <span class="ash">(<b>x60</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与するようになる。また、直撃させてキルすると<b><a href="./class_solar.html#ignition">点火</a></b>する。</li>
                 <li>さらに、近接爆破ナイフが刺さったまま残っていると、近接エネルギーの回復速度が <b>+500%</b> 増加する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="gyrfalcons_hauberk"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ba046a2cf74cd8c96090b7a63b5562e6.jpg" class="h3">大隼のホーバーク</h3>
@@ -1824,13 +1881,14 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="class_void.html#invisibility">ボイド透明化</a>が解除されたとき、<b>10秒間</b>（PvPでは <b>4秒間</b>）自身の武器に<a href="class_void.html#echo_of_instability">ボラタイル弾</a>を付与する。</span>
+                <li><a href="class_void.html#invisibility">ボイド透明化</a>が解除されたとき、<b><span class="pve">10秒間</span><span class="pvp">4秒間</span></b> 自身の武器に<b><a href="class_void.html#echo_of_instability">ボラタイル弾</a></b>を付与する。</span>
                 </li>
-                <li>また、透明化中にフィニッシャーをすると、自身の武器ダメージを <span class="c_solar"><b>+35%</b></span> 増加させ、自身と <b>24m以内</b> の味方に<b>予備シールド</b>を付与し、クラススキルエネルギーの回復速度を <b>+375%</b> 増加させる。この効果は死亡するか、クラススキルを使用するまで継続する。</li>
-                <li>予備シールドは、クラススキルを使用したときに <b>40HP</b> の<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>として展開される。</li>
+                <li><span class="pve">また、透明化中にフィニッシャーをすると、自身の武器ダメージを <span class="c_solar"><b>+35%</b></span> 増加させ、自身と <b>24m以内</b> の味方に<b>予備シールド</b>を付与し、クラススキルエネルギーの回復速度を <b>+375%</b> 増加させる。この効果は死亡するか、クラススキルを使用するまで継続する。</span>
+                </li>
+                <li><span class="pve">予備シールドは、クラススキルを使用したときに <b>40HP</b> の<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>として展開される。</span></li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -1848,11 +1906,9 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/afd0a0e6f206d9518e56e7d7a148a50d.jpg" class="h3">テンペストの王冠</h3>
         <div class="base"><b>伝導角</b> - アークスキルもしくはショック効果でトドメを刺すと、アークスキルエネルギーのチャージ速度が上昇する。また、ストームトランスの持続時間が延びる。</div>
         <div class="indepth">
-            <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />ストームマスター
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>アークのスキルか、ショック状態の敵をキルすると、<b>伝導角</b>が <b>7秒間</b>（PvPでは <b>4秒間</b> ）付与される。</li>
+                <li>アークのスキルか、ショック状態で敵をキルすると、<b>伝導角</b>が <b><span class="pve">7秒間</span><span class="pvp">4秒間</span></b> 付与される。</li>
                 <li>伝導角のスタック数に応じてグレネードエネルギー、近接エネルギー、クラススキルエネルギー、スーパーエネルギーの<b>回復速度が増加</b>し、ストームトランスの<b>持続時間が延びる。</b></li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
@@ -1881,7 +1937,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="eye_of_another_world"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e8afec0dbe1253087cb19242dd626305.jpg" class="h3">アナザーワールド・アイ</h3>
@@ -1889,11 +1945,11 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>HPが <b>50%</b> を下回っている敵を<b>赤く表示</b>する。また、スーパーエネルギーが最大まで溜まっている敵ガーディアンは<b>黄色く表示</b>される。</li>
+                <li>HPが <b>50%</b> を下回っている敵を<b>赤く表示</b>する。<span class="pvp">また、スーパーエネルギーが最大まで溜まっている敵ガーディアンは<b>黄色く表示</b>される。</span></li>
                 <li>恒常的にグレネードエネルギー、近接エネルギー、クラススキルエネルギーの回復速度が <b>+50%</b> 増加し、すべての武器の空中効果を <b>+15</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="nezarecs_sin"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/67f7bbf158f84c33802b178e463b7037.jpg" class="h3">ネザレク・シン</h3>
@@ -1905,7 +1961,7 @@
                 <li>深遠抽出装置発動中は、グレネードエネルギー、近接エネルギーの回復速度が <b>+300%</b> 、スーパーエネルギーの回復速度が <b>+200%</b> 増加する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="skull_of_dire_ahamkara"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/58c941539ffb843a5559a83c6f7cb579.jpg" class="h3">ダイア・アハンカーラの頭蓋骨</h3>
@@ -1919,7 +1975,7 @@
                 <li>また、ノヴァボムで敵を倒すとスーパーエネルギーが最大 <b>50%</b> まで回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="karnstein_armlets"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7a37bd1dc75bd0848d8c7afa25570763.jpg" class="h3">カルンシュタインのアームレット</h3>
@@ -1931,7 +1987,7 @@
                 <li>吸血鬼の抱擁発動中は、HPを毎秒 <b>30</b> ずつ回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="sunbracers"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/17c01ac034a7194e2de22d1ac487bb70.jpg" class="h3">サンブレーサー</h3>
@@ -1941,12 +1997,12 @@
             <span class="solar" />ドーンブレード
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ソーラーグレネードに <a href="./armor_mods.html#fastball">ファストボール</a> と同じ効果が付与され、持続時間が 4秒間 → <b>8秒間</b> に延びる。</li>
+                <li>ソーラーグレネードに<a href="./armor_mods.html#fastball">ファストボール</a>と同じ効果が付与され、持続時間が <b>+4秒</b> 延びる。</li>
                 <li>また、近接スキルでキルをすると、<b>5秒間</b> <b>サンブレーサー準備完了</b>になる。</li>
                 <li>準備完了時にグレネードを投げると<b>サンブレーサー</b>が <b>5秒間</b> 付与され、サンブレーサー発動中は<b>ソーラーグレネードが無制限に投げられる。</b></li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="winters_guile"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4307654e15248d54fcffca2ab2710951.jpg" class="h3">ウィンター・ギル</h3>
@@ -1981,7 +2037,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="starfire_protocol"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fa2241f0aaad40cb5ecfe5b810eb5f64.jpg" class="h3">スターファイア・プロトコル</h3>
@@ -1993,10 +2049,10 @@
             <ul class="stats">
                 <li>フュージョングレネードのチャージが <b>1回 追加</b>される。</li>
                 <li>また、強化のリフトか輝く泉の中から武器でダメージを与えると、グレネードエネルギーが <b>20%</b> 回復する。この効果には <b>0.3秒間</b> のクールダウンがある。</li>
-                <li>さらに、フュージョングレネードで敵をキルすると、クラススキルエネルギーが<b>完全に回復</b>する。</li>
+                <li>さらに、フュージョングレネードで敵をキルすると、クラススキルエネルギーが<b>全回復</b>する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="wings_of_sacred_dawn"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/eb1c6215d4997aaba5c0c10114ff65b6.jpg" class="h3">聖なる暁の翼</h3>
@@ -2019,7 +2075,7 @@
                 <li>また、すべての武器の空中効果を恒常的に <b>+50</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="lunafaction_boots"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4d1cf89d08b11bd87c8944ecddbbfffe.jpg" class="h3">ルナファクションのブーツ</h3>
@@ -2028,10 +2084,10 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>自分が生成したリフトか輝く泉に立つと、自身と味方のリロード速度が <b>+100</b> 増加し、リロード時間が <b>x0.9</b> に短縮される。</li>
-                <li>さらに、強化のリフトか輝く泉であれば、上記に加え距離減衰開始距離が <b>2倍</b> に延長される。</li>
+                <li>さらに、強化のリフトか輝く泉であれば、上記に加え距離減衰開始距離が <b>x2</b> に延長される。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="transversive_steps"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/78874c268891725a68bdcc35432fec9e.jpg" class="h3">横断のブーツ</h3>
@@ -2044,7 +2100,7 @@
                 <li>さらに、しゃがみ中の移動速度を <b>4m/s</b> まで増加させる（可動性100時より <b>4%</b> 速い）。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -2061,12 +2117,12 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>リフト内にいる味方が受けるダメージが <b>-25%</b>（PvPでは <b>-15%</b> ）軽減される。</li>
-                <li>さらに、瀕死になると<b>離脱寸前</b>が付与され、離脱寸前発動中はクラススキルエネルギーが <b>55%</b>（PvPでは <b>27.5%</b> ）回復する。</li>
+                <li>リフト内にいる味方が受けるダメージが <b><span class="pve">-25%</span><span class="pvp">-15%</span></b> 軽減される。</li>
+                <li>さらに、瀕死になると<b>離脱寸前</b>が付与され、離脱寸前発動時にクラススキルエネルギーが <b><span class="pve">55%</span><span class="pvp">27.5%</span></b> 回復する。</li>
                 <li>また、死亡時に回復のリフトが生成される。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="aeon_soul"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1ee10eac192a5c4a7c8dbc6195c10dec.jpg" class="h3">イーオン・ソール</h3>
@@ -2076,7 +2132,7 @@
                 <li><a href="#aeon_cults">イーオン教団の装備</a> を参照。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ophidian_aspect"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3995951ee0fdf3fb77d757370458e031.jpg" class="h3">蛇属性</h3>
@@ -2084,11 +2140,11 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>すべての武器のハンドリングとリロード速度を <b>+32</b> 、空中効果を <b>+10</b> 増加させる。</li>
+                <li>すべての武器のハンドリングとリロード速度を <b>+35</b> 、空中効果を <b>+10</b> 増加させる。</li>
                 <li>また、近接攻撃の射程が 4.5m → <b>6.5m</b> まで延びる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="vesper_of_radius"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b22c53b5868c94352f69f7493f7f6f2d.jpg" class="h3">ベスパー・ラディウス</h3>
@@ -2097,13 +2153,13 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>15m以内</b> に <b>3体以上</b> の敵がいると、クラススキルエネルギーの<b>回復速度が増加</b>する。</li>
-                <li>また、リフト発動から <b>1秒後</b> に、<b>7.5m</b> の範囲に <b>300</b>（PvPでは <b>100</b> ）ダメージを与え敵を吹き飛ばす<b>アークのショックウェーブ</b>を発生させる。</li>
+                <li>また、リフト発動から <b>1秒後</b> に、<b>7.5m</b> の範囲に <b><span class="pve">300</span><span class="pvp">100</span></b> ダメージを与え、敵を吹き飛ばす<b>アークのショックウェーブ</b>を発生させる。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <table class="list">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>敵の数</th>
                         <th>3体</th>
                         <th>4体</th>
                         <th>5体</th>
@@ -2112,16 +2168,16 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>回復量</th>
-                        <td><b>+150%</b></td>
-                        <td><b>+566%</b></td>
-                        <td><b>+985%</b></td>
-                        <td><b>+1400%</b></td>
+                        <th>回復速度</th>
+                        <td><b>+250%</b></td>
+                        <td><b>+666%</b></td>
+                        <td><b>+1085%</b></td>
+                        <td><b>+1500%</b></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="apotheosis_veil"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6f234606ab2e043388dfaeee946f854b.jpg" class="h3">神格化のベール</h3>
@@ -2129,11 +2185,11 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>スーパースキルを発動すると、HP、グレネードエネルギー、近接エネルギー、クラススキルエネルギーが<b>全回復</b>する。</li>
-                <li>また、<b>18m以内</b> にいる味方はクラススキルエネルギーの<b>回復速度が増加</b>する。</li>
+                <li><b>24m以内</b> にいる味方は、クラススキルエネルギーの回復速度が <b>+25%</b> 増加する。</li>
+                <li>また、スーパースキルを発動すると、自身のHP、グレネードエネルギー、近接エネルギー、クラススキルエネルギーが<b>全回復</b>する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="veritys_brow"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/370fcdc370c73eb2d839253f76a1e826.jpg" class="h3">ベリティ・ブラウ</h3>
@@ -2143,10 +2199,11 @@
             <ul class="stats">
                 <li>サブクラスと一致する属性の武器で敵をキルすると、<b>断末魔の苦しみ</b>が <b>11秒間</b> 付与される。</li>
                 <li>断末魔の苦しみのスタック1個につき、グレネードエネルギーの回復速度が <b>+50%</b> 、グレネードのダメージが <b>+20%</b> 増加する。</li>
-                <li>また、グレネードを投げると <b>18m以内</b> の味方に <b>炎の熱</b> が <b>(断末魔の苦しみのスタック数 × 2)秒</b> 付与され、炎の熱発動中は<b>グレネードエネルギー回復速度が増加</b>する。</li>
+                <li>また、断末魔の苦しみ発動中にグレネードを投げると、<b>20m以内</b> の味方に<b>炎の熱</b>が <b>5秒間</b> 付与される。</li>
+                <li>炎の熱発動中はグレネードエネルギー回復速度が <b>+1000%</b> 増加する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="claws_of_ahamkara"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/90f62236b87badbb2f56c104315f63e2.jpg" class="h3">アハンカーラの爪</h3>
@@ -2157,7 +2214,7 @@
                 <li>近接スキルのチャージが <b>1回 追加</b>される。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="sanguine_alchemy"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f3207249663fd5f4297656e73f942a42.jpg" class="h3">サンギン・アルケミー</h3>
@@ -2169,7 +2226,7 @@
                 <li>血の魔法はキルをするたびに延長され、最大 <b>15秒</b> まで延長できる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -2189,11 +2246,11 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#chaos_accelerant">カオス促進剤</a>装備中、グレネードをチャージしている間、自身が受けるダメージを <b>-20%</b> 軽減する。</li>
-                <li>また、チャージしたグレネードが敵にヒットすると、<b>1.75秒間</b> グレネードエネルギー回復速度が <b>+2000%</b>（PvPでは <b>+1000%</b> ）増加する。この効果には <b>4秒間</b> のクールダウンがある。</li>
+                <li>また、チャージしたグレネードが敵にヒットすると、<b>1.75秒間</b> グレネードエネルギー回復速度が <b><span class="pve">+2000%</span><span class="pvp">+1000%</span></b> 増加する。この効果には <b>4秒間</b> のクールダウンがある。</li>
                 <li>ボルテックスグレネードでは、最初のヒットと、クールダウン終了直後の残留ダメージで効果を2回発動させられる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="chromatic_fire"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/aeba89a17da757ee0329979f7a3ec883.jpg" class="h3">クロマティックファイア</h3>
@@ -2201,13 +2258,12 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>キネティックウェポンで精密キルをすると、使用中のサブクラスの属性で敵が<b>爆発</b>する。</li>
+                <li>キネティックウェポンで精密キルをすると、使用中のサブクラスの属性で敵が<b>爆発</b>し、最大 <b>208</b> ダメージを与える。</li>
                 <li>ステイシス属性のサブクラスでも爆発は発生するが、ステイシス属性の武器では発動しない。</li>
                 <li>爆発範囲と減衰の度合いは武器の<b>射程距離ステータスに依存</b>する。</li>
-                <li>PvPでは、最大で <b>200</b> ダメージを与える。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="phoenix_protocol"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/10e877d11596456c90452dd47739469a.jpg" class="h3">フェニックス・プロトコル</h3>
@@ -2219,7 +2275,7 @@
                 <li>最初は <b>10%</b> 回復するが、キルをするたびに回復量は <b>1.5%</b> ずつ減少する。最小でも <b>4%</b> は回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="geomag_stabilizers"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2a8adaa02a77a82ff8f84d5debdeb529.jpg" class="h3">ジオマグ・スタビライザー</h3>
@@ -2233,7 +2289,7 @@
                 <li>最大で、持続時間を <b>+100%</b> まで伸ばすことが可能。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="getaway_artist"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/673dfa5edf0723adf0275cf30281a123.jpg" class="h3">ゲートウェイ・アーティスト</h3>
@@ -2243,13 +2299,11 @@
             <span class="arc" />ストームマスター
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>グレネードボタンを長押しすると、グレネードエネルギーを全て消費し、<b>アークソウル</b>を <b>20秒間</b> 召喚する。同時に、<b>増幅状態</b>となる。</li>
-                <li>センチネルアークソウルは、<b>29m以内</b> にいる敵に対し、自動的に <b>6発</b> の<b>追尾弾</b>を放つ。PvPでは1発につき <b>11</b> ダメージ。</li>
-                <li>センチネルアークソウルの攻撃がヒットすると、グレネードエネルギーが <b>4.5%</b> 回復する。</li>
-                <li>センチネルアークソウル発動中にアークソウルのリフトに立つと、効果時間がリセットされる。</li>
+                <li>グレネードボタンを長押しすると、グレネードエネルギーを全て消費し、<b>アークソウル</b>を <b>20秒間</b> 召喚すると同時に<b>増幅状態</b>となる。</li>
+                <li>アークソウルのバースト射撃がヒットすると、グレネードエネルギーが <b>4.5%</b> 回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="astrocyte_verse"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/96fdb1cd590b2212006d128dd0bc32a4.jpg" class="h3">星状細胞の詩</h3>
@@ -2262,7 +2316,7 @@
                 <li>また、すべての武器の空中効果を恒常的に <b>+30</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -2286,7 +2340,7 @@
                 <li>また、発動終了時、キル数に応じてスーパーエネルギーが最大 <b>50%</b> まで回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="promethium_spur"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/770c8a9fa2baedeeb6fae9df00315567.jpg" class="h3">プロメチウムの誘発</h3>
@@ -2299,7 +2353,7 @@
                 <li>また、ドーンブレード使用中かつクラススキルエネルギーが最大時、武器でキルをすると、クラススキルエネルギーを全て消費して<b>強化と回復のリフト</b>を生成する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="felwinters_helm"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d2555fd79b630dfdcba0ae1fac3bda1b.jpg" class="h3">フェルウィンターのヘルム</h3>
@@ -2345,7 +2399,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="dawn_chorus"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/66289d9dce869bca5aa53beb88edf15c.jpg" class="h3">夜明けのコーラス</h3>
@@ -2355,12 +2409,13 @@
             <span class="solar" />ドーンブレード
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>デイブレイクの投射物が、スコーチを <b>x60</b>（灰の名残適用時は <b>x90</b> ）付与するようになる。</li>
-                <li>また、スコーチによって与えることができるダメージが <b>+200%</b>（PvPでは <b>+50%</b> ）増加する。</li>
-                <li>さらに、スコーチでダメージを与える毎に<b>近接エネルギーが回復</b>する。</li>
+                <li><a href="./class_solar.html#daybreak">デイブレイク</a>の炎波が、<a href="./class_solar.html#scorch">スコーチ</a>を <b>x30</b> <span class="ash">(<b>x40</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与するようになる。</li>
+                <li>また、スコーチ状態の敵に対するデイブレイクのダメージが <b>+45%</b> 増加する。</li>
+                <li>さらに、スコーチによって与えることができるダメージが <b><span class="pve">+200%</span><span class="pvp">+50%</span></b> 増加する。</li>
+                <li>加えて、スコーチでダメージを与える毎に近接エネルギーが <b>+6.25%</b> 回復する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="necrotic_grip"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ef055cbc0f4b0992f4a3c2e4c8e179f7.jpg" class="h3">壊死のグリップ</h3>
@@ -2370,15 +2425,15 @@
             <ul class="stats">
                 <li>近接攻撃をすると、その敵に<b>毒</b>を付与する。グレイブの近接攻撃でも発動する。
                     <ul class="stats2">
-                        <li>毒は、合計で近接攻撃の <b>680%</b> ぶんのダメージを与える。ボスに対してはさらに <b>+80%</b> 合計ダメージが増加する。PvPでは合計 <b>30</b> ダメージ。</li>
-                        <li>毒ダメージが発生するたびに、毒が<b>一度に与えるダメージは増加</b>する。最初は近接攻撃の <b>18%</b> だが、最終的には <b>54%</b> まで増加する。</li>
+                        <li>毒は、合計で<span class="pve">近接攻撃の <b>680%</b> の</span><span class="pvp"> <b>30</b> </span>ダメージを与える。<span class="pve">ボスに対してはさらに <b>+80%</b> 合計ダメージが増加する。</span></li>
+                        <li>毒ダメージが発生するたびに、毒が<b>一度に与えるダメージは増加</b>する。<span class="pve">最初は近接攻撃の <b>18%</b> だが、最終的には <b>54%</b> まで増加する。</span></li>
                         <li>毒を受け死亡した敵は、周囲 <b>3m</b> に毒を<b>拡散</b>させる。</li>
                     </ul>
                 </li>
                 <li>また、<a href="./exotic_weapons.html#thorn">トルン</a> 、 <a href="./exotic_weapons.html#osteo_striga">オステオ・ストライガ</a> 、 <a href="./exotic_weapons.html#touch_of_malice">悪意の手</a> の空中効果を恒常的に <b>+30</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="mantle_of_battle_harmony"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/85bf3170006a8249ca78e5a672880bea.jpg" class="h3">戦いの調和のマントル</h3>
@@ -2390,21 +2445,21 @@
                 <li>最大でない場合は<b>エネルギーサイフォン</b>、最大の場合は<b>吸収セル</b>が付与される。</li>
                 <li>エネルギーサイフォン:
                     <ul class="stats2">
-                        <li>効果時間: <b>2秒</b></li>
-                        <li>スーパーエネルギーを <b>3%</b>（PvPでは <b>1.45%</b> ）回復させる。</li>
+                        <li>効果時間: <b>2秒</b> (クールダウン)</li>
+                        <li>スーパーエネルギーを <b><span class="pve">3%</span><span class="pvp">1.45%</span></b> 回復させる。</li>
                     </ul>
                 </li>
                 <li>吸収セル:
                     <ul class="stats2">
-                        <li>効果時間: <b>6秒</b>（PvPでは <b>3.5秒</b> ）</li>
-                        <li>サブクラスと一致する属性の武器のダメージが <b><span class="c_solar">+20%</span></b>（PvPでは <span class="c_solar"><b>+15%</b></span> ）増加する。</li>
-                        <li>キルをすると効果時間が <b>+4秒</b>（PvPでは <b>+2秒</b> ）延長され、最大 <b>10秒</b>（PvPでは <b>6秒</b> ）まで延長できる。</li>
+                        <li>効果時間: <b><span class="pve">6秒</span><span class="pvp">3.5秒</span></b></li>
+                        <li>サブクラスと一致する属性の武器ダメージが <b><span class="c_solar"><span class="pve">+20%</span><span class="pvp">+15%</span></span></b> 増加する。</li>
+                        <li>キルをすると効果時間が <b><span class="pve">+4秒</span><span class="pvp">+2秒</span></b> 延長され、最大 <b><span class="pve">10秒</span><span class="pvp">6秒</span></b> まで延長できる。</li>
                         <li>武器を持ち替えると<b>効果が失われる。</b></li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="boots_of_assembler"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4ec2f5a9ee028c80cb682eff6ca50b5f.jpg" class="h3">アセンブラーのブーツ</h3>
@@ -2424,13 +2479,14 @@
                 <li>強化のリフト:
                     <ul class="stats2">
                         <li>効果時間: <b>5秒</b></li>
-                        <li><b>空の祝福</b>を付与し、空の祝福発動中は武器ダメージが <span class="c_solar"><b>+35%</b></span>（PvPでは <span class="c_solar"><b>+15%</b></span> ）増加する。</li>
+                        <li><b>空の祝福</b>を付与し、空の祝福発動中は武器ダメージが <span class="c_solar"><b><span class="pve">+35%</span><span class="pvp">+15%</span></b>
+                            </span> 増加する。</li>
                     </ul>
                 </li>
-                <li>また、<a href="./exotic_weapons.html#lumina">ルミナ</a> の空中効果を恒常的に <b>+30</b> 増加させる。</li>
+                <li>また、<a href="./exotic_weapons.html#lumina">ルミナ</a>の空中効果を恒常的に <b>+30</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="nothing_manacles"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d51dbf7f5849cdb7d36ee0e4615c73d9.jpg" class="h3">無の篭手</h3>
@@ -2441,10 +2497,10 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>スキャッターグレネードのチャージが <b>1回 追加</b>される。</li>
-                <li>また、スキャッターグレネードにカオス促進剤使用時と同じような<b>追尾効果</b>を付与する。</li>
+                <li>また、スキャッターグレネードに<a href="./class_void.html#chaos_accelerant">カオス促進剤</a>使用時と同じような<b>追尾効果</b>を付与する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -2464,11 +2520,19 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>コールドスナップグレネードのチャージが <b>1回 追加</b>される。</li>
-                <li>また、シーカーの追尾性能が上昇し、凍結時に<b>グレネードエネルギーが回復</b>する。</li>
+                <li>また、シーカーの追尾性能が上昇し、凍結時にグレネードエネルギーが<span class="pvp"> <b>7%</b> </span>回復する。</li>
+                <li><span class="pve">回復量は敵のランクによって変動する。</span>
+                    <ul class="stats2">
+                        <li><span class="pve">低ランクのマイナー: <b>10%</b></span></li>
+                        <li><span class="pve">中ランクのマイナー / 低ランクのエリート: <b>22%</b></span></li>
+                        <li><span class="pve">高ランクのマイナー / 中ランクのエリート: <b>34%</b></span></li>
+                        <li><span class="pve">高ランクのエリート / ミニボス / ボス: <b>50%</b></span></li>
+                    </ul>
+                </li>
                 <li>さらに、シーカーの移動距離が <b>+35%</b> 増加する。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="secant_firaments"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4ef68743a8e42a4acd6c2851b882f6b2.jpg" class="h3">セカント・フィラメント</h3>
@@ -2478,29 +2542,27 @@
             <span class="void" />ボイドウォーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>強化のリフトを生成すると、<a href="./class_void.html#devour">吸引</a>が <b>11秒間</b>（<a href="./class_void.html#echo_of_persistence">固執の残響</a>適用時は <b>17秒間</b> ）付与される。</li>
-                <li>吸引は敵を倒すと、最大で <b>11秒</b>（<a href="#echo_of_persistence">固執の残響</a>適用時は <b>22秒</b> ）まで延長できる。</li>
+                <li>強化のリフトを生成すると、<a href="./class_void.html#devour">吸引</a>が <b>11秒間</b> <span class="ash">(<b>17秒間</b>)<span class="ash-balloon">かけら「固執の残響」適用時の数値</span> 付与される。</li>
+                <li>吸引は敵を倒すと、最大で <b>11秒</b> <span class="ash">(<b>22秒</b>)<span class="ash-balloon">かけら「固執の残響」適用時の数値</span> まで延長できる。</li>
                 <li>また、強化のリフト内からの攻撃に <b>&#xe071; オーバーロード効果</b>を付与する。</li>
                 <li>ただし、元から対チャンピオン性能を持った武器では効果を得られない。</li>
-                <li>輝く泉では<b>効果を発動しない。</b></li>
+                <li><a href="./class_solar.html#well_of_radiance">輝く泉</a>では<b>効果を発動しない。</b></li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="rain_of_fire"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9d93246478c267ea815158d0cc8a1da4.jpg" class="h3">火の雨</h3>
         <div class="base"><b>ソアリング・フュージリア</b> - 空中回避により、全ての武器がリロードされ、フュージョンライフルとリニア・フュージョンライフルの空中効果が向上する。これらの武器でトドメを刺すと、自分に発光効果が付与される。フュージョンライフルとリニア・フュージョンライフルの空中効果ステータスに中程度の恩恵を与える。</div>
         <div class="indepth">
-            <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ドーンブレード
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>イカロスダッシュを使用すると、<b>全ての武器がリロード</b>される。</li>
-                <li>さらに、フュージョンライフルもしくはリニア・フュージョンライフルでキルをすると、<b>7.5秒間</b> <b><span class="c_solar">発光</span></b>が付与される。</li>
+                <li><a href="./class_solar.html#icarus_dash">イカロスダッシュ</a>を使用すると、<b>全ての武器がリロード</b>される。</li>
+                <li>さらに、フュージョンライフルもしくはリニア・フュージョンライフルでキルをすると、<b><a href="./class_solar.html#radiant">発光</a></b>が <b>7.5秒間</b> 付与される。</li>
                 <li>また、フュージョンライフルとリニア・フュージョンライフルの空中効果を恒常的に <b>+30</b> 増加させる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="fallen_sunstar"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5a8611a927ec24c5323d20293b6a8c26.jpg" class="h3">フォールン・サンスター</h3>
@@ -2512,7 +2574,7 @@
                 <li>さらに、イオントレースを取得すると、周囲の味方も <b>10%</b> のスキルエネルギーを得られる。</li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -2572,7 +2634,7 @@
                 </li>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -2624,7 +2686,7 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
         -->
-        <div class="footer"><a href="#top">一番上に戻る ▲</a></div>
+        <div class="footer"><a href="#" id="page-top">一番上に戻る ▲</a></div>
     </div>
 </body>
 

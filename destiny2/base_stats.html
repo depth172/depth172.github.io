@@ -20,7 +20,29 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="d2style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
+
+    <!-- 表示内容切り替え用スクリプト -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="./modetoggle.js"></script>
+
+    <!-- 通知表示 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".overlay").show();
+            $.cookie('btnFlg') == 'on' ? $(".overlay").hide() : $(".overlay").show();
+            $(".btn_area button").click(function() {
+                $(".overlay").fadeOut();
+                $.cookie('btnFlg', 'on', {
+                    expires: 30,
+                    path: '/'
+                }); //cookieの保存
+            });
+        });
+    </script>
 
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -28,7 +50,19 @@
 
 <body>
     <a name="top"></a>
-    <div class="main">
+    <div class="overlay">
+        <div class="btn_area">
+            <p class="ttl">新機能のお知らせ</p>
+            <p>右下のボタンを押すことで、PvE用の情報とPvP用の情報が切り替えられるようになりました！ぜひご利用ください。</p>
+            <button>閉じる</button>
+        </div>
+    </div>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+    </div>
+
+    <div class="main" id="main">
         <div class="top_logo">
             <a href="../"><img src="../img/banner_transparent.png"></a>
         </div>
@@ -56,6 +90,7 @@
 
         <div class="toc">
             <ul>
+                <li><a href="#notice">注意事項・用語解説</a></li>
                 <li><a href="#status">ステータスの基本仕様</a></li>
                 <ul>
                     <li><a href="#mobility">可動性</a></li>
@@ -75,6 +110,16 @@
             右三角形はクリックすることで展開できます。
             <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
         </p>
+
+        <a name="notice"></a>
+        <h2>注意事項</h2>
+        <ul>
+            <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。
+                <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
+            <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
+            <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
+        </ul>
 
         <!-- 
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -262,21 +307,20 @@
                 </tr>
             </tbody>
         </table>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="resilience"></a>
         <h2><img src="https://www.bungie.net/common/destiny2_content/icons/202ecc1c6febeb6b97dafc856e863140.png" class="h2">耐久力</h2>
 
         <h3>耐久力について</h3>
         <div class="text">
-            耐久力は、自身のHPのシールド量や、受けるひるみの軽減量、戦闘員から受けるダメージの軽減量などに影響します。さらに、タイタンの場合は耐久力が高いほどバリケードのクールダウンも短縮されます。
+            耐久力は、自身のHPのシールド量や、受けるひるみの軽減量<span class="pve">、戦闘員から受けるダメージの軽減量</span>などに影響します。<span class="pve"><a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a>や<a href="./class_solar.html#well_of_radiance">輝く泉</a>など、一部のスーパースキルにおけるボスからの攻撃による破壊耐性も、これによって決まります。</span>さらに、タイタンの場合は耐久力が高いほどバリケードのクールダウンも短縮されます。
         </div>
 
         <h3>耐久力の詳細</h3>
         <div class="text">
             <img src="./img/resilience_hpbar.jpg" height="100px">
             <br>上の画像はHPバーを色分けしたものです。赤い部分は<b>ガーディアン自身のHP</b>、青い部分は<b>シールドのHP</b>となっています。耐久力はシールドのHPを増加させる効果があります。
-            <br>また、ダメージを軽減する効果は<b>PvEでのみ発動</b>します。
         </div>
 
         <h3>テーブル</h3>
@@ -345,7 +389,7 @@
                     <td><b>-9%</b></td>
                     <td><b>-10%</b></td>
                 </tr>
-                <tr>
+                <tr class="pve">
                     <th>ダメージ軽減量</th>
                     <td><b>0%</b></td>
                     <td><b>-1%</b></td>
@@ -452,7 +496,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="recovery"></a>
         <h2><img src="https://www.bungie.net/common/destiny2_content/icons/128eee4ee7fc127851ab32eac6ca91cf.png" class="h2">回復力</h2>
@@ -470,7 +514,7 @@
             <br>回復が開始するまでの遅延は、ダメージを受けた瞬間から回復が開始するまでの秒数です。<b>1.35</b> 以上のダメージを受けるたびにタイマーがリセットされます。回復力を増加させるとこれが短縮され、回復が早く始まるようになります。
             <br>全回復までの時間は、実際にHPやシールドの回復が始まってから、全回復するまでの時間です。回復力を増加させるとこの時間も早くなります。
             <br>
-            <br>HPとシールドの回復は同じタイマーではないため、これらを同時に回復させることも可能です。
+            <br>HPとシールドの回復開始は同じタイマーではないため、これらを同時に回復させることも可能です。
         </div>
 
         <h3>テーブル</h3>
@@ -655,7 +699,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -738,7 +782,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="intellect"></a>
         <h2><img src="https://www.bungie.net/common/destiny2_content/icons/59732534ce7060dba681d1ba84c055a6.png" class="h2">知性</h2>
@@ -798,7 +842,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="strength"></a>
         <h2><img src="https://www.bungie.net/common/destiny2_content/icons/c7eefc8abbaa586eeab79e962a79d6ad.png" class="h2">腕力</h2>
@@ -872,7 +916,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -922,7 +966,7 @@
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-        <div class="footer"><a href="#top">一番上に戻る ▲</a></div>
+        <div class="footer"><a href="#" id="page-top">一番上に戻る ▲</a></div>
         -->
     </div>
 </body>

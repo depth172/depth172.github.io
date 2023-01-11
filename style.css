@@ -1,3 +1,9 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: #c6f2ff;
     font-family: 'Yu Gothic';
@@ -8,12 +14,34 @@ html {
 }
 
 .main {
+    position: relative;
     background: #eef8ff;
     width: 850px;
     margin: 30px auto;
     padding: 30px;
     border: 1px solid #cccccc;
     line-break: strict;
+}
+
+.overlay-button {
+    position: fixed;
+    width: fit-content;
+    height: max-content;
+    text-align: center;
+    margin-inline: auto;
+    bottom: 0.7em;
+    right: 2em;
+    z-index: 5000;
+}
+
+#page-top.fixed {
+    background: #fff;
+    color: #737373;
+    padding: 16px 19px;
+    line-height: 5em;
+    border: solid 1px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px -6px rgba(0, 0, 0, .5), 0 3px 10px -4px rgba(0, 0, 0, .2);
 }
 
 h1 {
@@ -56,10 +84,6 @@ li ul {
 
 a {
     color: #063999;
-}
-
-a:visited {
-    color: #8a1336;
 }
 
 a:hover {
@@ -110,14 +134,6 @@ details {
     padding: 0px;
     padding-left: 0.6em;
     border: none;
-}
-
-.right_fixed {
-    text-align: right;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 9999;
 }
 
 .portrait {
@@ -193,11 +209,21 @@ p.intro {
     margin: 0px;
 }
 
+@media screen and (max-width: 850px) {
+    .overlay-button {
+        right: 0.7em;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .main {
         width: 92%;
         margin: auto;
         padding: 15px;
+    }
+    .overlay-button {
+        position: fixed;
+        bottom: 0.5em;
     }
     details {
         width: 90%;

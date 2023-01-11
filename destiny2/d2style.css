@@ -44,8 +44,8 @@ div .pvp {
     background: #397ac5;
     border: 1px solid #737373;
     border-radius: 10px;
-    margin-block: 0.5em;
     padding: 0px;
+    z-index: 9999;
 }
 
 #p_toggle:active {
@@ -62,8 +62,8 @@ div .pvp {
 
 #p_toggle img {
     background: none;
-    width: 5em;
-    height: 5em;
+    width: 6.4em;
+    height: 6.4em;
 }
 
 .ash {
@@ -446,6 +446,49 @@ th.sorter-false {
     display: none;
 }
 
+.overlay {
+    display: none;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 9500
+}
+
+.btn_area {
+    width: 500px;
+    height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    text-align: center;
+    z-index: 9600
+}
+
+.btn_area .ttl {
+    font-weight: bold
+}
+
+.btn_area p {
+    padding: 15px
+}
+
+.btn_area button {
+    display: block;
+    margin: 1.5em auto;
+    background: #333;
+    color: #fff;
+    padding: 20px 40px;
+    border: none
+}
+
+.btn_area button:hover {
+    background: #777
+}
+
 .base {
     background: #e1f5f8;
     font-size: 90%;
@@ -496,5 +539,8 @@ th.sorter-false {
     }
     .box {
         width: 90%;
+    }
+    .btn_area {
+        width: 100%;
     }
 }

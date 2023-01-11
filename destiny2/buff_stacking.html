@@ -20,15 +20,48 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="d2style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
+
+    <!-- 表示内容切り替え用スクリプト -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="./modetoggle.js"></script>
+
+    <!-- 通知表示 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".overlay").show();
+            $.cookie('btnFlg') == 'on' ? $(".overlay").hide() : $(".overlay").show();
+            $(".btn_area button").click(function() {
+                $(".overlay").fadeOut();
+                $.cookie('btnFlg', 'on', {
+                    expires: 30,
+                    path: '/'
+                }); //cookieの保存
+            });
+        });
+    </script>
 
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <a name="top"></a>
-    <div class="main">
+    <div class="overlay">
+        <div class="btn_area">
+            <p class="ttl">新機能のお知らせ</p>
+            <p>右下のボタンを押すことで、PvE用の情報とPvP用の情報が切り替えられるようになりました！ぜひご利用ください。</p>
+            <button>閉じる</button>
+        </div>
+    </div>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+    </div>
+
+    <div class="main" id="main">
         <div class="top_logo">
             <a href="../"><img src="../img/banner_transparent.png"></a>
         </div>
@@ -56,7 +89,7 @@
 
         <div class="toc">
             <ul>
-                <li><a href="#words">用語解説</a></li>
+                <li><a href="#notice">注意事項・用語解説</a></li>
                 <li><a href="#buff_debuff_table">全体デバフ・強化バフ分類表</a></li>
                 <li><a href="#categories">バフ・デバフの種類</a></li>
                 <li><a href="#exception">例外</a></li>
@@ -71,11 +104,18 @@
         <p>
             右三角形はクリックすることで展開できます。
             <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
+            <br>また、右下のボタンを押すことで、PvE向けの情報とPvP向けの情報が切り替えられます。
         </p>
 
-        <a name="words"></a>
-        <h2>用語解説</h2>
-
+        <a name="notice"></a>
+        <h2>注意事項・用語解説</h2>
+        <ul>
+            <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。
+                <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
+            <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
+            <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
+        </ul>
         <dl>
             <dt>バフ・デバフ</dt>
             <dd>それぞれ強化・弱体化を意味します。</dd>
@@ -111,7 +151,7 @@
             <br><span class="c_void">全体デバフ</span>は付与されると<b>あらゆる被ダメージが増加</b>し、<span class="c_solar">強化バフ</span></b>は付与されると<b>与える武器ダメージが増加</b>しますが、これらのカテゴリ内での重ねがけは、常に<b>一番高いパーセンテージのもののみが優先されて付与</b>されます。
             <br>具体的に何が<span class="c_void">全体デバフ</span>や<span class="c_solar">強化バフ</span>にあたるかについては、下部の表をご覧ください。
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="buff_debuff_table"></a>
         <h2>全体デバフ・強化バフ分類表</h2>
@@ -122,8 +162,8 @@
         </div>
 
         <details>
-            <summary><b>全体デバフ</b> (PvE)</summary>
-            <table class="debuff">
+            <summary><b>全体デバフ</b></summary>
+            <table class="pve debuff">
                 <thead>
                     <tr>
                         <th>被ダメ増加量</th>
@@ -134,11 +174,11 @@
                     <tr>
                         <th rowspan="4"><b>+30%</b></th>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/a30563f95eea66ef729a4e65a7152fa7.png" class="table"></td>
-                        <td colspan="2">シャドウショット: 落罠</td>
+                        <td colspan="2"><a href="./class_void.html#deadfall">シャドウショット: 落罠</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/af58a42be4e803d1b5a7885b13985977.png" class="table"></td>
-                        <td colspan="2">シャドウショット: メビウスの矢筒</td>
+                        <td colspan="2"><a href="./class_void.html#moebius_quiver">シャドウショット: メビウスの矢筒</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b95e68c761e400c2fe5cf3c46999d689.jpg" class="table"></td>
@@ -165,23 +205,23 @@
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/528606d6c47a06743088250148150e63.jpg" class="table"></td>
                         <td rowspan="8">ボイド弱体化</td>
-                        <td>スネア爆弾</td>
+                        <td><a href="./class_void.html#snare_bomb">スネア爆弾</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e91760df2b81d191da9e2c62cb3fcda7.jpg" class="table"></td>
-                        <td>罠師の奇襲</td>
+                        <td><a href="./class_void.html#trappers_ambush">罠師の奇襲</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ed7f8c49b77fa46f4eec87a3c167c4b1.jpg" class="table"></td>
-                        <td>粋な処刑人</td>
+                        <td><a href="./class_void.html#stylish_executioner">粋な処刑人</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ced6965ddcda23fdc728639aaf0ebd4d.jpg" class="table"></td>
-                        <td>古き神々の子</td>
+                        <td><a href="./class_void.html#child_of_the_old_gods">古き神々の子</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b114e9d97c42a68b19ab7876a221b354.jpg" class="table"></td>
-                        <td>侵食の残響</td>
+                        <td><a href="./class_void.html#echo_of_undermining">侵食の残響</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b1af4c7452901649712fd979096ce388.jpg" class="table"></td>
@@ -197,11 +237,73 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="pvp debuff">
+                <thead>
+                    <tr>
+                        <th>被ダメ増加量</th>
+                        <th colspan="3">名称</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th rowspan="3"><b>+50%</b></th>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/a30563f95eea66ef729a4e65a7152fa7.png" class="table"></td>
+                        <td colspan="2"><a href="./class_void.html#deadfall">シャドウショット: 落罠</a></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/af58a42be4e803d1b5a7885b13985977.png" class="table"></td>
+                        <td colspan="2"><a href="./class_void.html#moebius_quiver">シャドウショット: メビウスの矢筒</a></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b95e68c761e400c2fe5cf3c46999d689.jpg" class="table"></td>
+                        <td colspan="2"><a href="./exotic_weapons.html#tractor_cannon">トラクターキャノン</a></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2"><b>+30%</b></th>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/097f8146229e7e8693a989952f44c843.jpg" class="table"></td>
+                        <td colspan="2"><a href="./exotic_weapons.html#divinity">神性</a></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d2555fd79b630dfdcba0ae1fac3bda1b.jpg" class="table"></td>
+                        <td colspan="2"><a href="./exotic_armor.html#felwinters_helm">フェルウィンターのヘルム</a></td>
+                    </tr>
+                    <tr>
+                        <th rowspan="7"><b>+7.5%</b></th>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/528606d6c47a06743088250148150e63.jpg" class="table"></td>
+                        <td rowspan="7">ボイド弱体化</td>
+                        <td><a href="./class_void.html#snare_bomb">スネア爆弾</a></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e91760df2b81d191da9e2c62cb3fcda7.jpg" class="table"></td>
+                        <td><a href="./class_void.html#trappers_ambush">罠師の奇襲</a></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ed7f8c49b77fa46f4eec87a3c167c4b1.jpg" class="table"></td>
+                        <td><a href="./class_void.html#stylish_executioner">粋な処刑人</a></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ced6965ddcda23fdc728639aaf0ebd4d.jpg" class="table"></td>
+                        <td><a href="./class_void.html#child_of_the_old_gods">古き神々の子</a></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b114e9d97c42a68b19ab7876a221b354.jpg" class="table"></td>
+                        <td><a href="./class_void.html#echo_of_undermining">侵食の残響</a></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b1af4c7452901649712fd979096ce388.jpg" class="table"></td>
+                        <td><a href="./exotic_weapons.html#heartshadow">ハートシャドウ</a></td>
+                    </tr>
+                    <tr>
+                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e32acfb7e184421d72a58e134ee21aed.jpg" class="table"></td>
+                        <td><a href="./exotic_weapons.html#collective_obrigation">コレクティブ・オブリゲーション</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </details>
 
         <details>
-            <summary><b>強化バフ</b> (PvE)</summary>
-            <table class="buff">
+            <summary><b>強化バフ</b></summary>
+            <table class="pve buff">
                 <thead>
                     <tr>
                         <th>与ダメ増加量</th>
@@ -212,7 +314,7 @@
                     <tr>
                         <th rowspan="5"><b>+40%</b></th>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f02fd0d90b8d3d7182b9c7cab1a46f64.png" class="table"></td>
-                        <td colspan="2">バナーシールド</td>
+                        <td colspan="2"><a href="./class_void.html#sentinel_shield">バナーシールド</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/42c3009229b1e7126edf4e6f32ecb218.jpg" class="table"></td>
@@ -262,11 +364,11 @@
                     <tr>
                         <th rowspan="9"><b>+25%</b></th>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/91eec50f00de84db8b666ec299859a21.png" class="table"></td>
-                        <td colspan="2">ドーン・ウォード</td>
+                        <td colspan="2"><a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/5dbb9a2f285df3ee20fe37d073350a37.png" class="table"></td>
-                        <td colspan="2">輝く泉</td>
+                        <td colspan="2"><a href="./class_solar.html#well_of_radiance">輝く泉</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/42c3009229b1e7126edf4e6f32ecb218.jpg" class="table"></td>
@@ -283,15 +385,15 @@
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/18b507607e6971bb10fec7addc24786b.jpg" class="table"></td>
                         <td rowspan="4">ソーラー発光</td>
-                        <td>曲芸師の回避</td>
+                        <td><a href="./class_solar.html#acrobats_dodge">曲芸師の回避</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ac48c2a8fd779eea2e99e997944ed2cb.jpg" class="table"></td>
-                        <td>軽量ナイフ</td>
+                        <td><a href="./class_solar.html#lightweight_knife">軽量ナイフ</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1ef2e34dad0d52c762ed96e8c932dc38.jpg" class="table"></td>
-                        <td>炬火の名残</td>
+                        <td><a href="./class_solar.html#ember_of_torches">炬火の名残</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/9d93246478c267ea815158d0cc8a1da4.jpg" class="table"></td>
@@ -324,77 +426,7 @@
                     </tr>
                 </tbody>
             </table>
-        </details>
-
-        <details>
-            <summary><b>全体デバフ</b> (PvP)</summary>
-            <table class="debuff">
-                <thead>
-                    <tr>
-                        <th>被ダメ増加量</th>
-                        <th colspan="3">名称</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th rowspan="3"><b>+50%</b></th>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/a30563f95eea66ef729a4e65a7152fa7.png" class="table"></td>
-                        <td colspan="2">シャドウショット: 落罠</td>
-                    </tr>
-                    <tr>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/af58a42be4e803d1b5a7885b13985977.png" class="table"></td>
-                        <td colspan="2">シャドウショット: メビウスの矢筒</td>
-                    </tr>
-                    <tr>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b95e68c761e400c2fe5cf3c46999d689.jpg" class="table"></td>
-                        <td colspan="2"><a href="./exotic_weapons.html#tractor_cannon">トラクターキャノン</a></td>
-                    </tr>
-                    <tr>
-                        <th rowspan="2"><b>+30%</b></th>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/097f8146229e7e8693a989952f44c843.jpg" class="table"></td>
-                        <td colspan="2"><a href="./exotic_weapons.html#divinity">神性</a></td>
-                    </tr>
-                    <tr>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d2555fd79b630dfdcba0ae1fac3bda1b.jpg" class="table"></td>
-                        <td colspan="2"><a href="./exotic_armor.html#felwinters_helm">フェルウィンターのヘルム</a></td>
-                    </tr>
-                    <tr>
-                        <th rowspan="7"><b>+7.5%</b></th>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/528606d6c47a06743088250148150e63.jpg" class="table"></td>
-                        <td rowspan="7">ボイド弱体化</td>
-                        <td>スネア爆弾</td>
-                    </tr>
-                    <tr>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e91760df2b81d191da9e2c62cb3fcda7.jpg" class="table"></td>
-                        <td>罠師の奇襲</td>
-                    </tr>
-                    <tr>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ed7f8c49b77fa46f4eec87a3c167c4b1.jpg" class="table"></td>
-                        <td>粋な処刑人</td>
-                    </tr>
-                    <tr>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ced6965ddcda23fdc728639aaf0ebd4d.jpg" class="table"></td>
-                        <td>古き神々の子</td>
-                    </tr>
-                    <tr>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b114e9d97c42a68b19ab7876a221b354.jpg" class="table"></td>
-                        <td>侵食の残響</td>
-                    </tr>
-                    <tr>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b1af4c7452901649712fd979096ce388.jpg" class="table"></td>
-                        <td><a href="./exotic_weapons.html#heartshadow">ハートシャドウ</a></td>
-                    </tr>
-                    <tr>
-                        <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e32acfb7e184421d72a58e134ee21aed.jpg" class="table"></td>
-                        <td><a href="./exotic_weapons.html#collective_obrigation">コレクティブ・オブリゲーション</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </details>
-
-        <details>
-            <summary><b>強化バフ</b> (PvP)</summary>
-            <table class="buff">
+            <table class="pvp buff">
                 <thead>
                     <tr>
                         <th>与ダメ増加量</th>
@@ -405,7 +437,7 @@
                     <tr>
                         <th rowspan="5"><b>+35%</b></th>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f02fd0d90b8d3d7182b9c7cab1a46f64.png" class="table"></td>
-                        <td colspan="2">バナーシールド</td>
+                        <td colspan="2"><a href="./class_void.html#sentinel_shield">バナーシールド</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/42c3009229b1e7126edf4e6f32ecb218.jpg" class="table"></td>
@@ -426,11 +458,11 @@
                     <tr>
                         <th rowspan="4"><b>+25%</b></th>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/91eec50f00de84db8b666ec299859a21.png" class="table"></td>
-                        <td colspan="2">ドーン・ウォード</td>
+                        <td colspan="2"><a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/5dbb9a2f285df3ee20fe37d073350a37.png" class="table"></td>
-                        <td colspan="2">輝く泉</td>
+                        <td colspan="2"><a href="./class_solar.html#well_of_radiance">輝く泉</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/42c3009229b1e7126edf4e6f32ecb218.jpg" class="table"></td>
@@ -478,15 +510,15 @@
                         <th rowspan="4"><b>+10%</b></th>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/18b507607e6971bb10fec7addc24786b.jpg" class="table"></td>
                         <td rowspan="4">ソーラー発光</td>
-                        <td>曲芸師の回避</td>
+                        <td><a href="./class_solar.html#acrobats_dodge">曲芸師の回避</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ac48c2a8fd779eea2e99e997944ed2cb.jpg" class="table"></td>
-                        <td>軽量ナイフ</td>
+                        <td><a href="./class_solar.html#lightweight_knife">軽量ナイフ</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1ef2e34dad0d52c762ed96e8c932dc38.jpg" class="table"></td>
-                        <td>炬火の名残</td>
+                        <td><a href="./class_solar.html#ember_of_torches">炬火の名残</a></td>
                     </tr>
                     <tr>
                         <td class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/9d93246478c267ea815158d0cc8a1da4.jpg" class="table"></td>
@@ -495,7 +527,7 @@
                 </tbody>
             </table>
         </details>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -511,7 +543,7 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/230cdbac8318da3ea7d9c11e71a33c67.png" class="head"><span class="c_void">全体デバフ</span></h3>
         <div class="text">
             <b><span class="c_void">全体デバフ</span></b>は、付与されると<b>あらゆる被ダメージが増加</b>します。
-            <br>効果時間や効果量は付与する武器やスキルによって異なります。また、ボイド3.0の要素である<span class="c_void">弱体化</span>もこの全体デバフにあたり、効果は低めですがより<b>簡単に付与できる</b>傾向にあります。
+            <br>効果時間や効果量は付与する武器やスキルによって異なります。また、ボイド3.0の要素である<span class="c_void"><a href="./class_void.html#weaken">弱体化</a></span>もこの全体デバフにあたり、効果は低めですがより<b>簡単に付与できる</b>傾向にあります。
             <br><b><span class="c_solar">強化バフ</span>1個</b>、そして<b>他のカテゴリのバフと重複</b>します。
             <div class="indent">
                 <b>混同されがちな</b>例: <a href="./armor_mods.html#power_of_rasputin">ラスプーチンの力</a> → <b>増幅バフ</b>、<a href="./weapon_perks.html#disruption_break">崩壊の始まり</a> → <b>武器パーク効果</b>
@@ -521,7 +553,7 @@
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/b5ffe5ac4f2ffe4cb30e8637c9a02eb5.png" class="head"><span class="c_solar">強化バフ</span></h3>
         <div class="text">
             <b><span class="c_solar">強化バフ</span></b>は、付与されると<b>武器ダメージが増加</b>します。
-            <br>効果時間や効果量は付与する装備やスキルによって異なります。また、ソーラー3.0の要素である<span class="c_solar">発光</span>もこの強化バフにあたります。
+            <br>効果時間や効果量は付与する装備やスキルによって異なります。また、ソーラー3.0の要素である<span class="c_solar"><a href="./class_solar.html#radiant">発光</a></span>もこの強化バフにあたります。
             <br><b><span class="c_void">全体デバフ</span>1個</b>、そして<b>他のカテゴリのバフと重複</b>します。
             <div class="indent">
                 <b>混同されがちな</b>例: <a href="./armor_mods.html#font_of_might">力の源</a> → <b>増幅バフ</b>、<a href="./exotic_armor.html#mask_of_bakris">バクリスのマスク</a> → <b>内在効果</b>
@@ -533,8 +565,8 @@
             <b>サブクラス強化</b>は、サブクラスに含まれる特性などの<b>スキルダメージを増加</b>させるバフです。
             <br>武器ダメージは増加しませんが、<b>スキルダメージを増加させる他のバフと重複</b>します。
             <div class="indent">
-                <span class="small">例: ガンスリンガーの<b>一網打尽</b>、サンブレーカーの<b>燃え盛る炎</b>、アークストライダーの<b>旋風の護衛</b>など</span>
-                <br><b>混同されがちな</b>例: ドーン・ウォード → <b><span class="c_solar">強化バフ</span></b>、シャドウショット → <b><span class="c_void">全体デバフ</span></b>
+                <span class="small">例: センティネルの<b><a href="./class_void.html#offensive_bulwark">攻性防壁</a></b>、サンブレーカーの<b><a href="./class_solar.html#roaring_flames">燃え盛る炎</a></b>、アークストライダーの<b>旋風の護衛</b>など</span>
+                <br><b>混同されがちな</b>例: <a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a> → <b><span class="c_solar">強化バフ</span></b>、<a href="./class_void.html#deadfall">シャドウショット</a> → <b><span class="c_void">全体デバフ</span></b>
             </div>
         </div>
 
@@ -577,7 +609,7 @@
                 <span class="small">例: <b>グレネーダー</b>、<b>ブローラー</b>、<b>重量級</b>など</span>
             </div>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="exception"></a>
         <h2>例外</h2>
@@ -604,7 +636,7 @@
                 </ul>
             </ul>
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -624,7 +656,7 @@
             <h4>使用する装備・スキル・パーク・MOD</h4>
             <ul>
                 <li><a href="./exotic_weapons.html#divinity">神性</a></li>
-                <li>輝く泉</li>
+                <li><a href="./class_solar.html#well_of_radiance">輝く泉</a></li>
                 <li><a href="./armor_mods.html#font_of_might">力の源</a></li>
                 <li><a href="./armor_mods.html#relay_defender">通信機ディフェンダー</a> ×4</li>
                 <li><a href="./weapon_perks.html#firing_line">第一線</a></li>
@@ -633,16 +665,16 @@
             ダメージフェーズ開始前に事前に輝く泉を発動し、自身のサブクラスに一致する属性のエレメント源を拾ったら、通信機の付近で全員集合します。
             <br>ダメージフェーズが開始したら、神性を当て、それによってできたケージ内に攻撃します。
             <h4>ダメージ増加量</h4>
-            <span class="c_void">全体デバフ</span>は神性 (<b>+30%</b>)、<span class="c_solar">強化バフ</span>は輝く泉 (<b>+25%</b>)にあたります。
+            <span class="c_void">全体デバフ</span>は神性 (<b>+15%</b>)、<span class="c_solar">強化バフ</span>は輝く泉 (<b>+25%</b>)にあたります。
             <br>さらに、力の源 (<b>+25%</b>)や通信機ディフェンダー (<b>+5%</b> ×4)は<b>増幅バフ</b>なので、これも重複します。第一線 (<b>+20%</b>)も<b>武器パーク効果</b>のため、加えて重複します。
             <br>よって、計算は以下の通りになります。
             <div class="indent">
-                → +30% × +25% × +25%× +20% × +20%
-                <br>= 1.30 × 1.25 × 1.25 × 1.20 × 1.20 = x2.925 = <b>+192.5%</b>
+                → +15% × +25% × +25%× +20% × +20%
+                <br>= 1.15 × 1.25 × 1.25 × 1.20 × 1.20 = x2.5875 = <b>+158.75%</b>
             </div>
-            このように、合計で<b>3倍近くのダメージ</b>を与えられることがわかります。
+            このように、合計で<b>2.6倍近くのダメージ</b>を与えられることがわかります。
         </div>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <!--
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -661,11 +693,11 @@
             <li>ソーラー発光が輝く刃を上書きする。</li>
             <li>輝く泉がソーラー発光を上書きする。
                 <ul>
-                    <li>これにより、輝く泉の中ではハンター特性「一網打尽」の、発光によるゴールデンガンのダメージ増加効果が得られなくなっている。</li>
+                    <li>これにより、輝く泉の中では、発光によるゴールデンガンのダメージ増加効果が得られなくなっている。</li>
                 </ul>
             </li>
         </ul>
-        <div class="back"><a href="#top">▲</a></div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="source"></a>
         <h2>出典</h2>
@@ -706,7 +738,7 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
         -->
-        <div class="footer"><a href="#top">一番上に戻る ▲</a></div>
+        <div class="footer"><a href="#" id="page-top">一番上に戻る ▲</a></div>
     </div>
 </body>
 
