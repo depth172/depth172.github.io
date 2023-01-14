@@ -26,6 +26,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
 
     <!-- 通知表示 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -59,6 +60,10 @@
     <div class="overlay-button">
         <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
         <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
     </div>
 
     <div class="main" id="main">
@@ -114,6 +119,8 @@
                 <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
             <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
             <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>解説中に出てくる<span class="w-icons solar">&#xe140;</span>や<span class="w-icons auto">&#xe100;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
             <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
         </ul>
         <dl>
@@ -144,12 +151,12 @@
             ここで、30% + 35% + 25% = +90% とは<b>ならない</b>ことに注意してください。
         </div>
 
-        <h3>最大のルール、「<span class="c_void">全体デバフ</span>一つと<span class="c_solar">強化バフ</span>一つ」</h3>
+        <h3>最大のルール、「<span class="univ_debuff">全体デバフ</span>一つと<span class="univ_buff">強化バフ</span>一つ」</h3>
 
         <div class="text">
-            バフやデバフにも様々なカテゴリがありますが、その中でも<b><span class="c_void">全体デバフ</span>や<span class="c_solar">強化バフ</span></b>に当たるものが特に重要です。
-            <br><span class="c_void">全体デバフ</span>は付与されると<b>あらゆる被ダメージが増加</b>し、<span class="c_solar">強化バフ</span></b>は付与されると<b>与える武器ダメージが増加</b>しますが、これらのカテゴリ内での重ねがけは、常に<b>一番高いパーセンテージのもののみが優先されて付与</b>されます。
-            <br>具体的に何が<span class="c_void">全体デバフ</span>や<span class="c_solar">強化バフ</span>にあたるかについては、下部の表をご覧ください。
+            バフやデバフにも様々なカテゴリがありますが、その中でも<b><span class="univ_debuff">全体デバフ</span>や<span class="univ_buff">強化バフ</span></b>に当たるものが特に重要です。
+            <br><span class="univ_debuff">全体デバフ</span>は付与されると<b>あらゆる被ダメージが増加</b>し、<span class="univ_buff">強化バフ</span></b>は付与されると<b>与える武器ダメージが増加</b>しますが、これらのカテゴリ内での重ねがけは、常に<b>一番高いパーセンテージのもののみが優先されて付与</b>されます。
+            <br>具体的に何が<span class="univ_debuff">全体デバフ</span>や<span class="univ_buff">強化バフ</span>にあたるかについては、下部の表をご覧ください。
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -157,7 +164,7 @@
         <h2>全体デバフ・強化バフ分類表</h2>
 
         <div class="text">
-            <span class="c_void">全体デバフ</span>と<span class="c_solar">強化バフ</span>は、表内にあるものが全てとなっています。
+            <span class="univ_debuff">全体デバフ</span>と<span class="univ_buff">強化バフ</span>は、表内にあるものが全てとなっています。
             <br>つまり、同じ表内にあるものは同時にかけても重複せず、一番強いものだけが適用されます。
         </div>
 
@@ -540,21 +547,21 @@
         <a name="categories"></a>
         <h2>バフ・デバフの種類</h2>
 
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/230cdbac8318da3ea7d9c11e71a33c67.png" class="head"><span class="c_void">全体デバフ</span></h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/230cdbac8318da3ea7d9c11e71a33c67.png" class="head"><span class="univ_debuff">全体デバフ</span></h3>
         <div class="text">
-            <b><span class="c_void">全体デバフ</span></b>は、付与されると<b>あらゆる被ダメージが増加</b>します。
-            <br>効果時間や効果量は付与する武器やスキルによって異なります。また、ボイド3.0の要素である<span class="c_void"><a href="./class_void.html#weaken">弱体化</a></span>もこの全体デバフにあたり、効果は低めですがより<b>簡単に付与できる</b>傾向にあります。
-            <br><b><span class="c_solar">強化バフ</span>1個</b>、そして<b>他のカテゴリのバフと重複</b>します。
+            <b><span class="univ_debuff">全体デバフ</span></b>は、付与されると<b>あらゆる被ダメージが増加</b>します。
+            <br>効果時間や効果量は付与する武器やスキルによって異なります。また、ボイド3.0の要素である<span class="univ_debuff"><a href="./class_void.html#weaken">弱体化</a></span>もこの全体デバフにあたり、効果は低めですがより<b>簡単に付与できる</b>傾向にあります。
+            <br><b><span class="univ_buff">強化バフ</span>1個</b>、そして<b>他のカテゴリのバフと重複</b>します。
             <div class="indent">
                 <b>混同されがちな</b>例: <a href="./armor_mods.html#power_of_rasputin">ラスプーチンの力</a> → <b>増幅バフ</b>、<a href="./weapon_perks.html#disruption_break">崩壊の始まり</a> → <b>武器パーク効果</b>
             </div>
         </div>
 
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/b5ffe5ac4f2ffe4cb30e8637c9a02eb5.png" class="head"><span class="c_solar">強化バフ</span></h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/b5ffe5ac4f2ffe4cb30e8637c9a02eb5.png" class="head"><span class="univ_buff">強化バフ</span></h3>
         <div class="text">
-            <b><span class="c_solar">強化バフ</span></b>は、付与されると<b>武器ダメージが増加</b>します。
-            <br>効果時間や効果量は付与する装備やスキルによって異なります。また、ソーラー3.0の要素である<span class="c_solar"><a href="./class_solar.html#radiant">発光</a></span>もこの強化バフにあたります。
-            <br><b><span class="c_void">全体デバフ</span>1個</b>、そして<b>他のカテゴリのバフと重複</b>します。
+            <b><span class="univ_buff">強化バフ</span></b>は、付与されると<b>武器ダメージが増加</b>します。
+            <br>効果時間や効果量は付与する装備やスキルによって異なります。また、ソーラー3.0の要素である<span class="univ_buff"><a href="./class_solar.html#radiant">発光</a></span>もこの強化バフにあたります。
+            <br><b><span class="univ_debuff">全体デバフ</span>1個</b>、そして<b>他のカテゴリのバフと重複</b>します。
             <div class="indent">
                 <b>混同されがちな</b>例: <a href="./armor_mods.html#font_of_might">力の源</a> → <b>増幅バフ</b>、<a href="./exotic_armor.html#mask_of_bakris">バクリスのマスク</a> → <b>内在効果</b>
             </div>
@@ -566,17 +573,17 @@
             <br>武器ダメージは増加しませんが、<b>スキルダメージを増加させる他のバフと重複</b>します。
             <div class="indent">
                 <span class="small">例: センティネルの<b><a href="./class_void.html#offensive_bulwark">攻性防壁</a></b>、サンブレーカーの<b><a href="./class_solar.html#roaring_flames">燃え盛る炎</a></b>、アークストライダーの<b>旋風の護衛</b>など</span>
-                <br><b>混同されがちな</b>例: <a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a> → <b><span class="c_solar">強化バフ</span></b>、<a href="./class_void.html#deadfall">シャドウショット</a> → <b><span class="c_void">全体デバフ</span></b>
+                <br><b>混同されがちな</b>例: <a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a> → <b><span class="univ_buff">強化バフ</span></b>、<a href="./class_void.html#deadfall">シャドウショット</a> → <b><span class="univ_debuff">全体デバフ</span></b>
             </div>
         </div>
 
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/d5dc170cb40ee6e43564cc35e8551e05.png" class="head">増幅バフ</h3>
         <div class="text">
-            <b>増幅バフ</b>は<span class="c_solar">強化バフ</span>とよく混同されてしまいますが、強化バフが重複に制限があるのと違い、増幅バフは他のバフと<b>無制限に重複</b>させることができます。
-            <br>ただし<span class="c_solar">強化バフ</span>と違い、<b>効果範囲や発動条件が限定的</b>なものが多いのが特徴です。
+            <b>増幅バフ</b>は<span class="univ_buff">強化バフ</span>とよく混同されてしまいますが、強化バフが重複に制限があるのと違い、増幅バフは他のバフと<b>無制限に重複</b>させることができます。
+            <br>ただし<span class="univ_buff">強化バフ</span>と違い、<b>効果範囲や発動条件が限定的</b>なものが多いのが特徴です。
             <div class="indent">
                 <span class="small">例: 武器改造パーツの<b><a href="./weapon_perks.html#boss_spec">ボス特化</a></b>、エレメント源改造パーツの<b><a href="./armor_mods.html#font_of_might">力の源</a></b>、レイド『救済の庭園』改造パーツの<b><a href="./armor_mods.html#relay_defender">通信機ディフェンダー</a></b>など</span>
-                <br><b>混同されがちな</b>例: <a href="./armor_mods.html#high-energy_fire">高エネルギー弾</a> → <b><span class="c_solar">強化バフ</span></b>、<a href="./armor_mods.html#enhanced_scanner_augment">強化版スキャナー・オーギュメント</a> → <b><span class="c_void">全体デバフ</span></b>
+                <br><b>混同されがちな</b>例: <a href="./armor_mods.html#high-energy_fire">高エネルギー弾</a> → <b><span class="univ_buff">強化バフ</span></b>、<a href="./armor_mods.html#enhanced_scanner_augment">強化版スキャナー・オーギュメント</a> → <b><span class="univ_debuff">全体デバフ</span></b>
             </div>
         </div>
 
@@ -588,7 +595,7 @@
         </div>
         <div class="indent">
             <span class="small">例: <a href="./exotic_weapons.html#ace_of_spades">切り札</a>の<b>メメント・モリ</b>、<a href="./exotic_weapons.html#dead_mans_tale">デッドマンズテイル</a>の<b>クラニアル・スパイク</b>、<a href="./exotic_armor.html#wormgod_caress">ワームゴッド・カレス</a>の<b>燃える拳</b>など</span>
-            <br><b>混同されがちな</b>例: <a href="./exotic_armor.html#the_path_of_burning_steps">燃え盛る歩みの道</a> → <b><span class="c_solar">強化バフ</span></b>、<a href="./exotic_weapons.html#tractor_cannon">トラクターキャノン</a> → <b><span class="c_void">全体デバフ</span></b>
+            <br><b>混同されがちな</b>例: <a href="./exotic_armor.html#the_path_of_burning_steps">燃え盛る歩みの道</a> → <b><span class="univ_buff">強化バフ</span></b>、<a href="./exotic_weapons.html#tractor_cannon">トラクターキャノン</a> → <b><span class="univ_debuff">全体デバフ</span></b>
         </div>
 
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/d20201c3a2512d582af9be538f29d4f8.png" class="head">武器パーク効果</h3>
@@ -598,7 +605,7 @@
         </div>
         <div class="indent">
             <span class="small">例: <b><a href="./weapon_perks.html#rampage">暴れん坊</a></b>、<b><a href="./weapon_perks.html#frenzy">狂乱</a></b>、<b><a href="./weapon_perks.html#firing_line">第一線</a></b>など</span>
-            <br><b>混同されがちな</b>例: <a href="./weapon_perks.html#flash_counter">フラッシュカウンター</a> → <b><span class="c_void">全体デバフ</span></b>
+            <br><b>混同されがちな</b>例: <a href="./weapon_perks.html#flash_counter">フラッシュカウンター</a> → <b><span class="univ_debuff">全体デバフ</span></b>
         </div>
 
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/ad87f062887b10b2f9a9ba5ca931af0e.png" class="head">ワールド/アクティビティ効果</h3>
@@ -665,7 +672,7 @@
             ダメージフェーズ開始前に事前に輝く泉を発動し、自身のサブクラスに一致する属性のエレメント源を拾ったら、通信機の付近で全員集合します。
             <br>ダメージフェーズが開始したら、神性を当て、それによってできたケージ内に攻撃します。
             <h4>ダメージ増加量</h4>
-            <span class="c_void">全体デバフ</span>は神性 (<b>+15%</b>)、<span class="c_solar">強化バフ</span>は輝く泉 (<b>+25%</b>)にあたります。
+            <span class="univ_debuff">全体デバフ</span>は神性 (<b>+15%</b>)、<span class="univ_buff">強化バフ</span>は輝く泉 (<b>+25%</b>)にあたります。
             <br>さらに、力の源 (<b>+25%</b>)や通信機ディフェンダー (<b>+5%</b> ×4)は<b>増幅バフ</b>なので、これも重複します。第一線 (<b>+20%</b>)も<b>武器パーク効果</b>のため、加えて重複します。
             <br>よって、計算は以下の通りになります。
             <div class="indent">

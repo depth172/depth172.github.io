@@ -37,11 +37,15 @@ html {
 #page-top.fixed {
     background: #fff;
     color: #737373;
-    padding: 16px 19px;
+    padding: 17px 19.5px;
     line-height: 5em;
     border: solid 1px;
     border-radius: 50%;
     box-shadow: 0 2px 10px -6px rgba(0, 0, 0, .5), 0 3px 10px -4px rgba(0, 0, 0, .2);
+}
+
+.for_sp {
+    display: none;
 }
 
 h1 {
@@ -220,6 +224,12 @@ p.intro {
         width: 92%;
         margin: auto;
         padding: 15px;
+    }
+    .for_pc {
+        display: none;
+    }
+    .for_sp {
+        display: inline;
     }
     .overlay-button {
         position: fixed;

@@ -27,6 +27,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
 
     <!-- 通知表示 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -62,12 +63,16 @@
         <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
     </div>
 
+    <div id="hover-balloon">
+        <span id="info"></span>
+    </div>
+
     <div class="main" id="main">
         <div class="top_logo">
             <a href="../"><img src="../img/banner_transparent.png"></a>
         </div>
         <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
-        <h1>クラス解説 - ソーラー</h1>
+        <h1>クラス解説 - <span class="w-icons solar">&#xe140;</span>ソーラー</h1>
         <hr>
         <div class="title_bar">
             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 クラス解説 - ソーラー" data-url="http://depth172.github.io/destiny2/class_solar.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
@@ -231,14 +236,16 @@
             <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについてはパーク自体が記載されていない場合もあります。</li>
             <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
             <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>解説中に出てくる<span class="w-icons solar">&#xe140;</span>や<span class="w-icons auto">&#xe100;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
             <li class="pve">ダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
-            <li>武器ダメージが増加するものに関して、<span class="c_void">全体デバフ</span>や<span class="c_solar">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
+            <li>武器ダメージが増加するものに関して、<span class="univ_debuff">全体デバフ</span>や<span class="univ_buff">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
                 <a href="./buff_stacking.html">強化・弱体化の種類と重複について</a> をお読みください。</li>
             <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
         </ul>
         <dl>
             <dt>キル</dt>
-            <dd>敵を倒すこと。</dd>
+            <dd>敵を倒すこと。特筆しない限り、自分でトドメを刺した場合のみ適用される。</dd>
             <dt>近接スキル（チャージ近接）</dt>
             <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
             <dt>HPとシールド</dt>
@@ -259,7 +266,7 @@
         <a name="radiant"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/bdd7a06f88396aa7949ab1b8e147fa1c.png" class="head">発光</h3>
         <div class="text">
-            自身の武器ダメージを <span class="c_solar pve"><b>+25%</b></span><span class="c_solar pvp"><b>+10%</b></span> 増加させる。<a href="#golden_gun">ゴールデンガン</a>にも有効。
+            自身の武器ダメージを <span class="balloon univ_buff pve"><b>+25%</b></span><span class="balloon univ_buff pvp"><b>+10%</b></span> 増加させる。<a href="#golden_gun">ゴールデンガン</a>にも有効。
         </div>
 
         <a name="cure"></a>
@@ -271,7 +278,7 @@
         <a name="restoration"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/b5ffe5ac4f2ffe4cb30e8637c9a02eb5.png" class="head">回復</h3>
         <div class="text">
-            自身のHPを継続的に回復する。ダメージを受けても<b>中断されず</b>、<a href="./class_void.html#suppression">抑制</a>や &#xe071; 妨害の効果を受けない。
+            自身のHPを継続的に回復する。ダメージを受けても<b>中断されず</b>、<a href="./class_void.html#suppression">抑制</a>や &#xe071; 妨害の効果を<b>受けない</b>。
             <br>回復のリフトなど、他に効果の高い回復効果がある場合はそちらが優先される。
             <table class="list">
                 <thead>
@@ -299,7 +306,7 @@
         <a name="scorch"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/a48c8286630f9859ce051f7d277e98fa.png" class="head">スコーチ</h3>
         <div class="text">
-            <b>0.56秒</b> ごとに、スタック数に応じた燃焼ダメージを受ける。x60を超えると燃焼ダメージが <b>+2.5%</b> 増加し、ダメージ表記が黃文字になる。<span class="pve">また、マイナーの敵に対しては、燃焼ダメージが <b>+20%</b> 増加する。</span>
+            <b>0.56秒</b> ごとに、スタック数に応じた<b>燃焼ダメージ</b>を受ける。x60を超えると燃焼ダメージが <b>+2.5%</b> 増加し、ダメージ表記が黃文字になる。<span class="pve">また、マイナーの敵に対しては、燃焼ダメージが <b>+20%</b> 増加する。</span>
             <br>スコーチは付与から <b><span class="pve">4秒間</span><span class="pvp">1.5秒間</span></b> 残留し、その後は1秒につき <span class="pve"><b>x10</b></span><span class="pvp"><b>x25</b></span> ずつ減少していく。スコーチがx100になると<a href="#ignition">点火</a>する。
             <span class="pvp"><br>この燃焼ダメージでキルをすることは<b>できない。</b></span>
             <ul class="stats2">
@@ -332,7 +339,7 @@
         <a name="ignition"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/0f6cbbe10054d7310c710b978e7ec83e.png" class="head">点火</h3>
         <div class="text">
-            点火すると、その敵を中心とした爆発を起こす。爆発は <b><span class="pve">750</span><span class="pvp">120</span></b> ダメージを与える。距離減衰はない。
+            点火すると、その敵を中心とした<b>爆発</b>を起こす。爆発は <b><span class="pve">750</span><span class="pvp">120</span></b> ダメージを与える。距離減衰はない。
             <br>点火ダメージは、最初に付与したスコーチにかかった強化によって増加させることができる。
             <br><b>例</b>: <a href="./exotic_armor.html#winters_guile">ウィンター・ギル</a>のウォーロードの印 x5を付与し、<a href="#incinerator_snap">焼却の指鳴らし</a>で点火させると、点火ダメージは +275% される。
         </div>
@@ -376,7 +383,7 @@
                     <td style="text-align: center;"><b>接着 / 検知</b></td>
                     <td style="text-align: left;" class="pve"><b>805</b></td>
                     <td style="text-align: left;" class="pvp"><b>140</b></td>
-                    <td style="text-align: left;"><b>x40</b> <span class="ash">(<b>x60</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span>
+                    <td style="text-align: left;"><b>x40</b> <span class="balloon ash">(<b>x60</b>)</span>
                     </td>
                     <td><b>91</b></td>
                     <td><b>4</b></td>
@@ -392,7 +399,7 @@
                     <td style="text-align: center;"><b>複数回</b></td>
                     <td style="text-align: left;" class="pve">227 × 3 = <b>681</b></td>
                     <td style="text-align: left;" class="pvp">79 × 3 = <b>237</b></td>
-                    <td style="text-align: left;"><b>x10</b> <span class="ash">(<b>x20</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span>
+                    <td style="text-align: left;"><b>x10</b> <span class="balloon ash">(<b>x20</b>)</span>
                     </td>
                     <td><b>105</b></td>
                     <td><b>4</b></td>
@@ -408,7 +415,7 @@
                     <td style="text-align: center;"><b>通常</b></td>
                     <td style="text-align: left;" class="pve"><b>904</b></td>
                     <td style="text-align: left;" class="pvp"><b>130</b></td>
-                    <td style="text-align: left;"><b>x60</b> <span class="ash">(<b>x90</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span>
+                    <td style="text-align: left;"><b>x60</b> <span class="balloon ash">(<b>x90</b>)</span>
                     </td>
                     <td><b>121</b></td>
                     <td style="text-align: center;">-</td>
@@ -424,7 +431,7 @@
                     <td style="text-align: center;"><b>継続</b></td>
                     <td style="text-align: left;" class="pve">57 + 72 × 13.3 = <b>1,014.6</b></td>
                     <td style="text-align: left;" class="pvp">20 + 25 × 13.3 = <b>352.5</b></td>
-                    <td style="text-align: left;">着弾時: <b>x11</b> <span class="ash">(<b>x21</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span><br>効果終了時: <b>x9</b> <span class="ash">(<b>x14</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span>
+                    <td style="text-align: left;">着弾時: <b>x11</b> <span class="balloon ash">(<b>x21</b>)</span><br>効果終了時: <b>x9</b> <span class="balloon ash">(<b>x14</b>)</span>
                     </td>
                     <td><b>121</b></td>
                     <td><b>4</b></td>
@@ -442,7 +449,7 @@
                     <td style="text-align: center;"><b>検知 / 複数回</b></td>
                     <td style="text-align: left;" class="pve">(53 + 50) × 9 = <b>927</b></td>
                     <td style="text-align: left;" class="pvp">(8 + 8) × 9 = <b>144</b></td>
-                    <td style="text-align: left;"><b>x5</b> <span class="ash">(<b>x8</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span>
+                    <td style="text-align: left;"><b>x5</b> <span class="balloon ash">(<b>x8</b>)</span>
                     </td>
                     <td><b>91</b></td>
                     <td style="text-align: center;">-</td>
@@ -461,7 +468,7 @@
                     <td style="text-align: center;"><b>接着</b></td>
                     <td style="text-align: left;" class="pve"><b>819</b></td>
                     <td style="text-align: left;" class="pvp"><b>130</b></td>
-                    <td style="text-align: left;"><b>x40</b> <span class="ash">(<b>x60</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span>
+                    <td style="text-align: left;"><b>x40</b> <span class="balloon ash">(<b>x60</b>)</span>
                     </td>
                     <td><b>73</b></td>
                     <td>可変</td>
@@ -477,7 +484,7 @@
                     <td style="text-align: center;"><b>検知</b></td>
                     <td style="text-align: left;" class="pve"><b>373</b></td>
                     <td style="text-align: left;" class="pvp"><b>65</b></td>
-                    <td style="text-align: left;"><b>x20</b> <span class="ash">(<b>x30</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span>
+                    <td style="text-align: left;"><b>x20</b> <span class="balloon ash">(<b>x30</b>)</span>
                     </td>
                     <td><b>64</b></td>
                     <td style="text-align: center;">-</td>
@@ -491,7 +498,7 @@
                     <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/35824c115235240b6889fe523448fb10.jpg" class="table"></th>
                     <th>回復グレネード</th>
                     <td style="text-align: center;"><b>特殊</b></td>
-                    <td style="text-align: center;"><a href="#cure">治癒</a> <b>x1</b></td>
+                    <td style="text-align: center;"><b><a href="#cure">治癒</a> x1</b></td>
                     <td style="text-align: center;">-</td>
                     <td><b>82</b></td>
                     <td><b>7.5</b></td>
@@ -499,7 +506,7 @@
                     <td style="text-align: center;">-</td>
                     <td style="text-align: center;">-</td>
                     <td style="text-align: center;">-</td>
-                    <td class="name">着弾時、<b>7.5m以内</b> にいる味方に<a href="#cure">治癒</a> <b>x1</b> を付与する。グレネードは回復オーブとして <b>7.5秒間</b> 残り、<br>それを回収した味方には<a href="#restoration">回復</a> <b>x1</b> を <b>4秒間</b> 付与する。オーブのHPは <b>100</b> 。</td>
+                    <td class="name">着弾時、<b>7.5m以内</b> にいる味方に<b><a href="#cure">治癒</a> x1</b> を付与する。グレネードは回復オーブとして <b>7.5秒間</b> 残り、<br>それを回収した味方には<b><a href="#restoration">回復</a> x1</b> を <b>4秒間</b> 付与する。オーブのHPは <b>100</b> 。</td>
                 </tr>
             </tbody>
         </table>
@@ -586,8 +593,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>スーパースキルでキルをすると、その敵が<a href="#ignition">点火</a>する。</li>
-                <li><a href="#well_of_radiance">輝く泉</a>では、発動者のソーラー武器によるキルで敵が点火する。</li>
+                <li>スーパースキルでキルをすると、その敵が<b><a href="#ignition">点火</a></b>する。</li>
+                <li><a href="#well_of_radiance">輝く泉</a>では、発動者の<b>ソーラー武器によるキル</b>で敵が点火する。</li>
                 <li><a href="#deadshot">ゴールデンガン: デッドショット</a>では、キル時に弾薬が <b>1発</b> 追加される。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
@@ -602,7 +609,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>敵に近接スキルをヒットさせると、<b>8秒間</b> 自身と <b>8m以内</b> の味方を<a href="#radiant">発光</a>させる。</li>
+                <li>敵に近接スキルをヒットさせると、<b>8秒間</b> 自身と <b>8m以内</b> の味方を<b><a href="#radiant">発光</a></b>させる。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -616,7 +623,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="#ignition">点火</a>の爆発を受けた敵に、<a href="#scorch">スコーチ</a>を <b>x40</b> <span class="ash">(<b>x60</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与する。</li>
+                <li><a href="#ignition">点火</a>の爆発を受けた敵に、<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -665,7 +672,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="#ignition">点火</a>による爆発の範囲が増加する。</li>
+                <li><a href="#ignition">点火</a>による爆発の<b>範囲が増加</b>する。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -690,7 +697,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="#ignition">点火</a>で <b>2体以上</b> キルをすると、力のオーブを生成する。</li>
+                <li><a href="#ignition">点火</a>で <b>2体以上</b> キルをすると、<b>力のオーブを生成</b>する。</li>
                 <li><b>10秒間</b> のクールダウンがある。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
@@ -780,7 +787,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>1.25秒</b> 以上のダッシュ中か、その後のスライディング中に近接攻撃ボタンを押すと、前方にハンマーを構えながら突撃する。</li>
-                <li>この攻撃がヒットした敵に<a href="#scorch">スコーチ</a>を <b>x40</b> <span class="ash">(<b>x60</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与する。</li>
+                <li>この攻撃がヒットした敵に<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
                 <li>さらに、この攻撃で敵をキルすると、その敵を<a href="#ignition">点火</a>させる。</li>
             </ul>
         </div>
@@ -816,7 +823,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ソーラーのスキル、もしくは<a href="#ignition">点火</a>でキルをすると、<b>20秒間</b> スキルが与える<b>ダメージが増加</b>する。</li>
-                <li>また、近接攻撃が<b>近接スキル扱い</b>となり、敵にスコーチを <b>x30</b> <span class="ash">(<b>x40</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与するようになる。</li>
+                <li>また、近接攻撃が<b>近接スキル扱い</b>となり、敵に<b><a href="#scorch">スコーチ</a></b>を <b>x30</b> <span class="balloon ash">(<b>x40</b>)</span> 付与するようになる。</li>
                 <li>ただし、<a href="./exotic_armor.html#synthoceps">生体強化</a>もしくは<a href="./exotic_armor.html#wormgod_caress">燃える拳</a>の発動中は、ダメージの増加量が減少する。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
@@ -865,7 +872,7 @@
                 <li>ソーラーのスキルか、<a href="#scorch">スコーチ</a>状態の敵をキルする、もしくは<a href="#hammer_of_sol">サンハンマー</a>を着弾させると、<b>サンスポット</b>を生成する。</li>
                 <li>自身がサンスポットを通ると、<a href="#restoration">回復</a>と<b>ソル・インビクタス</b>が <b>5秒間</b> 付与される。</li>
                 <li>ソル・インビクタス発動中は、近接エネルギーとグレネードエネルギーの回復速度が <b>+100%</b> される。</li>
-                <li>また、サンスポットを通った敵は、1秒につき <b>6回</b> 、<b><span class="pve">60</span><span class="pvp">15</span></b> ダメージと、<b>x5</b> <span class="ash">(<b>x8</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> のスコーチが付与される。</li>
+                <li>また、サンスポットを通った敵は、1秒につき <b>6回</b> 、<b><span class="pve">60</span><span class="pvp">15</span></b> ダメージと、<b>x5</b> <span class="balloon ash">(<b>x8</b>)</span> のスコーチを付与する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -880,7 +887,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>スライディング中に近接攻撃ボタンを押すと、近接エネルギーを <b>50%</b> 消費し、ハンマーを振り上げて空中に飛び上がり、前方 <b>17.5m</b> に<b>ソーラーの波</b>を発生させる。</li>
-                <li>この波に当たった敵は <b>40</b> ダメージと、<b>x40</b> <span class="ash">(<b>x60</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> の<a href="#scorch">スコーチ</a>が付与される。</li>
+                <li>この波に当たった敵は <b>40</b> ダメージと、<b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> の<b><a href="#scorch">スコーチ</a></b>が付与される。</li>
                 <li>また、空中に飛び上がった状態でもう一度近接攻撃ボタンを押すと、近接エネルギーをすべて消費し、ハンマーを地面に叩きつけ、前方 <b>14.5m</b> に<b>より広い</b>ソーラーの波を発生させる。</li>
                 <li>この波に当たった敵は <b>120</b> ダメージを受け、スコーチが付与されている場合は<a href="#ignition">点火</a>する。</li>
             </ul>
@@ -977,7 +984,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>3枚のナイフを扇状に投擲する。</li>
-                <li>ナイフが刺さると、1枚につき<a href="#scorch">スコーチ</a>が <b>x20</b> <span class="ash">(<b>x30</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与される。</li>
+                <li>ナイフが刺さると、1枚につき<b><a href="#scorch">スコーチ</a></b>が <b>x20</b> <span class="balloon ash">(<b>x30</b>)</span> 付与される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -994,7 +1001,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ナイフを投擲する。</li>
-                <li>このナイフで精密ヒットをすると、<b>10秒間</b> 自身を<a href="#radiant">発光</a>させる。</li>
+                <li>このナイフで精密ヒットをすると、<b>10秒間</b> 自身を<b><a href="#radiant">発光</a></b>させる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1011,7 +1018,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>敵が近づくと爆発するナイフを投擲する。</li>
-                <li>このナイフは壁や床に刺さり、<b>5m以内</b> に敵が近づくと爆発する。敵が来ないまま <b>14秒間</b> 経つと自動的に爆発する。</li>
+                <li>このナイフは壁や床に刺さり、<b>5m以内</b> に敵が近づくと<b>爆発</b>する。敵が来ないまま <b>14秒間</b> 経つと自動的に爆発する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1091,8 +1098,8 @@
                     </ul>
                 </li>
                 <li>スタックが <b>6個</b> 溜まると、グレネードが<b>即席爆薬</b>に置き換わる。</li>
-                <li>グレネードは投げてから <b>3秒</b> 経つか、<b>武器で射撃</b>すると、<a href="#ignition">点火</a>爆発を起こす。</li>
-                <li>グレネードを投擲すると、次にチャージを貯めるまでの間、<b>15秒間</b> のクールダウンが発生する。</li>
+                <li>即席爆薬は投げてから <b>3秒</b> 経つか、<b>武器で射撃</b>すると、<a href="#ignition">点火</a>爆発を起こす。</li>
+                <li>即席爆薬を投擲すると、次にチャージを貯めるまでの間、<b>15秒間</b> のクールダウンが発生する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1135,8 +1142,8 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ソーラーの剣を地面に立て、味方を強化する半径 <b>6.5m</b> の<b>フィールドを生成</b>する。</li>
-                <li>発動時、<b>8.5m以内</b> にいる敵に<a href="#scorch">スコーチ</a>を <b>x40</b> <span class="ash">(<b>x60</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与する。</li>
-                <li>フィールドに入ると、HPが毎秒 <b>100</b> ずつ回復し、武器ダメージが <span class="c_solar"><b>+25%</b></span> 増加する。</li>
+                <li>発動した瞬間のみ、<b>8.5m以内</b> にいる敵に<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
+                <li>フィールドに入ると、HPが毎秒 <b>100</b> ずつ回復し、武器ダメージが <span class="balloon univ_buff"><b>+25%</b></span> 増加する。</li>
                 <li><span class="pvp">さらに、メイン武器から受けるダメージは <b>-40%</b> 、それ以外の敵から受ける全てのダメージを <b>-50%</b> 軽減する。</span></li>
                 <li>加えて、フィールド内では<b>ステイシスの影響を受けなく</b>なる。</li>
                 <li>また、発動者がフィールド内から武器で攻撃すると、そのダメージは<b>スーパースキルによるダメージ</b>として扱われる。</li>
@@ -1158,8 +1165,9 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>3つの炎弾を前方に飛ばす。弾は敵を追尾する。</li>
-                <li>炎弾は1発につき<a href="#scorch">スコーチ</a>を <b>x10</b> <span class="ash">(<b>x15</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与する。</li>
+                <li><b>空中</b>でのみ発動可能。発動時、一瞬の静止後に地面に向かって<b>急降下</b>する。</li>
+                <li>着地時、自身と <b>9m以内</b> の味方に<b><a href="#cure">治癒</a> x2</b> を付与する。</li>
+                <li><a href="#heat_rises">熱上昇</a>の発動中は、自身に追加で<b><a href="#restoration">回復</a> x1</b> を <b>1秒間</b> 付与し、<b>5m以内</b> の敵に <b>100</b> ダメージを与え <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> の<b><a href="#scorch">スコーチ</a></b>を付与する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1177,7 +1185,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>3つの炎弾を前方に飛ばす。弾は敵を追尾する。</li>
-                <li>炎弾は1発につき<a href="#scorch">スコーチ</a>を <b>x10</b> <span class="ash">(<b>x15</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与する。</li>
+                <li>炎弾は1発につき<b><a href="#scorch">スコーチ</a></b>を <b>x10</b> <span class="balloon ash">(<b>x15</b>)</span> 付与する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1193,8 +1201,8 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>5つの火炎スパークを広範囲の扇状に飛ばす。</li>
-                <li>炎弾は1発につき<a href="#scorch">スコーチ</a>を <span class="pve"><b>x20</b> <span class="ash">(<b>x30</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span>
-                    </span><span class="pvp"><b>x10</b> <span class="ash">(<b>x15</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span>
+                <li>炎弾は1発につき<b><a href="#scorch">スコーチ</a></b>を <span class="pve"><b>x20</b> <span class="balloon ash">(<b>x30</b>)</span>
+                    </span><span class="pvp"><b>x10</b> <span class="balloon ash">(<b>x15</b>)</span>
                     </span> 付与する。</li>
             </ul>
         </div>
@@ -1291,18 +1299,18 @@
                     </li>
                     <li>ソーラーグレネード
                         <ul class="stats2">
-                            <li>効果時間が <b>+2秒</b> され、<b>50</b> ダメージを与えるマグマオーブを放出する。</li>
+                            <li>効果時間が <b>+2秒</b> され、<b>50</b> ダメージを与える<b>マグマオーブ</b>を放出する。</li>
                         </ul>
                     </li>
                     <li>フュージョングレネード
                         <ul class="stats2">
-                            <li>追加で <b><span class="pve">945</span><span class="pvp">50</span></b> ダメージを与える、2度目の爆発を起こす。</li>
+                            <li>追加で <b><span class="pve">945</span><span class="pvp">50</span></b> ダメージを与える、<b>2度目の爆発</b>を起こす。</li>
                             <li>この爆発によるスコーチの付与はない。</li>
                         </ul>
                     </li>
                     <li>回復グレネード
                         <ul class="stats2">
-                            <li>付与される<a href="#cure">治癒</a>と<a href="#restoration">回復</a>のスタック数が x2 になる。</li>
+                            <li>付与される<a href="#cure">治癒</a>と<a href="#restoration">回復</a>のスタック数が <b>x2</b> になる。</li>
                         </ul>
                     </li>
                 </ul>

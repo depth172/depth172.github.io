@@ -26,6 +26,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
 
     <!-- 通知表示 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -59,6 +60,10 @@
     <div class="overlay-button">
         <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
         <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
     </div>
 
     <div class="main" id="main">
@@ -239,14 +244,16 @@
             <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについては数値等の詳細な記載がない場合もあります。</li>
             <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
             <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>解説中に出てくる<span class="w-icons solar">&#xe140;</span>や<span class="w-icons auto">&#xe100;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
             <li class="pve">ダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
-            <li>武器ダメージが増加するものに関して、<span class="c_void">全体デバフ</span>や<span class="c_solar">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
+            <li>武器ダメージが増加するものに関して、<span class="univ_debuff">全体デバフ</span>や<span class="univ_buff">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
                 <a href="./buff_stacking.html">強化・弱体化の種類と重複について</a> をお読みください。</li>
             <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
         </ul>
         <dl>
             <dt>キル</dt>
-            <dd>敵を倒すこと。特別に記述がなければ「そのパークのついた武器によるキル」という意味。</dd>
+            <dd>敵を倒すこと。特筆しない限り、自分でトドメを刺した場合のみ適用される。</dd>
             <dt>近接スキル</dt>
             <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
             <dt>リロード速度・リロード時間</dt>
@@ -281,7 +288,7 @@
         <div class="base"><b>移入行列</b> - アークの近接キルで体力が回復し、近接エネルギーも回復する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />ストライカー
+            <span class="w-icons arc">&#xe143;</span>ストライカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>アークの近接スキルでキルをすると、近接エネルギーが<b>最大まで回復</b>し、HPの<b>自然再生が開始</b>する。</li>
@@ -345,7 +352,7 @@
         <div class="base"><b>破滅の角</b> - ボイドの近接キルでスーパースキルのエネルギーが付与される。センティネルシールドが発動中は近接キルでシールド投げがチャージされ、それを直撃させるとスーパースキルの持続時間が延びる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />センティネル
+            <span class="w-icons void">&#xe144;</span>センティネル
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ボイドの近接スキルで敵をキルすると、スーパーエネルギーが <b><span class="pve">+20%</span><span class="pvp">+10%</span></b> 回復する。</li>
@@ -403,7 +410,7 @@
         <div class="base"><b>太陽炉</b> - ソーラースキルのチャージ速度が上昇する。スーパースキルがチャージされている間は、ソーラースキルのチャージ速度が大幅に上昇する。全ての武器の空中効果ステータスに小さな恩恵を与える。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />サンブレーカー
+            <span class="w-icons solar">&#xe140;</span>サンブレーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ソーラーのサブクラスを使用中、近接スキルとグレネードの回復速度が <b>+75%</b> 増加する。</li>
@@ -465,7 +472,7 @@
                         <li>ADS中移動速度ペナルティ: -25% → <b>-9%</b></li>
                     </ul>
                 </li>
-                <li>使用していないSMGを <b>1.3秒後</b> にリロードする。</li>
+                <li>使用していないSMGを <b>1.3秒後</b> に全弾リロードする。</li>
                 <li>また、サブマシンガンの空中効果を恒常的に <b>+40</b> 増加させる。</li>
             </ul>
         </div>
@@ -487,7 +494,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#sentinel_shield">センティネルシールド</a>でガード時、<b>7m以内</b> にいる敵を <b>5秒間</b> <b>盲目状態にする。</b></li>
-                <li>また、発動した<a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a>や<a href="./exotic_weapons.html#edge_of_action">行動の果て</a>で生成したシールドに入ると<b>星なき夜</b>が発動し、星なき夜発動中は <b>65HP</b> のボイドのオーバーシールドを得られる。</li>
+                <li>また、発動した<a href="./class_void.html#ward_of_dawn">ドーン・ウォード</a>や<a href="./exotic_weapons.html#edge_of_action">行動の果て</a>で生成したシールドに入ると<b>星なき夜</b>が発動し、星なき夜発動中は <b>65HP</b> の<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>を得られる。</li>
                 <li>ドーン・ウォードや行動の果てのシールド内に入った敵も同様に盲目状態となる。</li>
             </ul>
         </div>
@@ -540,7 +547,7 @@
         <div class="base"><b>決意</b> - ハボックフィストを発動させる時に2つ目のシールドが発生する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />ストライカー
+            <span class="w-icons arc">&#xe143;</span>ストライカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ハボックフィストを発動すると<b>決意</b>が付与され、決意発動中は <b>75HP</b> のオーバーシールドを得られる。</li>
@@ -554,7 +561,7 @@
         <div class="base"><b>ブリングヒート</b> - フュージョングレネードが衝撃で爆発し、投げるスピードが速くなる。フュージョングレネードでトドメを刺すとグレネードエネルギーが付与される。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />サンブレーカー
+            <span class="w-icons solar">&#xe140;</span>サンブレーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>フュージョングレネードに<a href="./armor_mods.html#fastball">ファストボール</a>と同じ効果が付与され、<b>直撃時に爆発</b>するようになる。</li>
@@ -646,7 +653,7 @@
         <div class="base"><b>アーサイン・ガード</b> - センティネルシールドが発動中はシールドで防御しながら速く移動できる。スーパースキルが終わった時に防御したダメージはスーパ－エネルギーに変わる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />センティネル
+            <span class="w-icons void">&#xe144;</span>センティネル
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#sentinel_shield">センティネルシールド</a>でガード中、通常移動の <b>90%</b> の速度で動くことができる。</li>
@@ -812,11 +819,12 @@
         <div class="base"><b>強化ビーコン</b> - ソル・インビクタスの効果時間が2倍に伸びる。サンスポットを通った仲間にもソル・インビクタスとソーラー回復が付与される。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />サンブレーカー
+            <span class="w-icons solar">&#xe140;</span>サンブレーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>サンスポットから得られるソル・インビクタスの効果時間が 5秒間 → <b>10秒間</b> に延びる。</li>
+                <li>サンスポットから得られる<a href="./class_solar.html#sol_invictus">ソル・インビクタス</a>の効果時間が 5秒間 → <b>10秒間</b> に延びる。</li>
                 <li>また、サンスポットが<b>味方にも効果を与える</b>ようになる。</li>
+                <li>ソーラーのかけら「<a href="./class_solar.html#ember_of_benevolence">慈悲の名残</a>」の効果は、これによっても発動する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -890,7 +898,7 @@
                 <li>バリケードを<b>氷河の守り</b>に変更する。このとき、クラススキルのクールダウンは<b>反撃のバリケード</b>と同等のものとなる。</li>
                 <li>発動時、<b>7m以内</b> の戦闘員に遅延を <b>x40</b> 付与し、自身に <b>100HP</b> のオーバーシールドを付与する。</li>
                 <li>シールドは <b>20秒間</b> 持続し、ダメージを受けると効果時間がリセットされる。</li>
-                <li><span class="pve">シールドはダメージを <b>62.5%</b> 軽減する。</span></li>
+                <li><span class="pve">シールドは、自身が受けるダメージを <b>62.5%</b> 軽減する。</span></li>
                 <li>ただし、シールド発動中はダッシュ、スライディング、リフトが<b>使用不可</b>になり、クラススキルエネルギーが<b>回復しなくなる。</b></li>
                 <li>効果中にクラススキル発動ボタンをもう一度押すことで、<b>効果を解除</b>できる。</li>
             </ul>
@@ -902,7 +910,7 @@
         <div class="base"><b>誉れ高き突進</b> - サンダークラッシュの衝突ダメージが大幅に上昇する。2つ目のシールドが付与され、標的を攻撃するまでの移動距離が長いほど効果時間が延長する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />ストライカー
+            <span class="w-icons arc">&#xe143;</span>ストライカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>サンダークラッシュのダメージが <b>+100%</b> 増加する。</li>
@@ -936,17 +944,17 @@
                 <tbody>
                     <tr class="pve">
                         <th>ダメージ増加量</th>
-                        <td><b><span class="c_solar">+20%</span></b></td>
-                        <td><b><span class="c_solar">+25%</span></b></td>
-                        <td><b><span class="c_solar">+35%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+20%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+25%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+35%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
                     </tr>
                     <tr class="pvp">
                         <th>ダメージ増加量</th>
-                        <td><b><span class="c_solar">+15%</span></b></td>
-                        <td><b><span class="c_solar">+25%</span></b></td>
-                        <td><b><span class="c_solar">+20%</span></b></td>
-                        <td><b><span class="c_solar">+35%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+15%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+25%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+20%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+35%</span></b></td>
                     </tr>
                 </tbody>
             </table>
@@ -991,7 +999,7 @@
         <div class="base"><b>治癒の炎</b> - クラススキルエネルギーがフルの時に瀕死状態になるか、バリケードを設置すると、自分のいる場所にサンスポットが生成される。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />サンブレーカー
+            <span class="w-icons solar">&#xe140;</span>サンブレーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>バリケードを発動するか、クラススキルエネルギーが最大のとき瀕死になると、<b>サンスポットが生成</b>される。</li>
@@ -1005,7 +1013,7 @@
         <div class="base"><b>氷壁化</b> - ステイシスサブクラスを使用中、バリケードがステイシス・クリスタルの壁になり、生成時に付近にいる標的が遅延状態になる。このバリケードの後ろに立つと、自分と味方の武器のリロード速度、安定性、射程距離が向上する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="stasis" />ベヒーモス
+            <span class="w-icons stasis">&#xe139;</span>ベヒーモス
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>バリケードの代わりに、<b>ステイシス・クリスタルの壁</b>を生成する。壁は <b>14秒間</b> 持続する。</li>
@@ -1020,7 +1028,7 @@
         <div class="base"><b>ミュルミドンの手</b> - シールド投げの2つ目のチャージが付与され、シールドを貫通するようになり、バリア・チャンピオンをスタン&#xe070;させる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />センティネル
+            <span class="w-icons void">&#xe144;</span>センティネル
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#shield_throw">シールド投げ</a>のチャージが <b>1回 追加</b>される。</li>
@@ -1034,7 +1042,7 @@
         <div class="base"><b>神々の槌</b> - 近接攻撃「雷鳴」で標的を倒すと近接エネルギーが回復する。雷鳴発動時に近くにいた標的は落雷に打たれる。増幅状態では、この落雷の範囲が広がる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />ストライカー
+            <span class="w-icons arc">&#xe143;</span>ストライカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>雷鳴で敵を倒すと、<b>近接エネルギーが回復</b>する。</li>
@@ -1061,10 +1069,10 @@
         <div class="base"><b>ホークアイハック</b> - ゴールデンガンが高威力の弾丸を一発だけ撃ち出すようになる。この弾丸で倒された標的は爆発し、またスーパーエネルギーがチャージされる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ガンスリンガー
+            <span class="w-icons solar">&#xe140;</span>ガンスリンガー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ゴールデンガンの装弾数が<b>1発だけ</b>になり、ダメージが <b>+500%</b> 、発動中の空中効果が <b>+100</b> 増加する。</li>
+                <li>ゴールデンガンの装弾数が <b>1発</b> になり、ダメージが <b>+500%</b> 、発動中の空中効果が <b>+100</b> 増加する。</li>
                 <li>通常の<a href="./class_solar.html#marksman">ゴールデンガン: マークスマン</a>の3発と比較すると、ダメージは <b>37%</b> 高い。</li>
                 <li>このゴールデンガンでキルをすると、スーパーエネルギーが <b>33%</b> 回復する。</li>
             </ul>
@@ -1113,7 +1121,7 @@
                         <li>空中効果: <b>+50</b></li>
                     </ul>
                 </li>
-                <li>瀕死状態でピストルに持ち替えると、そのピストルがリロードされ、ダメージが <b><span class="pve">+100%</span><span class="pvp">+35%</span></b> 増加する。</li>
+                <li>瀕死状態でピストルに持ち替えると、そのピストルが全弾リロードされ、ダメージが <b><span class="pve">+100%</span><span class="pvp">+35%</span></b> 増加する。</li>
                 <li>効果は瀕死でなくなるまで持続する。</li>
             </ul>
         </div>
@@ -1124,12 +1132,12 @@
         <div class="base"><b>希竜の牙</b> - トリップマイングレネードの持続時間が長くなり、爆発範囲を拡大する。スキルでダメージを与えるとトリップマイングレネードのエネルギーが付与される。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ガンスリンガー
+            <span class="w-icons solar">&#xe140;</span>ガンスリンガー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>トリップマイングレネードが以下のように<b>強化</b>される。
                     <ul>
-                        <li><a href="./armor_mods.html#fastball">ファストボール</a> の効果を持つ。</li>
+                        <li><a href="./armor_mods.html#fastball">ファストボール</a>の効果を持つ。</li>
                         <li>爆発ダメージが <b>+14%</b> 増加する。</li>
                         <li>爆発範囲が増加し、距離によるダメージ減衰がなくなる。</li>
                         <li>グレネードによる<b>自爆ダメージが無効化</b>される。</li>
@@ -1147,12 +1155,12 @@
         <div class="base"><b>確率行列</b> - アークボルトグレネードの連鎖能力が向上し、ダメージを与える度にグレネードがチャージされることがある。完全に連鎖するとグレネードが常にチャージされる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />アークストライダー
+            <span class="w-icons arc">&#xe143;</span>アークストライダー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>アークボルトグレネードが連鎖できる敵が <b>1体</b> 増加する。</li>
                 <li>また、アークボルトグレネードがヒットすると、一定確率でグレネードエネルギーが<b>全回復</b>する。</li>
-                <li>一回のグレネードで1体ヒットする毎に、リチャージされる確率が <b>+25%</b> 増加する。</li>
+                <li>一回のグレネードで1体ヒットする毎に、全回復する確率が <b>+25%</b> 増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1162,7 +1170,7 @@
         <div class="base"><b>シナプス結合</b> - アークポールで素早く連続攻撃すると、ダメージと持続時間が上昇する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />アークストライダー
+            <span class="w-icons arc">&#xe143;</span>アークストライダー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>アークポールで攻撃すると、<b>シナプス結合</b>が付与される。シナプス結合発動中はアークポールの<b>ダメージと持続時間が増加</b>する。</li>
@@ -1195,7 +1203,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>回避時、<b>全ての武器をリロード</b>し、自身に<b>レイスメタル・メイル</b>を 9秒間 付与する。</li>
+                <li>回避時、<b>全ての武器を全弾リロード</b>し、自身に<b>レイスメタル・メイル</b>を <b>9秒間</b> 付与する。</li>
                 <li>レイスメタル・メイル:
                     <ul class="stats2">
                         <li>可動性: <b>+50</b></li>
@@ -1290,7 +1298,7 @@
         <div class="base"><b>不思議な矢</b> - 落罠で束縛した標的ごとにスキルエネルギーを得ることができる。メビウスの矢筒の弾数が追加される。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />ナイトクローラー
+            <span class="w-icons void">&#xe144;</span>ナイトクローラー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#deadfall">シャドウショット: 落罠</a>で敵を束縛すると、スーパーエネルギーを含む全てのスキルエネルギーが <b>10%</b> 回復する。スーパーエネルギーは最大 <b>50%</b> まで回復する。</li>
@@ -1389,7 +1397,7 @@
         <div class="base"><b>新ネタ</b> - スキップグレネードを強化し、スキップグレネードのチャージが1回分追加される。またスキップグレネードで敵にダメージを与えるとエネルギーが戻ってくる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />アークストライダー
+            <span class="w-icons arc">&#xe143;</span>アークストライダー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>スキップグレネードのチャージが <b>1回 追加</b>される。</li>
@@ -1428,7 +1436,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>近接攻撃をすると、装備中の武器を<b>リロード</b>し、<b>5秒間</b> 空中効果を <b>+50</b> 増加させる。</li>
+                <li>近接攻撃をすると、装備中の武器を<b>全弾リロード</b>し、<b>5秒間</b> 空中効果を <b>+50</b> 増加させる。</li>
                 <li>連続では発動せず、<b>7秒間</b> のクールダウンがある。</li>
             </ul>
         </div>
@@ -1439,7 +1447,7 @@
         <div class="base"><b>切り裂く指</b> - チャージ毎に2本のナイフが付与される。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ガンスリンガー
+            <span class="w-icons solar">&#xe140;</span>ガンスリンガー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>近接スキルのチャージが <b>1回 追加</b>される。</li>
@@ -1488,7 +1496,7 @@
         <div class="base"><b>鋭利な刃</b> - 刃の雨がヒットもしくはキルをすることでスーパースキルが終了次第スーパーエネルギーが回復する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ガンスリンガー
+            <span class="w-icons solar">&#xe140;</span>ガンスリンガー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>刃の雨をヒットさせるかキルをすると、発動後にスーパーエネルギーが最大 <b>50%</b> 回復する。</li>
@@ -1502,7 +1510,7 @@
         <div class="base"><b>放浪アサシン</b> - 隠密状態になる前に亡霊の刃でキルすることで、スーパーエネルギーが回復する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />ナイトクローラー
+            <span class="w-icons void">&#xe144;</span>ナイトクローラー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#spectral_blades">亡霊の刃</a>発動中のキル数に応じて、強攻撃時に<b>スーパーエネルギーを回復</b>させる。</li>
@@ -1558,7 +1566,7 @@
         <div class="base"><b>クロスカウンター</b> - アークの近接スキルを使用、もしくは近接スキルで攻撃を受けた時、極めて強力な近接攻撃を繰り出せるようになり、それによって体力が回復する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />アークストライダー
+            <span class="w-icons arc">&#xe143;</span>アークストライダー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>近接攻撃をするか受けると、<b>クロスカウンター</b>が <b>3秒間</b> 付与される。</li>
@@ -1572,7 +1580,7 @@
         <div class="base"><b>毒の手</b> - 近接エネルギーが最大の状態で敵にパンチすると、即座に煙玉を投下する。煙玉の効果発動中にトゥルーサイトを得ることができる。煙玉のダメージ量が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />ナイトクローラー
+            <span class="w-icons void">&#xe144;</span>ナイトクローラー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>近接エネルギー最大時に通常の近接攻撃をすると、<b><a href="./class_void.html#snare_bomb">スネア爆弾</a>が発動</b>する。このとき、スネア爆弾のダメージが <b>+150%</b> 増加する。</li>
@@ -1637,7 +1645,9 @@
 
         <a name="the_bombardiers"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cd4edf7ec937a158820acef78f7eda43.jpg" class="h3">爆撃手</h3>
-        <div class="base"><b>餞別</b> - 回避すると爆発物が残り、少し時間を空けて爆発することで周囲にいる標的にダメージを与える。さらに自身のサブクラスのエネルギータイプに応じて副次的な効果が発生する。 • <span class="arc" />標的の目をくらませる。 • <span class="solar" />標的をスコーチ状態にする。 • <span class="void" />標的を抑制する。 • <span class="stasis" />標的の動きを遅くする。</div>
+        <div class="base"><b>餞別</b> - 回避すると爆発物が残り、少し時間を空けて爆発することで周囲にいる標的にダメージを与える。さらに自身のサブクラスのエネルギータイプに応じて副次的な効果が発生する。 • <span class="w-icons arc">&#xe143;</span>標的の目をくらませる。 • <span class="w-icons solar">&#xe140;</span>標的をスコーチ状態にする。 • <span class="w-icons void">&#xe144;</span>標的を抑制する。
+            •
+            <span class="w-icons stasis">&#xe139;</span>標的の動きを遅くする。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -1645,10 +1655,10 @@
                 <li>爆弾は壁や床、敵などに<b>接触すると即座に爆発</b>する。</li>
                 <li>また、使用しているサブクラスの属性に応じて以下の様々な効果が発生する。
                     <ul>
-                        <li><span class="arc" />: 敵を <b><span class="pve">7秒間</span><span class="pvp">3秒間</span></b> 盲目状態にする。</li>
-                        <li><span class="solar" />: 敵にスコーチを <b>x40</b> <span class="ash">(<b>x60</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与する。</li>
-                        <li><span class="void" />: 敵を <b><span class="pve">9秒間</span><span class="pvp">7秒間</span></b> <a href="./class_void.html#suppression">抑制状態</a>にする。</li>
-                        <li><span class="stasis" />: 敵に遅延を <b>2秒間</b> 付与し、すでに遅延が付与されていた場合はその<b>持続時間をリセット</b>する。</li>
+                        <li><span class="w-icons arc">&#xe143;</span>: 敵を <b><span class="pve">7秒間</span><span class="pvp">3秒間</span></b> 盲目状態にする。</li>
+                        <li><span class="w-icons solar">&#xe140;</span>: 敵にスコーチを <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
+                        <li><span class="w-icons void">&#xe144;</span>: 敵を <b><span class="pve">9秒間</span><span class="pvp">7秒間</span></b> <a href="./class_void.html#suppression">抑制状態</a>にする。</li>
+                        <li><span class="w-icons stasis">&#xe139;</span>: 敵に遅延を <b>2秒間</b> 付与し、すでに遅延が付与されていた場合はその<b>持続時間をリセット</b>する。</li>
                     </ul>
                 </li>
                 <li>抑制効果はスーパースキル発動中のガーディアンには効果がない（軽度の抑制）。</li>
@@ -1662,7 +1672,7 @@
         <div class="base"><b>メビウス・コンジット</b> - スーパースキルをもう一度押すと、旋風の護衛を早めに解除する。ガードしても余計なスーパーエネルギーを消費しない。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />アークストライダー
+            <span class="w-icons arc">&#xe143;</span>アークストライダー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>アークポール中、旋風の護衛を使用しても<b>スーパーエネルギーが消費されなくなる。</b></li>
@@ -1676,7 +1686,7 @@
         <div class="base"><b>光の転移</b> - ステイシスサブクラスの回避スキルが、さらに遠くまで素早く移動できる転移に置き換わる。このスキルの使用中は一時的に姿が見えなくなる。転移終了後は短時間、戦闘員に与えるアーク武器ダメージが増加し、遅延または凍結状態の戦闘員に与えるダメージが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="stasis" />レベナント
+            <span class="w-icons stasis">&#xe139;</span>レベナント
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>回避を、<b>転移</b>に変更する。転移は <b>10m</b> 移動可能で、移動中は<b>透明化</b>し軌跡だけが残る。</li>
@@ -1693,7 +1703,7 @@
         <div class="base"><b>揺れ動く針</b> - 加重ナイフが2回跳ね返るようになる。連続で精密ショットを達成すると加重ナイフに大きなダメージボーナスが付与され、シールドを失った戦闘員を短時間スタンさせる。&#xe072;アンストッパブル・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ガンスリンガー
+            <span class="w-icons solar">&#xe140;</span>ガンスリンガー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>加重ナイフが<b>2回跳ね返り</b>、このとき<b>標的捕捉力が大幅に上昇</b>する。</li>
@@ -1709,7 +1719,7 @@
         <div class="base"><b>ベールの向こう側</b> - 煙玉の2つ目のチャージを獲得し、不可視状態中にダメージ耐性が付与される。味方を不可視状態にすると、その味方にダメージ耐性が付与され、自身の近接エネルギーが回復する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />ナイトクローラー
+            <span class="w-icons void">&#xe144;</span>ナイトクローラー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#snare_bomb">スネア爆弾</a>のチャージが <b>1回 追加</b>される。</li>
@@ -1837,7 +1847,7 @@
         <div class="base"><b>ボルダイック・ミラー</b> - アークポールで反射した攻撃によるダメージが大幅に増加し、味方に力のオーブを生成する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />アークストライダー
+            <span class="w-icons arc">&#xe143;</span>アークストライダー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>アークポールの旋風の護衛で、反射した投射物のダメージが <b>+650%</b> 増加する。</li>
@@ -1851,7 +1861,7 @@
         <div class="base"><b>ダスクフィールドの深淵</b> - ダスクフィールドグレネードの効果範囲が広くなる。ダスクフィールド内にいる仲間が受けるダメージが減少する。また、エリア内にいる標的が与えるダメージも減少する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="stasis" />レベナント
+            <span class="w-icons stasis">&#xe139;</span>レベナント
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ダスクフィールドグレネードの<b>範囲が増加</b>するが、クールダウンは<b>グレーシャーグレネードと同等の長さ</b>になる。</li>
@@ -1866,10 +1876,10 @@
         <div class="base"><b>あぶり焼き</b> - 近接ナイフは、爆発でダメージを与えた標的をスコーチ状態にしたり、トドメを刺した標的を点火したりする。近接ナイフを投げると、ナイフが爆発するまで近接エネルギーの回復速度が向上する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ガンスリンガー
+            <span class="w-icons solar">&#xe140;</span>ガンスリンガー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>近接爆破ナイフが、爆発時にスコーチを <b>x60</b> <span class="ash">(<b>x60</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与するようになる。また、直撃させてキルすると<b><a href="./class_solar.html#ignition">点火</a></b>する。</li>
+                <li>近接爆破ナイフが、爆発時にスコーチを <b>x60</b> <span class="balloon ash">(<b>x60</b>)</span> 付与するようになる。また、直撃させてキルすると<b><a href="./class_solar.html#ignition">点火</a></b>する。</li>
                 <li>さらに、近接爆破ナイフが刺さったまま残っていると、近接エネルギーの回復速度が <b>+500%</b> 増加する。</li>
             </ul>
         </div>
@@ -1883,7 +1893,7 @@
             <ul class="stats">
                 <li><a href="class_void.html#invisibility">ボイド透明化</a>が解除されたとき、<b><span class="pve">10秒間</span><span class="pvp">4秒間</span></b> 自身の武器に<b><a href="class_void.html#echo_of_instability">ボラタイル弾</a></b>を付与する。</span>
                 </li>
-                <li><span class="pve">また、透明化中にフィニッシャーをすると、自身の武器ダメージを <span class="c_solar"><b>+35%</b></span> 増加させ、自身と <b>24m以内</b> の味方に<b>予備シールド</b>を付与し、クラススキルエネルギーの回復速度を <b>+375%</b> 増加させる。この効果は死亡するか、クラススキルを使用するまで継続する。</span>
+                <li><span class="pve">また、透明化中にフィニッシャーをすると、自身の武器ダメージを <span class="balloon univ_buff"><b>+35%</b></span> 増加させ、自身と <b>24m以内</b> の味方に<b>予備シールド</b>を付与し、クラススキルエネルギーの回復速度を <b>+375%</b> 増加させる。この効果は死亡するか、クラススキルを使用するまで継続する。</span>
                 </li>
                 <li><span class="pve">予備シールドは、クラススキルを使用したときに <b>40HP</b> の<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>として展開される。</span></li>
             </ul>
@@ -1968,7 +1978,7 @@
         <div class="base"><b>真の威厳</b> - ノヴァボム中、ダメージ耐性が上昇する。ノヴァボムで敵を倒すと、スーパーエネルギーがチャージされる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />ボイドウォーカー
+            <span class="w-icons void">&#xe144;</span>ボイドウォーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#novabomb_vortex">ノヴァボム</a>を発動中、敵からのダメージを<b>完全に無効化</b>する。</li>
@@ -1994,7 +2004,7 @@
         <div class="base"><b>ヘリウムの渦</b> - ソーラーグレネードの持続時間が長くなる。また、ソーラーの近接スキルでのキルで短時間だけソーラーグレネードのエネルギーが無限になる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ドーンブレード
+            <span class="w-icons solar">&#xe140;</span>ドーンブレード
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ソーラーグレネードに<a href="./armor_mods.html#fastball">ファストボール</a>と同じ効果が付与され、持続時間が <b>+4秒</b> 延びる。</li>
@@ -2044,7 +2054,7 @@
         <div class="base"><b>フュージョン2.0</b> - フュージョングレネードのチャージが1回分増え、リフトで強化された武器でダメージを与えるとチャージされる。フュージョングレネードで敵を倒すと、リフトのエネルギーがチャージされる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ドーンブレード
+            <span class="w-icons solar">&#xe140;</span>ドーンブレード
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>フュージョングレネードのチャージが <b>1回 追加</b>される。</li>
@@ -2059,7 +2069,7 @@
         <div class="base"><b>暁の書</b> - ドーンブレードの使用時に空中で照準モードに入ると、短時間空中で静止することができ、空中での命中精度が向上し、ひるみが軽減され、またダメージ耐性が付与される。武器によるダメージでこの効果の持続時間が長くなる。全ての武器の空中効果ステータスに大きな恩恵を与える。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ドーンブレード
+            <span class="w-icons solar">&#xe140;</span>ドーンブレード
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>空中でADSをすると、<b>暁の書</b>が付与される。</li>
@@ -2095,7 +2105,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>1.5秒間</b> ダッシュすると、装備している武器が<b>リロード</b>される。</li>
+                <li><b>1.5秒間</b> ダッシュすると、装備している武器が<b>全弾リロード</b>される。</li>
                 <li>また、恒常的にダッシュ速度を <b>+6.25%</b> 、スライディング距離を <b>+33%</b> 増加させる。</li>
                 <li>さらに、しゃがみ中の移動速度を <b>4m/s</b> まで増加させる（可動性100時より <b>4%</b> 速い）。</li>
             </ul>
@@ -2117,8 +2127,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>リフト内にいる味方が受けるダメージが <b><span class="pve">-25%</span><span class="pvp">-15%</span></b> 軽減される。</li>
-                <li>さらに、瀕死になると<b>離脱寸前</b>が付与され、離脱寸前発動時にクラススキルエネルギーが <b><span class="pve">55%</span><span class="pvp">27.5%</span></b> 回復する。</li>
+                <li>自身が生成したリフト内にいる自身か味方は、受けるダメージが <b><span class="pve">-25%</span><span class="pvp">-15%</span></b> 軽減される。</li>
+                <li>さらに、瀕死になると、HPが <b>70</b> 以上回復するまで<b>離脱寸前</b>が付与され、離脱寸前発動時にクラススキルエネルギーが <b><span class="pve">55%</span><span class="pvp">27.5%</span></b> 回復する。</li>
                 <li>また、死亡時に回復のリフトが生成される。</li>
             </ul>
         </div>
@@ -2242,7 +2252,7 @@
         <div class="base"><b>カオスの交換</b> - ボイドグレネードをチャージ中、ダメージ耐性を得る。チャージされたボイドグレネードでダメージを与えるとグレネードエネルギーが回復する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />ボイドウォーカー
+            <span class="w-icons void">&#xe144;</span>ボイドウォーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#chaos_accelerant">カオス促進剤</a>装備中、グレネードをチャージしている間、自身が受けるダメージを <b>-20%</b> 軽減する。</li>
@@ -2282,7 +2292,7 @@
         <div class="base"><b>射程圏内</b> - カオスの混沌で標的にダメージを与えると持続時間が延びる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />ストームマスター
+            <span class="w-icons arc">&#xe143;</span>ストームマスター
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>カオスの混沌をヒットさせると、スーパーエネルギーが <b>10%</b> 回復する。この効果には <b>0.75秒間</b> のクールダウンがある。</li>
@@ -2296,7 +2306,7 @@
         <div class="base"><b>ダイナミック・デュオ</b> - グレネードを長押しすると、アークグレネードをアークソウルに変え、増幅の効果を得る。アークソウルは自動タレットの役割を果たす。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />ストームマスター
+            <span class="w-icons arc">&#xe143;</span>ストームマスター
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>グレネードボタンを長押しすると、グレネードエネルギーを全て消費し、<b>アークソウル</b>を <b>20秒間</b> 召喚すると同時に<b>増幅状態</b>となる。</li>
@@ -2332,7 +2342,7 @@
         <div class="base"><b>上昇する振幅</b> - ストームトランスで標的を倒すたび、ストームトランスで与えるダメージが増加し、ストームトランス終了時にスーパーエネルギーが回復する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="arc" />ストームマスター
+            <span class="w-icons arc">&#xe143;</span>ストームマスター
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ストームトランスで敵をキルすると、<b>上昇する振幅</b> が <b>8秒間</b> 付与される。</li>
@@ -2344,7 +2354,7 @@
 
         <a name="promethium_spur"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/770c8a9fa2baedeeb6fae9df00315567.jpg" class="h3">プロメチウムの誘発</h3>
-        <div class="base"><b>光の名残</b> - デイブレイク発動中、戦闘員かガーディアンを倒すとその場に回復と強化のリフトを作り出す。リフト内にいる間に<span class="solar" />ソーラー武器で敵にトドメを刺すとリフトエネルギーが付与される。リフトエネルギー満タン時にトドメを刺すと、リフトエネルギーを消費してその場に回復と強化のリフトを作り出す。</div>
+        <div class="base"><b>光の名残</b> - デイブレイク発動中、戦闘員かガーディアンを倒すとその場に回復と強化のリフトを作り出す。リフト内にいる間に<span class="w-icons solar">&#xe140;</span>ソーラー武器で敵にトドメを刺すとリフトエネルギーが付与される。リフトエネルギー満タン時にトドメを刺すと、リフトエネルギーを消費してその場に回復と強化のリフトを作り出す。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -2362,7 +2372,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>近接キルかフィニッシャーをすると、敵を中心とした爆発が発生し、<b>周囲の敵を弱体化</b>させる。</li>
-                <li>弱体化された敵は射撃をやめ、<b>盲目状態</b>となり、受けるダメージが <b><span class="c_void">+30%</span></b> 増加する。</li>
+                <li>弱体化された敵は射撃をやめ、<b>盲目状態</b>となり、受けるダメージが <b><span class="balloon univ_debuff">+30%</span></b> 増加する。</li>
                 <li>爆発の範囲や弱体化の効果時間は、倒した敵のランクによって変化する。</li>
                 <li>フィニッシャーの場合は効果時間が <b>+5秒</b> 延びる。</li>
             </ul>
@@ -2406,10 +2416,10 @@
         <div class="base"><b>残り火の儀式</b> - デイブレイクの投射物が当たった標的をスコーチ状態にする。スコーチ効果のダメージが増加し、スコーチ効果によって標的にダメージを与えるたびに若干の近接エネルギーを獲得する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="solar" />ドーンブレード
+            <span class="w-icons solar">&#xe140;</span>ドーンブレード
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="./class_solar.html#daybreak">デイブレイク</a>の炎波が、<a href="./class_solar.html#scorch">スコーチ</a>を <b>x30</b> <span class="ash">(<b>x40</b>)<span class="ash-balloon">かけら「灰の名残」適用時の数値</span></span> 付与するようになる。</li>
+                <li><a href="./class_solar.html#daybreak">デイブレイク</a>の炎波が、<a href="./class_solar.html#scorch">スコーチ</a>を <b>x30</b> <span class="balloon ash">(<b>x40</b>)</span> 付与するようになる。</li>
                 <li>また、スコーチ状態の敵に対するデイブレイクのダメージが <b>+45%</b> 増加する。</li>
                 <li>さらに、スコーチによって与えることができるダメージが <b><span class="pve">+200%</span><span class="pvp">+50%</span></b> 増加する。</li>
                 <li>加えて、スコーチでダメージを与える毎に近接エネルギーが <b>+6.25%</b> 回復する。</li>
@@ -2452,7 +2462,7 @@
                 <li>吸収セル:
                     <ul class="stats2">
                         <li>効果時間: <b><span class="pve">6秒</span><span class="pvp">3.5秒</span></b></li>
-                        <li>サブクラスと一致する属性の武器ダメージが <b><span class="c_solar"><span class="pve">+20%</span><span class="pvp">+15%</span></span></b> 増加する。</li>
+                        <li>サブクラスと一致する属性の武器ダメージが <b><span class="balloon univ_buff"><span class="pve">+20%</span><span class="pvp">+15%</span></span></b> 増加する。</li>
                         <li>キルをすると効果時間が <b><span class="pve">+4秒</span><span class="pvp">+2秒</span></b> 延長され、最大 <b><span class="pve">10秒</span><span class="pvp">6秒</span></b> まで延長できる。</li>
                         <li>武器を持ち替えると<b>効果が失われる。</b></li>
                     </ul>
@@ -2470,7 +2480,7 @@
                 <li>リフトに立つと、<b>5秒</b> ごとに<b>ノーブルシーカー</b>を生成する。</li>
                 <li>シーカーは <b>35m以内</b> の味方に自動的に飛んでいき、バフを適用する。バフは<b>リフトの種類</b>によって変わる。</li>
                 <li>バフを適用すると、リフトの効果時間が <b>5秒間</b> 延びる。</li>
-                <li>また、ソーラーのかけら「慈悲の名残」の効果は、これによっても発動する。</li>
+                <li>また、ソーラーのかけら「<a href="./class_solar.html#ember_of_benevolence">慈悲の名残</a>」の効果は、これによっても発動する。</li>
                 <li>回復のリフト:
                     <ul class="stats2">
                         <li>味方のHPを <b>75</b> 回復させ、自然再生を開始する。</li>
@@ -2479,7 +2489,7 @@
                 <li>強化のリフト:
                     <ul class="stats2">
                         <li>効果時間: <b>5秒</b></li>
-                        <li><b>空の祝福</b>を付与し、空の祝福発動中は武器ダメージが <span class="c_solar"><b><span class="pve">+35%</span><span class="pvp">+15%</span></b>
+                        <li><b>空の祝福</b>を付与し、空の祝福発動中は武器ダメージが <span class="balloon univ_buff"><b><span class="pve">+35%</span><span class="pvp">+15%</span></b>
                             </span> 増加する。</li>
                     </ul>
                 </li>
@@ -2493,7 +2503,7 @@
         <div class="base"><b>スキャッターチャージ</b> - スキャッターグレネードが1つ追加でチャージされる。スキャッターグレネードから発生した投射物を追跡できるようになる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />ボイドウォーカー
+            <span class="w-icons void">&#xe144;</span>ボイドウォーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>スキャッターグレネードのチャージが <b>1回 追加</b>される。</li>
@@ -2516,7 +2526,7 @@
         <div class="base"><b>ファーヴィド・コールドスナップ</b> - コールドスナップグレネードのチャージが1回分増加し、着弾時にチャージ速度が上昇する。また、コールドスナップグレネードから生成されるシーカー弾の射程が延びる。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="stasis" />シェードバインダー
+            <span class="w-icons stasis">&#xe139;</span>シェードバインダー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>コールドスナップグレネードのチャージが <b>1回 追加</b>される。</li>
@@ -2539,11 +2549,11 @@
         <div class="base"><b>吸引のリフト</b> - 強化のリフトを発動すると、吸引効果が付与される。自分と味方が強化のリフト内から与えたダメージが戦闘員に対して妨害効果を発動する。</div>
         <div class="indepth">
             <div class="info">&lt;必須サブクラス&gt;</div>
-            <span class="void" />ボイドウォーカー
+            <span class="w-icons void">&#xe144;</span>ボイドウォーカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>強化のリフトを生成すると、<a href="./class_void.html#devour">吸引</a>が <b>11秒間</b> <span class="ash">(<b>17秒間</b>)<span class="ash-balloon">かけら「固執の残響」適用時の数値</span> 付与される。</li>
-                <li>吸引は敵を倒すと、最大で <b>11秒</b> <span class="ash">(<b>22秒</b>)<span class="ash-balloon">かけら「固執の残響」適用時の数値</span> まで延長できる。</li>
+                <li>強化のリフトを生成すると、<a href="./class_void.html#devour">吸引</a>が <b>11秒間</b> <span class="balloon starvation">(<b>17秒間</b>)</span> 付与される。</li>
+                <li>吸引は敵を倒すと、最大で <b>11秒</b> <span class="balloon starvation">(<b>22秒</b>)</span> まで延長できる。</li>
                 <li>また、強化のリフト内からの攻撃に <b>&#xe071; オーバーロード効果</b>を付与する。</li>
                 <li>ただし、元から対チャンピオン性能を持った武器では効果を得られない。</li>
                 <li><a href="./class_solar.html#well_of_radiance">輝く泉</a>では<b>効果を発動しない。</b></li>
@@ -2557,7 +2567,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="./class_solar.html#icarus_dash">イカロスダッシュ</a>を使用すると、<b>全ての武器がリロード</b>される。</li>
+                <li><a href="./class_solar.html#icarus_dash">イカロスダッシュ</a>を使用すると、<b>全ての武器が全弾リロード</b>される。</li>
                 <li>さらに、フュージョンライフルもしくはリニア・フュージョンライフルでキルをすると、<b><a href="./class_solar.html#radiant">発光</a></b>が <b>7.5秒間</b> 付与される。</li>
                 <li>また、フュージョンライフルとリニア・フュージョンライフルの空中効果を恒常的に <b>+30</b> 増加させる。</li>
             </ul>
@@ -2615,7 +2625,7 @@
                         <li>精密ヒットで <b>2体以上</b> 連続でキルをすると、味方に<b>力のオーブが生成</b>される。</li>
                         <li>また、エリートに対してフィニッシャーをすると味方に<b>特殊弾</b>が、ミニボスに対してフィニッシャーをすると味方に<b>ヘビー弾</b>が生成される。
                             <ul class="stats3">
-                                <li>その味方がイーオン装備を装備していた場合は、追加で <b>20秒間</b> 武器ダメージを <b><span class="c_solar">+35%</span></b> 増加させる。</li>
+                                <li>その味方がイーオン装備を装備していた場合は、追加で <b>20秒間</b> 武器ダメージを <b><span class="balloon univ_buff">+35%</span></b> 増加させる。</li>
                             </ul>
                         </li>
                     </ul>

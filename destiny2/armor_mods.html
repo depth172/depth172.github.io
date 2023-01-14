@@ -26,6 +26,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
 
     <!-- 通知表示 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -59,6 +60,10 @@
     <div class="overlay-button">
         <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
         <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
     </div>
 
     <div class="main" id="main">
@@ -343,7 +348,11 @@
                 <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
             <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
             <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>解説中に出てくる<span class="w-icons solar">&#xe140;</span>や<span class="w-icons auto">&#xe100;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
             <li>詳細な情報が少ないものについては、判明している限りで記載しています。</li>
+            <li>武器ダメージが増加するものに関して、<span class="univ_debuff">全体デバフ</span>や<span class="univ_buff">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
+                <a href="./buff_stacking.html">強化・弱体化の種類と重複について</a> をお読みください。</li>
             <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
         </ul>
         <dl>
@@ -987,7 +996,7 @@
                 <div class="info">&lt;効果量&gt;</div>
                 <ul class="stats">
                     <li>効果時間: <b>10秒</b></li>
-                    <li>ダメージ増加量: <span class="c_void"><b>+20%</b></span></li>
+                    <li>ダメージ増加量: <span class="balloon univ_debuff"><b>+20%</b></span></li>
                     <li>発動には <b>40m以上</b> 離れている必要がある。</li>
                     <li>必要ヒット数:
                         <ul class="stats2">
@@ -1305,7 +1314,7 @@
                 </ul>
                 <div class="info">&lt;効果量&gt;</div>
                 <ul class="stats">
-                    <li>ダメージ増加量: <b><span class="c_void">+30%</span></b></li>
+                    <li>ダメージ増加量: <b><span class="balloon univ_debuff">+30%</span></b></li>
                 </ul>
             </div>
             <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1392,9 +1401,9 @@
                         <td><b>+15</b></td>
                     </tr>
                     <tr>
-                        <th>ADS移行速度</th>
-                        <td><b>x1.33</b></td>
-                        <td><b>x1.33</b></td>
+                        <th>ADS移行時間</th>
+                        <td><b>x0.75</b></td>
+                        <td><b>x0.75</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -2416,7 +2425,7 @@
 
         <a name="snapload_finisher"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f2a5aeff94123a72571b8de0fcdfb6b9.png" class="h3">スナップロード・フィニッシャー</h3>
-        <div class="base">フィニッシャーをすると、スーパースキルエネルギーを1/10消費してすべての武器をリロードする。</div>
+        <div class="base">フィニッシャーをすると、スーパースキルエネルギーを1/10消費してすべての武器を全弾リロードする。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -2994,7 +3003,7 @@
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>ダメージ増加量: <b><span class="c_solar"><span class="pve">+20%</span><span class="pvp">+15%</span></span></b></li>
+                <li>ダメージ増加量: <b><span class="balloon univ_buff"><span class="pve">+20%</span><span class="pvp">+15%</span></span></b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -3028,17 +3037,17 @@
                 <tbody>
                     <tr class="pve">
                         <th>ダメージ増加量</th>
-                        <td><b><span class="c_solar">+20%</span></b></td>
-                        <td><b><span class="c_solar">+25%</span></b></td>
-                        <td><b><span class="c_solar">+35%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+20%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+25%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+35%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
                     </tr>
                     <tr class="pvp">
                         <th>ダメージ増加量</th>
-                        <td><b><span class="c_solar">+20%</span></b></td>
-                        <td><b><span class="c_solar">+25%</span></b></td>
-                        <td><b><span class="c_solar">+35%</span></b></td>
-                        <td><b><span class="c_solar">+35%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+20%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+25%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+35%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+35%</span></b></td>
                     </tr>
                 </tbody>
             </table>
@@ -3110,7 +3119,7 @@
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>ダメージ増加量: <b><span class="c_solar">+35%</span></b></li>
+                <li>ダメージ増加量: <b><span class="balloon univ_buff">+35%</span></b></li>
             </ul>
             <div class="info">&lt;追加効果&gt;</div>
             <ul class="stats">
@@ -3210,7 +3219,7 @@
             光のチャージ1個につき <b>5発分</b> のダメージを増加させる。バフは<b>ヒット時消費</b>され、付与された武器をしまうと消滅する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>ダメージ増加量: <b><span class="c_solar"><span class="pve">+40%</span><span class="pvp">+35%</span></span></b></li>
+                <li>ダメージ増加量: <b><span class="balloon univ_buff"><span class="pve">+40%</span><span class="pvp">+35%</span></span></b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -4585,11 +4594,11 @@
                 <tbody>
                     <tr>
                         <th>ダメージ増加量</th>
-                        <td><b><span class="c_solar">+20%</span></b></td>
-                        <td><b><span class="c_solar">+25%</span></b></td>
-                        <td><b><span class="c_solar">+35%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+20%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+25%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+35%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
                     </tr>
                 </tbody>
             </table>
@@ -4634,11 +4643,11 @@
                 <tbody>
                     <tr>
                         <th>ダメージ増加量</th>
-                        <td><b><span class="c_solar">+20%</span></b></td>
-                        <td><b><span class="c_solar">+25%</span></b></td>
-                        <td><b><span class="c_solar">+35%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+20%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+25%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+35%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
                     </tr>
                 </tbody>
             </table>
@@ -4731,11 +4740,11 @@
                 <tbody>
                     <tr>
                         <th>ダメージ増加量</th>
-                        <td><b><span class="c_solar">+20%</span></b></td>
-                        <td><b><span class="c_solar">+25%</span></b></td>
-                        <td><b><span class="c_solar">+35%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+20%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+25%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+35%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
                     </tr>
                 </tbody>
             </table>
@@ -4797,11 +4806,11 @@
                 <tbody>
                     <tr>
                         <th>ダメージ増加量</th>
-                        <td><b><span class="c_solar">+20%</span></b></td>
-                        <td><b><span class="c_solar">+25%</span></b></td>
-                        <td><b><span class="c_solar">+35%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+20%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+25%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+35%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
                     </tr>
                 </tbody>
             </table>
@@ -4863,11 +4872,11 @@
                 <tbody>
                     <tr>
                         <th>ダメージ増加量</th>
-                        <td><b><span class="c_solar">+20%</span></b></td>
-                        <td><b><span class="c_solar">+25%</span></b></td>
-                        <td><b><span class="c_solar">+35%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
-                        <td><b><span class="c_solar">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+20%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+25%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+35%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
+                        <td><b><span class="balloon univ_buff">+40%</span></b></td>
                     </tr>
                 </tbody>
             </table>
@@ -5252,7 +5261,7 @@
             累積させると、効果時間が増加する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>ダメージ増加量: <b><span class="c_void">+20%</span></b></li>
+                <li>ダメージ増加量: <b><span class="balloon univ_debuff">+20%</span></b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>

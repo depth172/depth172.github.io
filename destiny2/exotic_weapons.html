@@ -26,6 +26,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
 
     <!-- 通知表示 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -59,6 +60,10 @@
     <div class="overlay-button">
         <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
         <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
     </div>
 
     <div class="main" id="main">
@@ -223,16 +228,18 @@
             <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについては数値等の詳細な記載がない場合もあります。</li>
             <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
             <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>解説中に出てくる<span class="w-icons solar">&#xe140;</span>や<span class="w-icons auto">&#xe100;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
             <li class="pve">ダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
-            <li>武器ダメージが増加するものに関して、<span class="c_void">全体デバフ</span>や<span class="c_solar">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
+            <li>武器ダメージが増加するものに関して、<span class="univ_debuff">全体デバフ</span>や<span class="univ_buff">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
                 <a href="./buff_stacking.html">強化・弱体化の種類と重複について</a> をお読みください。</li>
             <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
         </ul>
         <dl>
             <dt>キル</dt>
-            <dd>敵を倒すこと。特別に記述がなければ「そのパークのついた武器によるキル」という意味。</dd>
+            <dd>敵を倒すこと。特筆しない限り、自分でトドメを刺した場合のみ適用される。</dd>
             <dt>リロードで発動</dt>
-            <dd>通常のリロードに加え、ハンターの狙撃手の回避、ハンターのエキゾチック防具「ドラゴン・シャドー」のリロード効果によって発動する。それ以外のリロード効果では発動しない。</dd>
+            <dd>通常のリロードに加え、ハンターの狙撃手の回避、エキゾチック防具「<a href="./exotic_armor.html#dragons_shadow">ドラゴン・シャドー</a>」のリロード効果によって発動する。それ以外のリロード効果では発動しない。</dd>
             <dt>近接スキル</dt>
             <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
             <dt>リロード速度・リロード時間</dt>
@@ -351,7 +358,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>フルオートで射撃可能。</li>
-                <li>キル後 <b>2秒以内</b> にリロードすると <b>6秒間</b> の<a href="./class_void.html#invisibility">ボイド透明化</a>効果を得る。</li>
+                <li>キル後 <b>2秒以内</b> にリロードすると <b>6秒間</b> の<b><a href="./class_void.html#invisibility">ボイド透明化</a></b>効果を得る。</li>
                 <li>半径 <b>20m</b> 以内のラットキングを装備した味方の数に応じて、装弾数と発射レートが増加し、縦方向の反動が軽減される。</li>
                 <li><b>ダメージは増加しない。</b></li>
                 <li>スタックの数に自分は含まないため、たとえば3人装備しているならスタック数はx2 といったカウントとなる。</li>
@@ -433,7 +440,7 @@
             <ul class="stats">
                 <li><b>3点バースト射撃</b>が可能。</li>
                 <li>キルをするとHPが <b>40</b> 回復し、<b>自然再生が開始する。</b></li>
-                <li>精密キルをすると全弾リロードされる。</li>
+                <li>精密キルをすると<b>全弾リロード</b>される。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -598,7 +605,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>&#xe070; アンチバリア効果</b></li>
+                <li><b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b></li>
                 <li>最大状態まで引いた状態でADSすると、最大 <b>64m</b> までの敵を透視できる。</li>
                 <li>矢は敵を<b>無制限に貫通</b>し、1度に <b><span class="pve">3回</span><span class="pvp">2回</span></b> ダメージを与える。</li>
                 <li><span class="pve">貫通時の追加ダメージは刺突時より <b>90%</b> 高い。</span><span class="pvp">貫通時、矢は追加で <b>30</b> ダメージを与える。</span></li>
@@ -618,7 +625,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ヒット時、敵に<b>スラグ弾</b>を埋め込む。スラグ弾は <b>5個</b> 撃ち込まれると爆発し、追加で <b><span class="pve">130</span><span class="pvp">45</span></b> ダメージを与える。</li>
-                <li>この爆発には <b>&#xe072; アンストッパブル効果</b>がある。</li>
+                <li>この爆発には <b><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル効果</b>がある。</li>
                 <li>宿られた兵、ギャンビットの侵入者、<a href="#witherhoard">ウィザーホード</a>の弾を受けた敵に対するダメージが <b>+25%</b> 増加する。</li>
             </ul>
         </div>
@@ -638,7 +645,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ADS中の<b>レーダーが有効化される。</b></li>
+                <li>ADS中の<b>レーダーが有効化</b>される。</li>
                 <li>キル後 <b>2.3秒以内</b> にリロードすると<b>メメント・モリ</b>が発動し、 次に射撃する <b>6発</b> のダメージが <b><span class="pve">+50%</span><span class="pvp">+28.5%</span></b> 増加する。</li>
                 <li>また、精密キルに<b>ソーラー爆発</b>を起こし、リロード速度が <b>+50</b> 増加する。</li>
             </ul>
@@ -755,7 +762,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>特殊弾を使用</b>する。</li>
-                <li><b>&#xe070; アンチバリア効果</b></li>
+                <li><b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b></li>
                 <li>属性シールドを<b>即座に破壊</b>する。 </li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -853,7 +860,7 @@
                 <li>残余物を複数個拾うことでノーブルラウンドを蓄積でき、最大蓄積数は <b>5個</b>。</li>
                 <li>ノーブルラウンドは<b>腰だめ撃ちで発射</b>でき、味方を追尾して動く。</li>
                 <li>ヒット時、味方のHPを <b>90</b> 回復し、自身とその味方に<b>空の祝福</b>を <b>11秒間</b> 付与する。</li>
-                <li>空の祝福は付与された対象の<b>武器ダメージ</b>を <span class="c_solar"><b><span class="pve">+35%</span><span class="pvp">+15%</span></b>
+                <li>空の祝福は付与された対象の<b>武器ダメージ</b>を <span class="balloon univ_buff"><b><span class="pve">+35%</span><span class="pvp">+15%</span></b>
                     </span> 増加させる。</li>
                 <li>また、ソーラーのかけら「<a href="./class_solar.html#ember_of_benevolence">慈悲の名残</a>」の効果は、これによっても発動する。</li>
             </ul>
@@ -931,7 +938,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>&#xe072; アンストッパブル効果</b></li>
+                <li><b><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル効果</b></li>
                 <li><b>7発</b> の散弾を3点バーストで発射する。</li>
             </ul>
         </div>
@@ -1148,7 +1155,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="cryothesia_77k"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/53989f95d057bdf0b2607a4b6de2013e.jpg" class="h3"><span class="stasis" />クリオセシア77K</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/53989f95d057bdf0b2607a4b6de2013e.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>クリオセシア77K</h3>
         <div class="base"><b>LN2バースト</b> - トドメを刺した後に射撃モードを切り替え、チャージショットを可能にする。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1157,7 +1164,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>キルをすると <b>10秒間</b> 準備状態となり、チャージショットがリロードできるようになる。</li>
+                <li>キルをすると <b>10秒間</b> 準備状態となり、チャージショットが装填できるようになる。</li>
                 <li>その状態でリロードボタンを長押しすると、<b>チャージショットモード</b>に入る。</li>
                 <li>チャージショットモードは長押しで一発だけ、<b>直撃した敵を凍結状態にさせる</b>弾を撃てる。</li>
                 <li>凍結弾は着弾地点で破裂し、<span class="pve">周囲の敵も<b>凍結</b>させる。</span><span class="pvp">周囲の敵に <b>x50</b> の遅延を付与する。</span></li>
@@ -1171,7 +1178,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="agers_scepter"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a8fce2ba7ff621877cb718a84cc70930.jpg" class="h3"><span class="stasis" />アガーの杖</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a8fce2ba7ff621877cb718a84cc70930.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>アガーの杖</h3>
         <div class="base"><b>アガーの呼び声</b> - この武器でトドメを刺すと、倒れた標的の周辺に遅延効果を持つ爆発が発生する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1244,7 +1251,7 @@
             <ul class="stats">
                 <li>安定性: <b>+20</b></li>
                 <li>リロード速度: <b>+30</b></li>
-                <li>毒によるキル時、装弾数と同じ弾数をリロードする。最大でマガジンの <b>400%</b> までリロードされる。</li>
+                <li>毒によるキル時、装弾数と同じ弾数をリロードする。最大でマガジンの <b>400%</b> まで装填可能。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1294,11 +1301,11 @@
 
         <a name="revision_zero"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/eeb4924147ba0af3d2caaea774a1e0ad.jpg" class="h3">リビジョン・ゼロ</h3>
-        <div class="base"><b>ハンターの追跡</b> - この武器は特殊なシールド貫通弾を発射する。精密ショットを達成すると標的捕捉データが付与される。リロードボタンを長押しすると、別スコープに切り替え、標的捕捉データの量に応じた高ダメージ弾が装填される。&#xe070; バリア・チャンピオンに効果的。</div>
+        <div class="base"><b>ハンターの追跡</b> - この武器は特殊なシールド貫通弾を発射する。精密ショットを達成すると標的捕捉データが付与される。リロードボタンを長押しすると、別スコープに切り替え、標的捕捉データの量に応じた高ダメージ弾が装填される。<span class="w-icons barrier">&#xe070;</span> バリア・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>&#xe070; アンチバリア効果</b></li>
+                <li><b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b></li>
                 <li>高威力フレームと同等の<b>2点バーストモード</b>と、アグレッシブバーストと同等の<b>4点バーストモード</b>の切り替えが可能。</li>
                 <li>精密ヒットを <b>12回</b> すると、<b>標的捕捉データ</b>のスタックを1個チャージする。</li>
                 <li>スタックが1個以上溜まった状態でリロードボタンを長押しすると、<b>スコープを展開</b>し、ズーム倍率が <b>50</b> に設定される。</li>
@@ -1330,7 +1337,7 @@
         <p>存在するものについては基になったフレーム名を記載しているが、エキゾチック武器は特筆しない限りフレームの内在効果（軽量フレームの移動速度向上など）を受けない。</p>
 
         <a name="coldheart"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/01de9a1a16ed563ac911c0c95d15ab88.jpg" class="h3"><span class="arc" />コールドハート</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/01de9a1a16ed563ac911c0c95d15ab88.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>コールドハート</h3>
         <div class="base"><b>冷却フュージョン</b> - この武器が安定した冷たいフュージョンパワーのレーザーを撃ち出す。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1349,7 +1356,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="fighting_lion"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4392251920264f64bfed200ea894adb4.jpg" class="h3"><span class="void" />ファイティング・ライオン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4392251920264f64bfed200ea894adb4.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ファイティング・ライオン</h3>
         <div class="base"><b>時間差工作</b> - グレネード弾が物に当たると跳ね返る。発射後、ボタンを離すと爆発する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1372,7 +1379,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="sunshot"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7e2480b7abb1091ad6fe981641fcfe92.jpg" class="h3"><span class="solar" />サンショット</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7e2480b7abb1091ad6fe981641fcfe92.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>サンショット</h3>
         <div class="base"><b>サンバーン</b> - この武器が炸裂弾を発射し、サンショットのダメージを受けた標的を示す。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1395,7 +1402,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="graviton_lance"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/492d92346c4325dada5455281ea00053.jpg" class="h3"><span class="void" />グラビトン・ランス</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/492d92346c4325dada5455281ea00053.jpg" class="h3"><span class="w-icons void">&#xe144;</span>グラビトン・ランス</h3>
         <div class="base"><b>ブラックホール</b> - バースト射撃の2発目が時空に穴を開け、距離による減衰なしに反動と大ダメージを発生させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1413,7 +1420,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="skyburners_oath"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/69589d312320228022173ef7ef543a40.jpg" class="h3"><span class="solar" />スカイバーナーの誓い</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/69589d312320228022173ef7ef543a40.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>スカイバーナーの誓い</h3>
         <div class="base"><b>スラグライフル</b> - 腰だめから発射する時、起爆性とホーミング機能が備わった大きなスラグ弾を弧を描くように撃ち出す。照準モードの際は、このスラグ弾の速度が上がって直線的になり、ダメージ量も増加するが、連射速度は下がる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1430,7 +1437,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="riskrunner"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d8fc70e24fd1ddae0546c21ff1cf86d4.jpg" class="h3"><span class="arc" />リスクランナー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d8fc70e24fd1ddae0546c21ff1cf86d4.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>リスクランナー</h3>
         <div class="base"><b>アーク伝導体</b> - アークダメージを受けると、武器の威力が増し、さらにアークダメージへの耐性が上がる。敵を倒すと、このオーバーチャージ状態の持続時間が延びる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1459,7 +1466,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="hard_light"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8070b4aa8ef05ed33005d0ea314c575f.jpg" class="h3"><span class="void" />ハードライト</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8070b4aa8ef05ed33005d0ea314c575f.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ハードライト</h3>
         <div class="base"><b>気まぐれな光</b> - この武器から放たれた弾は距離によるダメージ減衰が軽減され、標的を貫通し、硬い物に当たると跳ね返る。跳ね返った後は、弾のダメージ量が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1474,9 +1481,9 @@
                 <li>弾は <b>2回まで壁や床で跳ね返り</b>、1回でも跳ね返った弾は <b><span class="pve">+100%</span><span class="pvp">+35%</span></b> 増加したダメージ</b>を与える。</li>
                 <li>属性によるステータス変化量:
                     <ul>
-                        <li><span class="void" />: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
-                        <li><span class="arc" />: ハンドリング <b>+20</b> 、射程距離 <b>+5</b></li>
-                        <li><span class="solar" />: リロード速度 <b>+35</b> 、空中効果 <b>+20</b></li>
+                        <li><span class="w-icons void">&#xe144;</span>: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
+                        <li><span class="w-icons arc">&#xe143;</span>: ハンドリング <b>+20</b> 、射程距離 <b>+5</b></li>
+                        <li><span class="w-icons solar">&#xe140;</span>: リロード速度 <b>+35</b> 、空中効果 <b>+20</b></li>
                     </ul>
                 </li>
             </ul>
@@ -1488,7 +1495,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="merciless"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2539a0478ce440192272f16529dcc37d.jpg" class="h3"><span class="solar" />マーシレス</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2539a0478ce440192272f16529dcc37d.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>マーシレス</h3>
         <div class="base"><b>運動量保存</b> - 放った投射物が敵を倒しきれなかった場合、次に敵を倒すまで武器のチャージ速度が上昇する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1512,7 +1519,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="borealis"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/390a627fb3ce18808c6288c1664b3738.jpg" class="h3"><span class="void" />ボレアリス</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/390a627fb3ce18808c6288c1664b3738.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ボレアリス</h3>
         <div class="base"><b>基本仕様</b> - この武器のダメージタイプをソーラー、アーク、ボイドの間で切り替える。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1528,9 +1535,9 @@
                 <li>イオンの返却発動中は、この武器のダメージが <b><span class="pve">+40%</span><span class="pvp">+15%</span></b> 増加する。</li>
                 <li>属性によるステータス変化量:
                     <ul>
-                        <li><span class="void" />: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
-                        <li><span class="arc" />: ハンドリング <b>+20</b> 、射程距離 <b>+5</b></li>
-                        <li><span class="solar" />: リロード速度 <b>+35</b> 、空中効果 <b>+20</b></li>
+                        <li><span class="w-icons void">&#xe144;</span>: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
+                        <li><span class="w-icons arc">&#xe143;</span>: ハンドリング <b>+20</b> 、射程距離 <b>+5</b></li>
+                        <li><span class="w-icons solar">&#xe140;</span>: リロード速度 <b>+35</b> 、空中効果 <b>+20</b></li>
                     </ul>
                 </li>
             </ul>
@@ -1542,7 +1549,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="prometheus_lens"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/779288b69aa050c126c827ec5bb44c47.jpg" class="h3"><span class="solar" />プロメテウス・レンズ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/779288b69aa050c126c827ec5bb44c47.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>プロメテウス・レンズ</h3>
         <div class="base"><b>プリズム・インフェルノ</b> - ソーラーのトレースビームを撃ち出し、ダメージを発生させる高熱のフィールドを生成する。このフィールドは、武器が発射している間、大きくなる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1563,7 +1570,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="telesto"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/977b96607460863e36260a5428bdd4c3.jpg" class="h3"><span class="void" />テレスト</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/977b96607460863e36260a5428bdd4c3.jpg" class="h3"><span class="w-icons void">&#xe144;</span>テレスト</h3>
         <div class="base"><b>無慈悲な執行</b> - フュージョンライフルの弾丸がくっつき、遅延型のボイド爆発が発生する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1583,7 +1590,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="polaris_lance"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3bac8dcce9fec2943b7fa5608849d6bc.jpg" class="h3"><span class="solar" />ポラリス・ランス</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3bac8dcce9fec2943b7fa5608849d6bc.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ポラリス・ランス</h3>
         <div class="base"><b>5発目の悪夢</b> - 精密ショットを達成すると、マガジンに弾薬が戻される。精密ショットを4回達成すると、その次のショットが時間差で爆発するソーラー炸裂弾になる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1618,7 +1625,7 @@
         -->
 
         <a name="trinity_ghoul"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fd7b661576c13c450d0d729d5bbf7333.jpg" class="h3"><span class="arc" />トリニティ・グール</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fd7b661576c13c450d0d729d5bbf7333.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>トリニティ・グール</h3>
         <div class="base"><b>電子分裂</b> - 発射後に分裂する矢を放つ。照準をするか弓を完全に引き絞ることで集弾性能を上げることができる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1640,7 +1647,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="wave_splitter"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e775a68f8846dc95cdd2823774b7b26d.jpg" class="h3"><span class="void" />ウェーブスプリッター</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e775a68f8846dc95cdd2823774b7b26d.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ウェーブスプリッター</h3>
         <div class="base"><b>ハーモニックレーザー</b> - レーザーダメージには3段階のパワーレベルがあり、トリガーを引き続けていると変化する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1659,7 +1666,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="lord_of_wolves"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cad0bc80784d4029898b3a142c13da03.jpg" class="h3"><span class="solar" />ウルブズ・ロード</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cad0bc80784d4029898b3a142c13da03.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ウルブズ・ロード</h3>
         <div class="base"><b>榴弾ランチャー</b> - 短射程のソーラーダメージのバーストを発生させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1685,7 +1692,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="jotunn"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/507250e2d087e20c9c2572113dae8f72.jpg" class="h3"><span class="solar" />ヨトゥン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/507250e2d087e20c9c2572113dae8f72.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ヨトゥン</h3>
         <div class="base"><b>チャージショット</b> - 長押しで、当たると爆発して燃える追跡型弾丸をチャージ。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -1706,7 +1713,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="le_monarque"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0c71441bf8ee516b5a2001532d1f8d01.jpg" class="h3"><span class="void" />ル・モナーク</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0c71441bf8ee516b5a2001532d1f8d01.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ル・モナーク</h3>
         <div class="base"><b>毒の矢</b> - 完全に引いた直後の弓の矢は毒の矢になる。精密ショットを達成すると近くにいる敵に毒が広がる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1721,7 +1728,7 @@
             <ul class="stats">
                 <li><b><a href="./weapon_parts.html#lightweight_frame">軽量フレーム</a>の内在効果</b>を得る。</li>
                 <li>最大まで引いた瞬間に発射すると、命中した矢が <b>0.5秒</b> ごとに <b><span class="pve">29</span><span class="pvp">1.88</span></b> の毒ダメージを <b>6回</b> 与える。</li>
-                <li>毒には <b>&#xe071; オーバーロード効果</b>がある。</li>
+                <li>毒には <b><span class="w-icons overload">&#xe071;</span> オーバーロード効果</b>がある。</li>
                 <li>毒矢で精密ヒットをすると、毒を半径 <b>3m以内</b> の敵に広げる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -1734,7 +1741,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="tarrabah"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6cc7802bb9e22fbd1d8a0b4d70bdf531.jpg" class="h3"><span class="solar" />ターラバ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6cc7802bb9e22fbd1d8a0b4d70bdf531.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ターラバ</h3>
         <div class="base"><b>飢えた獣</b> - ダメージを与えた時、または受けた時にパワーを蓄積する。パワーがフルになったらビーストを放つ。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1774,12 +1781,12 @@
         -->
 
         <a name="erianas_vow"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/021e6564a148be166ebd04a38979a025.jpg" class="h3"><span class="solar" />エリアナの誓い</h3>
-        <div class="base"><b>睨み</b> - この武器は特殊なシールド貫通弾を発射する。スコープ付き。&#xe070;バリア・チャンピオンに効果的。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/021e6564a148be166ebd04a38979a025.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>エリアナの誓い</h3>
+        <div class="base"><b>睨み</b> - この武器は特殊なシールド貫通弾を発射する。スコープ付き。<span class="w-icons barrier">&#xe070;</span>バリア・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>&#xe070; アンチバリア効果</b></li>
+                <li><b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b></li>
                 <li><b>特殊弾を使用</b>する。</li>
                 <li>ADSした最初の射撃で、ダメージが <b>+33%</b> 増加する。</li>
                 <li>精密ヒットをするか、属性シールドを撃つと<b>ダメージ増加効果が維持</b>される。</li>
@@ -1794,13 +1801,13 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="divinity"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/097f8146229e7e8693a989952f44c843.jpg" class="h3"><span class="arc" />神性</h3>
-        <div class="base"><b>ジャッジメント</b> - この武器で持続的にダメージを与えると、標的を囲って弱体化させスタンさせる。&#xe071;オーバーロード・チャンピオンに効果的。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/097f8146229e7e8693a989952f44c843.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>神性</h3>
+        <div class="base"><b>ジャッジメント</b> - この武器で持続的にダメージを与えると、標的を囲って弱体化させスタンさせる。<span class="w-icons overload">&#xe071;</span>オーバーロード・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>&#xe071; オーバーロード効果</b></li>
-                <li>敵に <b>0.65秒間</b> ダメージを与えると、敵が弱体化し、その敵に対する全てのダメージが <span class="c_void"><b><span class="pve">+15%</span><span class="pvp">+30%</span></b>
+                <li><b><span class="w-icons barrier">&#xe071;</span> オーバーロード効果</b></li>
+                <li>敵に <b>0.65秒間</b> ダメージを与えると、敵が弱体化し、その敵に対する全てのダメージが <span class="balloon univ_debuff"><b><span class="pve">+15%</span><span class="pvp">+30%</span></b>
                     </span> 増加する。</li>
                 <li>神性自体が対象に与えるダメージは <b>+30%</b> 増加する。</li>
                 <li>さらに<b>ケージが形成</b>され、そこにヒットした弾は全て<b>精密ヒットになる。</b></li>
@@ -1811,7 +1818,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="symmetry"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ab8384a7cf91615ca198219436a8808b.jpg" class="h3"><span class="arc" />シンメトリー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ab8384a7cf91615ca198219436a8808b.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>シンメトリー</h3>
         <div class="base"><b>革命</b> - フルオートで射撃する。アークシーカーモードに変更可能。アークシーカー弾は、狙いを定めた戦闘員を追尾する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1838,8 +1845,8 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="devils_ruin"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/65acc14a463a14875980a54d6d244a99.jpg" class="h3"><span class="solar" />悪魔の残骸</h3>
-        <div class="base"><b>ギャップ除去</b> - 可変トリガー。トリガーを押してから離すと弾を1発放つ。長押しで、敵を&#xe072;スタンさせる強力なレーザーをチャージする。アンストッパブル・チャンピオンに効果的。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/65acc14a463a14875980a54d6d244a99.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>悪魔の残骸</h3>
+        <div class="base"><b>ギャップ除去</b> - 可変トリガー。トリガーを押してから離すと弾を1発放つ。長押しで、敵を<span class="w-icons unstoppable">&#xe072;</span>スタンさせる強力なレーザーをチャージする。アンストッパブル・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
             <ul class="stats">
@@ -1848,7 +1855,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>1秒間</b> 射撃ボタンを長押しすると、レーザーを <b>0.93秒間</b> 発射する。</li>
-                <li>レーザーには <b>&#xe072; アンストッパブル効果</b> がある。</li>
+                <li>レーザーには <b><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル効果</b> がある。</li>
                 <li>レーザーは撃ち始めると全弾リロードされ、途中で撃ち止めても<b>マガジンは全て消費</b>される。</li>
                 <li>レーザーのダメージは普通に全弾を撃ちきったときより <b>23%</b> 高い。</li>
             </ul>
@@ -1856,7 +1863,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="tommys_matchbook"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/48bc926c393a48f40e43dec16122c6b3.jpg" class="h3"><span class="solar" />トミーのマッチブック</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/48bc926c393a48f40e43dec16122c6b3.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>トミーのマッチブック</h3>
         <div class="base"><b>イグニション・トリガー</b> - 連射すると武器が過熱されてダメージが増加するが、使用者もやけどする。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1883,7 +1890,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_fourth_horseman"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e22cf7677ed8903cfb1bbaec8dc0d81a.jpg" class="h3"><span class="arc" />第四の騎士</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e22cf7677ed8903cfb1bbaec8dc0d81a.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>第四の騎士</h3>
         <div class="base"><b>稲妻を呼ぶ者</b> - 武器の連射速度が大幅に上昇し、フルオートで射撃する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1919,7 +1926,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ruinous_effigy"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c56baa404c0aa497af59b05f13c8d035.jpg" class="h3"><span class="void" />荒廃した彫像</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c56baa404c0aa497af59b05f13c8d035.jpg" class="h3"><span class="w-icons void">&#xe144;</span>荒廃した彫像</h3>
         <div class="base"><b>変質</b> - この武器でトドメを刺された敵は、ボイドの変質スフィアに姿を変える。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1945,7 +1952,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="cloudstrike"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c365777c8302772a865d99fb63da8731.jpg" class="h3"><span class="arc" />クラウドストライク</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c365777c8302772a865d99fb63da8731.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>クラウドストライク</h3>
         <div class="base"><b>命ある者の対立</b> - 精密攻撃でトドメを刺すと、標的のいた場所に稲妻が発生する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1971,7 +1978,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="duality"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ad94d7a9510d40ae68cd51d175c031f9.jpg" class="h3"><span class="solar" />デュアリティ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ad94d7a9510d40ae68cd51d175c031f9.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>デュアリティ</h3>
         <div class="base"><b>圧縮チャンバー</b> - 腰だめで撃つと拡散型のペレット弾を発射し、狙いを定めると強力なスラグ弾を放つ。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2020,7 +2027,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ticuus_divination"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7301e9d948c8f56dd9f972eea2a7ccd2.jpg" class="h3"><span class="solar" />ティクーの占術</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7301e9d948c8f56dd9f972eea2a7ccd2.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ティクーの占術</h3>
         <div class="base"><b>聖火</b> - この武器を腰だめ撃ちすると複数の追尾弾が発射される。追尾弾に撃たれた標的は、死亡時に爆発するか、他の聖火に巻き込まれると爆発する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2083,7 +2090,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="vex_mythoclast"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a8e1945b653a0cfb35c3652bef2f6092.jpg" class="h3"><span class="solar" />ベックス・ミソクラスト</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a8e1945b653a0cfb35c3652bef2f6092.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ベックス・ミソクラスト</h3>
         <div class="base"><b>永遠の神話破壊者</b> - デフォルトの射撃モードではフルオートで射撃する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2110,7 +2117,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="lorentz_driver"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fe2ece0df57417cf291b462fe3c41c09.jpg" class="h3"><span class="void" />ローレンツドライバー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fe2ece0df57417cf291b462fe3c41c09.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ローレンツドライバー</h3>
         <div class="base"><b>ラクランジュの目</b> - この武器は標的捕捉システムにより標的を自動的にマークする。マークされた標的にトドメを刺すとテレメトリーのパターンが生成される。死なずにテレメトリーのパターンを3つ入手すると、長時間この武器にボーナスダメージが付与される。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2148,7 +2155,7 @@
         -->
 
         <a name="edge_of_action"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c0c030e9553de314f3f9892f27d85557.jpg" class="h3"><span class="void" />行動の果て</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c0c030e9553de314f3f9892f27d85557.jpg" class="h3"><span class="w-icons void">&#xe144;</span>行動の果て</h3>
         <div class="base"><b>行動の果て</b> - 前面にシールドを装備した、近接/遠距離の混合型ポールウェポン。 遠距離ダメージを与えるとエネルギーが生成される。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
@@ -2163,7 +2170,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="edge_of_concurrence"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d16148d2696fab485de8dc0cfb407cd7.jpg" class="h3"><span class="arc" />同意の果て</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d16148d2696fab485de8dc0cfb407cd7.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>同意の果て</h3>
         <div class="base"><b>同意の果て</b> - 前面にシールドを装備した、近接/遠距離の混合型ポールウェポン。 遠距離ダメージを与えるとエネルギーが生成される。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
@@ -2178,7 +2185,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="edge_of_intent"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b8f284b625fdb62e8be2701da47adcfd.jpg" class="h3"><span class="solar" />決意の果て</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b8f284b625fdb62e8be2701da47adcfd.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>決意の果て</h3>
         <div class="base"><b>決意の果て</b> - 前面にシールドを装備した、近接/遠距離の混合型ポールウェポン。 遠距離ダメージを与えるとエネルギーが生成される。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
@@ -2189,12 +2196,13 @@
                 <li>モード変更すると、射撃時エネルギーをすべて消費して<b>回復タレットを生成する。</b></li>
                 <li>タレットは <b>15秒間</b> 、<b>30m以内</b> の味方を追尾するシーカーを <b>1.25秒</b> ごとに発射する。</li>
                 <li>シーカーはHPを <b>75</b> 回復し、<b>自然再生を開始</b>させる。</li>
+                <li>また、ソーラーのかけら「<a href="./class_solar.html#ember_of_benevolence">慈悲の名残</a>」の効果は、これによっても発動する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="collective_obrigation"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e32acfb7e184421d72a58e134ee21aed.jpg" class="h3"><span class="void" />コレクティブ・オブリゲーション</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e32acfb7e184421d72a58e134ee21aed.jpg" class="h3"><span class="w-icons void">&#xe144;</span>コレクティブ・オブリゲーション</h3>
         <div class="base"><b>ボイドリーチ</b> - 抑圧、弱体化、もしくは不安定状態の標的にダメージを与えた際、ボイドのデバフを吸収する。チャージ後にリロード長押しで発射モードを変更する。このモードでは、この武器のダメージは吸収されたものと同じボイドのデバフを与える。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2214,7 +2222,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="dead_messanger"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/99c98af523a93f7834f2757395169e74.jpg" class="h3"><span class="void" />デッドメッセンジャー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/99c98af523a93f7834f2757395169e74.jpg" class="h3"><span class="w-icons void">&#xe144;</span>デッドメッセンジャー</h3>
         <div class="base"><b>トリナリービジョン</b> - 単発の手持ち式グレネードランチャー。地面に着弾すると、弾から3つのエネルギー波が放たれる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2229,9 +2237,9 @@
                 <li>通常の波動フレームより、距離は短くなっている。</li>
                 <li>属性によるステータス変化量:
                     <ul>
-                        <li><span class="void" />: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
-                        <li><span class="arc" />: ハンドリング <b>+20</b> 、射程距離 <b>+5</b></li>
-                        <li><span class="solar" />: リロード速度 <b>+35</b> 、空中効果 <b>+20</b></li>
+                        <li><span class="w-icons void">&#xe144;</span>: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
+                        <li><span class="w-icons arc">&#xe143;</span>: ハンドリング <b>+20</b> 、射程距離 <b>+5</b></li>
+                        <li><span class="w-icons solar">&#xe140;</span>: リロード速度 <b>+35</b> 、空中効果 <b>+20</b></li>
                     </ul>
                 </li>
             </ul>
@@ -2243,7 +2251,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="trespasser"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f933fd8379602181f0405728e262433e.jpg" class="h3"><span class="arc" />侵入者</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f933fd8379602181f0405728e262433e.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>侵入者</h3>
         <div class="base"><b>悔いなし</b> - 標的を倒した後にリロードすると、次に撃つ弾がより長く、より強力なスーパーバーストになる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2267,7 +2275,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="delicate_tomb"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0e220e001b7fbdbc8ef1f30b634e5521.jpg" class="h3"><span class="arc" />脆き墓</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0e220e001b7fbdbc8ef1f30b634e5521.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>脆き墓</h3>
         <div class="base"><b>裏切り者の船</b> - 腰だめ撃ち時の射撃が横方向に大きく広がる。この武器でトドメを刺すと、一定確率でイオントレースが発生する。強力な敵や敵対するガーディアンを倒すと必ずイオントレースが発生する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2285,7 +2293,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_manticore"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/383bb659a1489d8ed5800e2793de0be8.jpg" class="h3"><span class="void" />マンティコア</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/383bb659a1489d8ed5800e2793de0be8.jpg" class="h3"><span class="w-icons void">&#xe144;</span>マンティコア</h3>
         <div class="base"><b>空を駆ける牙</b> - 地上に立っている間にダメージを与えると反重力レパルサーがチャージされる。滞空中にダメージを与えると反重力レパルサーの有効時間が延長される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2309,7 +2317,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="hierarcy_of_needs"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a2e591069c81556b41afdc3c61052565.jpg" class="h3"><span class="solar" />必要の階層</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a2e591069c81556b41afdc3c61052565.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>必要の階層</h3>
         <div class="base"><b>ガイダンス・リング</b> - 精密ショットまたはトドメの一撃でガイダンス・リングのエネルギーが蓄積される。ガーディアンが相手の場合はさらに多くのエネルギーが付与される。チャージが最大まで貯まった状態で腰だめ撃ちすると、ガイダンス・リングが出現する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2346,7 +2354,7 @@
         <p>存在するものについては基になったフレーム名を記載しているが、エキゾチック武器は特筆しない限りフレームの内在効果（軽量フレームの移動速度向上など）を受けない。</p>
 
         <a name="the_prospector"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/814b087177b19c7f187f22280e845b1e.jpg" class="h3"><span class="arc" />ザ・プロスペクター</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/814b087177b19c7f187f22280e845b1e.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>ザ・プロスペクター</h3>
         <div class="base"><b>爆裂</b> - グレネード弾を発射し、離すと発射した全グレネード弾が同時に爆発する。グレネード弾が表面に付着し、標的に火をつける。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -2368,13 +2376,13 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="tractor_cannon"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b95e68c761e400c2fe5cf3c46999d689.jpg" class="h3"><span class="void" />トラクターキャノン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b95e68c761e400c2fe5cf3c46999d689.jpg" class="h3"><span class="w-icons void">&#xe144;</span>トラクターキャノン</h3>
         <div class="base"><b>撃退力</b> - この武器は大きな衝撃波を発生させる。当たった敵はノックバックしてスキルが使用できなくなり、全ての攻撃に対する被ダメージ量が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ボイドの<b>衝撃波</b>を発生させ、敵を<b>ノックバック</b>させる。<span class="pve">ボス・ミニボスにはノックバック効果はない。</span></li>
-                <li>衝撃波を受けた敵は受けるダメージ量が <b><span class="c_void"><span class="pve">+30%</span><span class="pvp">+50%</span></span></b> 増加し、<b><a href="./class_void.html#suppression">抑制</a>が付与</b>される。</li>
+                <li>衝撃波を受けた敵は受けるダメージ量が <b><span class="balloon univ_debuff"><span class="pve">+30%</span><span class="pvp">+50%</span></span></b> 増加し、<b><a href="./class_void.html#suppression">抑制</a>が付与</b>される。</li>
                 <li>この武器で敵にダメージを与えると、<b>5秒間</b> ハンドリングが <b>+100</b> 増加し、移動速度が最大化 (<b>+12.5%</b>) される。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -2386,7 +2394,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="legend_of_acrius"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1ed0827344c3855218be3bca8afb12af.jpg" class="h3"><span class="arc" />アクリウスの伝説</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1ed0827344c3855218be3bca8afb12af.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>アクリウスの伝説</h3>
         <div class="base"><b>ショックブラスト</b> - この武器が高ダメージのアークエネルギーの爆発を発生させ、敵を貫通する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2406,7 +2414,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="darci"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7840cd05c28abe361a115eba355d8996.jpg" class="h3"><span class="arc" />D.A.R.C.I.</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7840cd05c28abe361a115eba355d8996.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>D.A.R.C.I.</h3>
         <div class="base"><b>パーソナルアシスタント</b> - 敵を狙うと、体力やその他の重要情報がスコープに表示される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2428,7 +2436,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_wardcriff_coil"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7c419b2fb92344ed57211f7bcaf157b9.jpg" class="h3"><span class="arc" />ワードクリフ・コイル</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7c419b2fb92344ed57211f7bcaf157b9.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>ワードクリフ・コイル</h3>
         <div class="base"><b>危険な科学者</b> - この武器がロケットの雨を降らせる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2444,7 +2452,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_colony"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/374345ed18447e7eb3a4a2bac4f3a694.jpg" class="h3"><span class="void" />コロニー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/374345ed18447e7eb3a4a2bac4f3a694.jpg" class="h3"><span class="w-icons void">&#xe144;</span>コロニー</h3>
         <div class="base"><b>昆虫型ロボットグレネード</b> - この武器のグレネードは虫型ロボットで、標的を追跡し、接近して爆発する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2461,7 +2469,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="worldline_zero"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/701e706076b9b82501aacc12db890d0c.jpg" class="h3"><span class="arc" />ワールドライン・ゼロ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/701e706076b9b82501aacc12db890d0c.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>ワールドライン・ゼロ</h3>
         <div class="base"><b>テセラクト</b> - フルエネルギー状態でダッシュ中に使用すると、ブリンク攻撃を発動する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2485,7 +2493,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="sleeper_simulant"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/06c339b02b1a3b0b5c1322751b177557.jpg" class="h3"><span class="solar" />模倣スリーパー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/06c339b02b1a3b0b5c1322751b177557.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>模倣スリーパー</h3>
         <div class="base"><b>眠れる森の美女</b> - 武器のレーザーが敵を貫通し、また硬い物に当たると屈折する。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -2508,7 +2516,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="whisper_of_the_worm"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7955c1254752ed790fb0f5fa1b483c13.jpg" class="h3"><span class="solar" />虫の囁き</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7955c1254752ed790fb0f5fa1b483c13.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>虫の囁き</h3>
         <div class="base"><b>白い爪</b> - 精密ダメージが高い。素早く3発の精密ショットを達成すると、マガジンが補充される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2543,7 +2551,7 @@
         -->
 
         <a name="one_thousand_voices"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cb50132d014c78a0419bb23311260fe0.jpg" class="h3"><span class="solar" />無数の声</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cb50132d014c78a0419bb23311260fe0.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>無数の声</h3>
         <div class="base"><b>アハンカーラの目</b> - この武器をチャージすると巨大な死の光線が放たれる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2555,7 +2563,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="two-tailed_fox"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/db73528358622aca68f3606390bd7f27.jpg" class="h3"><span class="void" /><span class="solar" />二尾の狐</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/db73528358622aca68f3606390bd7f27.jpg" class="h3"><span class="w-icons void">&#xe144;</span><span class="w-icons solar">&#xe140;</span>二尾の狐</h3>
         <div class="base"><b>ツインテール</b> - 1つの標的を追尾する、ボイドとソーラーの2種類のロケットを撃つ。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2568,7 +2576,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="black_talon"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bf2ab15ec0780ed4e2cd2dfe193117a6.jpg" class="h3"><span class="void" />黒い爪</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bf2ab15ec0780ed4e2cd2dfe193117a6.jpg" class="h3"><span class="w-icons void">&#xe144;</span>黒い爪</h3>
         <div class="base"><b>クロウの翼</b> - 投射物による強攻撃を行う。強攻撃はフルエネルギー状態だとより威力を増す。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2584,7 +2592,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_queenbreaker"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ada52c29c412bbc292760f5e6a23fe72.jpg" class="h3"><span class="arc" />クイーンブレーカー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ada52c29c412bbc292760f5e6a23fe72.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>クイーンブレーカー</h3>
         <div class="base"><b>ワイヤーライフル</b> - 当たると敵の目を眩ませる精度の高い長射程アークボルトを発射する。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div> 以下から選択可能。
@@ -2619,7 +2627,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="thunderlord"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ddfe8daa6f2093efae32bd6f70ef36c5.jpg" class="h3"><span class="arc" />サンダーロード</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ddfe8daa6f2093efae32bd6f70ef36c5.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>サンダーロード</h3>
         <div class="base"><b>大規模破壊</b> - この武器で倒すと上空から落雷が発生する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2633,7 +2641,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>&#xe071; オーバーロード効果</b></li>
+                <li><b><span class="w-icons overload">&#xe071;</span> オーバーロード効果</b></li>
                 <li><a href="./weapon_perks.html#dynamic_sway_reduction">ブレ軽減</a>の効果を持つ。</li>
                 <li>撃ち続けると、<a href="./weapon_perks.html#zen_moment">禅モーメント</a>のような反動制御を発揮する。</li>
                 <li>連続して <b>13発</b> 射撃するごとに発射レートが <b>450</b> → <b>600</b> → <b>720</b> と変化する。</li>
@@ -2648,7 +2656,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="anarchy"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/140b9a1877eb689ff0e9c18f95f53029.jpg" class="h3"><span class="arc" />アナーキー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/140b9a1877eb689ff0e9c18f95f53029.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>アナーキー</h3>
         <div class="base"><b>アークの罠</b> - 表面に付着して、他の放った爆弾とアークボルトの連鎖を発生させる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2670,7 +2678,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="truth"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/29fa7e1d919034759424e4e233b59b57.jpg" class="h3"><span class="void" />トゥルース</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/29fa7e1d919034759424e4e233b59b57.jpg" class="h3"><span class="w-icons void">&#xe144;</span>トゥルース</h3>
         <div class="base"><b>プロトタイプのトゥルーシーカー</b> - この武器のロケットにはトラッキング機能がある。照準モードの間にターゲットをロックする。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2692,7 +2700,7 @@
         -->
 
         <a name="deathbringer"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bad350071ec8c83c32c3795df872a9dc.jpg" class="h3"><span class="void" />死を齎す者</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bad350071ec8c83c32c3795df872a9dc.jpg" class="h3"><span class="w-icons void">&#xe144;</span>死を齎す者</h3>
         <div class="base"><b>ダーク・デリバランス</b> - 遠隔爆破可能な投射物を発射し、戦闘員に触れるとボイドオーブを生成する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2710,7 +2718,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="xenophage"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2828804450abc6575609258a3479b19a.jpg" class="h3"><span class="solar" />ゼノファジ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2828804450abc6575609258a3479b19a.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ゼノファジ</h3>
         <div class="base"><b>パイロトキシン弾</b> - 強力な爆発性の弾薬を放つ。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -2729,12 +2737,12 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="leviathans_breath"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f062142edf3a76e89920f34147d69947.jpg" class="h3"><span class="void" />リヴァイアサンの息吹</h3>
-        <div class="base"><b>大物ハンター</b> - シールドの剥がれた戦闘員をスタンさせる巨大なヘビーボルトを放つ。&#xe072;アンストッパブル・チャンピオンに効果的。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f062142edf3a76e89920f34147d69947.jpg" class="h3"><span class="w-icons void">&#xe144;</span>リヴァイアサンの息吹</h3>
+        <div class="base"><b>大物ハンター</b> - シールドの剥がれた戦闘員をスタンさせる巨大なヘビーボルトを放つ。<span class="w-icons unstoppable">&#xe072;</span>アンストッパブル・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>&#xe072; アンストッパブル効果</b></li>
+                <li><b><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル効果</b></li>
                 <li>着弾時に爆発し、周囲の敵をノックバックさせる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -2747,7 +2755,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="heir_apparent"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c7c44d140ec56dfdc5a1159947aa1aab.jpg" class="h3"><span class="solar" />後継者</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c7c44d140ec56dfdc5a1159947aa1aab.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>後継者</h3>
         <div class="base"><b>ヘビースラグ放射砲</b> - 武器を回転させる。フル回転にならないと発射できない。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2769,7 +2777,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="eyes_of_tomorrow"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/29ddc714cb21c8c57d4dbfe36362e58c.jpg" class="h3"><span class="solar" />明日の眼差し</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/29ddc714cb21c8c57d4dbfe36362e58c.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>明日の眼差し</h3>
         <div class="base"><b>全てを見る目</b> - この武器は複数の標的を同時に追跡して攻撃することができる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2782,7 +2790,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="salvations_grip"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/010d673dd0841e7c071344cc787c1bcd.jpg" class="h3"><span class="stasis" />救済の柄</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/010d673dd0841e7c071344cc787c1bcd.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>救済の柄</h3>
         <div class="base"><b>冷凍キャノン</b> - 長押しでチャージし、離すと発射する。この武器の投射物はステイシス・クリスタルを生成して近くの標的を凍結状態にする。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2795,20 +2803,20 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_lament"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9976b41a3b121e9c191fa0b313eb6bf9.jpg" class="h3"><span class="solar" />悲嘆</h3>
-        <div class="base"><b>バンシーの嘆き</b> - 長押しで刃を回転させる。ダメージが上昇し、全ての攻撃に&#xe070;シールド貫通効果が付与される。回転攻撃でダメージを与えるとスタックが溜まる。スタックが溜まるとダメージが上昇し、強攻撃に対するダメージ耐性が上がる。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9976b41a3b121e9c191fa0b313eb6bf9.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>悲嘆</h3>
+        <div class="base"><b>バンシーの嘆き</b> - 長押しで刃を回転させる。ダメージが上昇し、全ての攻撃に<span class="w-icons barrier">&#xe070;</span>シールド貫通効果が付与される。回転攻撃でダメージを与えるとスタックが溜まる。スタックが溜まるとダメージが上昇し、強攻撃に対するダメージ耐性が上がる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ガードすると刃が回転し、<b>独自モーション</b>での攻撃が可能となる。</li>
                 <li>刃が回転した状態で攻撃すると<b>バンシーの嘆き</b>のスタックがチャージされ、強攻撃のダメージ量が増加する。</li>
-                <li>また、回転中は <b>&#xe070; アンチバリア効果</b>があり、攻撃時に <b>10</b> HPを回復する。</li>
+                <li>また、回転中は <b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b>があり、攻撃時に <b>10</b> HPを回復する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="gjallarhorn"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e6c6190dc297e8e09c1a32b2dab9aae4.jpg" class="h3"><span class="solar" />ギャラルホルン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e6c6190dc297e8e09c1a32b2dab9aae4.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ギャラルホルン</h3>
         <div class="base"><b>ウルフパック弾</b> - 発射された弾が爆発し、追尾型のクラスターミサイルへと分裂する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2842,7 +2850,7 @@
         -->
 
         <a name="parasite"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/74a333ec054ed39ceeebad66bd98d8fd.jpg" class="h3"><span class="solar" />パラサイト</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/74a333ec054ed39ceeebad66bd98d8fd.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>パラサイト</h3>
         <div class="base"><b>ワームの飢え</b> - 着弾時に爆発するハイヴワームを発射する。爆発の大きさとダメージは、この武器を発射する直前に倒した敵の数によって変化する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2861,7 +2869,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="grand_overture"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e52215994fc192c2eb88dfa2a415d291.jpg" class="h3"><span class="arc" />壮麗なる序曲</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e52215994fc192c2eb88dfa2a415d291.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>壮麗なる序曲</h3>
         <div class="base"><b>コロッサスの怒り</b> - トリガーを引いている間フルオートで発射される、チャージ時間のあるヘビースラグランチャー。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2879,7 +2887,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="heartshadow"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b1af4c7452901649712fd979096ce388.jpg" class="h3"><span class="void" />ハートシャドウ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b1af4c7452901649712fd979096ce388.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ハートシャドウ</h3>
         <div class="base"><b>隠し刃</b> - 剣エネルギーがフル状態の時に強攻撃を行うと不可視状態になり、爆発性のボイドの投射物を発射する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>

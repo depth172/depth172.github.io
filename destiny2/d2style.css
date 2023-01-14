@@ -3,27 +3,29 @@
     src: url(./fonts/Destiny_Keys.otf);
 }
 
-.solar::before {
-    padding: 1.2em 0.38em;
-    content: "\e140";
+.w-icons {
+    cursor: default;
+    user-select: none;
+    color: #444444;
+}
+
+.solar {
+    margin: 1.2em 0.38em;
     color: #e7601d;
 }
 
-.arc::before {
-    padding: 1.2em 0.3em;
-    content: "\e143";
+.arc {
+    margin: 1.2em 0.3em;
     color: #81b5e4;
 }
 
-.void::before {
-    padding: 1.2em 0.28em;
-    content: "\e144";
+.void {
+    margin: 1.2em 0.28em;
     color: #b07cdb;
 }
 
-.stasis::before {
-    padding: 1.2em 0.3em;
-    content: "\e139";
+.stasis {
+    margin: 1.2em 0.3em;
     color: #5e7afd;
 }
 
@@ -66,58 +68,18 @@ div .pvp {
     height: 6.4em;
 }
 
-.ash {
-    text-decoration: none;
-    position: relative;
-}
-
-.ash-balloon {
-    position: absolute;
-    white-space: nowrap;
-    top: -30px;
-    left: -15px;
+#hover-balloon {
     display: none;
-    opacity: 0;
-    padding: 5px;
+    position: fixed;
+    white-space: nowrap;
+    z-index: 10;
+    max-width: 80%;
+    text-align: center;
+    padding: 0.3em 0.6em;
     border-radius: 5px;
     background-color: #eeeeee;
     box-shadow: 0px 1px 2px 0px #00000080;
     animation-duration: 0.3s;
-    animation-name: show-balloon;
-}
-
-.ash:hover .ash-balloon,
-.ash:focus .ash-balloon {
-    display: inline-block;
-    opacity: 1;
-    top: -40px;
-}
-
-.ash-balloon::before {
-    content: "";
-    position: absolute;
-    top: 97%;
-    left: 20px;
-    border: 6px solid transparent;
-    border-top: 6px solid #eeeeee;
-}
-
-@keyframes show-balloon {
-    0% {
-        display: none;
-        opacity: 0;
-        top: -30px;
-    }
-    1% {
-        display: inline-block;
-        opacity: 0;
-        top: -30px;
-    }
-    100% {
-        display: inline-block;
-        opacity: 1;
-        top: -40px;
-    }
 }
 
 .indent {
@@ -130,11 +92,11 @@ div .pvp {
     font-size: 90%;
 }
 
-.c_solar {
+.univ_buff {
     color: #bd4c14;
 }
 
-.c_void {
+.univ_debuff {
     color: #9853d0;
 }
 
@@ -539,6 +501,9 @@ th.sorter-false {
     }
     .box {
         width: 90%;
+    }
+    .ash-balloon {
+        left: 20%;
     }
     .btn_area {
         width: 100%;

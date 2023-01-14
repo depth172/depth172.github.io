@@ -26,6 +26,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
 
     <!-- 通知表示 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -61,12 +62,16 @@
         <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
     </div>
 
+    <div id="hover-balloon">
+        <span id="info"></span>
+    </div>
+
     <div class="main" id="main">
         <div class="top_logo">
             <a href="../"><img src="../img/banner_transparent.png"></a>
         </div>
         <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
-        <h1>クラス解説 - ボイド</h1>
+        <h1>クラス解説 - <span class="w-icons void">&#xe144;</span>ボイド</h1>
         <hr>
         <div class="title_bar">
             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 クラス解説 - ボイド" data-url="http://depth172.github.io/destiny2/class_void.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
@@ -218,14 +223,16 @@
             <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについてはパーク自体が記載されていない場合もあります。</li>
             <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
             <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>解説中に出てくる<span class="w-icons solar">&#xe140;</span>や<span class="w-icons auto">&#xe100;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
             <li class="pve">ダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
-            <li>武器ダメージが増加するものに関して、<span class="c_void">全体デバフ</span>や<span class="c_solar">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
+            <li>武器ダメージが増加するものに関して、<span class="univ_debuff">全体デバフ</span>や<span class="balloon univ_buff">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
                 <a href="./buff_stacking.html">強化・弱体化の種類と重複について</a> をお読みください。</li>
             <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
         </ul>
         <dl>
             <dt>キル</dt>
-            <dd>敵を倒すこと。</dd>
+            <dd>敵を倒すこと。特筆しない限り、自分でトドメを刺した場合のみ適用される。</dd>
             <dt>近接スキル（チャージ近接）</dt>
             <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
             <dt>HPとシールド</dt>
@@ -356,10 +363,10 @@
         <a name="weaken"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/230cdbac8318da3ea7d9c11e71a33c67.png" class="head">弱体化</h3>
         <div class="text">
-            弱体化を付与されると、受けるダメージが <span class="c_void"><b><span class="pve">+15%</span><span class="pvp">+7.5%</span></b>
+            弱体化を付与されると、受けるダメージが <span class="balloon univ_debuff"><b><span class="pve">+15%</span><span class="pvp">+7.5%</span></b>
             </span> 増加し、<b>移動速度が低下</b>する。
             <span class="pve"><br>また、弱体化された敵は<b>射撃の精度も低下</b>する。</span>
-            <br><span class="c_void">全体デバフ</span>に分類され、他の全体デバフがある場合はそちらに上書きされる。
+            <br><span class="univ_debuff">全体デバフ</span>に分類され、他の全体デバフがある場合はそちらに上書きされる。
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -649,7 +656,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>敵を<a href="#suppression">抑制</a>状態にすると、<b>10秒間</b> 可動性が <b>+30</b> 、前方への移動速度が <b>+4%</b> され、使用中の武器が<b>リロード</b>される。</li>
+                <li>敵を<a href="#suppression">抑制</a>状態にすると、<b>10秒間</b> 可動性が <b>+30</b> 、前方への移動速度が <b>+4%</b> され、使用中の武器が<b>全弾リロード</b>される。</li>
                 <li>効果時間中の再発動はできない。また、「軽度の抑制」状態では発動しない。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
@@ -724,8 +731,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>力のオーブを拾うと、<b>5秒間</b> <span class="ash">(<b>8秒間</b>)<span class="ash-balloon">かけら「固執の残響」適用時の数値</span> <a href="#devour">吸引</a>状態になる。</li>
-                <li>吸引は敵を倒すと、最大で <b>10秒</b> <span class="ash">(<b>15秒間</b>)<span class="ash-balloon">かけら「固執の残響」適用時の数値</span> まで延長できる。</li>
+                <li>力のオーブを拾うと、<b>5秒間</b> <span class="balloon starvation">(<b>8秒間</b>)<a href="#devour">吸引</a>状態になる。</li>
+                <li>吸引は敵を倒すと、最大で <b>10秒</b> <span class="balloon starvation">(<b>15秒間</b>)まで延長できる。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -758,7 +765,7 @@
             <ul class="stats">
                 <li><b>半径3m</b> のドームを展開し、中にいる味方に <b>425HP</b> の<a href="#overshield">オーバーシールド</a>を付与する。このオーバーシールドは<span class="pvp">付与者に対する<b>精密ヒット判定を消滅</b>させ、</span>ドームを出ると解除される。</li>
                 <li>ドームの外側から内側へ、または内側から外側へ攻撃を通すことはできない。</li>
-                <li>ドームを通ると、<b>光の武器</b>が付与され、<b>15秒間</b> 武器ダメージが <span class="c_solar"><b>+25%</b></span> 増加する。</li>
+                <li>ドームを通ると、<b>光の武器</b>が付与され、<b>15秒間</b> 武器ダメージが <span class="balloon univ_buff"><b>+25%</b></span> 増加する。</li>
                 <li>ドームは <b>13500HP</b> で、これを超えるダメージを受けると破壊される。<span class="pvp">ガーディアンのスキルからは、より大きなダメージを受ける。</span></li>
                 <li><span class="pve">また、ボスからの攻撃は、発動者の<a href="./base_stats.html#resilience">耐久力</a>に応じて <b>+600%</b> ～ <b>-75%</b> 増減したダメージを受ける。</span></li>
             </ul>
@@ -776,7 +783,7 @@
             <ul class="stats">
                 <li>シールドによる攻撃を行える。グレネードボタンを押すことで<b>シールドを投げる</b>ことができる。</li>
                 <li>また、強攻撃ボタンを押すことでシールドを張り<b>防御</b>をし、後ろにいる味方を守ることができる。味方はシールド越しに射撃ができる。</li>
-                <li>これによって防御されている味方は<b>光の武器</b>が付与され、武器ダメージが <span class="c_solar"><b><span class="pve">+40%</span><span class="pvp">+35%</span></b>
+                <li>これによって防御されている味方は<b>光の武器</b>が付与され、武器ダメージが <span class="balloon univ_buff"><b><span class="pve">+40%</span><span class="pvp">+35%</span></b>
                     </span> 増加し、武器のハンドリングとリロード速度が <b>+50</b> される。</li>
                 <li>味方を防御している間は、スーパーエネルギーの消費が <b>-20%</b> 軽減される。</li>
             </ul>
@@ -891,7 +898,7 @@
             <ul class="stats">
                 <li>敵を追尾する3本の矢を発射する。再度スーパースキル発動ボタンを押すことで、矢を <b>2回</b> まで発射可能。</li>
                 <li>矢は刺さった場所で<b>ボイドアンカー</b>となり、近くの敵を <b>6秒間</b> <b>束縛</b>する。</li>
-                <li>束縛された敵は<a href="#weaken">弱体化</a>、<a href="#suppression">抑制</a>、<a href="#volatile">不安定化</a>状態になり、受けるダメージが <span class="c_void"><b><span class="pve">+30%</span><span class="pvp">+50%</span></b>
+                <li>束縛された敵は<a href="#weaken">弱体化</a>、<a href="#suppression">抑制</a>、<a href="#volatile">不安定化</a>状態になり、受けるダメージが <span class="balloon univ_debuff"><b><span class="pve">+30%</span><span class="pvp">+50%</span></b>
                     </span> 増加する。</li>
                 <li>すでに束縛された敵に対するシャドウショットのダメージは、<b>+20%</b> のみ増加する。</li>
                 <li>また、束縛状態の敵を倒すと、ボイドアンカーの効果時間が延びる。</li>
@@ -910,7 +917,7 @@
             <ul class="stats">
                 <li>敵を追尾する矢を発射する。矢は着弾時に<b>周囲の敵を引き寄せる。</b></li>
                 <li>矢は刺さった場所で<b>ボイドアンカー</b>となり、近くの敵を <b>12秒間</b> <b>束縛</b>する。</li>
-                <li>束縛された敵は<a href="#weaken">弱体化</a>、<a href="#suppression">抑制</a>状態になり、受けるダメージが <span class="c_void"><b><span class="pve">+30%</span><span class="pvp">+50%</span></b>
+                <li>束縛された敵は<a href="#weaken">弱体化</a>、<a href="#suppression">抑制</a>状態になり、受けるダメージが <span class="balloon univ_debuff"><b><span class="pve">+30%</span><span class="pvp">+50%</span></b>
                     </span> 増加する。</li>
                 <li>また、束縛された敵は <b><span class="pve">30秒間</span><span class="pvp">10秒間</span></b> マークされ、壁越しに視認できるようになる。</li>
                 <li>さらに、束縛状態の敵を倒すと、ボイドアンカーの効果時間が <b>+0.5秒</b> 延びる。</li>
