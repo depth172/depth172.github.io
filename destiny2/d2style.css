@@ -3,6 +3,16 @@
     src: url(./fonts/Destiny_Keys.otf);
 }
 
+.balloon {
+    text-decoration: underline dotted #44444499 1px;
+}
+
+.ash,
+.starvation,
+.durance {
+    font-size: 85%;
+}
+
 .w-icons {
     cursor: default;
     user-select: none;
@@ -239,8 +249,17 @@ img.table {
 }
 
 .list td {
-    text-align: right;
     padding-inline: 0.4em;
+}
+
+.stats td {
+    text-align: right;
+}
+
+.list ul {
+    margin-block: 0;
+    padding-left: 1.4em;
+    text-align: left;
 }
 
 .debuff td.icon {
@@ -301,6 +320,18 @@ img.h3 {
     width: 2.3em;
     height: 2.3em;
     transform: translate(0, 12%);
+}
+
+img.table_icon {
+    background: #737f81;
+    border: 2px solid #5e5e5e;
+    margin: 0.3em 0.6em 0.3em 0;
+    width: 2.3em;
+    height: 2.3em;
+}
+
+.include_icon {
+    line-height: 3em;
 }
 
 img.h2 {

@@ -29,6 +29,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
 
     <!-- 通知表示 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -64,6 +65,10 @@
     <div class="overlay-button">
         <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
         <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
     </div>
 
     <div class="main" id="main">
@@ -219,7 +224,7 @@
                     <summary>ハフト</summary>
                     <li><a href="#haft">ステータス早見表</a></li>
                     <ul>
-                        <li><a href="#ballistic_tuning">弾道チューニング</a></li>
+                        <li><a href="#ballist statsic_tuning">弾道チューニング</a></li>
                         <li><a href="#low-inpedance_windings">低インピーダンス巻線</a></li>
                         <li><a href="#tempered_truss_rod">強化型トラスロッド</a></li>
                         <li><a href="#supercooled_accelerator">過冷却加速器</a></li>
@@ -320,8 +325,8 @@
                 <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
             <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
             <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
-            <li>解説中に出てくる<span class="w-icons solar">&#xe140;</span>や<span class="w-icons auto">&#xe100;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
-            <li class="for_sp">一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
+            <li>解説中に出てくる<span class="balloon sample">点線の下線</span>が付いた文章や、<span class="w-icons auto">&#xe100;</span> <span class="w-icons solar">&#xe140;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">また、一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
             <li>古い武器に付与されているものについては記載がない場合もあります。</li>
             <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
         </ul>
@@ -354,9 +359,9 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ad56b0e83d31592d9984cdf2f392452a.png" class="h3">順応フレーム</h3>
         <div class="base">バランスがいいグリップ。信頼性が高く、頑丈。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
             <ul class="stats">
-                <li>ピストルは、一部3点バーストで撃てるものも存在する。</li>
+                <li><span class="w-icons sidearm">&#xe109;</span>: 一部3点バーストで撃てるものも存在する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -365,12 +370,16 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d1ff65162c4a9d54a9612d9874b9fa88.png" class="h3">好戦的なフレーム</h3>
         <div class="base">高ダメージだが、反動が大きい。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
             <ul class="stats">
-                <li>ショットガンは、敵をキルすると発射レートが <b>+33%</b> 増加する。</li>
-                <li>フュージョンライフルは、ボルトを<b>水平方向に発射</b>する。</li>
-                <li>剣は、強攻撃で<b>スラム攻撃</b>ができる。タイタンしか装備できない。</li>
-                <li>リニア・フュージョンライフルは、<b>3点バースト射撃</b>をする。</li>
+                <li><span class="w-icons shotgun">&#xe104;</span>: 敵をキルすると発射後ディレイが <b>x0.75</b> になる。
+                    <ul class="stats2">
+                        <li>変化後の実効発射レート (RPM) は、(変化前のRPM ÷ 発射後ディレイ変化率) で計算可能。</li>
+                    </ul>
+                </li>
+                <li><span class="w-icons fusion">&#xe106;</span>: ボルトを<b>水平方向に発射</b>する。</li>
+                <li><span class="w-icons sword">&#xe153;</span>: 強攻撃で<b>スラム攻撃</b>ができる。タイタンしか装備できない。</li>
+                <li><span class="w-icons linear">&#xe152;</span>: <b>3点バースト射撃</b>をする。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -379,14 +388,14 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/90c4f7f35c9d24f4add016722a78404e.png" class="h3">精密フレーム</h3>
         <div class="base">この武器の反動パターンが縦ブレで予測しやすい。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
             <ul class="stats">
-                <li>ロケットランチャーは、<a href="./weapon_perks.html#tracking_module">追跡モジュール</a> の効果を持つ。</li>
+                <li><span class="w-icons rocket">&#xe108;</span>: デフォルトで<b><a href="./weapon_perks.html#tracking_module">追跡モジュール</a></b>の効果を持つ。</li>
+                <li><span class="w-icons hc">&#xe103;</span>: 空中効果が <b>+25</b> される。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>縦反動: <b>-20%</b></li>
-                <li>空中効果: <b>+25</b>（ハンドキャノンのみ）</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -395,9 +404,9 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/530b400d5cec3bf6aca7c5efc46fea20.png" class="h3">軽量フレーム</h3>
         <div class="base">優れたハンドリング。この武器を装備すると素早く移動できる。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
             <ul class="stats">
-                <li>剣は、強攻撃で<b>ダッシュ攻撃</b>ができる。ハンターしか装備できない。</li>
+                <li><span class="w-icons sword">&#xe153;</span>: 強攻撃で<b>ダッシュ攻撃</b>ができる。ハンターしか装備できない。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -411,9 +420,9 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/65fdde950b85bdd1e0383e1016a73661.png" class="h3">高威力フレーム</h3>
         <div class="base">連射速度は遅いが大ダメージを与える。照準モード時に静止していると、命中精度が向上する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
             <ul class="stats">
-                <li>フュージョンライフルは、一回に発射するボルトが <b>5発</b> となっている。</li>
+                <li><span class="w-icons fusion">&#xe106;</span>: 一回に発射するボルトが <b>5発</b> となっている。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -430,11 +439,10 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0ab090e93e19da9e841b0f94c5ab7de6.png" class="h3">速射フレーム</h3>
         <div class="base">手持ちの弾数が増加する。マガジンが空の時に僅かにリロード速度が上昇する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
             <ul class="stats">
-                <li>スカウトライフル、ショットガンは<b>フルオートで射撃</b>できる。</li>
-                <li>ショットガンのみ、<b>常に</b>リロード速度が増加する。</li>
-                <li>フュージョンライフルは、一回に発射するボルトが <b>9発</b> となっている。</li>
+                <li><span class="w-icons shotgun">&#xe104;</span>: マガジンが空のときだけでなく、<b>常に</b>リロード時間が短縮される。</li>
+                <li><span class="w-icons fusion">&#xe106;</span>: 一回に発射するボルトが <b>9発</b> となっている。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -1142,7 +1150,7 @@
         </details>
 
         <details>
-            <summary>サイトステータス早見表（ハンドキャノン用）</summary>
+            <summary>サイトステータス早見表 (<span class="w-icons hc">&#xe103;</span>)</summary>
             <table class="tablesorter" id="sight_table_hc">
                 <thead>
                     <tr>
@@ -1208,7 +1216,7 @@
         </details>
 
         <details>
-            <summary>サイトステータス早見表（ピストル用）</summary>
+            <summary>サイトステータス早見表 (<span class="w-icons sidearm">&#xe109;</span>)</summary>
             <table class="tablesorter" id="sight_table_sa">
                 <thead>
                     <tr>
@@ -1274,7 +1282,7 @@
         </details>
 
         <details>
-            <summary>スコープステータス早見表（ハッケスナイパーライフル用）</summary>
+            <summary>スコープステータス早見表 (ハッケ製<span class="w-icons sr">&#xe105;</span>)</summary>
             <table class="tablesorter" id="sight_table_sr">
                 <thead>
                     <tr>
@@ -1699,8 +1707,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/87eb658505fb3503265eb67cd7855c4c.png" class="h3">ファストドロー HCS</h3>
         <div class="base">ハンドリングに優れたハンドキャノン用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハンドキャノンにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons hc">&#xe103;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+5</b></li>
@@ -1714,8 +1722,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/87eb658505fb3503265eb67cd7855c4c.png" class="h3">ステディーハンド HCS</h3>
         <div class="base">安定性のあるハンドキャノン用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハンドキャノンにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons hc">&#xe103;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+10</b></li>
@@ -1729,8 +1737,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/87eb658505fb3503265eb67cd7855c4c.png" class="h3">トゥルーサイト HCS</h3>
         <div class="base">バランス型ハンドキャノン用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハンドキャノンにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons hc">&#xe103;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+3</b></li>
@@ -1745,8 +1753,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/87eb658505fb3503265eb67cd7855c4c.png" class="h3">ヒットマーク HCS</h3>
         <div class="base">精密なハンドキャノン用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハンドキャノンにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons hc">&#xe103;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+5</b></li>
@@ -1759,8 +1767,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/87eb658505fb3503265eb67cd7855c4c.png" class="h3">クロスファイア HCS</h3>
         <div class="base">高精細なハンドキャノン用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハンドキャノンにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons hc">&#xe103;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+7</b></li>
@@ -1775,8 +1783,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/87eb658505fb3503265eb67cd7855c4c.png" class="h3">シュアショット HCS</h3>
         <div class="base">高精度なハンドキャノン用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハンドキャノンにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons hc">&#xe103;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+10</b></li>
@@ -1791,8 +1799,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f4881d52b0c80356e9ccadb3ea681f8b.png" class="h3">クイックドット SAS</h3>
         <div class="base">ハンドリングに優れたピストル用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ピストルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sidearm">&#xe109;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+5</b></li>
@@ -1806,8 +1814,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f4881d52b0c80356e9ccadb3ea681f8b.png" class="h3">コントロール SAS</h3>
         <div class="base">安定性のあるピストル用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ピストルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sidearm">&#xe109;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+10</b></li>
@@ -1821,8 +1829,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f4881d52b0c80356e9ccadb3ea681f8b.png" class="h3">ショートスペック SAS</h3>
         <div class="base">バランスのいいピストル用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ピストルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sidearm">&#xe109;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+3</b></li>
@@ -1837,8 +1845,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f4881d52b0c80356e9ccadb3ea681f8b.png" class="h3">タクティク SAS</h3>
         <div class="base">精密なピストル用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ピストルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sidearm">&#xe109;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+5</b></li>
@@ -1851,8 +1859,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f4881d52b0c80356e9ccadb3ea681f8b.png" class="h3">ターゲット SAS</h3>
         <div class="base">高精細なピストル用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ピストルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sidearm">&#xe109;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+8</b></li>
@@ -1867,8 +1875,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f4881d52b0c80356e9ccadb3ea681f8b.png" class="h3">ファーポイント SAS</h3>
         <div class="base">高精度のピストル用サイト。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ピストルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sidearm">&#xe109;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+13</b></li>
@@ -1883,8 +1891,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b414f849f54e62427c3ef513848b2040.png" class="h3">ATA スカウト</h3>
         <div class="base">軽量型のスナイパー用スコープ。近距離用ズーム。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハッケ製のスナイパーライフルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sr">&#xe105;</span> (ハッケ製)
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+5</b></li>
@@ -1898,8 +1906,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c776d6dd90c677762ea3864686d3d492.png" class="h3">ATB ロングレンジ</h3>
         <div class="base">ハッケの長距離用スコープ。長距離用ズーム。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハッケ製のスナイパーライフルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sr">&#xe105;</span> (ハッケ製)
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+15</b></li>
@@ -1913,8 +1921,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/36decbcf0eab4d6a2807d7ea8ecf5ae7.png" class="h3">ATC レックス</h3>
         <div class="base">スナイパー用戦闘スコープ。近距離用ズーム。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハッケ製のスナイパーライフルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sr">&#xe105;</span> (ハッケ製)
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ハンドリング: <b>+15</b></li>
@@ -1928,8 +1936,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3f250f262a8c13efe6018b4bceeb744b.png" class="h3">ATD ラプター</h3>
         <div class="base">標準的なスナイパー用スコープ。中距離用ズーム。敵を示す。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ハッケ製のスナイパーライフルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sr">&#xe105;</span> (ハッケ製)
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+9</b></li>
@@ -2038,6 +2046,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c9439f5d740d017dc9551a60a902c797.png" class="h3">コンファインローンチ</h3>
         <div class="base">この武器の発射パラメーターが大幅に安定する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>爆発範囲: <b>+10</b></li>
@@ -2051,6 +2061,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b1e34eabc2ad012b6258436e80705b49.png" class="h3">カウンターマス</h3>
         <div class="base">この武器が縦の反動のために重くなる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+10</b></li>
@@ -2064,6 +2076,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/823b8ae4f48bca3bb5586167c1666781.png" class="h3">ハードローンチ</h3>
         <div class="base">この武器の発射バレルが投射物の速度に最適化される。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>速度: <b>+15</b></li>
@@ -2077,6 +2091,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/eab8eeedc70188ad3798b6ca84fbb7cb.png" class="h3">リニア・コンペンセイター</h3>
         <div class="base">この武器の発射バレルのバランスが良くなる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>爆発範囲: <b>+5</b></li>
@@ -2090,6 +2106,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/11664d61e115d9a59bd969b87081f1a6.png" class="h3">クイックローンチ</h3>
         <div class="base">この武器のバレルが投射物の速度を上昇させ、狙う速度も大幅に上昇させる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>速度: <b>+10</b></li>
@@ -2102,6 +2120,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/52a4646804b96ed190f1e1ae97b64e17.png" class="h3">高性能ドリフト制御</h3>
         <div class="base">このバレルの発射制御が広範囲に渡って最適化される。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>速度: <b>+5</b></li>
@@ -2116,6 +2136,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/402765b86ff7b1d97078ac43d5ca39ad.png" class="h3">ボラタイルローンチ</h3>
         <div class="base">この武器が特に爆発性の高い弾薬に最適化される。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>爆発範囲: <b>+15</b></li>
@@ -2216,6 +2238,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f58a93d2728c6eaf17e971c006e8aa7c.png" class="h3">扱いやすい弦</h3>
         <div class="base">頑丈で軽い弓の弦。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+5</b></li>
@@ -2228,6 +2252,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a8aee4de9f46b3209f45a6fe65c57ada.png" class="h3">弾性の弦</h3>
         <div class="base">非常に反発力が強い。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ハンドリング: <b>+5</b></li>
@@ -2241,6 +2267,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/dd95005a2c15c39ce613d31394cb92c9.png" class="h3">しなやかな弦</h3>
         <div class="base">軽くて引きやすい。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ハンドリング: <b>+10</b></li>
@@ -2254,6 +2282,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c2964e6666279c40161136e2254d3b50.png" class="h3">高反発性の弦</h3>
         <div class="base">かなりの張力がある。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>命中精度: <b>+10</b></li>
@@ -2267,6 +2297,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a4ef0735253539a0244f7073f1622d98.png" class="h3">普通の弦</h3>
         <div class="base">シンプルでバランスの取れた弦。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+5</b></li>
@@ -2280,6 +2312,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/38a485fb53635848c4fe4ee55effbbed.png" class="h3">ポリマー性の弦</h3>
         <div class="base">切れることのない弦。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>命中精度: <b>+5</b></li>
@@ -2292,6 +2326,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b0c611bc4c3b6dbb2d0061c64926c7e3.png" class="h3">触毛の弦</h3>
         <div class="base">安定していて摩擦力の高い弓の弦。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+10</b></li>
@@ -2363,6 +2399,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bf4e60b9b3289fb9d2c3ffa0e4c2cc04.png" class="h3">磨かれた刃</h3>
         <div class="base">剣のダメージが増加する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>威力: <b>+2</b></li>
@@ -2374,6 +2412,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/524e24197c0e4d2c5a73f29e3a28e19b.png" class="h3">空腹の刃</h3>
         <div class="base">剣の使用回数を増加させる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>使用回数: <b>+4</b></li>
@@ -2385,6 +2425,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f4366b8df3efab997683662dfedc012a.png" class="h3">鍛えられた刃</h3>
         <div class="base">剣のダメージと使用回数を増加させる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>威力: <b>+1</b></li>
@@ -2397,6 +2439,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/464c494e9ac760699272764a9929eff0.png" class="h3">ギザギザの刃</h3>
         <div class="base">剣の使用回数を犠牲にしてダメージを増加させる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>威力: <b>+4</b></li>
@@ -2409,6 +2453,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/195157f00f406f7203052418ae0ff5d0.png" class="h3">忍耐の刃</h3>
         <div class="base">大幅に剣の使用回数が増加する代わりに、ダメージが減少する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>使用回数: <b>+7</b></li>
@@ -2446,7 +2492,7 @@
                 <tbody>
                     <tr>
                         <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/deb0dcff9d8a8287ef4a1126f6d9d6fc.png" class="table"></th>
-                        <td class="name"><a href="#ballistic_tuning">弾道チューニング</a></td>
+                        <td class="name"><a href="#ballist statsic_tuning">弾道チューニング</a></td>
                         <td class="num">+15</td>
                         <td class="num">-10</td>
                         <td><span class="none">0</span></td>
@@ -2496,10 +2542,12 @@
             </table>
         </details>
 
-        <a name="ballistic_tuning"></a>
+        <a name="ballist statsic_tuning"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/deb0dcff9d8a8287ef4a1126f6d9d6fc.png" class="h3">弾道チューニング</h3>
         <div class="base">シールドからパワーを流用する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glaive">&#xe156;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+15</b></li>
@@ -2512,6 +2560,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fa9d37b941513d4dc2e6a6be6413c34f.png" class="h3">低インピーダンス巻線</h3>
         <div class="base">出力効率が向上する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glaive">&#xe156;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>-10</b></li>
@@ -2525,6 +2575,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/89742394d4319c1c351d6af2721451b8.png" class="h3">強化型トラスロッド</h3>
         <div class="base">高い剛性で、素早いハンドリングを実現している。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glaive">&#xe156;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>-5</b></li>
@@ -2538,6 +2590,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/185cb358f3a2471eaeb76784ab1f3a49.png" class="h3">過冷却加速器</h3>
         <div class="base">長射程に最適化されている。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glaive">&#xe156;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+10</b></li>
@@ -2551,6 +2605,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/426dd592a65b7204550d6e7597ec9440.png" class="h3">予備の蓄え</h3>
         <div class="base">追加のエネルギー容量を持つ。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glaive">&#xe156;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>シールド持続時間: <b>+15</b></li>
@@ -2563,6 +2619,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8f477b6d3b52afb6f30f866826fb4bf0.png" class="h3">軽量エミッター</h3>
         <div class="base">軽量化により敏捷性が向上する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glaive">&#xe156;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>シールド持続時間: <b>-10</b></li>
@@ -2802,7 +2860,7 @@
         </details>
 
         <details>
-            <summary>マガジンステータス早見表（ショットガン用）</summary>
+            <summary>マガジンステータス早見表 (<span class="w-icons shotgun">&#xe104;</span>)</summary>
             <table class="tablesorter" id="magazine_table_sg">
                 <thead>
                     <tr>
@@ -2892,7 +2950,7 @@
         </details>
 
         <details>
-            <summary>マガジンステータス早見表（グレイブ用）</summary>
+            <summary>マガジンステータス早見表 (<span class="w-icons glaive">&#xe156;</span>)</summary>
             <table class="tablesorter" id="magazine_table_glaive">
                 <thead>
                     <tr>
@@ -2979,7 +3037,7 @@
         </details>
 
         <details>
-            <summary>マガジンステータス早見表（ヘビーグレネードランチャー用）</summary>
+            <summary>マガジンステータス早見表 (<span class="w-icons glheavy">&#xe113;</span>)</summary>
             <table class="tablesorter" id="magazine_table_gl1">
                 <thead>
                     <tr>
@@ -3079,7 +3137,7 @@
         </details>
 
         <details>
-            <summary>マガジンステータス早見表（単発グレネードランチャー用）</summary>
+            <summary>マガジンステータス早見表 (<span class="w-icons glspecial">&#xe155;</span>)</summary>
             <table class="tablesorter" id="magazine_table_gl2">
                 <thead>
                     <tr>
@@ -3152,7 +3210,7 @@
         </details>
 
         <details>
-            <summary>マガジンステータス早見表（ロケットランチャー用）</summary>
+            <summary>マガジンステータス早見表 (<span class="w-icons rocket">&#xe108;</span>)</summary>
             <table class="tablesorter" id="magazine_table_rl">
                 <thead>
                     <tr>
@@ -3350,7 +3408,7 @@
         <div class="base">発射した弾が当たった時、敵がより遠くに押しやられる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            <span class="pvp">メイン弾を使用する武器で、マイナーの敵を必ずひるませる。</span>
+            <span class="pve">メイン弾を使用する武器で、マイナーの敵を必ずひるませる。</span>
             <span class="pvp"><br>また、メジャー以上の敵にもひるみ効果を与えることができる。</span>
             <span class="pvp">敵が受けるひるみ量が増加する。増加量は武器のフレームによって異なる。</span>
             <div class="info">&lt;効果量&gt;</div>
@@ -3377,8 +3435,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4d0cb2e34dfd2ed102e03ca1f0809d37.png" class="h3">アサルトマガジン</h3>
         <div class="base">このショットガンのマガジンが素早い戦闘に最適化される。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ショットガンにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons shotgun">&#xe104;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+15</b></li>
@@ -3391,9 +3449,10 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0138d925d3048e4d34e8b4f841106327.png" class="h3">スワップマガジン</h3>
         <div class="base">この武器の取り出し、射撃準備が早くなる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glaive">&#xe156;</span>
             <div class="info">&lt;備考&gt;</div>
-            グレイブにのみ付与される。
-            <br>ハンドリングは変化せず、アニメーション速度に倍率がかかる。
+            ハンドリングは変化せず、アニメーション速度に倍率がかかる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>取り出し/収納速度: <b>x0.9</b></li>
@@ -3408,7 +3467,7 @@
             <div class="info">&lt;備考&gt;</div>
             SGを除くIKELOS武器にのみ付与される。
             <br>被弾した敵のひるみが増加する。
-            <br>ひるみの増加量は武器の種類によって異なる。<br>
+            <br>ひるみの増加量は武器の種類によって異なる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+3</b></li>
@@ -3423,9 +3482,10 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/231f0b02ac3bb5a19aa4b4c82fbf90a4.png" class="h3">フェーズマガジン</h3>
         <div class="base">発射レートとマガジンサイズを低下させ、ダメージを増加させる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons smg">&#xe107;</span> (ランダム・バリアブル)
             <div class="info">&lt;備考&gt;</div>
-            ランダム・バリアブル等、オモロン製の軽量フレームサブマシンガンにのみ付与される。
-            <br><b>精密フレームと同等</b>の威力・発射レートになる。マガジンサイズはこちらの方が大きい。<br>
+            <b>精密フレームと同等</b>の威力・発射レートになる。マガジンサイズはこちらの方が大きい。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>威力: <b>+10</b></li>
@@ -3439,9 +3499,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d541a7c35981cb9caceaf3736097adb9.png" class="h3">高速弾</h3>
         <div class="base">この武器の投射物が大幅に軽量化され、速くなる。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ロケットランチャーとグレネードランチャーにのみ付与される。
-            <br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>速度: <b>+10</b></li>
@@ -3454,9 +3513,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/edbc74db634e0848209b885550c6c7a0.png" class="h3">合金ケーシング</h3>
         <div class="base">リロード速度を上昇させるため、軽量化する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ロケットランチャーとヘビーグレネードランチャーにのみ付与される。
-            <br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>リロード速度: <b>+30</b></li>
@@ -3469,9 +3527,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2a0232f77cee68e2945d11808f5a1d96.png" class="h3">爆縮弾</h3>
         <div class="base">投射物の速度が上昇し、爆発を制御できる。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ロケットランチャーと単発グレネードランチャーにのみ付与される。
-            <br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glspecial">&#xe155;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>速度: <b>+10</b></li>
@@ -3485,9 +3542,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fadc2600c37a417f532a3735caff04ac.png" class="h3">ブラックパウダー</h3>
         <div class="base">この武器の爆薬の効果が上昇する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ロケットランチャーと運命の暴虐にのみ付与される。
-            <br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glheavy">&#xe113;</span> (運命の暴虐)
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>爆発範囲: <b>+5</b></li>
@@ -3500,8 +3556,9 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d2f835dad7b493e1f52c6b4b7a6571bc.png" class="h3">衝撃ケーシング</h3>
         <div class="base">直撃の威力が上昇する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span>
             <div class="info">&lt;備考&gt;</div>
-            ロケットランチャーにのみ付与される。<br>
             <b>爆発ダメージは上がらない</b>ため、全体の威力で見ると <b>約2.2%</b> 程の増加量となる。<br>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -3515,11 +3572,11 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c733f59957e33024af80e648729321ad.png" class="h3">スパイクグレネード</h3>
         <div class="base">グレネード弾が命中した時の威力が上昇する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;備考&gt;</div>
-            グレネードランチャーにのみ付与される。
-            <br>壁や床で反射させると直撃ダメージが発生しないため恩恵を受けられない。
-            <br>
-            <b>爆発ダメージは上がらない</b>ため、全体の威力で見ると <b>約9%</b> 程の増加量となる。<br>
+            <b>爆発ダメージは上がらない</b>ため、全体の威力で見ると <b>約9%</b> 程の増加量となる。
+            <br><span class="w-icons glspecial">&#xe155;</span>: 壁や床で反射させると直撃ダメージが発生しないため、恩恵を受けられない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ダメージ増加量: <b>+50%</b></li>
@@ -3532,8 +3589,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/88869f977fa3d145c1ece3e38c070bd2.png" class="h3">近接検知グレネード</h3>
         <div class="base">この武器から発射されたグレネードの近接検知力が上昇するが、爆発範囲が縮小する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            グレネードランチャーにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>敵が弾から <b>約1.5m</b> 以内の距離になると、即座に弾が爆発する。</li>
@@ -3546,8 +3603,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e3aa5ad6714f4dc3725b99b67b98b1a0.png" class="h3">拡張ドラム</h3>
         <div class="base">重くて装填数の多いドラムマガジン。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ヘビーグレネードランチャーにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>マガジンサイズ: <b>+30</b></li>
@@ -3560,8 +3617,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/82cd3e77e62dd4f9f9b1ad1a961758fd.png" class="h3">爆薬オードナンス</h3>
         <div class="base">この武器の投射物がより大きく、速くなる。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ヘビーグレネードランチャーにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>爆発範囲: <b>+10</b></li>
@@ -3575,8 +3632,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0e409b3efdb001c3e9e5548c0b225708.png" class="h3">ミニフラグ</h3>
         <div class="base">グレネード弾が小さくコンパクトになり、リロードしやすくなる。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ヘビーグレネードランチャーにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>リロード速度: <b>+10</b></li>
@@ -3590,8 +3647,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e792675af3774d031a5d30d3824d6e27.png" class="h3">粘着グレネード</h3>
         <div class="base">この武器から発射されたグレネード弾が当たったものに張り付き、敵が近くに来ると爆発する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            ヘビーグレネードランチャーにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>敵が弾から <b>約1.5m</b> 以内に入ると爆発する。</li>
@@ -3604,8 +3661,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3d54724d818519a24544238881123a7b.png" class="h3">熱可塑性グレネード</h3>
         <div class="base">遠くまで跳ねるグレネード弾を発射する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            一部のヘビーグレネードランチャーにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glheavy">&#xe113;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>弾が <b>最大2回</b> 跳ねてから爆発する。</li>
@@ -3619,10 +3676,11 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c0dde588e1a32760621859e496d2e657.png" class="h3">目つぶしグレネード</h3>
         <div class="base">爆発すると一時的に目つぶし効果を発生させるグレネード。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glspecial">&#xe155;</span>
             <div class="info">&lt;備考&gt;</div>
-            単発グレネードランチャーにのみ付与される。
-            <span class="pve"><br>盲目状態の敵は射撃を停止し、移動速度が低下する。</span>
-            <span class="pvp"><br>盲目状態になると視界がホワイトアウトする。</span>
+            <span class="pve">盲目状態の敵は射撃を停止し、移動速度が低下する。</span>
+            <span class="pvp">盲目状態になると視界がホワイトアウトする。</span>
             <br>目つぶし効果の範囲は実際の爆発範囲よりも広く、ダメージが無くても効果だけが発動する場合がある。
             <br>
             <div class="info">&lt;効果量&gt;</div>
@@ -3638,9 +3696,10 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ae0beb8cb2fe22d8a6176dc333c4a140.png" class="h3">衝撃グレネード</h3>
         <div class="base">グレネード弾が爆風を放って敵をよろめかせる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glspecial">&#xe155;</span>
             <div class="info">&lt;備考&gt;</div>
             このパークは現在、入手した武器には付与されない。
-            <br>単発グレネードランチャーにのみ付与される。
             <span class="pve"><br>効果は目つぶしグレネードに類似しているが、比較すると効果の発動が安定しない場合がある。</span>
             <span class="pvp"><br>シャドウショットのように敵の向いている方向を一瞬ずらす効果がある。</span>
             <br>
@@ -3667,7 +3726,7 @@
         <p>バッテリーは、マガジンの代わりにフュージョンライフル、リニア・フュージョンライフル、トレースライフルの2列目に付与される。</p>
 
         <details>
-            <summary>バッテリーステータス早見表（フュージョンライフル、リニア・フュージョンライフル用）</summary>
+            <summary>バッテリーステータス早見表 (<span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span>)</summary>
             <table class="tablesorter" id="battery_table_fr">
                 <thead>
                     <tr>
@@ -3747,7 +3806,7 @@
         </details>
 
         <details>
-            <summary>バッテリーステータス早見表（トレースライフル用）</summary>
+            <summary>バッテリーステータス早見表 (<span class="w-icons trace">&#xe138;</span>)</summary>
             <table class="tablesorter" id="battery_table_tr">
                 <thead>
                     <tr>
@@ -3823,6 +3882,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fba0bbb5a21b74ebe59f394f2319098c.png" class="h3">強化バッテリー</h3>
         <div class="base">バッテリー寿命が長くなる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span> / <span class="w-icons trace">&#xe138;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>マガジンサイズ: <b>+20</b></li>
@@ -3834,6 +3895,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/51460192e92adf82869709d44073774c.png" class="h3">イオンバッテリー</h3>
         <div class="base">大きくて重いバッテリー。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span> / <span class="w-icons trace">&#xe138;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>マガジンサイズ: <b>+40</b></li>
@@ -3846,6 +3909,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/253e7147a06242e8305ddf1c5571a9fc.png" class="h3">投射フューズ</h3>
         <div class="base">距離の最適化。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span> / <span class="w-icons trace">&#xe138;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+10</b></li>
@@ -3857,6 +3922,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c38ffa488ea6747f8acbfbdb93f3e5a2.png" class="h3">粒子リピーター</h3>
         <div class="base">各ボルトの反動を抑制する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span> / <span class="w-icons trace">&#xe138;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+10</b></li>
@@ -3868,8 +3935,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/231f0b02ac3bb5a19aa4b4c82fbf90a4.png" class="h3">加速コイル</h3>
         <div class="base">チャージ時間が短縮される。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            フュージョンライフル、リニア・フュージョンライフルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>チャージ時間: <b>-20</b></li>
@@ -3882,8 +3949,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/381b7a519ca06b70b5ff8f793dfad038.png" class="h3">液体コイル</h3>
         <div class="base">チャージ速度を犠牲にしてダメージを増加させる。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            フュージョンライフル、リニア・フュージョンライフルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>威力: <b>+5</b></li>
@@ -3896,8 +3963,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/214f4b73b1d77b9a2b7a4a44fe563af0.png" class="h3">戦略的バッテリー</h3>
         <div class="base">この武器には複数の小さな改善が見られる。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            トレースライフルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons trace">&#xe138;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+5</b></li>
@@ -3911,8 +3978,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8d2956c9138e0857acf2860266d73b42.png" class="h3">軽量バッテリー</h3>
         <div class="base">軽量で持ち運び易いバッテリー。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            トレースライフルにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons trace">&#xe138;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ハンドリング: <b>+10</b></li>
@@ -4004,6 +4071,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0dca9631d83ecaeb27bb39c7d2bf7679.png" class="h3">カーボン製の矢</h3>
         <div class="base">軽くて安定したシャフト。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+10</b></li>
@@ -4015,6 +4084,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f2da76a272768d0233eaebe2cc79e098.png" class="h3">コンパクトな矢</h3>
         <div class="base">細い矢で、矢をつがえる速度と武器のハンドリングが上昇する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ハンドリング: <b>+10</b></li>
@@ -4027,6 +4098,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/eba4d202086df5d676fe0435eeb27ec1.png" class="h3">ファイバーグラス製の矢</h3>
         <div class="base">重く、安定している。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>命中精度: <b>+15</b></li>
@@ -4039,6 +4112,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/880badbf9bb835030979ef0548a5b0f7.png" class="h3">らせん状の矢羽根</h3>
         <div class="base">空気抵抗が少なく軽い。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>命中精度: <b>+5</b></li>
@@ -4051,6 +4126,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/71235f97dbce4db59b18683f4dd65bcc.png" class="h3">自然な矢羽根</h3>
         <div class="base">羽のように軽くコントロールしやすい。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+15</b></li>
@@ -4063,6 +4140,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/78fb6b578baa9492a489b6ee98696c6b.png" class="h3">真っ直ぐな矢羽根</h3>
         <div class="base">真っ直ぐ飛ばすための最新式の尾羽。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>命中精度: <b>+10</b></li>
@@ -4155,6 +4234,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/af27236ce356d54af0037b9a4e52c356.png" class="h3">バランスガード</h3>
         <div class="base">剣を使ったガードの防御力が全体的にバランスよく調整される。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ガード耐性: <b>70</b></li>
@@ -4169,6 +4250,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4f900a2b6e2b8d14e96e7e8afded72db.png" class="h3">ヘビーガード</h3>
         <div class="base">剣を使ったガードの防御力が全体的に高くなるが、チャージ率は低下する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ガード耐性: <b>76</b></li>
@@ -4183,6 +4266,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/744c9acae30e2c33eb2163435362f445.png" class="h3">バーストガード</h3>
         <div class="base">剣を使ったガードの効率性が最大化され耐性が上昇するが、持続時間は短くなる。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ガード耐性: <b>80</b></li>
@@ -4197,6 +4282,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/25c1519d424a56ff538ec015368147f6.png" class="h3">スタミナガード</h3>
         <div class="base">剣を使ったガードの効率性が最大化され持続時間が長くなるが、耐性は低下する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ガード耐性: <b>60</b></li>
@@ -4211,6 +4298,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7c04ae7d23ee842c2b58c3e9c0f5855f.png" class="h3">剣士のガード</h3>
         <div class="base">剣を使ったガードの防御力が全体的に低くなるが、チャージ率は上昇する。</div>
         <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ガード耐性: <b>64</b></li>
@@ -4225,8 +4314,8 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/27372dd0065672d9308804a2a0a442bd.png" class="h3">永久的ガード</h3>
         <div class="base">剣を使ったガードの防御力がバランスよく調整され、持続時間が最大化される。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            永遠の刃とワールドライン・ゼロにのみ付与される。<br>
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons sword">&#xe153;</span> (永遠の刃 / <a href="./exotic_weapons.html#worldline_zero">ワールドライン・ゼロ</a>)
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ガード耐性: <b>70</b></li>

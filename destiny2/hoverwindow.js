@@ -1,5 +1,8 @@
 function textSwitching(info) {
     switch (info) {
+        case 'sample':
+            $("#info").text("このように情報が出ます");
+            break;
         case 'starvation':
             $("#info").text("かけら「飢餓の残響」適用時の数値");
             break;
