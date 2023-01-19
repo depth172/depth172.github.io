@@ -1,4 +1,5 @@
 function textSwitching(info) {
+    $("#info").html("");
     switch (info) {
         case 'sample':
             $("#info").text("このように情報が出ます");
@@ -230,6 +231,58 @@ $(window).ready(function() {
             } else {
                 coords.left = 1;
             }
+
+            $("#hover-balloon").offset(coords);
+            $('#hover-balloon').css('display', 'inline-block');
+            showingBalloon = true;
+        }
+    });
+    $('.hp_bar').hover(
+        function() {
+            if (window.matchMedia("(max-width: 768px)").matches == false && showingBalloon == false) {
+                var img = $(this).attr('windowimg')
+
+                $("#info").html("<img src=\"" + img + "\" style=\"width: 15em\">");
+                var coords = {};
+
+                var top = $(this).offset().top;
+                windowtop = $(window).scrollTop();
+
+                coords.top = top - windowtop - 100;
+
+                var widthPixel = $("#hover-balloon").outerWidth();
+                var iconWidthPixel = $(this).outerWidth();
+                coords.left = $(this).offset().left + (iconWidthPixel - widthPixel) * 0.5;
+
+                $("#hover-balloon").offset(coords);
+                $('#hover-balloon').css('display', 'inline-block');
+                showingBalloon = true;
+            }
+        },
+        function() {
+            if (showingBalloon) {
+                hideBalloon();
+            }
+        }
+    );
+    $(window).scroll(function() {
+        if (showingBalloon) {
+            hideBalloon();
+        }
+    });
+    $('.hp_bar').on('click', function() {
+        if (window.matchMedia("(max-width: 768px)").matches == true && showingBalloon == false) {
+            var img = $(this).attr('windowimg')
+
+            $("#info").html("<img src=\"" + img + "\" style=\"width: 15em\">");
+            var coords = {};
+
+            var top = $(this).offset().top;
+            windowtop = $(window).scrollTop();
+
+            coords.top = top - windowtop - 90;
+
+            coords.left = 1;
 
             $("#hover-balloon").offset(coords);
             $('#hover-balloon').css('display', 'inline-block');

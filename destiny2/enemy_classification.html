@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Destiny 2 戦闘員の分類詳細 - depth's Toybox</title>
+    <meta name="description" content="ページの説明">
+
+    <!-- Twitterバナーの設定 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@depth172">
+    <meta name="twitter:title" content="Destiny 2 戦闘員の分類詳細 - depth's Toybox">
+    <meta name="twitter:description" content="Destiny 2に登場する敵の分類について、どのような法則によってなされているかを詳細に解説します。">
+    <meta name="twitter:image" content="https://depth172.github.io/img/card-summary.png">
+
+    <!-- デザイン関連 -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="d2style.css">
+    <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
+
+    <!-- 表示内容切り替え用スクリプト -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="./hoverwindow.js"></script>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
+    </div>
+
+    <div class="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
+        <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
+        <h1>Destiny 2 戦闘員の分類詳細</h1>
+        <hr>
+        <div class="title_bar">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 ページたいとる" data-url="ぺーじうらる" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
+
+                var target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+
+        <p class="intro">Destiny 2に登場する敵の分類について、どのような法則によってなされているかを詳細に解説します。</p>
+
+        <h2>目次</h2>
+
+        <div class="toc">
+            <ul>
+                <li><a href="#quick_table">敵分類早見表</a></li>
+                <li><a href="#rank-and-file">一般兵</a></li>
+                <li><a href="#elite">エリート</a></li>
+                <ul>
+                    <li><a href="#tier">ランク</a></li>
+                    <ul>
+                        <li><a href="#tier_1">ランク1</a></li>
+                        <li><a href="#tier_2">ランク2</a></li>
+                        <li><a href="#tier_3">ランク3</a></li>
+                        <li><a href="#tier_4">ランク4</a></li>
+                    </ul>
+                </ul>
+                <li><a href="#miniboss">ミニボス</a></li>
+                <ul>
+                    <li><a href="#champion">チャンピオン</a></li>
+                </ul>
+                <li><a href="#vehicle">ビークル</a></li>
+                <li><a href="#turret">タレット</a></li>
+                <li><a href="#automata">砲台</a></li>
+                <li><a href="#emplacement">設置物</a></li>
+                <li><a href="#faq">分類が複雑な敵について</a></li>
+                <ul>
+                    <li><a href="#hive_guardian">ハイヴガーディアンの分類</a></li>
+                    <li><a href="#lostsector_boss">失われたセクターのボス</a></li>
+                    <li><a href="#is_this_vehicle">ブリッグやサービターはビークルではないのか</a></li>
+                </ul>
+                <li><a href="#source">出典</a></li>
+                <li><a href="#challenge_log">更新履歴</a></li>
+                <li><a href="#comments">コメント</a></li>
+            </ul>
+        </div>
+
+        <p>
+            右三角形はクリックすることで展開できます。
+            <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
+            <br>このページの内容は主にPvE向けのみのため、切り替えボタンは設置しておりません。
+        </p>
+
+        <a name="quick_table"></a>
+        <h2>敵分類早見表</h2>
+
+        <div class="text">
+            全ての敵は、大きく分けると以下の<b>4つ</b>に分類できます。
+            <br>敵の<b>HPバーに付いているアイコン</b>から、その敵がどの分類に属するのか判断できます。
+            <br>詳細な説明は、表の一番左にある分類名のリンクからご覧ください。
+        </div>
+
+        <table class="list">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>アイコン<br>(<span class="for_pc">ホバー</span><span class="for_sp">タップ</span>でHP)</th>
+                    <th>グループ名</th>
+                    <th>フィニッシャー</th>
+                    <th class="include_icon">
+                        <a href="./weapon_perks.html#minor_spec">有効武器MOD</a>
+                    </th>
+                    <th class="include_icon">
+                        <a href="./weapon_perks.html#vorpal_weapon"><img src="https://www.bungie.net/common/destiny2_content/icons/6f82df3f2505654c266d2ee34c2a922d.png" class="table_icon"></a>
+                    </th>
+                    <th class="include_icon">
+                        <a href="./weapon_perks.html#one-two_punch"><img src="https://www.bungie.net/common/destiny2_content/icons/9e8b9d285c5064ad85a0b7dbcb911f36.png" class="table_icon"></a>
+                    </th>
+                    <th class="include_icon">
+                        <a href="./weapon_perks.html#redirection"><img src="https://www.bungie.net/common/destiny2_content/icons/f456be10de8137d77d436ca646002cd5.png" class="table_icon"></a>
+                    </th>
+                    <th class="include_icon">
+                        <a href="./exotic_armor.html#aeon_cults"><img src="https://www.bungie.net/common/destiny2_content/icons/94d922ec3eb165b42f68156e6b00c352.jpg" class="table_icon"></a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="center">
+                <tr>
+                    <th><b><a href="#rank-and-file">一般兵</a></b></th>
+                    <td><span class="hp_bar" windowimg="./img/enemy_rank-and-file.png"><img src="./img/icon_rank-and-file.png" class="enemy_icon"></span></td>
+                    <td class="enable">マイナー</td>
+                    <td class="enable"><b>可能</b></td>
+                    <td><img src="https://www.bungie.net/common/destiny2_content/icons/e81a8c8140243bd59ea988476dcb87b3.png" class="enemy_icon"></td>
+                    <td>無効</td>
+                    <td><b>+100%</b></td>
+                    <td class="disable">スタックを<b>チャージ</b></td>
+                    <td>効果なし</td>
+                </tr>
+                <tr>
+                    <th><b><a href="#elite">エリート</a></b></th>
+                    <td><span class="hp_bar" windowimg="./img/enemy_elite.png"><img src="./img/icon_elite.png" class="enemy_icon"></span></td>
+                    <td class="neutral">メジャー</td>
+                    <td class="enable"><b>可能</b></td>
+                    <td><img src="https://www.bungie.net/common/destiny2_content/icons/7f11f76c848ed7bc034acc08875d6326.png" class="enemy_icon"></td>
+                    <td>無効</td>
+                    <td><b>+100%</b></td>
+                    <td class="enable">スタックを<b>消費</b></td>
+                    <td class="neutral"><b>特殊弾</b>をドロップ</td>
+                </tr>
+                <tr>
+                    <th><b><a href="#miniboss">ミニボス</a></b></th>
+                    <td><span class="hp_bar" windowimg="./img/enemy_miniboss.png"><img src="./img/icon_miniboss.png" class="enemy_icon"></span></td>
+                    <td class="neutral">メジャー</td>
+                    <td class="enable"><b>可能</b></td>
+                    <td><img src="https://www.bungie.net/common/destiny2_content/icons/7f11f76c848ed7bc034acc08875d6326.png" class="enemy_icon"></td>
+                    <td class="enable"><b>有効</b></td>
+                    <td><b>+100%</b></td>
+                    <td class="enable">スタックを<b>消費</b></td>
+                    <td class="enable"><b>ヘビー弾</b>をドロップ</td>
+                </tr>
+                <tr>
+                    <th><b><a href="#boss">ボス</a></b></th>
+                    <td><span class="hp_bar" windowimg="./img/enemy_boss.png"><img src="./img/icon_boss.png" class="enemy_icon"></span></td>
+                    <td class="disable">ウルトラ</td>
+                    <td class="disable"><b>不可</b><br><span class="small">（ハイヴガーディアンを除く）</span></td>
+                    <td><img src="https://www.bungie.net/common/destiny2_content/icons/761bf64a085dd4789b958489ebc6a467.png" class="enemy_icon"></td>
+                    <td class="enable"><b>有効</b></td>
+                    <td class="neutral"><b>+150%</b></td>
+                    <td class="enable">スタックを<b>消費</b></td>
+                    <td>フィニッシャー不可</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text">
+            また、一部の敵や構造物は、上記の分類に<b>加えて</b>（もしくは<b>独自に</b>）、以下に示す<b>小分類</b>を持つ場合があります。
+            <br>グループとしては<b class="disable">ウルトラ</b>に分類されます。
+        </div>
+
+        <table class="list">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="include_icon">
+                        <a href="./weapon_perks.html#minor_spec">有効武器MOD</a>
+                    </th>
+                    <th class="include_icon">
+                        <a href="./weapon_perks.html#vorpal_weapon"><img src="https://www.bungie.net/common/destiny2_content/icons/6f82df3f2505654c266d2ee34c2a922d.png" class="table_icon"></a>
+                    </th>
+                    <th class="include_icon">
+                        <a href="./weapon_perks.html#one-two_punch"><img src="https://www.bungie.net/common/destiny2_content/icons/9e8b9d285c5064ad85a0b7dbcb911f36.png" class="table_icon"></a>
+                    </th>
+                    <th class="include_icon">
+                        <a href="./weapon_perks.html#redirection"><img src="https://www.bungie.net/common/destiny2_content/icons/f456be10de8137d77d436ca646002cd5.png" class="table_icon"></a>
+                    </th>
+                    <th class="include_icon">
+                        <a href="./weapon_perks.html#hakke_breach_armaments"><img src="https://www.bungie.net/common/destiny2_content/icons/0f58c76120e6331c0ee2832c6e8c58fe.png" class="table_icon"></a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="center">
+                <tr>
+                    <th><b><a href="#vehicle">ビークル</a></b></th>
+                    <td><img src="https://www.bungie.net/common/destiny2_content/icons/761bf64a085dd4789b958489ebc6a467.png" class="enemy_icon"></td>
+                    <td class="enable"><b>有効</b></td>
+                    <td class="neutral"><b>+150%</b></td>
+                    <td>効果なし</td>
+                    <td class="neutral"><b>+15%</b></td>
+                </tr>
+                <tr>
+                    <th><b><a href="#turret">タレット</a></b></th>
+                    <td>上記表の分類に従う</td>
+                    <td class="enable"><b>有効</b></td>
+                    <td>上記表の分類に従う</td>
+                    <td>上記表の分類に従う</td>
+                    <td class="enable"><b>+30%</b></td>
+                </tr>
+                <tr>
+                    <th><b><a href="#automata">砲台</a></b></th>
+                    <td><img src="https://www.bungie.net/common/destiny2_content/icons/761bf64a085dd4789b958489ebc6a467.png" class="enemy_icon"></td>
+                    <td class="enable"><b>有効</b></td>
+                    <td class="neutral"><b>+150%</b></td>
+                    <td class="enable">スタックを<b>消費</b></td>
+                    <td class="enable"><b>+15% × +30%</b></td>
+                </tr>
+                <tr>
+                    <th><b><a href="#emplacement">設置物</a></b></th>
+                    <td>上記表の分類に従う</td>
+                    <td>無効</td>
+                    <td><b>+100%</b></td>
+                    <td>効果なし</td>
+                    <td class="enable"><b>+30%</b></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="rank-and-file"></a>
+        <h2>一般兵</h2>
+
+        <div class="text">
+            一般兵は、<b>最も多く出現する通常の敵</b>です。HPバーは<b>赤色</b>で、アイコンは<b>四角の形状</b>をしています。
+            <br><img src="./img/enemy_rank-and-file.png">
+            <br>ゲーム内では「<b>マイナー</b>」と呼ばれるグループです。
+            <br>より詳細な分類については、<a href="#tier">ランク</a>の項をご覧ください。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="elite"></a>
+        <h2>エリート</h2>
+
+        <div class="text">
+            エリートは、<b>通常より少し強力な敵</b>です。HPバーは<b>橙色</b>で、アイコンは<b>盾のような形状</b>をしています。
+            <br><img src="./img/enemy_elite.png">
+            <br>敵の種類によって、名前に「レベナント」「レジリエント」「汚染された」などの<b>接頭語が付く</b>ことがあります。
+            <br>ゲーム内で「<b>メジャー</b>」と呼ばれるグループに入ります。
+            <br>より詳細な分類については、<a href="#tier">ランク</a>の項をご覧ください。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="tier"></a>
+        <h2>ランク</h2>
+
+        <div class="text">
+            「ランク」は、主に<a href="#rank-and-file">一般兵</a>や<a href="#elite">エリート</a>に対して用いられる分類方法です。ランク付けは、基本的に敵の<b>種類</b>によって決定されます。
+            <br>ランクは1～4の間で決まり、数字が大きいほど、強力な戦闘員であると位置づけられます。
+            <br>敵のランクによって、倒した際に<b>パークやスキルによって回復するエネルギーが変化</b>することがあります。
+            <br>また、<b>エリート</b>の敵はランクが<b>1段階上</b>の敵と同じような扱いとなります。<b><a href="#miniboss">ミニボス</a>以上</b>の敵は<b>ランク4</b>として扱われます。
+            <br><b>例</b>: 「レベナント・アコライト」は、アコライト(ランク1)のエリートであるため、<b>ランク2</b>と同等の扱いとなる。
+        </div>
+
+        <table class="list">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="include_icon"><img src="https://www.bungie.net/common/destiny2_content/icons/7d1636a95e3220a43ee0a60f267d4787.png" class="table_icon"> <b>カバル</b></th>
+                    <th class="include_icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d33acdbaacddf3ebe3c1036f5e83a90e.png" class="table_icon"> <b>フォールン</b></th>
+                    <th class="include_icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f2934f4f56c21beec0bffa99965a9fe3.png" class="table_icon"> <b>ハイヴ</b></th>
+                    <th class="include_icon"><img src="https://www.bungie.net/common/destiny2_content/icons/345312910ede36aff268442007953fd2.png" class="table_icon"> <b>ベックス</b></th>
+                    <th class="include_icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1b34d9c92c6bcccab3a38136d11f2d72.png" class="table_icon"> <b>スコーン</b></th>
+                    <th class="include_icon"><img src="https://www.bungie.net/common/destiny2_content/icons/46fa0c2bb8ccc7c30a8913c9e33ac501.png" class="table_icon"> <b>宿られた兵</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>ランク1</th>
+                    <td>
+                        <ul>
+                            <li>ウォービースト</li>
+                            <li>サイオン</li>
+                            <li>スコルピウス</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>シャンク</li>
+                            <li>ドレッグ</li>
+                            <li>レッチ</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>スロール</li>
+                            <li>アコライト</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ファナティック</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>スクリーボ</li>
+                            <li>ストーカー</li>
+                            <li>ラヴィジャー</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>宿られたサイオン</li>
+                            <li>宿られたスロール</li>
+                            <li>宿られたアコライト</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ランク2</th>
+                    <td>
+                        <ul>
+                            <li>リージョナリー</li>
+                            <li>インセンディオ</li>
+                            <li>ファランクス</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>バンダル</li>
+                            <li>マローダー</li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ゴブリン</li>
+                            <li>ハーピー</li>
+                            <li>ホブゴブリン</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ルーカー</li>
+                            <li>レイダー</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>宿られたファランクス</li>
+                            <li>宿られたバンダル</li>
+                            <li>宿られたゴブリン</li>
+                            <li>宿られたホブゴブリン</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ランク3</th>
+                    <td>
+                        <ul>
+                            <li>センチュリオン</li>
+                            <li>グラディエーター</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>キャプテン</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ナイト</li>
+                            <li>ウィザード</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ミノタウロス</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>チーフテン</li>
+                            <li>レイス</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>宿られたセンチュリオン</li>
+                            <li>宿られたナイト</li>
+                            <li>宿られたウィザード</li>
+                            <li>宿られたミノタウロス</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ランク4</th>
+                    <td>
+                        <ul>
+                            <li>コロッサス</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>サービター</li>
+                            <li>ブリッグ</li>
+                            <li>ヘビーシャンク</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>オーガ</li>
+                            <li>シュリーカー</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ハイドラ</li>
+                            <li>ワイバーン</li>
+                            <li>サイクロプス</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>変異体</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>宿られたオーガ</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="tier_1"></a>
+        <h3>ランク1</h3>
+
+        <div class="text">
+            ランク1の敵は最も弱く、個々の力はありませんが、<b>大量に出現</b>することで脅威になり得ます。
+            <br>具体的にどの敵がランク1に分類されるかは、<a href="#tier">早見表</a>をご覧ください。
+        </div>
+        <div class="indepth">
+            <div class="info">&lt;特殊な分類の敵&gt;</div>
+            <b>カバル</b>
+            <ul>
+                <li>スコルピウス
+                    <ul>
+                        <li>同時に、<a href="#turret">タレット</a>にも該当する。</li>
+                    </ul>
+                </li>
+            </ul>
+            <b>フォールン</b>
+            <ul>
+                <li>シャンク
+                    <ul>
+                        <li>ヘビーシャンクを除く全種類が該当する。</li>
+                    </ul>
+                </li>
+            </ul>
+            <b>ハイヴ</b>
+            <ul>
+                <li>スロール
+                    <ul>
+                        <li>カースド・スロールも含まれる。</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="tier_2"></a>
+        <h3>ランク2</h3>
+
+        <div class="text">
+            ランク2の敵は一般的なHPと攻撃力を持ちます。ホブゴブリンのバリアなど、一部の敵は<b>特別な能力</b>を有していることがあります。
+            <br>具体的にどの敵がランク2に分類されるかは、<a href="#tier">早見表</a>をご覧ください。
+        </div>
+
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="tier_3"></a>
+        <h3>ランク3</h3>
+
+        <div class="text">
+            ランク3の敵は、ランク2の敵より少し高いHPと攻撃力を持ちます。チーフテンのトーテム召喚など、一部の敵は<b>特別な能力</b>を有していることがあります。
+            <br>具体的にどの敵がランク3に分類されるかは、<a href="#tier">早見表</a>をご覧ください。
+        </div>
+
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="tier_4"></a>
+        <h3>ランク4</h3>
+
+        <div class="text">
+            ランク4の敵は、<b>HPも多く攻撃力もあり</b>危険ですが、そこまで頻出することはありません。
+            <br>敵の種類を問わず、ミニボスやボスは、全てこのランクに分類されます。
+            <br>具体的にどの敵がランク4に分類されるかは、<a href="#tier">早見表</a>をご覧ください。
+        </div>
+        <div class="indepth">
+            <div class="info">&lt;特殊な分類の敵&gt;</div>
+            <b>フォールン</b>
+            <ul>
+                <li>ヘビーシャンク
+                    <ul>
+                        <li>他のシャンクは<a href="#tier_1">ランク1</a>に該当する。</li>
+                    </ul>
+                </li>
+            </ul>
+            <b>ハイヴ</b>
+            <ul>
+                <li>シュリーカー
+                    <ul>
+                        <li>同時に、<a href="#automata">砲台</a>にも該当する。</li>
+                    </ul>
+                </li>
+            </ul>
+            <b>ベックス</b>
+            <ul>
+                <li>サイクロプス
+                    <ul>
+                        <li>同時に、<a href="#automata">砲台</a>にも該当する。</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="miniboss"></a>
+        <h2>ミニボス</h2>
+
+        <div class="text">
+            ミニボスは、<b>通常よりも大きく強力な敵</b>です。HPバーは<b>黄土色</b>で、アイコンは<b>逆向きの三角形</b>をしています。
+            <br><img src="./img/enemy_miniboss.png">
+            <br>見た目のサイズも大きく、HPも高いため、頻繁には出現せず、ステージの中間に配置されることが多いです。
+            <br>また、ほとんどの場合で<b>属性シールド</b>をまとっています。
+            <br>ゲーム内では、<a href="#elite">エリート</a>と同じく「<b>メジャー</b>」と呼ばれるグループに入ります。
+        </div>
+
+        <a name="champion"></a>
+        <h3>チャンピオン</h3>
+
+        <div class="text">
+            特殊な能力を持ったミニボスは、<b>チャンピオン</b>と呼ばれます。<b>ミニボス級のハイヴガーディアン</b>もこれにあたります。
+            <br><span class="w-icons barrier">&#xe070;</span> バリア・チャンピオン、<span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・チャンピオン、<span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンの3種類が存在し、対応する装備をしていない場合は倒すことが非常に困難になります。</li>
+
+        </div>
+        <div class="indepth">
+            <div class="info">&lt;対象の敵&gt;</div>
+            <b>カバル</b>
+            <ul>
+                <li><span class="w-icons barrier">&#xe070;</span> バリア・コロッサス</li>
+                <li><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・インセンディオ</li>
+            </ul>
+            <b>フォールン</b>
+            <ul>
+                <li><span class="w-icons barrier">&#xe070;</span> バリア・サービター</li>
+                <li><span class="w-icons overload">&#xe071;</span> オーバーロード・キャプテン</li>
+            </ul>
+            <b>ハイヴ</b>
+            <ul>
+                <li><span class="w-icons barrier">&#xe070;</span> バリア・ナイト</li>
+                <li><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・オーガ</li>
+                <li>光の戦士のナイト</li>
+                <li>光の戦士のウィザード</li>
+                <li>光の戦士のアコライト</li>
+            </ul>
+            <b>ベックス</b>
+            <ul>
+                <li><span class="w-icons barrier">&#xe070;</span> バリア・ホブゴブリン</li>
+                <li><span class="w-icons overload">&#xe071;</span> オーバーロード・ミノタウロス</li>
+            </ul>
+            <b>スコーン</b>
+            <ul>
+                <li><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・アボミネーション（変異体）</li>
+                <li><span class="w-icons overload">&#xe071;</span> オーバーロード・チーフテン</li>
+            </ul>
+            <b>宿られた兵</b>
+            <ul>
+                <li><span class="w-icons unstoppable">&#xe072;</span> 宿られたアンストッパブル・ファランクス</li>
+                <li><span class="w-icons overload">&#xe071;</span> 宿られたオーバーロード・ホブゴブリン</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="boss"></a>
+        <h2>ボス</h2>
+
+        <div class="text">
+            ボスは、ステージの最後などで登場する<b>最も強力な敵</b>です。HPバーは<b>黄色</b>で、アイコンは<b>ひし形</b>をしています。
+            <br><img src="./img/enemy_boss.png">
+            <br>レイドなど、一部のボスはHPバーが<b>画面下部に固定</b>されるものもあります。
+            <br>ただHPが多いだけでなく、至近距離まで近づくと地面を鳴らして<b>衝撃波</b>を放ったり、<b>独自のギミックやダメージフェイズ</b>があったりと、倒すためには工夫が必要な敵です。
+            <br>また、ボスには<b>フィニッシャーをすることができません。</b>
+            <br>ボスの中で詳細な区分は存在せず、パトロールのボスも、ストライクのボスも、レイドのボスも、全て同じ「<b>ボス</b>」という分類で括ることができます。
+            <br>ゲーム内では、「<b>ウルトラ</b>」と呼ばれるグループに入ります。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="vehicle"></a>
+        <h2>ビークル</h2>
+
+        <div class="text">
+            ビークルは、主に船や戦車といった、<b>移動・搭乗・戦闘などができる</b>オブジェクト郡を指します。
+            <br>改造パーツの<a href="./weapon_perks.html#boss_spec">ボス特化</a>や<a href="./weapon_perks.html#vorpal_weapon">ヴォーパル武器</a>は、これに対して効果を発揮できます。
+            <br>ゲーム内では、「<b>ウルトラ</b>」と呼ばれるグループに入ります。
+            <div class="indepth">
+                <div class="info">&lt;対象の敵&gt;</div>
+                <b>カバル</b>
+                <ul>
+                    <li>インターセプター</li>
+                    <li>スレッシャー</li>
+                    <li>ゴリアテタンク</li>
+                </ul>
+                <b>フォールン</b>
+                <ul>
+                    <li>パイク</li>
+                    <li>ウォーカー</li>
+                </ul>
+                <b>スコーン</b>
+                <ul>
+                    <li>スコーン・ウォーカー</li>
+                </ul>
+                <b>宿られた兵</b>
+                <ul>
+                    <li>宿りの汚染</li>
+                </ul>
+                <b>ガーディアン</b>
+                <ul>
+                    <li>スパロー</li>
+                </ul>
+                <div class="info">&lt;備考&gt;</div>
+                インターセプターとパイクに対して、搭乗者がいる場合は<b><a href="./weapon_perks.html#minor_spec">マイナー特化</a>の効果</b>が発動する。
+            </div>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="turret"></a>
+        <h2>タレット</h2>
+
+        <div class="text">
+            タレットは、船に搭載された<b>自動射撃銃</b>などのオブジェクトを指します。
+            <br>中にはこちらからダメージを与えられないものも存在します。
+            <br>ゲーム内では、「<b>ウルトラ</b>」と呼ばれるグループに入ります。
+            <div class="indepth">
+                <div class="info">&lt;対象の敵&gt;</div>
+                <b>カバル</b>
+                <ul>
+                    <li>スコルピウス</li>
+                    <ul>
+                        <li>同時に、一般兵の<a href="#tier_1">ランク1</a>にも該当する。</li>
+                    </ul>
+                </ul>
+                <b>フォールン</b>
+                <ul>
+                    <li>スキフ・タレット</li>
+                </ul>
+                <b>ハイヴ</b>
+                <ul>
+                    <li>トゥームシップの砲台</li>
+                </ul>
+            </div>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="automata"></a>
+        <h2>砲台</h2>
+
+        <div class="text">
+            砲台は、<b>移動能力のない敵ユニット</b>を指します。
+            <br>ビークルとタレットの双方の性質を併せ持つ仕様上、独自の分類となっています。
+            <br>ゲーム内では、「<b>ウルトラ</b>」と呼ばれるグループに入ります。
+            <div class="indepth">
+                <div class="info">&lt;対象の敵&gt;</div>
+                <b>ハイヴ</b>
+                <ul>
+                    <li>シュリーカー</li>
+                    <ul>
+                        <li>同時に、一般兵の<a href="#tier_4">ランク4</a>にも該当する。</li>
+                    </ul>
+                </ul>
+                <b>ベックス</b>
+                <ul>
+                    <li>サイクロプス</li>
+                    <ul>
+                        <li>同時に、一般兵の<a href="#tier_4">ランク4</a>にも該当する。</li>
+                    </ul>
+                </ul>
+                <div class="info">&lt;備考&gt;</div>
+                <a href="./weapon_perks.html#hakke_breach_armaments">ハッケの突破兵器</a>は、ビークルとタレットの効果が<b>同時に発動</b>する。
+                <br>このため、ダメージバフが+15%と+30%で同時に付与され、倍率がさらに大きくなる状態となっている。
+            </div>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="emplacement"></a>
+        <h2>設置物</h2>
+
+        <div class="text">
+            設置物は、<b>敵によって召喚される</b>移動しないユニットを指します。
+            <br>ゲーム内では、「<b>ウルトラ</b>」と呼ばれるグループに入ります。
+            <div class="indepth">
+                <div class="info">&lt;対象の敵&gt;</div>
+                <b>スコーン</b>
+                <ul>
+                    <li>チーフテンのトーテム</li>
+                </ul>
+                <b>宿られた兵</b>
+                <ul>
+                    <li>アコライトの目</li>
+                </ul>
+                <b>ガーディアン</b>
+                <ul>
+                    <li><a href="./class_void.html?mode=pvp#ward_of_dawn">ドーン・ウォード</a></li>
+                    <li><a href="./class_solar.html?mode=pvp#well_of_radiance">輝く泉</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="faq"></a>
+        <h2>分類が複雑な敵について</h2>
+
+        <a name="hive_guardian"></a>
+        <h3>ハイヴガーディアンの分類</h3>
+
+        <div class="text">
+            ハイヴの光の戦士には<b><a href="#miniboss">ミニボス</a>級と<a href="#boss">ボス</a>級</b>の二種類が存在し、HPバー左のアイコンから判別することができます。
+            <br>それぞれ、以下のような差があります。
+            <br><b>ミニボス級</b>
+            <ul>
+                <li><a href="./class_void.html#suppression">抑制</a>状態にすると、<b>射撃を停止</b>する</li>
+                <li>遅延や凍結の影響を<b>受ける</b></li>
+            </ul>
+            <b>ボス級</b>
+            <ul>
+                <li><a href="./class_void.html#suppression">抑制</a>状態にしても、射撃を<b>停止しない</b></li>
+                <li>遅延や凍結の影響を<b>受けない</b>（付与自体は可能）</li>
+                <li>他のボスと違い、<b>フィニッシャーが可能</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="lostsector_boss"></a>
+        <h3>失われたセクターのボス</h3>
+
+        <div class="text">
+            失われたセクターの最奥部にはボスがいますが、その分類はセクターによって<b><a href="#miniboss">ミニボス</a>か<a href="#boss">ボス</a></b>のどちらかに分かれます。
+            <b>EDZ</b>と<b>ネッスス</b>のセクターにいるボスは<b>ミニボス</b>級、それ以外のロケーションのセクターにいるボスは<b>ボス</b>級となっています。
+            <br>ただし、伝説/達人難易度の場合は、全てのロケーションが<b>ボス</b>級に変更されています。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="is_this_vehicle"></a>
+        <h3>ブリッグやサービターはビークルではないのか</h3>
+
+        <div class="text">
+            フォールンのブリッグ、サービター、シャンクや、ベックスのハイドラ、ワイバーンなどの敵は、ビークルではなく<b><a href="#rank-and-file">一般兵</a></b>に分類されます。<a href="#elite">エリート</a>であればエリートとして扱われます。
+            <br>これはボスの場合も同様で、セピックス・プライムやサーベル4、マッドワーデンなどの敵も、ビークルではなく<b><a href="#boss">ボス</a></b>として扱われます。
+            <br>ただし、砕かれた玉座のボスであるドゥル・インカルは、<b>エリート</b>と同じ扱いとなっています。これは恐らく不具合かと思われています。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="source"></a>
+        <h2>出典</h2>
+
+        <a href="https://docs.google.com/spreadsheets/d/1i1KUwgVkd8qhwYj481gkV9sZNJQCE-C3Q-dpQutPCi4/edit#gid=828270348">The Comprehensive Destiny 2 Data & Information</a>
+
+        <a name="challenge_log"></a>
+        <h2>更新履歴</h2>
+
+        <a href="https://github.com/depth172/depth172.github.io/commits/gh-pages/destiny2/enemy_classification.html">過去のページを確認する</a>
+
+        <a name="comments"></a>
+        <!-- begin wwww.htmlcommentbox.com -->
+        <script type="text/javascript" src="../js/htmlcommentbox.js"></script>
+
+        <div id="HCB_comment_box">コメントを読み込んでいます...</div>
+        <link rel="stylesheet" type="text/css" href="/css/twitter-bootstrap.css" />
+        <script type="text/javascript" id="hcb">
+            if (!window.hcb_user) {
+                hcb_user = {};
+            }(function() {
+                var s = document.createElement("script"),
+                    l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
+                    h = "https://www.htmlcommentbox.com";
+                s.setAttribute("type", "text/javascript");
+                s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%240S16uY.Oh6y9MR3cBrjg21" + "&opts=16798&num=10&ts=1642331857298");
+                if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s);
+            })();
+        </script>
+        <!-- end www.htmlcommentbox.com -->
+
+        <hr>
+        <div class="footer"><a href="#" id="page-top">一番上に戻る ▲</a></div>
+    </div>
+</body>
+
+</html>

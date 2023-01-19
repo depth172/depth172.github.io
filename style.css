@@ -56,14 +56,18 @@ h1 {
 h2 {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+    border-bottom: 2px solid #292929;
 }
 
 .text {
     padding-left: 0.3em;
+    padding-bottom: 0.5em;
 }
 
 img {
     vertical-align: bottom;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .power {

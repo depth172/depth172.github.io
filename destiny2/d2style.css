@@ -20,22 +20,22 @@
 }
 
 .solar {
-    margin: 1.2em 0.38em;
+    margin-inline: 0.37em;
     color: #e7601d;
 }
 
 .arc {
-    margin: 1.2em 0.3em;
+    margin-inline: 0.29em;
     color: #81b5e4;
 }
 
 .void {
-    margin: 1.2em 0.28em;
+    margin-inline: 0.27em;
     color: #b07cdb;
 }
 
 .stasis {
-    margin: 1.2em 0.3em;
+    margin-inline: 0.3em;
     color: #5e7afd;
 }
 
@@ -183,8 +183,7 @@ table.list {
 
 .list th {
     background: #ccdae4;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-inline: 0.5em;
     font-weight: normal;
 }
 
@@ -279,6 +278,23 @@ td.name {
     font-size: 90%
 }
 
+.enemy_icon {
+    max-width: 4.2em;
+    margin: 0.5em;
+}
+
+.disable {
+    background-color: #ffb0b0;
+}
+
+.neutral {
+    background-color: #f8ff91;
+}
+
+.enable {
+    background-color: #aafa96;
+}
+
 h3 {
     box-decoration-break: clone;
     border-bottom: 2px solid #646464;
@@ -325,7 +341,7 @@ img.h3 {
 img.table_icon {
     background: #737f81;
     border: 2px solid #5e5e5e;
-    margin: 0.3em 0.6em 0.3em 0;
+    margin: 0.3em 0.1em;
     width: 2.3em;
     height: 2.3em;
 }
