@@ -10,6 +10,9 @@ function textSwitching(info) {
         case 'ash':
             $("#info").text("かけら「灰の名残」適用時の数値");
             break;
+        case 'magnitude':
+            $("#info").text("かけら「マグニチュードの火花」適用時の数値");
+            break;
         case 'durance':
             $("#info").text("かけら「監禁の囁き」適用時の数値");
             break;

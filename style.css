@@ -16,7 +16,7 @@ html {
 .main {
     position: relative;
     background: #eef8ff;
-    width: 850px;
+    width: 900px;
     margin: 30px auto;
     padding: 30px;
     border: 1px solid #cccccc;
@@ -46,6 +46,13 @@ html {
 
 .for_sp {
     display: none;
+}
+
+hr {
+    border: 0;
+    padding: 1.5px;
+    border-top: 2px solid #bbb;
+    border-bottom: 3px solid #bbb;
 }
 
 h1 {

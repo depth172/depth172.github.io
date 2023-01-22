@@ -26,26 +26,37 @@
     font-weight: bold;
     user-select: none;
     white-space: nowrap;
+    z-index: 3;
 }
 
 .ft_list img {
     padding-bottom: 1em;
 }
 
-.character img.bg {
+.background {
+    position: relative;
     background-color: #3f4045;
+    overflow: hidden;
+    height: 3.5em;
+    width: 48em;
+}
+
+.background img {
+    position: absolute;
     object-fit: cover;
     object-position: bottom;
-    height: 2.3em;
-    width: 48em;
-    padding-bottom: 1.5em;
+    min-height: 58.3px;
+    top: -21px;
+    right: 0px;
+    z-index: 1;
 }
 
 .character img.icon {
     position: absolute;
-    width: 2.3em;
-    top: 0.65em;
-    left: 2.3em;
+    width: 38px;
+    top: 7.5px;
+    left: 31px;
+    z-index: 2;
 }
 
 @media screen and (max-width: 768px) {

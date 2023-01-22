@@ -9,6 +9,7 @@
 
 .ash,
 .starvation,
+.magnitude,
 .durance {
     font-size: 85%;
 }
@@ -224,7 +225,6 @@ table.buff {
 
 th.icon {
     background: #737f81;
-    min-width: 0em;
     padding: 0em;
 }
 
@@ -311,16 +311,11 @@ h3.item {
     height: 2em;
     background: #d2deff;
     padding-left: 0;
-    padding-top: 0em;
+    padding-top: 0;
+    line-height: 3em;
     margin-top: 0.3em;
-    padding-bottom: 1.1em;
+    padding-bottom: 0.85em;
     margin-bottom: 0.4em;
-}
-
-h3.item:before {
-    content: '';
-    left: 0;
-    position: absolute;
 }
 
 p img,
@@ -331,11 +326,10 @@ p img,
 img.h3 {
     background: #737f81;
     border: 2px solid #5e5e5e;
-    margin-left: 0.3em;
-    margin-right: 0.5em;
+    margin: 0 0.4em;
     width: 2.3em;
     height: 2.3em;
-    transform: translate(0, 12%);
+    transform: translate(0, -18%);
 }
 
 img.table_icon {
@@ -355,9 +349,9 @@ img.h2 {
     border: 2px solid #5e5e5e;
     border-radius: 10px;
     margin-right: 0.5em;
+    margin-bottom: 0.2em;
     width: 2em;
     height: 2em;
-    transform: translate(0, 12%);
 }
 
 img.head {
