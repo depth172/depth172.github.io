@@ -52,6 +52,12 @@ div .pvp {
     background: #ffe9e9;
 }
 
+.search {
+    display: inline-block;
+    width: 300px;
+    height: 1em;
+}
+
 #p_toggle {
     cursor: pointer;
     background: #397ac5;

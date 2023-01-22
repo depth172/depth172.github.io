@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- 基本設定 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Destiny 2 クラス解説 - アーク - depth's Toybox</title>
+    <meta name="description" content="ページの説明">
+
+    <!-- Twitterバナーの設定 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@depth172">
+    <meta name="twitter:title" content="Destiny 2 クラス解説 - アーク - depth's Toybox">
+    <meta name="twitter:description" content="Destiny 2のアーク属性に関する効果、サブクラスのスキル、特性、かけらなどについて解説しています。">
+    <meta name="twitter:image" content="https://depth172.github.io/img/card-summary.png">
+
+    <!-- デザイン関連 -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="d2style.css">
+    <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
+
+    <!-- 表示内容切り替え用スクリプト -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
+
+    <!-- 通知表示 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".overlay").show();
+            $.cookie('btnFlg') == 'on' ? $(".overlay").hide() : $(".overlay").show();
+            $(".btn_area button").click(function() {
+                $(".overlay").fadeOut();
+                $.cookie('btnFlg', 'on', {
+                    expires: 30,
+                    path: '/'
+                }); //cookieの保存
+            });
+        });
+    </script>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="overlay">
+        <div class="btn_area">
+            <p class="ttl">新機能のお知らせ</p>
+            <p>右下のボタンを押すことで、PvE用の情報とPvP用の情報が切り替えられるようになりました！ぜひご利用ください。</p>
+            <button>閉じる</button>
+        </div>
+    </div>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
+    </div>
+
+    <div class="main" id="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
+        <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
+        <h1>クラス解説 - <span class="arc">&#xe143;</span>アーク</h1>
+        <hr>
+        <div class="title_bar">
+            <div class="search">
+                <script async src="https://cse.google.com/cse.js?cx=d6b9409423d2c44f3">
+                </script>
+                <div class="gcse-searchbox-only"></div>
+            </div>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 クラス解説 - アーク" data-url="http://depth172.github.io/destiny2/class_arc.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
+
+                var target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+
+        <p class="intro">Destiny 2のアークに関する効果、サブクラスのスキル、特性、かけらなどについて解説します。</p>
+
+        <h2>目次</h2>
+
+        <div class="toc">
+            <ul>
+                <li><a href="#notice">注意事項・用語解説</a></li>
+                <details>
+                    <summary>アーク属性の固有効果</summary>
+                    <ul>
+                        <li><a href="#radiant">発光</a></li>
+                        <li><a href="#cure">治癒</a></li>
+                        <li><a href="#restoration">回復</a></li>
+                        <li><a href="#scorch">スコーチ</a></li>
+                        <li><a href="#ignition">点火</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>アーク属性のかけら</summary>
+                    <ul>
+                        <li><a href="#ember_of_singeing">燃焼の名残</a></li>
+                        <li><a href="#ember_of_benevolence">慈悲の名残</a></li>
+                        <li><a href="#ember_of_beams">光線の名残</a></li>
+                        <li><a href="#ember_of_empyrean">天空の名残</a></li>
+                        <li><a href="#ember_of_combustion">激動の名残</a></li>
+                        <li><a href="#ember_of_torches">炬火の名残</a></li>
+                        <li><a href="#ember_of_char">炭化の名残</a></li>
+                        <li><a href="#ember_of_tempering">緩和の名残</a></li>
+                        <li><a href="#ember_of_blistering">猛火の名残</a></li>
+                        <li><a href="#ember_of_solace">癒しの名残</a></li>
+                        <li><a href="#ember_of_eruption">爆発の名残</a></li>
+                        <li><a href="#ember_of_ashes">灰の名残</a></li>
+                        <li><a href="#ember_of_wonder">驚嘆の名残</a></li>
+                        <li><a href="#ember_of_searing">焦土の名残</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>アーク属性のグレネード</summary>
+                    <ul>
+                        <li><a href="#grenades">グレネードスキル一覧</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ストライカー（タイタン）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#hammer_of_sol">サンハンマー</a></li>
+                                <li><a href="#burning_maul">モールバーニング</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#hammer_strike">ハンマーストライク</a></li>
+                                <li><a href="#throwing_hammer">ハンマー投げ</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#roaring_flames">燃え盛る炎</a></li>
+                                <li><a href="#sol_invictus">ソル・インビクタス</a></li>
+                                <li><a href="#consecration">聖別</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>アークストライダー（ハンター）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#deadshot">ゴールデンガン: デッドショット</a></li>
+                                <li><a href="#marksman">ゴールデンガン: マークスマン</a></li>
+                                <li><a href="#blade_barrage">刃の雨</a></li>
+                            </ul>
+                        </li>
+                        <li>固有クラススキル
+                            <ul>
+                                <li><a href="#acrobats_dodge">曲芸師の回避</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#knife_trick">ナイフトリック</a></li>
+                                <li><a href="#lightweight_knife">軽量ナイフ</a></li>
+                                <li><a href="#proximity_explosive_knife">近接爆破ナイフ</a></li>
+                                <li><a href="#weighted_throwing_knife">加重ナイフ</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#on_your_mark">オン・ユア・マーク</a></li>
+                                <li><a href="#knock_em_down">一網打尽</a></li>
+                                <li><a href="#gunpowder_gamble">ガンパウダーギャンブル</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ストームマスター（ウォーロック）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#daybreak">デイブレイク</a></li>
+                                <li><a href="#well_of_radiance">輝く泉</a></li>
+                            </ul>
+                        </li>
+                        <li>固有クラススキル
+                            <ul>
+                                <li><a href="#phoenix_dive">フェニックスダイブ</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#celestial_fire">天の炎</a></li>
+                                <li><a href="#incinerator_snap">焼却の指鳴らし</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#icarus_dash">イカロスダッシュ</a></li>
+                                <li><a href="#heat_rises">熱上昇</a></li>
+                                <li><a href="#touch_of_flame">炎の囁き</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <li><a href="#source">出典</a></li>
+                <li><a href="#challenge_log">更新履歴</a></li>
+                <li><a href="#comments">コメント</a></li>
+            </ul>
+        </div>
+
+        <p>
+            右三角形はクリックすることで展開できます。
+            <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
+            <br>また、右下のボタンを押すことで、PvE向けの情報とPvP向けの情報が切り替えられます。
+        </p>
+
+        <a name="notice"></a>
+        <h2>注意事項・用語解説</h2>
+        <ul>
+            <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。
+                <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
+            <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについてはパーク自体が記載されていない場合もあります。</li>
+            <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
+            <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>解説中に出てくる<span class="balloon sample">点線の下線</span>が付いた文章や、<span class="w-icons auto">&#xe100;</span> <span class="w-icons solar">&#xe140;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">また、一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
+            <li class="pve">ダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
+            <li>武器ダメージが増加するものに関して、<span class="univ_debuff">全体デバフ</span>や<span class="c_arc">強化バフ</span>にあたるものは該当する色になっています。 詳しくは
+                <a href="./buff_stacking.html">強化・弱体化の種類と重複について</a> をお読みください。</li>
+            <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
+        </ul>
+        <dl>
+            <dt>キル</dt>
+            <dd>敵を倒すこと。特筆しない限り、自分でトドメを刺した場合のみ適用される。</dd>
+            <dt>近接スキル（チャージ近接）</dt>
+            <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
+            <dt>HPとシールド</dt>
+            <dd>自身のHPバーのうち <b>70</b> HPは自身の体力で、それ以上の部分はシールドとなっている。シールドのHPは耐久力によって <b>115.01</b> ～ <b>130</b> まで変動する。詳しくは<a href="./base_stats.html#resilience">耐久力</a>の項目を参照。</dd>
+        </dl>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!--
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="3593793015" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h2>アーク属性の固有効果</h2>
+
+        <a name="amplified"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/65a0431823b216e1780168ac2b3de8f2.png" class="head">増幅</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            アークサブクラスを使用中、<b>アーク属性で複数キル</b>をすると内部カウンターが進行し、100%になることで<b>増幅状態</b>になる。
+            <span class="pve"><br>カウンターの進行量は<a href="./enemy_classification.html#quick_table">敵の強さ</a>によって変動する。</span>
+            <span class="pvp"><br>カウンターは1キルにつき <b>+50%</b> 増加する。</span>
+            <ul class="stats2">
+                <li><span class="pve">一般兵: <b>+25%</b></span></li>
+                <li><span class="pve">エリート: <b>+50%</b></span></li>
+                <li><span class="pve">ミニボス / ボス: <b>+100%</b></span></li>
+            </ul>
+            また、特性などの効果によって増幅状態が付与されることもある。
+            <br>増幅中は<b>可動性とハンドリングが向上</b>し、<b>一部スキルが強化</b>され、ダッシュをすると<b><a href="#speed_booster">スピードブースター</a></b>が付与されるようになる。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>15秒</b></li>
+                <li>可動性: <b>+50</b></li>
+                <li>スライディング距離: <b>+33%</b></li>
+                <li>ハンドリング: <b>+40</b></li>
+                <li>武器持ち替え時間: <b>x0.96</b></li>
+            </ul>
+        </div>
+
+        <a name="speed_booster"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/65a0431823b216e1780168ac2b3de8f2.png" class="head">スピードブースター</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            <a href="#amplified">増幅</a>状態中、<b>2.5秒間</b> ダッシュをすることで<b>スピードブースター</b>を得る。
+            <br>スピードブースター中はダッシュ速度が <b>+12.5%</b> 、スライディング距離が <b>+50%</b>、ジャンプ高度が <b>+100%</b> 増加<span class="pve">し、敵から受けるダメージを <b>+12.5%</b> 軽減</span>する。
+            <br>ダッシュ速度増加効果は、<a href="./weapon_parts.html#lightweight_frame">軽量フレームの内在効果</a>や<a href="./exotic_armor.html#dunemarchers">砂漠を歩む者</a>などの他の効果と重複しない。
+            <br>効果は<b>ダッシュ中のみ</b>維持され、増幅状態が切れてもダッシュを継続していれば効果は持続する。
+        </div>
+
+        <a name="ionic_trace"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/2f5fb5aaec02b18ff299e93b754d2b2e.png" class="head">イオントレース</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            特性やかけらによって生成され、自身を追うように動く<b>アークエネルギーの波</b>。
+            <br><img src="./img/ionic_trace.jpg" width="200px">
+            <br>回収すると、グレネードエネルギーが <b>12.5%</b> 、近接エネルギーが <b>12.5%</b> 、クラススキルエネルギーが <b>15%</b> 回復する。
+        </div>
+
+        <a name="blind"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/f91f5aebabaa3a5645a2deb678b2364d.png" class="head">視力喪失</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            視力喪失状態になった敵は、<span class="pve">視界が奪われ、<b>射撃を停止</b>する。</span><span class="pvp"><b>視界とHUDが阻害</b>され、<b>音声が聞こえにくく</b>なる。</span>
+        </div>
+
+        <a name="jolted"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/9a5742dc93cb05430c73110cf96a92dc.png" class="head">ショック状態</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            ショック状態になった敵は、<b><span class="pve">10秒間</span><span class="pvp">5秒間</span></b> 過剰な<b>アークエネルギー</b>を帯びる。<b><span class="pve">200</span><span class="pvp">51</span></b> ダメージを受けた際に、周囲 <b>8m以内</b> にいる敵に<b>アークが連鎖</b>し、ショック状態を付与された敵自身とアークが連鎖した敵に <b><span class="pve">120</span><span class="pvp">45</span></b>            ダメージを与える。
+            <br>ショック状態付与時のダメージも、連鎖ダメージ発生までの必要ダメージ数に含まれる。
+            <br>連鎖ダメージ発生には <b>1.3秒間</b> のクールダウンがある。
+            <span class="pvp"><br>付与された敵自身は、他の敵にアークを連鎖させるまで、連鎖ダメージを受けない。</span>
+        </div>
+
+        <a name="grenades"></a>
+        <h2>グレネードスキル一覧</h2>
+        <div class="text">
+            グレネードタイプについて
+            <ul>
+                <li><b>通常</b>: 投擲後、一定時間してから爆発する。</li>
+                <li><b>接着</b>: 敵や障害物に接着して発動する。継続タイプと違い、対象が動いても効果がある。</li>
+                <li><b>検知</b>: 着弾地点から一定範囲内にいる敵を検知し、自動的にダメージを与える。</li>
+                <li><b>複数回</b>: 一個のグレネードが敵に複数回のダメージを与える。</li>
+            </ul>
+        </div>
+
+        <table class="list grenade">
+            <thead>
+                <tr>
+                    <th class="icon" style="background: #ccdae4;"></th>
+                    <th>名称</th>
+                    <th>タイプ</th>
+                    <th>ダメージ</th>
+                    <th>クール<br>ダウン (秒)</th>
+                    <th>持続時間<br>(秒)</th>
+                    <th>範囲 (m)</th>
+                    <th>起動までの<br>準備時間 (秒)</th>
+                    <th>初ヒットから<br>の遅延 (秒)</th>
+                    <th>ダメージ<br>頻度 (秒)</th>
+                    <th>備考</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/6cbbd606e7d696eab7d54a49ba8a9c0a.jpg" class="table"></th>
+                    <th>ライトニンググレネード</th>
+                    <td style="text-align: center;"><b>接着 / 複数回</b></td>
+                    <td style="text-align: left;" class="pve">345 × (4 <span class="balloon magnitude">+ 1</span>) = <b>1,380</b> <span class="balloon magnitude">(<b>1,725</b>)</span></td>
+                    <td style="text-align: left;" class="pvp">120 × (4 <span class="balloon magnitude">+ 1</span>) = <b>480</b> <span class="balloon magnitude">(<b>600</b>)</span></td>
+                    <td><b>121</b></td>
+                    <td><b>6</b></td>
+                    <td>長さ <b>12</b> × 幅 <b>10</b></td>
+                    <td><b>1.07</b></td>
+                    <td><b>1.67</b></td>
+                    <td>不明</td>
+                    <td class="name">壁や床に張り付き、<b>4回</b> <span class="balloon magnitude">(<b>5回</b>)</span> 爆発してダメージを与える。グレネード本体のHPは <b>10</b> 。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ce01ccf413b2ae6e991f6cef3f226aaa.jpg" class="table"></th>
+                    <th>ストームグレネード</th>
+                    <td style="text-align: center;"><b>複数回</b></td>
+                    <td style="text-align: left;" class="pve">402 + (287 <span class="balloon magnitude">× 2</span>) = <b>689</b> <span class="balloon magnitude">(<b>972</b>)</span></td>
+                    <td style="text-align: left;" class="pvp">70 + 50 = <b>120</b></td>
+                    <td><b>105</b></td>
+                    <td><b>4</b></td>
+                    <td><b>25</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>1.77</b></td>
+                    <td class="name"></td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/9ca15ccec054e10cfe44db67331bbb6b.jpg" class="table"></th>
+                    <th>フラッシュグレネード</th>
+                    <td style="text-align: center;"><b>通常</b></td>
+                    <td style="text-align: left;" class="pve"><b>904</b></td>
+                    <td style="text-align: left;" class="pvp"><b>130</b></td>
+                    <td><b>121</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>9</b></td>
+                    <td>不明</td>
+                    <td style="text-align: center;">-</td>
+                    <td>不明</td>
+                    <td class="name">爆発の <b>0.5m以内</b> にいる対象は、受けるダメージが <b>+33%</b> 増加する。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/a1f1c4b248bf506739a9888949ca7e57.jpg" class="table"></th>
+                    <th>パルスグレネード</th>
+                    <td style="text-align: center;"><b>複数回</b></td>
+                    <td style="text-align: left;" class="pve">57 + 72 × 13.3 = <b>1,014.6</b></td>
+                    <td style="text-align: left;" class="pvp">20 + 25 × 13.3 = <b>352.5</b></td>
+                    <td><b>121</b></td>
+                    <td><b>4</b></td>
+                    <td><b>5</b> (着弾時)<br><b>4</b> (継続)</td>
+                    <td><b>0.24</b></td>
+                    <td><b>0.57</b></td>
+                    <td><b>0.3</b></td>
+                    <td class="name">初回のヒットは<span class="pve">57</span><span class="pvp">20</span>ダメージ。それ以降は<span class="pve">72</span><span class="pvp">25</span>ダメージを継続して <b>13回</b> 与える。
+                        <br>グレネードの効果終了時、敵が継続ダメージを受けた回数に応じてスコーチを付与する。
+                    </td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/506b6803d54790304775545568d1f9e9.jpg" class="table"></th>
+                    <th>スキップグレネード</th>
+                    <td style="text-align: center;"><b>検知 / 複数回</b></td>
+                    <td style="text-align: left;" class="pve">(53 + 50) × 9 = <b>927</b></td>
+                    <td style="text-align: left;" class="pvp">(8 + 8) × 9 = <b>144</b></td>
+                    <td><b>91</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>4</b> (拡散時)<br><b>4</b> (爆発時)</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td>不明</td>
+                    <td class="name">
+                        グレネードが9個のスワームドローンに拡散し、敵を追尾し2回爆発する。
+                        <br>1回目で<span class="pve">53</span><span class="pvp">8</span>ダメージ、2回目で<span class="pve">50</span><span class="pvp">8</span>ダメージを与える。
+                    </td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/9a30af5e62d440a3f201b307e19e54e0.jpg" class="table"></th>
+                    <th>フラックスグレネード</th>
+                    <td style="text-align: center;"><b>接着</b></td>
+                    <td style="text-align: left;" class="pve"><b>819</b></td>
+                    <td style="text-align: left;" class="pvp"><b>130</b></td>
+                    <td><b>73</b></td>
+                    <td>可変</td>
+                    <td><b>6</b></td>
+                    <td>不明</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td class="name">爆発時<span class="pve">819</span><span class="pvp">130</span>ダメージ。<span class="pvp">直撃すると2ダメージ。</span></td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1d4e4334f59a2369a0558452d686d3d0.jpg" class="table"></th>
+                    <th>アークボルトグレネード</th>
+                    <td style="text-align: center;"><b>検知</b></td>
+                    <td style="text-align: left;" class="pve"><b>373</b></td>
+                    <td style="text-align: left;" class="pvp"><b>65</b></td>
+                    <td><b>64</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>8.5</b></td>
+                    <td><b>1</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td class="name">着弾時、周囲にいる敵をロックオンして攻撃する。同時に <b>4体</b> まで攻撃可能。</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!--
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="8271404627" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h2>アーク属性のかけら一覧</h2>
+
+        <a name="ember_of_singeing"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c9e392abb5417ecab2dccd85fe23c00f.jpg" class="h3">燃焼の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵に<a href="#scorch">スコーチ</a>を付与すると、<b>3秒間</b> クラススキルエネルギーの回復速度が <b>+300%</b> される。</li>
+                <li>スコーチを付与する攻撃でキルをするなど、実際に付与されなかった場合は発動しない。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_benevolence"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0b5cf537c6ad5d80cbdd3675d0e7134d.jpg" class="h3">慈悲の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>味方に<a href="#cure">治癒</a>、<a href="#restoration">回復</a>、<a href="#radiant">発光</a>を付与すると、<b>6秒間</b> スキルエネルギーの回復速度が <b>+200%</b> される。</li>
+                <li>また、以下のスキルや武器などでも発動する。
+                    <ul>
+                        <li><a href="#well_of_radiance">輝く泉</a></li>
+                        <li>回復のリフト</li>
+                        <li>ノーブルラウンド（<a href="./exotic_weapons.html#lumina">ルミナ</a>）</li>
+                        <li>ノーブルシーカー（<a href="./exotic_armor.html#boots_of_assembler">アセンブラーのブーツ</a>）</li>
+                        <li>回復シーカー（<a href="./exotic_weapons.html#edge_of_intent">決意の果て</a>）</li>
+                        <li>味方にソル・インビクタスを付与（<a href="./exotic_armor.html#phoenix_cradle">フェニックスの揺りかご</a>）</li>
+                        <li>味方の蘇生</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>鍛錬: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_beams"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2f12ba3df56de7c0e2790f481cb29a52.jpg" class="h3">光線の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>スーパースキルの投射物に、<b>追尾効果</b>を付与する。</li>
+                <li><a href="#blade_barrage">刃の雨</a>と<a href="#daybreak">デイブレイク</a>でのみ効果を発揮する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>知性: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_empyrean"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/be99d52c12f9359fc948b4563f74e712.jpg" class="h3">天空の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アーク属性でキルをすると、<a href="#restoration">回復</a>と<a href="#radiant">発光</a>の効果時間が <b>4秒間</b> 延長される。</li>
+                <li><b>12秒間</b> 以上に延長することはできない。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>耐久力: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_combustion"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/45476d85d0e6aeded810f217a0627afb.jpg" class="h3">激動の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>スーパースキルでキルをすると、その敵が<a href="#ignition">点火</a>する。</li>
+                <li><a href="#well_of_radiance">輝く泉</a>では、発動者のアーク武器によるキルで敵が点火する。</li>
+                <li><a href="#deadshot">ゴールデンガン: デッドショット</a>では、キル時に弾薬が <b>1発</b> 追加される。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>腕力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_torches"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1ef2e34dad0d52c762ed96e8c932dc38.jpg" class="h3">炬火の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵に近接スキルをヒットさせると、<b>8秒間</b> 自身と <b>8m以内</b> の味方を<a href="#radiant">発光</a>させる。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>鍛錬: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_char"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a299dde35bfcd830923458846d7a64f3.jpg" class="h3">炭化の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#ignition">点火</a>の爆発を受けた敵に、<a href="#scorch">スコーチ</a>を <b>x40</b> <span class="ash">(<b>x60</b>)</span> 付与する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>鍛錬: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_tempering"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cddc93648f0917dc8bd6663d38d7c379.jpg" class="h3">緩和の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アーク属性の武器でキルをすると、自身と <b>12.5m以内</b> の味方に<b>緩和の名残</b>のスタックを <b>8秒間</b> 付与する。</li>
+                <li>緩和の名残発動中はすべての武器の空中効果が <b>+20</b> され、スタック1個につき回復力を <b>+10</b> させる。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>回復力: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_blistering"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/52dc6ef9a4b0642e36551542b3a2936e.jpg" class="h3">猛火の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#ignition">点火</a>でキルをすると、グレネードエネルギーが <b>20%</b> 回復する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_solace"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fb46711e0dff2bc2f55c21271e838fe2.jpg" class="h3">癒しの名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#restoration">回復</a>と<a href="#radiant">発光</a>の効果時間を <b>+50%</b> 増加させる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_eruption"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8734774377b5e73a84ed045a78ce232c.jpg" class="h3">爆発の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#ignition">点火</a>による爆発の範囲が増加する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>腕力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_ashes"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/82203cd4545f6dccc3b231d138664ecd.jpg" class="h3">灰の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵に付与するスコーチのスタック数が <b>+50%</b> 増加する。余剰分は切り上げられる。</li>
+                <li>ほとんどの場合は上記通りだが、<a href="./weapon_perks.html#incandecent">インカンデセント</a>や<a href="./exotic_armor.html#calibans_hand">カリバンの手</a>など一部例外はある。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_wonder"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9de7766c9c9b56b75bde1054e3eefb1a.jpg" class="h3">驚嘆の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#ignition">点火</a>で <b>2体以上</b> キルをすると、力のオーブを生成する。</li>
+                <li><b>10秒間</b> のクールダウンがある。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>耐久力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_searing"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7312346d93dc0e84d46e539a10aebb52.jpg" class="h3">焦土の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>スコーチが付与された敵をキルすると、<b>近接エネルギーが回復</b>する。</li>
+                <li>回復量は敵の<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>回復量:
+                    <ul class="stats2">
+                        <li>ランク1: <b>8%</b></li>
+                        <li>ランク2: <b>16%</b></li>
+                        <li>ランク3: <b>26%</b></li>
+                        <li>ランク4: <b>28%</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        間2
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="8649597005" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h1><img src="https://www.bungie.net/common/destiny2_content/icons/ffda820bb6af8d69af6fdfdf229744f4.jpg" class="head">ストライカー</h1>
+
+        <h2>ストライカーのスーパースキル</h2>
+
+        <a name="hammer_of_sol"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/746ed830d614d66f57d379811a57d03d.png" class="head">サンハンマー</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>625秒</b> (ランク1)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アークから形成されたハンマーを投擲する。</li>
+                <li>ハンマーは着弾時に破片となり、<b>拡散して爆発</b>を起こす。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="burning_maul"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/81b0c61ff8ac802d3216324028b7e835.png" class="head">モールバーニング</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>500秒</b> (ランク3)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アークの大槌による攻撃を行う。</li>
+                <li>弱攻撃で、回転攻撃を繰り出す。連続で発動することで回転が速くなる。弱攻撃を <b>10回</b> ヒットさせると、その場に<b>サイクロン</b>を発生させ、さらにダメージを与える。</li>
+                <li>強攻撃で、地面を這う追尾火炎弾を放つ。火炎弾は着弾地点で爆発し、<b>サイクロン</b>を発生させる。</li>
+                <li>ソル・インビクタスの発動中は、効果時間が <b>+67%</b> 増加する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ストライカーの近接スキル</h2>
+
+        <a name="hammer_strike"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c2acd9c65a21454a8114266f5cc305e2.jpg" class="h3">ハンマーストライク</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>90秒</b></li>
+                <li>ダメージ: <b>120</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>1.25秒</b> 以上のダッシュ中か、その後のスライディング中に近接攻撃ボタンを押すと、前方にハンマーを構えながら突撃する。</li>
+                <li>この攻撃がヒットした敵に<a href="#scorch">スコーチ</a>を <b>x40</b> <span class="ash">(<b>x60</b>)</span> 付与する。</li>
+                <li>さらに、この攻撃で敵をキルすると、その敵を<a href="#ignition">点火</a>させる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="throwing_hammer"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/36dc4a55d4829b9f36e48355151541f1.jpg" class="h3">ハンマー投げ</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>90秒</b></li>
+                <li>ダメージ: <b>120</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>前方にハンマーを投げる。ハンマーは敵や障害物に当たると跳ね返る。</li>
+                <li>ハンマーは地面に落ち、<b>10秒後</b> に爆発して <b>130</b> ダメージを与える。</li>
+                <li>ハンマーは爆発する前に拾うことができ、拾うと<b>近接エネルギーが全回復</b>する。</li>
+                <li>ハンマーで敵にダメージを与えてから拾うと、自身に<a href="#cure">治癒</a>が付与される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ストライカーの特性</h2>
+
+        <a name="roaring_flames"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/208e4d0d635832dd78288de5532fe062.jpg" class="h3">燃え盛る炎</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アークのスキル、もしくは<a href="#ignition">点火</a>でキルをすると、<b>20秒間</b> スキルが与える<b>ダメージが増加</b>する。</li>
+                <li>また、近接攻撃が<b>近接スキル扱い</b>となり、敵にスコーチを <b>x30</b> <span class="ash">(<b>x40</b>)</span> 付与するようになる。</li>
+                <li>ただし、<a href="./exotic_armor.html#synthoceps">生体強化</a>もしくは<a href="./exotic_armor.html#wormgod_caress">燃える拳</a>の発動中は、ダメージの増加量が減少する。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="pve">
+                        <th>ダメージ増加量</th>
+                        <td><b>+20%</b></td>
+                        <td><b>+44%</b></td>
+                        <td><b>+73%</b></td>
+                    </tr>
+                    <tr class="pve">
+                        <th>エキゾチック発動時</th>
+                        <td><b>+10%</b></td>
+                        <td><b>+21%</b></td>
+                        <td><b>+33%</b></td>
+                    </tr>
+                    <tr class="pvp">
+                        <th>ダメージ増加量</th>
+                        <td><b>+13%</b></td>
+                        <td><b>+28%</b></td>
+                        <td><b>+44%</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="sol_invictus"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1552df4d776b01d9f8c00d6c910aec97.jpg" class="h3">ソル・インビクタス</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アークのスキルか、<a href="#scorch">スコーチ</a>状態の敵をキルする、もしくは<a href="#hammer_of_sol">サンハンマー</a>を着弾させると、<b>サンスポット</b>を生成する。</li>
+                <li>自身がサンスポットを通ると、<a href="#restoration">回復</a>と<b>ソル・インビクタス</b>が <b>5秒間</b> 付与される。</li>
+                <li>ソル・インビクタス発動中は、近接エネルギーとグレネードエネルギーの回復速度が <b>+100%</b> される。</li>
+                <li>また、サンスポットを通った敵は、1秒につき <b>6回</b> 、<b><span class="pve">60</span><span class="pvp">15</span></b> ダメージと、<b>x5</b> <span class="ash">(<b>x8</b>)</span> のスコーチが付与される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="consecration"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5c71b63e8b653cd63a2ae0d8a8c64979.jpg" class="h3">聖別</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>スライディング中に近接攻撃ボタンを押すと、近接エネルギーを <b>50%</b> 消費し、ハンマーを振り上げて空中に飛び上がり、前方 <b>17.5m</b> に<b>アークの波</b>を発生させる。</li>
+                <li>この波に当たった敵は <b>40</b> ダメージと、<b>x40</b> <span class="ash">(<b>x60</b>)</span> の<a href="#scorch">スコーチ</a>が付与される。</li>
+                <li>また、空中に飛び上がった状態でもう一度近接攻撃ボタンを押すと、近接エネルギーをすべて消費し、ハンマーを地面に叩きつけ、前方 <b>14.5m</b> に<b>より広い</b>アークの波を発生させる。</li>
+                <li>この波に当たった敵は <b>120</b> ダメージを受け、スコーチが付与されている場合は<a href="#ignition">点火</a>する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        間3
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="4240165438" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h1><img src="https://www.bungie.net/common/destiny2_content/icons/c782ad01ada47fe6737b16c6e905c11a.jpg" class="head">アークストライダー</h1>
+
+        <h2>アークストライダーのスーパースキル</h2>
+
+        <a name="deadshot"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/16e3aaf50ac9fa802b692af48b895886.png" class="head">ゴールデンガン: デッドショット</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>556秒</b> (ランク2)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アークから生成した、装弾数 <b>6発</b> の長射程拳銃を射撃できる。</li>
+                <li>装弾数が0になるか、<b>12秒間</b> 経過するまで持続する。</li>
+                <li>敵を<a href="#ignition">点火</a>させると、弾薬が <b>1発</b> 追加される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="marksman"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/6f3e329cf7d330f7ba0cd0f940e98110.png" class="head">ゴールデンガン: マークスマン</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>556秒</b> (ランク2)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アークから生成した、装弾数 <b>3発</b> の長射程拳銃を射撃できる。</li>
+                <li>装弾数が0になるか、<b>12秒間</b> 経過するまで持続する。</li>
+                <li>この銃で精密ヒットをすると、1発ごとに次の精密ダメージが <b>+45%</b> 増加し、力のオーブが <b>2個</b> 生成される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="blade_barrage"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/5178685d628a640be304950a6b7da11f.png" class="head">刃の雨</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>455秒</b> (ランク4)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>空中に跳び上がり、<b>7枚</b> の追尾するナイフを <b>2回</b> 投げる。</li>
+                <li>ナイフは、刺さった場所で遅れて爆発を起こす。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>アークストライダーの固有クラススキル</h2>
+
+        <a name="acrobats_dodge"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/18b507607e6971bb10fec7addc24786b.jpg" class="h3">曲芸師の回避</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>82秒</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ナイフを構え、前方に回転する。着地時、周囲の敵に <b><span class="pve">40</span><span class="pvp">20</span></b> ダメージを与え、<b>10秒間</b> 自身と周囲の味方を<a href="#radiant">発光</a>させる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>アークストライダーの近接スキル</h2>
+
+        <a name="knife_trick"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e8a3f6085e7624845b9a55ab7fecd4b9.jpg" class="h3">ナイフトリック</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>82秒</b></li>
+                <li>ダメージ: <b><span class="pve">209</span><span class="pvp">38</span></b> × 3</li>
+                <li>精密ダメージ倍率: <b>x1.3</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>3枚のナイフを扇状に投擲する。</li>
+                <li>ナイフが刺さると、1枚につき<a href="#scorch">スコーチ</a>が <b>x20</b> <span class="ash">(<b>x30</b>)</span> 付与される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="lightweight_knife"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ac48c2a8fd779eea2e99e997944ed2cb.jpg" class="h3">軽量ナイフ</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>90秒</b></li>
+                <li>ダメージ: <b><span class="pve">300</span><span class="pvp">100</span></b></li>
+                <li>精密ダメージ倍率: <b>x1.3</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ナイフを投擲する。</li>
+                <li>このナイフで精密ヒットをすると、<b>10秒間</b> 自身を<a href="#radiant">発光</a>させる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="proximity_explosive_knife"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/454eea8d4cbb81e80285c0b04f155789.jpg" class="h3">近接爆破ナイフ</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>100秒</b></li>
+                <li>ダメージ: <b><span class="pve">249</span><span class="pvp">14</span></b> (直撃) + <b><span class="pve">346</span><span class="pvp">105</span></b> (爆発)</li>
+                <li>精密ダメージ倍率: <b>x1.3</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵が近づくと爆発するナイフを投擲する。</li>
+                <li>このナイフは壁や床に刺さり、<b>5m以内</b> に敵が近づくと爆発する。敵が来ないまま <b>14秒間</b> 経つと自動的に爆発する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="weighted_throwing_knife"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/887cfc32f0b0d64584554b7ebef24c6e.jpg" class="h3">加重ナイフ</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>109秒</b></li>
+                <li>ダメージ: <b><span class="pve">465</span><span class="pvp">140</span></b></li>
+                <li>精密ダメージ倍率: <b>x1.5</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>精密ダメージが高いナイフを投擲する。敵にヒット時、<a href="#scorch">スコーチ</a>が付与されている場合は<a href="#ignition">点火</a>する。</li>
+                <li>このナイフで精密ヒットをすると、自身のクラススキルエネルギーが<b>全回復</b>する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>アークストライダーの特性</h2>
+
+        <a name="on_your_mark"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6b1ce964c0d1dc6beba3083353efc3f6.jpg" class="h3">オン・ユア・マーク</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>3個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>精密キルをすると、自身と <b>15m以内</b> にいる味方に<b>オン・ユア・マーク</b>を <b>12秒間</b> 付与する。最大 <b>x3</b> まで累積できる。</li>
+                <li>また、回避をすると、自身にオン・ユア・マークを <b>x3</b> 付与する。</li>
+                <li>オン・ユア・マーク発動中は武器のリロード時間が <b>x0.93</b> され、スタック1個につき、武器のハンドリングとリロード速度が <b>+20</b> される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="knock_em_down"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/01a74478066a61232e0eb0d71d56d89c.jpg" class="h3">一網打尽</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#radiant">発光</a>中、近接スキルでキルをすると、近接エネルギーが<b>全回復</b>する。</li>
+                <li>また、スーパースキルが<b>強化</b>される。</li>
+                <ul class="stats2">
+                    <li><a href="#deadshot">ゴールデンガン: デッドショット</a>: 発動中、受けるダメージを <b>-15%</b> 軽減する。</li>
+                    <li><a href="#marksman">ゴールデンガン: マークスマン</a>: 効果時間が <b>+4秒</b> 増加する。</li>
+                    <li><a href="#blade_barrage">刃の雨</a>: 一度に投げるナイフが 7枚 → <b>10枚</b> に増加する。</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="gunpowder_gamble"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/765402ea0cdaa799f62fe46b57ad8437.jpg" class="h3">ガンパウダーギャンブル</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>1個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アーク属性で敵をキルすると、<b>ガンパウダーギャンブル</b>のチャージを溜める。</li>
+                <li>キルに使ったものに応じて、チャージされるスタックの個数が変化する。</li>
+                <li>
+                    <ul class="stats2">
+                        <li>アーク武器: <b><span class="pve">1個</span><span class="pvp">2個</span></b></li>
+                        <li><a href="#scorch">スコーチ</a>・<a href="#ignition">点火</a>: <b><span class="pve">3個</span><span class="pvp">4個</span></b></li>
+                        <li>アークスキル: <b>4個</b></li>
+                        <li>アークスーパースキル: <b>6個</b></li>
+                    </ul>
+                </li>
+                <li>スタックが <b>6個</b> 溜まると、グレネードが<b>即席爆薬</b>に置き換わる。</li>
+                <li>グレネードは投げてから <b>3秒</b> 経つか、<b>武器で射撃</b>すると、<a href="#ignition">点火</a>爆発を起こす。</li>
+                <li>グレネードを投擲すると、次にチャージを貯めるまでの間、<b>15秒間</b> のクールダウンが発生する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        間4
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="6674757086" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h1><img src="https://www.bungie.net/common/destiny2_content/icons/f35f3a248700afeeac260bd5340abbd8.jpg" class="head">ストームマスター</h1>
+
+        <h2>ストームマスターのスーパースキル</h2>
+
+        <a name="daybreak"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/ce006cb360a96d8f054e49499d924603.png" class="head">デイブレイク</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>625秒</b> (ランク1)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アークの剣を召喚し、空中から<b>炎波を投射</b>する。</li>
+                <li>炎波は放物線を描いて飛び、着弾した場所から<b>アークの波動</b>を生成する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="well_of_radiance"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/5dbb9a2f285df3ee20fe37d073350a37.png" class="head">輝く泉</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>417秒</b> (ランク5)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>アークの剣を地面に立て、味方を強化する半径 <b>6.5m</b> の<b>フィールドを生成</b>する。</li>
+                <li>発動時、<b>8.5m以内</b> にいる敵に<a href="#scorch">スコーチ</a>を <b>x40</b> <span class="ash">(<b>x60</b>)</span> 付与する。</li>
+                <li>フィールドに入ると、HPが毎秒 <b>100</b> ずつ回復し、武器ダメージが <span class="c_arc"><b>+25%</b></span> 増加する。</li>
+                <li><span class="pvp">さらに、メイン武器から受けるダメージは <b>-40%</b> 、それ以外の敵から受ける全てのダメージを <b>-50%</b> 軽減する。</span></li>
+                <li>加えて、フィールド内では<b>ステイシスの影響を受けなく</b>なる。</li>
+                <li>また、発動者がフィールド内から武器で攻撃すると、そのダメージは<b>スーパースキルによるダメージ</b>として扱われる。</li>
+                <li>地面に立っている剣は <b>800HP</b> で、これを超えるダメージを受けるとフィールドは破壊される。</li>
+                <li><span class="pve">また、ボスからの攻撃は、発動者の<a href="./base_stats.html#resilience">耐久力</a>に応じて <b>+50%</b> ～ <b>-75%</b> 増減したダメージを受ける。</span></li>
+                <li><span class="pvp">発動者の<a href="./base_stats.html#resilience">耐久力</a>ステータスは、泉本体の被ダメージやHPに<b>影響しない。</b></span></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ストームマスターの固有クラススキル</h2>
+
+        <a name="phoenix_dive"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/85ef85819a19d528c86a6329ea895fb5.jpg" class="h3">フェニックスダイブ</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>82秒</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>3つの炎弾を前方に飛ばす。弾は敵を追尾する。</li>
+                <li>炎弾は1発につき<a href="#scorch">スコーチ</a>を <b>x10</b> <span class="ash">(<b>x15</b>)</span> 付与する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ストームマスターの近接スキル</h2>
+
+        <a name="celestial_fire"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ea7006fa8a79b74b5cc9868b759d98bf.jpg" class="h3">天の炎</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>100秒</b></li>
+                <li>ダメージ: <b>35</b> × 3</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>3つの炎弾を前方に飛ばす。弾は敵を追尾する。</li>
+                <li>炎弾は1発につき<a href="#scorch">スコーチ</a>を <b>x10</b> <span class="ash">(<b>x15</b>)</span> 付与する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="incinerator_snap"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/983f2ee371714ff7f70be898f57b64e1.jpg" class="h3">焼却の指鳴らし</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>90秒</b></li>
+                <li>ダメージ: <b>30</b> × 5</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>5つの火炎スパークを広範囲の扇状に飛ばす。</li>
+                <li>炎弾は1発につき<a href="#scorch">スコーチ</a>を <span class="pve"><b>x20</b> <span class="ash">(<b>x30</b>)</span>
+                    </span><span class="pvp"><b>x10</b> <span class="ash">(<b>x15</b>)</span>
+                    </span> 付与する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ストームマスターの特性</h2>
+
+        <a name="icarus_dash"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/55a690bbd9cd53777df674a279422865.jpg" class="h3">イカロスダッシュ</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>空中で空中戦術ボタンを押すと、水平に <b>8m</b> 移動する。<b>4秒間</b> のクールダウンがある。</li>
+                <li><a href="#heat_rises">熱上昇</a>の発動中は連続で <b>2回</b> 発動できるが、クールダウンが <b>5秒間</b> に延びる。</li>
+                <li>また、<a href="#daybreak">デイブレイク</a>の発動中は移動距離が <b>+25%</b> され、クールダウンが発生しない代わりに<b>スーパーエネルギーを消費</b>する。</li>
+                <div class="pve">
+                    さらに、空中にいる状態で連続で敵を倒し、<b>3ポイント</b>を集めることで<a href="#cure">治癒</a> <b>x1</b> が付与される。
+                    <ul class="stats2">
+                        <li>ポイント配分:
+                            <ul class="stats3">
+                                <li>マイナー: <b>1</b></li>
+                                <li>メジャー: <b>2</b></li>
+                                <li>ボス: <b>3</b></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pvp">さらに、空中にいる状態で <b>2体以上</b> の敵を素早く倒すと<a href="#cure">治癒</a> <b>x1</b> が付与される。</div>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="heat_rises"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d647fd2019707f044ce97b52f802e465.jpg" class="h3">熱上昇</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グライディングを<b>中断せずに</b>、武器やスキルが使用可能になる。</li>
+                <li>また、空中で敵をキルすると、<b>近接エネルギーが回復</b>する。</li>
+                <li><span class="pve">回復量は敵の<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</span>
+                    <ul class="stats2">
+                        <li><span class="pvp">回復量: <b>50%</b></span></li>
+                        <li><span class="pve">ランク1: <b>20%</b></span></li>
+                        <li><span class="pve">ランク2: <b>25%</b></span></li>
+                        <li><span class="pve">ランク3: <b>35%</b></span></li>
+                        <li><span class="pve">ランク4: <b>50%</b></span></li>
+                    </ul>
+                </li>
+                <li>また、グレネードボタンを長押しすることでグレネードエネルギーを <b>100%</b> 消費し、自身に<b>熱上昇</b>を <b>15秒間</b> 付与する。</li>
+                <li>このとき、自身と <b>9m以内</b> の味方に<a href="#cure">治癒</a> <b>x2</b> を付与する。回復グレネードを消費した場合は、治癒のスタック数が <b>x3</b> になる。</li>
+                <li>熱上昇発動中は自身の武器の空中効果が <b>+70</b> され、使用中のグライディングに応じた<b>特殊なグライディング</b>を時間制限なく使用可能になる。
+                    <ul class="stats2">
+                        <li><b>バースト・グライディング</b> → 高度な方向修正が可能なグライディング</li>
+                        <li><b>スライド・グライディング</b> → 強い推進力を持つグライディング</li>
+                        <li><b>バランス・グライディング</b> → 高度な方向修正が可能かつ強い推進力を持つグライディング</li>
+                    </ul>
+                </li>
+                <li><span class="pvp">また、発動中は自身の<b>詳細な位置</b>が敵のレーダーに映るようになる。</span></li>
+                <li>熱上昇発動中に空中でキルをすると、効果時間が<span class="pvp"> <b>+5秒</b> </span>延長される。</li>
+                <li><span class="pve">延長される時間は敵の<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</span>
+                    <ul class="stats2">
+                        <li><span class="pve">ランク1: <b>+5秒</b></span></li>
+                        <li><span class="pve">ランク2, 3: <b>+10秒</b></span></li>
+                        <li><span class="pve">ランク4: <b>+15秒</b></span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="touch_of_flame"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d6b44fe69ff876449e732b52b7d9d334.jpg" class="h3">炎の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>一部グレネードの効果や性能が向上する。</li>
+                <ul>
+                    <li>ファイアボルトグレネード
+                        <ul class="stats2">
+                            <li>効果範囲が <b>+50%</b> され、敵を <b>1体</b> 多く追尾できるようになる。</li>
+                        </ul>
+                    </li>
+                    <li>アークグレネード
+                        <ul class="stats2">
+                            <li>効果時間が <b>+2秒</b> され、<b>50</b> ダメージを与えるマグマオーブを放出する。</li>
+                        </ul>
+                    </li>
+                    <li>フュージョングレネード
+                        <ul class="stats2">
+                            <li>追加で <b><span class="pve">945</span><span class="pvp">50</span></b> ダメージを与える、2度目の爆発を起こす。</li>
+                            <li>この爆発によるスコーチの付与はない。</li>
+                        </ul>
+                    </li>
+                    <li>回復グレネード
+                        <ul class="stats2">
+                            <li>付与される<a href="#cure">治癒</a>と<a href="#restoration">回復</a>のスタック数が x2 になる。</li>
+                        </ul>
+                    </li>
+                </ul>
+                <li>トリップマイングレネード、テルミットグレネード、焼夷グレネード、スワームグレネードには効果がない。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="source"></a>
+        <h2>出典</h2>
+
+        <a href="https://docs.google.com/spreadsheets/d/1WaxvbLx7UoSZaBqdFr1u32F2uWVLo-CJunJB4nlGUE4/edit#gid=618967225">The Destiny Data Compendium</a><br>
+        <a href="https://docs.google.com/spreadsheets/d/1i1KUwgVkd8qhwYj481gkV9sZNJQCE-C3Q-dpQutPCi4/edit#gid=236040978">The Comprehensive Destiny 2 Data & Information</a>
+
+        <a name="challenge_log"></a>
+        <h2>更新履歴</h2>
+
+        <a href="https://github.com/depth172/depth172.github.io/commits/gh-pages/destiny2/class_arc.html">過去のページを確認する</a>
+
+        <a name="comments"></a>
+        <!-- begin wwww.htmlcommentbox.com -->
+        <script type="text/javascript" src="../js/htmlcommentbox.js"></script>
+
+        <div id="HCB_comment_box">コメントを読み込んでいます...</div>
+        <link rel="stylesheet" type="text/css" href="/css/twitter-bootstrap.css" />
+        <script type="text/javascript" id="hcb">
+            if (!window.hcb_user) {
+                hcb_user = {};
+            }(function() {
+                var s = document.createElement("script"),
+                    l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
+                    h = "https://www.htmlcommentbox.com";
+                s.setAttribute("type", "text/javascript");
+                s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%240S16uY.Oh6y9MR3cBrjg21" + "&opts=16798&num=10&ts=1642331857298");
+                if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s);
+            })();
+        </script>
+        <!-- end www.htmlcommentbox.com -->
+        <hr>
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        最後
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="2253130494" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="footer"><a href="#" id="page-top">一番上に戻る ▲</a></div>
+        -->
+    </div>
+</body>
+
+</html>
