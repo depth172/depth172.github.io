@@ -376,151 +376,6 @@
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
-        <a name="grenades"></a>
-        <h2>グレネードスキル一覧</h2>
-        <div class="text">
-            グレネードタイプについて
-            <ul>
-                <li><b>通常</b>: 投擲後、一定時間してから爆発する。</li>
-                <li><b>継続</b>: 着弾地点に残留し、範囲内にいる敵に継続的なダメージを与える。</li>
-                <li><b>接着</b>: 敵や障害物に接着して発動する。継続タイプと違い、対象が動いても効果がある。</li>
-                <li><b>検知</b>: 着弾地点から一定範囲内にいる敵を検知し、自動的にダメージを与える。</li>
-                <li><b>複数回</b>: 一個のグレネードが敵に複数回のダメージを与える。継続タイプと違い、同じグレネードを複数個投げても効果がある。</li>
-            </ul>
-            継続タイプのグレネードは、複数の同じグレネードを投げてもダメージは1個分しかない。
-            <br><b>例</b>: ボルテックスグレネード2個は1個分のダメージしか与えられないが、ボルテックスグレネードとボイドスパイクを同時に投げると相応のダメージを与えられる。
-        </div>
-
-        <table class="list grenade">
-            <thead>
-                <tr>
-                    <th class="icon" style="background: #ccdae4;"></th>
-                    <th>名称</th>
-                    <th>タイプ</th>
-                    <th>ダメージ</th>
-                    <th>クール<br>ダウン (秒)</th>
-                    <th>持続時間<br>(秒)</th>
-                    <th>範囲 (m)</th>
-                    <th>起動までの<br>準備時間 (秒)</th>
-                    <th>初ヒットから<br>の遅延 (秒)</th>
-                    <th>ダメージ<br>頻度 (秒)</th>
-                    <th>備考</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/aa8480964870b6b8be7d19ee68814b14.jpg" class="table"></th>
-                    <th>ボイドスパイク</th>
-                    <td style="text-align: center;"><b>接着 / 継続</b></td>
-                    <td style="text-align: left;" class="pve">80 × 16 = <b>1,280</b></td>
-                    <td style="text-align: left;" class="pvp">28 × 16 = <b>448</b></td>
-                    <td><b>91</b></td>
-                    <td><b>10</b></td>
-                    <td>長さ <b>11.5</b> × 幅 <b>6</b></td>
-                    <td><b>0.3</b></td>
-                    <td style="text-align: center;">-</td>
-                    <td><b>0.27</b></td>
-                    <td class="name">壁や床に張り付き、継続して <b>16回</b> のダメージを与える。グレネード本体のHPは <b>10</b> 。</td>
-                </tr>
-                <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e1fe72608ed560d20f81ff41c8997fb7.jpg" class="table"></th>
-                    <th>ボイドウォール</th>
-                    <td style="text-align: center;"><b>継続</b></td>
-                    <td style="text-align: left;" class="pve">171 + 120 × 18 = <b>2,331</b></td>
-                    <td style="text-align: left;" class="pvp">60 + 35 × 18 = <b>690</b></td>
-                    <td><b>105</b></td>
-                    <td><b>4</b></td>
-                    <td><b>10</b></td>
-                    <td><b>0.43</b></td>
-                    <td style="text-align: center;">x</td>
-                    <td><b>0.27</b></td>
-                    <td class="name">最初の爆発と、その後に残留したボイドライトが継続して <b>18回</b> のダメージを与える。</td>
-                </tr>
-                <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/bbdf2e0f41bad0fdf167aace75b88b8a.jpg" class="table"></th>
-                    <th>サプレッサーグレネード</th>
-                    <td style="text-align: center;"><b>通常</b></td>
-                    <td style="text-align: left;" class="pve"><b>863</b></td>
-                    <td style="text-align: left;" class="pvp"><b>150</b></td>
-                    <td><b>121</b></td>
-                    <td style="text-align: center;">-</td>
-                    <td><b>9</b></td>
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;">-</td>
-                    <td class="name">敵を <b><span class="pve">10秒間</span><span class="pvp">5秒間</span></b> <a href="#suppression">抑制状態</a>にする。</td>
-                </tr>
-                <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c0380f98212741e67092cb0a5080ee16.jpg" class="table"></th>
-                    <th>ボルテックスグレネード</th>
-                    <td style="text-align: center;"><b>継続</b></td>
-                    <td style="text-align: left;" class="pve">144 + 69 × 13 = <b>1,041</b></td>
-                    <td style="text-align: left;" class="pvp">25 + 20 × 13 = <b>280</b></td>
-                    <td><b>121</b></td>
-                    <td><b>4</b></td>
-                    <td><b>5</b> (着弾時)<br><b>4</b> (継続)</td>
-                    <td><b>0.3</b></td>
-                    <td><b>1.07</b></td>
-                    <td><b>0.27</b></td>
-                    <td class="name">初回のヒットは<span class="pve">144</span><span class="pvp">25</span>ダメージ。それ以降は<span class="pve">69</span><span class="pvp">20</span>ダメージを継続して <b>13回</b> 与える。</td>
-                </tr>
-                <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/4809222d69a67300601706cc70fec814.jpg" class="table"></th>
-                    <th>スキャッターグレネード</th>
-                    <td style="text-align: center;"><b>通常 / 複数回</b></td>
-                    <td style="text-align: left;" class="pve">(115 + 69) × 8 = <b>1,472</b></td>
-                    <td style="text-align: left;" class="pvp">(20 + 16) × 8 = <b>288</b></td>
-                    <td><b>121</b></td>
-                    <td style="text-align: center;">-</td>
-                    <td><b>4</b> (拡散時)<br><b>4</b> (爆発時)</td>
-                    <td>不明</td>
-                    <td>不明</td>
-                    <td>不明</td>
-                    <td class="name">
-                        グレネードが8個の子弾に拡散し、2回爆発する。1回目で<span class="pve">115</span><span class="pvp">20</span>ダメージ、2回目で<span class="pve">69</span><span class="pvp">16</span>ダメージを与える。
-                        <br>着弾時は4mの範囲で拡散し、子弾が4mの範囲で爆発するため、合計の効果範囲は約8m。
-                    </td>
-                </tr>
-                <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1be0be8f8b7d67414b6f96ff0562f527.jpg" class="table"></th>
-                    <th>磁気グレネード</th>
-                    <td style="text-align: center;"><b>接着 / 複数回</b></td>
-                    <td style="text-align: left;" class="pve">472.5 × 2 = <b>945</b></td>
-                    <td style="text-align: left;" class="pvp">75 × 2 = <b>150</b></td>
-                    <td><b>121</b></td>
-                    <td><b>1.5</b></td>
-                    <td><b>5</b></td>
-                    <td style="text-align: center;">-</td>
-                    <td><b>1.07</b></td>
-                    <td><b>0.5</b></td>
-                    <td class="name">爆発時<span class="pve">472.5</span><span class="pvp">75</span>ダメージ×2。直撃すると2ダメージ。</td>
-                </tr>
-                <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/5212672b29258f5fe2dce884083f69e1.jpg" class="table"></th>
-                    <th>アクシオンボルト</th>
-                    <td style="text-align: center;"><b>検知</b></td>
-                    <td style="text-align: left;" class="pve"><b>575</b></td>
-                    <td style="text-align: left;" class="pvp"><b>100</b></td>
-                    <td><b>152</b></td>
-                    <td style="text-align: center;">-</td>
-                    <td><b>13</b></td>
-                    <td><b>1.07</b></td>
-                    <td>不明</td>
-                    <td style="text-align: center;">-</td>
-                    <td class="name">子弾が敵を追尾し、爆発時<span class="pve">575</span><span class="pvp">100</span>ダメージ。<span class="pvp">投擲したグレネードが直撃すると2ダメージ。</span></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="back"><a href="#" id="page-top">▲</a></div>
-
-        <!--
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="8271404627" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        -->
-
         <h2>ボイド属性のかけら一覧</h2>
 
         <a name="echo_of_expulsion"></a>
@@ -756,12 +611,157 @@
         </script>
         -->
 
+        <a name="grenades"></a>
+        <h2>グレネードスキル一覧</h2>
+        <div class="text">
+            グレネードタイプについて
+            <ul>
+                <li><b>通常</b>: 投擲後、一定時間してから爆発する。</li>
+                <li><b>継続</b>: 着弾地点に残留し、範囲内にいる敵に継続的なダメージを与える。</li>
+                <li><b>接着</b>: 敵や障害物に接着して発動する。継続タイプと違い、対象が動いても効果がある。</li>
+                <li><b>検知</b>: 着弾地点から一定範囲内にいる敵を検知し、自動的にダメージを与える。</li>
+                <li><b>複数回</b>: 一個のグレネードが敵に複数回のダメージを与える。継続タイプと違い、同じグレネードを複数個投げても効果がある。</li>
+            </ul>
+            継続タイプのグレネードは、複数の同じグレネードを投げてもダメージは1個分しかない。
+            <br><b>例</b>: ボルテックスグレネード2個は1個分のダメージしか与えられないが、ボルテックスグレネードとボイドスパイクを同時に投げると相応のダメージを与えられる。
+        </div>
+
+        <table class="list grenade">
+            <thead>
+                <tr>
+                    <th class="icon" style="background: #ccdae4;"></th>
+                    <th>名称</th>
+                    <th>タイプ</th>
+                    <th>ダメージ</th>
+                    <th>クール<br>ダウン (秒)</th>
+                    <th>持続時間<br>(秒)</th>
+                    <th>範囲 (m)</th>
+                    <th>起動までの<br>準備時間 (秒)</th>
+                    <th>初ヒットから<br>の遅延 (秒)</th>
+                    <th>ダメージ<br>頻度 (秒)</th>
+                    <th>備考</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/aa8480964870b6b8be7d19ee68814b14.jpg" class="table"></th>
+                    <th>ボイドスパイク</th>
+                    <td style="text-align: center;"><b>接着 / 継続</b></td>
+                    <td style="text-align: left;" class="pve">80 × 16 = <b>1,280</b></td>
+                    <td style="text-align: left;" class="pvp">28 × 16 = <b>448</b></td>
+                    <td><b>91</b></td>
+                    <td><b>10</b></td>
+                    <td>長さ <b>11.5</b> × 幅 <b>6</b></td>
+                    <td><b>0.3</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>0.27</b></td>
+                    <td class="name">壁や床に張り付き、継続して <b>16回</b> のダメージを与える。グレネード本体のHPは <b>10</b> 。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e1fe72608ed560d20f81ff41c8997fb7.jpg" class="table"></th>
+                    <th>ボイドウォール</th>
+                    <td style="text-align: center;"><b>継続</b></td>
+                    <td style="text-align: left;" class="pve">171 + 120 × 18 = <b>2,331</b></td>
+                    <td style="text-align: left;" class="pvp">60 + 35 × 18 = <b>690</b></td>
+                    <td><b>105</b></td>
+                    <td><b>4</b></td>
+                    <td><b>10</b></td>
+                    <td><b>0.43</b></td>
+                    <td style="text-align: center;">x</td>
+                    <td><b>0.27</b></td>
+                    <td class="name">最初の爆発と、その後に残留したボイドライトが継続して <b>18回</b> のダメージを与える。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/bbdf2e0f41bad0fdf167aace75b88b8a.jpg" class="table"></th>
+                    <th>サプレッサーグレネード</th>
+                    <td style="text-align: center;"><b>通常</b></td>
+                    <td style="text-align: left;" class="pve"><b>863</b></td>
+                    <td style="text-align: left;" class="pvp"><b>150</b></td>
+                    <td><b>121</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>9</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td class="name">敵を <b><span class="pve">10秒間</span><span class="pvp">5秒間</span></b> <a href="#suppression">抑制状態</a>にする。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c0380f98212741e67092cb0a5080ee16.jpg" class="table"></th>
+                    <th>ボルテックスグレネード</th>
+                    <td style="text-align: center;"><b>継続</b></td>
+                    <td style="text-align: left;" class="pve">144 + 69 × 13 = <b>1,041</b></td>
+                    <td style="text-align: left;" class="pvp">25 + 20 × 13 = <b>280</b></td>
+                    <td><b>121</b></td>
+                    <td><b>4</b></td>
+                    <td><b>5</b> (着弾時)<br><b>4</b> (継続)</td>
+                    <td><b>0.3</b></td>
+                    <td><b>1.07</b></td>
+                    <td><b>0.27</b></td>
+                    <td class="name">初回のヒットは<span class="pve">144</span><span class="pvp">25</span>ダメージ。それ以降は<span class="pve">69</span><span class="pvp">20</span>ダメージを継続して <b>13回</b> 与える。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/4809222d69a67300601706cc70fec814.jpg" class="table"></th>
+                    <th>スキャッターグレネード</th>
+                    <td style="text-align: center;"><b>通常 / 複数回</b></td>
+                    <td style="text-align: left;" class="pve">(115 + 69) × 8 = <b>1,472</b></td>
+                    <td style="text-align: left;" class="pvp">(20 + 16) × 8 = <b>288</b></td>
+                    <td><b>121</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>4</b> (拡散時)<br><b>4</b> (爆発時)</td>
+                    <td>不明</td>
+                    <td>不明</td>
+                    <td>不明</td>
+                    <td class="name">
+                        グレネードが8個の子弾に拡散し、2回爆発する。1回目で<span class="pve">115</span><span class="pvp">20</span>ダメージ、2回目で<span class="pve">69</span><span class="pvp">16</span>ダメージを与える。
+                        <br>着弾時は4mの範囲で拡散し、子弾が4mの範囲で爆発するため、合計の効果範囲は約8m。
+                    </td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1be0be8f8b7d67414b6f96ff0562f527.jpg" class="table"></th>
+                    <th>磁気グレネード</th>
+                    <td style="text-align: center;"><b>接着 / 複数回</b></td>
+                    <td style="text-align: left;" class="pve">472.5 × 2 = <b>945</b></td>
+                    <td style="text-align: left;" class="pvp">75 × 2 = <b>150</b></td>
+                    <td><b>121</b></td>
+                    <td><b>1.5</b></td>
+                    <td><b>5</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>1.07</b></td>
+                    <td><b>0.5</b></td>
+                    <td class="name">爆発時<span class="pve">472.5</span><span class="pvp">75</span>ダメージ×2。直撃すると2ダメージ。</td>
+                </tr>
+                <tr>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/5212672b29258f5fe2dce884083f69e1.jpg" class="table"></th>
+                    <th>アクシオンボルト</th>
+                    <td style="text-align: center;"><b>検知</b></td>
+                    <td style="text-align: left;" class="pve"><b>575</b></td>
+                    <td style="text-align: left;" class="pvp"><b>100</b></td>
+                    <td><b>152</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td><b>13</b></td>
+                    <td><b>1.07</b></td>
+                    <td>不明</td>
+                    <td style="text-align: center;">-</td>
+                    <td class="name">子弾が敵を追尾し、爆発時<span class="pve">575</span><span class="pvp">100</span>ダメージ。<span class="pvp">投擲したグレネードが直撃すると2ダメージ。</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!--
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="8271404627" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
         <h1><img src="https://www.bungie.net/common/destiny2_content/icons/ecd4608be3fb1c02755a96dc104dc003.jpg" class="head">センティネル</h1>
 
         <h2>センティネルのスーパースキル</h2>
 
         <a name="ward_of_dawn"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/91eec50f00de84db8b666ec299859a21.png" class="head">ドーン・ウォード</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/91eec50f00de84db8b666ec299859a21.png" class="diamond_c"></span>ドーン・ウォード</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -779,7 +779,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="sentinel_shield"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/f02fd0d90b8d3d7182b9c7cab1a46f64.png" class="head">センティネルシールド</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/f02fd0d90b8d3d7182b9c7cab1a46f64.png" class="diamond_c"></span>センティネルシールド</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -810,6 +810,7 @@
                 <li><b>1.25秒</b> 以上のダッシュ中か、その後のスライディング中に近接攻撃ボタンを押すと、前方にシールドを構えながら突撃する。</li>
                 <li>この攻撃がヒットした敵は<b><a href="#suppression">抑制</a>状態</b>になる。</li>
                 <li>さらに、この攻撃で敵をキルすると、自身に <b>45HP</b> の<a href="#overshield">ボイドのオーバーシールド</a>を付与する。</li>
+                <li>敵にヒットするまで、このスキルを使用することで近接エネルギーは<b>消費されない。</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -893,7 +894,7 @@
         <h2>ナイトクローラーのスーパースキル</h2>
 
         <a name="moebius_quiver"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/af58a42be4e803d1b5a7885b13985977.png" class="head">シャドウショット: メビウスの矢筒</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/af58a42be4e803d1b5a7885b13985977.png" class="diamond_c"></span>シャドウショット: メビウスの矢筒</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -912,7 +913,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="deadfall"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/a30563f95eea66ef729a4e65a7152fa7.png" class="head">シャドウショット: 落罠</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/a30563f95eea66ef729a4e65a7152fa7.png" class="diamond_c"></span>シャドウショット: 落罠</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -931,7 +932,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="spectral_blades"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/a219dacf9847a5c6174d096ce394e460.png" class="head">亡霊の刃</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/a219dacf9847a5c6174d096ce394e460.png" class="diamond_c"></span>亡霊の刃</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -939,8 +940,8 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>弱攻撃で素早い近接攻撃を繰り出し、強攻撃で攻撃と共に<a href="#invisibility">透明化</a>する。</li>
-                <li>このスキルの発動中は、透明化状態で走っても<b>レーダーに映らない。</b></li>
+                <li>弱攻撃で素早い近接攻撃を繰り出し、強攻撃で攻撃と共に透明化する。</li>
+                <li>この透明化は通常の<a href="#invisibility">透明化状態</a>と違い、走っても<b>レーダーに映らない。</b></li>
                 <li>透明化中は、時間経過によるスーパーエネルギーの消費量が <b>-50%</b> 軽減される。</li>
             </ul>
         </div>
@@ -1029,7 +1030,7 @@
         <h2>ボイドウォーカーのスーパースキル</h2>
 
         <a name="novabomb_vortex"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/0230272ce6d6d6ed1d1a3a951e460f34.png" class="head">ノヴァボム: ボルテックス</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/0230272ce6d6d6ed1d1a3a951e460f34.png" class="diamond_c"></span>ノヴァボム: ボルテックス</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -1045,7 +1046,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="novabomb_cataclysm"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/fd0d80cb5f7c0f777795ab3d1b701f4f.png" class="head">ノヴァボム: 大変動</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/fd0d80cb5f7c0f777795ab3d1b701f4f.png" class="diamond_c"></span>ノヴァボム: 大変動</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -1061,7 +1062,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="nova_warp"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/82a9885b09a090770b56f21927df9d03.png" class="head">ノヴァワープ</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/82a9885b09a090770b56f21927df9d03.png" class="diamond_c"></span>ノヴァワープ</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -1143,7 +1144,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>スキルでキルをすると、<b>5秒間</b> <span class="balloon starvation">(<b>10秒間</b>)</span> <b><a href="#devour">吸引</a>状態</b>になる。</li>
-                <li>吸引は敵を倒すと、最大で <b>10秒</b> <span class="balloon starvation">(<b>15秒間</b>)</span> まで延長できる。</li>
+                <li>吸引は、敵を倒すと最大で <b>10秒</b> <span class="balloon starvation">(<b>15秒間</b>)</span> まで延長できる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>

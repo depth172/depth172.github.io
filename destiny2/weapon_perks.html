@@ -102,6 +102,8 @@
                     <ul>
                         <li><a href="#backup_mag">予備マガジン</a></li>
                         <li><a href="#counterbalance_stock">平衡化ストック</a></li>
+                        <li><a href="#freehand_grip">フリーハンドグリップ</a></li>
+                        <li><a href="#sprint_grip">スプリントグリップ</a></li>
                         <li><a href="#quick_access_sling">クイックアクセス・スリング</a></li>
                         <li><a href="#targeting_adjuster">標的捕捉装置</a></li>
                         <li><a href="#radar_booster">レーダーブースター</a></li>
@@ -406,6 +408,25 @@
             <ul class="stats">
                 <li>反動方向: <b>+15</b></li>
             </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="freehand_grip"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/74f9e18e2a31abc41034355f65d85f1b.png" class="h3">フリーハンドグリップ</h3>
+        <div class="base">腰だめ撃ちの精度と取り出し速度を向上させる。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>腰だめ撃ち精度: <b>+15%</b></li>
+                <li>武器取り出し時間: <b>x0.95</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="sprint_grip"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b3bdd9138b50e1b9e5a4da924eb05866.png" class="h3">スプリントグリップ</h3>
+        <div class="base">一定時間ダッシュ後、ハンドリングが増加する。</div>
+        <div class="indepth">
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -1452,74 +1473,24 @@
 
         <a name="adagio"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/71b48407a3276cf4e8ddbdcb88efe8a0.png" class="h3">アダージョ</h3>
-        <div class="base">キルをするとこの武器が与えるダメージが増加するが、発射レートが減少もしくはチャージ時間が増加する。</div>
+        <div class="base">この武器でキルをすると、この武器が与えるダメージが増加する代わりに、発射レートが減少もしくはチャージ時間が増加する。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            変化後の実効発射レート (RPM) は、(変化前のRPM ÷ 発射後ディレイ変化率) で計算可能。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>7秒</b></li>
+                <li>ダメージ増加量:
+                    <ul class="stats2">
+                        <li><span class="w-icons bow">&#xe099;</span> / <span class="w-icons shotgun">&#xe104;</span>: <b>+20%</b></li>
+                        <li>それ以外の武器: <b>+30%</b></li>
+                    </ul>
+                </li>
                 <li>射程距離: <b>+10</b></li>
+                <li>発射後ディレイ: <b>x1.2</b></li>
+                <li>チャージ時間 (<span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span>): <b>x1.2</b></li>
+                <li>発射時間 (<span class="w-icons bow">&#xe099;</span>): <b>x1.2</b></li>
             </ul>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th>武器の種類</th>
-                        <th>ダメージ増加量</th>
-                        <th>発射レート / チャージ時間<br>変化量</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th><span class="w-icons sidearm">&#xe109;</span></th>
-                        <td><b>+30%</b></td>
-                        <td><b>-20%</b></td>
-                    </tr>
-                    <tr>
-                        <th><span class="w-icons hc">&#xe103;</span></th>
-                        <td><b>+30%</b></td>
-                        <td><b>-15%</b></td>
-                    </tr>
-                    <tr>
-                        <th><span class="w-icons scout">&#xe102;</span></th>
-                        <td><b>+30%</b></td>
-                        <td><b>-15%</b></td>
-                    </tr>
-                    <tr>
-                        <th><span class="w-icons auto">&#xe100;</span> (速射フレーム)</th>
-                        <td><b>+30%</b></td>
-                        <td><b>-15%</b></td>
-                    </tr>
-                    <tr>
-                        <th><span class="w-icons auto">&#xe100;</span> (上記以外)</th>
-                        <td><b>+30%</b></td>
-                        <td><b>-20%</b></td>
-                    </tr>
-                    <tr>
-                        <th><span class="w-icons bow">&#xe099;</span></th>
-                        <td><b>+20%</b></td>
-                        <td><b>+20%</b></td>
-                    </tr>
-                    <tr>
-                        <th><span class="w-icons shotgun">&#xe104;</span></th>
-                        <td><b>+20%</b></td>
-                        <td><b>-20%</b></td>
-                    </tr>
-                    <tr>
-                        <th><span class="w-icons fusion">&#xe106;</span></th>
-                        <td><b>+27%</b></td>
-                        <td><b>+15%</b></td>
-                    </tr>
-                    <tr>
-                        <th><span class="w-icons glheavy">&#xe113;</span></th>
-                        <td><b>+30%</b></td>
-                        <td><b>-20%</b></td>
-                    </tr>
-                    <tr>
-                        <th><span class="w-icons linear">&#xe152;</span></th>
-                        <td><b>+30%</b></td>
-                        <td><b>+15%</b></td>
-                    </tr>
-                </tbody>
-            </table>
             <div class="info">&lt;強化特性&gt;</div>
             効果時間が増加する。
             <ul class="stats2">

@@ -429,6 +429,7 @@
                 <li><b>1.5秒間</b> ダッシュすると、<b>リニア作動装置</b>が <b>7秒間</b> 付与される。</li>
                 <li>リニア作動装置発動中に敵に近接攻撃をすると敵に<b>ショック</b>を付与し、ショック状態の敵からは、<b>20m以内</b> にいる敵に<b>電撃が連鎖</b>し、<b><span class="pve">220</span><span class="pvp">85</span></b> ダメージを与える。連鎖できる敵が存在する限り、ショック状態は<b>継続</b>される。</li>
                 <li><span class="pvp">ただし、一度連鎖させると、同じ敵に <b>2秒間</b> 連鎖ダメージは入らない。</span></li>
+                <li>アーク効果である「<a href="./class_arc.html#jolted">ショック状態</a>」とは異なるため、これがトリガーになる効果は発動しない。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -875,6 +876,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>頑強なバリケードのHPを 600 → <b>350</b> に、効果時間を 20秒 → <b>10秒</b> に減少させる代わりに、<b>バリケード越しに射撃可能</b>にする。</li>
+                <li>また、この防具を装備中はバリケードのクールダウンが <b>+70%</b> 増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1050,7 +1052,7 @@
             <ul class="stats">
                 <li>雷鳴で敵を倒すと、<b>近接エネルギーが回復</b>する。</li>
                 <li>また、雷鳴発動時、付近にいる敵は<b>落雷</b>により、<b>50</b> ダメージを受ける。</li>
-                <li>増幅中は、この落雷の範囲が拡大する。</li>
+                <li><a href="./class_arc.html#amplified">増幅</a>中は、この落雷の範囲が拡大する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1138,17 +1140,18 @@
             <span class="w-icons solar">&#xe140;</span>ガンスリンガー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>トリップマイングレネードが以下のように<b>強化</b>される。
+                <li><a href="./class_solar.html#grenades">トリップマイングレネード</a>が以下のように<b>強化</b>される。
                     <ul>
                         <li><a href="./armor_mods.html#fastball">ファストボール</a>の効果を持つ。</li>
                         <li>爆発ダメージが <b>+14%</b> 増加する。</li>
-                        <li>爆発範囲が増加し、距離によるダメージ減衰がなくなる。</li>
+                        <li>爆発範囲が 12m → <b>14m</b> まで増加し、距離によるダメージ減衰がなくなる。</li>
                         <li>グレネードによる<b>自爆ダメージが無効化</b>される。</li>
                         <li>グレネードのHPが 10 → <b>100</b> に増加<span class="pvp">し、グレネード本体に対するダメージを <b>50%</b> 軽減</span>する。</li>
                         <li>壁や床に設置してからの持続時間が <b>+20秒</b> 延びる。</li>
                     </ul>
                 </li>
-                <li>トリップマイングレネードで敵を倒すと、グレネードエネルギーが <b>33%</b> 回復する。</li>
+                <li>ソーラー属性のスキルで敵を倒すと、グレネードエネルギーが <b>33%</b> 回復する。</li>
+                <li>このとき、ソーラーのかけら「<a href="./class_solar.html#ember_of_ashes">灰の名残</a>」を装備していると、グレネードエネルギーが追加で <b>+33%</b> 回復する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1667,6 +1670,7 @@
                     </ul>
                 </li>
                 <li>抑制効果はスーパースキル発動中のガーディアンには効果がない（軽度の抑制）。</li>
+                <li>盲目効果は、アーク効果である「<a href="./class_arc.html#blind">視力喪失状態</a>」とは異なるため、これがトリガーになる効果は発動しない。</li>
                 <li>また、遅延のスタック数は増加しない。</li>
             </ul>
         </div>
@@ -1925,7 +1929,7 @@
             <span class="w-icons arc">&#xe143;</span>ストームマスター
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>アークのスキルか、ショック状態で敵をキルすると、<b>伝導角</b>が <b><span class="pve">7秒間</span><span class="pvp">4秒間</span></b> 付与される。</li>
+                <li>アークのスキルか、<a href="./class_arc.html#jolted">ショック状態</a>の連鎖ダメージで敵をキルすると、<b>伝導角</b>が <b><span class="pve">7秒間</span><span class="pvp">4秒間</span></b> 付与される。</li>
                 <li>伝導角のスタック数に応じてグレネードエネルギー、近接エネルギー、クラススキルエネルギー、スーパーエネルギーの<b>回復速度が増加</b>し、ストームトランスの<b>持続時間が延びる。</b></li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
@@ -2316,7 +2320,7 @@
             <span class="w-icons arc">&#xe143;</span>ストームマスター
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>グレネードボタンを長押しすると、グレネードエネルギーを全て消費し、<b>アークソウル</b>を <b>20秒間</b> 召喚すると同時に<b>増幅状態</b>となる。</li>
+                <li>グレネードボタンを長押しすると、グレネードエネルギーを全て消費し、<b>アークソウル</b>を <b>20秒間</b> 召喚すると同時に<b><a href="./class_arc.html#amplified">増幅状態</a></b>となる。</li>
                 <li>アークソウルのバースト射撃がヒットすると、グレネードエネルギーが <b>4.5%</b> 回復する。</li>
             </ul>
         </div>
@@ -2589,7 +2593,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>生成したイオントレースの移動速度が増加し、得られるスキルエネルギーが <b>+60%</b> 増加する。</li>
+                <li>生成した<a href="./class_arc.html#ionic_trace">イオントレース</a>の移動速度が増加し、得られるスキルエネルギーが <b>x2</b> になる。</li>
                 <li>さらに、イオントレースを取得すると、周囲の味方も <b>10%</b> のスキルエネルギーを得られる。</li>
             </ul>
         </div>

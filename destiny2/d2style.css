@@ -53,9 +53,11 @@ div .pvp {
 }
 
 .search {
+    position: absolute;
     display: inline-block;
-    width: 300px;
-    height: 1em;
+    margin: 0;
+    width: 350px;
+    height: 3em;
 }
 
 #p_toggle {
@@ -336,6 +338,27 @@ img.h3 {
     width: 2.3em;
     height: 2.3em;
     transform: translate(0, -18%);
+}
+
+.diamond {
+    display: inline-block;
+    position: relative;
+    background: #545454;
+    border: 2px solid #5e5e5e;
+    margin: 0 0.4em;
+    margin-right: 1em;
+    width: 1.5em;
+    height: 1.5em;
+    transform: rotate(45deg) translate(35%, 8%);
+}
+
+img.diamond_c {
+    position: absolute;
+    margin: 0;
+    top: -5.4px;
+    left: -5.4px;
+    max-width: 140%;
+    transform: rotate(-45deg);
 }
 
 img.table_icon {

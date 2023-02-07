@@ -37,8 +37,11 @@ html {
 #page-top.fixed {
     background: #fff;
     color: #737373;
-    padding: 17px 19.5px;
-    line-height: 5em;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin: 1em;
+    line-height: 4em;
     border: solid 1px;
     border-radius: 50%;
     box-shadow: 0 2px 10px -6px rgba(0, 0, 0, .5), 0 3px 10px -4px rgba(0, 0, 0, .2);
@@ -53,6 +56,12 @@ hr {
     padding: 1.5px;
     border-top: 2px solid #bbb;
     border-bottom: 3px solid #bbb;
+}
+
+hr.title {
+    border: 0;
+    margin: 0.35em 0;
+    border-top: 2px solid #bbb;
 }
 
 h1 {
@@ -249,6 +258,11 @@ p.intro {
     .overlay-button {
         position: fixed;
         bottom: 0.5em;
+    }
+    hr.title {
+        border: 0;
+        margin: 0.35em 0;
+        border-top: 2px solid #bbb;
     }
     details {
         width: 90%;
