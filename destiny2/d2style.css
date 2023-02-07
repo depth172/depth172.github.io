@@ -40,6 +40,11 @@
     color: #5e7afd;
 }
 
+.strand {
+    margin-inline: 0.3em;
+    color: #37da66;
+}
+
 body {
     font-family: 'Yu Gothic', Destiny_Keys;
 }
