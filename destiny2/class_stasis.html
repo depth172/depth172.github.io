@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Destiny 2 クラス解説 - ステイシス - depth's Toybox</title>
+    <meta name="description" content="ページの説明">
+
+    <!-- Twitterバナーの設定 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@depth172">
+    <meta name="twitter:title" content="Destiny 2 クラス解説 - ステイシス - depth's Toybox">
+    <meta name="twitter:description" content="Destiny 2のステイシス属性に関する効果、サブクラスのスキル、特性、かけらなどについて解説しています。">
+    <meta name="twitter:image" content="https://depth172.github.io/img/card-summary.png">
+
+    <!-- デザイン関連 -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="d2style.css">
+    <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
+
+    <!-- 表示内容切り替え用スクリプト -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
+
+    <!-- 通知表示 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".overlay").show();
+            $.cookie('btnFlg') == 'on' ? $(".overlay").hide() : $(".overlay").show();
+            $(".btn_area button").click(function() {
+                $(".overlay").fadeOut();
+                $.cookie('btnFlg', 'on', {
+                    expires: 30,
+                    path: '/'
+                }); //cookieの保存
+            });
+        });
+    </script>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="overlay">
+        <div class="btn_area">
+            <p class="ttl">新機能のお知らせ</p>
+            <p>右下のボタンを押すことで、PvE用の情報とPvP用の情報が切り替えられるようになりました！ぜひご利用ください。</p>
+            <button>閉じる</button>
+        </div>
+    </div>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
+    </div>
+
+    <div class="main" id="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
+        <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
+        <h1>クラス解説 - <span class="stasis">&#xe139;</span>ステイシス</h1>
+        <hr>
+        <div class="title_bar">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 クラス解説 - ステイシス" data-url="http://depth172.github.io/destiny2/class_stasis.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
+
+                var target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+
+        <p class="intro">Destiny 2のステイシスに関する効果、サブクラスのスキル、特性、かけらなどについて解説します。</p>
+
+        <h2>目次</h2>
+
+        <div class="toc">
+            <ul>
+                <li><a href="#notice">注意事項・用語解説</a></li>
+                <details>
+                    <summary>ステイシス属性の固有効果</summary>
+                    <ul>
+                        <li><a href="#stasis_crystal">ステイシス・クリスタル</a></li>
+                        <li><a href="#stasis_shard">ステイシスの破片</a></li>
+                        <li><a href="#slow">遅延</a></li>
+                        <li><a href="#freeze">凍結</a></li>
+                        <li><a href="#shatter">粉砕</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ステイシス属性のかけら</summary>
+                    <ul>
+                        <li><a href="#whisper_of_expulsion">駆逐の囁き</a></li>
+                        <li><a href="#whisper_of_provision">備蓄の囁き</a></li>
+                        <li><a href="#whisper_of_exchange">交換の囁き</a></li>
+                        <li><a href="#whisper_of_remnants">名残の囁き</a></li>
+                        <li><a href="#whisper_of_reprisal">報復の囁き</a></li>
+                        <li><a href="#whisper_of_undermining">侵食の囁き</a></li>
+                        <li><a href="#whisper_of_persistence">固執の囁き</a></li>
+                        <li><a href="#whisper_of_leeching">吸収の囁き</a></li>
+                        <li><a href="#whisper_of_domineering">圧制の囁き</a></li>
+                        <li><a href="#whisper_of_dilation">拡張の囁き</a></li>
+                        <li><a href="#whisper_of_instability">不安定の囁き</a></li>
+                        <li><a href="#whisper_of_harvest">収穫の囁き</a></li>
+                        <li><a href="#whisper_of_obscurity">闇の囁き</a></li>
+                        <li><a href="#whisper_of_starvation">飢餓の囁き</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ステイシス属性のグレネード</summary>
+                    <ul>
+                        <li><a href="#grenades">グレネードスキル一覧</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ベヒーモス（タイタン）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#ward_of_dawn">ドーン・ウォード</a></li>
+                                <li><a href="#sentinel_shield">ベヒーモスシールド</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#shield_bash">シールドバッシュ</a></li>
+                                <li><a href="#shield_throw">シールド投げ</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#controlled_demorition">爆破解体</a></li>
+                                <li><a href="#bastion">バスティオン</a></li>
+                                <li><a href="#offensive_bulwark">攻性防壁</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>レベナント（ハンター）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#deadfall">シャドウショット: 落罠</a></li>
+                                <li><a href="#moebius_quiver">シャドウショット: メビウスの矢筒</a></li>
+                                <li><a href="#spectral_blades">亡霊の刃</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#snare_bomb">スネア爆弾</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#vanishing_step">消足</a></li>
+                                <li><a href="#trappers_ambush">罠師の奇襲</a></li>
+                                <li><a href="#stylish_executioner">粋な処刑人</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>シェードバインダー（ウォーロック）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#vortex">ノヴァボム: ボルテックス</a></li>
+                                <li><a href="#cataclysm">ノヴァボム: 大変動</a></li>
+                                <li><a href="#nova_warp">ノヴァワープ</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#pocket_singularity">懐中特異点</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#chaos_accelerant">カオス促進剤</a></li>
+                                <li><a href="#feed_the_void">ステイシスの餌</a></li>
+                                <li><a href="#child_of_the_old_gods">古き神々の子</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <li><a href="#source">出典</a></li>
+                <li><a href="#challenge_log">更新履歴</a></li>
+                <li><a href="#comments">コメント</a></li>
+            </ul>
+        </div>
+
+        <p>
+            右三角形はクリックすることで展開できます。
+            <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
+            <br>また、右下のボタンを押すことで、PvE向けの情報とPvP向けの情報が切り替えられます。
+        </p>
+
+        <a name="notice"></a>
+        <h2>注意事項・用語解説</h2>
+        <ul>
+            <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。
+                <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
+            <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについてはパーク自体が記載されていない場合もあります。</li>
+            <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
+            <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>解説中に出てくる<span class="balloon sample">点線の下線</span>が付いた文章や、<span class="w-icons auto">&#xe100;</span> <span class="w-icons solar">&#xe140;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">また、一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
+            <li class="pve">ダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
+            <li>武器ダメージが増加するものに関して、<span class="univ_debuff">全体デバフ</span>や<span class="univ_buff">強化バフ</span>にあたるものは該当する色になっています。 詳しくは<a href="./buff_stacking.html">強化・弱体化の種類と重複について</a>をお読みください。</li>
+            <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
+        </ul>
+        <dl>
+            <dt>キル</dt>
+            <dd>敵を倒すこと。特筆しない限り、自分でトドメを刺した場合のみ適用される。</dd>
+            <dt>近接スキル（チャージ近接）</dt>
+            <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
+            <dt>反動方向</dt>
+            <dd>武器のステータスの一種。大きいほど反動が垂直に近くなる。</dd>
+            <dt>照準補佐</dt>
+            <dd>武器のステータスの一種。大きいほどエイムアシストが強くかかる。</dd>
+            <dt>HPとシールド</dt>
+            <dd>自身のHPバーのうち <b>70</b> HPは自身の体力で、それ以上の部分はシールドとなっている。シールドのHPは耐久力によって <b>115.01</b> ～ <b>130</b> まで変動する。詳しくは<a href="./base_stats.html#resilience">耐久力</a>の項目を参照。</dd>
+        </dl>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!--
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="3593793015" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h2>ステイシス属性の固有効果</h2>
+
+        <a name="stasis_crystal"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/88f1f55866fd0abd76c62b2efc43dd61.png" class="head">ステイシス・クリスタル</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            ステイシスのスキルなどによって生成される、<b>柱状のクリスタル</b>。小、中、大の3つのサイズが存在する。
+            <br><img src="./img/stasis_crystal.jpg" class="illustration" width="600px">
+            <br>生成時、<b>2.6m以内</b> にいる<span class="pve">敵を<b><a href="#freeze">凍結</a></b>させる。</span><span class="pvp">敵に <b>x15</b> の<a href="#slow">遅延</a>を <b>1.5秒間</b> <span class="balloon durance">(<b>2秒間</b>)</span> 付与する。</span>
+            <br>クリスタルは、サイズによって異なる<b>HPを持ち</b>、一定量のダメージを受けると<b>破壊</b>される。
+            <br>自身のクリスタルに与えるダメージは <b>x2</b> される。
+            <br>クリスタル破壊時、<b>8m以内</b> にいる敵に <b><span class="pve">150</span><span class="pvp">25</span></b> ダメージを与える。このダメージは<b><a href="#shatter">粉砕</a>としてのダメージではない</b>ため注意。
+            <br>生成されてから、破壊されずに <b>15秒間</b> 経つと消滅する。
+            <ul class="stats">
+                <li>クリスタルのHP:
+                    <ul class="stats2">
+                        <li>小サイズ: <b>250 HP</b></li>
+                        <li>中サイズ: <b>350 HP</b></li>
+                        <li>大サイズ: <b>400 HP</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <a name="stasis_shard"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/6f50dcbc6d0b7119dc2d78f51bda7e87.png" class="head">ステイシスの破片</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            ステイシスの特性によって生成される、<b>クリスタルの破片</b>。小、大の2つのサイズが存在する。
+            <br><img src="./img/stasis_shard.jpg" class="illustration" width="400px">
+            <br>回収することで<b>近接エネルギーが回復</b>する他、かけらなどによって更なる<b>追加効果</b>を得られる。
+            <br>回収されずに <b>20秒間</b> 経つと消滅する。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>近接エネルギー回復量:
+                    <ul class="stats2">
+                        <li>小サイズ: <b>12%</b></li>
+                        <li>大サイズ: <b>50%</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <a name="slow"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/5a7a4f8b77084c7ab2891974505d4a15.png" class="head">遅延</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            遅延が付与された敵は<span class="pve"><b>射撃の精度が大幅に低下</b>する。
+            <br>プレイヤーの場合は</span>移動速度が <b>-40%</b> 、ジャンプ高度が <b>-60%</b> 減少し、<b>崖に捕まることができなくなり、</b>武器の<b>安定性、ハンドリング、リロード速度、反動方向が減少</b>し、<b>ひるみが増加</b>する。
+            <br>遅延のスタック数がx100になると<b><a href="#freeze">凍結</a></b>する。
+        </div>
+
+        <a name="freeze"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/1b41944983523a7e307f7c0fcee22338.png" class="head">凍結</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            凍結すると、<b>完全に動きが停止</b>し、射撃と移動ができなくなる。
+            <br><span class="pve">戦闘員に対する凍結状態は <b>6秒後</b> に、ガーディアンに対する</span>凍結状態は <b>1.35秒後</b> に自動的に解除される。
+            <br>凍結状態の敵に対しては、<b>ボイド、ソーラー、アーク属性の</b>特殊弾/ヘビー弾武器とスキルが与えるダメージが <b>+5%</b> 増加し、メイン弾武器が与えるダメージが <b><span class="pve">-5%</span><span class="pvp">-60%</span></b> 軽減される。
+            <span class="pve"><br>また、<a href="./enemy_classification.html#boss">ボス</a>は凍結しても<b>動きを停止せず</b>、凍結から <b>3秒後</b> 自動的に<a href="#shatter">粉砕</a>する。</span>
+            <span class="pvp"><br>ステイシスのスーパースキルによる凍結は効果時間が <b>4.75秒</b> となるが、<b>自力で凍結を解除</b>することができ、その際に<b>HPを消費</b>する。消費するHPの量は<a href="./base_stats.html#resilience">耐久力</a>によって変化する。</span>
+            <span class="pvp"><br>また、スーパースキル使用中に凍結させられた場合、持続型のスーパースキルの場合は <b>1秒後</b> に<b>自動的に解除</b>し、使い切り型のスーパースキルの場合は<b>中断</b>される。</span>
+            <br>凍結状態の敵に<span class="pvp"> <b>200</b> </span>ダメージを与えると、その敵は<b><a href="#shatter">粉砕</a></b>され、再び動けるようになる。<span class="pve">粉砕までに必要なダメージ量は敵によって異なる。</span>
+        </div>
+
+        <a name="shatter"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/f3d4f4c29ef48206c956c464de600a20.png" class="head">粉砕</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            <a href="#freeze">凍結状態</a>の敵は、一定量のダメージを受けると<b>粉砕</b>され、その敵と周囲の敵に<b>ダメージを与える。</b>
+            <span class="pve"><br><a href="./enemy_classification.html#boss">ボス</a>は凍結してから自動的に粉砕し、周囲の敵に <b>400</b> ダメージを与える。</span>
+            <br><a href="#stasis_crystal">ステイシス・クリスタル</a>の破壊時に発生するダメージは、<b>粉砕としては扱われない。</b>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ステイシス属性のかけら一覧</h2>
+
+        <a name="whisper_of_hedron"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6babcb674b6bfd511cad1e765f9c9be4.png" class="h3 stasis">多面体の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵を<a href="#freeze">凍結</a>させると、<b>11秒間</b> 自身の可動性、耐久力、回復力が <b>+60</b> され、武器の<b>照準補佐が増加</b>し、安定性が <b>+30</b> 、空中効果が <b>+20</b> される。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>腕力: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_fissures"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d7873bd4ff3999ae933f2efbc84f75c3.png" class="h3 stasis">亀裂の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#shatter">粉砕</a>時か<a href="#stasis_crystal">クリスタル</a>の破壊時、<b><span class="pve">10m以内</span><span class="pvp">8m以内</span></b> の敵に <b><span class="pve">17～25</span><span class="pvp">4～9</span></b> の追加ダメージを与える。</li>
+                <li>また、粉砕時、凍結していた敵自身に対するダメージが <b><span class="pve">12.5%</span><span class="pvp">4.5%</span></b> 増加する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_refraction"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/83f0937d1d3599a70054ef7c5cb2d372.png" class="h3 stasis">屈折の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#slow">遅延状態</a>もしくは<a href="#freeze">凍結状態</a>の敵をキルすると、<b>クラススキルエネルギーが回復</b>する。</li>
+                <li><span class="pve">回復量は敵の<a href="./enemy_classification.html#quick_table">種類</a>や<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</span>
+                </li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>回復量: <span class="pvp"><b>15%</b></span>
+                    <ul class="stats2">
+                        <li><span class="pve">ランク1: <b>9%</b></span></li>
+                        <li><span class="pve">ランク2: <b>13%</b></span></li>
+                        <li><span class="pve">ランク3: <b>20%</b></span></li>
+                        <li><span class="pve">ランク4: <b>30%</b></span></li>
+                        <li><span class="pve">ミニボス: <b>40%</b></span></li>
+                        <li><span class="pve">ボス: <b>50%</b></span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_durance"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/87bf9175979ee9a31ce9c233b5feb045.png" class="h3 stasis">監禁の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#slow">遅延状態</a>と一部スキルの<b>効果時間が延長</b>される。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>腕力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_bonds"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b4b3feab1addf7bfc09046412b9b8f15.png" class="h3 stasis">絆の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#freeze">凍結状態</a>の敵をキルすると、スーパーエネルギーが <b>2.5%</b> 回復する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>鍛錬: <b>-10</b></li>
+                <li>知性: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_shards"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b0e2bbd933299443fb8e0c8b0950821a.png" class="h3 stasis">破片の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#stasis_shard">クリスタル</a>を破壊すると、<b>6秒間</b> グレネードエネルギーの回復速度が <b><span class="pve">500%</span><span class="pvp">150%</span></b> 増加する。</li>
+                <li>クリスタルを複数個破壊することで<b>効果時間を延長</b>でき、最大で <b>10秒</b> まで延長できる。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>耐久力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_torment"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2c705256113eb0e8fe8e0ad572c5cad7.png" class="h3 stasis">束縛の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#freeze">凍結状態</a>の敵か、自身か味方が生成した<a href="#stasis_crystal">クリスタル</a>の <b>10m以内</b> にいると、自身が受けるダメージが <b><span class="pve">-40%</span><span class="pvp">-15%</span></b> 軽減される。</li>
+                <li>対象から離れると、<b>0.65秒後</b> に効果が切れる。</li>
+                <li>スーパースキル発動中は、軽減量は <b>-5%</b> になる。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>回復力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_torment"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/557294f02042a60ed1aca7420c5e3873.png" class="h3 stasis">苦痛の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>自身がダメージを受けると、グレネードエネルギーが <b>4%</b> 回復する。</li>
+                <li>瀕死時は、被弾したときのグレネードエネルギー回復量が <b>16.7%</b> まで増加する。</li>
+                <li>この効果には <b>1秒間</b> のクールダウンがある。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_fractures"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3f0407601489c2687f5be7a31446e272.png" class="h3 stasis">破壊の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>15m以内</b> に敵が <b>2体以上</b> いるとき、近接エネルギーが<b>毎秒回復</b>する。</li>
+                <li>2体のときは <b>2.5%</b> ずつ、3体以上のときは <b>5%</b> ずつ回復する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>鍛錬: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_impetus"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/488155e2c0af761888b6c9013d3df1b8.png" class="h3 stasis">衝動の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>近接スキルがヒットしたとき、使用していない武器が<b>全弾リロード</b>され、<b>5秒間</b> 武器のハンドリングが <b>+40</b> される。</li>
+                <li>効果中の再発動はできない。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_conduction"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/789d37b375fc999befea9341713b3009.png" class="h3 stasis">伝導の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>15m以内</b> にある<a href="#stasis_shard">ステイシスの破片</a>が、自身に向かって<b>吸い寄せられる。</b></li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>耐久力: <b>+10</b></li>
+                <li>知性: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_rending"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8e53a7df5257ba6eb07608b829afc808.png" class="h3 stasis">裂傷の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>メイン弾武器で、<a href="#stasis_crystal">ステイシス・クリスタル</a>に対して与えるダメージが <b>+100%</b> 、<a href="#freeze">凍結状態</a>の敵に対して与えるダメージが <b>+50%</b> 増加する。</li>
+                <li><a href="./exotic_weapons.html#fighting_lion">ファイティング・ライオン</a>、<a href="./exotic_weapons.html#vex_mythoclast">ベックス・ミソクラスト</a>や<a href="./exotic_weapons.html#revision_zero">リビジョン・ゼロ</a>のモード変更に対しても同様に機能する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_hunger"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/468994cf44d0127e341efc8f6eadd217.png" class="h3 stasis">飢餓の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#stasis_shard">ステイシスの破片</a>回収時に得られる、近接エネルギーの<b>回復量が増加</b>する。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>近接エネルギー回復量:
+                    <ul class="stats2">
+                        <li>小サイズ: 12% → <b>20%</b></li>
+                        <li>大サイズ: 50% → <b>80%</b></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>可動性: <b>-10</b></li>
+                <li>回復力: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="whisper_of_rime"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/24fd250f6c23137597567b1061bb5e96.png" class="h3 stasis">霧氷の囁き</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#stasis_shard">ステイシスの破片</a>を拾うと、<b>HPが回復</b>する。回復量は破片のサイズによって異なる。</li>
+                <li>回復の超過分は<b>オーバーシールドとして機能</b>する。</li>
+                <li>オーバーシールドは<span class="pve">受けるダメージを <b>-25%</b> 軽減し、</span> <b>10秒間</b> 持続する。</li>
+                <li>オーバーシールド発動中に追加で破片を拾うと、シールドの<b>効果時間をリセット</b>し、シールドの<b>HPを回復</b>する。シールドは最大で <b>100 HP</b> まで回復できる。</li>
+                <li>スーパースキル発動中は効果がない。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>HP回復量:
+                    <ul class="stats2">
+                        <li>小サイズ: <b>12 HP</b></li>
+                        <li>大サイズ: <b>35 HP</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        間2
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="8649597005" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <a name="grenades"></a>
+        <h2>グレネードスキル一覧</h2>
+        <div class="text">
+            グレネードタイプについて
+            <ul>
+                <li><b>継続</b>: 着弾地点に残留し、範囲内にいる敵に継続的なダメージを与える。</li>
+                <li><b>検知</b>: 着弾地点から一定範囲内にいる敵を検知し、自動的にダメージを与える。</li>
+            </ul>
+            継続タイプのグレネードは、複数の同じグレネードを投げてもダメージは1個分しかない。
+            <br><b>例</b>: ボルテックスグレネード2個は1個分のダメージしか与えられないが、ボルテックスグレネードとボイドスパイクを同時に投げると相応のダメージを与えられる。
+        </div>
+
+        <table class="list grenade">
+            <thead>
+                <tr>
+                    <th class="icon" style="background: #ccdae4;"></th>
+                    <th>名称</th>
+                    <th>タイプ</th>
+                    <th>ダメージ</th>
+                    <th>クール<br>ダウン (秒)</th>
+                    <th>持続時間<br>(秒)</th>
+                    <th>範囲 (m)</th>
+                    <th>起動までの<br>準備時間 (秒)</th>
+                    <th>初ヒットから<br>の遅延 (秒)</th>
+                    <th>ダメージ<br>頻度 (秒)</th>
+                    <th>備考</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="icon stasis"><img src="https://www.bungie.net/common/destiny2_content/icons/d9c632884b8b5cc0a3280c25a16c030e.png" class="table"></th>
+                    <th>グレーシャーグレネード</th>
+                    <td style="text-align: center;"><b>特殊</b></td>
+                    <td style="text-align: center;"><a href="#stasis_crystal">ステイシス・クリスタル</a>を参照</td>
+                    <td><b>152</b></td>
+                    <td><b>15</b></td>
+                    <td style="text-align: center;">高さ <b>5</b> × 幅 <b>1.5</b><br>(クリスタル)</td>
+                    <td style="text-align: center;">x</td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">-</td>
+                    <td class="name">着弾地点から垂直に、<b>大サイズ</b>の<a href="#stasis_crystal">ステイシス・クリスタル</a>を <b>5個</b> 生成する。</td>
+                </tr>
+                <tr>
+                    <th class="icon stasis"><img src="https://www.bungie.net/common/destiny2_content/icons/b4baaca576193defa185f59457b81de1.png" class="table"></th>
+                    <th>ダスクフィールドグレネード</th>
+                    <td style="text-align: center;"><b>継続</b></td>
+                    <td style="text-align: left;"><b>20</b></td>
+                    <td><b>64</b></td>
+                    <td><b>7</b> <span class="balloon durance">(<b>9</b>)</span></td>
+                    <td><b>5</b></td>
+                    <td><b>0.5</b></td>
+                    <td style="text-align: center;">x</td>
+                    <td><b>0.45</b></td>
+                    <td class="name">
+                        着弾時、範囲内の敵に <b>2秒間</b> <span class="balloon durance">(<b>4秒間</b>)</span> の<a href="#slow">遅延</a>を <b><span class="pve">x20</span><span class="pvp">x10</span></b> 付与しつつ、<b>フィールド</b>を <b>7秒間</b> <span class="balloon durance">(<b>9秒間</b>)</span>                        形成する。
+                        <br>フィールド内にいる敵は、<b>0.35秒</b> ごとに <b>2</b> ダメージを受け、<b>2秒間</b> <span class="balloon durance">(<b>4秒間</b>)</span> の<a href="#slow">遅延</a>が <b><span class="pve">x10</span><span class="pvp">x5</span></b> 付与される。
+                    </td>
+                </tr>
+                <tr>
+                    <th class="icon stasis"><img src="https://www.bungie.net/common/destiny2_content/icons/9ccafe089fdec2002b18f5deb0ec4bf9.png" class="table"></th>
+                    <th>コールドスナップグレネード</th>
+                    <td style="text-align: center;"><b>検知</b></td>
+                    <td style="text-align: left;"><b>20</b></td>
+                    <td><b>121</b></td>
+                    <td><b>1</b></td>
+                    <td><b>20</b> (追尾)<br><b>3</b> (爆発)</td>
+                    <td><b>0.8</b></td>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;">x</td>
+                    <td class="name">
+                        着弾した地面から、<b>20m以内</b> にいる敵を <b>17m/s</b> の速度で追尾する<b>シーカー</b>を生成する。
+                        <br>シーカーは敵に触れるとその敵を<b><a href="#freeze">凍結状態</a></b>にし、別の敵に向かってさらに追尾していく。
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!--
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="8271404627" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h1><img src="https://www.bungie.net/common/destiny2_content/icons/3c0dc830b83a9f3e9a52b7bea4494f64.png" class="head">ベヒーモス</h1>
+
+        <h2>ベヒーモスのスーパースキル</h2>
+
+        <a name="ward_of_dawn"></a>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/a764f6e02c1912967ea8e2b701d90cfd.png" class="diamond_c"></span>氷河の揺れ</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>556秒</b> (ランク2)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>弱攻撃で前方に突進し、敵を殴りつけて <b>210</b> ダメージを与え、<b>大きくノックバック</b>させる。</li>
+                <li>強攻撃で地面を叩き、周囲の敵に <b>50</b> ダメージを与えながら、三叉状に中サイズと大サイズの<b><a href="#stasis_crystal">ステイシス・クリスタル</a>を生成</b>する。</li>
+                <li>発動中はジャンプ高度が<b>大幅に増加</b>し、<a href="#freeze">凍結状態</a>の敵やクリスタルに触れると<b><a href="#shatter">粉砕</a></b>する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ベヒーモスの近接スキル</h2>
+
+        <a name="shiver_strike"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/65a6b51adbb9037fb34128588e61f5e9.png" class="h3 stasis">氷結の一撃</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>113秒</b></li>
+                <li>ダメージ: <b>105</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>1.25秒</b> 以上のダッシュ中か、その後のスライディング中に近接攻撃ボタンを押すと、拳を構えて前方に突撃する。</li>
+                <li>この攻撃がヒットした敵は<span class="pve"><a href="#slow">遅延</a>が <b>x50</b> 付与され、</span><b>大きくノックバック</b>する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ベヒーモスの特性</h2>
+
+        <a name="cryoclasm"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8d72a8ff10f0078a6c9f9ff898ada54f.png" class="h3 stasis">クライオクラズム</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>スライディングをすると、<a href="#freeze">凍結状態</a>の敵や<a href="#stasis_crystal">クリスタル</a>を<b><a href="#shatter">粉砕</a></b>できる。</li>
+                <li>また、<b>2.5秒</b> 以上のダッシュ後にスライディングすると、その距離が <b>50%</b> 伸びる。</li>
+                <li><a href="#glacial_strike">氷河の揺れ</a>発動中は、事前のダッシュなしで最大距離のスライディングができる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="howl_of_the_storm"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c72c2546a93ea9bdbcea853d50911321.png" class="h3 stasis">嵐の遠吠え</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>スライディング中に近接スキルボタンを押すと、近接エネルギーを全て消費し、拳を振り上げて前方に<b><a href="#stasis_crystal">ステイシス・クリスタル</a>を発生</b>させる。</li>
+                <li>サイズは手前から順に小・中・中・大となっている。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="tectonic_harvest"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f48fabf889c7b342a73a25f76e80d1d7.png" class="h3 stasis">構造的収穫</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#stasis_crystal">ステイシス・クリスタル</a>を破壊すると、小サイズの<b><a href="#stasis_shard">ステイシスの破片</a>が生成</b>される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="diamond_lance"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a5c545da23fa52d1aee3807f39c91d42.png" class="h3 stasis">ダイヤモンドランス</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>3個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ステイシス属性で敵を<span class="pvp"> <b>3体</b> </span>キルすると、<b>ダイヤモンドランス</b>が生成される。</li>
+                <li>ダイヤモンドランスは、拾うことで<b>一度だけ</b>攻撃に利用できる。
+                    <ul class="stats2">
+                        <li>攻撃ボタンを押すと、ランスを投げ、範囲内にいる敵に <b>45</b> ダメージを与えて<b><a href="#freeze">凍結</a></b>させる。</li>
+                        <li>近接攻撃ボタンを押すと、ランスを振り下ろし、範囲内にいる敵に <b>90</b> ダメージを与えて<b><a href="#freeze">凍結</a></b>させる。</li>
+                    </ul>
+                </li>
+                <li>ランスは <b>25秒間</b> 拾わないと消滅する。また、拾ってから <b>10秒以内</b> に使用しなかった場合も消滅する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        間3
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="4240165438" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h1><img src="https://www.bungie.net/common/destiny2_content/icons/3c0dc830b83a9f3e9a52b7bea4494f64.png" class="head">レベナント</h1>
+
+        <h2>レベナントのスーパースキル</h2>
+
+        <a name="silence_and_squall"></a>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/bac0872a1d59eb9a6f3a0ca7f349b8cc.png" class="diamond_c"></span>沈黙と悲鳴</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>455秒</b> (ランク4)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵を凍結させる<b>沈黙</b>と、竜巻を起こす<b>悲鳴</b>の、<b>二本の鎌</b>を投げる。</li>
+                <li>沈黙は、<b>8.5m以内</b> にいる敵を即座に<b><a href="#freeze">凍結</a></b>させる。</li>
+                <li>悲鳴は、投擲後に爆発して <b>200</b> ダメージを与えながら、<b>竜巻</b>を <b>14秒間</b> <span class="balloon durance">(<b>16秒間</b>)</span> 発生させる。</li>
+                <li>竜巻は <b>4.4m/s</b> の速度で移動し、<b>5.5m以内</b> にいる敵に対して、<b>0.25秒</b> ごとにダメージを与えつつ <b>x20</b> の<a href="#slow">遅延</a>を <b>1秒間</b> 付与する。</li>
+                <li>凍結状態の敵に対しては、竜巻が与えるダメージが <b>+300%</b> 増加する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>レベナントの近接スキル</h2>
+
+        <a name="withering_blade"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/19bfb77e7d68ca51a81c5d10bf87b4ed.png" class="h3 stasis">衰弱の刃</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>113秒</b></li>
+                <li>ダメージ: <b>65</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>デフォルトで <b>2個</b> までチャージできる。</li>
+                <li>壁や床で <b>2回まで</b> 跳ね返り、ヒットした敵に <b><span class="pve">x60</span><span class="pvp">x40</span></b> の<a href="#slow">遅延</a>を <b><span class="pve">3.5秒間</span><span class="pvp">1.5秒間</span></b>
+                    <span class="balloon durance">(<b><span class="pve">7秒間</span><span class="pvp">2秒間</span></b>)</span> 付与する。</li>
+                <li>敵にヒットした場合は、<b><span class="pve">12m以内</span><span class="pvp">8m以内</span></b> にいる別の敵にも<b>自動的に追尾</b>して攻撃する。</li>
+                <li>一度跳ね返るたびに<b>追尾力は減少</b>し、与えるダメージは <b>45, 30</b> と減少する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>レベナントの特性</h2>
+
+        <a name="shatterdive"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/94578639cfb331ae92137f6fdf9a0e81.png" class="h3 stasis">シャッターダイブ</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>1個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>空中戦術ボタンを押すと、地上へ<b>急降下</b>する。</li>
+                <li>着地時、<b>8.5m以内</b> の敵に <b>50</b> ダメージを与え、<a href="#freeze">凍結状態</a>の敵や<a href="#stasis_crystal">クリスタル</a>を<b><a href="#shatter">粉砕</a></b>する。</li>
+                <li>敵のクリスタルに対しては、与えるダメージが<b>大幅に減少</b>する。</li>
+                <li><b>4秒間</b> のクールダウンがある。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="winters_shroud"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6422d9f6d4a0a4fb679890eae17bd130.png" class="h3 stasis">冬の帳</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>回避をすると、<b>8m以内</b> の敵に <b>x40</b> の<a href="#slow">遅延</a>を <b><span class="pve">4秒間</span><span class="pvp">1.5秒間</span></b>
+                    <span class="balloon durance">(<b><span class="pve">8秒間</span><span class="pvp">2秒間</span></b>)</span> 付与する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="grim_harvest"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9361099c677eea4b7cd1205725419218.png" class="h3 stasis">無慈悲な収穫</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>3個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#slow">遅延状態</a>もしくは<a href="#freeze">凍結状態</a>の敵をキルすると、<b><a href="#stasis_shard">ステイシスの破片</a>が生成</b>される。</li>
+                <li>一般兵は小サイズ、それ以外の敵は大サイズのものが生成される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="touch_of_winter"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b782f03e26e41a50d08aff335c86feb3.png" class="h3 stasis">冬の気配</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードの<b>効果や性能が向上</b>する。</li>
+                <ul>
+                    <li>グレーシャーグレネード
+                        <ul class="stats2">
+                            <li>生成するクリスタルが <b>6個</b> になり、着弾地点を中心とした<b>六角形状</b>に生成されるようになる。</li>
+                        </ul>
+                    </li>
+                    <li>ダスクフィールドグレネード
+                        <ul class="stats2">
+                            <li>フィールドの<b>範囲が増加</b>し、着弾地点に小サイズの<b>クリスタルが生成</b>されるようになる。</li>
+                        </ul>
+                    </li>
+                    <li>コールドスナップグレネード
+                        <ul class="stats2">
+                            <li>最大で <b>4体</b> の敵が追尾できるようになり、着弾時に小サイズの<b>クリスタルが生成</b>されるようになる。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        間4
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="6674757086" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h1><img src="https://www.bungie.net/common/destiny2_content/icons/3c0dc830b83a9f3e9a52b7bea4494f64.png" class="head">シェードバインダー</h1>
+
+        <h2>シェードバインダーのスーパースキル</h2>
+
+        <a name="winters_wrath"></a>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/3adf16d07aab7c46551bd1bfa9e2e283.png" class="diamond_c"></span>冬の怒り</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>556秒</b> (ランク2)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>弱攻撃で <b>3個</b> の追尾弾を飛ばし、ヒットした敵に <b>30</b> ダメージを与えて<b><a href="#freeze">凍結</a></b>させる。凍結している敵に対するダメージは <b>-90%</b> 減少する。</li>
+                <li>強攻撃で波動を放ち、<b>30m以内</b> にいる凍結している敵と<a href="#stasis_crystal">クリスタル</a>を全て<b><a href="#shatter">粉砕</a></b>する。このとき、粉砕ダメージは<b>大幅に増加</b>する。</li>
+                <li>発動中はグライディングが<b>無制限に使用可能</b>になり、空中での<b>移動速度が上昇</b>する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>シェードバインダーの近接スキル</h2>
+
+        <a name="penumbral_blast"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a0fdf08ff3d0a3c632be0ff898a814f0.png" class="h3 stasis">半影爆発</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>113秒</b></li>
+                <li>ダメージ: <b>30</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ステイシス弾を前方に飛ばす。弾は最大で <b>21m</b> まで飛び、着弾地点で爆発する。</li>
+                <li>この攻撃がヒットすると、<b>2.7m以内</b> にいる敵は<b><a href="#volatile">凍結状態</a></b>になる。</li>
+                <li><span class="pvp">壁や床に当たった場合は、範囲が <b>1.5m以内</b> になる。</span></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>シェードバインダーの特性</h2>
+
+        <a name="iceflare_bolts"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2769eba2b5d550fc833c316129dbc145.png" class="h3 stasis">アイスフレアボルト</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵を<a href="#freeze">凍結</a>させると、<b>12m以内</b> の他の敵を自動的に追尾する<b>シーカー</b>が出現する。</li>
+                <li>シーカーに触れた敵も<b>凍結状態</b>になる。</li>
+                <li><span class="pvp">発動すると、<b>8秒間</b> のクールダウンがある。</span></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="frostpulse"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f51d178f793e3f5071537c0d1f4556c8.png" class="h3 stasis">フロストパルス</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>リフトを発動すると、<b>7m以内</b> にいる敵を<b><a href="#freeze">凍結</a></b>させる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="glacial_harvest"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9a6e0c2839ad21856db0f41daecc6d1a.png" class="h3 stasis">氷河の恵み</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵を<a href="#freeze">凍結</a>させると、小サイズの<b><a href="#stasis_shard">ステイシスの破片</a>が生成</b>される。</li>
+                <li><span class="pve">個数は敵の<a href="./enemy_classification.html#quick_table">種類</a>によって変動する。</span></li>
+                <li><b>6個</b> 生成すると、<b>10秒間</b> のクールダウンが発生する。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>個数: <span class="pvp"><b>2個</b></span>
+                    <ul class="stats2">
+                        <li><span class="pve">一般兵: <b>1個</b></span></li>
+                        <li><span class="pve">エリート: <b>2個</b></span></li>
+                        <li><span class="pve">ミニボス / ボス: <b>3個</b></span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="bleak_watcher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/97527ee6f5a41dc47c70766555766de2.png" class="h3 stasis">冷たい監視者</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードを長押しして<b>チャージ</b>することで、グレネードを<b>タレット</b>に変化させる。</li>
+                <li>タレットは <b>30m以内</b> にいる敵を自動的に<b>5点バースト</b>で射撃し、1発につき <b><span class="pve">x20</span><span class="pvp">x10</span></b> の<a href="#slow">遅延</a>を <b><span class="pve">4.5秒間</span><span class="pvp">2秒間</span></b>
+                    <span class="balloon durance">(<b><span class="pve">9秒間</span><span class="pvp">3.75秒間</span></b>)</span> 付与する。</li>
+                <li>タレットは <b>25秒間</b> <span class="balloon durance">(<b>30秒間</b>)</span> 持続し、HPは <b>150</b> となっている。発射を開始するまで、タレット本体に対するダメージは <b>-67%</b> 軽減される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="source"></a>
+        <h2>出典</h2>
+
+        <a href="https://docs.google.com/spreadsheets/d/1WaxvbLx7UoSZaBqdFr1u32F2uWVLo-CJunJB4nlGUE4/edit#gid=1088259962">The Destiny Data Compendium</a><br>
+        <a href="https://docs.google.com/spreadsheets/d/1i1KUwgVkd8qhwYj481gkV9sZNJQCE-C3Q-dpQutPCi4/edit#gid=1974932590">The Comprehensive Destiny 2 Data & Information</a>
+
+        <a name="challenge_log"></a>
+        <h2>更新履歴</h2>
+
+        <a href="https://github.com/depth172/depth172.github.io/commits/gh-pages/destiny2/class_stasis.html">過去のページを確認する</a>
+
+        <a name="comments"></a>
+        <!-- begin wwww.htmlcommentbox.com -->
+        <script type="text/javascript" src="../js/htmlcommentbox.js"></script>
+
+        <div id="HCB_comment_box">コメントを読み込んでいます...</div>
+        <link rel="stylesheet" type="text/css" href="/css/twitter-bootstrap.css" />
+        <script type="text/javascript" id="hcb">
+            if (!window.hcb_user) {
+                hcb_user = {};
+            }(function() {
+                var s = document.createElement("script"),
+                    l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
+                    h = "https://www.htmlcommentbox.com";
+                s.setAttribute("type", "text/javascript");
+                s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%240S16uY.Oh6y9MR3cBrjg21" + "&opts=16798&num=10&ts=1642331857298");
+                if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s);
+            })();
+        </script>
+        <!-- end www.htmlcommentbox.com -->
+
+        <hr>
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        最後
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="2253130494" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="footer"><a href="#" id="page-top">一番上に戻る ▲</a></div>
+        -->
+    </div>
+</body>
+
+</html>

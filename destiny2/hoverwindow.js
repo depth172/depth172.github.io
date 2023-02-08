@@ -97,6 +97,9 @@ function textSwitching(info) {
         case 'stasis':
             $("#info").text("ステイシス");
             break;
+        case 'strand':
+            $("#info").text("ストランド");
+            break;
         default:
             $("#info").text("ポップアップテキスト指定なし");
     }

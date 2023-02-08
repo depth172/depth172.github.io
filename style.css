@@ -86,6 +86,10 @@ img {
     box-sizing: border-box;
 }
 
+img.illustration {
+    margin: 0.4em;
+}
+
 .power {
     font-weight: bold;
     font-size: 172%

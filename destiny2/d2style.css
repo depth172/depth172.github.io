@@ -345,10 +345,18 @@ img.h3 {
     transform: translate(0, -18%);
 }
 
+img.stasis {
+    background: #000000;
+}
+
+th.stasis {
+    background: #000000;
+}
+
 .diamond {
     display: inline-block;
     position: relative;
-    background: #545454;
+    background: #000000;
     border: 2px solid #5e5e5e;
     margin: 0 0.4em;
     margin-right: 1em;
