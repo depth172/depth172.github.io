@@ -264,7 +264,7 @@
                         <li><a href="#mini_frags">ミニフラグ</a></li>
                         <li><a href="#sticky_grenades">粘着グレネード</a></li>
                         <li><a href="#thermoplastic_grenades">熱可塑性グレネード</a></li>
-                        <li><a href="#blinding_grenades">目つぶしグレネード</a></li>
+                        <li><a href="#disorienting_grenades">混乱グレネード</a></li>
                         <li><a href="#concussion_grenades">衝撃グレネード</a></li>
                     </ul>
                 </details>
@@ -3189,7 +3189,7 @@
                     </tr>
                     <tr>
                         <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c0dde588e1a32760621859e496d2e657.png" class="table"></th>
-                        <td class="name"><a href="#blinding_grenades">目つぶしグレネード</a></td>
+                        <td class="name"><a href="#disorienting_grenades">混乱グレネード</a></td>
                         <td class="num">-100</td>
                         <td><span class="none">0</span></td>
                         <td><span class="none">0</span></td>
@@ -3674,8 +3674,8 @@
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
-        <a name="blinding_grenades"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c0dde588e1a32760621859e496d2e657.png" class="h3">目つぶしグレネード</h3>
+        <a name="disorienting_grenades"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c0dde588e1a32760621859e496d2e657.png" class="h3">混乱グレネード</h3>
         <div class="base">爆発すると一時的に目つぶし効果を発生させるグレネード。</div>
         <div class="indepth">
             <div class="info">&lt;装備可能武器&gt;</div>
@@ -3702,7 +3702,7 @@
             <span class="w-icons glspecial">&#xe155;</span>
             <div class="info">&lt;備考&gt;</div>
             このパークは現在、入手した武器には付与されない。
-            <span class="pve"><br>効果は目つぶしグレネードに類似しているが、比較すると効果の発動が安定しない場合がある。</span>
+            <span class="pve"><br>効果は混乱グレネードに類似しているが、比較すると効果の発動が安定しない場合がある。</span>
             <span class="pvp"><br>シャドウショットのように敵の向いている方向を一瞬ずらす効果がある。</span>
             <br>
             <div class="info">&lt;効果量&gt;</div>
@@ -4164,15 +4164,46 @@
         <h2>ガード</h2>
         <p>ガードは、剣の2列目に付与される。</p>
 
-        <p>
-            ガード関連のステータス値
-            <ul>
-                <li><b>ガード耐性</b>: 大きいほどガード時のダメージの軽減率が高くなる。</li>
-                <li><b>ガード効率</b>: 大きいほどガード成功時のエネルギーの消費が少なくなる。</li>
-                <li><b>ガード持続時間</b>: 大きいほどガードの維持に使うエネルギーの消費が少なくなる。</li>
-                <li><b>チャージ時間</b>: 大きいほどエネルギーの回復が早くなる。</li>
-            </ul>
-        </p>
+        <h4>ガード関連のステータス値</h4>
+
+        <ul>
+            <li><b>ガード耐性</b>: 大きいほどガード時のダメージの軽減率が高くなる。</li>
+            <li><b>ガード効率</b>: 大きいほどガード成功時のエネルギーの消費が少なくなる。</li>
+            <li><b>ガード持続時間</b>: 大きいほどガードの維持に使うエネルギーの消費が少なくなる。</li>
+            <li><b>チャージ時間</b>: 大きいほどエネルギーの回復が早くなる。</li>
+        </ul>
+
+        <details>
+            <summary>ステータス計算値</summary>
+
+            <h4>ガード耐性</h4>
+            <div class="text">ダメージ軽減量 (%) = 基本防御力 - (ガード耐性 × 0.3)
+                <ul class="stats">
+                    <li>基本防御力:
+                        <ul class="stats2">
+                            <li>順応フレーム: <b>-50%</b></li>
+                            <li>ボルテックスフレーム: <b>-50%</b></li>
+                            <li>キャスターフレーム: <b>-50%</b></li>
+                            <li>好戦的なフレーム: <b>-60%</b></li>
+                            <li>軽量フレーム: <b>-48%</b></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <h4>ガード持続時間</h4>
+            <div class="text">エネルギー消費率 (%/s) = 80 - (ガード持続時間 × 0.75)
+                <ul class="stats">
+                    <li>ガード発動時に、剣のエネルギーは強制的に <b>3%</b> 消費される。</li>
+                    <li><a href="#infinite_guard">永久的ガード</a>と<a href="./exotic_armor.html#stronghold">牙城</a>装備中は、消費率は強制的に <b>0%/s</b> になる。</li>
+                </ul>
+            </div>
+            <h4>チャージ時間</h4>
+            <div class="text">エネルギー回復率 (%/s) = 20 + (ガード持続時間 × 0.15)
+                <ul class="stats">
+                    <li>エネルギー消費から <b>0.45秒後</b> に回復が開始する。</li>
+                </ul>
+            </div>
+        </details>
 
         <details>
             <summary>ガードステータス早見表</summary>

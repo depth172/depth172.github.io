@@ -103,6 +103,7 @@
                         <li><a href="#overshield">オーバーシールド</a></li>
                         <li><a href="#suppression">抑制</a></li>
                         <li><a href="#volatile">不安定化</a></li>
+                        <li><a href="#volatile_rounds">ボラタイル弾</a></li>
                         <li><a href="#weaken">弱体化</a></li>
                     </ul>
                 </details>
@@ -322,10 +323,11 @@
         </div>
 
         <a name="suppression"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/42f76ab49aa30e675e87c9ea84cc3045.png" class="head">抑制（鎮圧）</h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/42f76ab49aa30e675e87c9ea84cc3045.png" class="head"><span class="w-icons overload">&#xe071;</span> 抑制（鎮圧）</h3>
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
             抑制された敵は<span class="pve"><b>攻撃を停止</b>し、さらに<b>盲目状態</b>となり、腕で弱点を隠そうとする。</span><span class="pvp"><b>あらゆるスキルが使用不能</b>になる。</span>
+            <br>また、<span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンはスタンする。
             <br>ただし、スーパースキルを中断させない<b>軽度の抑制</b>状態も存在し、付与する武器やスキルによって変わる。
             <br>このサイトでは、特筆しない限りは、「抑制状態にする」といった文言は通常の抑制を付与するものとする。
             <details>
@@ -362,8 +364,16 @@
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
             不安定なボイドエネルギーに侵され、死亡するか <b>200</b> ダメージを受けた際に<b>爆発</b>する。
-            <br>爆発時、周囲に <b>160</b> ダメージを与える。
+            <br>爆発時、周囲に <b>160</b> ダメージを与える。爆発が発生すると、効果は消滅する。
             <br>爆発が発生しないまま <b>10秒間</b> 経過すると、効果は消滅する。
+        </div>
+
+        <a name="volatile_rounds"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/85e220ef679948dab46382d330fcf720.png" class="head"><span class="w-icons barrier">&#xe070;</span> ボラタイル弾</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            <b>ボイド属性</b>の武器で攻撃した敵に対して、<b><a href="#volatile">不安定化</a></b>を付与できるようになる。
+            <br>また、ボイド属性の武器に <span class="w-icons barrier">&#xe070;</span> <b>アンチバリア効果</b>が付与され、バリア・チャンピオンの<b>シールドを破壊</b>できるようになる。
         </div>
 
         <a name="weaken"></a>
@@ -422,7 +432,7 @@
                     <ul class="stats2">
                         <li><span class="pve">ランク1: <b>7.5%</b></span></li>
                         <li><span class="pve">ランク2: <b>11%</b></span></li>
-                        <li><span class="pve">ランク3: <b>16.25%</b></span></li>
+                        <li><span class="pve">ランク2: <b>16.25%</b></span></li>
                         <li><span class="pve">ランク4: <b>25%</b></span></li>
                     </ul>
                 </li>
@@ -517,7 +527,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>敵を<a href="#suppression">抑制</a>状態にすると、<b>10秒間</b> 可動性が <b>+30</b> 、前方への移動速度が <b>+4%</b> され、使用中の武器が<b>全弾リロード</b>される。</li>
+                <li>敵を<a href="#suppression">抑制</a>状態にすると、使用中の武器が<b>全弾リロード</b>され、<b>独裁</b>が <b>10秒間</b> 付与される。</li>
+                <li>独裁発動中は可動性が <b>+30</b> 、前方への移動速度が <b>+4%</b> 増加する。</li>
                 <li>効果時間中の再発動はできない。また、「軽度の抑制」状態では発動しない。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
@@ -548,8 +559,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>グレネードで敵をキルすると、<b>10秒間</b> 自身のボイド属性武器に<b>ボラタイル弾</b>を付与する。</li>
-                <li>ボラタイル弾は、攻撃した敵を<a href="#volatile">不安定化</a>状態にする効果がある。</li>
+                <li>グレネードで敵をキルすると、<b>10秒間</b> 自身に<b><a href="#volatile_rounds">ボラタイル弾</a></b>を付与する。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -649,7 +659,7 @@
                     <td style="text-align: center;"><b>接着 / 継続</b></td>
                     <td style="text-align: left;" class="pve">80 × 16 = <b>1,280</b></td>
                     <td style="text-align: left;" class="pvp">28 × 16 = <b>448</b></td>
-                    <td><b>91</b></td>
+                    <td><b>121</b></td>
                     <td><b>10</b></td>
                     <td>長さ <b>11.5</b> × 幅 <b>6</b></td>
                     <td><b>0.3</b></td>
@@ -663,7 +673,7 @@
                     <td style="text-align: center;"><b>継続</b></td>
                     <td style="text-align: left;" class="pve">171 + 120 × 18 = <b>2,331</b></td>
                     <td style="text-align: left;" class="pvp">60 + 35 × 18 = <b>690</b></td>
-                    <td><b>105</b></td>
+                    <td><b>152</b></td>
                     <td><b>4</b></td>
                     <td><b>10</b></td>
                     <td><b>0.43</b></td>
@@ -691,7 +701,7 @@
                     <td style="text-align: center;"><b>継続</b></td>
                     <td style="text-align: left;" class="pve">144 + 69 × 13 = <b>1,041</b></td>
                     <td style="text-align: left;" class="pvp">25 + 20 × 13 = <b>280</b></td>
-                    <td><b>121</b></td>
+                    <td><b>152</b></td>
                     <td><b>4</b></td>
                     <td><b>5</b> (着弾時)<br><b>4</b> (継続)</td>
                     <td><b>0.3</b></td>
@@ -705,7 +715,7 @@
                     <td style="text-align: center;"><b>通常 / 複数回</b></td>
                     <td style="text-align: left;" class="pve">(115 + 69) × 8 = <b>1,472</b></td>
                     <td style="text-align: left;" class="pvp">(20 + 16) × 8 = <b>288</b></td>
-                    <td><b>121</b></td>
+                    <td><b>105</b></td>
                     <td style="text-align: center;">-</td>
                     <td><b>4</b> (拡散時)<br><b>4</b> (爆発時)</td>
                     <td>不明</td>
@@ -722,7 +732,7 @@
                     <td style="text-align: center;"><b>接着 / 複数回</b></td>
                     <td style="text-align: left;" class="pve">472.5 × 2 = <b>945</b></td>
                     <td style="text-align: left;" class="pvp">75 × 2 = <b>150</b></td>
-                    <td><b>121</b></td>
+                    <td><b>105</b></td>
                     <td><b>1.5</b></td>
                     <td><b>5</b></td>
                     <td style="text-align: center;">-</td>
@@ -765,14 +775,14 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>417秒</b> (ランク5)</li>
+                <li>基本クールダウン: <b>417秒</b> (ランク4)</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>半径3m</b> のドームを展開し、中にいる味方に <b>425HP</b> の<a href="#overshield">オーバーシールド</a>を付与する。このオーバーシールドは<span class="pvp">付与者に対する<b>精密ヒット判定を消滅</b>させ、</span>ドームを出ると解除される。</li>
+                <li><b>半径3m</b> のドームを展開し、中にいる味方に <b>300HP</b> の<a href="#overshield">オーバーシールド</a>を付与する。このオーバーシールドは受けるダメージを <b>50%</b> 軽減する。</span>ドームを出ると解除される。</li>
                 <li>ドームの外側から内側へ、または内側から外側へ攻撃を通すことはできない。</li>
                 <li>ドームを通ると、<b>光の武器</b>が付与され、<b>15秒間</b> 武器ダメージが <span class="balloon univ_buff"><b>+25%</b></span> 増加する。</li>
-                <li>ドームは <b>13500HP</b> で、これを超えるダメージを受けると破壊される。<span class="pvp">ガーディアンのスキルからは、より大きなダメージを受ける。</span></li>
+                <li>ドーム本体は <b>8000HP</b> で、これを超えるダメージを受けると破壊される。<span class="pvp">ガーディアンの武器やスキルからは、より大きなダメージを受ける。</span></li>
                 <li><span class="pve">また、ボスからの攻撃は、発動者の<a href="./base_stats.html#resilience">耐久力</a>に応じて <b>+600%</b> ～ <b>-75%</b> 増減したダメージを受ける。</span></li>
             </ul>
         </div>
@@ -783,13 +793,13 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>556秒</b> (ランク2)</li>
+                <li>基本クールダウン: <b>556秒</b> (ランク1)</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>シールドによる攻撃を行える。グレネードボタンを押すことで<b>シールドを投げる</b>ことができる。</li>
-                <li>また、強攻撃ボタンを押すことでシールドを張り<b>防御</b>をし、後ろにいる味方を守ることができる。味方はシールド越しに射撃ができる。</li>
-                <li>これによって防御されている味方は<b>光の武器</b>が付与され、武器ダメージが <b><span class="balloon univ_buff"><span class="pve">+40%</span><span class="pvp">+35%</span></span></b> 増加し、武器のハンドリングとリロード速度が <b>+50</b> される。</li>
+                <li>また、強攻撃ボタンかガードボタンを押すことで、シールドを張り<b>防御</b>をし、後ろにいる味方を守ることができる。味方はシールド越しに射撃ができる。</li>
+                <li>これによって防御されている味方は<b>光の武器</b>が付与され、光の武器発動中は武器ダメージが <b><span class="balloon univ_buff"><span class="pve">+40%</span><span class="pvp">+35%</span></span></b> 増加し、武器のハンドリングとリロード速度が <b>+50</b> される。</li>
                 <li>味方を防御している間は、スーパーエネルギーの消費が <b>-20%</b> 軽減される。</li>
             </ul>
         </div>
@@ -802,7 +812,7 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>90秒</b></li>
+                <li>基本クールダウン: <b>114秒</b></li>
                 <li>ダメージ: <b>120</b> (直撃) + <b>40</b> (範囲ダメージ)</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
@@ -820,7 +830,7 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>100秒</b></li>
+                <li>基本クールダウン: <b>91秒</b></li>
                 <li>ダメージ: <b>70</b></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
@@ -898,7 +908,7 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>500秒</b> (ランク3)</li>
+                <li>基本クールダウン: <b>500秒</b> (ランク2)</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -917,7 +927,7 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>455秒</b> (ランク4)</li>
+                <li>基本クールダウン: <b>455秒</b> (ランク3)</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -936,7 +946,7 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>625秒</b> (ランク1)</li>
+                <li>基本クールダウン: <b>556秒</b> (ランク1)</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -1034,7 +1044,7 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>500秒</b> (ランク3)</li>
+                <li>基本クールダウン: <b>500秒</b> (ランク2)</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -1050,7 +1060,7 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>500秒</b> (ランク3)</li>
+                <li>基本クールダウン: <b>500秒</b> (ランク2)</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -1066,13 +1076,13 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>556秒</b> (ランク2)</li>
+                <li>基本クールダウン: <b>556秒</b> (ランク1)</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ボイドエネルギーを纏い、自分を中心とした爆発を起こす。</li>
                 <li>射撃ボタンを最大 <b>1秒間</b> 長押しすることでチャージでき、爆発範囲が最大 <b>5m</b> まで増加する。</li>
-                <li>また、ADSボタンを押すことで、スーパーエネルギーを消費して前方にテレポートできる。</li>
+                <li>また、ADSボタンもしくはダッシュボタンを押すことで、スーパーエネルギーを消費して前方にテレポートできる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>

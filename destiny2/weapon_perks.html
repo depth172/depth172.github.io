@@ -374,8 +374,12 @@
 
         <a name="calcurate"></a>
         <h2>増加量の計算について</h2>
-        <p>すべての数値は、何もバフ・デバフを受けていない状態を100%としています。
-            <br>例として、暴れん坊をx1付与した際の増加率は +10% ですが、この場合は100%に+10%のバフがかかり合計で110%、つまり通常の1.1倍のダメージを与えられるということになります。
+        <p>すべての数値は、何もバフ・デバフを受けていない状態を <b>100%</b> としています。
+            <br>例として、<a href="#rampage">暴れん坊</a>をx1付与した際の増加率は +10% ですが、この場合は100%に+10%のバフがかかり合計で110%、つまり通常の1.1倍のダメージを与えられるということになります。
+        </p>
+        <p>また、ダメージ増加・軽減のどちらの場合においても、複数の強化が同時にかかる際はそれぞれの数値を<b>乗算</b>でかけ合わせます。
+            <br>例として、暴れん坊x1と<a href="#kill_clip">キルクリップ</a>が同時に付与された場合は、 +10% (x1.1) と +25% (x1.25) が乗算され、<b>+37.5%</b> (x1.375) のバフとなります。
+            <br>詳しくは<a href="./buff_stacking.html">強化・弱体化の種類と重複について</a>をお読みください。
         </p>
 
         <!--
@@ -427,6 +431,12 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b3bdd9138b50e1b9e5a4da924eb05866.png" class="h3">スプリントグリップ</h3>
         <div class="base">一定時間ダッシュ後、ハンドリングが増加する。</div>
         <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            ADSでダッシュをキャンセルしたとき、もしくはダッシュ中にこの武器をしまうときのみ有効。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>ハンドリング: <b>+30</b></li>
+            </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -786,7 +796,7 @@
 
         <a name="veist_stinger"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e41eeced6fd09493f6ba87e3cd20112f.png" class="h3">バイスト・スティンガー</h3>
-        <div class="base">この武器での攻撃時、一定確率でこの武器のマガジンが全弾リロードされる。弓の場合は、発射時間が短縮される。</div>
+        <div class="base">この武器での攻撃時、一定確率でこの武器のマガジンが一部リロードされる。弓の場合は、発射時間が短縮される。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             バイスト製の武器に付与される。
@@ -801,6 +811,7 @@
                         <li><span class="w-icons bow">&#xe099;</span> / <span class="w-icons linear">&#xe152;</span>: <b>10%</b></li>
                     </ul>
                 </li>
+                <li>リロード量: <b>25%</b></li>
                 <li>効果時間: <b>6秒</b></li>
                 <li>発射時間: <b>-15%</b></li>
             </ul>
@@ -2106,7 +2117,6 @@
         <div class="base">この武器でキルをすると、スキルエネルギーが回復する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            すべて合わせて3個以上のスキルがチャージされている場合、<b>回復が発生しない。</b>
             <br>回復していないエネルギーが複数ある場合は、均等に割り振られる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -2673,6 +2683,9 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             一回ヒットさせるごとに、反動が少なくなるバフのスタックが1個付与される。最大 <b>5個</b> まで累積できる。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            <span class="w-icons pulse">&#xe101;</span> / <span class="w-icons sidearm">&#xe109;</span>: 一回のヒットでスタックが <b>1.5個</b> 付与される。
+            <br><span class="w-icons scout">&#xe102;</span> / <span class="w-icons hc">&#xe103;</span>: 一回のヒットでスタックが <b>2個</b> 付与される。
             <br>リロードするか、敵に弾が <b>1秒間</b> ヒットしないと、効果はリセットされる。
             <div class="info">&lt;強化特性&gt;</div>
             恒常的に安定性が増加する。
@@ -3810,6 +3823,7 @@
             <span class="w-icons pulse">&#xe101;</span> (BxR-55 バトラー)
             <div class="info">&lt;発動条件詳細&gt;</div>
             このパークがついた武器をしまっている状態でも発動する。
+            <br>再発動までは <b>4秒間</b> のクールダウンがある。
             <br>投射物系の近接スキルは、<b>15m以内</b> の敵に当てた場合のみ発動する。
             <br>直前にダッシュやスライディングが必要な近接スキルでは発動しない。
             <div class="info">&lt;効果量&gt;</div>
@@ -4061,7 +4075,7 @@
             <div class="info">&lt;備考&gt;</div>
             チャージ時間短縮の副次的効果として、<b>威力が低下</b>する。
             <div class="info">&lt;発動条件詳細&gt;</div>
-            対象の武器をしまってから <b>3.5秒</b> すると再び発動するようになる。
+            発動には <b>3.5秒</b> のクールダウンがある。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>2秒</b></li>
@@ -4289,6 +4303,13 @@
         <div class="indepth">
             <div class="info">&lt;付与対象&gt;</div>
             <span class="w-icons sword">&#xe153;</span>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>チャージ速度: <b>+60</b></li>
+                <li>ガード持続時間: <b>+60</b></li>
+                <li>ガード効率: <b>+60</b></li>
+                <li>ガード防御力: <b>+60</b></li>
+            </ul>
             <div class="info">&lt;強化特性&gt;</div>
             効果がさらに強化される。
         </div>
@@ -4354,12 +4375,12 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: 剣を取り出してから <b>1秒</b></li>
-                <li>増加量: <b>+100%</b></li>
+                <li>増加量: <b>+80%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            効果時間が増加する。
+            効果量が増加する。
             <ul class="stats2">
-                <li>効果時間: 剣を取り出してから 1秒 → <b>1.5秒</b></li>
+                <li>増加量: 80% → <b>+100%</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
