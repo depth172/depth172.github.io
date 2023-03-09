@@ -28,35 +28,11 @@
     <script src="./modetoggle.js"></script>
     <script src="./hoverwindow.js"></script>
 
-    <!-- 通知表示 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $(".overlay").show();
-            $.cookie('btnFlg') == 'on' ? $(".overlay").hide() : $(".overlay").show();
-            $(".btn_area button").click(function() {
-                $(".overlay").fadeOut();
-                $.cookie('btnFlg', 'on', {
-                    expires: 30,
-                    path: '/'
-                }); //cookieの保存
-            });
-        });
-    </script>
-
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="overlay">
-        <div class="btn_area">
-            <p class="ttl">新機能のお知らせ</p>
-            <p>右下のボタンを押すことで、PvE用の情報とPvP用の情報が切り替えられるようになりました！ぜひご利用ください。</p>
-            <button>閉じる</button>
-        </div>
-    </div>
     <div class="overlay-button">
         <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
         <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
@@ -279,6 +255,8 @@
             <dd>リロード速度はステータス値、リロード時間は実際にリロードにかかる時間のこと。</dd>
             <dt>命中精度</dt>
             <dd>武器の内部ステータスの一種。大きいほど照準通りに弾が飛ぶ。</dd>
+            <dt>インベントリサイズ</dt>
+            <dd>武器の内部ステータスの一種。予備弾薬の最大量を決定する。light.ggなどで確認可能。</dd>
         </dl>
 
         <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
@@ -288,66 +266,80 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script> -->
 
-        <p>アーティファクトパークについては<a href="./weapon_perks.html">武器パーク効果まとめ</a>のページに移動しています。</p>
+        <p><b style="font-size: 135%;">アーティファクトパークについては<a href="./weapon_perks.html">武器パーク効果まとめ</a>のページに移動しています。</b></p>
 
         <a name="helmet"></a>
         <h2>ヘルメット用改造パーツ</h2>
 
         <a name="ammo_finder"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/32501a5e9478cc1cf294aaf14de7924d.png" class="h3">弾薬探知機</h3>
-        <div class="base">対応する武器の特殊/ヘビー弾のドロップ率が増加する。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9cea835b4fa74d5fcd4bba7a990c20c6.png" class="h3">弾探知機</h3>
+        <div class="base">対応する属性の武器でキルをすると、特殊/ヘビー弾がドロップする。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>2～3</b></li>
+                <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
-            累積させるとドロップするまでの平均キル数が少なくなる。
+            累積させると、ドロップした弾薬箱から得られる弾薬数が増加する。
             <div class="info">&lt;効果詳細&gt;</div>
-            武器によるキルで<b>内部カウンターが進行</b>し、100%になることで弾薬がドロップする。
+            武器によるキルで<b>内部カウンターが進行</b>し、100%になった直後の武器によるキルで弾薬がドロップする。
             <br>メイン弾を使用する武器ではカウンターの進行が <b>x1.25</b> される。
             <br>メイン弾を使用するエキゾチック武器だった場合は <b>x1.67</b> される。
-            <br>ドロップする弾薬は通常のものより光が強く、量は<b>通常よりも少ない。</b>スカベンジャーの効果を受ける。
+            <br>ドロップする弾薬は通常のものより<b>発光が強く</b>なっている。
+            <br>拾った際に得られる弾薬量は弾薬箱のドロップ時に決定され、<a href="#scavenger">スカベンジャー</a>の効果を受ける。
             <div class="info">&lt;効果量&gt;</div>
-            <caption>1キルのカウンター進行量: （()内は平均必要キル数）</caption>
+            <caption>通常の弾薬箱から入手できる量を100%とする。</caption>
             <table class="list stats">
                 <thead>
                     <tr>
                         <th></th>
                         <th>1x</th>
                         <th>2x</th>
+                        <th>3x</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th>特殊弾</th>
-                        <td><b>+4.4%～5.6%</b> (20)</td>
-                        <td><b>+6%～7.8%</b> (16)</td>
-                    </tr>
-                    <tr>
-                        <th>ヘビー弾</th>
-                        <td><b>+3.3%～4.5%</b> (26)</td>
-                        <td><b>+4.4%～6.6%</b> (20)</td>
+                        <th>弾薬量</th>
+                        <td><b>33%</b></td>
+                        <td><b>66%</b></td>
+                        <td><b>100%</b></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
-        <a name="targeting"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9aee84e9176a73dc541bc34629e0a233.png" class="h3">照準設定</h3>
-        <div class="base">対応する武器の照準補佐、命中精度、ADS移行速度が増加する。</div>
+        <a name="ammo_scout"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e3161c2756fd0f2a1c1ab10e87de8733.png" class="h3">弾探査</h3>
+        <div class="base">自身の<a href="#ammo_finder">弾探知機</a>が発動すると、味方にも弾薬箱が生成される。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>2～5</b></li>
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、ドロップした弾薬箱から味方が得られる弾薬数が増加する。
+            <div class="info">&lt;効果詳細&gt;</div>
+            得られる弾薬数は発動者のものより減少する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="targeting"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9aee84e9176a73dc541bc34629e0a233.png" class="h3">照準設定</h3>
+        <div class="base">対応する属性の武器の照準補佐、命中精度、ADS移行速度が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>2～3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると照準補佐、命中精度、ADS移行速度がさらに増加する。
+            <div class="info">&lt;効果詳細&gt;</div>
+            ADS移行速度の増加は、ハンドリングの変化や他の効果と重複する。
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
                 <thead>
@@ -364,6 +356,11 @@
                         <td><b>+15</b></td>
                     </tr>
                     <tr>
+                        <th>精度</th>
+                        <td><b>+15%</b></td>
+                        <td><b>+15%</b></td>
+                    </tr>
+                    <tr>
                         <th>ADS移行時間</th>
                         <td><b>x0.75</b></td>
                         <td><b>x0.75</b></td>
@@ -374,7 +371,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="siphon"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a0d7dff2937c64c92cfbbd7ab9cb9fc8.png" class="h3">サイフォン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/978427ff6f34ab61a24b498a36803019.png" class="h3">サイフォン</h3>
         <div class="base">対応する属性の武器による複数キルで、力のオーブを生成する。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
@@ -384,7 +381,9 @@
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
-            累積させると力のオーブ取得時のスーパーエネルギー回復量が増加する。
+            累積させると、生成された力のオーブ取得時のスーパーエネルギー回復量が増加する。
+            <div class="info">&lt;効果詳細&gt;</div>
+            連続で <b>2体</b> の敵をキルすると発動する。
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
                 <thead>
@@ -407,11 +406,10 @@
 
         <a name="ashes_to_assets"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ba29cbcb4fa6f32b18fc1c9a27593f8b.png" class="h3">灰の資産</h3>
-        <div class="base">グレネードキルをするとスーパーエネルギーが回復する。</div>
+        <div class="base">グレネードでキルをすると、スーパーエネルギーが回復する。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons solar">&#xe140;</span>ソーラー</b></li>
                 <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
@@ -419,108 +417,33 @@
             累積させると回復量がさらに増加する。
             <div class="info"><span class="pve">&lt;効果詳細&gt;</span></div>
             <span class="pve">敵の種類に応じて回復量が変化する。</span>
-            <div class="info">&lt;効果量&gt;</div>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pve">
-                        <th>下級兵</th>
-                        <td><b>0.3%～2.3%</b></td>
-                        <td><b>0.3%～2.7%</b></td>
-                    </tr>
-                    <tr class="pve">
-                        <th>中級兵</th>
-                        <td><b>0.84%～4%</b></td>
-                        <td><b>0.84%～4.7%</b></td>
-                    </tr>
-                    <tr class="pve">
-                        <th>上級兵</th>
-                        <td><b>1.65%～7.7%</b></td>
-                        <td><b>1.65%～8.85%</b></td>
-                    </tr>
-                    <tr class="pve">
-                        <th>エリート以上</th>
-                        <td><b>4%～13%</b></td>
-                        <td><b>4%～15%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>回復量</th>
-                        <td><b>6.5%</b></td>
-                        <td><b>6.5%</b></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="hands-on"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f47540dc70a9aad624a8936c7e82fcbd.png" class="h3">実践主義</h3>
-        <div class="base">近接キルをするとスーパーエネルギーが回復する。</div>
+        <div class="base">近接攻撃や近接スキルでキルをすると、スーパーエネルギーが回復する。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons arc">&#xe143;</span>アーク</b></li>
                 <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると回復量がさらに増加する。
-            <div class="info"><span class="pve">&lt;効果詳細&gt;</span></div>
+            <div class="info">&lt;効果詳細&gt;</div>
             <span class="pve">敵の種類に応じて回復量が変化する。</span>
-            <div class="info">&lt;効果量&gt;</div>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pve">
-                        <th>下級兵</th>
-                        <td><b>0.3%～1.31%</b></td>
-                        <td><b>0.3%～1.71%</b></td>
-                    </tr>
-                    <tr class="pve">
-                        <th>中級兵</th>
-                        <td><b>0.84%～2.44%</b></td>
-                        <td><b>0.84%～3.1%</b></td>
-                    </tr>
-                    <tr class="pve">
-                        <th>上級兵</th>
-                        <td><b>1.65%～4.65%</b></td>
-                        <td><b>1.65%～5.85%</b></td>
-                    </tr>
-                    <tr class="pve">
-                        <th>エリート以上</th>
-                        <td><b>4%～8%</b></td>
-                        <td><b>4%～10%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>回復量</th>
-                        <td><b>0%</b></td>
-                        <td><b>0%</b></td>
-                    </tr>
-                </tbody>
-            </table>
+            <span class="pvp"><b>PvPでは発動しない。</b></span>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="dynamo"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8f2bffcbe752a6c8c39cfebe38db6ad1.png" class="h3">発電装置</h3>
-        <div class="base">敵の近くでクラススキルを使用するとスーパーエネルギーが回復する。</div>
+        <div class="base">敵の近くでクラススキルを使用すると、スーパーエネルギーが回復する。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons void">&#xe144;</span>ボイド</b></li>
-                <li>必要エネルギー: <b>4</b></li>
+                <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
@@ -528,33 +451,6 @@
             <div class="info">&lt;効果詳細&gt;</div>
             敵が <b>15m以内</b> にいるときに発動すると回復する。
             <br>使用しているクラスに応じて回復量が変化する。
-            <div class="info">&lt;効果量&gt;</div>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>タイタン</th>
-                        <td><b>3%</b></td>
-                        <td><b>5%</b></td>
-                    </tr>
-                    <tr>
-                        <th>ハンター</th>
-                        <td><b>2.5%</b></td>
-                        <td><b>4%</b></td>
-                    </tr>
-                    <tr>
-                        <th>ウォーロック</th>
-                        <td><b>5%</b></td>
-                        <td><b>8%</b></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -564,7 +460,6 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons stasis">&#xe139;</span>ステイシス</b></li>
                 <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
@@ -590,6 +485,70 @@
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
+        <a name="radiant_light"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c674167ad6437587445889ce071f4231.png" class="h3">ラディエントライト</h3>
+        <div class="base">スーパースキル発動時、周囲の味方にアーマーチャージを1個付与する。味方のサブクラスが自身のサブクラスと異なる属性だった場合、付与するアーマーチャージの量が2個に増える。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>なし</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <b>21m以内</b> の味方に対して効果がある。
+            <br>付与対象の味方が、アーマーチャージを<b>すでに1個以上持っている場合のみ</b>発動する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="powerful_friends"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bde7130eee758583d5f04ad0b67171ea.png" class="h3">強力な味方</h3>
+        <div class="base">力のオーブを拾った際、周囲の味方にアーマーチャージを1個付与する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>なし</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <b>18m以内</b> の味方に対して効果がある。
+            <br>付与対象の味方が、アーマーチャージを<b>すでに1個以上持っている場合のみ</b>発動する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="font_of_wisdom"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a8f1042b84cc0be42e974ca037ae15eb.png" class="h3">英知の源</h3>
+        <div class="base">アーマーチャージを保持している間、知性が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>常時</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、知性の増加量がさらに増加する。
+            <div class="info">&lt;効果量&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>知性</th>
+                        <td><b>+30</b></td>
+                        <td><b>+50</b></td>
+                        <td><b>+60</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
         <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
         間4
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="6674757086" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -601,38 +560,45 @@
         <h2>ガントレット用改造パーツ</h2>
 
         <a name="dexterity"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b25e9791a5a0ef4b99279135098f9469.png" class="h3">熟練</h3>
-        <div class="base">対応する武器の取り出しと射撃準備が速くなる。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/508f9da8fdffe3418a81449452bd5219.png" class="h3">熟練</h3>
+        <div class="base">対応する属性の武器の取り出しと射撃準備が速くなる。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>2～5</b></li>
-                <li>累積: <b>なし</b></li>
+                <li>必要エネルギー: <b>2～3</b></li>
+                <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
-            <b>同じパーツを複数装備可能だが、効果は累積しない。</b>
-            <br>武器をしまう際の切り替え速度は、ハンドリングが100のときよりも速くならない。
+            武器をしまう際の切り替え速度は、ハンドリングが100のときよりも速くならない。
             <div class="info">&lt;効果量&gt;</div>
-            <ul class="stats">
-                <li>武器切り替え時:
-                    <ul class="stats2">
-                        <li>切り替え時間: <b>x0.8</b></li>
-                        <li><b>ハンドリング増加</b></li>
-                    </ul>
-                </li>
-            </ul>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>武器切り替え時間</th>
+                        <td><b>x0.8</b></td>
+                        <td><b>x0.75</b></td>
+                        <td><b>x0.7</b></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="loader"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/87e6d89dda2ea208b49d90e47af8fb9e.png" class="h3">装填機</h3>
-        <div class="base">対応する武器のリロードが速くなる。</div>
+        <h3 class="item"><img src=https://www.bungie.net/common/destiny2_content/icons/005c02927469fd10e23b659fd85ec7eb.png class="h3">装填機</h3>
+        <div class="base">対応する属性の武器のリロードが速くなる。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>2～5</b></li>
+                <li>必要エネルギー: <b>2～3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
@@ -666,12 +632,12 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
                 <li>必要エネルギー: <b>1</b></li>
                 <li>累積: <b>なし</b></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
-            グレネードの速度が上昇し、落下速度が緩和される。<br>効果の強さはグレネードの種類によって変化する。
+            グレネードの速度が <b>+25%</b> 上昇し、落下速度が緩和される。
+            <br>効果の強さはグレネードの種類によって変化する。
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -681,7 +647,6 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons solar">&#xe140;</span>ソーラー</b></li>
                 <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
@@ -689,28 +654,6 @@
             累積させると回復量がさらに増加する。
             <div class="info">&lt;効果詳細&gt;</div>
             <b>7秒間</b> のクールダウンがある。
-            <div class="info">&lt;効果量&gt;</div>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pve">
-                        <th>回復量</th>
-                        <td><b>20%</b></td>
-                        <td><b>30%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>回復量</th>
-                        <td><b>10%</b></td>
-                        <td><b>15%</b></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -720,7 +663,6 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons arc">&#xe143;</span>アーク</b></li>
                 <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
@@ -728,28 +670,6 @@
             累積させると回復量がさらに増加する。
             <div class="info">&lt;効果詳細&gt;</div>
             <b>7秒間</b> のクールダウンがある。
-            <div class="info">&lt;効果量&gt;</div>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pve">
-                        <th>回復量</th>
-                        <td><b>20%</b></td>
-                        <td><b>30%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>回復量</th>
-                        <td><b>10%</b></td>
-                        <td><b>15%</b></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -759,36 +679,13 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons void">&#xe144;</span>ボイド</b></li>
-                <li>必要エネルギー: <b>1</b></li>
+                <li>必要エネルギー: <b>2</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると回復量がさらに増加する。
             <div class="info">&lt;効果詳細&gt;</div>
             <b>7秒間</b> のクールダウンがある。
-            <div class="info">&lt;効果量&gt;</div>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pve">
-                        <th>回復量</th>
-                        <td><b>25%</b></td>
-                        <td><b>35%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>回復量</th>
-                        <td><b>12.5%</b></td>
-                        <td><b>17.5%</b></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -798,7 +695,6 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons void">&#xe144;</span>ボイド</b></li>
                 <li>必要エネルギー: <b>2</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
@@ -806,6 +702,63 @@
             累積させると回復量がさらに増加する。
             <div class="info">&lt;効果詳細&gt;</div>
             <b>7秒間</b> のクールダウンがある。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="firepower"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e92e41d10ccffcdf44053bde91a84e13.png" class="h3">火力</h3>
+        <div class="base">グレネードでキルをすると、力のオーブを生成する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、生成された力のオーブ取得時のスーパーエネルギー回復量が増加する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="heavy_handed"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3f94e9b43d7b1a672719666648d9c82a.png" class="h3">強引な手段</h3>
+        <div class="base">近接スキルでキルをすると、力のオーブを生成する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、生成された力のオーブ取得時のスーパーエネルギー回復量が増加する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="shield_break_charge"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/747a0d105546f55bcc79976517871dda.png" class="h3">シールド破壊チャージ</h3>
+        <div class="base">一致する属性で敵のシールドを破壊すると、アーマーチャージを1個得る。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>4</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、得られるアーマーチャージの個数がさらに増加する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="font_of_focus"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/50d1e5f025dd7439d0a9aaa2d8882e7a.png" class="h3">集中の泉</h3>
+        <div class="base">アーマーチャージを保持している間、鍛錬が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>常時</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、鍛錬の増加量がさらに増加する。
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
                 <thead>
@@ -813,18 +766,49 @@
                         <th></th>
                         <th>1x</th>
                         <th>2x</th>
+                        <th>3x</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="pve">
-                        <th>回復量</th>
-                        <td><b>20%</b></td>
-                        <td><b>30%</b></td>
+                    <tr>
+                        <th>鍛錬</th>
+                        <td><b>+30</b></td>
+                        <td><b>+50</b></td>
+                        <td><b>+60</b></td>
                     </tr>
-                    <tr class="pvp">
-                        <th>回復量</th>
-                        <td><b>10%</b></td>
-                        <td><b>15%</b></td>
+                </tbody>
+            </table>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="font_of_wisdom"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/50d99645c482319cd1d26a2728741dcd.png" class="h3">活力の泉</h3>
+        <div class="base">アーマーチャージを保持している間、腕力が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>常時</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、腕力の増加量がさらに増加する。
+            <div class="info">&lt;効果量&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>腕力</th>
+                        <td><b>+30</b></td>
+                        <td><b>+50</b></td>
+                        <td><b>+60</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -832,19 +816,20 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="grenade_kickstart"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2387baa3ce8a7479b45219ab7ea93ab1.png" class="h3">グレネードキックスタート</h3>
-        <div class="base">グレネードエネルギーをすべて消費すると、一部回復する。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/172aec971d8f1de939453cc428288c88.png" class="h3">グレネードキックスタート</h3>
+        <div class="base">グレネードを使用すると、グレネードエネルギーが回復する。アーマーチャージを保持している場合はすべて消費し、消費数に応じて回復量を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons stasis">&#xe139;</span>ステイシス</b></li>
-                <li>必要エネルギー: <b>4</b></li>
+                <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると回復量がさらに増加する。
             <div class="info">&lt;効果詳細&gt;</div>
-            すべて消費してから <b>1秒</b> 経った後に発動する。
+            グレネードを使用する他に、グレネードエネルギーが <b>0%</b> になった際も発動する。
+            <br>パーツの累積分は<b>追加のアーマーチャージ1個分</b>としてカウントされる。
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
                 <thead>
@@ -852,18 +837,27 @@
                         <th></th>
                         <th>1x</th>
                         <th>2x</th>
+                        <th>3x</th>
+                        <th>4x</th>
+                        <th>5x</th>
+                        <th>6x</th>
+                        <th>7x</th>
+                        <th>8x</th>
+                        <th>9x</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="pve">
+                    <tr>
                         <th>回復量</th>
-                        <td><b>15%</b></td>
-                        <td><b>25%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>回復量</th>
-                        <td><b>6.5%</b></td>
-                        <td><b>12.5%</b></td>
+                        <td><b>13%</b></td>
+                        <td><b>16.7%</b></td>
+                        <td><b>23.4%</b></td>
+                        <td><b>31%</b></td>
+                        <td><b>37.5%</b></td>
+                        <td><b>41.2%</b></td>
+                        <td><b>44.4%</b></td>
+                        <td><b>46.8%</b></td>
+                        <td><b>48.7%</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -871,19 +865,20 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="melee_kickstart"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e49575bf41a8967fedc570c1a5fbdbdb.png" class="h3">近接キックスタート</h3>
-        <div class="base">近接エネルギーをすべて消費すると、一部回復する。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f0cb5ce01930086ab623fc7854641669.png" class="h3">近接キックスタート</h3>
+        <div class="base">近接スキルを使用すると、近接エネルギーが回復する。アーマーチャージを保持している場合はすべて消費し、消費数に応じて回復量を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons stasis">&#xe139;</span>ステイシス</b></li>
-                <li>必要エネルギー: <b>4</b></li>
+                <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると回復量がさらに増加する。
             <div class="info">&lt;効果詳細&gt;</div>
-            すべて消費してから <b>1秒</b> 経った後に発動する。
+            近接スキルを使用する他に、近接エネルギーが <b>0%</b> になった際も発動する。
+            <br>パーツの累積分は<b>追加のアーマーチャージ1個分</b>としてカウントされる。
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
                 <thead>
@@ -891,18 +886,27 @@
                         <th></th>
                         <th>1x</th>
                         <th>2x</th>
+                        <th>3x</th>
+                        <th>4x</th>
+                        <th>5x</th>
+                        <th>6x</th>
+                        <th>7x</th>
+                        <th>8x</th>
+                        <th>9x</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="pve">
+                    <tr>
                         <th>回復量</th>
-                        <td><b>15%</b></td>
-                        <td><b>25%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>回復量</th>
-                        <td><b>6%</b></td>
-                        <td><b>12.5%</b></td>
+                        <td><b>13%</b></td>
+                        <td><b>16.7%</b></td>
+                        <td><b>23.4%</b></td>
+                        <td><b>31%</b></td>
+                        <td><b>37.5%</b></td>
+                        <td><b>41.2%</b></td>
+                        <td><b>44.4%</b></td>
+                        <td><b>46.8%</b></td>
+                        <td><b>48.7%</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -925,14 +929,14 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>1</b></li>
+                <li>必要エネルギー: <b>1～3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させるとダメージがさらに軽減される。
             <div class="info">&lt;効果詳細&gt;</div>
             スナイパーダメージ耐性は <b>29m以上</b> 離れた敵から、近接ダメージ耐性は <b>4m以内</b> の敵から、振動吸収装置は範囲攻撃のダメージを軽減する。
+            <br>属性攻撃に対する耐性は、<b>3個装備しても2個と同等の効果</b>しか得られない。
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
                 <thead>
@@ -940,6 +944,7 @@
                         <th></th>
                         <th>1x</th>
                         <th>2x</th>
+                        <th>3x</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -947,9 +952,11 @@
                         <th>軽減量</th>
                         <td><b>15%</b></td>
                         <td><b>25%</b></td>
+                        <td><b>35%</b></td>
                     </tr>
                     <tr class="pvp">
                         <th>軽減量</th>
+                        <td><b>0%</b></td>
                         <td><b>0%</b></td>
                         <td><b>0%</b></td>
                     </tr>
@@ -960,12 +967,11 @@
 
         <a name="reserves"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8700b5f6f2a832d513f81746d796f439.png" class="h3">予備弾倉</h3>
-        <div class="base">対応する武器の持ち運べる弾薬数を増加させる。</div>
+        <div class="base">対応する属性の武器の持ち運べる弾薬数を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>1～3</b></li>
+                <li>必要エネルギー: <b>2～3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
@@ -977,13 +983,15 @@
                         <th></th>
                         <th>1x</th>
                         <th>2x</th>
+                        <th>3x</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th>増加量</th>
-                        <td><b>10%～12%</b></td>
-                        <td><b>20%～30%</b></td>
+                        <th>インベントリサイズ</th>
+                        <td><b>+20</b></td>
+                        <td><b>+35</b></td>
+                        <td><b>+40</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -992,16 +1000,17 @@
 
         <a name="unflinching"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e104d516992ecdde609034141b851b26.png" class="h3">ひるみ軽減装置</h3>
-        <div class="base">対応する武器のADS中のひるみを軽減する。</div>
+        <div class="base">対応する属性の武器において、ADS中のひるみを軽減する。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>2～5</b></li>
+                <li>必要エネルギー: <b>2～3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると、ひるみがさらに軽減される。
+            <div class="info">&lt;効果詳細&gt;</div>
+            他のひるみ軽減効果と重複する。
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
                 <thead>
@@ -1014,8 +1023,112 @@
                 <tbody>
                     <tr>
                         <th>軽減量</th>
-                        <td><b>20%</b></td>
                         <td><b>25%</b></td>
+                        <td><b>35%</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="lucent_blade"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d9d4f6d9b32dd065b9f83ce334b2636f.png" class="h3">輝く刃</h3>
+        <div class="base">剣の<a href="./weapon_parts.html#guard">チャージ時間</a>と、グレイブの投射物ヒット時に回復する武器エネルギーが増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>2</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、チャージ時間や武器エネルギー回復量がさらに増加する。
+            <div class="info">&lt;効果量&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>チャージ時間 (<span class="w-icons sword">&#xe153;</span>)</th>
+                        <td><b>+30</b></td>
+                        <td><b>+50</b></td>
+                        <td><b>+60</b></td>
+                    </tr>
+                    <tr>
+                        <th>武器エネルギー回復量 (<span class="w-icons glaive">&#xe156;</span>)</th>
+                        <td><b></b></td>
+                        <td><b></b></td>
+                        <td><b>+40%</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="charged_up"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5ec85e86356435947e6d98b8f84d1f3d.png" class="h3">充電</h3>
+        <div class="base">保持できるアーマーチャージの最大量を1個増加させる。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、保持できるアーマーチャージの最大量がさらに増加する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="emergency_reinforcement"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9b10abbc7f91f23ed8103e0cfbc6f53c.png" class="h3">緊急補強</h3>
+        <div class="base">瀕死時、アーマーチャージをすべて消費して、一定時間自身が受けるダメージを軽減する。アーマーチャージの個数によって効果時間が変化する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、効果時間がさらに増加する。
+            <div class="info">&lt;効果詳細&gt;</div>
+            アーマーチャージを <b>3個以上</b> 保持しているときのみ発動する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="font_of_endurance"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/aa2ab50ac6c90fe23e1547d5baf5fce3.png" class="h3">耐久の泉</h3>
+        <div class="base">アーマーチャージを保持している間、耐久力が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>常時</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、耐久力の増加量がさらに増加する。
+            <div class="info">&lt;効果量&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>耐久力</th>
+                        <td><b>+30</b></td>
+                        <td><b>+50</b></td>
+                        <td><b>+60</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -1033,52 +1146,31 @@
         <h2>レッグアーマー用改造パーツ</h2>
 
         <a name="scavenger"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3703c9e60783d6aba0a259976a9481d7.png" class="h3">スカベンジャー</h3>
-        <div class="base">対応する武器を装備時、得られる弾薬量を増加させる。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/142861e2d894895eed99be20c70f14c5.png" class="h3">スカベンジャー</h3>
+        <div class="base">対応する属性の武器を装備時、弾薬箱から得られる弾薬量を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>3～5</b></li>
+                <li>必要エネルギー: <b>2～3</b></li>
                 <li>累積: <b>なし</b></li>
             </ul>
-            <div class="info"><span class="pvp">&lt;効果詳細&gt;</span></div>
-            <span class="pvp"><b>PvPでは発動しない。</b></span>
+            <div class="info">&lt;効果詳細&gt;</div>
+            その武器の最大予備弾薬の <b>3～5%</b> と同じ数を増加させて拾うことができる。
+            <br>どのような場合でも最低 <b>1発</b> 、もしくは最大予備弾薬の <b>1%</b> のどちらか大きな方を必ず増加させる。
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="holster"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c022deefaa07eaed35c49dd2e4b866cf.png" class="h3">ホルスター</h3>
-        <div class="base">対応する武器をしまっている間、少しずつリロードされる。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/26b14ad779bc63934dc34459d3ea8bfc.png" class="h3">ホルスター</h3>
+        <div class="base">対応する属性の武器をしまっている間、少しずつリロードされる。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>2～5</b></li>
+                <li>必要エネルギー: <b>1～2</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させるとリロードの頻度が早くなる。
-            <div class="info">&lt;効果量&gt;</div>
-            <ul class="stats">
-                <li>一回のリロード量: <b>10%</b></li>
-            </ul>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>リロードまでの時間</th>
-                        <td><b>4秒</b></td>
-                        <td><b>3秒</b></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -1088,39 +1180,11 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
                 <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると回復量がさらに増加する。
-            <div class="info">&lt;効果量&gt;</div>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>グレネード</th>
-                        <td><b>3.2%</b></td>
-                        <td><b>7.5%</b></td>
-                    </tr>
-                    <tr>
-                        <th>近接</th>
-                        <td><b>3.7%</b></td>
-                        <td><b>8.5%</b></td>
-                    </tr>
-                    <tr>
-                        <th>クラススキル</th>
-                        <td><b>4%</b></td>
-                        <td><b>10.6%</b></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -1130,29 +1194,53 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons solar">&#xe140;</span>ソーラー</b></li>
                 <li>必要エネルギー: <b>1</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると回復量がさらに増加する。
-            <div class="info">&lt;効果量&gt;</div>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>回復量</th>
-                        <td><b>12%</b></td>
-                        <td><b>18%</b></td>
-                    </tr>
-                </tbody>
-            </table>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="invigoration"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fbd50803fc86f3b60c62fa9a37760186.png" class="h3">活性化</h3>
+        <div class="base">力のオーブを拾うと、近接エネルギーが回復する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると回復量がさらに増加する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="insulation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bf91aa03df6599cb3fd7eac78ecf778f.png" class="h3">絶縁</h3>
+        <div class="base">力のオーブを拾うと、クラススキルエネルギーが回復する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると回復量がさらに増加する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="orbs_of_restoration"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3da4a26eca77c94bfcb0907fe12d8b6a.png" class="h3">回復のオーブ</h3>
+        <div class="base">力のオーブを拾うと、最もエネルギー残量が少ないスキルのエネルギーが回復する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>2</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると回復量がさらに増加する。
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -1162,7 +1250,6 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons solar">&#xe140;</span>ソーラー</b></li>
                 <li>必要エネルギー: <b>1</b></li>
                 <li>累積: <b>なし</b></li>
             </ul>
@@ -1173,95 +1260,42 @@
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
-        <a name="invigoration"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fbd50803fc86f3b60c62fa9a37760186.png" class="h3">活性化</h3>
-        <div class="base">力のオーブを拾うと、近接エネルギーが回復する。</div>
+        <a name="better_already"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/51740c539e0858f2c951b8d350483eab.png" class="h3">既に良好</h3>
+        <div class="base">力のオーブを拾うと、HPの自然再生が開始する。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons arc">&#xe143;</span>アーク</b></li>
-                <li>必要エネルギー: <b>1</b></li>
-                <li>累積: <b>あり</b></li>
-            </ul>
-            <div class="info">&lt;累積効果&gt;</div>
-            累積させると回復量がさらに増加する。
-            <div class="info">&lt;効果量&gt;</div>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>回復量</th>
-                        <td><b>10%</b></td>
-                        <td><b>15%</b></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="back"><a href="#" id="page-top">▲</a></div>
-
-        <a name="insulation"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bf91aa03df6599cb3fd7eac78ecf778f.png" class="h3">絶縁</h3>
-        <div class="base">力のオーブを拾うと、クラススキルエネルギーが回復する。</div>
-        <div class="indepth">
-            <div class="info">&lt;基本性能&gt;</div>
-            <ul class="stats">
-                <li>属性: <b><span class="w-icons void">&#xe144;</span>ボイド</b></li>
-                <li>必要エネルギー: <b>1</b></li>
-                <li>累積: <b>あり</b></li>
-            </ul>
-            <div class="info">&lt;累積効果&gt;</div>
-            累積させると回復量がさらに増加する。
-            <div class="info">&lt;効果量&gt;</div>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>回復量</th>
-                        <td><b>5%</b></td>
-                        <td><b>10%</b></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="back"><a href="#" id="page-top">▲</a></div>
-
-        <a name="recuperation"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/51740c539e0858f2c951b8d350483eab.png" class="h3">療養</h3>
-        <div class="base">力のオーブを拾うと、自然回復が開始する。</div>
-        <div class="indepth">
-            <div class="info">&lt;基本性能&gt;</div>
-            <ul class="stats">
-                <li>属性: <b><span class="w-icons void">&#xe144;</span>ボイド</b></li>
                 <li>必要エネルギー: <b>1</b></li>
                 <li>累積: <b>なし</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
-        <a name="orbs_of_restoration"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3da4a26eca77c94bfcb0907fe12d8b6a.png" class="h3">回復のオーブ</h3>
-        <div class="base">力のオーブを拾うと、最も残量が少ないスキルのエネルギーが回復する。</div>
+        <a name="stacks_on_stacks"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ffcfa61ae6e93b0f90e63debf6f57975.png" class="h3">割増蓄積</h3>
+        <div class="base">力のオーブを拾った際に得られるアーマーチャージが1個増加する。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons stasis">&#xe139;</span>ステイシス</b></li>
-                <li>必要エネルギー: <b>1</b></li>
+                <li>必要エネルギー: <b>4</b></li>
+                <li>累積: <b>なし</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="weapon_surge"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6a44d0480441d6183ecd2c554c02b606.png" class="h3">武器サージ</h3>
+        <div class="base">アーマーチャージを保持している間、対応する属性の武器が与えるダメージが増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>常時</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
-            累積させると回復量がさらに増加する。
+            累積させると、ダメージ増加量がさらに増加する。
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
                 <thead>
@@ -1269,13 +1303,54 @@
                         <th></th>
                         <th>1x</th>
                         <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="pve">
+                        <th>ダメージ増加量</th>
+                        <td><b>+10%</b></td>
+                        <td><b>+17%</b></td>
+                        <td><b>+22%</b></td>
+                    </tr>
+                    <tr class="pvp">
+                        <th>ダメージ増加量</th>
+                        <td><b>+3%</b></td>
+                        <td><b>+5%</b></td>
+                        <td><b>+7%</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+        <a name="font_of_agility"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/575dacaae5421387bd72d788f570788d.png" class="h3">敏捷の泉</h3>
+        <div class="base">アーマーチャージを保持している間、可動性が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>常時</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、可動性の増加量がさらに増加する。
+            <div class="info">&lt;効果量&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th>回復量</th>
-                        <td><b>10%</b></td>
-                        <td><b>15%</b></td>
+                        <th>可動性</th>
+                        <td><b>+30</b></td>
+                        <td><b>+50</b></td>
+                        <td><b>+60</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -1298,137 +1373,13 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>4</b></li>
+                <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると回復量がさらに増加する。
             <div class="info">&lt;効果詳細&gt;</div>
             <b>15m</b> の範囲内に敵がいる状態で使用すると発動する。<br>
-            <div class="info">&lt;効果量&gt;</div>
-            <caption>タイタン:</caption>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>スーパースキル</th>
-                        <td><b>2.4%</b></td>
-                        <td><b>3.6%</b></td>
-                    </tr>
-                    <tr>
-                        <th>グレネード</th>
-                        <td><b>12%</b></td>
-                        <td><b>15%</b></td>
-                    </tr>
-                    <tr>
-                        <th>近接</th>
-                        <td><b>8%</b></td>
-                        <td><b>10%</b></td>
-                    </tr>
-                    <tr>
-                        <th>クラススキル</th>
-                        <td><b>6%</b></td>
-                        <td><b>8%</b></td>
-                    </tr>
-                </tbody>
-            </table>
-            <caption>ハンター:</caption>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>スーパースキル</th>
-                        <td><b>2.4%</b></td>
-                        <td><b>3.6%</b></td>
-                    </tr>
-                    <tr>
-                        <th>グレネード</th>
-                        <td><b>12%</b></td>
-                        <td><b>13%</b></td>
-                    </tr>
-                    <tr>
-                        <th>近接</th>
-                        <td><b>5%</b></td>
-                        <td><b>8%</b></td>
-                    </tr>
-                    <tr>
-                        <th>クラススキル</th>
-                        <td><b>6%</b></td>
-                        <td><b>8%</b></td>
-                    </tr>
-                </tbody>
-            </table>
-            <caption>ウォーロック:</caption>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>スーパースキル</th>
-                        <td><b>2.4%</b></td>
-                        <td><b>3.6%</b></td>
-                    </tr>
-                    <tr>
-                        <th>グレネード</th>
-                        <td><b>5%</b></td>
-                        <td><b>8.2%</b></td>
-                    </tr>
-                    <tr>
-                        <th>近接</th>
-                        <td><b>5%</b></td>
-                        <td><b>8.3%</b></td>
-                    </tr>
-                    <tr>
-                        <th>クラススキル</th>
-                        <td><b>3%</b></td>
-                        <td><b>6%</b></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="back"><a href="#" id="page-top">▲</a></div>
-
-        <a name="snapload_finisher"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f2a5aeff94123a72571b8de0fcdfb6b9.png" class="h3">スナップロード・フィニッシャー</h3>
-        <div class="base">フィニッシャーをすると、スーパースキルエネルギーを1/10消費してすべての武器を全弾リロードする。</div>
-        <div class="indepth">
-            <div class="info">&lt;基本性能&gt;</div>
-            <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>1</b></li>
-                <li>累積: <b>なし</b></li>
-            </ul>
-        </div>
-        <div class="back"><a href="#" id="page-top">▲</a></div>
-
-        <a name="special_finisher"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/36540b55b40a64b4448375d8d32b144c.png" class="h3">スペシャル・フィニッシャー</h3>
-        <div class="base">フィニッシャーをすると、スーパースキルエネルギーを1/3消費して特殊弾を生成する。</div>
-        <div class="indepth">
-            <div class="info">&lt;基本性能&gt;</div>
-            <ul class="stats">
-                <li>属性: <b>すべて</b></li>
-                <li>必要エネルギー: <b>2</b></li>
-                <li>累積: <b>なし</b></li>
-            </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -1438,81 +1389,11 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons solar">&#xe140;</span>ソーラー</b></li>
-                <li>必要エネルギー: <b>2</b></li>
+                <li>必要エネルギー: <b>1</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると回復量がさらに増加する。
-            <div class="info">&lt;効果量&gt;</div>
-            <caption>回復量:</caption>
-            <table class="list stats">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>1x</th>
-                        <th>2x</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pve">
-                        <th>タイタン</th>
-                        <td><b>16%</b></td>
-                        <td><b>20%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>タイタン</th>
-                        <td><b>6%</b></td>
-                        <td><b>9%</b></td>
-                    </tr>
-                    <tr class="pve">
-                        <th>ハンター</th>
-                        <td><b>14%</b></td>
-                        <td><b>18%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>ハンター</th>
-                        <td><b>5%</b></td>
-                        <td><b>8%</b></td>
-                    </tr>
-                    <tr class="pve">
-                        <th>ウォーロック</th>
-                        <td><b>25%</b></td>
-                        <td><b>30%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>ウォーロック</th>
-                        <td><b>10%</b></td>
-                        <td><b>15%</b></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="back"><a href="#" id="page-top">▲</a></div>
-
-        <a name="explosive_finisher"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3ef420580bfb4b39296e94d80328fd32.png" class="h3">エクスプローシブ・フィニッシャー</h3>
-        <div class="base">フィニッシャーをすると、スーパースキルエネルギーを1/5消費してグレネードエネルギーを全回復する。</div>
-        <div class="indepth">
-            <div class="info">&lt;基本性能&gt;</div>
-            <ul class="stats">
-                <li>属性: <b><span class="w-icons solar">&#xe140;</span>ソーラー</b></li>
-                <li>必要エネルギー: <b>1</b></li>
-                <li>累積: <b>なし</b></li>
-            </ul>
-        </div>
-        <div class="back"><a href="#" id="page-top">▲</a></div>
-
-        <a name="healthy_finisher"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3ef420580bfb4b39296e94d80328fd32.png" class="h3">ヘルシー・フィニッシャー</h3>
-        <div class="base">フィニッシャーをすると、スーパースキルエネルギーを1/10消費してHPを全回復する。</div>
-        <div class="indepth">
-            <div class="info">&lt;基本性能&gt;</div>
-            <ul class="stats">
-                <li>属性: <b><span class="w-icons solar">&#xe140;</span>ソーラー</b></li>
-                <li>必要エネルギー: <b>1</b></li>
-                <li>累積: <b>なし</b></li>
-            </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -1522,12 +1403,99 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons arc">&#xe143;</span>アーク</b></li>
-                <li>必要エネルギー: <b>2</b></li>
+                <li>必要エネルギー: <b>1</b></li>
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると回復量がさらに増加する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="proximity_ward"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/69236b721ba78df7f3e9977c7058986f.png" class="h3">接近防御</h3>
+        <div class="base">フィニッシャー中、自身にオーバーシールドが付与される。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>2</b></li>
+                <li>累積: <b>なし</b></li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>
+                    シールドHP: <b>200</b>
+                    <ul class="stats2">
+                        <li>フィニッシャー中はダメージを <b>60%</b> 軽減するため、実質的には <b>500</b> HPと同等となる。</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="reaper"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/90d01032af2d94dcbc38eb0bdf268492.png" class="h3">死神</h3>
+        <div class="base">クラススキル使用後に敵を武器でキルすると、力のオーブが生成される。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると、生成された力のオーブ取得時のスーパーエネルギー回復量が増加する。
+            <div class="info">&lt;効果詳細&gt;</div>
+            クラススキル発動から <b>5秒以内</b> に武器によるキルをすると発動する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="time_dilation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fe63aa2d2147e6649f6810908dfe3413.png" class="h3">時間膨張</h3>
+        <div class="base">常時消費されるアーマーチャージの効果時間が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると効果時間がさらに増加する。
+            <div class="info">&lt;効果量&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>0x</th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>回復量</th>
+                        <td>10秒</td>
+                        <td><b>15秒</b></td>
+                        <td><b>18秒</b></td>
+                        <td><b>20秒</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="empowered_finisher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7dc0e4b96686716d06c3f66572d3ee4d.png" class="h3">致命的打撃</h3>
+        <div class="base">フィニッシャーをすると、自身にアーマーチャージを付与する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+            <div class="info">&lt;累積効果&gt;</div>
+            累積させると付与されるアーマーチャージの数がさらに増加する。
+            <div class="info">&lt;効果詳細&gt;</div>
+            アーマーチャージを保持していない場合のみ発動する。
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
                 <thead>
@@ -1535,99 +1503,70 @@
                         <th></th>
                         <th>1x</th>
                         <th>2x</th>
+                        <th>3x</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th>タイタン</th>
-                        <td><b>16%</b></td>
-                        <td><b>20%</b></td>
-                    </tr>
-                    <tr>
-                        <th>ハンター</th>
-                        <td><b>12%</b></td>
-                        <td><b>16%</b></td>
-                    </tr>
-                    <tr>
-                        <th>ウォーロック</th>
-                        <td><b>20%</b></td>
-                        <td><b>25%</b></td>
+                        <th>付与量</th>
+                        <td><b>1個</b></td>
+                        <td><b>2個</b></td>
+                        <td><b>3個</b></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
-        <a name="one-two_finisher"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3ef420580bfb4b39296e94d80328fd32.png" class="h3">ワン・ツー・フィニッシャー</h3>
-        <div class="base">フィニッシャーをすると、スーパースキルエネルギーを1/6消費して近接エネルギーを全回復する。</div>
+        <a name="font_of_restoration"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e8d62c2e251b4fe567ebb5d3d4c679c5.png" class="h3">回復の泉</h3>
+        <div class="base">アーマーチャージを保持している間、回復力が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons arc">&#xe143;</span>アーク</b></li>
-                <li>必要エネルギー: <b>1</b></li>
-                <li>累積: <b>なし</b></li>
-            </ul>
-        </div>
-        <div class="back"><a href="#" id="page-top">▲</a></div>
-
-        <a name="perpetuation"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2d61f6d5e5199a84189227d392105e3d.png" class="h3">永久化</h3>
-        <div class="base">クラススキルを使用すると、クラススキルエネルギーが回復する。</div>
-        <div class="indepth">
-            <div class="info">&lt;基本性能&gt;</div>
-            <ul class="stats">
-                <li>属性: <b><span class="w-icons void">&#xe144;</span>ボイド</b></li>
-                <li>必要エネルギー: <b>2</b></li>
+                <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>常時</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
-            累積させると回復量がさらに増加する。
-        </div>
-        <div class="back"><a href="#" id="page-top">▲</a></div>
-
-        <a name="utility_finisher"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3ef420580bfb4b39296e94d80328fd32.png" class="h3">ユーティリティー・フィニッシャー</h3>
-        <div class="base">フィニッシャーをすると、スーパースキルエネルギーを1/10消費してクラススキルエネルギーを全回復する。</div>
-        <div class="indepth">
-            <div class="info">&lt;基本性能&gt;</div>
-            <ul class="stats">
-                <li>属性: <b><span class="w-icons void">&#xe144;</span>ボイド</b></li>
-                <li>必要エネルギー: <b>1</b></li>
-                <li>累積: <b>なし</b></li>
-            </ul>
-        </div>
-        <div class="back"><a href="#" id="page-top">▲</a></div>
-
-        <a name="bulwark_finisher"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/89a94073e404879c46cf87b22da6570d.png" class="h3">バルウォーク・フィニッシャー</h3>
-        <div class="base">フィニッシャーをすると、スーパースキルエネルギーを1/4消費して自身にオーバーシールドを付与する。</div>
-        <div class="indepth">
-            <div class="info">&lt;基本性能&gt;</div>
-            <ul class="stats">
-                <li>属性: <b><span class="w-icons void">&#xe144;</span>ボイド</b></li>
-                <li>必要エネルギー: <b>3</b></li>
-                <li>累積: <b>なし</b></li>
-            </ul>
-            <div class="info">&lt;効果詳細&gt;</div>
-            オーバーシールドは破壊される直前のダメージをすべて無効化する。
+            累積させると、回復力の増加量がさらに増加する。
+            <div class="info">&lt;効果量&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>回復力</th>
+                        <td><b>+30</b></td>
+                        <td><b>+50</b></td>
+                        <td><b>+60</b></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="utility_kickstart"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8141643a58362babeda68255fd60e550.png" class="h3">ユーティリティーキックスタート</h3>
-        <div class="base">クラススキルエネルギーをすべて消費すると、一部回復する。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4a90f8bea82933593483bd469975249a.png" class="h3">ユーティリティーキックスタート</h3>
+        <div class="base">クラススキルを使用すると、クラススキルエネルギーが回復する。アーマーチャージを保持している場合はすべて消費し、消費数に応じて回復量を増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons stasis">&#xe139;</span>ステイシス</b></li>
-                <li>必要エネルギー: <b>1</b></li>
+                <li>必要エネルギー: <b>3</b></li>
                 <li>累積: <b>あり</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
             累積させると回復量がさらに増加する。
             <div class="info">&lt;効果詳細&gt;</div>
-            すべて消費してから <b>1秒</b> 経った後に発動する。
+            クラススキルを使用する他に、クラススキルエネルギーが <b>0%</b> になった際も発動する。
+            <br>パーツの累積分は<b>追加のアーマーチャージ1個分</b>としてカウントされる。
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
                 <thead>
@@ -1635,34 +1574,169 @@
                         <th></th>
                         <th>1x</th>
                         <th>2x</th>
+                        <th>3x</th>
+                        <th>4x</th>
+                        <th>5x</th>
+                        <th>6x</th>
+                        <th>7x</th>
+                        <th>8x</th>
+                        <th>9x</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="pve">
+                    <tr>
                         <th>回復量</th>
-                        <td><b>15%</b></td>
-                        <td><b>25%</b></td>
-                    </tr>
-                    <tr class="pvp">
-                        <th>回復量</th>
-                        <td><b>6%</b></td>
-                        <td><b>12.5%</b></td>
+                        <td><b>13%</b></td>
+                        <td><b>16.7%</b></td>
+                        <td><b>23.4%</b></td>
+                        <td><b>31%</b></td>
+                        <td><b>37.5%</b></td>
+                        <td><b>41.2%</b></td>
+                        <td><b>44.4%</b></td>
+                        <td><b>46.8%</b></td>
+                        <td><b>48.7%</b></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
-        <a name="restorative_finisher"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fb1d4dd417b172728d13005e83de5904.png" class="h3">回復のフィニッシャー</h3>
-        <div class="base">フィニッシャーをすると、スーパースキルエネルギーを1/10消費して最も残量が少ないスキルのエネルギーを回復する。</div>
+        <a name="snapload_finisher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/475f2524133fb9fd282df1eb09e25e05.png" class="h3">スナップロード・フィニッシャー</h3>
+        <div class="base">フィニッシャーをすると、アーマーチャージを1個消費してすべての武器を全弾リロードする。</div>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>属性: <b><span class="w-icons stasis">&#xe139;</span>ステイシス</b></li>
                 <li>必要エネルギー: <b>1</b></li>
                 <li>累積: <b>なし</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
             </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            このパーツを装備すると、他のフィニッシャーによって発動するパーツは同時に装備できない。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="special_finisher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/32aa24c4c84eb69001842a524d2ae445.png" class="h3">スペシャル・フィニッシャー</h3>
+        <div class="base">フィニッシャーをすると、アーマーチャージを3個消費して特殊弾を生成する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>なし</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            このパーツを装備すると、他のフィニッシャーによって発動するパーツは同時に装備できない。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="benevolent_finisher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5e58b8c150da2bafede6f88860b3dd0b.png" class="h3">ベネヴォレント・フィニッシャー</h3>
+        <div class="base">フィニッシャーをすると、アーマーチャージを3個消費して力のオーブを生成する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>なし</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            このパーツを装備すると、他のフィニッシャーによって発動するパーツは同時に装備できない。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="healthy_finisher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e1084b5d8efd57aca6d52da5e588e70a.png" class="h3">ヘルシー・フィニッシャー</h3>
+        <div class="base">フィニッシャーをすると、アーマーチャージを1個消費してHPを全回復する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>なし</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            このパーツを装備すると、他のフィニッシャーによって発動するパーツは同時に装備できない。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="explosive_finisher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6b897eb1fb0147f73ba7b52a0ee2a8a4.png" class="h3">エクスプローシブ・フィニッシャー</h3>
+        <div class="base">フィニッシャーをすると、グレネードエネルギーが回復する。アーマーチャージの量に応じて回復量が変化する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>なし</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            アーマーチャージが <b>3個以上</b> 保持されていないと発動しない。
+            <br>このパーツを装備すると、他のフィニッシャーによって発動するパーツは同時に装備できない。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="one-two_finisher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2299d956ae342d5866f234ac6cbce5a3.png" class="h3">ワン・ツー・フィニッシャー</h3>
+        <div class="base">フィニッシャーをすると、近接エネルギーが回復する。アーマーチャージの量に応じて回復量が変化する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>なし</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            アーマーチャージが <b>3個以上</b> 保持されていないと発動しない。
+            <br>このパーツを装備すると、他のフィニッシャーによって発動するパーツは同時に装備できない。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="utility_finisher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/654d73f85354285dbce0ddd1942b2947.png" class="h3">ユーティリティー・フィニッシャー</h3>
+        <div class="base">フィニッシャーをすると、クラススキルエネルギーが回復する。アーマーチャージの量に応じて回復量が変化する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>なし</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            アーマーチャージが <b>3個以上</b> 保持されていないと発動しない。
+            <br>このパーツを装備すると、他のフィニッシャーによって発動するパーツは同時に装備できない。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="bulwark_finisher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/42a01e2af79fda047e68077c38cb0df4.png" class="h3">バルウォーク・フィニッシャー</h3>
+        <div class="base">フィニッシャーをすると、自身に<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>を付与する。アーマーチャージの量に応じて効果時間が変化する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>なし</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            アーマーチャージが <b>3個以上</b> 保持されていないと発動しない。
+            <br>このパーツを装備すると、他のフィニッシャーによって発動するパーツは同時に装備できない。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="restorative_finisher"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b7a5d13d77c72dc85a4d6045dd90673d.png" class="h3">回復のフィニッシャー</h3>
+        <div class="base">フィニッシャーをすると、アーマーチャージを2個消費して最も残量が少ないスキルのエネルギーを回復する。</div>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>必要エネルギー: <b>1</b></li>
+                <li>累積: <b>なし</b></li>
+                <li>アーマーチャージ消費タイプ: <b>トリガー</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            このパーツを装備すると、他のフィニッシャーによって発動するパーツは同時に装備できない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>回復量: <b>50%</b></li>
