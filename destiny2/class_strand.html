@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Destiny 2 クラス解説 - ストランド - depth's Toybox</title>
+    <meta name="description" content="ページの説明">
+
+    <!-- Twitterバナーの設定 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@depth172">
+    <meta name="twitter:title" content="Destiny 2 クラス解説 - ストランド - depth's Toybox">
+    <meta name="twitter:description" content="Destiny 2のストランド属性に関する効果、サブクラスのスキル、特性、かけらなどについて解説しています。">
+    <meta name="twitter:image" content="https://depth172.github.io/img/card-summary.png">
+
+    <!-- デザイン関連 -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="d2style.css">
+    <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
+
+    <!-- 表示内容切り替え用スクリプト -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="https://www.bungie.net/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png"><img class="pvp" src="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_fb3e9149c43f7a2e8f8b66cbea7845fe.png"></button>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
+    </div>
+
+    <div class="main" id="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
+        <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
+        <h1>クラス解説 - <span class="strand">&#xef0e;</span>ストランド</h1>
+        <hr>
+        <div class="title_bar">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 クラス解説 - ストランド" data-url="http://depth172.github.io/destiny2/class_strand.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
+
+                var target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+
+        <p class="intro">Destiny 2のストランドに関する効果、サブクラスのスキル、特性、かけらなどについて解説します。</p>
+
+        <h2>目次</h2>
+
+        <div class="toc">
+            <ul>
+                <li><a href="#notice">注意事項・用語解説</a></li>
+                <details>
+                    <summary>ストランド属性の固有効果</summary>
+                    <ul>
+                        <li><a href="#tangle">タングル</a></li>
+                        <li><a href="#threadling">スレッドリング</a></li>
+                        <li><a href="#woven_mail">ウィーブメイル</a></li>
+                        <li><a href="#suspend">停止</a></li>
+                        <li><a href="#sever">切断</a></li>
+                        <li><a href="#unravel">分解</a></li>
+                        <li><a href="#unraveling_rounds">分解弾</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ストランド属性のかけら</summary>
+                    <ul>
+                        <li><a href="#thread_of_mind">精神の糸</a></li>
+                        <li><a href="#thread_of_fury">憤怒の糸</a></li>
+                        <li><a href="#thread_of_ascent">上昇の糸</a></li>
+                        <li><a href="#thread_of_finality">終局の糸</a></li>
+                        <li><a href="#thread_of_warding">守護の糸</a></li>
+                        <li><a href="#thread_of_wisdom">英知の糸</a></li>
+                        <li><a href="#thread_of_rebirth">再誕の糸</a></li>
+                        <li><a href="#thread_of_transmutation">変質の糸</a></li>
+                        <li><a href="#thread_of_propagation">伝播の糸</a></li>
+                        <li><a href="#thread_of_evolution">進化の糸</a></li>
+                        <li><a href="#thread_of_isolation">孤独の糸</a></li>
+                        <li><a href="#thread_of_binding">封印の糸</a></li>
+                        <li><a href="#thread_of_generation">世代の糸</a></li>
+                        <li><a href="#thread_of_continuty">持続の糸</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ストランド属性のグレネード</summary>
+                    <ul>
+                        <li><a href="#grapple">グラップリング</a></li>
+                        <li><a href="#shackle_grenade">シャックルグレネード</a></li>
+                        <li><a href="#threadling_grenade">スレッドリンググレネード</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>バーサーカー（タイタン）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#bladefury">ブレードフューリー</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#frenzied_blade">狂乱の刃</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#into_the_fray">騒乱の渦中</a></li>
+                                <li><a href="#drengrs_lash">ドレングルの鞭</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>スレッドランナー（ハンター）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#silkstrike">シルクストライク</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#snare_bomb">スレッドスパイク</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#ensnaring_slam">エンスネア・スラム</a></li>
+                                <li><a href="#widows_silk">ウィドーズシルク</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>ブルードウィーバー（ウォーロック）</summary>
+                    <ul>
+                        <li>スーパースキル
+                            <ul>
+                                <li><a href="#needlestorm">ニードルストーム</a></li>
+                            </ul>
+                        </li>
+                        <li>近接スキル
+                            <ul>
+                                <li><a href="#arcane_needle">アーケインニードル</a></li>
+                            </ul>
+                        </li>
+                        <li>特性
+                            <ul>
+                                <li><a href="#mindspun_invocation">心の紡ぎし祈り</a></li>
+                                <li><a href="#weavers_call">織り手の呼び声</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </details>
+                <li><a href="#source">出典</a></li>
+                <li><a href="#challenge_log">更新履歴</a></li>
+                <li><a href="#comments">コメント</a></li>
+            </ul>
+        </div>
+
+        <p>
+            <b>このページは制作中です。画像素材もほとんど提供されていないため、既存のものを流用している部分も多々あります。</b>
+        </p>
+        <p>
+            右三角形はクリックすることで展開できます。
+            <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
+            <br>また、右下のボタンを押すことで、PvE向けの情報とPvP向けの情報が切り替えられます。
+        </p>
+
+        <a name="notice"></a>
+        <h2>注意事項・用語解説</h2>
+        <ul>
+            <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。
+                <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
+            <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについてはパーク自体が記載されていない場合もあります。</li>
+            <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
+            <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>解説中に出てくる<span class="balloon sample">点線の下線</span>が付いた文章や、<span class="w-icons auto">&#xe100;</span> <span class="w-icons solar">&#xe140;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">また、一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
+            <li class="pve">ダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
+            <li>武器ダメージが増加するものに関して、<span class="univ_debuff">全体デバフ</span>や<span class="univ_buff">強化バフ</span>にあたるものは該当する色になっています。 詳しくは<a href="./buff_stacking.html">強化・弱体化の種類と重複について</a>をお読みください。</li>
+            <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
+        </ul>
+        <dl>
+            <dt>キル</dt>
+            <dd>敵を倒すこと。特筆しない限り、自分でトドメを刺した場合のみ適用される。</dd>
+            <dt>近接スキル（チャージ近接）</dt>
+            <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
+            <dt>HPとシールド</dt>
+            <dd>自身のHPバーのうち <b>70</b> HPは自身の体力で、それ以上の部分はシールドとなっている。シールドのHPは耐久力によって <b>115.01</b> ～ <b>130</b> まで変動する。詳しくは<a href="./base_stats.html#resilience">耐久力</a>の項目を参照。</dd>
+        </dl>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!--
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="3593793015" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h2>ストランド属性の固有効果</h2>
+
+        <a name="tangle"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/cae77e7b661b9f56deef963dc7d5b14c.png" class="head">タングル</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            <a href="#suspend">停止</a>、<a href="#sever">切断</a>、<a href="#unravel">分解</a>状態の敵のキルや、一部のエキゾチック効果などで生成される<b>多機能オーブ</b>。
+            <br><img src="./img/tangle.jpg" class="illustration" width="180px">
+            <br>タングルの生成には <b>15秒間</b> のクールダウンがある。
+            <br>タングルは拾って投げることができ、着弾地点で<b>爆発</b>して周囲の敵にダメージを与える。タングルは最大で <b>20秒間</b> 保持できる。
+            <br>また、生成されたタングルを攻撃することでも<b>爆発</b>し、周囲の敵にダメージを与えられる。
+            <br>どちらの場合も、爆発時には <span class="pve"><b>420</b></span><span class="pvp"><b>100</b></span> ダメージを与える。
+        </div>
+
+        <a name="threadling"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/05a7f6edc9dba435f0c5c8e446b138a1.png" class="head">スレッドリング</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            <b>20m以内</b> の敵を追尾、飛びかかって爆発しダメージを与える<b>ストランドシーカー</b>。
+            <br><img src="./img/threadling.jpg" class="illustration" width="150px">
+            <br>ブルードウィーバーの場合、敵を発見できないまま <b>14m</b> 移動したスレッドリングは、発動者のところに<b>戻ってくる。</b>
+            <br>戻ってきたスレッドリングは発動者の<b>周囲に留まり</b>、敵を攻撃した際に一つずつ追尾を再開する。このとき、スレッドリングはどの距離からでも追尾を行う。
+            <br>最大で <b>5個</b> のスレッドリングを留まらせることができる。
+        </div>
+
+        <a name="woven_mail"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/23bf57ce22df37f055b1ccf747e1aa9b.png" class="head">ウィーブメイル</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            <b>10秒間</b> 自身へのダメージを <span class="pve"><b>-60%</b></span><span class="pvp"><b>-25%</b></span> 軽減するシールド。</span>
+            <span class="pve"><br><b>近接攻撃</b>ダメージは軽減されない。</span>
+            <span class="pvp"><br><b>近接攻撃</b>と、<b>頭への</b>ダメージは軽減されない。</span>
+        </div>
+
+        <a name="suspend"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/9b37b673f4eb99b68821fd765831b5dd.png" class="head">停止</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            停止させられた敵は強制的に<b>浮遊状態</b>となり、<span class="pve"><b>移動ができなく</b>なり、<b>攻撃を停止</b>する。</span><span class="pvp"><b>三人称視点</b>となり、<b>ADSが使用不能</b>になる。</span>
+            <br>また、停止状態の <span class="w-icons overload">&#xe072;</span> アンストッパブル・チャンピオンは<b>スタン</b>する。
+        </div>
+
+        <a name="sever"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/9c4058adcf540791eceff4c398a22cf5.png" class="head">切断</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            切断された敵は、与えるダメージが <span class="pve"><b>-33%</b></span><span class="pvp"><b>-15%</b></span> 低下する。</span>
+        </div>
+
+        <a name="unravel"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/2d8c5a5d13ebd3400bc3559c9b08c089.png" class="head">分解</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            分解状態になった敵には<b>攻撃性の糸</b>がまとわりつく。その敵が一定量のダメージを受けると、周囲にいる敵に<b>糸が追尾</b>し、<b><span class="pve">29</span><span class="pvp">4</span></b> ダメージを与える。
+            <br>追尾した糸のダメージを受けた敵も<b>分解状態</b>になる。このときすでに分解状態だった場合は、分解状態の<b>効果時間をリセット</b>する。
+        </div>
+
+        <a name="unraveling_rounds"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/2d8c5a5d13ebd3400bc3559c9b08c089.png" class="head"><span class="w-icons barrier">&#xe070;</span> 分解弾</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            <b>ストランド属性</b>の武器で攻撃した敵に対して、<b><a href="#unravel">分解状態</a></b>を付与できるようになる。
+            <br>また、効果中はストランド属性の武器に <span class="w-icons barrier">&#xe070;</span> <b>アンチバリア効果</b>が付与され、バリア・チャンピオンの<b>シールドを破壊</b>できるようになる。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ストランド属性のかけら一覧</h2>
+
+        <a name="thread_of_mind"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a5d4a60d922293ebdbea1c22cbd93986.jpg" class="h3">精神の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>停止状態の敵をキルすると、<b>クラススキルエネルギーが回復</b>する。</li>
+                <li><span class="pve">回復量は敵の<a href="./enemy_classification.html#tier">ランクや種類</a>によって変動する。</span></li>
+                <li>再発動できるまで <b>1秒間</b> のクールダウンがある。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>回復量: <span class="pvp"><b>15%</b></span>
+                    <ul class="stats2">
+                        <li><span class="pve">ランク1: <b>9%</b></span></li>
+                        <li><span class="pve">ランク2: <b>13%</b></span></li>
+                        <li><span class="pve">ランク2: <b>20%</b></span></li>
+                        <li><span class="pve">ランク4: <b>30%</b></span></li>
+                        <li><span class="pve">ミニボス: <b>40%</b></span></li>
+                        <li><span class="pve">ボス: <b>50%</b></span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_fury"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5cc5657e9653cf793cde419236c3a499.jpg" class="h3">憤怒の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#tangle">タングル</a>でダメージを与えると、<b>近接エネルギーが回復</b>する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>腕力: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_ascent"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/17f17fe5573dfc1cce1ae688e9e8a873.jpg" class="h3">上昇の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードスキルを使用すると、使用中の武器が<b>全弾リロード</b>され、<b>上昇の糸</b>が <b>15秒間</b> 付与される。</li>
+                <li>上昇の糸発動中は、武器のハンドリングが <b>+30</b> 、リロード速度が <b>+40</b> 、リロード時間が <b>x0.925</b> 、空中効果が <b>+30</b> される。</li>
+                <li>武器リロード効果には <b>1秒間</b> のクールダウンがある。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>可動性: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_finality"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5288badd31e7067d1af71a061aaff22b.jpg" class="h3">終局の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>フィニッシャーをすると、周囲に<b><a href="#threadling">スレッドリング</a>を生成</b>する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>回復力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_warding"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/feffa1ea71e0317462b406807a9d8b45.jpg" class="h3">守護の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>力のオーブを拾うと、自身に<b><a href="#woven_mail">ウィーブメイル</a>が付与</b>される。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>耐久力: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_wisdom"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6f5d43447ee7de28bb94ac949f3fac44.jpg" class="h3">英知の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#amplified">停止状態</a>の敵を精密キルすると、<b>力のオーブを生成</b>する。</li>
+                <li>再発動できるまで <b>10秒間</b> のクールダウンがある。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_rebirth"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/00afc79d1bd165623c9e506bec1a0ff3.jpg" class="h3">再誕の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ストランド属性の武器でキルをすると内部カウンターが進行し、100%になることで<b><a href="#threadling">スレッドリング</a>を生成</b>する。</li>
+                <li><span class="pve">カウンターの進行量は<a href="./enemy_classification.html#quick_table">敵の強さ</a>によって変動する。</span></li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li><span class="pvp">1キルごとの進行量: <b>+67%</b></span></li>
+                <li><span class="pve">一般兵: <b>+34%</b></span></li>
+                <li><span class="pve">エリート: <b>+67%</b></span></li>
+                <li><span class="pve">ミニボス / ボス: <b>+100%</b></span></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_transmutation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ac3a190922c806b770c4a84366476201.jpg" class="h3">変質の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#woven_mail">ウィーブメイル</a>発動中、武器によるキルをすると<b><a href="#tangle">タングル</a>を生成</b>する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>腕力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_propagation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4b78910e8b8b684d7dfca716eaea4616.jpg" class="h3">伝播の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>近接スキルで敵をキルすると、<b><a href="#unraveling_rounds">分解弾</a></b>が <span class="pve"><b>8秒間</b></span><span class="pvp"><b>5秒間</b></span> 付与される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_evolution"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/badf77b1f1eeede2739b75bb3a817be0.jpg" class="h3">進化の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#threadling">スレッドリング</a>の移動速度と最大移動距離が <b>+30%</b> 、与えるダメージが <span class="pve"><b>+33%</b></span><span class="pvp"><b>+10%</b></span> 増加する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>知性: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_isolation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6d5c07db3f3b268d2cdcad206a8d4308.jpg" class="h3">孤独の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>精密ヒットをそれぞれ <b>1秒以内</b> に複数回行うと、爆発が発生し、周囲の敵を<b><a href="#sever">切断状態</a></b>にする。</li>
+                <li>武器の種類ごとに<b>内部カウンター</b>が定められており、精密ヒットをすることで一定数進行する。</li>
+                <li>内部カウンターが <b>100%</b> になると効果が発動する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_binding"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/42f10e9d82c7c2f364856fbef56b6354.jpg" class="h3">封印の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>スーパースキルでキルをすると敵が爆発し、周囲の敵を<b><a href="#suspend">停止状態</a></b>にする。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>耐久力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_generation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f3d9e926cd9b18f7b68ecb49dcadefc4.jpg" class="h3">世代の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵にダメージを与えると、<b>グレネードエネルギーが回復</b>する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>鍛錬: <b>-10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="thread_of_continuty"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2d629d0adbf1d1cab255f087caaafeae.jpg" class="h3">持続の糸</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#suspend">停止</a>、<a href="#sever">切断</a>、<a href="#unravel">分解</a>状態の効果時間が最大 <b>+50%</b> 増加する。</li>
+            </ul>
+            <div class="info">&lt;ステータス変化&gt;</div>
+            <ul class="stats">
+                <li>腕力: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        間2
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="8649597005" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <a name="grenades"></a>
+        <h2>グレネードスキル一覧</h2>
+
+        <a name="grapple"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0cab0abc819d270a92f9e2027e46816d.jpg" class="h3">グラップリング</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>105秒</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>周囲の物体や空間を糸で掴み、それを伝って<b>移動</b>できる。</li>
+                <li>グラップリング中、もしくはグラップリング後の速度が残った状態で近接攻撃をすると、<b>グラップリング近接</b>を発動する。</li>
+                <li>グラップリング近接は、攻撃した敵を<a href="#unravel"><b>分解状態</b></a>にして<b>ノックバック</b>させる。</li>
+                <li>グラップリング近接は、グレネードスキルと近接スキルの両方として扱われる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="shackle_grenade"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/03fe35299cf2c09185d08986585da50d.jpg" class="h3">シャックルグレネード</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>152秒</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>着弾地点で爆発し、その後 <b>2個</b> の子弾に分裂して再び爆発を起こす。</li>
+                <li>爆発ダメージを受けた敵は<b><a href="#suspend">停止状態</a></b>になる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="threadling_grenade"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a9a0a8785006eb5ba4f069fd5657defd.jpg" class="h3">スレッドリンググレネード</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>152秒</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>投擲したグレネードが <b>3個</b> の子弾に分裂し、子弾は着弾時に<b><a href="#threadling">スレッドリング</a></b>に変化する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!--
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="8271404627" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h1><img src="https://www.bungie.net/common/destiny2_content/icons/41c0024ce809085ac16f4e0777ea0ac4.png" class="head">バーサーカー</h1>
+
+        <h2>バーサーカーのスーパースキル</h2>
+
+        <a name="bladefury"></a>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/9c3cbd31113be1f463a41b27b81bec19.png" class="diamond_c"></span>ブレードフューリー</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>弱攻撃は突進攻撃を行い、攻撃がヒットすると<b>強攻撃エネルギー</b>をチャージする。</li>
+                <li>強攻撃は敵を追尾する一対の<b>波動</b>を放ち、触れた敵を<b><a href="#suspend">停止状態</a></b>にする。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>バーサーカーの近接スキル</h2>
+
+        <a name="frenzied_blade"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4539597cafcd96218d1bcf6464e5c002.png" class="h3">狂乱の刃</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>114秒</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>デフォルトで <b>3回分</b> の使用回数をチャージできる。</li>
+                <li>前方にアームブレードを構えて突撃し、ヒットした敵は<b><a href="#sever">切断状態</a></b>になる。</li>
+                <li>また、発動後に近接攻撃ボタンを再び押すと、近接エネルギーを追加で消費して<b>連続攻撃</b>を行える。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>バーサーカーの特性</h2>
+
+        <a name="into_the_fray"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4c5a1a04e73dbce39ba0a253773e126e.jpg" class="h3">騒乱の渦中</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#tangle">タングル</a>を破壊すると、その場所から <b>3回</b> の <b>パルス</b>を <b>2秒</b> ごとに発生させる。</li>
+                <li>パルスに触れた味方はHPが <b>10</b> 回復し、<b><a href="#woven_mail">ウィーブメイル</a></b>を得る。</li>
+                <li>また、自身がウィーブメイルを纏っている間、近接エネルギーの回復速度が <span class="pve"><b>+400%</b></span><span class="pvp"><b>+200%</b></span> 増加する。</li>
+                <li>さらに、スーパースキルを発動すると、周囲の味方は<b><a href="#woven_mail">ウィーブメイル</a></b>を得る。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="drengrs_lash"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/34742d88e23704dc45fc85a64001638b.jpg" class="h3">ドレングルの鞭</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>バリケードを展開すると、前方に衝撃波を放ち、衝撃波に触れた敵は<b><a href="#suspend">停止状態</a></b>になる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        間3
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="4240165438" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h1><img src="https://www.bungie.net/common/destiny2_content/icons/41c0024ce809085ac16f4e0777ea0ac4.png" class="head">スレッドランナー</h1>
+
+        <h2>スレッドランナーのスーパースキル</h2>
+
+        <a name="silkstrike"></a>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/3ac39f9698612951757a3edbd52a006b.png" class="diamond_c"></span>シルクストライク</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>556秒</b> (ランク2)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>弱攻撃で前方にロープダーツを振り、キルした敵を<b>爆発</b>させる。</li>
+                <li>強攻撃で自身を中心にロープダーツを回転させ、広範囲にダメージを与える。攻撃は <b>2回</b> ヒットする。</li>
+                <li>また、発動中はグレネードスキルは<a href="#grapple">グラップリング</a>になり、地面に着地するたびに無制限に使用可能となる。</li>
+                <li>さらに、回避が無制限に使用可能になる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>スレッドランナーの近接スキル</h2>
+
+        <a name="threaded_spike"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/66604525966910950ac8efc8f2b4d2c4.png" class="h3">スレッドスパイク</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>125秒</b></li>
+                <li>ダメージ: <b><span class="pve"><b>394</b></span><span class="pvp"><b>80</b></span></b>
+                </li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ロープダーツを投げる。ロープダーツは敵を追尾し、ダメージを受けた敵は<b><a href="#sever">切断状態</a></b>になる。</li>
+                <li>ロープダーツが敵を攻撃するたびに、近接エネルギーが <b>10%</b> 回復する。</li>
+                <li>自身に返ってくるロープダーツを<b>近接攻撃ボタン</b>で受け止めると、<b>近接エネルギーがさらに回復</b>する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>スレッドランナーの特性</h2>
+
+        <a name="ensnaring_slam"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fb8ad358e003be53e70e1f25aa9f607a.jpg" class="h3">エンスネア・スラム</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>空中戦術ボタンを押すと、クラススキルエネルギーを消費し、<b>地上へ降下</b>する。</li>
+                <li>着地時、周囲にいる敵を<b><a href="#suspend">停止状態</a></b>にする。使用後、クラススキルのクールダウンが <b>+6秒</b> 増加する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="widows_silk"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ec08c97044253bc3a44d28e792a1a930.jpg" class="h3">ウィドーズシルク</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードのチャージが <b>1回分</b> 追加される。特性使用中、タングル無しでの<a href="#grapple">グラップリング</a>使用後には <b>5秒間</b> のクールダウンが発生する。</li>
+                <li>さらに、グラップリングをすると、掴んだ場所に<b>グラップリングタングルを生成</b>する。</li>
+                <li>グラップリングタングルは <b>17.5秒間</b> 残留し、グラップリングに使用すると効果時間はリセットされる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        間4
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="6674757086" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h1><img src="https://www.bungie.net/common/destiny2_content/icons/41c0024ce809085ac16f4e0777ea0ac4.png" class="head">ブルードウィーバー</h1>
+
+        <h2>ブルードウィーバーのスーパースキル</h2>
+
+        <a name="needlestorm"></a>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/6fdb9a0d36cf076f17cb22eeaafeaed8.png" class="diamond_c"></span>ニードルストーム</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>500秒</b> (ランク2)</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>無数の針の雨</b>を放射する。針は敵を追尾して刺さり、爆発を起こす。</li>
+                <li>爆発した針は<b><a href="#threadling">スレッドリング</a></b>となり、周囲の敵を攻撃する。</li>
+                <li>このスキルによって生成されたスレッドリングは、通常より <b>+41.5%</b> 大きなダメージを与える。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ブルードウィーバーの近接スキル</h2>
+
+        <a name="arcane_needle"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f8ef7754890fabd071d2bcd7297d335c.png" class="h3">アーケインニードル</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>基本クールダウン: <b>91秒</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>デフォルトで <b>3回分</b> の使用回数をチャージできる。</li>
+                <li>前方に針を飛ばし、ヒットした敵は<b><a href="#unravel">分解状態</a></b>になる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <h2>ブルードウィーバーの特性</h2>
+
+        <a name="mindspun_invocation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b12f09f57c1aa57f13cf4849461424a3.jpg" class="h3">心の紡ぎし祈り</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードの<b>効果や性能が向上</b>する。</li>
+                <ul>
+                    <li><a href="#grapple">グラップリング</a>
+                        <ul class="stats2">
+                            <li>グラップリング近接をすると、<a href="#threadling">スレッドリング</a>が <b>3個</b> 生成される。</li>
+                        </ul>
+                    </li>
+                    <li><a href="#shackle_grenade">シャックルグレネード</a>
+                        <ul class="stats2">
+                            <li>グレネードボタンを長押しすると、グレネードエネルギーを全て消費し、自身に<b>織り手のトランス</b>を <b>25秒間</b> 付与する。</li>
+                            <li>織り手のトランス発動中に敵をキルすると、その敵が爆発し、周囲の敵を <b>5秒間</b> <a href="#suspend">停止状態</a>にする。</li>
+                        </ul>
+                    </li>
+                    <li><a href="#threadling_grenade">スレッドリンググレネード</a>
+                        <ul class="stats2">
+                            <li>グレネードボタンを長押しすると、グレネードエネルギーを全て消費し、自身の周囲にスレッドリングを <b>5個</b> 留まらせる。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="weavers_call"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/773ca77508718b3a14afa2e64f9ff6af.jpg" class="h3">織り手の呼び声</h3>
+        <div class="indepth">
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>かけらスロット: <b>2個</b></li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>リフトを発動すると、<a href="#threadling">スレッドリング</a>を <b>3個</b> 生成し、留まっているスレッドリングを<b>すべて攻撃</b>させる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="source"></a>
+        <h2>出典</h2>
+
+        <a href="https://docs.google.com/spreadsheets/d/1WaxvbLx7UoSZaBqdFr1u32F2uWVLo-CJunJB4nlGUE4/edit#gid=1907852650">The Destiny Data Compendium</a><br>
+        <a href="https://docs.google.com/spreadsheets/d/1i1KUwgVkd8qhwYj481gkV9sZNJQCE-C3Q-dpQutPCi4/edit#gid=1079577444">The Comprehensive Destiny 2 Data & Information</a>
+
+        <a name="challenge_log"></a>
+        <h2>更新履歴</h2>
+
+        <a href="https://github.com/depth172/depth172.github.io/commits/gh-pages/destiny2/class_strand.html">過去のページを確認する</a>
+
+        <a name="comments"></a>
+        <!-- begin wwww.htmlcommentbox.com -->
+        <script type="text/javascript" src="../js/htmlcommentbox.js"></script>
+
+        <div id="HCB_comment_box">コメントを読み込んでいます...</div>
+        <link rel="stylesheet" type="text/css" href="/css/twitter-bootstrap.css" />
+        <script type="text/javascript" id="hcb">
+            if (!window.hcb_user) {
+                hcb_user = {};
+            }(function() {
+                var s = document.createElement("script"),
+                    l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
+                    h = "https://www.htmlcommentbox.com";
+                s.setAttribute("type", "text/javascript");
+                s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%240S16uY.Oh6y9MR3cBrjg21" + "&opts=16798&num=10&ts=1642331857298");
+                if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s);
+            })();
+        </script>
+        <!-- end www.htmlcommentbox.com -->
+
+        <hr>
+        <!-- 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        最後
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="2253130494" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="footer"><a href="#" id="page-top">一番上に戻る ▲</a></div>
+        -->
+    </div>
+</body>
+
+</html>

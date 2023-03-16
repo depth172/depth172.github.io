@@ -29,38 +29,14 @@
     <script src="./modetoggle.js"></script>
     <script src="./hoverwindow.js"></script>
 
-    <!-- 通知表示 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $(".overlay").show();
-            $.cookie('btnFlg') == 'on' ? $(".overlay").hide() : $(".overlay").show();
-            $(".btn_area button").click(function() {
-                $(".overlay").fadeOut();
-                $.cookie('btnFlg', 'on', {
-                    expires: 30,
-                    path: '/'
-                }); //cookieの保存
-            });
-        });
-    </script>
-
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="overlay">
-        <div class="btn_area">
-            <p class="ttl">新機能のお知らせ</p>
-            <p>右下のボタンを押すことで、PvE用の情報とPvP用の情報が切り替えられるようになりました！ぜひご利用ください。</p>
-            <button>閉じる</button>
-        </div>
-    </div>
     <div class="overlay-button">
         <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
-        <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="https://www.bungie.net/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png"><img class="pvp" src="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_fb3e9149c43f7a2e8f8b66cbea7845fe.png"></button>
     </div>
 
     <div id="hover-balloon">
@@ -109,6 +85,8 @@
                 <details>
                     <summary>アーク属性のかけら</summary>
                     <ul>
+                        <li><a href="#spark_of_haste">火急の火花</a></li>
+                        <li><a href="#spark_of_instinct">直感の火花</a></li>
                         <li><a href="#spark_of_beacons">光線の火花</a></li>
                         <li><a href="#spark_of_resistance">耐性の火花</a></li>
                         <li><a href="#spark_of_momentum">余勢の火花</a></li>
@@ -278,7 +256,7 @@
                 <li>可動性: <b>+50</b></li>
                 <li>スライディング距離: <b>+33%</b></li>
                 <li>ハンドリング: <b>+40</b></li>
-                <li>武器持ち替え時間: <b>x0.96</b></li>
+                <li>武器持ち替え時間: <b>x0.95</b></li>
             </ul>
         </div>
 
@@ -287,7 +265,7 @@
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
             <a href="#amplified">増幅</a>状態中、<b>2.5秒間</b> ダッシュをすることで<b>スピードブースター</b>を得る。
-            <br>スピードブースター中はダッシュ速度が <b>+12.5%</b> 、スライディング距離が <b>+50%</b>、ジャンプ高度が <b>+100%</b> 増加<span class="pve">し、敵から受けるダメージを <b>-12.5%</b> 軽減</span>する。
+            <br>スピードブースター発動中はダッシュ速度が <b>+12.5%</b> 、スライディング距離が <b>+50%</b>、ジャンプ高度が <b>+100%</b> 増加<span class="pve">し、敵から受けるダメージを <b>-12.5%</b> 軽減</span>する。
             <br>ダッシュ速度増加効果は、<a href="./weapon_parts.html#lightweight_frame">軽量フレームの内在効果</a>や<a href="./exotic_armor.html#dunemarchers">砂漠を歩む者</a>などの他の効果と重複しない。
             <br>効果は<b>ダッシュ中のみ</b>維持され、増幅状態が切れてもダッシュを継続していれば効果は持続する。
         </div>
@@ -323,6 +301,28 @@
 
         <h2>アーク属性のかけら一覧</h2>
 
+        <a name="spark_of_haste"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e86d118a2d954e93e1e2f467df270c63.jpg" class="h3">火急の火花</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>1.25秒以上</b> のダッシュ中、可動性、耐久力、回復力が <b>+30</b> 増加する。</li>
+                <li>移動速度が <b>5m/s</b> を下回ると、ダッシュ中でも効果が切れる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="spark_of_instinct"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9af61929fb9deed3ed6466efefcb966b.jpg" class="h3">直感の火花</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>瀕死（HP <b>70</b> 以下）のときにダメージを受けると、自身の周囲に<b>アークバースト</b>を発生させ、そのダメージを受けた敵を<b><a href="#jolted">ショック状態</a></b>にする。</li>
+                <li>再発動できるまで <b>15秒間</b> のクールダウンがある。</li>
+            </ul>
+        </div>
+
+        <div class="back"><a href="#" id="page-top">▲</a></div>
         <a name="spark_of_beacons"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/70277aba7cb9f53c2771651a6d67eb6d.jpg" class="h3">光線の火花</h3>
         <div class="indepth">
@@ -388,7 +388,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="#jolted">ショック状態</a>の敵を倒すと、<b><a href="#ionic_trace">イオントレース</a>が生成</b>される。</li>
-                <li>この効果には <b>10秒間</b> のクールダウンがある。</li>
+                <li>再発動できるまで <b>10秒間</b> のクールダウンがある。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -419,7 +419,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>近接攻撃をすると、<b>5秒間</b> 武器のリロード速度が <b>+100</b> 、リロード時間が <b>x0.8</b> される。</li>
+                <li>近接攻撃をすると、<b>5秒間</b> 武器のリロード速度が <b>+100</b> 、リロード時間が <b>x0.79</b> される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -429,7 +429,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>1.25秒間</b> ダッシュすると、クラススキルエネルギーの回復速度が <b><span class="pve">+150%</span><span class="pvp">+75%</span></b> 増加する。</li>
+                <li><b>1.25秒以上</b> のダッシュ中、クラススキルエネルギーの回復速度が <b><span class="pve">+150%</span><span class="pvp">+75%</span></b> 増加する。</li>
                 <li>移動速度が <b>5m/s</b> を下回ると、ダッシュ中でも効果が切れる。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
@@ -485,7 +485,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="#amplified">増幅</a>中、複数キルをすると、<b>力のオーブを生成</b>する。</li>
-                <li>この効果には <b>10秒間</b> のクールダウンがある。</li>
+                <li>再発動できるまで <b>10秒間</b> のクールダウンがある。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -520,7 +520,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="#blind">視力喪失状態</a>の敵を精密キルすると、<b>6m以内</b> の敵を<b><a href="#blind">視力喪失状態</a>にする爆発</b>を起こす。</li>
+                <li><a href="#blind">視力喪失状態</a>の敵を精密キルすると、<b>3m以内</b> の敵を<b><a href="#blind">視力喪失状態</a>にする爆発</b>を起こす。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -788,7 +788,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>前方 <b>7.5m</b> の敵に衝撃ダメージを与える。</li>
-                <li>長押しすることで <b>2秒まで</b> チャージでき、効果範囲が最大 <b>16m</b> 、ダメージが最大 <b>+80%</b> 増加する。</li>
+                <li>長押しすることで <b>2秒まで</b> チャージでき、効果範囲が最大 <b>16m</b> 、ダメージが最大 <b>+80%</b> まで増加する。</li>
                 <li>チャージ中は移動できない。</li>
             </ul>
         </div>
@@ -822,9 +822,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>クラススキルエネルギーが最大のときにダッシュをすると、前方からのダメージを肩代わりする <b>50HP</b> の<b>シールドを自身に展開</b>する。</li>
-                <li><a href="#amplified">増幅</a>中は、<span class="pve">シールドに対するダメージが <b>-33%</b> 軽減される。</span><span class="pvp">シールドのHPが <b>75</b> まで増加する。</span></li>
-                <li>シールドは破壊直前に受けたダメージを<b>無効化</b>し、破壊時にクラススキルエネルギーを<b>全て消費</b>する。</li>
-                <li>オーバーシールドを付与する他の効果と重複する。</li>
+                <li><a href="#amplified">増幅</a>中は、シールドに対するダメージが <b>-33%</b> 軽減されるため、実質的なシールドのHPは <b>75</b> となる。
+                    <li>シールドは破壊直前に受けたダメージを<b>無効化</b>し、破壊時にクラススキルエネルギーを<b>全て消費</b>する。</li>
+                    <li>オーバーシールドを付与する他の効果と重複する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -859,7 +859,7 @@
                     </li>
                     <li>パルスグレネード
                         <ul class="stats2">
-                            <li>敵にダメージを与えると、<b><a href="#ionic_trace">イオントレース</a>を生成</b>する。この効果には <b>1秒間</b> のクールダウンがある。</li>
+                            <li>敵にダメージを与えると、<b><a href="#ionic_trace">イオントレース</a>を生成</b>する。再発動するまで <b>1秒間</b> のクールダウンがある。</li>
                             <li>また、グレネードが着弾してから効果が切れるまでの間、グレネードが与えるダメージが<b>増加し続ける。</b></li>
                         </ul>
                     </li>

@@ -29,38 +29,14 @@
     <script src="./modetoggle.js"></script>
     <script src="./hoverwindow.js"></script>
 
-    <!-- 通知表示 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $(".overlay").show();
-            $.cookie('btnFlg') == 'on' ? $(".overlay").hide() : $(".overlay").show();
-            $(".btn_area button").click(function() {
-                $(".overlay").fadeOut();
-                $.cookie('btnFlg', 'on', {
-                    expires: 30,
-                    path: '/'
-                }); //cookieの保存
-            });
-        });
-    </script>
-
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="overlay">
-        <div class="btn_area">
-            <p class="ttl">新機能のお知らせ</p>
-            <p>右下のボタンを押すことで、PvE用の情報とPvP用の情報が切り替えられるようになりました！ぜひご利用ください。</p>
-            <button>閉じる</button>
-        </div>
-    </div>
     <div class="overlay-button">
         <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
-        <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="https://www.bungie.net/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png"><img class="pvp" src="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_fb3e9149c43f7a2e8f8b66cbea7845fe.png"></button>
     </div>
 
     <div id="hover-balloon">
@@ -102,6 +78,7 @@
                         <li><a href="#radiant">発光</a></li>
                         <li><a href="#cure">治癒</a></li>
                         <li><a href="#restoration">回復</a></li>
+                        <li><a href="#firesprite">火精</a></li>
                         <li><a href="#scorch">スコーチ</a></li>
                         <li><a href="#ignition">点火</a></li>
                     </ul>
@@ -109,6 +86,8 @@
                 <details>
                     <summary>ソーラー属性のかけら</summary>
                     <ul>
+                        <li><a href="#ember_of_mercy">恩情の名残</a></li>
+                        <li><a href="#ember_of_resolve">決意の名残</a></li>
                         <li><a href="#ember_of_singeing">燃焼の名残</a></li>
                         <li><a href="#ember_of_benevolence">慈悲の名残</a></li>
                         <li><a href="#ember_of_beams">光線の名残</a></li>
@@ -306,6 +285,15 @@
             </table>
         </div>
 
+        <a name="firesprite"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/c933373ffe31897a081aa8d642b8334b.png" class="head">火精</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            特性やかけらによって生成される<b>ソーラーエネルギーの塊</b>。
+            <br><img src="./img/firesprite.jpg" class="illustration" width="200px">
+            <br>回収すると、グレネードエネルギーが <b>10%</b> 回復する。
+        </div>
+
         <a name="scorch"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/a48c8286630f9859ce051f7d277e98fa.png" class="head">スコーチ</h3>
         <div class="indepth">
@@ -351,6 +339,27 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <h2>ソーラー属性のかけら一覧</h2>
+
+        <a name="ember_of_mercy"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c9e392abb5417ecab2dccd85fe23c00f.jpg" class="h3">恩情の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><a href="#firesprite">火精</a>を拾うと、<b><a href="#restoration">回復</a> x1</b> が <b>2秒間</b> 付与される。</li>
+                <li>味方を蘇生すると、自身と周囲の味方に<b><a href="#restoration">回復</a> x1</b> が <b>6秒間</b> 付与される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ember_of_resolve"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3a633440f21817801caadb6615e0961a.jpg" class="h3">決意の名残</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードで敵をキルすると、<b><a href="#cure">治癒</a> x1</b> が付与される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ember_of_singeing"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c9e392abb5417ecab2dccd85fe23c00f.jpg" class="h3">燃焼の名残</h3>
@@ -423,7 +432,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>スーパースキルでキルをすると、その敵が<b><a href="#ignition">点火</a></b>する。</li>
+                <li>スーパースキルでキルをすると、その敵が<b><a href="#ignition">点火</a></b>し、<b><a href="#firesprite">火精</a>が生成</b>される。</li>
                 <li><a href="#well_of_radiance">輝く泉</a>では、発動者の<b>ソーラー武器によるキル</b>で敵が点火する。</li>
                 <li><a href="#deadshot">ゴールデンガン: デッドショット</a>では、キル時に弾薬が <b>1発</b> 追加される。</li>
             </ul>
@@ -453,7 +462,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="#ignition">点火</a>の爆発を受けた敵に、<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
+                <li><a href="#ignition">点火</a>のダメージを受けた敵に、<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -469,6 +478,7 @@
             <ul class="stats">
                 <li>ソーラー属性の武器でキルをすると、自身と <b>12.5m以内</b> の味方に<b>緩和の名残</b>のスタックを <b>8秒間</b> 付与する。</li>
                 <li>緩和の名残発動中はすべての武器の空中効果が <b>+20</b> され、スタック1個につき回復力を <b>+10</b> させる。</li>
+                <li>また、緩和の名残発動中にソーラー属性の武器でキルをすると、<b><a href="#firesprite">火精</a>が生成</b>される。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -482,7 +492,16 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="#ignition">点火</a>でキルをすると、グレネードエネルギーが <b>20%</b> 回復する。</li>
+                <li><a href="#ignition">点火</a>でキルをすると、<b>グレネードエネルギーが回復</b>する。</li>
+                <li><span class="pve">回復量は敵の<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</span></li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li><span class="pvp">回復量: <b>20.75%</b></span></li>
+                <li><span class="pve">ランク1: <b>8%</b></span></li>
+                <li><span class="pve">ランク2: <b>12.25%</b></span></li>
+                <li><span class="pve">ランク3: <b>16.5%</b></span></li>
+                <li><span class="pve">ランク4 / ミニボス / ボス: <b>25%</b></span></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -528,7 +547,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="#ignition">点火</a>で <b>2体以上</b> キルをすると、<b>力のオーブを生成</b>する。</li>
-                <li><b>10秒間</b> のクールダウンがある。</li>
+                <li>再発動できるまで <b>10秒間</b> のクールダウンがある。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -542,19 +561,16 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>スコーチが付与された敵をキルすると、<b>近接エネルギーが回復</b>する。</li>
-                <li>回復量は敵の<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</li>
+                <li>スコーチが付与された敵をキルすると、<b>近接エネルギーが回復</b>し、<b><a href="#firesprite">火精</a>が生成</b>される。</li>
+                <li><span class="pve">回復量は敵の<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</span></li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>回復量:
-                    <ul class="stats2">
-                        <li>ランク1: <b>8%</b></li>
-                        <li>ランク2: <b>16%</b></li>
-                        <li>ランク3: <b>26%</b></li>
-                        <li>ランク4: <b>28%</b></li>
-                    </ul>
-                </li>
+                <li><span class="pvp">回復量: <b>20%</b></span></li>
+                <li><span class="pve">ランク1: <b>8%</b></span></li>
+                <li><span class="pve">ランク2: <b>15%</b></span></li>
+                <li><span class="pve">ランク3: <b>17.5%</b></span></li>
+                <li><span class="pve">ランク4 / ミニボス / ボス: <b>25%</b></span></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1149,10 +1165,11 @@
             <ul class="stats">
                 <li>ソーラーの剣を地面に立て、味方を強化する半径 <b>6.5m</b> の<b>フィールドを生成</b>する。</li>
                 <li>発動した瞬間のみ、<b>8.5m以内</b> にいる敵に<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
-                <li>フィールドに入ると、HPが毎秒 <b>100</b> ずつ回復し、武器ダメージが <span class="balloon univ_buff"><b>+25%</b></span> 増加する。</li>
+                <li>フィールドに入ると、HPが毎秒 <b>100</b> ずつ回復し、武器ダメージが <span class="balloon univ_buff"><b>+25%</b></span> 増加、さらに<b><a href="./class_stasis.html#slow">遅延</a>の効果を受けなく</b>なる。</li>
+                <li>加えて、対チャンピオン効果を持たない武器に <b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b>を付与する。</li>
                 <li><span class="pvp">さらに、メイン武器から受けるダメージを <b>-40%</b> 、それ以外の敵から受ける全てのダメージを <b>-50%</b> 軽減する。</span></li>
-                <li>加えて、フィールド内のガーディアンは<b><a href="./class_stasis.html#slow">ステイシスの影響</a>を受けなく</b>なる。</li>
-                <li>また、発動者がフィールド内から武器で攻撃すると、そのダメージは<b>スーパースキルによるダメージ</b>として扱われる。</li>
+                <li>また、<b>発動者</b>がフィールド内から武器で攻撃すると、そのダメージは<b>スーパースキルによるダメージ</b>として扱われる。</li>
+                <li>フィールドに入ると、<a href="#restoration">回復</a>効果は失われる。</li>
                 <li>地面に立っている剣は <b>800HP</b> で、これを超えるダメージを受けるとフィールドは破壊される。</li>
                 <li><span class="pve">また、ボスからの攻撃は、発動者の<a href="./base_stats.html#resilience">耐久力</a>に応じて <b>+50%</b> ～ <b>-75%</b> 増減したダメージを受ける。</span></li>
                 <li><span class="pvp">発動者の<a href="./base_stats.html#resilience">耐久力</a>ステータスは、泉本体の被ダメージやHPに<b>影響しない。</b></span></li>
@@ -1174,7 +1191,7 @@
                 <li><b>空中</b>でのみ発動可能。発動時、一瞬の静止後に地面に向かって<b>急降下</b>する。</li>
                 <li>着地時、自身と <b>9m以内</b> の味方に<b><a href="#cure">治癒</a> x2</b> を付与する。</li>
                 <li><a href="#heat_rises">熱上昇</a>の発動中は、自身に追加で<b><a href="#restoration">回復</a> x1</b> を <b>3秒間</b> 付与し、<b>5m以内</b> の敵に <b>100</b> ダメージを与え <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> の<b><a href="#scorch">スコーチ</a></b>を付与する。</li>
-                <li><a href="#daybreak">デイブレイク</a>の発動中は、着地時に <b>5m以内</b> の敵に <b>220</b> ダメージと追加の燃焼ダメージを与えるが、<b>スコーチは付与しない。</b></li>
+                <li><a href="#daybreak">デイブレイク</a>の発動中は、着地時に <b>5m以内</b> の敵に <b>220</b> ダメージと追加の<b>燃焼ダメージ</b>を与えるが、<b>スコーチは付与しない。</b></li>
                 <li>さらに、熱上昇とデイブレイクが同時に発動しているときは、上記のダメージに加えて <b>x60</b> <span class="balloon ash">(<b>x90</b>)</span> のスコーチを付与する。</li>
             </ul>
         </div>
@@ -1227,9 +1244,9 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>空中で空中戦術ボタンを押すと、水平に <b>8m</b> 移動する。<b>4秒間</b> のクールダウンがある。</li>
+                <li>空中で空中戦術ボタンを押すと、水平に <b>8m</b> 移動する。再発動できるまで <b>4秒間</b> のクールダウンがある。</li>
                 <li><a href="#heat_rises">熱上昇</a>の発動中は連続で <b>2回</b> 発動できるが、クールダウンが <b>5秒間</b> に延びる。</li>
-                <li>また、<a href="#daybreak">デイブレイク</a>の発動中は移動距離が <b>+25%</b> され、クールダウンが発生しない代わりに<b>スーパーエネルギーを消費</b>する。</li>
+                <li>また、<a href="#daybreak">デイブレイク</a>の発動中は移動距離が <b>+25%</b> され、クールダウンが発生しない代わりにスーパーエネルギーを <b>-4.2%</b> 消費する。</li>
                 <div class="pve">
                     さらに、空中にいる状態で連続で敵を倒し、<b>3ポイント</b>を集めることで<b><a href="#cure">治癒</a> x1</b> が付与される。
                     <ul class="stats2">

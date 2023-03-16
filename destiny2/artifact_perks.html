@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Destiny 2 アーティファクトパーク効果まとめ - depth's Toybox</title>
+    <meta name="description" content="Destiny 2に登場するシーズンアーティファクトによって開放される、アーティファクトパークに関する様々な性能をまとめたページです。">
+
+    <!-- Twitterバナーの設定 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@depth172">
+    <meta name="twitter:title" content="Destiny 2 アーティファクトパーク効果まとめ - depth's Toybox">
+    <meta name="twitter:description" content="Destiny 2に登場するシーズンアーティファクトによって開放される、アーティファクトパークに関する様々な性能をまとめたページです。">
+    <meta name="twitter:image" content="https://depth172.github.io/img/card-summary.png">
+
+    <!-- デザイン関連 -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="d2style.css">
+    <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
+
+    <!-- 表示内容切り替え用スクリプト -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="./modetoggle.js"></script>
+    <script src="./hoverwindow.js"></script>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="https://www.bungie.net/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png"><img class="pvp" src="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_fb3e9149c43f7a2e8f8b66cbea7845fe.png"></button>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
+    </div>
+
+    <div class="main" id="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
+        <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
+        <h1>アーティファクトパーク効果まとめ</h1>
+        <hr>
+        <div class="title_bar">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 アーティファクトパーク効果まとめ" data-url="https://depth172.github.io/destiny2/artifact_perks.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
+
+                var target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+
+        <p class="intro">シーズンアーティファクトによって開放される、アーティファクトパークに関する様々な性能をまとめたページです。</p>
+
+        <h2>目次</h2>
+        <div class="toc">
+            <ul>
+                <li><a href="#notice">注意事項・用語解説</a></li>
+                <li><a href="#calcurate">増加量の計算について</a></li>
+                <li>
+                    <details>
+                        <summary>現行シーズンのアーティファクトパーク</summary>
+                        <ul>
+                            <li><a href="#anti-barrier_pulse_rifle">アンチバリア・パルスライフル</a></li>
+                            <li><a href="#anti-barrier_pulse_rifle">貫通ピストル</a></li>
+                            <li><a href="#overload_bow">オーバーロード・ボウ</a></li>
+                            <li><a href="#unstoppable_scout_rifle">アンストッパブル・スカウトライフル</a></li>
+                            <li><a href="#automatics_overload">オーバーロードオート/サブマシンガン</a></li>
+                            <li><a href="#authorized_mods_solar">認証改造パーツ: ソーラー</a></li>
+                            <li><a href="#authorized_mods_strand">認証改造パーツ: ストランド</a></li>
+                            <li><a href="#authorized_mods_void">認証改造パーツ: ボイド</a></li>
+                            <li><a href="#authorized_mods_grenades">認証改造パーツ: グレネード</a></li>
+                            <li><a href="#multi-siphon_mods">マルチサイフォン改造パーツ</a></li>
+                            <li><a href="#shatter_orbs">粉砕オーブ</a></li>
+                            <li><a href="#defiant_armory">抗戦の武器庫</a></li>
+                            <li><a href="#untangler">アンタングラー</a></li>
+                            <li><a href="#solar_surge">ソーラーサージ</a></li>
+                            <li><a href="#volatile_flow">ボラタイルフロー</a></li>
+                            <li><a href="#bricks_from_beyond">虚空からの打撃</a></li>
+                            <li><a href="#flare_up">フレア過熱</a></li>
+                            <li><a href="#origin_hones">オリジンホーン</a></li>
+                            <li><a href="#allied_unraveling">分解する味方</a></li>
+                            <li><a href="#counterweave">カウンターウィーブ</a></li>
+                            <li><a href="#threaded_blast">スレッドブラスト</a></li>
+                            <li><a href="#rain_of_firebolts">ファイアーボルトの雨</a></li>
+                            <li><a href="#void_weapon_channeling">ボイド武器伝達</a></li>
+                            <li><a href="#medieval_champion">中世のチャンピオン</a></li>
+                            <li><a href="#prismatic_transfer">プリズムの移行</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>過去のアーティファクトパーク / 改造パーツ
+                    <ul>
+                        <li><a href="#season_19">シーズン19 - 熾天使のシーズン</a></li>
+                        <li><a href="#season_18">シーズン18 - 宙賊のシーズン</a></li>
+                        <li><a href="#season_17">シーズン17 - 幻影のシーズン</a></li>
+                    </ul>
+                </li>
+                <li><a href="#source">出典</a></li>
+                <li><a href="#challenge_log">更新履歴</a></li>
+                <li><a href="#comments">コメント</a></li>
+            </ul>
+        </div>
+        <p>
+            右三角形はクリックすることで展開できます。
+            <br>各説明欄の右側にある三角をクリックするとページ先頭まで戻ることができます。
+            <br>また、右下のボタンを押すことで、PvE向けの情報とPvP向けの情報が<b>切り替えられます。</b>
+        </p>
+
+        <a name="notice"></a>
+        <h2>注意事項・用語解説</h2>
+        <ul>
+            <li>本ページの内容は大半が海外サイトの翻訳です。より正確な情報をお求めの方はそちらをご覧ください。
+                <br>参考にしたサイトは<a href="#source">出典</a>に記載されています。</li>
+            <li>内容は判明している範囲内で記載していますが、未検証だったり情報が少ないものについてはパーク自体が記載されていない場合もあります。</li>
+            <li class="pve"><b>PvE限定</b>の情報は、このように薄い青色の背景が付きます。</li>
+            <li class="pvp"><b>PvP限定</b>の情報は、このように薄い赤色の背景が付きます。</li>
+            <li>解説中に出てくる<span class="balloon sample">点線の下線</span>が付いた文章や、<span class="w-icons auto">&#xe100;</span> <span class="w-icons solar">&#xe140;</span>などのアイコンは、<span class="for_pc"><b>マウスホバー</b>することで</span><span class="for_sp"><b>タップ</b>することで</span>簡単な説明を見ることができます。</li>
+            <li class="for_sp">また、一部の表は、スワイプすることで情報をさらに閲覧できます。</li>
+            <li class="pve">ダメージ量の定数値は、ギャンビット内での戦闘員に対するダメージを基準に表示しています。</li>
+            <li>武器ダメージが増加するものに関して、<span class="univ_debuff">全体デバフ</span>や<span class="univ_buff">強化バフ</span>にあたるものは該当する色になっています。 詳しくは<a href="./buff_stacking.html">強化・弱体化の種類と重複について</a>をお読みください。</li>
+            <li>今週のBungieなどで発表された、今後に実装される予定の変更については<span class="further">緑文字</span>で記載しています。</li>
+        </ul>
+        <dl>
+            <dt>キル</dt>
+            <dd>敵を倒すこと。特筆しない限り、自分でトドメを刺した場合のみ適用される。</dd>
+            <dt>近接スキル（チャージ近接）</dt>
+            <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
+            <dt>HPとシールド</dt>
+            <dd>自身のHPバーのうち <b>70</b> HPは自身の体力で、それ以上の部分はシールドとなっている。シールドのHPは耐久力によって <b>115.01</b> ～ <b>130</b> まで変動する。詳しくは<a href="./base_stats.html#resilience">耐久力</a>の項目を参照。</dd>
+        </dl>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="calcurate"></a>
+        <h2>増加量の計算について</h2>
+        <p>すべての数値は、何もバフ・デバフを受けていない状態を <b>100%</b> としています。例として、<a href="#rampage">暴れん坊</a>をx1付与した際の増加率は +10% ですが、この場合は100%に+10%のバフがかかり合計で110%、つまり通常の1.1倍のダメージを与えられるということになります。
+        </p>
+        <p>また、ダメージ増加・軽減のどちらの場合においても、複数の強化が同時にかかる際はそれぞれの数値を<b>乗算</b>でかけ合わせます。例として、暴れん坊x1と
+            <a href="#kill_clip">キルクリップ</a>が同時に付与された場合は、 +10% (x1.1) と +25% (x1.25) が乗算され、<b>+37.5%</b> (x1.375) のバフとなります。
+            <br>詳しくは<a href="./buff_stacking.html">強化・弱体化の種類と重複について</a>をお読みください。
+        </p>
+
+        <!--
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="3593793015" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <a name="artifact_perk"></a>
+        <h2>アーティファクトパーク</h2>
+
+        <p>アーティファクトパークは、アーティファクトから選択して有効化したもののみが発動する。</p>
+
+        <a name="anti-barrier_pulse_rifle"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bb4688101e9d1497185fb797b751b885.png" class="h3">アンチバリア・パルスライフル</h3>
+        <div class="base">パルスライフルで <span class="w-icons barrier">&#xe070;</span> バリア・チャンピオンのバリアを貫通し、破壊できるようになる。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><span class="pve">バリアに対して、ダメージが <b>+90%</b> 増加する。</span></li>
+                <li><span class="pvp">タイタンのバリケードに対して <b>+30%</b> ダメージが増加する。</span></li>
+                <li><span class="pve">ハイドラのシールドやファランクスの盾、ホブゴブリンの無敵化を貫通できる。</span></li>
+                <li>すでに対チャンピオン効果が付与されている武器の場合は、これによる効果は得られない。</li>
+                <li>参加するアクティビティの難易度が英雄以上だった場合、この武器は<b>オーバーチャージ武器</b>となる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="anti-barrier_pistol"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/512a286a9e7c90a3f9cf66eb059e6164.png" class="h3">貫通ピストル</h3>
+        <div class="base">ピストルで <span class="w-icons barrier">&#xe070;</span> バリア・チャンピオンのバリアを貫通し、破壊できるようになる。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><span class="pve">バリアに対して、メイン弾は <b>+90%</b> 、特殊弾は <b>+46%</b> ダメージが増加する。</span></li>
+                <li><span class="pve">また<b>特殊弾のみ</b>、バリア・チャンピオンに対して <b>+25%</b> ダメージが増加する。</span></li>
+                <li><span class="pvp">タイタンのバリケードに対して <b>+30%</b> ダメージが増加する。</span></li>
+                <li><span class="pve">ハイドラのシールドやファランクスの盾、ホブゴブリンの無敵化を貫通できる。</span></li>
+                <li>すでに対チャンピオン効果が付与されている武器の場合は、これによる効果は得られない。</li>
+                <li>参加するアクティビティの難易度が英雄以上だった場合、この武器は<b>オーバーチャージ武器</b>となる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="overload_bow"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/94d0383e4a22e21eb46d310544317573.png" class="h3">オーバーロード・ボウ</h3>
+        <div class="base">弓で <span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンをスタンさせられるようになる。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>弓を最大まで引くと、<b>敵を妨害する矢</b>を発射する。</li>
+                <li><span class="pve">妨害弾を受けた敵は、与えるダメージが <b>-25%</b> 減少する。</span></li>
+                <li><span class="pvp">妨害弾を受けた敵は、スキルの回復速度が <b>-50%</b> 減少する。</span></li>
+                <li>すでに対チャンピオン効果が付与されている武器の場合は、これによる効果は得られない。</li>
+                <li>参加するアクティビティの難易度が英雄以上だった場合、この武器は<b>オーバーチャージ武器</b>となる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="unstoppable_scout_rifle"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b5c5ff4ed71df2d15d086279f54c035b.png" class="h3">アンストッパブル・スカウトライフル</h3>
+        <div class="base">スカウトライフルで <span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・チャンピオンをスタンさせられるようになる。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ADS状態で <b>1秒間</b> 待ってから射撃すると、<b>敵をスタンさせる弾</b>を発射する。</li>
+                <li>スタン弾は、シールドの剥がれた敵を強制的にひるませる効果がある。</li>
+                <li>すでに対チャンピオン効果が付与されている武器の場合は、これによる効果は得られない。</li>
+                <li>参加するアクティビティの難易度が英雄以上だった場合、この武器は<b>オーバーチャージ武器</b>となる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="automatics_overload"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d9a9c8fec1a3e799ba4115ea5a972f12.png" class="h3">オーバーロードオート/サブマシンガン</h3>
+        <div class="base">オートライフルとサブマシンガンで <span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンをスタンさせられるようになる。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>0.6秒間</b> 射撃し続けると、<b>敵を妨害する弾</b>を発射する。</li>
+                <li><span class="pve">妨害弾を受けた敵は、与えるダメージが <b>-25%</b> 減少する。</span></li>
+                <li><span class="pvp">妨害弾を受けた敵は、スキルの回復速度が <b>-50%</b> 減少する。</span></li>
+                <li>すでに対チャンピオン効果が付与されている武器の場合は、これによる効果は得られない。</li>
+                <li>参加するアクティビティの難易度が英雄以上だった場合、この武器は<b>オーバーチャージ武器</b>となる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="authorized_mods_solar"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3ed67e15536793a651137afd19d0bbf8.png" class="h3">認証改造パーツ: ソーラー</h3>
+        <div class="base">ソーラー武器に関する防具改造MODのコストが削減される。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ソーラー武器に関するすべての防具MODの装備コストが <b>1</b> になる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="authorized_mods_strand"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5e8cdc42c3097f6afe4b735c4b625e69.png" class="h3">認証改造パーツ: ストランド</h3>
+        <div class="base">ストランド武器に関する防具改造MODのコストが削減される。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ストランド武器に関するすべての防具MODの装備コストが <b>1</b> になる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="authorized_mods_void"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c7ce2d8c3a273e5ba0ca7583312f3419.png" class="h3">認証改造パーツ: ボイド</h3>
+        <div class="base">ボイド武器に関する防具改造MODのコストが削減される。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ボイド武器に関するすべての防具MODの装備コストが <b>1</b> になる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="authorized_mods_grenades"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/468cda06fd515e83871e299a96755e3d.png" class="h3">認証改造パーツ: グレネード</h3>
+        <div class="base">グレネードに関する防具改造MODのコストが削減される。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>グレネードに関するすべての防具MODの装備コストが <b>1</b> になる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="multi-siphon_mods"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3bd66104fa26500b94dabc207d21f113.png" class="h3">マルチサイフォン改造パーツ</h3>
+        <div class="base">2属性の<a href="./armor_mods.html#siphon">サイフォン</a>改造パーツを追加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>ソーラー/ストランド2属性サイフォン</b>、<b>ボイド/ストランド2属性サイフォン</b>の2つの改造パーツが利用可能になる。</li>
+            </ul>
+            <div class="info">&lt;基本性能&gt;</div>
+            <ul class="stats">
+                <li>部位: <b>ヘルメット</b></li>
+                <li>必要エネルギー: <b>3</b></li>
+                <li>累積: <b>あり</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="shatter_orbs"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bc1ca272db0d29cf2cb9df90fbe85c97.png" class="h3">粉砕オーブ</h3>
+        <div class="base">敵の属性シールドを一致する属性で破壊すると、力のオーブが生成される。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>その敵のシールドを<b>初めて</b>破壊した場合のみ発動する。</li>
+                <li>生成される力のオーブは<b>スーパースキル発動によって生成されるもの</b>と同じ。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="defiant_armory"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4c5d3118b3676ffcbbbb3da25da212ab.png" class="h3">抗戦の武器庫</h3>
+        <div class="base">一部の起源特性が強化される。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b><a href="./weapon_perks.html#ambush">伏兵</a></b>: 射程距離が +20 → <b>+40</b> 、ハンドリングが +20 → <b>+40</b> される。弓の場合は発射時間が x0.85 → <b>x0.7</b> される。</li>
+                <li><b><a href="./weapon_perks.html#nanotech_tracer_rockets">ナノテクトレーサー・ロケット</a></b>: ロケットが与えるダメージが <b>+20%</b> される。</li>
+                <li><b><a href="./weapon_perks.html#noble_deeds">ノーブル・ディード</a></b>: ハンドリングとリロード速度がさらに増加する。</li>
+                <li><b><a href="./weapon_perks.html#tex_balanced_stock">テックス・バランスストック</a></b>: ハンドリングがさらに増加し、リロード速度が +20 → <b>+60</b> される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="untangler"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ca82f60287749c78faa08248bcd12e23.png" class="h3">アンタングラー</h3>
+        <div class="base">ストランド武器で<a href="./class_strand.html#tangle">タングル</a>を破壊した際、発生した爆発を受けた敵を<a href="./class_strand.html#suspend">停止状態</a>にする。</div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="solar_surge"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/eab064ea5a67d2b0a69941704b87b22b.png" class="h3">ソーラーサージ</h3>
+        <div class="base"><a href="./class_solar.html#firesprite">火精</a>を回収すると、アーマーチャージが1個付与される。</div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="volatile_flow"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b5edb20f2d9b43a57f297e92218f326c.png" class="h3">ボラタイルフロー</h3>
+        <div class="base">力のオーブを拾うと、<a href="./class_void.html#volatile_rounds">ボラタイル弾</a>が付与される。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b><span class="pve"><b>13秒</b></span><span class="pvp"><b>10秒</b></span></b>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="bricks_from_beyond"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c04c17dbf7cf65204a3b83ea366b3a6b.png" class="h3">虚空からの打撃</h3>
+        <div class="base">ボイド武器で強力な敵を倒すと、一定確率で自身と味方にヘビー弾が出現する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ボイド武器で<a href="enemy_classification.html#elite">エリート</a>か<a href="./enemy_classification.html#boss">ボス</a>、<a href="./enemy_classification.html#miniboss">ミニボス</a>を <b>1～4体</b> 倒すと出現する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="flare_up"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/25df5a13bb925502703abf610d1006dd.png" class="h3">フレア過熱</h3>
+        <div class="base">ファイアボルトグレネードで付与するスコーチ数が増加し、それによるダメージを与えると火精が生成される。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>ファイアボルトグレネードの追尾弾で、スコーチが x20 <span class="balloon ash">(x30)</span> → <b>x50</b> <span class="balloon ash">(<b>x60</b>)</span> 付与される。</li>
+                <li>また、ファイアボルトグレネードを直接ヒットさせると、スコーチが <b>x80</b> <span class="balloon ash">(<b>x90</b>)</span> 付与される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="origin_hones"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f3b240cda729e80275d8d792f550987e.png" class="h3">オリジンホーン</h3>
+        <div class="base">一部の起源特性が付与された武器を、オーバーチャージ武器とする。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>以下の起源特性に対して効果がある。
+                    <ul>
+                        <li><a href="./weapon_perks.html#ambush">伏兵</a></li>
+                        <li><a href="./weapon_perks.html#nanotech_tracer_rockets">ナノテクトレーサー・ロケット</a></li>
+                        <li><a href="./weapon_perks.html#noble_deeds">ノーブル・ディード</a></li>
+                        <li><a href="./weapon_perks.html#tex_balanced_stock">テックス・バランスストック</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="allied_unraveling"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6969b9699073d02fe3722ee2d409346d.png" class="h3">分解する味方</h3>
+        <div class="base">ストランド武器で複数回精密ヒットをすると、<a href="./class_strand.html#unraveling_rounds">分解弾</a>が付与される。味方が近くにいると効果時間が延長される。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>12秒</b>
+                    <ul class="stats2">
+                        <li>味方が近くにいると <b>17秒</b> に延長される。</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="counterweave"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8c886b54d55fa2810511dc47cac390ac.png" class="h3">カウンターウィーブ</h3>
+        <div class="base">チャンピオンをスタンさせるか倒すと、最も残量が少ないストランドスキルのエネルギーが回復する。</div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="threaded_blast"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/18a612feceb967d0677d358a2a6f43bb.png" class="h3">スレッドブラスト</h3>
+        <div class="base">ストランド武器で<a href="./class_strand.html#tangle">タングル</a>を破壊すると、タングルの爆発ダメージと爆発範囲が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>爆発範囲: <b>12m</b></li>
+                <li>ダメージ: <b>224</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="rain_of_firebolts"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5df7c3bf7acb4b45167b9b378adfa28d.png" class="h3">ファイアーボルトの雨</h3>
+        <div class="base">ファイアボルトグレネードの使用回数が1回追加される。</div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="void_weapon_channeling"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f07f178117664a7f183f6c36027787be.png" class="h3">ボイド武器伝達</h3>
+        <div class="base">ボイド武器で敵をキルすると、ボイド武器のダメージが増加する。チャージされているボイドスキルの数に応じて増加量が変化する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <a href="./armor_mods.html#weapon_surge">武器サージ</a>とは重複しない。
+            <div class="info">&lt;効果量&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                        <th>4x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>ダメージ増加量</th>
+                        <td><b>+10%</b></td>
+                        <td><b>+17%</b></td>
+                        <td><b>+22%</b></td>
+                        <td><b>+25%</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="medieval_champion"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/063292cfd15284c6563cb27d9635d14a.png" class="h3">中世のチャンピオン</h3>
+        <div class="base">グレイブで <span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・チャンピオンを、剣で <span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンをスタンさせられるようになる。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><span class="w-icons glaive">&#xe156;</span>: 投射物、もしくはグレイブによる近接攻撃で<b>敵をスタンさせる。</b></li>
+                <li><span class="w-icons sword">&#xe153;</span>: <b>3回</b> 連続で攻撃を行うと、以降の攻撃が敵を<b>妨害</b>する。</li>
+                <li>スタン弾は、シールドの剥がれた敵を強制的にひるませる効果がある。</li>
+                <li><span class="pve">妨害を受けた敵は、与えるダメージが <b>-25%</b> 減少する。</span></li>
+                <li><span class="pvp">妨害を受けた敵は、スキルの回復速度が <b>-50%</b> 減少する。</span></li>
+                <li>すでに対チャンピオン効果が付与されている武器の場合は、これによる効果は得られない。</li>
+                <li>参加するアクティビティの難易度が英雄以上だった場合、この武器は<b>オーバーチャージ武器</b>となる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="prismatic_transfer"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cdbc1993ec193e925e323af88781f7dc.png" class="h3">プリズムの移行</h3>
+        <div class="base">スーパースキルを発動すると、自身のサブクラスと異なる属性の味方の武器ダメージが増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>10秒</b></li>
+                <li>ダメージ増加量: <span class="balloon univ_buff"><b>+20%</b></span></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <!--
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        間5
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="1897907270" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+
+        <h2>過去のアーティファクト改造パーツ</h2>
+
+        <a name="season_19"></a>
+        <details>
+            <summary>シーズン19 - 熾天使のシーズン</summary>
+            <a name="legacy_ambush"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c1e9e033ad19bbeaa200809de1a48aca.png" class="h3">レガシーアンブッシュ</h3>
+            <div class="base">起源特性「<a href="./weapon_perks.html#ambush">伏兵</a>」と「<a href="./weapon_perks.html#bray_inheritence">ブレイ家の遺産</a>」の効果が上昇する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ヘルメット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="sharp_shooting"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/406c28be907f31ae101f2d81416da75b.png" class="h3">シャープショット</h3>
+            <div class="base">起源特性「<a href="./weapon_perks.html#veist_stinger">バイスト・スティンガー</a>」と「<a href="./weapon_perks.html#tex_balanced_stock">テックス・バランスストック</a>」の効果が上昇する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ヘルメット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="in-flight_compensator"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b5a6788a86716d0ce37e2a0599adbd34.png" class="h3">インフライト・コンペンセイター</h3>
+            <div class="base">すべての武器の空中効果を向上させる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ヘルメット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>3</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>空中効果: <b>+15</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="anti-barrier"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1cc8a43a8d2b4cf0e72992081859997b.png" class="h3">アンチバリア弾</h3>
+            <div class="base">所定の武器で <span class="w-icons barrier">&#xe070;</span> バリア・チャンピオンのバリアを貫通し、破壊できるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ガントレット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;適用武器&gt;</div>
+                <span class="w-icons pulse">&#xe101;</span> / <span class="w-icons bow">&#xe099;</span>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li><span class="pve">バリアに対して、メイン弾は <b>+90%</b> 、特殊弾は <b>+46%</b> ダメージが増加する。</span></li>
+                    <li><span class="pve">また<b>特殊弾のみ</b>、バリア・チャンピオンに対して <b>+25%</b> ダメージが増加する。</span></li>
+                    <li><span class="pvp">タイタンのバリケードに対して <b>+30%</b> ダメージが増加する。</span></li>
+                    <li><span class="pve">ハイドラのシールドやファランクスの盾、ホブゴブリンの無敵化を貫通できる。</span></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="unstoppable"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1ca1f26de176d2c9c0bee72b864440ce.png" class="h3">アンストッパブル弾</h3>
+            <div class="base">所定の武器で <span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ガントレット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1～7</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;適用武器&gt;</div>
+                <span class="w-icons hc">&#xe103;</span> / <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li><span class="w-icons hc">&#xe103;</span>: ADS状態で <b>1秒間</b> 待ってから射撃すると、<b>敵をスタンさせる弾</b>を発射する。</li>
+                    <li><span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>: 取り出すかリロードしてから <b>4秒間</b> 、<b>敵をスタンさせる弾</b>を発射する。</li>
+                    <li><span class="pve">スタン弾は、シールドの剥がれた敵を強制的にひるませる効果がある。</span></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="overload"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e9a51ca00573ba6d4efa02c91dc49349.png" class="h3">オーバーロード弾</h3>
+            <div class="base">所定の武器で <span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ガントレット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;適用武器&gt;</div>
+                <span class="w-icons auto">&#xe100;</span> / <span class="w-icons smg">&#xe107;</span> / <span class="w-icons scout">&#xe102;</span>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li><span class="w-icons auto">&#xe100;</span> / <span class="w-icons smg">&#xe107;</span>: <b>0.6秒間</b> 射撃し続けると、<b>敵を妨害する弾</b>を発射する。</li>
+                    <li><span class="w-icons scout">&#xe102;</span>: <b>2発</b> ヒットさせると、<b>6秒間</b> 発射する弾が敵を<b>妨害</b>する。
+                        <ul class="stats2">
+                            <li><span class="pve">この弾でスタンさせた
+                                <span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンに対して、<b>10秒間</b> スカウトライフルが与えるダメージが <b>+35%</b> 増加する。この効果は、このパーツを装備したプレイヤーにのみ適用される。</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="pve">妨害弾を受けた敵は、与えるダメージが <b>-25%</b> 減少する。</span></li>
+                    <li><span class="pvp">妨害弾を受けた敵は、スキルの回復速度が <b>-50%</b> 減少する。</span></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="energy_diffusion_substrate"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/037980f6afcb0fd614b5f2155963456a.png" class="h3">エネルギーデフュージョン基板</h3>
+            <div class="base">戦闘員から受けるすべてのダメージを軽減する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>チェストアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <table class="list stats">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>1x</th>
+                            <th>2x</th>
+                            <th>3x</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="pve">
+                            <th>ダメージ軽減量</th>
+                            <td><b>-5%</b></td>
+                            <td><b>-10%</b></td>
+                            <td><b>-15%</b></td>
+                        </tr>
+                        <tr class="pvp">
+                            <th>ダメージ軽減量</th>
+                            <td><b>0%</b></td>
+                            <td><b>0%</b></td>
+                            <td><b>0%</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="resilient_retrofit"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/dd6780b4b22ba08d4ef2d6e6e6114f95.png" class="h3">レジリエント・レトロフィット</h3>
+            <div class="base">耐久力が増加する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>チェストアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>4</b></li>
+                    <li>累積: <b>あり</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>耐久力: <b>+5</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="mobile_retrofit"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/dbaa193a52b95e1514fefa1760019d66.png" class="h3">モバイル・レトロフィット</h3>
+            <div class="base">可動性が増加する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>レッグアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>3</b></li>
+                    <li>累積: <b>あり</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>可動性: <b>+5</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="advance_scout"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e68cb320bd184073e5fb5d893a7f8ebc.png" class="h3">アドバンス・スカウト</h3>
+            <div class="base">自身がスタンさせたチャンピオンに対して、味方が与えるダメージが増加する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>他のバフと<b>重複</b>する。</li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>効果時間: <b>10秒</b></li>
+                    <li>ダメージ増加量: <b>+10%</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="lord_kelvins_basilisk"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d13de463731e6bc30056b006c4f23c28.png" class="h3">ケルビン卿のバシリスク</h3>
+            <div class="base">ボイドとステイシスのグレネードで、<span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="low_entropy_superconductor"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2286ffd48655252e2a976f4a13211c7d.png" class="h3">低エントロピー超伝導体</h3>
+            <div class="base">アークとステイシスの近接スキルで、<span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="passive_aggressive_guard"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/610c4976b7ef73b9c5fb895f27441ae4.png" class="h3">パッシブ・アグレッシブ・ガード</h3>
+            <div class="base">グレイブを装備中、受けるダメージが軽減される。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>6</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="weakened_clear"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c26dc91b1a495fd85aa992e6e35b85a0.png" class="h3">弱体化クリア</h3>
+            <div class="base">グレネードランチャーで、ボスかチャンピオンにダメージを与えるもしくは敵のシールドを破壊すると、しまっている武器がリロードされ、敵が<a href="./class_void.html#weaken">弱体化</a>する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>5</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="monocromatic_maestro"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/675353c23ea547820e8c9aeb07e9fbba.png" class="h3">モノクロ・マエストロ</h3>
+            <div class="base">サブクラスと一致する属性の武器でダメージを与えると、スキルダメージが増加し、スキルでダメージを与えると、サブクラスと一致する属性の武器のダメージが増加する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>6</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>他のバフと<b>重複</b>する。</li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>武器で攻撃時:
+                        <ul class="stats2">
+                            <li>効果時間: <b>6秒</b></li>
+                            <li>同属性スキルダメージ増加量: <b><span class="pve">+10%</span><span class="pvp">0%</span></b></li>
+                        </ul>
+                    </li>
+                    <li>スキルで攻撃時:
+                        <ul class="stats2">
+                            <li>効果時間: <b>6秒</b></li>
+                            <li>同属性武器ダメージ増加量: <b><span class="pve">+10%</span><span class="pvp">0%</span></b></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="solo_operative"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ce37062450f52ddf2040d693ebbad240.png" class="h3">ソロ作戦隊員</h3>
+            <div class="base">ファイアチームの最後の1人になる、もしくは1人でプレイ中のとき、自身が与えるすべてのダメージが増加する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>5</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>他のバフと<b>重複</b>する。</li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>ダメージ増加量: <b><span class="pve">+15%</span><span class="pvp">0%</span></b></b>
+                    </li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="lucent_finisher"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3664d1ee2b3e914f21c32e9ab72a2656.png" class="h3">ルーセントフィニッシャー</h3>
+            <div class="base">チャンピオンもしくはハイヴゴーストにフィニッシャーをすると、ヘビー弾が生成される。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>3</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="counter_charge"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7ac9d21796e271a164b6b72707fe1318.png" class="h3">カウンターチャージ</h3>
+            <div class="base">チャンピオンをスタンさせると、光のチャージを纏う。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>すべて</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>3</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        </details>
+
+        <a name="season_18"></a>
+        <details>
+            <summary>シーズン18 - 宙賊のシーズン</summary>
+
+            <a name="bottomless_bounty_1"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e76882d51ea38e6dffa66a30595670c8.png" class="h3">底なしの恩恵I</h3>
+            <div class="base">起源特性「<a href="./weapon_perks.html#right_hook">右フック</a>」と「<a href="./weapon_perks.html#runneth_over">装填過多</a>」の効果が上昇する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ヘルメット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>右フックは、上昇する射程距離と照準補佐が <b>x2</b> になる。</li>
+                    <li>装填過多は、オーバーフローする装弾数が <b>x2</b> になる。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="bottomless_bounty_2"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2c123d5269c207622a9fd85c458f25fa.png" class="h3">底なしの恩恵II</h3>
+            <div class="base">起源特性「<a href="./weapon_perks.html#souldrinker">ソウルドリンカー</a>」と「<a href="./weapon_perks.html#hot_swap">ホット・スワップ</a>」の効果が上昇する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ヘルメット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>ソウルドリンカーは、回復するHPが <b>x2</b> になる。</li>
+                    <li>ホット・スワップは、効果量が <b>x2</b> になる。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="inferno_whip"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d52bf97156a06bcd389f3a58c477e226.png" class="h3">地獄の鞭</h3>
+            <div class="base">ソーラー属性の近接スキルで、 <span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ヘルメット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>2</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="anti-barrier_18"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/022136ff1ba2ad30aeb9d0c06df81631.png" class="h3">アンチバリア弾</h3>
+            <div class="base">所定の武器で <span class="w-icons barrier">&#xe070;</span> バリア・チャンピオンのバリアを貫通し、破壊できるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ガントレット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1～6</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;適用武器&gt;</div>
+                <ul>
+                    <li>オートライフル</li>
+                    <li>スカウトライフル</li>
+                    <li>スナイパーライフル</li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>バリアに対して、メイン弾は <b>+57%</b> 、特殊弾は <b>+46%</b> ダメージが増加する。</li>
+                    <li>また<b>特殊弾のみ</b>、バリア・チャンピオンに対して <b>+8%</b> ダメージが増加する。</li>
+                    <li>さらに、タイタンのバリケードに対して <b>+30%</b> ダメージが増加する。</li>
+                    <li>ハイドラのシールドやファランクスの盾、ホブゴブリンの無敵化を貫通できる。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="unstoppable_18"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e8c53b4174628a8e8d841e6701e19839.png" class="h3">アンストッパブル弾</h3>
+            <div class="base">所定の武器で <span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ガントレット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1～3</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;適用武器&gt;</div>
+                <ul>
+                    <li>パルスライフル</li>
+                    <li>ショットガン</li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>ADS状態で <b>1.3秒間</b> 待ってから射撃すると、<b>敵をスタンさせる弾</b>を発射する。</li>
+                    <li>スタン弾は、シールドの剥がれた敵を強制的にひるませる効果がある。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="overload_18"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/dcbc827311479a0c17bea6e14ad997c0.png" class="h3">オーバーロード弾</h3>
+            <div class="base">所定の武器で <span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ガントレット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;適用武器&gt;</div>
+                <ul>
+                    <li>弓</li>
+                    <li>マシンガン</li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li><b>1秒間</b> 射撃し続けるか、最大まで弓を引くと、<b>敵を妨害する弾</b>を発射する。</li>
+                    <li>妨害弾を受けた敵は、与えるダメージが <b>-25%</b> 減少する。</li>
+                    <li>PvPでは、スキルの回復速度が <b>-50%</b> 減少する。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="thermoshock_plating"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/950112d2fcdf470108fa58b274abcf3b.png" class="h3">サーモショックメッキ</h3>
+            <div class="base">ソーラーとアークのダメージを軽減する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>チェストアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>2</b></li>
+                    <li>累積: <b>あり</b></li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>ソーラーダメージ耐性とアークダメージ耐性を一度に付与する。詳細は <a href="#resistances">耐性</a> を参照。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="surge_detonators"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/79f83a0b2a21f547dd622fb0d2dbe31f.png" class="h3">サージ起爆装置</h3>
+            <div class="base">アーク属性のグレネードで妨害を付与し、 <span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>2</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="bad_amplitude"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b279f03860f23a6dee1555ee8a04894b.png" class="h3">振幅異常</h3>
+            <div class="base">チャンピオンにアークスキルでダメージを与えると、ショック状態になる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="thunderous_retort"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7f052f89060bd4b14a00e0af8a03a6c0.png" class="h3">嵐のごとき報復</h3>
+            <div class="base">瀕死もしくは増幅状態のとき、アーク属性スーパースキルのダメージが増加する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>6</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>ダメージ増加量: <b>+30%</b></li>
+                    <li>スーパースキル<b>発動中のみ</b>効果があり、サンダークラッシュや嵐の集積の残留ダメージには適用されない。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="amped_up"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/df97dbd692244a48734290f9746bd6b2.png" class="h3">アンプアップ</h3>
+            <div class="base">増幅状態の効果時間が延びる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>効果時間: <b>+5秒</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="trace_evidence"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/05e1c0694134fb11016734ea50ad27a4.png" class="h3">証拠のトレース</h3>
+            <div class="base">アークのデバフを受けた敵に精密ヒットをすると、イオントレースが生成される。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>4</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="lightning_strikes_twice"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bf2179749ea2903cc280a7c93c97c3d5.png" class="h3">二度の雷撃</h3>
+            <div class="base">アーク属性のグレネードを投げると、グレネードエネルギーの回復速度が増加する。アーク属性でキルをすると効果時間が延長される。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>7</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>グレネードエネルギー回復速度: <b>+150%</b></li>
+                    <li>効果時間: <b>5秒</b></li>
+                    <li>アーク属性によるキルで、効果時間が <b>+3秒</b> 延長され、最大 <b>20秒</b> まで延長できる。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="sundering_glare"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f8d8732ab798faf87860ae3670ea1860.png" class="h3">断絶の輝き</h3>
+            <div class="base">離れた距離から複数回精密ヒットをすると、その敵が受けるダメージが増加する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>6</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>効果時間: <b>10秒</b></li>
+                    <li>ダメージ増加量: <span class="balloon univ_debuff"><b>+20%</b></span></li>
+                    <li>発動には <b>40m以上</b> 離れている必要がある。</li>
+                    <li>必要ヒット数:
+                        <ul class="stats2">
+                            <li>スナイパーライフル/リニア・フュージョンライフル: <b>2</b></li>
+                            <li>スカウトライフル: <b>4</b></li>
+                            <li>その他: <b>7</b></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        </details>
+
+        <a name="season_17"></a>
+        <details>
+            <summary>シーズン17 - 幻影のシーズン</summary>
+
+            <a name="nightmarish_opuluence"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d93c26ac5b8e0fac97ce33fcc677f86b.png" class="h3">悪夢の絢爛</h3>
+            <div class="base">起源特性「<a href="./weapon_perks.html#psychohack">サイコハック</a>」と「<a href="./weapon_perks.html#extrovert">エクストロバート</a>」の効果が上昇する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ヘルメット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>サイコハックの効果時間: <b>+3秒</b></li>
+                    <li>エクストロバートのHP回復量: <b>+100%</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="unquenchable_thrist"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/24cd611e1bb3b9cd2d9011e822098375.png" class="h3">飽くなき欲求</h3>
+            <div class="base">起源特性「<a href="./weapon_perks.html#to_excess">トゥー・エクセス</a>」と「<a href="./weapon_perks.html#souldrinker">ソウルドリンカー</a>」の効果が上昇する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ヘルメット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>トゥー・エクセスのステータス増加量: <b>+20</b></li>
+                    <li>ソウルドリンカーのHP回復量: <b>+100%</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="anti-barrier_17"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1cc8a43a8d2b4cf0e72992081859997b.png" class="h3">アンチバリア弾</h3>
+            <div class="base">所定の武器で <span class="w-icons barrier">&#xe070;</span> バリア・チャンピオンのバリアを貫通し、破壊できるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ガントレット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;適用武器&gt;</div>
+                <ul>
+                    <li>ピストル</li>
+                    <li>パルスライフル</li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>バリアに対して、メイン弾は <b>57%</b> 、特殊弾は <b>46%</b> ダメージが増加する。</li>
+                    <li>また<b>特殊弾のみ</b>、バリア・チャンピオンに対して <b>8%</b> ダメージが増加する。</li>
+                    <li>さらに、タイタンのバリケードに対して <b>30%</b> ダメージが増加する。</li>
+                    <li>ハイドラのシールドやファランクスの盾、ホブゴブリンの無敵化を貫通できる。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="unstoppable_17"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e8c53b4174628a8e8d841e6701e19839.png" class="h3">アンストッパブル弾</h3>
+            <div class="base">所定の武器で <span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ガントレット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1～3</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;適用武器&gt;</div>
+                <ul>
+                    <li>スカウトライフル</li>
+                    <li>グレイブ</li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>ADS状態で <b>1.3秒間</b> 待ってから射撃すると、<b>敵をスタンさせる弾</b>を発射する。</li>
+                    <li>スタン弾は、シールドの剥がれた敵を強制的にひるませる効果がある。</li>
+                    <li>グレイブは投射物と近接攻撃のどちらでも効果が発動する。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="overload_17"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e9a51ca00573ba6d4efa02c91dc49349.png" class="h3">オーバーロード弾</h3>
+            <div class="base">所定の武器で <span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ガントレット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>1～3</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;適用武器&gt;</div>
+                <ul>
+                    <li>オートライフル</li>
+                    <li>サブマシンガン</li>
+                    <li>トレースライフル</li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li><b>1秒間</b> 射撃し続けると、<b>敵を妨害する弾</b>を発射する。</li>
+                    <li>妨害弾を受けた敵は、与えるダメージが <b>-25%</b> 減少する。</li>
+                    <li>PvPでは、スキルの回復速度が <b>-50%</b> 減少する。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="glaive_of_dream"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0aa9ab66445c41cb6a746c7822f3eb0f.png" class="h3">夢のグレイブ</h3>
+            <div class="base">グレイブを装備中、不安定なエッセンスの効果時間が増加する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>ガントレット</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>2</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>効果時間: <b>+15秒</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="armor_of_the_dying_star"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/eb7937945b5a4588d0b44c3a3dba47f5.png" class="h3">死せる星のアーマー</h3>
+            <div class="base">ソーラーとボイドのダメージを軽減する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>チェストアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>2</b></li>
+                    <li>累積: <b>あり</b></li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>ソーラーダメージ耐性とボイドダメージ耐性を一度に付与する。詳細は <a href="#resistances">耐性</a> を参照。</li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="molten_overload"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/87cceb0e38a34316ebc60ea723562e70.png" class="h3">モルテン・オーバーロード</h3>
+            <div class="base">ソーラー属性のグレネードで妨害を付与し、 <span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンをスタンさせられるようになる。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>2</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="classy_restoration"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d07626aa8f8371561e5c177ad416ba90.png" class="h3">太陽の回復</h3>
+            <div class="base">ソーラーサブクラスでクラススキルを使うと、回復が付与される。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>6</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <caption>（）内は癒しの名残適用時の時間</caption>
+                <table class="list stats">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>PvE</th>
+                            <th>PvP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>スタック数</th>
+                            <td><b>x2</b></td>
+                            <td><b>x1</b></td>
+                        </tr>
+                        <tr>
+                            <th>効果時間</th>
+                            <td><b>7秒</b>（<b>10秒</b>）</td>
+                            <td><b>3秒</b>（<b>4.5秒</b>）</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="solar_fulmination"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5420f61429e1a9bf4f90814bf93be66a.png" class="h3">ソーラー大爆発</h3>
+            <div class="base">点火の範囲が拡大し、ダメージが増加する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>3</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>ダメージ増加量:
+                        <ul class="stats2">
+                            <li>PvE: <b>+24%</b></li>
+                            <li>PvP: <b>+50%</b></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="radiant_orbs"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4ca52d181db8fc2e0becb0801a6c029a.png " class="h3">発光のオーブ</h3>
+            <div class="base">力のオーブを拾うと、発光が付与される。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>5</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="flame_harvesting"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6c25cb5fcfa6afa0882f4e9d2af87373.png" class="h3">炎の収穫</h3>
+            <div class="base">ソーラー属性のエキゾチック武器で敵を倒すと、ソーラー属性のエレメント源が生成される。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>5</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <a href="#bountiful_wells">豊かな源</a> が適用される。
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="revitalizing_blast"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f43b37e8f8e8995f7de909c8d458864b.png" class="h3">活性化の爆発</h3>
+            <div class="base">チャンピオンをスタンさせると点火し、自身のシールドの自然再生が開始する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>4</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="rays_of_precision"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/711fbe68954466a2285ca389730efae5.png" class="h3">精密の光線</h3>
+            <div class="base">発光中にソーラー属性の武器で精密キルをすると、敵が点火する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>6</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+
+            <a name="withering_heat"></a>
+            <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/52a2e1e8fc0fe8b53d51a37b512c31fa.png" class="h3">弱まる熱</h3>
+            <div class="base">チャンピオンにソーラースキルでダメージを与えると、そのチャンピオンが受けるダメージが増加する。</div>
+            <div class="indepth">
+                <div class="info">&lt;基本性能&gt;</div>
+                <ul class="stats">
+                    <li>部位: <b>クラスアーマー</b></li>
+                    <li>属性: <b>すべて</b></li>
+                    <li>必要エネルギー: <b>6</b></li>
+                    <li>累積: <b>なし</b></li>
+                </ul>
+                <div class="info">&lt;効果詳細&gt;</div>
+                <ul class="stats">
+                    <li>シャドウショットや神性などの、他のデバフ効果とは重複しない。</li>
+                </ul>
+                <div class="info">&lt;効果量&gt;</div>
+                <ul class="stats">
+                    <li>ダメージ増加量: <b><span class="balloon univ_debuff">+30%</span></b></li>
+                </ul>
+            </div>
+            <div class="back"><a href="#" id="page-top">▲</a></div>
+        </details>
+
+        <a name="source"></a>
+        <h2>出典</h2>
+
+        <a href="https://docs.google.com/spreadsheets/d/1WaxvbLx7UoSZaBqdFr1u32F2uWVLo-CJunJB4nlGUE4/edit#gid=473308249">The Destiny Data Compendium</a><br>
+
+        <a name="challenge_log"></a>
+        <h2>更新履歴</h2>
+
+        <a href="https://github.com/depth172/depth172.github.io/commits/gh-pages/destiny2/artifact_perks.html">過去のページを確認する</a>
+
+        <a name="comments"></a>
+        <!-- begin wwww.htmlcommentbox.com -->
+        <script type="text/javascript" src="../js/htmlcommentbox.js"></script>
+
+        <div id="HCB_comment_box">コメントを読み込んでいます...</div>
+        <link rel="stylesheet" type="text/css" href="/css/twitter-bootstrap.css" />
+        <script type="text/javascript" id="hcb">
+            if (!window.hcb_user) {
+                hcb_user = {};
+            }(function() {
+                var s = document.createElement("script"),
+                    l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
+                    h = "https://www.htmlcommentbox.com";
+                s.setAttribute("type", "text/javascript");
+                s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%240S16uY.Oh6y9MR3cBrjg21" + "&opts=16798&num=10&ts=1642331857298");
+                if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s);
+            })();
+        </script>
+        <!-- end www.htmlcommentbox.com -->
+
+        <hr>
+        <!--
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6523185041724408" data-ad-slot="2253130494" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        -->
+        <div class="footer"><a href="#" id="page-top">一番上に戻る ▲</a></div>
+    </div>
+</body>
+
+</html>

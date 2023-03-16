@@ -28,38 +28,14 @@
     <script src="./modetoggle.js"></script>
     <script src="./hoverwindow.js"></script>
 
-    <!-- 通知表示 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $(".overlay").show();
-            $.cookie('btnFlg') == 'on' ? $(".overlay").hide() : $(".overlay").show();
-            $(".btn_area button").click(function() {
-                $(".overlay").fadeOut();
-                $.cookie('btnFlg', 'on', {
-                    expires: 30,
-                    path: '/'
-                }); //cookieの保存
-            });
-        });
-    </script>
-
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="overlay">
-        <div class="btn_area">
-            <p class="ttl">新機能のお知らせ</p>
-            <p>右下のボタンを押すことで、PvE用の情報とPvP用の情報が切り替えられるようになりました！ぜひご利用ください。</p>
-            <button>閉じる</button>
-        </div>
-    </div>
     <div class="overlay-button">
         <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
-        <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="https://www.bungie.net/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png"><img class="pvp" src="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_fb3e9149c43f7a2e8f8b66cbea7845fe.png"></button>
     </div>
 
     <div id="hover-balloon">
@@ -443,7 +419,7 @@
             <ul class="stats">
                 <li>自身がダメージを受けると、グレネードエネルギーが <b>4%</b> 回復する。</li>
                 <li>瀕死時は、被弾したときのグレネードエネルギー回復量が <b>16.7%</b> まで増加する。</li>
-                <li>この効果には <b>1秒間</b> のクールダウンがある。</li>
+                <li>再発動するまで <b>1秒間</b> のクールダウンがある。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -814,7 +790,7 @@
                 <li>空中戦術ボタンを押すと、地上へ<b>急降下</b>する。</li>
                 <li>着地時、<b>8.5m以内</b> の敵に <b>50</b> ダメージを与え、<a href="#freeze">凍結状態</a>の敵や<a href="#stasis_crystal">クリスタル</a>を<b><a href="#shatter">粉砕</a></b>する。</li>
                 <li>敵のクリスタルに対しては、与えるダメージが<b>大幅に減少</b>する。</li>
-                <li><b>4秒間</b> のクールダウンがある。</li>
+                <li>再発動できるまで <b>4秒間</b> のクールダウンがある。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -941,7 +917,7 @@
             <ul class="stats">
                 <li>敵を<a href="#freeze">凍結</a>させると、<b>12m以内</b> の他の敵を自動的に追尾する<b>シーカー</b>が出現する。</li>
                 <li>シーカーに触れた敵も<b>凍結状態</b>になる。</li>
-                <li><span class="pvp">発動すると、<b>8秒間</b> のクールダウンがある。</span></li>
+                <li><span class="pvp">再発動するまで <b>8秒間</b> のクールダウンがある。</span></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>

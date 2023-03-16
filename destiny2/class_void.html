@@ -28,38 +28,14 @@
     <script src="./modetoggle.js"></script>
     <script src="./hoverwindow.js"></script>
 
-    <!-- 通知表示 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $(".overlay").show();
-            $.cookie('btnFlg') == 'on' ? $(".overlay").hide() : $(".overlay").show();
-            $(".btn_area button").click(function() {
-                $(".overlay").fadeOut();
-                $.cookie('btnFlg', 'on', {
-                    expires: 30,
-                    path: '/'
-                }); //cookieの保存
-            });
-        });
-    </script>
-
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="overlay">
-        <div class="btn_area">
-            <p class="ttl">新機能のお知らせ</p>
-            <p>右下のボタンを押すことで、PvE用の情報とPvP用の情報が切り替えられるようになりました！ぜひご利用ください。</p>
-            <button>閉じる</button>
-        </div>
-    </div>
     <div class="overlay-button">
         <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
-        <button class="toggle_button" id="p_toggle"><img class="pve" src="./img/icon_pve.png"><img class="pvp" src="./img/icon_pvp.png"></button>
+        <button class="toggle_button" id="p_toggle"><img class="pve" src="https://www.bungie.net/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png"><img class="pvp" src="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_fb3e9149c43f7a2e8f8b66cbea7845fe.png"></button>
     </div>
 
     <div id="hover-balloon">
@@ -101,6 +77,7 @@
                         <li><a href="#devour">吸引</a></li>
                         <li><a href="#invisibility">透明化</a></li>
                         <li><a href="#overshield">オーバーシールド</a></li>
+                        <li><a href="#void_breach">ボイド・ブリーチ</a></li>
                         <li><a href="#suppression">抑制</a></li>
                         <li><a href="#volatile">不安定化</a></li>
                         <li><a href="#volatile_rounds">ボラタイル弾</a></li>
@@ -110,6 +87,8 @@
                 <details>
                     <summary>ボイド属性のかけら</summary>
                     <ul>
+                        <li><a href="#echo_of_vigilance">警戒の残響</a></li>
+                        <li><a href="#echo_of_cessation">途絶の残響</a></li>
                         <li><a href="#echo_of_expulsion">駆逐の残響</a></li>
                         <li><a href="#echo_of_provision">備蓄の残響</a></li>
                         <li><a href="#echo_of_exchange">交換の残響</a></li>
@@ -322,6 +301,15 @@
             <br>他のオーバーシールドを付与する効果との関係はバグが多く、重複する場合や、効果時間のみを延長する場合など様々。
         </div>
 
+        <a name="void_breach"></a>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/b3e23ac985ab876c70a8db9dc630de1d.png" class="head">ボイド・ブリーチ</h3>
+        <div class="indepth">
+            <div class="info">&lt;説明&gt;</div>
+            特性やかけらによって生成される<b>ボイドエネルギーの裂け目</b>。
+            <br><img src="./img/void_breach.jpg" class="illustration" width="200px">
+            <br>回収すると、クラススキルエネルギーが <b>10%</b> 回復する。
+        </div>
+
         <a name="suppression"></a>
         <h3><img src="https://www.bungie.net/common/destiny2_content/icons/42f76ab49aa30e675e87c9ea84cc3045.png" class="head"><span class="w-icons overload">&#xe071;</span> 抑制（鎮圧）</h3>
         <div class="indepth">
@@ -373,7 +361,7 @@
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
             <b>ボイド属性</b>の武器で攻撃した敵に対して、<b><a href="#volatile">不安定化</a></b>を付与できるようになる。
-            <br>また、ボイド属性の武器に <span class="w-icons barrier">&#xe070;</span> <b>アンチバリア効果</b>が付与され、バリア・チャンピオンの<b>シールドを破壊</b>できるようになる。
+            <br>また、効果中はボイド属性の武器に <span class="w-icons barrier">&#xe070;</span> <b>アンチバリア効果</b>が付与され、バリア・チャンピオンの<b>シールドを破壊</b>できるようになる。
         </div>
 
         <a name="weaken"></a>
@@ -388,12 +376,34 @@
 
         <h2>ボイド属性のかけら一覧</h2>
 
+        <a name="echo_of_vigilance"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9d2e72c44ba6649187b58f040a7f21f9.jpg" class="h3">警戒の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>瀕死（<b>70 HP</b> 以下）のときに敵をキルすると、自身に<b><a href="#overshield">オーバーシールド</a>が付与</b>される。</li>
+                <li>再発動できるまで <b>8秒間</b> のクールダウンがある。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="echo_of_cessation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cff39459331dba47792c1866e843d18d.jpg" class="h3">途絶の残響</h3>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>フィニッシャーをすると、周囲の敵を<b><a href="#volatile">不安定化状態</a></b>にする爆発を起こす。</li>
+                <li>また、不安定化状態の敵を倒すと、<b><a href="#void_breach">ボイド・ブリーチ</a>が生成</b>される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
         <a name="echo_of_expulsion"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d6500235bb175f0fc3752cab0a170fd2.jpg" class="h3">駆逐の残響</h3>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ボイドスキルで敵をキルすると、敵が<b>爆発</b>し、<b>7m以内</b> の敵に<b><span class="pvp"> 130 </span></b>ダメージを与える。</li>
+                <li>ボイドスキルで敵をキルすると、敵が<b>爆発</b>し、<b>7m以内</b> の敵に <b><span class="pve">160</span><span class="pvp">130</span></b> ダメージを与える。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -529,6 +539,7 @@
             <ul class="stats">
                 <li>敵を<a href="#suppression">抑制</a>状態にすると、使用中の武器が<b>全弾リロード</b>され、<b>独裁</b>が <b>10秒間</b> 付与される。</li>
                 <li>独裁発動中は可動性が <b>+30</b> 、前方への移動速度が <b>+4%</b> 増加する。</li>
+                <li>さらに、抑制状態の敵をキルすると、<b><a href="#void_breach">ボイド・ブリーチ</a>が生成</b>される。</li>
                 <li>効果時間中の再発動はできない。また、「軽度の抑制」状態では発動しない。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
@@ -574,7 +585,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="#weaken">弱体化</a>した敵を精密キルすると、<b>力のオーブが生成</b>される。</li>
-                <li>この効果には <b>10秒間</b> のクールダウンがある。</li>
+                <li>再発動できるまで <b>10秒間</b> のクールダウンがある。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -602,8 +613,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>力のオーブを拾うと、<b>5秒間</b> <span class="balloon starvation">(<b>8秒間</b>)</span> <a href="#devour">吸引</a>状態になる。</li>
-                <li>吸引は敵を倒すと、最大で <b>10秒</b> <span class="balloon starvation">(<b>15秒間</b>)</span> まで延長できる。</li>
+                <li>力のオーブか<a href="#void_breach">ボイド・ブリーチ</a>を拾うと、<b>5秒間</b> <span class="balloon persistence">(<b>8秒間</b>)</span> <a href="#devour">吸引</a>状態になる。</li>
+                <li>吸引は敵を倒すと、最大で <b>10秒</b> <span class="balloon persistence">(<b>15秒間</b>)</span> まで延長できる。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -779,10 +790,10 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>半径3m</b> のドームを展開し、中にいる味方に <b>300HP</b> の<a href="#overshield">オーバーシールド</a>を付与する。このオーバーシールドは受けるダメージを <b>50%</b> 軽減する。</span>ドームを出ると解除される。</li>
+                <li><b>半径3m</b> のドームを <b>30秒間</b> 展開し、中にいる味方に <b>300HP</b> の<a href="#overshield">オーバーシールド</a>を付与し、武器のハンドリングとリロード速度を <b>+50</b> する。このオーバーシールドは受けるダメージを <b>50%</b> 軽減する。</span>ドームを出ると解除される。</li>
                 <li>ドームの外側から内側へ、または内側から外側へ攻撃を通すことはできない。</li>
-                <li>ドームを通ると、<b>光の武器</b>が付与され、<b>15秒間</b> 武器ダメージが <span class="balloon univ_buff"><b>+25%</b></span> 増加する。</li>
-                <li>ドーム本体は <b>8000HP</b> で、これを超えるダメージを受けると破壊される。<span class="pvp">ガーディアンの武器やスキルからは、より大きなダメージを受ける。</span></li>
+                <li>ドームを通ると、<b>光の武器</b>が <b>15秒間</b> 付与される。光の武器発動中は、武器ダメージが <span class="balloon univ_buff"><b>+25%</b></span> 増加する。これはドームを出ても解除されない。</li>
+                <li>ドーム本体は <b>8000HP</b> で、これを超えるダメージを受けると破壊される。<span class="pvp">ガーディアンの武器からは <b>+50%</b> 増加したダメージを受ける。</span></li>
                 <li><span class="pve">また、ボスからの攻撃は、発動者の<a href="./base_stats.html#resilience">耐久力</a>に応じて <b>+600%</b> ～ <b>-75%</b> 増減したダメージを受ける。</span></li>
             </ul>
         </div>
@@ -797,10 +808,10 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>シールドによる攻撃を行える。グレネードボタンを押すことで<b>シールドを投げる</b>ことができる。</li>
+                <li>シールドによるコンボ攻撃を行える。グレネードボタンを押すことで<b>シールドを投げる</b>ことができる。</li>
                 <li>また、強攻撃ボタンかガードボタンを押すことで、シールドを張り<b>防御</b>をし、後ろにいる味方を守ることができる。味方はシールド越しに射撃ができる。</li>
-                <li>これによって防御されている味方は<b>光の武器</b>が付与され、光の武器発動中は武器ダメージが <b><span class="balloon univ_buff"><span class="pve">+40%</span><span class="pvp">+35%</span></span></b> 増加し、武器のハンドリングとリロード速度が <b>+50</b> される。</li>
-                <li>味方を防御している間は、スーパーエネルギーの消費が <b>-20%</b> 軽減される。</li>
+                <li>これによって防御されている味方は<b>光の武器</b>が付与される。光の武器発動中は武器ダメージが <b><span class="balloon univ_buff"><span class="pve">+40%</span><span class="pvp">+35%</span></span></b> 増加し、武器のハンドリングとリロード速度が <b>+50</b> される。</li>
+                <li>味方を防御している間は、スーパーエネルギーの<b>消費が軽減</b>される。味方の数が多いほど、エネルギーの消費量はさらに軽減される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -835,7 +846,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>前方にシールドを投げる。シールドは敵や障害物に当たると跳ね返る。</li>
+                <li>前方にシールドを投げる。シールドは敵や障害物に当たると <b>3回まで</b> 跳ね返る。</li>
                 <li>この攻撃がヒットすると、自身に <b>15HP</b> の<a href="#overshield">ボイドのオーバーシールド</a>が付与される。</li>
             </ul>
         </div>
@@ -869,7 +880,8 @@
             <ul class="stats">
                 <li>自身と周囲の味方に <b>45HP</b> の<a href="#overshield">ボイドのオーバーシールド</a>を付与する、<b>特殊なバリケード</b>を展開する。</li>
                 <li>バリケードの後ろに立つと、オーバーシールドが1秒につき <b>10HP</b> 回復し、オーバーシールドの<b>効果時間がリセット</b>される。</li>
-                <li>このバリケードは<span class="pvp">ガーディアンから受けるダメージが <b>+20%</b> 増加しており、</span>頑強・反撃のどちらを選んでいても、基本クールダウンが <b>82秒</b> に変更される。</li>
+                <li>頑強なバリケードは基本クールダウンが <b>100秒</b> に、反撃のバリケードは基本クールダウンが <b>80秒</b> に変更される。</li>
+                <li><span class="pvp">このバリケードがガーディアンから受けるダメージは <b>+20%</b> 増加する。</span></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -916,8 +928,9 @@
                 <li>矢は刺さった場所で<b>ボイドアンカー</b>となり、近くの敵を <b>6秒間</b> <b>束縛</b>する。</li>
                 <li>束縛された敵は<a href="#weaken">弱体化</a>、<a href="#suppression">抑制</a>、<a href="#volatile">不安定化</a>状態になり、受けるダメージが <span class="balloon univ_debuff"><b><span class="pve">+30%</span><span class="pvp">+50%</span></b>
                     </span> 増加する。</li>
+                <li>さらに、束縛された敵が受けたダメージのうち <b>50%</b> は、他の<b>束縛されている敵にも同様に</b>与えられる。</li>
                 <li>すでに束縛された敵に対するシャドウショットのダメージは、<b>+20%</b> のみ増加する。</li>
-                <li>また、束縛状態の敵を倒すと、ボイドアンカーの効果時間が延びる。</li>
+                <li>加えて、束縛状態の敵を倒すと、ボイドアンカーの<b>効果時間が延びる。</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -935,8 +948,9 @@
                 <li>矢は刺さった場所で<b>ボイドアンカー</b>となり、近くの敵を <b>12秒間</b> <b>束縛</b>する。</li>
                 <li>束縛された敵は<a href="#weaken">弱体化</a>、<a href="#suppression">抑制</a>状態になり、受けるダメージが <span class="balloon univ_debuff"><b><span class="pve">+30%</span><span class="pvp">+50%</span></b>
                     </span> 増加する。</li>
+                <li>さらに、束縛された敵が受けたダメージのうち <b>50%</b> は、他の<b>束縛されている敵にも同様に</b>与えられる。</li>
                 <li>また、束縛された敵は <b><span class="pve">30秒間</span><span class="pvp">10秒間</span></b> マークされ、壁越しに視認できるようになる。</li>
-                <li>さらに、束縛状態の敵を倒すと、ボイドアンカーの効果時間が <b>+0.5秒</b> 延びる。</li>
+                <li>加えて、束縛状態の敵を倒すと、ボイドアンカーの効果時間が <b>+0.5秒</b> 延び、最大で <b>25秒</b> まで延長できる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -952,7 +966,7 @@
             <ul class="stats">
                 <li>弱攻撃で素早い近接攻撃を繰り出し、強攻撃で攻撃と共に透明化する。</li>
                 <li>この透明化は通常の<a href="#invisibility">透明化状態</a>と違い、走っても<b>レーダーに映らない。</b></li>
-                <li>透明化中は、時間経過によるスーパーエネルギーの消費量が <b>-50%</b> 軽減される。</li>
+                <li>透明化中は、時間経過によるスーパーエネルギーの消費量が <b>-33%</b> 軽減される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1003,8 +1017,8 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>空中戦術ボタンを押すと、近接エネルギーを <b>1個</b> 消費し、地上へ<b>急降下</b>する。着地時、地面に<b>煙の雲</b>を生成する。</li>
-                <li>煙の雲内にいる敵は<a href="#weaken">弱体化</a>し、味方は <b>6.3秒間</b> <a href="#invisibility">透明化</a>する。</li>
-                <li>さらに、スネア爆弾が設置された際、その近くにいる自身や味方は <b>4.8秒間</b> 透明化するようになる。</li>
+                <li>煙の雲内にいる敵は <span class="pve"><b>200</b></span><span class="pvp"><b>50</b></span> ダメージを受けて<a href="#weaken">弱体化</a>し、味方は <b>6.3秒間</b> <a href="#invisibility">透明化</a>する。</li>
+                <li>加えて、スネア爆弾が設置された際、その近くにいる自身や味方は <b>4.8秒間</b> 透明化するようになる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1094,7 +1108,7 @@
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>90秒</b></li>
+                <li>基本クールダウン: <b>91秒</b></li>
                 <li>ダメージ: <b>60</b></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1153,8 +1167,8 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>スキルでキルをすると、<b>5秒間</b> <span class="balloon starvation">(<b>10秒間</b>)</span> <b><a href="#devour">吸引</a>状態</b>になる。</li>
-                <li>吸引は、敵を倒すと最大で <b>10秒</b> <span class="balloon starvation">(<b>15秒間</b>)</span> まで延長できる。</li>
+                <li>スキルでキルをすると、<b>5秒間</b> <span class="balloon persistence">(<b>10秒間</b>)</span> <b><a href="#devour">吸引</a>状態</b>になる。</li>
+                <li>吸引は、敵を倒すと最大で <b>10秒</b> <span class="balloon persistence">(<b>15秒間</b>)</span> まで延長できる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>

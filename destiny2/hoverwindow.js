@@ -4,8 +4,8 @@ function textSwitching(info) {
         case 'sample':
             $("#info").text("このように情報が出ます");
             break;
-        case 'starvation':
-            $("#info").text("かけら「飢餓の残響」適用時の数値");
+        case 'persistence':
+            $("#info").text("かけら「固執の残響」適用時の数値");
             break;
         case 'ash':
             $("#info").text("かけら「灰の名残」適用時の数値");
