@@ -371,10 +371,14 @@
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;累積効果&gt;</div>
-            累積させると照準補佐、命中精度、ADS移行速度がさらに増加する。
+            累積させると照準補佐がさらに増加する。
             <div class="info">&lt;効果詳細&gt;</div>
             ADS移行速度の増加は、ハンドリングの変化や他の効果と重複する。
             <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>精度: <b>+15%</b></li>
+                <li>ADS移行時間: <b>x0.75</b></li>
+            </ul>
             <table class="list stats">
                 <thead>
                     <tr>
@@ -388,16 +392,6 @@
                         <th>照準補佐</th>
                         <td><b>+10</b></td>
                         <td><b>+15</b></td>
-                    </tr>
-                    <tr>
-                        <th>精度</th>
-                        <td><b>+15%</b></td>
-                        <td><b>+15%</b></td>
-                    </tr>
-                    <tr>
-                        <th>ADS移行時間</th>
-                        <td><b>x0.75</b></td>
-                        <td><b>x0.75</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -636,12 +630,16 @@
                 <li>累積: <b>あり</b></li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>リロード時間: <b>x0.85</b></li>
+            </ul>
             <table class="list stats">
                 <thead>
                     <tr>
                         <th></th>
                         <th>1x</th>
                         <th>2x</th>
+                        <th>3x</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -649,11 +647,7 @@
                         <th>リロード速度</th>
                         <td><b>+10</b></td>
                         <td><b>+15</b></td>
-                    </tr>
-                    <tr>
-                        <th>リロード時間</th>
-                        <td><b>x0.85</b></td>
-                        <td><b>x0.85</b></td>
+                        <td><b>+18</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -981,17 +975,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="pve">
                         <th>回復量</th>
-                        <td><b>13%</b></td>
-                        <td><b>16.7%</b></td>
-                        <td><b>23.4%</b></td>
-                        <td><b>31%</b></td>
-                        <td><b>37.5%</b></td>
-                        <td><b>41.2%</b></td>
-                        <td><b>44.4%</b></td>
-                        <td><b>46.8%</b></td>
-                        <td><b>48.7%</b></td>
+                        <td><b>12.8%</b></td>
+                        <td><b>17.1%</b></td>
+                        <td><b>23.3%</b></td>
+                        <td><b>30.8%</b></td>
+                        <td><b>37.7%</b></td>
+                        <td><b>42.3%</b></td>
+                        <td><b>45.7%</b></td>
+                        <td><b>48.1%</b></td>
+                        <td><b>49.9%</b></td>
+                    </tr>
+                    <tr class="pvp">
+                        <th>回復量</th>
+                        <td><b>6.4%</b></td>
+                        <td><b>8.6%</b></td>
+                        <td><b>11.7%</b></td>
+                        <td><b>15.4%</b></td>
+                        <td><b>18.9%</b></td>
+                        <td><b>21.2%</b></td>
+                        <td><b>22.9%</b></td>
+                        <td><b>24.1%</b></td>
+                        <td><b>25%</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -1030,17 +1036,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="pve">
                         <th>回復量</th>
-                        <td><b>13%</b></td>
-                        <td><b>16.7%</b></td>
-                        <td><b>23.4%</b></td>
-                        <td><b>31%</b></td>
-                        <td><b>37.5%</b></td>
-                        <td><b>41.2%</b></td>
-                        <td><b>44.4%</b></td>
-                        <td><b>46.8%</b></td>
-                        <td><b>48.7%</b></td>
+                        <td><b>12.8%</b></td>
+                        <td><b>17.1%</b></td>
+                        <td><b>23.3%</b></td>
+                        <td><b>30.8%</b></td>
+                        <td><b>37.7%</b></td>
+                        <td><b>42.3%</b></td>
+                        <td><b>45.7%</b></td>
+                        <td><b>48.1%</b></td>
+                        <td><b>49.9%</b></td>
+                    </tr>
+                    <tr class="pvp">
+                        <th>回復量</th>
+                        <td><b>6.4%</b></td>
+                        <td><b>8.6%</b></td>
+                        <td><b>11.7%</b></td>
+                        <td><b>15.4%</b></td>
+                        <td><b>18.9%</b></td>
+                        <td><b>21.2%</b></td>
+                        <td><b>22.9%</b></td>
+                        <td><b>24.1%</b></td>
+                        <td><b>25%</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -1538,8 +1556,8 @@
                     <tr class="pvp">
                         <th>ダメージ増加量</th>
                         <td><b>+3%</b></td>
-                        <td><b>+5%</b></td>
-                        <td><b>+7%</b></td>
+                        <td><b>+4.4%</b></td>
+                        <td><b>+5.5%</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -1999,7 +2017,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="pve">
                         <th>回復量</th>
                         <td><b>13%</b></td>
                         <td><b>16.7%</b></td>
@@ -2089,6 +2107,27 @@
             <div class="info">&lt;効果詳細&gt;</div>
             アーマーチャージが <b>3個以上</b> 保持されていないと発動しない。
             <br>このパーツを装備すると、他のフィニッシャーによって発動するパーツは同時に装備できない。
+            <div class="info">&lt;効果時間&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>3x</th>
+                        <th>4x</th>
+                        <th>5x</th>
+                        <th>6x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>回復量</th>
+                        <td><b>8秒</b></td>
+                        <td><b>10秒</b></td>
+                        <td><b>12秒</b></td>
+                        <td><b>14秒</b></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -2308,7 +2347,6 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>治癒のスタック数: <b>x1</b></li>
-                <li>回復のスタック数: <b>x1</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -2327,8 +2365,16 @@
                         <td><b>2.5秒</b></td>
                         <td><b>3秒</b></td>
                         <td><b>3.5秒</b></td>
+                        <td><b>3.5秒</b></td>
                         <td><b>4秒</b></td>
-                        <td><b>4.5秒</b></td>
+                    </tr>
+                    <tr>
+                        <th>回復のスタック数</th>
+                        <td><b>x1</b></td>
+                        <td><b>x1</b></td>
+                        <td><b>x1</b></td>
+                        <td><b>x2</b></td>
+                        <td><b>x2</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -2346,6 +2392,7 @@
             </ul>
             <div class="info">&lt;発動条件詳細&gt;</div>
             <b>3回連続</b> で精密ヒットをすると発動する。
+            <br>再発動できるまで <b>10秒間</b> のクールダウンがある。
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -2362,6 +2409,7 @@
             かけら「<a href="./class_solar.html#ember_of_solace">癒しの名残</a>」の影響を受ける。
             <div class="info">&lt;発動条件詳細&gt;</div>
             ソーラー武器で<a href="./enemy_classification.html#elite">エリート</a>、<a href="./enemy_classification.html#miniboss">ミニボス</a>、<a href="./enemy_classification.html#boss">ボス</a>を倒すと発動する。
+            <br>再発動できるまで <b>10秒間</b> のクールダウンがある。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>10秒</b></li>
@@ -2380,6 +2428,7 @@
             </ul>
             <div class="info">&lt;発動条件詳細&gt;</div>
             ボイド武器で<a href="./enemy_classification.html#elite">エリート</a>、<a href="./enemy_classification.html#miniboss">ミニボス</a>、<a href="./enemy_classification.html#boss">ボス</a>を倒すと発動する。
+            <br>再発動できるまで <b>10秒間</b> のクールダウンがある。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>10.5秒</b></li>

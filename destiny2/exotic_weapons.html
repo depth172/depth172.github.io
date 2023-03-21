@@ -320,6 +320,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
+                <li><b>5点バースト射撃</b>が可能。</li>
                 <li><b>24m以内</b> の味方が死亡した時、自身に<b>情け無用</b>を <b>6秒間</b> 付与する。</li>
                 <li>情け無用:
                     <ul class="stats2">
@@ -419,9 +420,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b><a href="./weapon_parts.html#lightweight_frame">軽量フレーム</a>の内在効果</b>を得る。</li>
-                <li>ADS中の<b>レーダーが有効化される。</b></li>
                 <li>前方への移動速度が <b>+10%</b> 増加する。</li>
-                <li><a href="./weapon_parts.html#mida_synergy">MIDAシナジー</a>が付与された武器を装備すると、その武器を使用中も上記効果を得られる。</li>
+                <li><a href="./weapon_parts.html#mida_synergy">MIDAシナジー</a>が付与された武器を装備すると、その武器を使用中も移動速度増加効果を得られる。</li>
+                <li>また、ADS中の<b>レーダーが有効化される。</b></li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -895,7 +896,7 @@
                 <li>ヒット時、近接エネルギーを <b>2%</b> 回復する。</li>
                 <li>キルをすると、<b>25%</b> の確率で近接エネルギーを<b>全回復</b>する。</li>
                 <li>近接キルをすると全弾リロードされる。</li>
-                <li>キルや近接キルでマルコフ連鎖のスタックがチャージされ、<b>武器ダメージが増加</b>する。</li>
+                <li>キルや近接キルで<b>マルコフ連鎖</b>のスタックがチャージされ、マルコフ連鎖のスタック数に応じてこの武器が与える<b>ダメージが増加</b>する。</li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -979,7 +980,7 @@
                 <li>キルをすると、<b>光の集積</b>のスタックを<span class="pve">1個</span><span class="pvp">2個</span>チャージする。
                     <ul class="stats2">
                         <li>スタック1個につき、ハンドリングとリロード速度が <b>+15</b> 、照準補佐が <b>+2</b> 増加する。</li>
-                        <li>リロードボタンを長押しすると、スタックを全て消費して<b>全スキルエネルギーを 1スタックにつき 10% 回復</b>する。</li>
+                        <li>リロードボタンを長押しすると、スタックを全て消費して、全てのスキルエネルギーを1スタックにつき <b>10%</b> 回復する。</li>
                         <li>スタックは死亡時に消滅する。</li>
                     </ul>
                 </li>
@@ -1007,7 +1008,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>精密ヒットか遅延/凍結状態の敵を攻撃すると、撃った弾をリロードし、<b>再巻き戻し</b>のスタックを1個チャージする。
+                <li>精密ヒットをするか<a href="./class_stasis.html#slow">遅延</a>/<a href="./class_stasis.html#freeze">凍結</a>状態の敵を攻撃すると、撃った弾をリロードし、<b>再巻き戻し</b>のスタックを1個チャージする。
                     <ul class="stats2">
                         <li>スタックが10個溜まると、<b>時空の裂け目</b>を <b>9秒間</b> 出現させる。</li>
                         <li>時空の裂け目は最大 <b>40m</b> までの敵を <b>1.25秒</b> ごとに自動的にバースト射撃で攻撃し、<span class="pve">通常弾の <b>+10%</b> のダメージ</span><span class="pvp">1発につき <b>10.2</b> のダメージ</span>を与える。距離減衰はない。</li>
@@ -1078,7 +1079,7 @@
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>装弾数: <b>+1</b></li>
-                <li>スタック1個につき、射程距離、ハンドリング、リロード速度が <b>+10</b> 増加するようになる。</li>
+                <li>因果律超越ショットのスタック1個につき、射程距離、ハンドリング、リロード速度が <b>+10</b> 増加するようになる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1272,6 +1273,10 @@
                 <li>グレネードランチャーモードはキネティック属性の<b>グレネードを発射</b>し、<b>4m</b> 以内の敵に <b><span class="pve">960</span><span class="pvp">110 + 24</span></b> ダメージを与える。これに自爆ダメージはない。</li>
                 <li>発射後、グレネード弾が残っていればグレネードランチャーのリロードを、そうでない場合は通常のリロードを行う。</li>
             </ul>
+            <div class="info">&lt;媒体効果&gt;</div>
+            <ul class="stats">
+                <li>武器の属性が<b><span class="w-icons strand">&#xef0e;</span>ストランドになり</b>、グレネードランチャーモードでキルをすると<b><a href="./class_strand.html#tangle">タングル</a>が生成</b>される。</li>
+            </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -1363,7 +1368,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="conditional_finality"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ce179cbb692471c017fed7d5c85ebed8.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span><span class="w-icons solar">&#xe140;</span>条件付き終局</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ce179cbb692471c017fed7d5c85ebed8.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>条件付き終局</h3>
         <div class="base"><b>スプリットデシジョン</b> - ステイシスダメージとソーラーダメージを与える二連銃。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1508,6 +1513,7 @@
                         <li>アーク属性のダメージを <b><span class="pve">-50%</span><span class="pvp">-15%</span></b> 軽減する。</li>
                         <li>撃った弾がマガジンに戻ってくる。</li>
                         <li>撃った弾が周囲 <b>8m</b> の敵に雷を連鎖させてダメージを与える。</li>
+                        <li>アーク効果である「<a href="./class_arc.html#jolted">ショック状態</a>」とは異なるため、これがトリガーになる効果は発動しない。</li>
                         <li>この武器で敵をキルすると効果時間が <b>+3秒</b> 延びる。</li>
                     </ul>
                 </li>
@@ -1992,7 +1998,7 @@
                         <li>使用回数: <b>30回</b></li>
                         <li>武器として使用していない間は、使用回数を毎秒 <b>1回ずつ</b> 消費する。武器を持ち替えると即座に消滅する。</li>
                         <li><b>通常攻撃</b>は回数を <b>1回</b> 消費して近接攻撃を行い、<b><span class="pve">300</span><span class="pvp">150</span></b> ダメージを与える。空中では、与えるダメージが <b>-25%</b> 減少する。</li>
-                        <li><b>強攻撃</b>は回数を全て消費してスフィアを地面に叩きつけ、半径 <b>5m以内</b> の敵に <b><span class="pve">1500</span><span class="pvp">300</span></b> ダメージを与える。この攻撃に<b>距離減衰はなく</b>、残りの使用回数によってダメージは<b>変動しない</b>。</li>
+                        <li><b>強攻撃</b>は回数を全て消費してスフィアを地面に叩きつけ、半径 <b>5m以内</b> の敵に <b><span class="pve">1500</span><span class="pvp">300</span></b> ダメージを与えて<b><a href="./class_void.html#suppression">抑制状態</a></b>にする。この攻撃に<b>距離減衰はなく</b>、残りの使用回数によってダメージは<b>変動しない</b>。</li>
                         <li><b>ガード</b>をすると使用回数を <b>0.25秒</b> ごとに <b>1回ずつ</b> 消費し、自分を中心に<b>吸収フィールド</b>を形成する。このとき、自身が受けるダメージを <b>-80%</b> 軽減する。</li>
                         <li>吸収フィールド内にいる敵は<span class="pve"><b>盲目状態</b>になり、</span> <b>0.3秒</b> ごとに <b><span class="pve">30</span><span class="pvp">12</span></b> ダメージを受ける。この間、自身のHPを <b>5</b> ずつ回復する。</li>
                         <li>残り使用回数が1のときに吸収フィールドを形成すると、ガードをやめるか死亡するまでHPの回復効果が<b>無効化</b>され、自身は<b>徐々に増加するダメージ</b>を受ける。</li>
@@ -2643,14 +2649,18 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="two-tailed_fox"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/db73528358622aca68f3606390bd7f27.jpg" class="h3"><span class="w-icons void">&#xe144;</span><span class="w-icons solar">&#xe140;</span>二尾の狐</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/db73528358622aca68f3606390bd7f27.jpg" class="h3"><span class="w-icons void">&#xe144;</span>二尾の狐</h3>
         <div class="base"><b>ツインテール</b> - 1つの標的を追尾する、ボイドとソーラーの2種類のロケットを撃つ。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>一回の射撃で <b>2発のロケットを発射する。</b></li>
-                <li>ボイドロケットは敵を<b><a href="./class_void.html#suppression">抑制</a></b>し、ソーラーロケットは敵に <b>x60</b> <span class="balloon ash">(<b>x30</b>)</span> の<a href="./class_solar.html#scorch">スコーチ</a>を付与する。させる。</li>
+                <li>ボイドロケットは敵を<b><a href="./class_void.html#suppression">抑制</a></b>し、ソーラーロケットは敵に <b>x60</b> <span class="balloon ash">(<b>x90</b>)</span> の<a href="./class_solar.html#scorch">スコーチ</a>を付与する。</li>
                 <li>2つのロケットは同じ標的を追尾する。</li>
+            </ul>
+            <div class="info">&lt;媒体効果&gt;</div>
+            <ul class="stats">
+                <li>2発目の発射時、アーク属性のロケットが追加され、このダメージを受けた敵は<b><a href="./class_arc.html#jolted">ショック状態</a></b>になる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2673,7 +2683,7 @@
 
         <a name="the_queenbreaker"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ada52c29c412bbc292760f5e6a23fe72.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>クイーンブレーカー</h3>
-        <div class="base"><b>ワイヤーライフル</b> - 当たると敵の目を眩ませる精度の高い長射程アークボルトを発射する。</div>
+        <div class="base"><b>ワイヤーライフル</b> - 高精度の長射程アークボルトを発射する。近くにいる標的に連鎖し、当たった標的は視力喪失状態になる。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div> 以下から選択可能。
             <ul>
@@ -2682,7 +2692,8 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>着弾時、<b>敵の目を眩ませる。</b></li>
+                <li>ヒット時、敵を<b><a href="./class_arc.html#blind">視力喪失状態</a></b>にする。</li>
+                <li>ヒットした敵から <b>5m以内</b> の敵に<b>電撃が連鎖</b>し、そのダメージを受けた敵も視力喪失状態になる。</li>
                 <li>サイトを<b>狙撃手の照準器</b>と<b>戦闘照準器</b>から選択できる。</li>
                 <li>狙撃手の照準器:
                     <ul class="stats2">
@@ -2823,7 +2834,8 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル効果</b></li>
-                <li>着弾時に爆発し、周囲の敵をノックバックさせる。</li>
+                <li>最大まで引いた場合、着弾時に矢が<b>爆発</b>し、周囲の敵を<b>ノックバック</b>させる。</li>
+                <li>また、最大まで引いた瞬間に矢を放った場合、上記に加えて敵を<b><a href="./class_void.html#volatile">不安定化状態</a></b>にする。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
