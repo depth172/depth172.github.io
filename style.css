@@ -75,9 +75,25 @@ h2 {
     border-bottom: 2px solid #292929;
 }
 
+h3 {
+    box-decoration-break: clone;
+    border-bottom: 2px solid #646464;
+    position: relative;
+    background: #d2deff;
+    padding-left: 0.7em;
+    padding-top: 0.7em;
+    padding-bottom: 0.1em;
+}
+
 .text {
     padding-left: 0.3em;
     padding-bottom: 0.5em;
+}
+
+.caption {
+    text-align: center;
+    font-size: 80%;
+    margin-bottom: 1em;
 }
 
 img {
@@ -87,7 +103,13 @@ img {
 }
 
 img.illustration {
-    margin: 0.4em;
+    margin-block: 0.4em;
+}
+
+img.picture {
+    display: block;
+    margin: auto;
+    margin-block: 0.4em;
 }
 
 .power {

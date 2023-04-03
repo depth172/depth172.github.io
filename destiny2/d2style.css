@@ -309,16 +309,6 @@ td.name {
     background-color: #aafa96;
 }
 
-h3 {
-    box-decoration-break: clone;
-    border-bottom: 2px solid #646464;
-    position: relative;
-    background: #d2deff;
-    padding-left: 0.7em;
-    padding-top: 0.7em;
-    padding-bottom: 0.1em;
-}
-
 h3.item {
     border-bottom: 2px solid #646464;
     position: relative;
