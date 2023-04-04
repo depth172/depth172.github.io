@@ -144,6 +144,22 @@ a:active {
     color: #138f53;
 }
 
+a[href^="http"]:after,
+a[href^="//"]:after {
+    margin: 0 0 0 3px;
+    font-family: "Font Awesome 5 Free";
+    content: '\f35d';
+    font-size: 70%;
+    font-weight: 900;
+}
+
+a[href^="https://depth172.github.io/"]:after {
+    margin: inherit;
+    font-family: inherit;
+    content: '';
+    font-weight: inherit;
+}
+
 .footer {
     font-size: 70%;
     text-align: right;
