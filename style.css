@@ -153,7 +153,8 @@ a[href^="//"]:after {
     font-weight: 900;
 }
 
-a[href^="https://depth172.github.io/"]:after {
+a[href^="https://depth172.github.io/"]:after,
+#HCB_comment_box a:after {
     margin: inherit;
     font-family: inherit;
     content: '';
