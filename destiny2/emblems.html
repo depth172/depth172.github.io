@@ -28,7 +28,19 @@
 </head>
 
 <body>
-    <a name="top"></a>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+        <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+        <script>
+            kofiWidgetOverlay.draw('depth172', {
+                'type': 'floating-chat',
+                'floating-chat.donateButton.text': 'Support me',
+                'floating-chat.donateButton.background-color': '#00b9fe',
+                'floating-chat.donateButton.text-color': '#fff'
+            });
+        </script>
+    </div>
+
     <div class="main">
         <div class="top_logo">
             <a href="../"><img src="../img/banner_transparent.png"></a>

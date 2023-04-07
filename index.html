@@ -22,7 +22,19 @@
 </head>
 
 <body>
-    <a name="top"></a>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+        <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+        <script>
+            kofiWidgetOverlay.draw('depth172', {
+                'type': 'floating-chat',
+                'floating-chat.donateButton.text': 'Support me',
+                'floating-chat.donateButton.background-color': '#00b9fe',
+                'floating-chat.donateButton.text-color': '#fff'
+            });
+        </script>
+    </div>
+
     <div class="main">
         <div class="title"><img src="img/banner_transparent.png"></div>
         <hr>
@@ -60,6 +72,9 @@
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><br>
         <span class="power">↑↑↑</span>
         <p>各ページに設置されているツイートボタンも活用して下さると嬉しいです。</p>
+
+        <h2>ご支援のお願い</h2>
+        <p>このサイトで得た情報がちょっとでも<b>「有益だな～」</b>と思ってくれたのであれば、左下のボタンより少しばかりご支援をいただけると非常に嬉しいです。</p>
 
         <h2>depthって何者？</h2>
         <img src="img/depth.png" class="portrait">
@@ -101,7 +116,7 @@
         <iframe width="320" height="160" src="https://ext.nicovideo.jp/thumb_user/39907768" scrolling="no" style="border:solid 1px #CCC;" frameborder="0">depth</iframe>
 
         <hr>
-        <div class="footer"><a href="#top">一番上に戻る ▲</a></div>
+        <div class="footer"><a href="#" id="page-top">一番上に戻る ▲</a></div>
     </div>
 </body>
 
