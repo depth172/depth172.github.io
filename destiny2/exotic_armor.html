@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Destiny 2 エキゾチック武器詳細まとめ - depth's Toybox</title>
+    <title>Destiny 2 エキゾチック防具詳細まとめ - depth's Toybox</title>
     <meta name="description" content="Destiny 2に登場するエキゾチック防具の詳細な効果、性能をまとめたページです。">
 
     <!-- Twitterバナーの設定 -->
@@ -418,7 +418,7 @@
             <ul class="stats">
                 <li>恒常的にダッシュ速度を <b>+6.25%</b> 、スライディング距離を <b>+33%</b> 増加させる。</li>
                 <li><b>1.5秒間</b> ダッシュすると、<b>リニア作動装置</b>が <b>7秒間</b> 付与される。</li>
-                <li>リニア作動装置発動中に敵に近接攻撃をすると敵に<b>ショック</b>を付与し、ショック状態の敵からは、<b>20m以内</b> にいる敵に<b>電撃が連鎖</b>し、<b><span class="pve">220</span><span class="pvp">85</span></b> ダメージを与える。連鎖できる敵が存在する限り、ショック状態は<b>継続</b>される。</li>
+                <li>リニア作動装置発動中に敵に近接攻撃をすると敵に<b>ショック</b>を付与し、ショック状態の敵からは、<span class="further"><s>20m以内</s> <b>12m以内</b></span> にいる敵に<b>電撃が連鎖</b>し、<b><span class="pve">220</span></b><span class="pvp further"><s>85</s> <b>50</b></span> ダメージを与える。連鎖できる敵が存在する限り、ショック状態は<b>継続</b>される。</li>
                 <li><span class="pvp">ただし、一度連鎖させると、同じ敵に <b>2秒間</b> 連鎖ダメージは入らない。</span></li>
                 <li>アーク効果である「<a href="./class_arc.html#jolted">ショック状態</a>」とは異なるため、これがトリガーになる効果は発動しない。</li>
             </ul>
@@ -497,7 +497,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>バリケード展開時、射程 <b>18.5m</b> の<b>ソーラーの波動</b>を放ち、触れた敵に <b><span class="pve">240</span><span class="pvp">100</span></b> ダメージを与える。</li>
+                <li>バリケード展開時、射程 <b>18.5m</b> の<b>ソーラーの波動</b>を放ち、触れた敵に <b><span class="pve">240</span><span class="pvp">100</span></b> ダメージ<span class="further">と<a href="./class_solar.html#scorch">スコーチ</a></span>を与える。</li>
                 <li>また、ソーラー属性でのキルでクラススキルエネルギーが <b>25%</b> 回復する。</li>
             </ul>
         </div>
@@ -541,8 +541,10 @@
             <span class="w-icons arc">&#xe143;</span>ストライカー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
+                <li class="further">アーク武器で敵を複数キルすると、自身に<b>アーク<a href="./buff_stacking.html#weapon_boost">武器ブースト</a></b>が付与される。最大で <b>x4</b> まで累積可能。</li>
                 <li>ハボックフィストを発動すると<b>決意</b>が付与され、決意発動中は <b>75HP</b> のオーバーシールドを得られる。</li>
                 <li>このオーバーシールドは<b>精密ダメージを無効化</b>する。</li>
+                <li class="further">また、ハボックフィスト終了時、自身に<b>アーク<a href="./buff_stacking.html#weapon_boost">武器ブースト</a> x4</b> を付与する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -780,7 +782,8 @@
             <ul class="stats">
                 <li>装備中の剣のガード耐性、ガード効率、ガード持続時間を <b>+100</b> する。</li>
                 <li>また、完璧なタイミングでガードすることで、HPが <b>80</b> 回復する。</li>
-                <li>剣でガード中はダメージを <b>90%</b> 軽減し、ガード成功やガード持続によって<b>剣のエネルギーが減らない。</b></li>
+                <li class="further">ガード終了時、<b><a href="./class_solar.html#restoration">回復</a> x2</b> が付与される。ブロックしたダメージ量に応じて、<b>効果時間が変化</b>する。</li>
+                <li>剣でガード中はダメージを <span class="further"><s>90%</s> <b><span class="pve">-50%</span><span class="pvp">-10%</span></b></span> 軽減し、ガード成功やガード持続によって<b>剣のエネルギーが減らない。</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -922,8 +925,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ソーラー属性でキルをすると一定確率で<b>火渡り師</b>が発動し、火渡り師のスタック数に応じて自身の<b>武器ダメージが増加</b>する。</li>
-                <li>自身が凍結すると、火渡り師のスタックを <b>1個</b> 得る。</li>
+                <li>ソーラー属性でキルをすると一定確率で<span class="further"><s><b>火渡り師</b>が発動し、火渡り師のスタック数に応じて自身の<b>武器ダメージが増加</b>する。</s><b>ソーラー<a href="./buff_stacking.html#weapon_boost">武器ブースト</a></b>が付与される。最大で <b>x4</b> まで累積可能。</span></li>
+                <li>自身が凍結すると、<span class="further"><s>火渡り師のスタックを <b>1個</b> 得る。</s><b>ソーラー<a href="./buff_stacking.html#weapon_boost">武器ブースト</a> x4</b> が付与される。</span></li>
                 <li>また、この防具を装備中は、遅延のスタック数と持続時間が<b>半減</b>される。</li>
                 <li>さらに、凍結から自力で回復するとき、<b>粉砕ダメージを受けず</b>に <b>9m</b> の範囲にソーラー属性の爆発を起こし、<b>105</b> ダメージを与える。</li>
             </ul>
@@ -963,10 +966,13 @@
         <div class="base"><b>フォースマルチプライヤー</b> - ボイドの近接エネルギーがフル状態の時にショットガンでトドメを刺すと、ボイドの2つ目のシールドが発動して近接エネルギーが消費される。ショットガンでトドメを刺すと近接エネルギーが回復する。ショットガンの空中効果ステータスに中程度の恩恵を与える。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
-            <ul class="stats">
-                <li>ショットガンでキルをすると、<b>近接エネルギーが回復</b>する。<span class="pve">回復量は敵の<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</span></li>
-                <li>さらに、センティネル使用中かつ近接エネルギーが最大のとき、ショットガンでのキル時、近接エネルギーをすべて消費して<b><a href="./class_void.html#overshield">ボイドのオーバーシールド</a>を生成</b>する。</li>
-                <li>また、ショットガンの空中効果を恒常的に <b>+30</b> 増加させる。</li>
+            <ul class="stats further">
+                <li>恒常的に、ショットガンのリロード速度と空中効果が増加する。</li>
+                <li><a href="./class_void.html#overshield">ボイドのオーバーシールド</a>有効時、ショットガンが与える<b>ダメージが増加</b>する。また、このときに敵をキルすると、オーバーシールドが<b>回復</b>する。</li>
+                <li>また、センティネル使用中、ショットガンで複数の敵、もしくは強力な敵をキルすると、<b>ボイドのオーバーシールドが付与</b>され、HPの<b>自然再生が開始</b>する。</li>
+                <li><s>ショットガンでキルをすると、<b>近接エネルギーが回復</b>する。<span class="pve">回復量は敵の<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</span></s></li>
+                <li><s>さらに、センティネル使用中かつ近接エネルギーが最大のとき、ショットガンでのキル時、近接エネルギーをすべて消費して<b><a href="./class_void.html#overshield">ボイドのオーバーシールド</a>を生成</b>する。</s></li>
+                <li><s>また、ショットガンの空中効果を恒常的に <b>+30</b> 増加させる。</s></li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -1029,7 +1035,8 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#shield_throw">シールド投げ</a>のチャージが <b>1回 追加</b>される。</li>
-                <li>また、シールド投げに <b>&#xe070; アンチバリア効果</b>が付与される。</li>
+                <li>また、シールド投げに <b>&#xe070; アンチバリア効果</b>が付与され、<span class="further">ヒットした敵を<a href="./class_void.html#weaken">弱体化</a>させる。</span></li>
+                <li class="further">さらに、シールド投げでチャンピオンをスタンさせると、近接エネルギーが <b>100%</b> 回復する。</span></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1043,8 +1050,8 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>雷鳴で敵を倒すと、<b>近接エネルギーが回復</b>する。<span class="pve">回復量は敵の<a href="./enemy_classification.html#tier">ランクや種類</a>によって変動する。</span></li>
-                <li>また、雷鳴発動時、付近にいる敵は<b>落雷</b>により、<b>50</b> ダメージを受ける。</li>
-                <li><a href="./class_arc.html#amplified">増幅</a>中は、この落雷の範囲が拡大する。</li>
+                <li>また、雷鳴発動時、付近にいる敵は<b>落雷</b>により、<span class="further"><s>50</s> <b>200</b></span> ダメージを受け、<span class="further"><b><a href="./class_arc.html#jolt">ショック状態</a></b>になる。</span></li>
+                <li><a href="./class_arc.html#amplified">増幅</a>中は、この落雷の<span class="further"><s>範囲が拡大する。</s> 与えるダメージが <b>+50%</b> 増加する。</span></li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -1351,9 +1358,8 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>恒常的にダッシュ速度を <b>+6.25%</b> 、スライディング距離を <b>+33%</b> 増加させる。</li>
-                <li>また、<b>より高くジャンプ</b>できるようになる。</li>
-                <li>ただし、すべての武器の空中効果を恒常的に <b>-50</b> 減少させる。</li>
+                <li><span class="further"><s>恒常的に</s> クラススキルエネルギーがフルの間、</span>ダッシュ速度を <b>+6.25%</b> 、スライディング距離を <b>+33%</b> 増加させ、<b>より高くジャンプ</b>できるようになる。</li>
+                <li class="further"><s>ただし、すべての武器の空中効果を恒常的に <b>-50</b> 減少させる。</s></li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
@@ -1474,7 +1480,9 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>近接攻撃をすると、装備中の武器を<b>全弾リロード</b>し、<b>5秒間</b> 空中効果を <b>+50</b> 増加させる。</li>
+                <li class="further"><s>近接攻撃をすると、装備中の武器を<b>全弾リロード</b>し、<b>5秒間</b> 空中効果を <b>+50</b> 増加させる。</s></li>
+                <li class="further">近接攻撃をすると、<b>5秒間</b> 移動速度とジャンプ高度が増加する。</li>
+                <li class="further">また、近接キルをすると、すべての武器が<b>全弾リロード</b>される。</li>
                 <li>連続では発動せず、<b>7秒間</b> のクールダウンがある。</li>
             </ul>
         </div>
@@ -1523,6 +1531,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>弓を最大まで引いた状態で<b>無制限に維持</b>できる。</li>
+                <li><span class="pve further">また、最大まで引いた状態を維持している間、弓が与えるダメージが<b>段階的に増加</b>する。この効果は数秒後に失われる。</span></li>
                 <li>さらに、弓の発射時間を <b>-30</b> し、空中効果を <b>+40</b> 増加させる。</li>
             </ul>
         </div>
@@ -1715,8 +1724,8 @@
             <span class="w-icons arc">&#xe143;</span>アークストライダー
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="./class_arc.html#arc_staff">アークポール</a>中、旋風の護衛を使用しても<b>スーパーエネルギーが消費されなくなり</b>、ガード中に消費されるスーパーエネルギーが <b>-50%</b> 削減される。</li>
-                <li>また、アークポール中にスーパースキル発動ボタンをもう一度押すことで<b>発動を終了</b>し、早く終了するほど<b>スーパーエネルギーが回復</b>する。最大で <b>62.5%</b> まで回復する。</li>
+                <li><a href="./class_arc.html#arc_staff">アークポール</a>中、旋風の護衛を使用しても<b>スーパーエネルギーが消費されなくなり</b>、<span class="further"><s>ガード中に消費されるスーパーエネルギーが <b>-50%</b> 削減される。</s></span></li>
+                <li>また、アークポール中にスーパースキル発動ボタンをもう一度押すことで<b>発動を終了</b>する。<span class="further">このとき、周囲の敵を<b><a href="./class_arc.html#blind">視力喪失状態</a></b>にする爆発を起こし、自身のアーク武器が与える<b>ダメージを増加</b>させる。</span>また、早く終了するほど<b>スーパーエネルギーが回復</b>する。最大で <b>62.5%</b> まで回復する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1730,10 +1739,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>回避を、<b>転移</b>に変更する。転移は <b>10m</b> 移動可能で、移動中は<b>透明化</b>し軌跡だけが残る。</li>
-                <li><span class="pve">回避をすると<b>光の転移</b>が付与され、光の転移発動中は、アーク武器と、<a href="./class_stasis.html#slow">遅延</a>/<a href="./class_stasis.html#freeze">凍結</a>状態の敵に対するダメージが <b>+10%</b> 増加する。</span></li>
-                <li><span class="pve">アーク武器で遅延/凍結状態の敵を攻撃すると、<b>+21%</b> のダメージ増加を得られる。</span></li>
-                <li><span class="pve">ただし、光の転移発動中はクラススキルエネルギーが<b>回復しない。</b></span></li>
-                <li><span class="pvp">回避をすると<b>光の転移</b>が付与され、光の転移発動中はクラススキルエネルギーが<b>回復しない。</b></span></li>
+                <li>回避をすると<b>光の転移</b>が <b>10秒間</b> 付与され、光の転移発動中は、<span class="further"><span class="pve"><s>アーク武器が与えるダメージが <b>+10%</b> 増加する。</s></span>アーク<a href="./buff_stacking.html#weapon_boost">武器ブースト</a> <b>x4</b> が付与される。</span></li>
+                <li><span class="pve">また、<a href="./class_stasis.html#slow">遅延</a>/<a href="./class_stasis.html#freeze">凍結</a>状態の敵に対するダメージが <b>+10%</b> 増加する。</span></li>
+                <li>ただし、光の転移発動中はクラススキルエネルギーが<b>回復しない。</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1749,7 +1757,7 @@
                 <li><a href="./class_solar.html#weighted_throwing_knife">加重ナイフ</a>が<b>2回跳ね返り</b>、このとき<b>標的捕捉力が大幅に上昇</b>する。</li>
                 <li>また、<b>2.5秒以内</b> に <b>3回</b> 武器で精密ヒットをすると、加重ナイフが<b>強化</b>される。追加で精密ヒットをすると効果時間が <b>5秒間</b> 延長される。</li>
                 <li>強化された加重ナイフはダメージが <b><span class="pve">+200%</span><span class="pvp">+100%</span></b> 増加しており、<b>&#xe072; アンストッパブル効果</b>を持つ。</li>
-                <li>一度ナイフを投げると強化は解除される。</li>
+                <li><span class="further">ナイフ強化が発動中、<b>腕力が増加</b>する。</span>一度ナイフを投げると強化は解除される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1869,7 +1877,8 @@
                 <li><b>15m以内</b> に敵がいると<b>マルチ回避可能</b>が表示される。</li>
                 <li>この状態で回避をすると、<b>6秒間</b> <b>無制限に回避可能</b>となる。</li>
                 <li>このときの回避は、<a href="./armor_mods.html#dynamo">発電装置</a>などのクラススキルを発動することで発動するMODの効果などを受けない。</li>
-                <li>敵から <b>15m以上</b> 離れると、効果は即座に終了する。</li>
+                <li class="further"><s>敵から <b>15m以上</b> 離れると、効果は即座に終了する。</s><br>マルチ回避発動中に敵をキルすると、<b>効果時間が延長</b>される。</li>
+                <li class="further"><a href="./class_strand.html#ensnaring_slam">エンスネア・スラム</a>を発動すると、効果は即座に終了する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2175,7 +2184,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>フュージョングレネードのチャージが <b>1回 追加</b>される。</li>
-                <li>また、強化のリフトか輝く泉の中から武器でダメージを与えると、グレネードエネルギーが <b>20%</b> 回復する。この効果には <b>0.3秒間</b> のクールダウンがある。</li>
+                <li>また、強化のリフトか輝く泉の中から武器でダメージを与えると、グレネードエネルギーが <span class="further"><s>20%</s> <b>2.5%</b></span> 回復する。<span class="further">リフトか輝く泉の中からキルをすると、<b>20%</b> 回復する。</span>この効果には <b>0.3秒間</b> のクールダウンがある。</li>
                 <li>さらに、フュージョングレネードで敵をキルすると、クラススキルエネルギーが<b>全回復</b>する。</li>
             </ul>
         </div>
@@ -2268,7 +2277,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>すべての武器のハンドリングとリロード速度を <b>+35</b> 、空中効果を <b>+10</b> 増加させる。</li>
-                <li>また、近接攻撃の射程が 4.5m → <b>6.5m</b> まで延びる。</li>
+                <li class="further"><s>また、近接攻撃の射程が 4.5m → <b>6.5m</b> まで延びる。</s></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2280,7 +2289,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>15m以内</b> に <b>3体以上</b> の敵がいると、クラススキルエネルギーの<b>回復速度が増加</b>する。</li>
-                <li>また、リフト発動から <b>1秒後</b> に、<b>7.5m</b> の範囲に <b><span class="pve">300</span><span class="pvp">100</span></b> ダメージを与え、敵を吹き飛ばす<b>アークのショックウェーブ</b>を発生させる。</li>
+                <li>また、リフト発動から <span class="further"><s>1秒後</s> <b>5秒ごと</b></span> に、<b>7.5m</b> の範囲に <span class="further"><span class="pve"><s>300</s> <b>200</b></span><span class="pvp"><s>100</s> <b>70</b></span></span> ダメージを与え、敵を吹き飛ばす<b>アークのショックウェーブ</b>を発生させる。</li>
+                <li class="further">このショックウェーブでキルされた敵は<b>爆発</b>し、周囲の敵に <b>100</b> ダメージを与える。</li>
+                <li class="further">さらに、ストームマスター使用中は、ショックウェーブでダメージを与えた敵を<b><a href="./class_arc.html#blind">視力喪失状態</a></b>にする。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
@@ -2327,7 +2338,7 @@
                 <li>サブクラスと一致する属性の武器で敵をキルすると、<b>断末魔の苦しみ</b>が <b>11秒間</b> 付与される。</li>
                 <li>断末魔の苦しみのスタック1個につき、グレネードエネルギーの回復速度が <b>+50%</b> 、グレネードのダメージが <b>+20%</b> 増加する。</li>
                 <li>また、断末魔の苦しみ発動中にグレネードを投げると、<b>20m以内</b> の味方に<b>炎の熱</b>が <b>5秒間</b> 付与される。</li>
-                <li>炎の熱発動中はグレネードエネルギー回復速度が <b>+1000%</b> 増加する。</li>
+                <li>炎の熱発動中はグレネードエネルギー回復速度が <b>+900%</b> 増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2339,6 +2350,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>近接スキルのチャージが <b>1回 追加</b>される。</li>
+                <li class="further">また、近接スキルで敵をキルすると、<b>力のオーブが生成</b>される。<a href="./armor_mods.html#heavy_handed">強引な手段</a>を装備すると、生成される力のオーブによる<b>スーパーエネルギー回復量が増加</b>する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2351,6 +2363,7 @@
             <ul class="stats">
                 <li>リフトの中からキルをすると<b>血の魔法</b>が <b>5秒間</b> 付与され、血の魔法発動中はリフトの<b>効果時間タイマーが停止</b>する。</li>
                 <li>血の魔法はキルをするたびに延長され、最大 <b>15秒</b> まで延長できる。</li>
+                <li class="further">また、リフトに立つと、自身のサブクラスと同じ属性の<b><a href="./buff_stacking.html#weapon_boost">武器ブースト</a> x2</b> が付与される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2387,6 +2400,15 @@
             <ul class="stats">
                 <li>キネティック武器で精密キルをすると、使用中のサブクラスの属性で敵が<b>爆発</b>し、最大 <b>208</b> ダメージを与える。</li>
                 <li>ステイシス、ストランド属性のサブクラスでも発動するが、ステイシス、ストランド属性の武器では発動しない。</li>
+                <li class="further">また、使用しているサブクラスの属性に応じて、爆発に以下の様々な効果が追加される。
+                    <ul>
+                        <li><span class="w-icons arc">&#xe143;</span>: 敵を<a href="./class_arc.html#blind">視力喪失状態</a>にする。</li>
+                        <li><span class="w-icons solar">&#xe140;</span>: 敵に<a href="./class_solar.html#scorch">スコーチ</a>を付与する。</li>
+                        <li><span class="w-icons void">&#xe144;</span>: 敵を<a href="./class_void.html#weaken">弱体化</a>する。</li>
+                        <li><span class="w-icons stasis">&#xe139;</span>: 敵に<a href="./class_stasis.html#slow">遅延</a>を付与する。</li>
+                        <li><span class="w-icons strand">&#xef0e;</span>: 敵を<a href="./class_strand.html#sever">切断状態</a>にする。</li>
+                    </ul>
+                </li>
                 <li>爆発範囲と減衰の度合いは武器の<b>射程距離ステータスに依存</b>する。</li>
             </ul>
         </div>
@@ -2476,8 +2498,8 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_solar.html#daybreak">デイブレイク</a>で敵をキルすると、<b>強化と回復のリフト</b>が生成される。</li>
-                <li>さらに、リフト内からソーラー武器で敵をキルすると、<b>クラススキルエネルギーが回復</b>する。</li>
-                <li>また、ドーンブレード使用中かつクラススキルエネルギーが最大時、武器でキルをすると、クラススキルエネルギーを全て消費して<b>強化と回復のリフト</b>を生成する。</li>
+                <li class="further">さらに、<s>リフト内から</s>ソーラー武器で敵をキルすると、<b>クラススキルエネルギーが回復</b>する。リフト内からのソーラー武器キルの場合、さらに多く回復する。</li>
+                <li>また、ドーンブレード使用中かつクラススキルエネルギーが最大時、<span class="further">リフト内から</span>武器でキルをすると、クラススキルエネルギーを全て消費して<b>強化と回復のリフト</b>を生成する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2539,7 +2561,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_solar.html#daybreak">デイブレイク</a>の炎波が、<a href="./class_solar.html#scorch">スコーチ</a>を <b>x30</b> <span class="balloon ash">(<b>x40</b>)</span> 付与するようになる。</li>
-                <li>また、スコーチ状態の敵に対するデイブレイクのダメージが <b>+45%</b> 増加する。</li>
+                <li>また、<span class="further"><s>スコーチ状態の敵に対する</s></span>デイブレイクのダメージが <b>+45%</b> 増加する。</li>
                 <li>さらに、スコーチによって与えることができるダメージが <b><span class="pve">+200%</span><span class="pvp">+50%</span></b> 増加する。</li>
                 <li>加えて、スコーチでダメージを与える毎に近接エネルギーが <b>+6.25%</b> 回復する。</li>
             </ul>
@@ -2571,19 +2593,28 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>サブクラスと一致する属性の武器で敵をキルすると、スーパーエネルギーの蓄積量に応じてバフが付与される。</li>
-                <li>最大でない場合は<b>エネルギーサイフォン</b>、最大の場合は<b>吸収セル</b>が付与される。</li>
+                <li>最大でない場合は<b>エネルギーサイフォン</b>、最大の場合は<span class="further"><s>吸収セル</s> サブクラス属性の<b><a href="./buff_stacking.html#weapon_boost">武器ブースト</a> x4</b> </span>が付与される。</li>
                 <li>エネルギーサイフォン:
                     <ul class="stats2">
                         <li>効果時間: <b>2秒</b> (クールダウン)</li>
                         <li>スーパーエネルギーを <b><span class="pve">3%</span><span class="pvp">1.45%</span></b> 回復させる。</li>
                     </ul>
                 </li>
-                <li>吸収セル:
+                <li class="further"><s>
+                    吸収セル:
                     <ul class="stats2">
-                        <li>効果時間: <b><span class="pve">6秒</span><span class="pvp">3.5秒</span></b></li>
+                        <li>効果時間: <b><span class="pve">6秒</span><span class="pvp">3秒</span></b></li>
                         <li>サブクラスと一致する属性の武器ダメージが <b><span class="balloon univ_buff"><span class="pve">+20%</span><span class="pvp">+15%</span></span></b> 増加する。</li>
                         <li>キルをすると効果時間が <b><span class="pve">+4秒</span><span class="pvp">+2秒</span></b> 延長され、最大 <b><span class="pve">10秒</span><span class="pvp">6秒</span></b> まで延長できる。</li>
                         <li>武器を持ち替えると<b>効果が失われる。</b></li>
+                    </ul>
+                    </s>
+                </li>
+                <li class="further">
+                    武器ブースト:
+                    <ul class="stats2">
+                        <li>効果時間: <b><span class="pve">10秒</span><span class="pvp">5秒</span></b></li>
+                        <li>キルをすると効果時間が <b><span class="pve">+4秒</span><span class="pvp">+2秒</span></b> 延長され、最大 <b><span class="pve">10秒</span><span class="pvp">6秒</span></b> まで延長できる。</li>
                     </ul>
                 </li>
             </ul>
