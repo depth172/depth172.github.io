@@ -352,7 +352,9 @@
             <dt>リロードで発動</dt>
             <dd>通常のリロードに加え、ハンターの狙撃手の回避、エキゾチック防具「<a href="./exotic_armor.html#dragons_shadow">ドラゴン・シャドー</a>」のリロード効果によって発動する。それ以外のリロード効果では発動しない。</dd>
             <dt>近接スキル（チャージ近接）</dt>
-            <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
+            <dd>近接攻撃ボタンで発動できる短射程スキル。近接攻撃をする類の発動条件を満たせるが、通常の近接攻撃と区別される場合もある。</dd>
+            <dt>持ち替え後</dt>
+            <dd>一定以上の効果時間を持つすべてのパークに関する補足。発動後、その武器を持ち替えても効果が維持されるかどうかを表す。<b>維持</b>の場合は、効果時間中に該当の武器に再び持ち替えれば発動が継続され、<b>終了</b>の場合は持ち替えた時点で効果が終了する。<b>他武器継続</b>の場合、該当の武器以外を持っていても効果を発揮する。</dd>
             <dt>リロード速度・リロード時間</dt>
             <dd>リロード速度はステータス値、リロード時間は実際にリロードにかかる時間のこと。</dd>
             <dt>反動方向</dt>
@@ -764,10 +766,10 @@
             <div class="info">&lt;備考&gt;</div>
             スロス製の武器に付与される。
             <br>発動中にもう一度リロードしても効果時間はリセットされない。
-            <br>武器を持ち替えても効果は消えないが、別の武器にはこの特性の効果は適用されない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>6秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>ハンドリング: <b>+40</b></li>
                 <li>ひるみ軽減量: <b>-20%</b></li>
             </ul>
@@ -812,6 +814,7 @@
                 </li>
                 <li>リロード量: <b>25%</b></li>
                 <li>効果時間: <b>7秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>発射時間 (<span class="w-icons bow">&#xe099;</span>): <b>-15%</b></li>
                 <li>ADS時の移動速度ペナルティ: <b>-5%</b></li>
             </ul>
@@ -874,6 +877,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>10秒</b></li>
+                <li>持ち替え後: <b>他武器継続</b></li>
                 <li>ダッシュ速度: <b>+6.25%</b></li>
             </ul>
         </div>
@@ -891,6 +895,7 @@
                 <li>HP回復量: <b>60</b></li>
                 <li>HPの<b>自然再生開始</b></li>
                 <li>効果時間: <b>3秒</b></li>
+                <li>持ち替え後: <b>他武器継続</b></li>
                 <li>回復力: <b>+40</b></li>
             </ul>
         </div>
@@ -918,6 +923,7 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             アイアンバナー限定で入手できる武器に付与される。
+            <br><b>PvPでのみ</b>発動する。
             <br><a href="./class_void.html#invisibility">ボイド透明化</a>と同じように、<b>激しい行動</b>を取ると、レーダーに探知されなくなる効果は一時的に<b>無効</b>になる。
             <div class="info">&lt;発動条件詳細&gt;</div>
             HPが <b>63</b> を下回ると発動する。
@@ -937,6 +943,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>4秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>ハンドリング: <b>+30</b></li>
                 <li>チャージ時間: <b>+100</b></li>
                 <li>ガード耐性: <b>+100</b></li>
@@ -1027,6 +1034,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>5秒</b></li>
+                <li>持ち替え後: <b>他武器継続</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -1086,6 +1094,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>12秒</b></li>
+                <li>持ち替え後: <b>他武器継続</b></li>
                 <li>鍛錬: <b>+20</b></li>
                 <li>腕力: <b>+20</b></li>
             </ul>
@@ -1098,6 +1107,7 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             宙賊のシーズンの武器に付与される。
+            <br>該当の武器をしまっている間の近接攻撃でも発動する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>10秒</b>
@@ -1105,6 +1115,7 @@
                         <li>さらに近接攻撃をすると効果時間が <b>+10秒</b> され、最大 <b>20秒</b> まで増加する。</li>
                     </ul>
                 </li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>射程距離: <b>+10</b></li>
                 <li>照準補佐: <b>+10</b></li>
             </ul>
@@ -1123,6 +1134,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: 戦闘開始から <b>2秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>射程距離: <b>+20</b></li>
                 <li>ハンドリング: <b>+20</b></li>
                 <li>発射時間 (<span class="w-icons bow">&#xe099;</span>): <b>-15%</b></li>
@@ -1283,6 +1295,7 @@
             <b>4秒以内</b> に腰だめ撃ちでのヒットを <b>4回</b> すると発動する。
             <ul class="stats">
                 <li>効果時間: <b>4秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li><b>ハンドリング増加</b></li>
                 <li>リロード速度: <b>+20</b></li>
                 <li>リロード時間: <b>x0.95</b></li>
@@ -1382,6 +1395,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>4.5秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -1419,6 +1433,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>5秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>ダメージ増加量: <b>+25%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -1441,6 +1456,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>5秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -1474,10 +1490,10 @@
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
             近接キルをすると直ちに5xまで蓄積される。
-            <br>近接スキルによるキルでも、5xの状態で発動させることができる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>4.5秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -1515,9 +1531,11 @@
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
             グレネードキルをすると直ちに5xまで蓄積される。
+            <br>該当の武器をしまっている間のグレネードキルでも発動する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>4.5秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>ハンドリング: <b>+20</b></li>
             </ul>
             <table class="list stats">
@@ -1558,6 +1576,9 @@
             武器でのキルでx1が発動し、グレネードや近接スキルによるキルでx2となる。
             <br>発動後にもx1は武器によるキル、x2はスキルによるキルをすることで効果時間をリセット可能。
             <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>持ち替え後: <b>終了</b></li>
+            </ul>
             <table class="list stats">
                 <thead>
                     <tr>
@@ -1637,6 +1658,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>7秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>ダメージ増加量:
                     <ul class="stats2">
                         <li><span class="w-icons bow">&#xe099;</span> / <span class="w-icons shotgun">&#xe104;</span>: <b>+20%</b></li>
@@ -1665,6 +1687,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>7秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>ダメージ増加量: <b>+20%</b></li>
                 <li>ハンドリング: <b>+15</b></li>
             </ul>
@@ -1782,6 +1805,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>6秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>ダメージ増加量: <b>+20%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -1802,6 +1826,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>11秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>ダメージ増加量: <b>+20%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -1889,6 +1914,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>10秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>ダメージ増加量: <b>+35%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -1995,8 +2021,8 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>2.5秒</b></li>
-                <li>
-                    発射後ディレイ変化率:
+                <li>持ち替え後: <b>維持</b></li>
+                <li>発射後ディレイ変化率:
                     <ul class="stats2">
                         <li><span class="w-icons smg">&#xe107;</span> / <span class="w-icons mg">&#xe154;</span>: <b>x0.7</b></li>
                         <li>上記以外の武器: <b>x0.6</b></li>
@@ -2018,6 +2044,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>3.5秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -2083,6 +2110,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>6秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>リロード速度: <b>+70</b></li>
                 <li>リロード時間: <b>x0.9</b></li>
             </ul>
@@ -2098,6 +2126,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>2秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -2222,6 +2251,7 @@
                 <li>ダメージ: <b><span class="pve">104</span><span class="pvp">80</span></b></li>
                 <li>リロード速度: <b>+50</b></li>
                 <li>効果時間: <b>6秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2388,6 +2418,7 @@
                 <li>近接攻撃時:
                     <ul class="stats2">
                         <li>効果時間: <b>3秒</b></li>
+                        <li>持ち替え後: <b>維持</b></li>
                         <li>ハンドリング: <b>+35</b></li>
                     </ul>
                 </li>
@@ -2568,6 +2599,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>7秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>距離減衰開始/終了距離: <b>x1.45</b></li>
                 <li>精密判定増加 <b>+3° ～ 3.5°</b></li>
                 <li>安定性: <b>+30</b></li>
@@ -2710,6 +2742,7 @@
                         <li>追加のキルで <b>+5秒</b> 延長され、最大 <b>8秒</b> まで持続する。</li>
                     </ul>
                 </li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>射程距離: <b>+20</b></li>
                 <li>距離減衰開始/終了距離: <b>+5%</b></li>
                 <li>ハンドリング: <b>+40</b></li>
@@ -2727,6 +2760,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>8.5秒</b></li>
+                <li>持ち替え後: <b>他武器継続</b></li>
                 <li>ハンドリング: <b>+100</b></li>
                 <li>持ち替え時間: <b>x0.825</b></li>
             </ul>
@@ -2740,6 +2774,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>5.5秒</b></li>
+                <li>持ち替え後: <b>継続</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -2833,10 +2868,12 @@
         <div class="base">グレネードを投げるか、近接スキルを敵に当てるか、スーパースキルを使用すると、この武器の射程距離、安定性、ハンドリングが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
-            スーパースキル発動時はスタックが <b>2x</b> 付与される。
+            スーパースキル発動時はスタックが <b>2x</b> 付与される。それ以外は複数回発動しても1xのみ付与される。
+            <br>該当の武器をしまっている間のスキル使用でも発動する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>15秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -3043,6 +3080,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>7秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
                 <table class="list stats">
                     <thead>
                         <tr>
@@ -3096,6 +3134,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>7.5秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -3145,6 +3184,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>5秒</b><br></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>照準補佐: <b>+20</b><br></li>
                 <li>精度: <b>+20%</b></li>
             </ul>
@@ -3165,6 +3205,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>7秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             効果時間が増加する。
@@ -3539,6 +3580,7 @@
             <ul class="stats">
                 <li>空中効果（恒常）: <b>+10</b></li>
                 <li>効果時間: <b>5秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <table class="list stats">
@@ -3695,6 +3737,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>10秒</b></li>
+                <li>持ち替え後: <b>他武器継続</b></li>
                 <li>シールドHP: <b>30</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -3736,6 +3779,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>8秒</b></li>
+                <li>持ち替え後: <b>他武器継続</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             効果時間が増加する。
@@ -3757,6 +3801,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: 最大 <b>3秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>リロード量: <b>15%</b></li>
                 <li>射程距離: <b>+20</b></li>
                 <li>安定性: <b>+30</b></li>
@@ -3773,6 +3818,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>3秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>リロード量: <b>15%</b></li>
                 <li>ハンドリング: <b>+20</b></li>
                 <li>安定性: <b>+20</b></li>
@@ -3949,6 +3995,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>10秒</b></li>
+                <li>持ち替え後: <b>継続</b></li>
                 <li>ダメージ増加量: <b>+35%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -3968,6 +4015,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>10秒</b></li>
+                <li>持ち替え後: <b>継続</b></li>
                 <li>射程距離: <b>+10</b></li>
                 <li>距離減衰開始距離: <b>+5%</b></li>
                 <li>安定性: <b>+10</b></li>
@@ -4183,6 +4231,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>6秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>ディレイ変化率: <b>x0.7</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -4211,6 +4260,7 @@
                         <li>発動中に射撃すると、効果は失われる。</li>
                     </ul>
                 </li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>ダメージ増加量: <b><span class="pve">+500%</span><span class="pvp">+100%</span></b></li>
                 <li>ハンドリング: <b>+100</b></li>
             </ul>
@@ -4420,6 +4470,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>5秒</b> もしくは <b>3発発射するまで</b></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>ダメージ増加量: <b>+50%</b></li>
                 <li>ハンドリング: <b>+30</b></li>
             </ul>
@@ -4459,6 +4510,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>2秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>ハンドリング: <b>+100</b></li>
                 <li>チャージ時間: <b>-30%</b></li>
                 <li>ダメージ減少量: <b>-20%</b></li>
@@ -4516,6 +4568,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>3秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>発射時間: <b>-25%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -4577,6 +4630,7 @@
                         <li>キルにより <b>+4秒</b> され、最大 <b>20秒</b> 持続する。</li>
                     </ul>
                 </li>
+                <li>持ち替え後: <b>終了</b></li>
                 <li>チャージ/発射時間: <b>-37.5%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -4625,6 +4679,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>3.5秒</b></li>
+                <li>持ち替え後: <b>終了</b></li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -4672,6 +4727,7 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>5秒</b></li>
+                <li>持ち替え後: <b>維持</b>（移動速度上昇効果は<b>他武器継続</b>）</li>
                 <li>ダメージ増加量: <b>+15%</b></li>
                 <li>移動速度: <b>+12.5%</b></li>
             </ul>
@@ -4901,6 +4957,7 @@
                         <li>グレイブの投射物、もしくは近接攻撃でダメージを与えると <b>+5秒</b> され、最大 <b>10秒</b> 持続する。</li>
                     </ul>
                 </li>
+                <li>持ち替え後: <b>維持</b></li>
                 <li>近接ダメージ増加量: <b>+30%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
