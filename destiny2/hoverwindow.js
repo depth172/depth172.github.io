@@ -16,6 +16,9 @@ function textSwitching(info) {
         case 'durance':
             $("#info").text("かけら「監禁の囁き」適用時の数値");
             break;
+        case 'continuity':
+            $("#info").text("かけら「持続の糸」適用時の数値");
+            break;
         case 'univ_debuff':
             $("#info").text("全体デバフ");
             break;
