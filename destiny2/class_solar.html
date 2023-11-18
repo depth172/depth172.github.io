@@ -148,8 +148,8 @@
                     <ul>
                         <li>スーパースキル
                             <ul>
-                                <li><a href="#deadshot">ゴールデンガン: デッドショット</a></li>
-                                <li><a href="#marksman">ゴールデンガン: マークスマン</a></li>
+                                <li><a href="#golden_gun_deadshot">ゴールデンガン: デッドショット</a></li>
+                                <li><a href="#golden_gun_marksman">ゴールデンガン: マークスマン</a></li>
                                 <li><a href="#blade_barrage">刃の雨</a></li>
                             </ul>
                         </li>
@@ -237,6 +237,8 @@
             <dd>近接攻撃ボタンで発動できる短射程スキル。通常の近接攻撃とは区別される場合が多い。</dd>
             <dt>HPとシールド</dt>
             <dd>自身のHPバーのうち <b>70</b> HPは自身の体力で、それ以上の部分はシールドとなっている。シールドのHPは耐久力によって <b>115.01</b> ～ <b>130</b> まで変動する。詳しくは<a href="./base_stats.html#resilience">耐久力</a>の項目を参照。</dd>
+            <dt>リロード速度・リロード時間</dt>
+            <dd>リロード速度はステータス値、リロード時間は実際にリロードにかかる時間のこと。</dd>
         </dl>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -251,22 +253,23 @@
         <h2>ソーラー属性の固有効果</h2>
 
         <a name="radiant"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/bdd7a06f88396aa7949ab1b8e147fa1c.png" class="head"><span class="w-icons barrier">&#xe070;</span> 発光</h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/f3e21010243432f3c702f11411c56979.png" class="head"><span class="w-icons barrier">&#xe070;</span> 発光</h3>
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
             自身の武器ダメージを <span class="balloon univ_buff pve"><b>+25%</b></span><span class="balloon univ_buff pvp"><b>+10%</b></span> 増加させる。<a href="#golden_gun">ゴールデンガン</a>にも有効。
-            <br>また、武器に <span class="w-icons barrier">&#xe070;</span> <b>アンチバリア効果</b>が付与され、バリア・チャンピオンの<b>シールドを破壊</b>できるようになる。
+            <br>また、発動中は武器に <span class="w-icons barrier">&#xe070;</span> <b>アンチバリア効果</b>が付与され、バリア・チャンピオンの<b>シールドを破壊</b>できるようになる。
         </div>
 
         <a name="cure"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/b7ad6bbe1d5dbf4ea6385f39c9d0e3be.png" class="head">治癒</h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/dad8cab3e843308e1c680503cd95ce85.png" class="head">治癒</h3>
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
             スタック1個につき、自身のHPを即座に <b><span class="pve">60</span><span class="pvp">30</span></b> 回復する。
+            <br>発動には <b>1秒間</b> のクールダウンがあり、クールダウン中の再発動では回復しない。
         </div>
 
         <a name="restoration"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/b5ffe5ac4f2ffe4cb30e8637c9a02eb5.png" class="head">回復</h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/2abdb56bb808c4137c3365e237d9cab0.png" class="head">回復</h3>
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
             自身のHPを継続的に回復する。ダメージを受けても<b>中断されず</b>、<a href="./class_void.html#suppression">抑制</a>や <span class="w-icons overload">&#xe071;</span> 妨害の効果を<b>受けない</b>。
@@ -295,20 +298,21 @@
         </div>
 
         <a name="firesprite"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/c933373ffe31897a081aa8d642b8334b.png" class="head">火精</h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/47a85b432b4671a827f95a93d653f658.png" class="head">火精</h3>
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
             特性やかけらによって生成される<b>ソーラーエネルギーの塊</b>。
             <br><img src="./img/firesprite.jpg" class="illustration" width="200px">
-            <br>回収すると、グレネードエネルギーが <b>10%</b> 回復する。
+            <br>回収すると、グレネードエネルギーが <b>12.5%</b> 回復する。
+            <br>生成から最大 <b>25秒間</b> 持続し、生成には <b>5秒間</b> のクールダウンがある。味方に対しては生成されない。
         </div>
 
         <a name="scorch"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/a48c8286630f9859ce051f7d277e98fa.png" class="head">スコーチ</h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/fc1aa9dd57df16c506aba998bd289014.png" class="head">スコーチ</h3>
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
-            <b>0.56秒</b> ごとに、スタック数に応じた燃焼ダメージを受ける。x60を超えると燃焼ダメージが <b>+2.5%</b> 増加し、ダメージ表記が黃文字になる。<span class="pve">また、マイナーの敵に対しては、燃焼ダメージが <b>+20%</b> 増加する。</span>
-            <br>スコーチは付与から <b><span class="pve">4秒間</span><span class="pvp">1.5秒間</span></b> 残留し、その後は1秒につき <span class="pve"><b>x10</b></span><span class="pvp"><b>x25</b></span> ずつ減少していく。スコーチがx100になると<a href="#ignition">点火</a>する。
+            <b>0.56秒</b> ごとに、スタック数に応じた燃焼ダメージを受ける。x60を超えると燃焼ダメージが <b>+2.5%</b> 増加し、ダメージ表記が黃文字になる。<span class="pve">また、ボス以外の敵に対しては、燃焼ダメージが追加で <b>+20%</b> 増加する。</span>
+            <br>スコーチは付与から <b><span class="pve">4.5秒間</span><span class="pvp">2.3秒間</span></b> 残留し、その後は1秒につき <span class="pve"><b>x10.12</b></span><span class="pvp"><b>x25</b></span> ずつ減少していく。スコーチがx100になるとスコーチは解除され<a href="#ignition">点火</a>する。
             <span class="pvp"><br>この燃焼ダメージでキルをすることは<b>できない。</b></span>
             <div class="info">&lt;効果量&gt;</div>
             <span class="pve">ダメージ量: <b>3 + (0.195 × スタック数)</b></span>
@@ -337,10 +341,10 @@
         </div>
 
         <a name="ignition"></a>
-        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/0f6cbbe10054d7310c710b978e7ec83e.png" class="head"><span class="w-icons unstoppable">&#xe072;</span> 点火</h3>
+        <h3><img src="https://www.bungie.net/common/destiny2_content/icons/54614434b9ed10a2eed8da68d72bef2c.png" class="head"><span class="w-icons unstoppable">&#xe072;</span> 点火</h3>
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
-            点火すると、その敵を中心とした<b>爆発</b>を起こす。爆発は <b><span class="pve">750</span><span class="pvp">120</span></b> ダメージを与える。距離減衰はない。
+            点火すると、その敵を中心とした<b>爆発</b>を起こす。爆発は <span class="pve"><b>750</b></span><span class="pvp"><b>120</b> (オブジェクトに対しては <b>250</b>)</span> ダメージを与える。距離減衰はない。
             <br>また、点火した <span class="w-icons unstoppable">&#xe072;</span> アンストッパブル・チャンピオンは<b>スタン</b>する。
             <br>点火ダメージは、最初に付与したスコーチにかかった強化によって増加させることができる。
             <br><b>例</b>: <a href="./exotic_armor.html#winters_guile">ウィンター・ギル</a>のウォーロードの印 x5を付与し、<a href="#incinerator_snap">焼却の指鳴らし</a>で点火させると、点火ダメージは +275% される。
@@ -350,18 +354,18 @@
         <h2>ソーラー属性のかけら一覧</h2>
 
         <a name="ember_of_mercy"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c9e392abb5417ecab2dccd85fe23c00f.jpg" class="h3">恩情の名残</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5ca8c8de03f981b9c984a1f2bdea0f61.jpg" class="h3">恩情の名残</h3>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="#firesprite">火精</a>を拾うと、<b><a href="#restoration">回復</a> x1</b> が <b>2秒間</b> 付与される。</li>
-                <li>味方を蘇生すると、自身と周囲の味方に<b><a href="#restoration">回復</a> x1</b> が <b>6秒間</b> 付与される。</li>
+                <li>また、味方を蘇生すると、自身と周囲の味方に<b><a href="#restoration">回復</a> x1</b> が <b>5秒間</b> 付与される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ember_of_resolve"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3a633440f21817801caadb6615e0961a.jpg" class="h3">決意の名残</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/24b60501785856e2898417115e3b2afd.jpg" class="h3">決意の名残</h3>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -386,7 +390,7 @@
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>味方に<a href="#cure">治癒</a>、<a href="#restoration">回復</a>、<a href="#radiant">発光</a>を付与すると、<b>6秒間</b> スキルエネルギーの回復速度が <b>+200%</b> される。</li>
+                <li>味方に<a href="#cure">治癒</a>、<a href="#restoration">回復</a>、<a href="#radiant">発光</a>を付与すると、<b>6秒間</b> スキルエネルギーの回復速度が <b>+400%</b> される。</li>
                 <li>また、以下のスキルや武器などでも発動する。
                     <ul>
                         <li><a href="#well_of_radiance">輝く泉</a></li>
@@ -472,6 +476,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="#ignition">点火</a>のダメージを受けた敵に、<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
+                <li>点火している敵自身には付与されない。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
             <ul class="stats">
@@ -486,7 +491,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ソーラー属性の武器でキルをすると、自身と <b>12.5m以内</b> の味方に<b>緩和の名残</b>のスタックを <b>8秒間</b> 付与する。</li>
-                <li>緩和の名残発動中はすべての武器の空中効果が <b>+20</b> され、スタック1個につき回復力を <b>+10</b> させる。</li>
+                <li>緩和の名残発動中はすべての武器の空中効果が <b>+20</b> され、スタック1個につき回復力を <b>+10</b> させる。x3まで溜められる。</li>
                 <li>また、緩和の名残発動中にソーラー属性の武器でキルをすると、<b><a href="#firesprite">火精</a>が生成</b>される。</li>
             </ul>
             <div class="info">&lt;ステータス変化&gt;</div>
@@ -627,7 +632,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/004dc00b44da7351baab210b2061d3ca.jpg" class="table"></th>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/05609c418be3a985a640632ccaca796b.jpg" class="table"></th>
                     <th>トリップマイングレネード</th>
                     <td style="text-align: center;"><b>接着 / 検知</b></td>
                     <td style="text-align: left;" class="pve"><b>805</b></td>
@@ -643,7 +648,7 @@
                     <td class="name">壁や床などに張り付き、<b>10m × 7m</b> の範囲に敵が入ると爆発する。<br>敵が来ないまま <b>10秒間</b> 経つと自動的に爆発する。グレネード本体のHPは <b>10</b> 。</td>
                 </tr>
                 <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/62c119a4f9b44f9abecc5bfcafb94efa.jpg" class="table"></th>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e4aa73bf21f3da3e22f9e07475e2e614.jpg" class="table"></th>
                     <th>テルミットグレネード</th>
                     <td style="text-align: center;"><b>複数回</b></td>
                     <td style="text-align: left;" class="pve">227 × 3 = <b>681</b></td>
@@ -656,10 +661,10 @@
                     <td style="text-align: center;">-</td>
                     <td style="text-align: center;">-</td>
                     <td><b>1.77</b></td>
-                    <td class="name">前方に炎の波を <b>3回</b> 放射する。</td>
+                    <td class="name">前方に炎の波を <b>4回</b> 放射する。</td>
                 </tr>
                 <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e3d95f3eaba5b9c1ef795b10dc096b5a.jpg" class="table"></th>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1dc2e8b05e9311431682e2bab28cf1ea.jpg" class="table"></th>
                     <th>焼夷グレネード</th>
                     <td style="text-align: center;"><b>通常</b></td>
                     <td style="text-align: left;" class="pve"><b>904</b></td>
@@ -675,7 +680,7 @@
                     <td class="name">爆発の <b>0.5m以内</b> にいる対象は、受けるダメージが <b>+33%</b> 増加する。</td>
                 </tr>
                 <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b3bcabb4c6f5d4e210a832ea92c5da66.jpg" class="table"></th>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/720bf9cc73dce537c5ee5577e0edcf9b.jpg" class="table"></th>
                     <th>ソーラーグレネード</th>
                     <td style="text-align: center;"><b>継続</b></td>
                     <td style="text-align: left;" class="pve">57 + 72 × 13.3 = <b>1,014.6</b></td>
@@ -693,7 +698,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d9d4237a75d02a37eb3c1a72795eb77c.jpg" class="table"></th>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/0c322768dd41ac416e04dac131cf5fb5.jpg" class="table"></th>
                     <th>スワームグレネード</th>
                     <td style="text-align: center;"><b>検知 / 複数回</b></td>
                     <td style="text-align: left;" class="pve">(53 + 50) × 9 = <b>927</b></td>
@@ -712,7 +717,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/18b417aa16f3472a02db57943383ef1c.jpg" class="table"></th>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/37a4f29aa2ef6ffcdee1a8eb6b5bfade.jpg" class="table"></th>
                     <th>フュージョングレネード</th>
                     <td style="text-align: center;"><b>接着</b></td>
                     <td style="text-align: left;" class="pve"><b>819</b></td>
@@ -728,7 +733,7 @@
                     <td class="name">爆発時<span class="pve">819</span><span class="pvp">130</span>ダメージ。<span class="pvp">直撃すると2ダメージ。</span></td>
                 </tr>
                 <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/aa1f8d3a4ed11906061872beef20cefe.jpg" class="table"></th>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/bb77ba17b16192e7f383bc10a71bf014.jpg" class="table"></th>
                     <th>ファイアボルトグレネード</th>
                     <td style="text-align: center;"><b>検知</b></td>
                     <td style="text-align: left;" class="pve"><b>373</b></td>
@@ -744,7 +749,7 @@
                     <td class="name">着弾時、周囲にいる敵をロックオンして攻撃する。同時に <b>4体</b> まで攻撃可能。</td>
                 </tr>
                 <tr>
-                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/35824c115235240b6889fe523448fb10.jpg" class="table"></th>
+                    <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d7fa54aea967c101aeafcbc1163508d6.jpg" class="table"></th>
                     <th>回復グレネード</th>
                     <td style="text-align: center;"><b>特殊</b></td>
                     <td style="text-align: center;"><b><a href="#cure">治癒</a> x1</b></td>
@@ -774,33 +779,38 @@
         <h2>サンブレーカーのスーパースキル</h2>
 
         <a name="hammer_of_sol"></a>
-        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/746ed830d614d66f57d379811a57d03d.png" class="diamond_c"></span>サンハンマー</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/9d1fd669f61cce4abd35dbefd22ba90c.png" class="diamond_c"></span>サンハンマー</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
                 <li>基本クールダウン: <b>556秒</b> (ランク1)</li>
+                <li>発動中の被ダメージ耐性: <span class="pve"><b>90%</b></span><span class="pvp"><b>51%</b></span></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ソーラーから形成されたハンマーを投擲する。</li>
-                <li>ハンマーは着弾時に破片となり、<b>拡散して爆発</b>を起こす。</li>
+                <li>ソーラーから形成されたハンマーを投擲し、<span class="pve"><b>386</b></span><span class="pvp">[?]</span> ダメージを与える。ハンマーは <b>1.5秒ごと</b> に投擲可能。</li>
+                <li>ハンマーは着弾時に爆発して <b>3個</b> の破片へと分裂し、それぞれ <span class="pve"><b>286</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
+                <li><a href="#sol_invictus">ソル・インビクタス</a>装備中でない場合、投擲したハンマーが着弾していない間、<b>0.5秒ごと</b> にハンマーの輝きが増していき、分裂時の<b>破片の数が増加</b>する。最大で <b>6個</b> まで増加する。</li>
+                <li><a href="#sol_invictus">ソル・インビクタス</a>装備中の場合、発動時、自身の位置に<b>サンスポットが生成</b>される。また、ソル・インビクタスのバフが発動している間、投擲の頻度が <b>1秒ごと</b> まで短縮される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="burning_maul"></a>
-        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/81b0c61ff8ac802d3216324028b7e835.png" class="diamond_c"></span>モールバーニング</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/a0391bd2a8cf73c58cec261961db0136.png" class="diamond_c"></span>モールバーニング</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
                 <li>基本クールダウン: <b>500秒</b> (ランク2)</li>
+                <li>発動中の被ダメージ耐性: <span class="pve"><b>90%</b></span><span class="pvp"><b>53%</b></span></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ソーラーの大槌による攻撃を行う。</li>
-                <li>弱攻撃で、<b>回転攻撃</b>を繰り出す。連続で発動することで回転が速くなる。弱攻撃を <b>10回</b> ヒットさせると、その場に<b>サイクロン</b>を発生させ、さらにダメージを与える。</li>
-                <li>強攻撃で、地面を這う<b>追尾火炎弾</b>を放つ。火炎弾は着弾地点で爆発し、<b>サイクロン</b>を発生させる。</li>
-                <li>ソル・インビクタスの発動中は、効果時間が <b>+67%</b> 増加する。</li>
+                <li>弱攻撃で、ソーラーの大槌による<b>回転攻撃</b>を繰り出す。大槌は <b>4回</b> ヒットし、それぞれ <span class="pve"><b>111</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
+                <li>連続で攻撃し続けることで、攻撃を停止するまで攻撃速度が <b>+40%</b> 増加する。攻撃を停止した際、<b>0.67秒間</b> の硬直がある。</li>
+                <li>回転攻撃を <b>10回</b> ヒットさせると、その場に<b>サイクロン</b>を発生させる。この効果は一回の発動につき一度しか発動しない。</li>
+                <li>強攻撃で、地面を這う<b>追尾火炎弾</b>を放つ。火炎弾は着弾地点で爆発し、<span class="pve"><b>276</b></span><span class="pvp">[?]</span> ダメージを与えて<b>サイクロン</b>を発生させる。</li>
+                <li>サイクロンは、中にいる敵に <b>0.2秒ごと</b> に <span class="pve"><b>20</b></span><span class="pvp"><b>16</b></span> ダメージを与え、<b>0.56秒ごと</b> にスコーチを <b>x3</b> <span class="balloon ash">(<b>x5</b>)</span> 付与する。</span> </li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -808,35 +818,34 @@
         <h2>サンブレーカーの近接スキル</h2>
 
         <a name="hammer_strike"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c2acd9c65a21454a8114266f5cc305e2.jpg" class="h3">ハンマーストライク</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c05584046992239cbbd0d319228058b8.jpg" class="h3">ハンマーストライク</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
-                <li>基本クールダウン: <b>101秒</b></li>
-                <li>ダメージ: <b>120</b></li>
+                <li>基本クールダウン: <b>91秒</b></li>
+                <li>ダメージ: <span class="pve"><b>487</b></span><span class="pvp"><b>90</b></span> (直撃) + <span class="pve"><b>325</b></span><span class="pvp"><b>60</b></span> (範囲ダメージ)</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>1.25秒</b> 以上のダッシュ中か、その後のスライディング中に近接攻撃ボタンを押すと、前方にハンマーを構えながら突撃する。</li>
-                <li>この攻撃がヒットした敵に<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
-                <li>さらに、この攻撃で敵をキルすると、その敵を<a href="#ignition">点火</a>させる。</li>
-                <li>敵にヒットするまで、このスキルを使用することで近接エネルギーは<b>消費されない。</b></li>
+                <li>この攻撃がヒットした敵と、その一定範囲内にいる敵に<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。さらに、この攻撃で敵をキルした場合、その敵を<b><a href="#ignition">点火</a></b>させる。</li>
+                <li>この攻撃が敵にヒットしなかった場合、近接エネルギーは <b>15%</b> のみ消費される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="throwing_hammer"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/36dc4a55d4829b9f36e48355151541f1.jpg" class="h3">ハンマー投げ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2db60293ac428ae066a5bb2fed04f6e7.jpg" class="h3">ハンマー投げ</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
                 <li>基本クールダウン: <b>90秒</b></li>
-                <li>ダメージ: <b>120</b></li>
-            </ul>
+                <li>ダメージ: <span class="pve"><b>597</b></span><span class="pvp"><b>120</b></span>
+                </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>前方にハンマーを投げる。ハンマーは敵や障害物に当たると跳ね返る。</li>
-                <li>ハンマーは地面に落ち、<b>10秒後</b> に爆発して <b>130</b> ダメージを与える。</li>
+                <li>ハンマーは地面に落ち、<b>10秒後</b> に爆発して <span class="pve">[?]</span><span class="pvp"><b>130</b></span> ダメージを与える。</li>
                 <li>ハンマーは爆発する前に拾うことができ、拾うと<b>近接エネルギーが全回復</b>する。</li>
                 <li>ハンマーで敵にダメージを与えてから拾うと、自身に<b><a href="#cure">治癒</a> x1</b> が付与される。</li>
             </ul>
@@ -855,7 +864,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ソーラーのスキル、もしくは<a href="#ignition">点火</a>でキルをすると、<b>20秒間</b> スキルが与える<b>ダメージが増加</b>する。</li>
-                <li>また、近接攻撃が<b>近接スキル扱い</b>となり、敵に<b><a href="#scorch">スコーチ</a></b>を <b>x30</b> <span class="balloon ash">(<b>x40</b>)</span> 付与するようになる。</li>
+                <li>また、通常の近接攻撃が<b>近接スキル扱い</b>となり、敵に<b><a href="#scorch">スコーチ</a></b>を <b>x30</b> <span class="balloon ash">(<b>x40</b>)</span> 付与するようになる。</li>
                 <li>ただし、<a href="./exotic_armor.html#synthoceps">生体強化</a>もしくは<a href="./exotic_armor.html#wormgod_caress">燃える拳</a>の発動中は、ダメージの増加量が減少する。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
@@ -901,10 +910,10 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ソーラーのスキルか、<a href="#scorch">スコーチ</a>状態の敵をキルする、もしくは<a href="#hammer_of_sol">サンハンマー</a>を着弾させると、<b>サンスポット</b>を生成する。</li>
+                <li>ソーラーのスキルでキルをするか、<a href="#scorch">スコーチ</a>状態の敵をキルする、もしくは<a href="#hammer_of_sol">サンハンマー</a>を着弾させると、<b>サンスポット</b>を <b>20秒間</b> 生成する。</li>
                 <li>自身がサンスポットを通ると、<a href="#restoration">回復</a>と<b>ソル・インビクタス</b>が <b>5秒間</b> 付与される。</li>
-                <li>ソル・インビクタス発動中は、近接エネルギーとグレネードエネルギーの回復速度が <b>+100%</b> され、スーパースキル発動中の時間経過によるスーパーエネルギー消費量が <b>-20%</b> される。</li>
-                <li>また、サンスポットを通った敵は、1秒につき <b>6回</b> 、<b><span class="pve">60</span><span class="pvp">15</span></b> ダメージを受け、<b>x5</b> <span class="balloon ash">(<b>x8</b>)</span> のスコーチを付与される。</li>
+                <li>ソル・インビクタス発動中は、近接エネルギーとグレネードエネルギーの回復速度が <b>+100%</b> され、スーパースキル発動中の時間経過によるスーパーエネルギー消費量が <b>-40%</b> される。</li>
+                <li>また、サンスポットを通った敵は、<b>0.16秒ごと</b> に <b><span class="pve">60</span><span class="pvp">15</span></b> ダメージを受け、<b>x5</b> <span class="balloon ash">(<b>x8</b>)</span> のスコーチを付与される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -919,9 +928,10 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>スライディング中に近接スキルボタンを押すと、近接エネルギーを <b>50%</b> 消費し、ハンマーを振り上げて空中に飛び上がり、前方 <b>17.5m</b> に<b>ソーラーの波</b>を発生させる。</li>
-                <li>この波に当たった敵は <b>40</b> ダメージと、<b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> の<b><a href="#scorch">スコーチ</a></b>が付与される。</li>
-                <li>また、空中に飛び上がった状態でもう一度近接攻撃ボタンを押すと、近接エネルギーを<b>すべて</b>消費し、ハンマーを地面に叩きつけ、前方 <b>14.5m</b> に<b>より広い</b>ソーラーの波を発生させる。</li>
-                <li>この波に当たった敵は <b>120</b> ダメージを受け、スコーチが付与されている場合は<b><a href="#ignition">点火</a></b>する。</li>
+                <li>この波に当たった敵は <span class="pve"><b>90</b></span><span class="pvp"><b>30</b></span> ダメージと、<b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> の<b><a href="#scorch">スコーチ</a></b>が付与される。</li>
+                <li>また、空中に飛び上がった状態でもう一度近接攻撃ボタンを押すと、近接エネルギーを<b>すべて</b>消費し、ハンマーを地面に叩きつけ、前方 <b>14.5m</b> に<b>より広い</b>ソーラーの波を発生させて <span class="pve"><b>1080</b></span><span class="pvp"><b>120</b></span> ダメージを与える。</li>
+                <li>このときスコーチが付与されている場合は<b><a href="#ignition">点火</a></b>するが、波から受けるダメージは <span class="pve"><b>1050</b></span><span class="pvp"><b>50</b></span> ダメージとなる。</li>
+                <li>このスキルの発動中は、近接攻撃以外の被ダメージを <b>25%</b> 軽減する。</li>   
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -939,49 +949,53 @@
 
         <h2>ガンスリンガーのスーパースキル</h2>
 
-        <a name="deadshot"></a>
-        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/16e3aaf50ac9fa802b692af48b895886.png" class="diamond_c"></span>ゴールデンガン: デッドショット</h3>
+        <a name="golden_gun_deadshot"></a>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/e19ebe4d56d6f95d582703f6b481813f.png" class="diamond_c"></span>ゴールデンガン: デッドショット</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
                 <li>基本クールダウン: <b>556秒</b> (ランク1)</li>
+                <li>発動中の被ダメージ耐性: <span class="pve"><b>60%</b> (<a href="#knock_em_down">一網打尽</a>装備時は <b>66%</b>)</span><span class="pvp"><b>0%</b> (<a href="#knock_em_down">一網打尽</a>装備時は <b>15%</b>)</span></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ソーラーから生成した、装弾数 <b>6発</b> の長射程拳銃を射撃できる。</li>
+                <li>ソーラーから生成した、装弾数 <b>6発</b> の長射程拳銃を射撃できる。一発につき <span class="pve"><b>648</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
                 <li>装弾数が0になるか、<b>12秒間</b> 経過するまで持続する。</li>
                 <li>敵を<a href="#ignition">点火</a>させると、弾薬が <b>1発</b> 追加される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
-        <a name="marksman"></a>
-        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/6f3e329cf7d330f7ba0cd0f940e98110.png" class="diamond_c"></span>ゴールデンガン: マークスマン</h3>
+        <a name="golden_gun_marksman"></a>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/52f2eb1fefa20e9c7b064c190855d588.png" class="diamond_c"></span>ゴールデンガン: マークスマン</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
                 <li>基本クールダウン: <b>556秒</b> (ランク1)</li>
+                <li>発動中の被ダメージ耐性: <span class="pve"><b>60%</b></span><span class="pvp"><b>0%</b></span></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ソーラーから生成した、装弾数 <b>3発</b> の長射程拳銃を射撃できる。</li>
-                <li>装弾数が0になるか、<b>12秒間</b> 経過するまで持続する。</li>
-                <li>この銃で精密ヒットをすると、1発ごとに次の精密ダメージが <b>+45%</b> 増加し、力のオーブが <b>2個</b> 生成される。</li>
+                <li>ソーラーから生成した、装弾数 <b>3発</b> の長射程拳銃を射撃できる。一発につき <span class="pve"><b>702</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
+                <li>精密ヒットが可能で、精密ヒット時は <b>x2</b> のダメージを与える。</li>
+                <li>装弾数が0になるか、<b>12秒間</b> (<a href="#knock_em_down">一網打尽</a>装備時は <b>16秒間</b>) 経過するまで持続する。</li>
+                <li>この銃で精密ヒットをするたび、次弾の精密ダメージが <b>+45.8%</b> → <b>+90%</b> と増加し、スーパーエネルギーの<b>消費量が減少</b>し、力のオーブが <b>2個</b> 生成される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="blade_barrage"></a>
-        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/5178685d628a640be304950a6b7da11f.png" class="diamond_c"></span>刃の雨</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/0b01a6ddceb7b0e2e86ebcb7a6a83eaa.png" class="diamond_c"></span>刃の雨</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
                 <li>基本クールダウン: <b>455秒</b> (ランク3)</li>
+                <li>発動中の被ダメージ耐性: <span class="pve"><b>90%</b></span><span class="pvp"><b>49%</b></span></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>空中に跳び上がり、<b>7枚</b> の追尾するナイフを <b>2回</b> 投げる。</li>
-                <li>ナイフは、刺さった場所で遅れて<b>爆発を起こす。</b></li>
+                <li>空中に跳び上がり、<b>7枚</b> (<a href="#knock_em_down">一網打尽</a>装備時は <b>10枚</b>) の追尾するナイフを <b>2回</b> 投げる。</li>
+                <li>ナイフは直撃時にそれぞれ <span class="pve"><b>79</b></span><span class="pvp">[?]</span> ダメージを与え、<b>0.5秒後</b> に爆発を起こしそれぞれ <span class="pve"><b>407</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -989,7 +1003,7 @@
         <h2>ガンスリンガーの固有クラススキル</h2>
 
         <a name="acrobats_dodge"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/18b507607e6971bb10fec7addc24786b.jpg" class="h3">曲芸師の回避</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7b7917cbb4697af66a810def2b558328.jpg" class="h3">曲芸師の回避</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -998,6 +1012,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ナイフを構え、前方に回転する。着地時、周囲の敵に <b><span class="pve">40</span><span class="pvp">20</span></b> ダメージを与え、<b>10秒間</b> 自身と周囲の味方を<b><a href="#radiant">発光</a></b>させる。</li>
+                <li>与えるダメージは距離が離れるほど減衰する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1005,7 +1020,7 @@
         <h2>ガンスリンガーの近接スキル</h2>
 
         <a name="knife_trick"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e8a3f6085e7624845b9a55ab7fecd4b9.jpg" class="h3">ナイフトリック</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d9607f7db9d1f53b16af6ee6f6bcb428.jpg" class="h3">ナイフトリック</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -1022,7 +1037,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="lightweight_knife"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ac48c2a8fd779eea2e99e997944ed2cb.jpg" class="h3">軽量ナイフ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c267da37ac94e991cf3ac943c2aa6601.jpg" class="h3">軽量ナイフ</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -1039,24 +1054,24 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="proximity_explosive_knife"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/454eea8d4cbb81e80285c0b04f155789.jpg" class="h3">近接爆破ナイフ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3616d8241a759780586c0869fa1b3d1e.jpg" class="h3">近接爆破ナイフ</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
                 <li>基本クールダウン: <b>111秒</b></li>
-                <li>ダメージ: <b><span class="pve">249</span><span class="pvp">14</span></b> (直撃) + <b><span class="pve">346</span><span class="pvp">105</span></b> (爆発)</li>
+                <li>ダメージ: <b><span class="pve">249</span><span class="pvp">20</span></b> (直撃) + <b><span class="pve">346</span><span class="pvp">90</span></b> (爆発)</li>
                 <li>精密ダメージ倍率: <b>x1.3</b></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>敵が近づくと爆発するナイフを投擲する。</li>
-                <li>このナイフは壁や床に刺さり、<b>5m以内</b> に敵が近づくと<b>爆発</b>する。敵が来ないまま <b>14秒間</b> 経つと自動的に爆発する。</li>
+                <li>ナイフを投擲する。</li>
+                <li>このナイフは壁や床に刺さり、敵が近づくと<b>爆発</b>する。敵が来ないまま <b>14秒間</b> 経つと自動的に爆発する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="weighted_throwing_knife"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/887cfc32f0b0d64584554b7ebef24c6e.jpg" class="h3">加重ナイフ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5875031ec666d94d7358a0c7d3a1191f.jpg" class="h3">加重ナイフ</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -1066,7 +1081,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>精密ダメージが高いナイフを投擲する。敵にヒット時、<a href="#scorch">スコーチ</a>が付与されている場合は<b><a href="#ignition">点火</a></b>する。</li>
+                <li>精密ダメージが高いナイフを投擲する。ヒット時、敵に<a href="#scorch">スコーチ</a>が付与されている場合は<b><a href="#ignition">点火</a></b>する。</li>
                 <li>このナイフで精密ヒットをすると、自身のクラススキルエネルギーが<b>全回復</b>する。</li>
             </ul>
         </div>
@@ -1085,8 +1100,39 @@
             <ul class="stats">
                 <li>精密キルをすると、自身と <b>15m以内</b> にいる味方に<b>オン・ユア・マーク</b>を <b>12秒間</b> 付与する。最大 <b>x3</b> まで累積できる。</li>
                 <li>また、回避をすると、自身にオン・ユア・マークを <b>x3</b> 付与する。</li>
-                <li>オン・ユア・マーク発動中は武器のリロード時間が <b>x0.93</b> され、スタック1個につき、武器のハンドリングとリロード速度が <b>+20</b> される。</li>
+                <li>オン・ユア・マーク発動中は武器の<b>リロード時間が短縮</b>され、<b>ハンドリングとリロード速度が増加</b>する。</li>
             </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>ハンドリング</th>
+                        <td><b>+15</b></td>
+                        <td><b>+30</b></td>
+                        <td><b>+45</b></td>
+                    </tr>
+                    <tr>
+                        <th>リロード速度</th>
+                        <td><b>+15</b></td>
+                        <td><b>+30</b></td>
+                        <td><b>+45</b></td>
+                    </tr>
+                   <tr>
+                        <th>リロード時間</th>
+                        <td><b>x0.94</b></td>
+                        <td><b>x0.89</b></td>
+                        <td><b>x0.85</b></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -1100,6 +1146,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="#radiant">発光</a>中、近接スキルでキルをすると、近接エネルギーが<b>全回復</b>する。</li>
+                <li>キルをした近接攻撃で発光が付与された場合でも、同様に全回復する。</li>
                 <li>また、スーパースキルが<b>強化</b>される。</li>
                 <ul class="stats2">
                     <li><a href="#deadshot">ゴールデンガン: デッドショット</a>: 発動中、受けるダメージを <b>-15%</b> 軽減する。</li>
@@ -1130,7 +1177,7 @@
                 </li>
                 <li>スタックが <b>6個</b> 溜まると、グレネードが<b>即席爆薬</b>に置き換わる。</li>
                 <li>即席爆薬は投げてから <b>3秒</b> 経つか、<b>武器で射撃</b>すると、<b><a href="#ignition">点火</a>爆発</b>を起こす。</li>
-                <li>即席爆薬を投擲すると、次にチャージを貯めるまでの間、<b>15秒間</b> のクールダウンが発生する。</li>
+                <li>即席爆薬を投擲すると、次にチャージを貯めるまでの間、<b>6秒間</b> のクールダウンが発生する。クールダウン中のキルでは、チャージは発生しない。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1149,11 +1196,12 @@
         <h2>ドーンブレードのスーパースキル</h2>
 
         <a name="daybreak"></a>
-        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/ce006cb360a96d8f054e49499d924603.png" class="diamond_c"></span>デイブレイク</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/89b89220e92c5b363d3e105c25a21640.png" class="diamond_c"></span>デイブレイク</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
                 <li>基本クールダウン: <b>556秒</b> (ランク1)</li>
+                <li>発動中の被ダメージ耐性: <span class="pve"><b>90%</b></span><span class="pvp"><b>51%</b></span></li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -1164,7 +1212,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="well_of_radiance"></a>
-        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/5dbb9a2f285df3ee20fe37d073350a37.png" class="diamond_c"></span>輝く泉</h3>
+        <h3 class="item"><span class="diamond"><img src="https://www.bungie.net/common/destiny2_content/icons/2f3615ddcd86ab7c50653d2d1847c3bf.png" class="diamond_c"></span>輝く泉</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -1172,15 +1220,16 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ソーラーの剣を地面に立て、味方を強化する半径 <b>6.5m</b> の<b>フィールドを生成</b>する。</li>
-                <li>発動した瞬間のみ、<b>8.5m以内</b> にいる敵に<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
-                <li>フィールドに入ると、HPが毎秒 <b>100</b> ずつ回復し、武器ダメージが <span class="balloon univ_buff"><b>+25%</b></span> 増加、さらに<b><a href="./class_stasis.html#slow">遅延</a>の効果を受けなく</b>なる。</li>
+                <li>ソーラーの剣を地面に立て、味方を強化する <b>6.5m</b> のフィールドを <b>30秒間</b> 生成する。</li>
+                <li>発動した瞬間のみ、<b>8.5m以内</b> にいる敵に <b>150</b> ダメージを与えて<b><a href="#scorch">スコーチ</a></b>を <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> 付与する。</li>
+                <li>フィールド内では、HPが毎秒 <b>100</b> ずつ回復し、受けるダメージが <b>-40%</b> 軽減され、武器ダメージが <span class="balloon univ_buff"><b>+25%</b></span> 増加、さらに<b><a href="./class_stasis.html#slow">遅延</a>や<a href="./class_stasis.html#freeze">凍結</a>の効果を受けなく</b>なる。</li>
                 <li>加えて、対チャンピオン効果を持たない武器に <b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b>を付与する。</li>
                 <li><span class="pvp">さらに、メイン武器から受けるダメージを <b>-40%</b> 、それ以外の敵から受ける全てのダメージを <b>-50%</b> 軽減する。</span></li>
                 <li>また、<b>発動者</b>がフィールド内から武器で攻撃すると、そのダメージは<b>スーパースキルによるダメージ</b>として扱われる。</li>
-                <li>フィールドに入ると、<a href="#restoration">回復</a>効果は失われる。</li>
-                <li>地面に立っている剣は <b>800HP</b> で、これを超えるダメージを受けるとフィールドは破壊される。</li>
-                <li><span class="pve">また、ボスからの攻撃は、発動者の<a href="./base_stats.html#resilience">耐久力</a>に応じて <b>+50%</b> ～ <b>-75%</b> 増減したダメージを受ける。</span></li>
+                <li>フィールドに入ると、ソーラー<a href="#restoration">回復</a>の効果は失われる。</li>
+                <li>輝く泉の本体の剣は <b>800HP</b> で、これを超えるダメージを受けるとフィールドは破壊される。また、剣自体は凍結の効果と<a href="./class_stasis.html#shatter">粉砕</a>ダメージを<b>受ける。</b></li>
+                <li><span class="pve">輝く泉<b>本体</b>に対する一般兵とエリートの攻撃は、ダメージが <b>x0.25</b> まで減少する。</span></li>
+                <li><span class="pve">また、ボスからの攻撃は、発動者の<a href="./base_stats.html#resilience">耐久力</a>に応じて <b>x1.5</b> ～ <b>x0.25</b> の間で増減したダメージを受ける。</span></li>
                 <li><span class="pvp">発動者の<a href="./base_stats.html#resilience">耐久力</a>ステータスは、泉本体の被ダメージやHPに<b>影響しない。</b></span></li>
             </ul>
         </div>
@@ -1189,7 +1238,7 @@
         <h2>ドーンブレードの固有クラススキル</h2>
 
         <a name="phoenix_dive"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/85ef85819a19d528c86a6329ea895fb5.jpg" class="h3">フェニックスダイブ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/344563b4a5bee94734c4499ef83a6ac2.jpg" class="h3">フェニックスダイブ</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
@@ -1199,7 +1248,7 @@
             <ul class="stats">
                 <li><b>空中</b>でのみ発動可能。発動時、一瞬の静止後に地面に向かって<b>急降下</b>する。</li>
                 <li>着地時、自身と <b>9m以内</b> の味方に<b><a href="#cure">治癒</a> x2</b> を付与する。</li>
-                <li><a href="#heat_rises">熱上昇</a>の発動中は、自身に追加で<b><a href="#restoration">回復</a> x1</b> を <b>3秒間</b> 付与し、<b>5m以内</b> の敵に <b>100</b> ダメージを与え <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> の<b><a href="#scorch">スコーチ</a></b>を付与する。</li>
+                <li><a href="#heat_rises">熱上昇</a>の発動中は、自身に追加で<b><a href="#restoration">回復</a> x2</b> を <b>3秒間</b> 付与し、<b>5m以内</b> の敵に <b>100</b> ダメージを与え <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> の<b><a href="#scorch">スコーチ</a></b>を付与する。</li>
                 <li><a href="#daybreak">デイブレイク</a>の発動中は、着地時に <b>5m以内</b> の敵に <b>220</b> ダメージと追加の<b>燃焼ダメージ</b>を与えるが、<b>スコーチは付与しない。</b></li>
                 <li>さらに、熱上昇とデイブレイクが同時に発動しているときは、上記のダメージに加えて <b>x60</b> <span class="balloon ash">(<b>x90</b>)</span> のスコーチを付与する。</li>
             </ul>
@@ -1209,12 +1258,12 @@
         <h2>ドーンブレードの近接スキル</h2>
 
         <a name="celestial_fire"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ea7006fa8a79b74b5cc9868b759d98bf.jpg" class="h3">天の炎</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fb42651d89b71d2ca952f593c09b1448.jpg" class="h3">天の炎</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
                 <li>基本クールダウン: <b>112秒</b></li>
-                <li>ダメージ: <b>35</b> × 3</li>
+                <li>ダメージ: <b><span class="pve">150</span><span class="pvp">30</span></b> × 3</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -1225,12 +1274,12 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="incinerator_snap"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/983f2ee371714ff7f70be898f57b64e1.jpg" class="h3">焼却の指鳴らし</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e9dee44a01ea409afe80a939b6341843.jpg" class="h3">焼却の指鳴らし</h3>
         <div class="indepth">
             <div class="info">&lt;基本性能&gt;</div>
             <ul class="stats">
                 <li>基本クールダウン: <b>83秒</b></li>
-                <li>ダメージ: <b>30</b> × 5</li>
+                <li>ダメージ: <b><span class="pve">90</span><span class="pvp">27</span></b> × 5</li>
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
@@ -1253,20 +1302,21 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>空中で空中戦術ボタンを押すと、水平に <b>8m</b> 移動する。再発動できるまで <b>4秒間</b> のクールダウンがある。</li>
+                <li>空中で空中戦術ボタンを押すと、入力方向へ水平に <b>8m</b> 移動する。再発動できるまで <b>4秒間</b> のクールダウンがある。</li>
                 <li><a href="#heat_rises">熱上昇</a>の発動中は連続で <b>2回</b> 発動できるが、クールダウンが <b>5秒間</b> に延びる。</li>
                 <li>また、<a href="#daybreak">デイブレイク</a>の発動中は移動距離が <b>+25%</b> され、クールダウンが発生しない代わりにスーパーエネルギーを <b>-4.2%</b> 消費する。</li>
                 <div class="pve">
-                    さらに、空中にいる状態で連続で敵を倒し、<b>3ポイント</b>を集めることで<b><a href="#cure">治癒</a> x1</b> が付与される。
-                    <ul class="stats2">
-                        <li>ポイント配分:
-                            <ul class="stats3">
-                                <li>一般兵: <b>1</b></li>
-                                <li>エリート: <b>2</b></li>
-                                <li>ミニボス / ボス: <b>3</b></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <li>さらに、空中にいる状態で敵を連続でキルすると<b>内部カウンターが進行</b>し、100%になると<b><a href="#cure">治癒</a> x1</b> が付与される。</li>
+                        <ul class="stats2">
+                            <li>カウンター進行量:
+                                <ul class="stats3">
+                                    <li>一般兵: <b>+34%</b></li>
+                                    <li>エリート: <b>+67%</b></li>
+                                    <li>ミニボス / ボス: <b>+100%</b></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 </div>
                 <div class="pvp">さらに、空中にいる状態で <b>2体以上</b> の敵を素早く倒すと<b><a href="#cure">治癒</a> x1</b> が付与される。</div>
             </ul>
@@ -1282,7 +1332,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>グライディングを<b>中断せずに</b>、武器やスキルが使用可能になり、恒常的にすべての武器の空中効果が <b>+20</b> される。</li>
+                <li>グライディングを<b>中断せずに</b>武器やスキルが使用可能になり、恒常的にすべての武器の空中効果が <b>+20</b> される。</li>
                 <li>また、空中で敵をキルすると、<b>近接エネルギーが回復</b>する。</li>
                 <li><span class="pve">回復量は敵の<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</span>
                     <ul class="stats2">
@@ -1293,8 +1343,8 @@
                         <li><span class="pve">ランク4: <b>50%</b></span></li>
                     </ul>
                 </li>
-                <li>また、グレネードボタンを長押しすることでグレネードエネルギーを <b>100%</b> 消費し、自身に<b>熱上昇</b>を <b>15秒間</b> 付与する。</li>
-                <li>このとき、自身と <b>9m以内</b> の味方に<b><a href="#cure">治癒</a> x2</b> を付与する。回復グレネードを消費した場合は、治癒のスタック数が <b>x3</b> になる。</li>
+                <li>さらに、グレネードボタンを長押しすることでグレネードエネルギーを <b>100%</b> 消費し、自身に<b>熱上昇</b>を <b>15秒間</b> 付与する。</li>
+                <li>このとき、自身と <b>9m以内</b> の味方に<b><a href="#cure">治癒</a> x2</b> を付与する。回復グレネードを消費した場合は、治癒のスタック数が <b>x3</b> になる。<a href="#touch_of_flame">炎の囁き</a>装備中に回復グレネードを消費した場合は、追加で<b><a href="#restoration">回復</a> x1</b> を <b>4秒間</b> 付与する。</li>
                 <li>熱上昇発動中は自身の武器の空中効果が追加で <b>+50</b> され、使用中のグライディングに応じた<b>特殊なグライディング</b>を時間制限なく使用可能になる。
                     <ul class="stats2">
                         <li><b>バースト・グライディング</b> → 高度な方向修正が可能なグライディング</li>
@@ -1303,7 +1353,7 @@
                     </ul>
                 </li>
                 <li><span class="pvp">また、発動中は自身の<b>詳細な位置</b>が敵のレーダーに映るようになる。</span></li>
-                <li>熱上昇発動中に空中でキルをすると、効果時間が<span class="pvp"> <b>+5秒</b> </span>延長される。</li>
+                <li>熱上昇発動中に空中でキルをすると、効果時間が<span class="pvp"> <b>+5秒</b> </span>延長される。最大で <b>30秒</b> まで延長可能。</li>
                 <li><span class="pve">延長される時間は敵の<a href="./enemy_classification.html#tier">ランク</a>によって変動する。</span>
                     <ul class="stats2">
                         <li><span class="pve">ランク1: <b>+5秒</b></span></li>
@@ -1328,7 +1378,7 @@
                 <ul>
                     <li>ファイアボルトグレネード
                         <ul class="stats2">
-                            <li>効果範囲が <b>+50%</b> され、敵を <b>1体</b> 多く追尾できるようになる。</li>
+                            <li>効果範囲が <b>12m</b> まで拡大し、敵を <b>1体</b> 多く追尾できるようになる。</li>
                         </ul>
                     </li>
                     <li>ソーラーグレネード
@@ -1338,7 +1388,7 @@
                     </li>
                     <li>フュージョングレネード
                         <ul class="stats2">
-                            <li>追加で <b><span class="pve">945</span><span class="pvp">50</span></b> ダメージを与える、<b>2度目の爆発</b>を起こす。</li>
+                            <li><b>2度目の爆発</b>を起こし、追加で <b><span class="pve">945</span><span class="pvp">50</span></b> ダメージを与える。</li>
                             <li>この爆発によるスコーチの付与はない。</li>
                         </ul>
                     </li>
