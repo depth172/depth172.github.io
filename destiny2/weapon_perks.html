@@ -382,6 +382,8 @@
             <dd>武器のステータスの一種。大きいほどエイムアシストが強くかかる。</dd>
             <dt>空中効果</dt>
             <dd>武器のステータスの一種。大きいほど空中から射撃したときの命中精度が上がる。</dd>
+            <dt>発射後ディレイ変化率</dt>
+            <dd>武器の連射速度に関わる係数。RPM換算をしたい場合は、<b>元の発射レート(RPM) ÷ 発射後ディレイ変化率</b>で計算可能。</dd>
             <dt>HPとシールド</dt>
             <dd>自身のHPバーのうち <b>70</b> HPは自身の体力で、それ以上の部分はシールドとなっている。シールドのHPは耐久力によって <b>115.01</b> ～ <b>130</b> まで変動する。詳しくは<a href="./base_stats.html#resilience">耐久力</a>の項目を参照。</dd>
             <dt>マガジンサイズ</dt>
@@ -1981,8 +1983,6 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b344c34bf750a840b24ff5d2f8fe4507.png" class="h3">アダージョ</h3>
         <div class="base">この武器でキルをすると、この武器が与えるダメージが増加する代わりに、発射レートが減少もしくはチャージ時間が増加する。</div>
         <div class="indepth">
-            <div class="info">&lt;備考&gt;</div>
-            変化後の実効発射レート (RPM) は、(変化前のRPM ÷ 発射後ディレイ変化率) で計算可能。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>7秒</b></li>
@@ -2523,8 +2523,6 @@
                     </ul>
                 </li>
             </ul>
-            <div class="info">&lt;備考&gt;</div>
-            変化後の実効発射レート (RPM) は、(変化前のRPM ÷ 発射後ディレイ変化率) で計算可能。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>2.5秒</b></li>
@@ -5103,8 +5101,6 @@
         <div class="indepth">
             <div class="info">&lt;付与対象&gt;</div>
             <span class="w-icons rocket">&#xe108;</span>
-            <div class="info">&lt;備考&gt;</div>
-            変化後の実効発射レート (RPM) は、(変化前のRPM ÷ 発射後ディレイ変化率) で計算可能。
             <br><a href="./exotic_weapons.html#gjallarhorn">ギャラルホルン</a>のウルフパック弾は、与えるダメージが <b>-40%</b> 減少する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">

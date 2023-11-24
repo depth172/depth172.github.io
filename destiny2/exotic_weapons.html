@@ -128,7 +128,7 @@
                         <li><a href="#no_time_to_explain">猶予なき時</a></li>
                         <li><a href="#hawkmoon">ホークムーン</a></li>
                         <li><a href="#dead_mans_tale">デッドマンズテイル</a></li>
-                        <li><a href="#cryothesia_77k">クリオセシア77K</a></li>
+                        <li><a href="#cryosthesia_77k">クリオセシア77K</a></li>
                         <li><a href="#agers_scepter">アガーの杖</a></li>
                         <li><a href="#forerunner">フォアランナー</a></li>
                         <li><a href="#osteo_striga">オステオ・ストライガ</a></li>
@@ -256,6 +256,8 @@
             <dd>武器のステータスの一種。大きいほど反動が垂直に近くなる。</dd>
             <dt>照準補佐</dt>
             <dd>武器のステータスの一種。大きいほどエイムアシストが強くかかる。</dd>
+            <dt>発射後ディレイ変化率</dt>
+            <dd>武器の連射速度に関わる係数。大きいほど連射速度が遅く、小さいほど連射速度が速くなる。RPM換算をしたい場合は、<b>元の発射レート(RPM) ÷ 発射後ディレイ変化率</b>で計算可能。</dd>
             <dt>HPとシールド</dt>
             <dd>自身のHPバーのうち <b>70</b> HPは自身の体力で、それ以上の部分はシールドとなっている。シールドのHPは耐久力によって <b>115.01</b> ～ <b>130</b> まで変動する。詳しくは<a href="./base_stats.html#resilience">耐久力</a>の項目を参照。</dd>
             <dt>強力な剣攻撃</dt>
@@ -286,7 +288,7 @@
         <h2>キネティックウェポン</h2>
 
         <a name="sweet_bussiness"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f997235a74d948f98c0f83817d8a5143.jpg" class="h3">スイートビジネス</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c674b162b08bb96e7f549ceb45060b6d.jpg" class="h3">スイートビジネス</h3>
         <div class="base"><b>ペイデイ</b> - マガジンサイズが大きくなる。腰だめで撃つ時の命中精度が向上する。特殊ウェポン弾またはヘビーウェポン弾を拾うと即座にこの武器がリロードされる。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -296,9 +298,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>特殊/ヘビー弾を拾うと<b>全弾リロード</b>される。</li>
-                <li>射撃を続けると発射レートが <b>360</b> から <b>900</b> まで増加する。</li>
-                <li>発射レート増加に伴い<b>射程距離が増加</b>する。</li>
-                <li class="further">また、<b>20発</b> ごとに<b>爆発弾</b>が発射される。</li>
+                <li>射撃を続けると、発射後ディレイ変化率が最大 <b>x0.4</b> まで変化し、<b>射程距離が増加</b>する。</li>
+                <li>また、<b>18発</b> 射撃するごとに<b>爆発弾</b>が発射され、追加で <b><span class="pve">47</span><span class="pvp">21</span></b> ダメージを与える。</li>
+                <li>発射レートが最小になると、必要な発射数は <b>8発</b> まで 減少する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -308,7 +310,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="sturm"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1d3733c665f01b4adea1c5f65558ddde.jpg" class="h3">シュトゥルム</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bb7af8675b1aed2eb4f4eb14aaec9946.jpg" class="h3">シュトゥルム</h3>
         <div class="base"><b>共謀者</b> - この武器で敵を倒すと、使用中のエネルギーウェポンのマガジンが満タンになる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -317,9 +319,9 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>キルをすると、エネルギーウェポンが全弾リロードされる。</li>
-                <li>ドラングによるキルで、この武器の<b>オーバーチャージ弾</b>を1発、マガジン最大量を超えて得る。</li>
-                <li>オーバーチャージ弾は敵に <b><span class="pve">+262%</span><span class="pvp">+80%</span></b> の<b>追加ダメージ</b>を与える。</li>
+                <li>この武器でキルをすると、エネルギーウェポンが全弾リロードされる。</li>
+                <li>ドラングでキルをすると、この武器の<b>オーバーチャージ弾</b>を <b>1発</b> 得る。このとき、マガジン最大量を超える。</li>
+                <li>オーバーチャージ弾は敵に <b><span class="pve">+262%</span><span class="pvp">+80%</span></b> の追加ダメージを与える。</li>
                 <li>オーバーチャージ弾は最大 <b>99発</b> まで溜められ、<b>死亡時に全て消滅</b>する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -331,7 +333,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="vigilance_wing"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5c6ce39544e7656d1a5bdafd7829443e.jpg" class="h3">ビジランス・ウィング</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f33eed8e9c72f0e326d60691ec6e0f81.jpg" class="h3">ビジランス・ウィング</h3>
         <div class="base"><b>情け無用</b> - この武器は5点バースト射撃ができる。近くの味方が倒されると、体力が回復して移動速度が上昇する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -341,10 +343,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>5点バースト射撃</b>が可能。</li>
-                <li><b>24m以内</b> の味方が死亡した時、自身に<b>情け無用</b>を <b>6秒間</b> 付与する。</li>
+                <li><b>24m以内</b> の味方が死亡した時、HPの<b>自然再生が開始</b>し、自身に<b>情け無用</b>を <b>6秒間</b> 付与する。</li>
                 <li>情け無用:
                     <ul class="stats2">
-                        <li>HPの<b>自然再生開始</b></li>
                         <li>可動性: <b>+20</b></li>
                         <li>スライディング距離: <b>+33%</b></li>
                         <li>ダッシュ速度増加: <b>+6.25%</b></li>
@@ -367,7 +368,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="rat_king"></a>
-        <h3 class="item"><img src="https://bungie.net/common/destiny2_content/icons/e4b1e51834802439cb342a439b0079cf.jpg" class="h3">ラットキング</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b86c24934b3ec9954218ecfa0992aeb2.jpg" class="h3">ラットキング</h3>
         <div class="base"><b>ラットパック</b> - このフルオートの武器は、近くにいる仲間も装備していると威力を増す。6回まで累積可能。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -377,10 +378,10 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>フルオートで射撃可能。</li>
-                <li>キル後 <b>2秒以内</b> にリロードすると <b>6秒間</b> の<b><a href="./class_void.html#invisibility">ボイド透明化</a></b>効果を得る。</li>
-                <li>半径 <b>20m</b> 以内のラットキングを装備した味方の数に応じて、装弾数と発射レートが増加し、縦方向の反動が軽減される。</li>
-                <li><b>ダメージは増加しない。</b></li>
-                <li>スタックの数に自分は含まないため、たとえば3人装備しているならスタック数はx2 といったカウントとなる。</li>
+                <li>この武器でのキル後 <b>3秒以内</b> にリロードすると、<b>5.8秒間</b> の<b><a href="./class_void.html#invisibility">ボイド透明化</a></b>効果を得る。</li>
+                <li><b>20m以内</b> にラットキングを装備した味方がいると、<b>ラットパック</b>が発動する。味方の数に応じてスタック数が増加する。</li>
+                <li>ラットパック発動中は、この武器の装弾数と発射レートが増加し、縦方向の反動が軽減される。<b>ダメージは増加しない。</b></li>
+                <li>スタックの数に自分は含まないため、たとえば3人装備しているならスタック数は x2 といったカウントとなる。</li>
             </ul>
             <caption>()内の数字はラットパックがない状態との比較です。</caption>
             <table class="list stats">
@@ -420,13 +421,13 @@
             <ul class="stats">
                 <li>照準補佐: <b>+20</b></li>
                 <li>反動方向: <b>+20</b></li>
-                <li>キル後 <b>6秒以内</b> にリロードすると、HPの<b>自然再生が開始する。</b></li>
+                <li>この武器でのキル後 <b>6秒以内</b> にリロードすると、HPの<b>自然再生が開始する。</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="mida_multi-tool"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b481ccc7a201f55e21b561b132112f28.jpg" class="h3">MIDAマルチツール</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/eb279fe06dcd9199fccda5120e244a63.jpg" class="h3">MIDAマルチツール</h3>
         <div class="base"><b>MIDAマルチツール</b> - 移動速度が速くなる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -452,14 +453,14 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="crimson"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9a698cbe617a95339c6f885764e68ebc.jpg" class="h3">クリムゾン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5a7cb122bf2e8968a68cee59ef93b23d.jpg" class="h3">クリムゾン</h3>
         <div class="base"><b>禁止武器</b> - この武器は3点バースト射撃ができる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>3点バースト射撃</b>が可能。</li>
-                <li>キルをするとHPが <b>40</b> 回復し、HPの<b>自然再生が開始</b>する。</li>
-                <li>精密キルをすると<b>全弾リロード</b>される。</li>
+                <li>この武器でキルをするとHPが <b>40</b> 回復し、HPの<b>自然再生が開始</b>する。</li>
+                <li>この武器で精密キルをすると<b>全弾リロード</b>される。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -469,7 +470,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_jade_rabbit"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f9259f56c04975f2c92e5617d19d22fa.jpg" class="h3">玉兎</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f513e68c68d76392cffd52d94cc1410a.jpg" class="h3">玉兎</h3>
         <div class="base"><b>フェイト・オブ・オールフール</b> - 精密ショットを連鎖させると、次のボディショットにボーナスダメージが付加され、弾丸がマガジンに戻される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -483,10 +484,11 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>素早く <b>3回</b> 精密ヒットをすると、<b>フェイト・オブ・オールフール</b>のスタックを1個チャージし、弾薬を <span class="further"><s>1発</s> <b>3発</b></span> 生成する。
+                <li><b>2秒以内</b> に <b>3回</b> 精密ヒットをすると、<b>フェイト・オブ・オールフール</b>のスタックを1個チャージし、弾薬を <b>3発</b> 生成する。
                     <ul class="stats2">
                         <li>スタック1個につき、非精密ヒットが<b>精密ヒットと同じダメージ</b>を与える。</li>
                         <li>スタックは最大 <b>3x</b> まで溜められ、非精密ヒット時に消費される。</li>
+                        <li>リロードをすると、スタックは<b>すべて消滅</b>する。</li>
                     </ul>
                 </li>
             </ul>
@@ -498,7 +500,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="huckleberry"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0b614758c3d49e7f84776b0c0ce0413d.jpg" class="h3">ハックルベリー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1d3447f547dbfb395720aad4c0921018.jpg" class="h3">ハックルベリー</h3>
         <div class="base"><b>闘牛士</b> - トリガーを引いている間、連射速度が上昇し、反動が大きくなる。この武器で敵を倒すと、マガジンが一部リロードされる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -511,8 +513,8 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>連続して <b>10発</b> 射撃するごとに発射レートが <b>720</b> → <b>810</b> → <b>900</b> と変化する。</li>
-                <li>キルをすると、<b>マガジンの半分（15発）</b>がリロードされ、<b>3.5秒間</b> ダメージが増加する。</li>
+                <li>連続して <b>0.833秒間</b> 射撃するごとに<b>闘牛士</b>のスタックが付与され、スタックごとに発射後ディレイが <b>x0.9</b> 、 <b>x0.8</b> と変化し、<b>精度が増加</b>する。</li>
+                <li>この武器でキルをすると、マガジンの <b>50%</b> がリロードされ、<b>3.5秒間</b> ダメージが増加する。</li>
                 <li>この武器に付与される暴れん坊は<a href="./weapon_perks.html#rampage">通常のもの</a>とはダメージ増加量が異なる。</li>
             </ul>
             <table class="list stats">
@@ -541,13 +543,13 @@
             </table>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>キルをすると、マガジンの<b>全弾</b>がリロードされる。</li>
+                <li>この武器でキルをすると、マガジンの 50% → <b>100%</b> がリロードされる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="suros_regime"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c4327b4c697485c21bee1833d1075bf1.jpg" class="h3">スロス・レジーム</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/42120a6f2e1f43dd7f67bedffc42d0d2.jpg" class="h3">スロス・レジーム</h3>
         <div class="base"><b>スロスの遺産</b> - マガジンが半分以下になるとボーナスダメージが発生し、敵を倒すと一定の確率で体力が回復する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -558,7 +560,8 @@
             <ul class="stats">
                 <li>マガジン残量が <b>50%</b> を切るとダメージが増加する。</li>
                 <li>ダメージ増加量は残弾の少なさに応じて <b>+5% ～ +10%</b> の範囲で変動する。</li>
-                <li>キルをすると、<b>25%</b> の確率でHPの<b>自然再生が開始</b>する。</li>
+                <li>この武器でキルをすると、<b>25%</b> の確率でHPの<b>自然再生が開始</b>する。</li>
+                <li>パークを<b>スピニング・アップ</b>と<b>二面性スピード処理</b>の2つから選択可能。</li>
                 <li>スピニング・アップ:
                     <ul class="stats2">
                         <li>連続して <b>12発</b> 射撃するごとに発射レートが <b>720</b> から <b>900</b> へと変化する。</li>
@@ -590,28 +593,24 @@
         -->
 
         <a name="cerberus_+1"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8d6d43a7aab79e837b7b3b09dd7a8b3d.jpg" class="h3">ケルベロス+1</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/161a3f06196563345afeacb46e9df88d.jpg" class="h3">ケルベロス+1</h3>
         <div class="base"><b>4つ頭の犬</b> - 全てのバレルから一斉に弾が不規則に発射される。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>1発につき4つの弾が円形に発射される。</li>
-                <li>距離によるダメージ減衰が特殊なものになっている。
-                    <ul class="stats2">
-                        <li><b>0m ～ 16m</b>（ADS時 <b>0m ～ 23m</b>）では<b>距離が近いほどダメージが減少し、遠くなるほど増加</b>する。</li>
-                        <li><b>16m ～ 32m</b>（ADS時 <b>23m ～ 48m</b>）で最大のダメージを与えられる。それ以降は通常の距離減衰となる。</li>
-                    </ul>
-                </li>
+                <li>1発につき4つの弾が円形に発射される。うち一発は必ずレティクルに従ってヒットする。</li>
+                <li>ペレットは一発あたり <b><span class="pve">34</span><span class="pvp">18.8</span></b> ダメージを与える。精密ダメージ倍率は <b>x1.6</b> となっている。</li>
+                <li>ADSをすると、ペレット拡散が <b>-20%</b> 軽減される。</li>
+                <li>距離によるダメージ減衰が特殊なものになっており、<b>0m ～ 14m</b>（ADS時 <b>0m ～ 22m</b>）では距離が近いほどダメージが最大 <b>-17%</b> 減少し、遠くなるほど増加する。それ以降は通常の距離減衰となる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>
                     <b>集中砲火モード</b>を追加する。リロードボタン長押しで切り替え可能。
                     <ul class="stats2">
-                        <li><span class="pve">与えるダメージが <b>+91%</b> 増加する。</span><span class="pvp">ペレット1発あたり <b>22.6</b> のダメージを与える。</span></li>
-                        <li><b>拡散が低減</b>され、発射レートは <b>180</b> になる。</li>
-                        <li>通常モードと違い、距離によるダメージ減衰は標準的なもの。</li>
-                        <li><b>8m ～ 11m</b>（ADS時 <b>12m ～ 17m</b>）の間で最大 <b>80%</b> 減衰する。</li>
+                        <li>拡散が <b>-55%</b> 低減され、発射レートは <b>180</b> になり、反動が <b>+200%</b> 増加する。</li>
+                        <li>ペレットは一発あたり <b><span class="pve">64.6</span><span class="pvp">22.67</span></b> ダメージを与える。精密ダメージ倍率は <b>x1.2</b> となっている。</li>
+                        <li>通常モードと違い、距離によるダメージ減衰は標準的なもので、<b>8m ～ 11m</b>（ADS時 <b>12m ～ 17m</b>）の間で最大 <b>80%</b> 減衰する。</li>
                     </ul>
                 </li>
             </ul>
@@ -619,22 +618,23 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="wish-ender"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2f43461f378a905db1ba3e3dbcbfed83.jpg" class="h3">願望の終人</h3>
-        <div class="base"><b>女王の怒り</b> - 弓を最大まで引き絞った状態で照準を合わせると壁の後ろにいる敵がハイライトされる。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8e5d7a68305a0d1e53ccade9398c7e8b.jpg" class="h3">願望の終人</h3>
+        <div class="base"><b>女王の怒り</b> - 弓を最大まで引き絞った状態で照準を合わせると壁の後ろにいる戦闘員がハイライトされ、矢がシールドを貫通する。<span class="w-icons barrier">&#xe070;</span> バリア・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b></li>
                 <li>最大状態まで引いた状態でADSすると、最大 <b>64m</b> までの敵を透視できる。</li>
                 <li>矢は敵を<b>無制限に貫通</b>し、1度に <b><span class="pve">3回</span><span class="pvp">2回</span></b> ダメージを与える。</li>
-                <li>刺突時に <span class="pve"><b>125</b></span><span class="pvp"><b>129</b></span> ダメージ、貫通時に <span class="pve"><b>235 × 2</b></span><span class="pvp"><b>30</b></span> ダメージを与える。合計で <b><span class="pve">595</span><span class="pvp">159</span></b>                    ダメージ。</li>
-                <li>さらに、宿られた兵へのダメージが <b>10%</b> 、<a href="#witherhoard">ウィザーホード</a>の弾を受けた敵に対するダメージが <b>+25%</b> 増加する。</li>
+                <li>刺突時に最大 <span class="pve"><b>125</b></span><span class="pvp"><b>129</b></span> ダメージ、貫通時に最大 <span class="pve"><b>235 × 2</b></span><span class="pvp"><b>30</b></span> ダメージを与える。合計で最大 <b><span class="pve">595</span><span class="pvp">159</span></b> ダメージ。</li>
+                <li>刺突時のダメージのみ、精密ヒットが発生する。</li>
+                <li>さらに、宿られた兵へのダメージが <b>+10%</b> 、<a href="#witherhoard">ウィザーホード</a>の弾を受けた敵に対するダメージが <b>+25%</b> 増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="malfeasance"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0c2816822b0a1787157f1e90d3bd057c.jpg" class="h3">マリフィセンス</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5564a17ddf52e36f56e7256ad9946a17.jpg" class="h3">マリフィセンス</h3>
         <div class="base"><b>爆発の影</b> - 敵の内部に潜り込む汚染スラグ弾を撃つ。一定数撃ち込まれた敵は爆発する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -643,15 +643,15 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ヒット時、敵に<b>スラグ弾</b>を埋め込む。スラグ弾は <b>5個</b> 撃ち込まれると爆発し、追加で <b><span class="pve">130</span><span class="pvp">45</span></b> ダメージを与える。</li>
-                <li>この爆発には <b><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル効果</b>がある。</li>
-                <li>宿られた兵、ギャンビットの侵入者、<a href="#witherhoard">ウィザーホード</a>の弾を受けた敵に対するダメージが <b>+25%</b> 増加する。</li>
+                <li>ヒット時、敵に <b>6秒間</b> 持続する<b>スラグ弾</b>を埋め込む。スラグ弾は個々に異なる持続時間を持つ。</li>
+                <li>スラグ弾は <b>5個</b> 撃ち込まれると<b>爆発</b>し、追加で <b><span class="pve">237</span><span class="pvp">45</span></b> ダメージを与える。この爆発には <b><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル効果</b>がある。</li>
+                <li>宿られた兵、ギャンビットの侵入者に対するダメージが <b>+25%</b> 増加する。また、<a href="#witherhoard">ウィザーホード</a>の弾によって汚染された敵に対して、ダメージが <b>+25%</b> 増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ace_of_spades"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ce5d5c56ffc83fe92b367ec2d4dc1a2a.jpg" class="h3">切り札</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cdfbfd3f098329a367294f191070f8c4.jpg" class="h3">切り札</h3>
         <div class="base"><b>メメント・モリ</b> - キルの後にリロードすると、そのマガジンに通常よりも威力の高い弾薬がロードされる。照準時にレーダーが表示される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -665,8 +665,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ADS中の<b>レーダーが有効化</b>される。</li>
-                <li>キル後 <b>2.3秒以内</b> にリロードすると<b>メメント・モリ</b>が発動し、 次に射撃する <b>6発</b> のダメージが <b><span class="pve">+50%</span><span class="pvp">+28.5%</span></b> 増加する。</li>
-                <li>また、精密キルに<b>ソーラー爆発</b>を起こし、リロード速度が <b>+50</b> 増加する。</li>
+                <li>この武器でキルをした後 <b>3.6秒以内</b> にリロードすると<b>メメント・モリ</b>が発動する。</li>
+                <li>メメント・モリ発動中は、次に射撃する <b>6発</b> のダメージが <b><span class="pve">+50%</span><span class="pvp">+28.5%</span></b> 増加するが、ダメージ減衰開始距離は <b>-15%</b> 減少する。</li>
+                <li>また、この武器での精密キル時に<b>ソーラー爆発</b>を起こし、リロード速度が <b>+50</b> 増加する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -676,7 +677,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_chaperone"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c5fb814d409f1c0a47e89c5062e2182b.jpg" class="h3">シャペロン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1d387ba81462f8f5abb63b4492b10dbe.jpg" class="h3">シャペロン</h3>
         <div class="base"><b>精密スラグ</b> - 単発の精密スラグ弾を発射する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -686,15 +687,15 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b><a href="./weapon_parts.html#lightweight_frame">軽量フレーム</a>の内在効果</b>を得る。</li>
-                <li>距離減衰開始距離が通常より長い <b>11.5m</b> に設定されている。</li>
-                <li>精密キル時、<b>荒野生まれ</b>を <b>10秒間</b> 付与する。</li>
+                <li>距離減衰開始距離が通常の同フレームショットガンより <b>+5%</b> 長く設定されている。</li>
+                <li>この武器での精密キル時、<b>荒野生まれ</b>を <b>10秒間</b> 付与する。</li>
                 <li>荒野生まれ:
                     <ul class="stats2">
                         <li>精密ダメージ: <b>+17%</b></li>
-                        <li>ハンドリング: <b>+20</b></li>
                         <li>リロード速度: <b>+40</b></li>
-                        <li>発射レート: 70 → <b>120</b></li>
-                        <li>距離減衰開始距離: <b>+1m</b></li>
+                        <li>持ち替え速度: <b>x0.56</b></li>
+                        <li>発射後ディレイ変化率: <b>x0.58</b></li>
+                        <li>距離減衰開始距離: <b>+10%</b></li>
                     </ul>
                 </li>
             </ul>
@@ -702,7 +703,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="izanagis_burden"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/90e33e5fbf32b4445cb095d17ab00fb7.jpg" class="h3">イザナギの覚悟</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8763caf9bfb147a41f3e34ec7eaf876b.jpg" class="h3">イザナギの覚悟</h3>
         <div class="base"><b>磨かれた刃</b> - マガジンを消費し、射程距離とダメージが強化された弾丸を装填する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -744,13 +745,13 @@
             </table>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>磨かれた刃 x4 時のダメージ量を <b>x1.2</b> にし、合計すると <b><span class="pve">+380%</span><span class="pvp">+200%</span></b> となる。</li>
+                <li>磨かれた刃 x4 時のダメージ量を <b>x1.2</b> にし、合計すると <b><span class="pve">+400%</span><span class="pvp">+200%</span></b> となる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_last_word"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c30f714c7f642951c68069aa92cf06b3.jpg" class="h3">ラスト・ワード</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a10719f1f2180e473ea9a0957e3b9fe4.jpg" class="h3">ラスト・ワード</h3>
         <div class="base"><b>ファンファイア</b> - フルオートで射撃する。腰だめで打つと精密ダメージにボーナスが付与され、リロード速度と命中精度が上昇する。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -760,10 +761,10 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>腰だめ撃ちの精密ダメージを <b>+30%</b> 増加させる。</li>
-                <li>腰だめ撃ちでのヒット時に<b>ファンファイア</b>のスタックを1個チャージする。
+                <li>腰だめ撃ちでのヒット時に<b>ファンファイア</b>のスタックを <b>4秒間</b> 付与する。
                     <ul class="stats2">
                         <li>スタック1個につきリロード速度が <b>+5</b> 増加し、<b>精度が向上</b>する。</li>
-                        <li>スタックは <b>4秒</b> 経過するかリロード、もしくはADSしたとき消滅する。</li>
+                        <li>スタックはリロード、もしくはADSをしたときに消滅する。</li>
                     </ul>
                 </li>
             </ul>
@@ -771,7 +772,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="arbalest"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a25a0a02beacad55e2e5baf7c56c4acf.jpg" class="h3">アーバレスト</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c95ea75fe09d9f090a88d5322923d07a.jpg" class="h3">アーバレスト</h3>
         <div class="base"><b>複合する力</b> - 敵の属性シールドに対して大ダメージを巻き起こすスラグ弾を発射する。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -782,7 +783,7 @@
             <ul class="stats">
                 <li><b>特殊弾を使用</b>する。</li>
                 <li><b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b></li>
-                <li>属性シールドを<b>即座に破壊</b>する。 </li>
+                <li>ヒット時、属性シールド・オーバーシールド・チャンピオンのバリアを<b>即座に破壊</b>する。 </li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -794,7 +795,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="thorn"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ba392591a98adb436d5f34db5af635c1.jpg" class="h3">トルン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d9fdb6774ff70cccd4161c13885d1258.jpg" class="h3">トルン</h3>
         <div class="base"><b>マーク・オブ・ザ・ディボーラー</b> - 標的を貫通し、時間経過とともにダメージを与える。この武器でキルすると残余物が発生する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -803,17 +804,24 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>弾が <b>0.5秒</b> ごとに <b><span class="pve">8.5</span><span class="pvp">0.4</span></b> の<b>毒ダメージ</b>を <b>4回</b> 与える。</li>
-                <li>また、敵をキルすると<b>残余物</b>を生成する。</li>
+                <li><b>ウェポンズ・オブ・ソロウ</b>に分類される。</li>
+                <li>ヒットしてから <b>0.05秒後</b> 、敵に<b>毒</b>を与える。毒は <b>0.5秒</b> ごとに <b><span class="pve">8.8</span><span class="pvp">0.4</span></b> ダメージを <b>4回</b> 与える。</li>
+                <li>また、この武器で敵をキルすると<b>残余物</b>を生成する。残余物に接近すると、残余物は自身を追尾して動く。</li>
                 <li>残余物を拾うとマガジンを <b>4発</b> リロードし、<b>魂を貪る者</b>を <b>7秒間</b> 付与する。</li>
                 <li>魂を貪る者発動中は毒ダメージが <b><span class="pve">+200%</span><span class="pvp">+1750%</span></b> 強化される。</li>
                 <li>残余物をもう一度拾うことで効果時間を延長でき、最大で <b>10秒</b> まで延長できる。</li>
+            </ul>
+            <div class="info">&lt;媒体効果&gt;</div>
+            <ul class="stats">
+                <li>射程距離: <b>+20</b></li>
+                <li>安定性: <b>+10</b></li>
+                <li>この武器でキルをするか、残余物を拾うと、射程距離が +[?] 、ハンドリングが +[?] 、可動性が +[?] 増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="outbreak_perfected"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b71a0a8c2dbfda6ac33cde56983fe078.jpg" class="h3">パーフェクト・アウトブレイク</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a1b6a5f3e52878610397249986300b23.jpg" class="h3">パーフェクト・アウトブレイク</h3>
         <div class="base"><b>感染拡大</b> - 高速ヒットや精密キル発生時にZIVAナノロボットの大群を生成する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -823,23 +831,23 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>オートライフルと同様の反動タイプを持つ。</li>
-                <li><b>2.5秒以内</b> に <b>12回</b> 精密ヒットをすると、ナノロボットを <b>2～4体</b> 生成する。</li>
-                <li>精密キルをすると、ナノロボットを <b>9体</b> 生成する。</li>
-                <li>ナノロボットは、自動的に付近の敵に張り付いて<b>継続的なダメージ</b>を与える。</li>
-                <li>ナノロボットは <b>6秒間</b> 持続するが、新しくナノロボットを付着させると持続時間はリセットされる。</li>
+                <li>それぞれ <b>2.5秒以内</b> に <b>12回</b> 精密ヒットをすると、ナノロボットを <b>2～4体</b> 生成する。</li>
+                <li>この武器で精密キルをすると、ナノロボットを <b>9体</b> 生成する。</li>
+                <li>ナノロボットは自動的に付近の敵に張り付き、接触時に <b><span class="pve">42</span><span class="pvp">13</span></b> ダメージを与える。</li>
+                <li>ナノロボットは空中では <b>3秒間</b> 、敵に張り付いてからは <b>6秒間</b> 持続するが、新しくナノロボットが付着すると持続時間はリセットされる。</li>
                 <li>また、付着したナノロボットの数に応じて<b>この武器のダメージが増加</b>する。</li>
-                <li>ダメージは、<span class="pve">最初の5体までは 1体につき <b>+30%</b> 、以降は1体につき <b>+2%</b>（最大 <b>+450%</b>）</span><span class="pvp">ナノボット1体につき <b>+15%</b> 、4体目のみ <b>+30%</b></span>増加する。</li>
+                <li>ダメージは、<span class="pve">最初の5体までは1体につき <b>+30%</b> 、以降は1体につき <b>+2%</b>（最大 <b>+450%</b>）</span><span class="pvp">ナノボット1体につき <b>+15%</b> 、4体目のみ <b>+30%</b></span>増加する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>ナノロボット影響下の敵をキルすると、ナノロボットを追加で <b>4体</b> 生成する。</li>
-                <li>さらに、ナノロボット自身の攻撃力を <b><span class="pve">+25%</span><span class="pvp">+18%</span></b> 増加させる。</li>
+                <li>さらに、ナノロボットが付着時に追加で <b>7</b> ダメージを与える。このダメージはナノロボットの数によるダメージボーナスを受ける。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="bad_juju"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/83f666505b8e3a3d311b005922739283.jpg" class="h3">バッド・ジュジュ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a7cc8a658f8196f13cdde9d72ca9945d.jpg" class="h3">バッド・ジュジュ</h3>
         <div class="base"><b>呪いの弦</b> - キルでマガジンが補充され、短時間ダメージが上昇する。また、呪いの弦の強さに応じてスーパーエネルギーが付与される。フルオートで発射する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -848,10 +856,10 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>キルをすると全弾リロードされ、<b>呪いの弦</b>のスタックを1個チャージする。
+                <li>この武器でキルをすると全弾リロードされ、<b>呪いの弦</b>のスタックを1個チャージする。
                     <ul class="stats2">
-                        <li>スタック1個につき、<b>ダメージが増加</b>し、キル時にスーパーエネルギーが<b>追加で回復</b>する。</li>
-                        <li>スタックは最大で <b>x5</b> まで溜められ、キルをしないまま <b>3.5秒</b> 経過すると消滅する。</li>
+                        <li>スタック1個につき、<b>ダメージが増加</b>し、この武器でのキル時にスーパーエネルギーが<b>追加で回復</b>する。</li>
+                        <li>スタックは最大で <b>x5</b> まで溜められ、この武器でキルをしないまま <b>3.5秒</b> 経過すると消滅する。</li>
                     </ul>
                 </li>
                 <table class="list stats">
@@ -901,7 +909,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="lumina"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/26e7f61d27a6d730336a5bfe33dd5532.jpg" class="h3">ルミナ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/65735eb5048ba941145e35224014e479.jpg" class="h3">ルミナ</h3>
         <div class="base"><b>ノーブルラウンド</b> - この武器でキルすると残余物が発生する。残余物を吸収すると、次の腰だめ撃ちが味方を見つけるノーブルラウンドになり、マガジンが部分的にリロードされる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -910,9 +918,9 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>敵をキルすると残余物を生成する。</li>
+                <li>この武器で敵をキルすると残余物を生成する。残余物に接近すると、残余物は自身を追尾して動く。</li>
                 <li>残余物を拾うとマガジンを <b>4発</b> リロードし、<b>ノーブルラウンド</b>を <b>1発</b> 付与する。</li>
-                <li>残余物を複数個拾うことでノーブルラウンドを蓄積でき、最大蓄積数は <span class="further"><s>5個</s> <b>6個</b></span>。</li>
+                <li>残余物を複数個拾うことでノーブルラウンドを蓄積できる。最大蓄積数は <b>6個</b> 。</li>
                 <li>ノーブルラウンドは<b>腰だめ撃ちで発射</b>でき、味方を追尾して動く。</li>
                 <li>ヒット時、味方のHPを <b>90</b> 回復し、自身とその味方に<b>空の祝福</b>を <b>11秒間</b> 付与する。</li>
                 <li>空の祝福は付与された対象の<b>武器ダメージ</b>を <span class="balloon univ_buff"><b><span class="pve">+35%</span><span class="pvp">+15%</span></b>
@@ -921,7 +929,7 @@
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>キル時の残余物を <b>2個</b> 生成する。</li>
+                <li>この武器でのキル時、残余物を <b>2個</b> 生成する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -936,7 +944,7 @@
         -->
 
         <a name="monte_carlo"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3885eb5206a2f3b8a85a020fb87d34a7.jpg" class="h3">モンテカルロ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d123aaf47eed3de479aac4492577f7e9.jpg" class="h3">モンテカルロ</h3>
         <div class="base"><b>モンテカルロ方式</b> - この武器でダメージを与えると近接攻撃のクールダウンが短縮され、敵をキルするごとに一定確率で近接スキルが最大までチャージされる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -950,9 +958,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ヒット時、近接エネルギーを <b>2%</b> 回復する。</li>
-                <li>キルをすると、<b>25%</b> の確率で近接エネルギーを<b>全回復</b>する。</li>
-                <li>近接キルをすると全弾リロードされる。</li>
-                <li>キルや近接キルで<b>マルコフ連鎖</b>のスタックがチャージされ、マルコフ連鎖のスタック数に応じてこの武器が与える<b>ダメージが増加</b>する。</li>
+                <li>この武器でキルをすると、<b>25%</b> の確率で近接エネルギーを<b>全回復</b>する。</li>
+                <li>近接キルをすると<b>全弾リロード</b>される。</li>
+                <li>この武器によるキルや近接キルで<b>マルコフ連鎖</b>のスタックが <b>4.5秒間</b> 付与され、マルコフ連鎖のスタック数に応じてこの武器が与える<b>ダメージが増加</b>する。</li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -976,19 +984,30 @@
                     </tr>
                     <tr class="pvp">
                         <th>ダメージ増加量</th>
-                        <td><b>+5%</b></td>
-                        <td><b>+12%</b></td>
-                        <td><b>+19%</b></td>
-                        <td><b>+26%</b></td>
-                        <td><b>+30%</b></td>
+                        <td><b>+6.6%</b></td>
+                        <td><b>+13.2%</b></td>
+                        <td><b>+19.8%</b></td>
+                        <td><b>+26.4%</b></td>
+                        <td><b>+33%</b></td>
                     </tr>
                 </tbody>
             </table>
+            <div class="info">&lt;媒体効果&gt;</div>
+            <ul class="stats">
+                <li>マルコフ連鎖のスタック数が <b>x5</b> のときにリロードボタンを長押しすると、<b>銃剣を起動</b>する。銃剣は近接スキルとして<b>一度だけ</b>発動可能。</li>
+                <li>銃剣攻撃は、通常の近接攻撃と比較して射程が <b>6m</b> に増加、さらにダメージが増加しており、ヒット時に近接エネルギーを <b>50%</b> 回復する。</li>
+                <li>ダメージ増加量: <span class="pvp"><b>+40%</b></span>
+                    <ul class="stats2 pve">
+                        <li>一般兵 / エリート: <b>+1540%</b></li>
+                        <li>ミニボス / ボス: <b>+560%</b></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="bastion"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/32c00781f13e5597d16d8c2fc40e170d.jpg" class="h3">バスティオン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/805009e0c67a2dcf4f4f7bffb2dba493.jpg" class="h3">バスティオン</h3>
         <div class="base"><b>セイントの拳</b> - 3つのキネティック分散弾を発射する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1000,14 +1019,14 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="witherhoard"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e805ada80a07dccb6db9db71199ab273.jpg" class="h3">ウィザーホード</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3e4fc5bcc1dea42508124e11572367d2.jpg" class="h3">ウィザーホード</h3>
         <div class="base"><b>プライミーバルの苦痛</b> - この武器から放たれた投射物は命中時に標的や付近のエリアを汚染する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>床に命中時、半径 <b>4.5m</b> の汚染を <b>4.5秒間</b> 生成する。</li>
-                <li>汚染に立っている敵は <b>0.26秒</b> ごとに<b>継続的なダメージ</b>を受ける。</li>
-                <li>敵に命中時、<b>9.5秒間</b> 敵を汚染し、<b>0.5秒</b> ごとに<b>継続的にダメージを与える。</b></li>
+                <li>床に命中時、<b>4.5m以内</b> の敵に <span class="pve">[?]</span><span class="pvp"><b>51</b></span> ダメージを与え、<b>4.5m</b> の汚染を <b>4.5秒間</b> 生成する。</li>
+                <li>汚染に立っている敵は <b>0.26秒</b> ごとに <span class="pve">[?]</span><span class="pvp"><b>40</b></span> ダメージを受ける。</li>
+                <li>敵に命中時、 <span class="pve">[?]</span><span class="pvp"><b>10</b></span> ダメージを与えて <b>9.5秒間</b> 敵を汚染し、<b>0.5秒</b> ごとに <span class="pve">[?]</span><span class="pvp"><b>80</b></span> ダメージを与える。</li>
                 <li>汚染された敵は倒されると<b>その場に汚染を生成する。</b></li>
                 <li>範囲の持続ダメージと直撃による持続ダメージは<b>重複する</b>が、複数個・複数人で同種のダメージをヒットさせても重複せず、最初にヒットしたプレイヤーによるダメージとなる。</li>
             </ul>
@@ -1020,7 +1039,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="travelers_chosen"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d35a7daa6cb2ce297d130588a7b45368.jpg" class="h3">トラベラーの英雄</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6f0f3ab28d86316feb7fe27c5855ab4c.jpg" class="h3">トラベラーの英雄</h3>
         <div class="base"><b>光の集積</b> - この武器でトドメを刺すと「光の集積」がスタックする。スタックを消費し、スタック数に応じて近接、グレネード、クラススキルエネルギーがチャージされる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1033,7 +1052,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>キルをすると、<b>光の集積</b>のスタックを<span class="pve">1個</span><span class="pvp">2個</span>チャージする。
+                <li>この武器でキルをすると、<b>光の集積</b>のスタックをチャージする。
                     <ul class="stats2">
                         <li>スタック1個につき、ハンドリングとリロード速度が <b>+15</b> 、照準補佐が <b>+2</b> 増加する。</li>
                         <li>リロードボタンを長押しすると、スタックを全て消費して、全てのスキルエネルギーを1スタックにつき <b>10%</b> 回復する。</li>
@@ -1051,7 +1070,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="no_time_to_explain"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b4815d2060876f82559502e67bf9c3e3.jpg" class="h3">猶予なき時</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8a79a43912129240ee9f70e8e6bcfd6d.jpg" class="h3">猶予なき時</h3>
         <div class="base"><b>再巻き戻し</b> - 精密ショット達成時、もしくはステイシスによって遅延状態もしくは凍結状態の戦闘員を攻撃すると、撃った弾がマガジンに戻ってくる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1064,11 +1083,12 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>精密ヒットをするか<a href="./class_stasis.html#slow">遅延</a>/<a href="./class_stasis.html#freeze">凍結</a>状態の敵を攻撃すると、撃った弾をリロードし、<b>再巻き戻し</b>のスタックを1個チャージする。
+                <li>精密ヒットをするか<a href="./class_stasis.html#slow">遅延</a> / <a href="./class_stasis.html#freeze">凍結</a>状態の敵を攻撃すると、撃った弾をリロードし、<b>再巻き戻し</b>のスタックを1個チャージする。
                     <ul class="stats2">
                         <li>スタックが10個溜まると、<b>時空の裂け目</b>を <b>9秒間</b> 出現させる。</li>
-                        <li>時空の裂け目は最大 <b>40m</b> までの敵を <b>1.25秒</b> ごとに自動的にバースト射撃で攻撃し、<span class="pve">通常弾の <b>+10%</b> のダメージ</span><span class="pvp">1発につき <b>10.2</b> のダメージ</span>を与える。距離減衰はない。</li>
-                        <li>スタックをチャージすると、時空の裂け目の効果時間が延長される。</li>
+                        <li>時空の裂け目は最大 <b>40m</b> までの敵を <b>1.25秒</b> ごとに自動的にバースト射撃で攻撃し、1発につき <b>10.2</b> ダメージを与える。この射撃に距離減衰はない。</li>
+                        <li>時空の裂け目による射撃は、本体と同じ対チャンピオン効果を持ち、戦闘員の種類によるスケーリングを受ける。</li>
+                        <li>精密ヒットをすると、時空の裂け目の効果時間が <b>+1秒</b> 延長される。</li>
                     </ul>
                 </li>
             </ul>
@@ -1080,7 +1100,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="hawkmoon"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bc462cdde2fa00c808ff4f15802cb3b4.jpg" class="h3">ホークムーン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cef1290d58a2d94d1437e1e569fa7996.jpg" class="h3">ホークムーン</h3>
         <div class="base"><b>因果律超越ショット</b> - ホークムーンでトドメを刺すか精密ショットを成功させると「因果律超越チャージ」の効果がスタックする。スタック数に応じて、マガジンの最後の1発のダメージ量が増加する。最後の1発を放つ前にホークムーンを収めるとこのボーナスは取り除かれる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1092,7 +1112,7 @@
                 <li>精密ヒットをすると、<b>因果律超越ショット</b>のスタックを1個チャージする。
                     <ul class="stats2">
                         <li>スタック数に応じて、<b>最後の一発のダメージが増加する。</b></li>
-                        <li>スタックはリロード、もしくは残弾が1発の状態で武器をしまうと消滅する。</li>
+                        <li>スタックはリロード、もしくはスタック数が <b>x6</b> か <b>x7</b> の状態で武器をしまうと消滅する。</li>
                     </ul>
                 </li>
             </ul>
@@ -1122,26 +1142,26 @@
                     </tr>
                     <tr class="pvp">
                         <th>ダメージ増加量</th>
-                        <td><b>+1%</b></td>
-                        <td><b>+3%</b></td>
-                        <td><b>+13%</b></td>
-                        <td><b>+41%</b></td>
-                        <td><b>+98%</b></td>
-                        <td><b>+200%</b></td>
-                        <td><b>+373%</b></td>
+                        <td><b>+30%</b></td>
+                        <td><b>+33%</b></td>
+                        <td><b>+45.7%</b></td>
+                        <td><b>+80.5%</b></td>
+                        <td><b>+154.3%</b></td>
+                        <td><b>+288%</b></td>
+                        <td><b>+508.6%</b></td>
                     </tr>
                 </tbody>
             </table>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>装弾数: <b>+1</b></li>
-                <li>因果律超越ショットのスタック1個につき、射程距離、ハンドリング、リロード速度が <b>+10</b> 増加するようになる。</li>
+                <li>因果律超越ショットのスタック1個につき、射程距離、ハンドリング、リロード速度が <b>+5</b> 増加するようになる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="dead_mans_tale"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/67634d7a01d7dca3aef90b4612d58489.jpg" class="h3">デッドマンズテイル</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cfc2c246cfd404d749fffbfe3ae3dfec.jpg" class="h3">デッドマンズテイル</h3>
         <div class="base"><b>クラニアル・スパイク</b> - 連続で精密ショットを命中させると、ボーナスダメージが付与されリロード速度が上昇する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1203,14 +1223,14 @@
             </table>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>腰だめ撃ち時、発射レートが 120 → <b>130</b> に増加し、<b>精度が大幅に向上する。</b></li>
-                <li>また、クラニアル・スパイクがx5まで溜まると、腰だめ撃ちの発射レートが 130 → <b>180</b> まで増加する。</li>
+                <li>腰だめ撃ち時、発射後ディレイ変化率が <b>x0.92</b> に変化し、<b>精度が大幅に向上する。</b></li>
+                <li>また、クラニアル・スパイクがx5まで溜まると、腰だめ撃ちの発射後ディレイ変化率が <b>x0.67</b> まで減少する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
-        <a name="cryothesia_77k"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/53989f95d057bdf0b2607a4b6de2013e.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>クリオセシア77K</h3>
+        <a name="cryosthesia_77k"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/285bb2a7a6f016c151624b12a4681cca.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>クリオセシア77K</h3>
         <div class="base"><b>LN2バースト</b> - トドメを刺した後に射撃モードを切り替え、チャージショットを可能にする。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1219,7 +1239,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>キルをすると <b>10秒間</b> 準備状態となり、チャージショットが装填できるようになる。</li>
+                <li>この武器でキルをすると <b>10秒間</b> 準備状態となり、チャージショットが装填できるようになる。</li>
                 <li>その状態でリロードボタンを長押しすると、<b>チャージショットモード</b>に入る。</li>
                 <li>チャージショットモードは、射撃ボタン長押しで一発だけ<b>凍結弾</b>を射撃可能。</li>
                 <li>凍結弾は<span class="pve">ヒットした敵と、その周囲にいる敵を<b><a href="./class_stasis.html#freeze">凍結</a></b>させる。</span><span class="pvp">ヒットした敵を<b><a href="./class_stasis.html#freeze">凍結</a></b>させ、周囲の敵には <b>x50</b> の<a href="./class_stasis.html#slow">遅延</a>を <b>1.5秒間</b> <span class="balloon durance">(<b>2秒間</b>)</span>                    付与する。</span>
@@ -1234,12 +1254,12 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="agers_scepter"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a8fce2ba7ff621877cb718a84cc70930.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>アガーの杖</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/252db75c7ea885016f17895e2a154503.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>アガーの杖</h3>
         <div class="base"><b>アガーの呼び声</b> - この武器でトドメを刺すと、倒れた標的の周辺に遅延効果を持つ爆発が発生する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>キルをすると半径 <b>10m以内</b> の敵に<a href="./class_stasis.html#slow">遅延</a>を <b><span class="pve">x100</span><span class="pvp">x50</span></b> 付与する。</li>
+                <li>この武器でキルをすると半径 <b>10m以内</b> の敵に<a href="./class_stasis.html#slow">遅延</a>を <b><span class="pve">x100</span><span class="pvp">x50</span></b> 付与する。</li>
                 <li>また、ステイシス属性でキルをすると、マガジンを <b>10発</b> リロードする。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -1257,22 +1277,23 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="forerunner"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0a5552b4600022e8e84805751c825726.jpg" class="h3">フォアランナー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/50d67833eda8bb60a81803de7d901457.jpg" class="h3">フォアランナー</h3>
         <div class="base"><b>フルストップ</b> - 射程の長い大口径弾を使用する大型のピストル。向上した連射速度でフルオート射撃を行う。シールドを持たない標的への精密ダメージが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>特殊弾を使用</b>する。</li>
-                <li><span class="pve">精密ダメージ倍率が <b>x4</b> となっている。</span></li>
-                <li>タップ撃ちをすると、縦反動が <b>-30%</b> 軽減され、精度が向上する。</li>
+                <li><span class="pve">精密ダメージが <b>+521%</b> 増加する。</span></li>
+                <li>タップ撃ちをすると、縦反動が <b>-33%</b> 軽減され、精度が向上する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>
-                    キル後にリロードボタンを長押しすると、予備弾薬を <b>4発</b> 消費し、グレネードをフラググレネードに変える。
+                    この武器でのキル後 <b>4秒以内</b> にリロードボタンを長押しすると、予備弾薬を <b>4発</b> 消費し、グレネードをフラググレネードに変える。
                     <ul class="stats2">
-                        <li>このグレネードのチャージは元からあるグレネードとは別のものとして扱われる。</li>
-                        <li>このグレネードでのダメージやキルでも、関連する他のパークが発動する。</li>
+                        <li>このグレネードのチャージは元からあるグレネードとは別のものとして扱われ、使用するか死亡するまで保持される。</li>
+                        <li>フラググレネードは投擲後、動きを停止してから <b>0.6秒後</b> に爆発し、 <b>9m以内</b> の敵に最大 <b><span class="pve">2072</span><span class="pvp">181</span></b> ダメージを与える。このダメージには距離減衰があり、最大で <b>20%</b> まで減衰する。</li>
+                        <li>このグレネードの投擲や、これによるダメージやキルでも、関連するグレネード系のパークが発動する。</li>
                         <li>このグレネードが有効な間、<b>元のグレネードスキルも回復</b>し続ける。</li>
                     </ul>
                 </li>
@@ -1290,18 +1311,17 @@
         -->
 
         <a name="osteo_striga"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e345f822fe5cb657bfdc05df78611bba.jpg" class="h3">オステオ・ストライガ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2752ee2761149f004df20e78749c1bab.jpg" class="h3">オステオ・ストライガ</h3>
         <div class="base"><b>スワームの叫び</b> - 標的とされた敵を追跡する、有毒な知覚投射物を発射する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>14回</b> ヒットさせるか、もしくはキル時に、周囲の敵に<b>毒ダメージ</b>を与える。精密ヒットは2回分としてカウントされる。
-                    <ul class="stats2">
-                        <li>毒は <b>0.5秒ごと</b> にダメージを与え、<b>10秒間</b> 持続する。</li>
-                        <li>毒のダメージ量は時間が経つごとに、一つ前のダメージから <b>+15%</b> ずつ増加する。<b>7.5秒</b> 経過時点でダメージは最大となり、最初と比較して <b>+60%</b> 増加したダメージを与える。</li>
-                        <li>毒の効果中にもう一度毒を付与すると、効果時間とダメージの増加はリセットされる。</li>
-                    </ul>
-                </li>
+                <li><b>ウェポンズ・オブ・ソロウ</b>に分類される。</li>
+                <li>敵を追尾する低速の弾を発射する。</li>
+                <li><b>3秒以内</b> に <b>14回</b> ヒットさせるか、<b>7回</b> 精密ヒットさせる、もしくはこの武器でのキル時に、対象の <b>5m以内</b> にいる敵に<b>毒</b>を与える。</li>
+                <li>毒の効果は<a href="exotic_armor.html#necrotic_grip">壊死のグリップ</a>と同じような動作を示す。</li>
+                <li>この毒ダメージは武器のバフや敵へのデバフ、キネティック属性のダメージボーナスの効果を受けるが、敵の種類によるスケーリングは受けない。</li>
+                <li>毒の効果中にもう一度毒を付与すると、効果時間とダメージの増加は<b>リセット</b>される。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1313,7 +1333,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="quicksilver_storm"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/94c469ee1cb67c6e0ed590f00e8d4f2f.jpg" class="h3">クイックシルバー・ストーム</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/06ec3d22c69944f6755bf75f07cd83bd.jpg" class="h3">クイックシルバー・ストーム</h3>
         <div class="base"><b>ロケット・トレーサー</b> - 複数発命中させると、次の1発が追尾式マイクロロケットになる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1323,21 +1343,22 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>10回</b> ヒットさせると、次に発射する通常弾が<b>追尾ロケット</b>になる。</li>
-                <li>ロケットは敵を精密に追尾し、<b><span class="pve">105</span><span class="pvp">24</span></b> ダメージを与える。<b>50m</b> 以上の距離には届かない。</li>
+                <li>ロケットは敵を精密に追尾し、<span class="pve">[?]</span><span class="pvp"><b>3</b></span> の直撃ダメージと <span class="pve">[?]</span><span class="pvp"><b>21</b> (オブジェクトに対しては <b>81</b> )</span> の爆発ダメージを与える。<b>50m</b> 以上の距離には届かない。</li>
                 <li>さらに、ロケットのヒット時に<b>グレネード弾</b>を1個チャージする。これは最大 <b>3個</b> まで貯められる。</li>
                 <li>グレネード弾が1個以上ある状態でリロードボタンを長押しすると、<b>グレネードランチャーモード</b>に移行する。</li>
-                <li>グレネードランチャーモードはキネティック属性の<b>グレネードを発射</b>し、<b>4m</b> 以内の敵に <b><span class="pve">960</span><span class="pvp">110 + 24</span></b> ダメージを与える。これに自爆ダメージはない。</li>
+                <li>グレネードランチャーモードはキネティック属性の<b>グレネードを発射</b>し、<b>4m</b> 以内の敵に <span class="pve">[?]</span><span class="pvp"><b>14</b> (オブジェクトに対しては <b>81</b> )</span> の直撃ダメージと <span class="pve">[?]</span><span class="pvp"><b>120</b> (オブジェクトに対しては <b>960</b> )</span> の爆発ダメージを与える。これに自爆ダメージはない。</li>
                 <li>発射後、グレネード弾が残っていればグレネードランチャーのリロードを、そうでない場合は通常のリロードを行う。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>武器の属性が<b><span class="w-icons strand">&#xef0e;</span>ストランドになり</b>、グレネードランチャーモードでキルをすると<b><a href="./class_strand.html#tangle">タングル</a>が生成</b>される。</li>
+                <li>キネティック属性のダメージボーナスは失われる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="touch_of_malice"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/74e65bda44975d1fc6c28a85e102be9c.jpg" class="h3">悪意の手</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/106a8a40a6e55b5ec5088a26d1ed979d.jpg" class="h3">悪意の手</h3>
         <div class="base"><b>悪意の手</b> - マガジンの最後の1発が、所持者の生命力を奪って追加ダメージを与え、その後自動的に再生する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1346,11 +1367,13 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>マガジンの最後の一発は、弾薬の代わりにHPを <b>10.01</b> 消費し、通常より <b><span class="pve">+100%</span><span class="pvp">+30%</span></b> 高いダメージを与える。</li>
-                <li>また、複数キルをするとHPが <b>30</b> 回復し、HPの<b>自然再生が開始</b>する。</li>
+                <li><b>ウェポンズ・オブ・ソロウ</b>に分類される。</li>
+                <li>マガジンの最後の一発は、弾薬を消費しない代わりにHPを <b>7</b> 減少させ、通常より <b><span class="pve">+120%</span><span class="pvp">+30%</span></b> 高いダメージを与える。このHP減少で死亡することはない。</li>
+                <li>また、この武器で<span class="pve">一般兵をそれぞれ <b>5秒以内</b> に <b>3体以上</b> キル、またはエリート以上の敵を <b>1体</b> キルすると、</span><span class="pvp">それぞれ <b>5秒以内</b> に <b>2体以上</b> の敵をキルすると、</span>HPが <b>75</b> 回復し、HPの<b>自然再生が開始</b>する。</li>
                 <li>さらに、精密ヒットを <b>10回</b> し、リロードボタンを長押しすると、<b>暗黒の球体</b>を発射できるモードに入る。</li>
-                <li>暗黒の球体は敵を<b><a href="./class_arc.html#blind">視力喪失状態</a></b>にし、この武器もしくは <a href="./exotic_weapons.html#thorn">トルン</a> 、 <a href="./exotic_weapons.html#osteo_striga">オステオ・ストライガ</a> から受けるダメージを <b>+50%</b> 増加させる。</li>
-                <li>最後の一発で暗黒の球体を撃つと、そのダメージが <b><span class="pve">+100%</span><span class="pvp">+30%</span></b> 増加する。</li>
+                <li>暗黒の球体は敵に <span class="pve"><b>157</b></span><span class="pvp">[?]</span> の直撃ダメージを与えて、<b><a href="./class_arc.html#blind">視力喪失状態</a></b>と<b>毒</b>を <b>2秒間</b> 与えるフィールドを形成する。毒は <b>0.5秒</b> ごとに <span class="pve"><b>18.9</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
+                <li>また、暗黒の球体を受けた敵は、<b>5秒間</b> ウェポンズ・オブ・ソロウの武器から受けるダメージが <b>+50%</b> 増加する。</li>
+                <li>暗黒の球体は、最後の一発のダメージ増加効果を受ける。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1360,7 +1383,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="revision_zero"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/eeb4924147ba0af3d2caaea774a1e0ad.jpg" class="h3">リビジョン・ゼロ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/040a104defcc7011b570886e3ec3c73f.jpg" class="h3">リビジョン・ゼロ</h3>
         <div class="base"><b>ハンターの追跡</b> - この武器は特殊なシールド貫通弾を発射する。精密ショットを達成すると標的捕捉データが付与される。リロードボタンを長押しすると、別スコープに切り替え、標的捕捉データの量に応じた高ダメージ弾が装填される。<span class="w-icons barrier">&#xe070;</span> バリア・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -1369,9 +1392,9 @@
                 <li>高威力フレームと同等の<b>2点バーストモード</b>と、アグレッシブバーストと同等の<b>4点バーストモード</b>の切り替えが可能。</li>
                 <li>精密ヒットを <b>12回</b> すると、<b>標的捕捉データ</b>のスタックを1個チャージする。</li>
                 <li>スタックが1個以上溜まった状態でリロードボタンを長押しすると、<b>スコープを展開</b>し、ズーム倍率が <b>50</b> に設定される。</li>
-                <li>スコープ展開中は、精密ダメージ倍率が <b>x3</b> の<b>高威力弾</b>をスタック数と同数発射できる。高威力弾は <b><span class="pve">245</span><span class="pvp">158.2</span></b> ダメージを与える。</li>
+                <li>スコープ展開中は、精密ダメージ倍率が <b>x3</b> の<b>高威力弾</b>をスタック数と同数発射できる。高威力弾は <b><span class="pve">306</span><span class="pvp">158.2</span></b> ダメージを与える。</li>
                 <li><span class="pvp">また、敵からはスナイパーライフル使用中と同じような<b>反射光が表示</b>される。</span></li>
-                <li>高威力弾を全弾発射するまで、モードを元に戻すことはできない。</li>
+                <li>高威力弾を全弾発射するか死亡するまで、モードを元に戻すことはできない。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             以下の4つから選択できる。
@@ -1385,7 +1408,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="final_warning"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/18048104c5656071062fff85fe5b0823.jpg" class="h3"><span class="w-icons strand">&#xef0e;</span>最終警告</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e8030d75835eaf1c9014f2d63338d518.jpg" class="h3"><span class="w-icons strand">&#xef0e;</span>最終警告</h3>
         <div class="base"><b>一気にまとめて</b> - トリガーを長押しすると射程距離内にいる標的をマークし、複数の弾を装填する。この弾は、トリガーを離した際に安定性の高いバーストを放つ。マークした標的にフルチャージされたバースト射撃を命中させると、標的は分解される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1394,9 +1417,10 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>トリガーを長押しすると、<b>0.5秒</b> をかけて一定範囲内にいる敵を <b>2秒間</b> マークし、<b>10発</b> のバースト射撃をチャージする。トリガーを離すと発射する。</li>
+                <li>トリガーを長押しすると、<b>0.5秒</b> をかけて <b>24m以内</b> にいる敵を <b>2秒間</b> マークし、<b>10発</b> のバースト射撃を <b>0.9秒</b> かけてチャージする。トリガーを離すと発射する。</li>
                 <li>バースト射撃中、安定性が <b>+30</b> 増加する。</li>
                 <li>マークした敵に、最大までチャージしたバースト射撃をヒットさせると、その敵は<b><a href="./class_strand.html#unravel">分解状態</a></b>になる。</li>
+                <li>バースト射撃では <b><span class="pve">108.8</span><span class="pvp">25</span></b> ダメージ、精密倍率 <b>x1.4</b> の弾を発射し、腰だめ撃ち・ADSの状態によって異なる効果を発揮する。</li>
                 <li>腰だめ撃ちでは弾速が遅い代わりに<b>追尾力が向上</b>し、マークした敵に対しては通常ヒットダメージが <b>+20%</b> 増加する。</li>
                 <li>ADS状態では<b>弾速が増加</b>し、マークした敵に対しては精密ダメージが <b>+100%</b> 増加する。</li>
             </ul>
@@ -1404,7 +1428,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="verglas_curve"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/de7b4e36fbaced8dfc58c007926a9bb8.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>ベルグラ・カーブ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/48e2499dca00610a3349aed19256651a.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>ベルグラ・カーブ</h3>
         <div class="base"><b>弾幕の嵐</b> - この武器でトドメを刺すと、ステイシスの矢が付与される。次の腰だめ撃ちで全ての矢を一度に発射する。</div>
         <div class="indepth">
             <ul class="stats">
@@ -1416,26 +1440,97 @@
                 <li><b>軽量フレームの内在効果</b>を得る。</li>
                 <li>この武器でキルをすると、<b>弾幕の嵐</b>のスタックを1個チャージする。最大で <b>5個</b> まで貯められる。</li>
                 <li>腰だめ撃ちをすると、弾幕の嵐のスタック数に応じて、<b>ステイシスの矢</b>を扇形で同時に発射する。</li>
-                <li>ステイシスの矢は、敵にヒットした場合は<span class="pve">その敵を<b><a href="./class_stasis.html#freeze">凍結</a></b>させ、</span><span class="pvp"> <b>x40</b> の<b><a href="./class_stasis.html#slow">遅延</a></b>を <b>1秒間</b> <span class="balloon durance">(<b>2秒間</b>)</span>                    付与し、</span>地面や壁に着弾した場合は、その場所に<b>大サイズ</b>の<a href="./class_stasis.html#stasis_crystal">ステイシス・クリスタル</a>を生成する。</li>
+                <li>ステイシスの矢は、敵にヒットした場合は<span class="pve">その敵を<b><a href="./class_stasis.html#freeze">凍結</a></b>させ、</span><span class="pvp"> <b>x60</b> の<b><a href="./class_stasis.html#slow">遅延</a></b>を <b>1秒間</b> <span class="balloon durance">(<b>2秒間</b>)</span> 付与し、</span>地面や壁に着弾した場合は、その場所に<b>大サイズ</b>の<a href="./class_stasis.html#stasis_crystal">ステイシス・クリスタル</a>を生成する。</li>
                 <li>このクリスタルによるダメージで敵をキルした場合も、弾幕の嵐のスタックは<b>チャージされる。</b></li>
-                <li>また、凍結している敵に対して、この武器のダメージが <b>+42.5%</b> 増加する。この効果は<a href="./class_stasis.html#whisper_of_rending">裂傷の囁き</a>と重複する。</li>
+                <li>また、凍結している敵に対して、この武器のダメージが <b><span class="pve">+37.5%</span><span class="pvp">+50%</span></b> 増加する。この効果は<a href="./class_stasis.html#whisper_of_rending">裂傷の囁き</a>と重複する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
-            敵を凍結させると、<b>5秒間</b> 発射時間が <b>x0.65</b> される。
+            敵を遅延 / 凍結させると、<b>5秒間</b> 発射時間が <b>x0.65</b> される。
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="conditional_finality"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ce179cbb692471c017fed7d5c85ebed8.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>条件付き終局</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c9b4d65adcdfcadde871e5961ce912fb.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>条件付き終局</h3>
         <div class="base"><b>スプリットデシジョン</b> - ステイシスダメージとソーラーダメージを与える二連銃。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>一度に <b>2発</b> リロードし、<a href="./weapon_perks.html#harmonic_resonance">調和する共振</a>の効果を持つ。</li>
-                <li>マガジンが残り2発のとき、武器の属性は<b>ステイシス</b>となり、拡散パターンが<b>三角形</b>になる。</li>
+                <li>マガジンが残り2発のとき、武器の属性は<b>ステイシス</b>となり、拡散パターンが<b>三角形</b>になる。このときは、ステイシス属性の防具MODの効果を受ける。</li>
                 <li>また、ペレットを <b>10個以上</b> ヒットさせると、その敵が<b><a href="./class_stasis.html#freeze">凍結</a></b>する。</li>
-                <li>マガジンが残り1発のとき、武器の属性は<b>ソーラー</b>となり、拡散パターンが<b>丸形</b>になる。</li>
+                <li>マガジンが残り1発以下のとき、武器の属性は<b>ソーラー</b>となり、拡散パターンが<b>丸形</b>になる。このときは、ソーラー属性の防具MODの効果を受ける。</li>
                 <li>また、ペレットを <b>10個以上</b> ヒットさせると、その敵が<b><a href="./class_solar.html#ignition">点火</a></b>する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="the_navigator"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4984c634a7d2eca3baafc000a121263d.jpg" class="h3"><span class="w-icons strand">&#xef0e;</span>ザ・ナビゲーター</h3>
+        <div class="base"><b>防衛の織布</b> - この武器を味方に向けて発射するとウィーブメイルが使用者と標的に付与される。</div>
+        <div class="indepth">
+            <div class="info">&lt;フレーム&gt;</div>
+            <ul class="stats">
+                <li>順応フレーム</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>1秒以内</b> に<b>味方</b>に <b>8発以上</b> ヒットさせると、自身とその味方は<b><a href="./class_strand.html#woven_mail">ウィーブメイル</a></b>を得て、味方のHPが <b>60</b> 回復し、この武器の弾薬が <b>5発</b> 生成される。</li>
+                <li>また、<b>1秒以内</b> に敵に <b>20発以上</b> ヒットさせると、その敵は<b><a href="./class_strand.html#sever">切断状態</a></b>となり、自身は<b><a href="./class_strand.html#woven_mail">ウィーブメイル</a></b>を得る。</li>
+                <li>回復効果発生時、対象が瀕死の場合はHP部分のみが、そうでない場合はシールドのHPが回復する。</li>
+            </ul>
+            <div class="info">&lt;媒体効果&gt;</div>
+            <ul class="stats">
+                <li>リロードボタンを長押しすると、<b>グラップリングタングルを射出</b>できるモードに移行する。武器を持ち替えると、モード変更は元に戻る。</li>
+                <li>このモードのとき、弾薬を <b>1発</b> のみ消費し、<b>23m</b> 先にグラップリングタングルを射出する。また、射出前は着弾地点のプレビューが表示される。</li>
+                <li>グラップリングタングルを射出すると、<b>30秒間</b> のクールダウンが発生し、その間はモード変更ができなくなる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="wicked_implement"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0b506106c2cc195aaad59280be3b1fcc.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>ウィキッド・インプリメント</h3>
+        <div class="base"><b>忍び寄る消耗</b> - 素早く精密ヒットを繰り出すと、標的を遅延状態にする。</div>
+        <div class="indepth">
+            <div class="info">&lt;フレーム&gt;</div>
+            <ul class="stats">
+                <li>精密フレーム</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>4.5秒以内</b> に <b>3発</b> 精密ヒットさせると、自身に<b>忍び寄る消耗</b>を <b>4.5秒間</b> 付与する。</li>
+                <li>忍び寄る消耗発動中は、この武器での精密ヒット時、敵に <b><span class="pve">x40</span><span class="pvp">x20</span></b> の<b><a href="./class_stasis.html#slow">遅延</a></b>を <b>4秒間</b> <span class="balloon durance pve">(<b>8秒間</b>)</span><span class="balloon durance pvp">(<b>6秒間</b>)</span> 付与する。</li>
+                <li>また、発動中のこの武器による精密キル時、敵のいた位置に<b>小サイズ</b>の<a href="./class_stasis.html#stasis_shard">ステイシスの破片</a>を生成する。破片は生成者を追尾して動く。生成には <b>2秒間</b> のクールダウンがある。</li>
+                <li><a href="./class_stasis.html#stasis_crystal">ステイシス・クリスタル</a>を破壊するか、ステイシスの破片を回収すると、マガジンが全弾リロードされる。</li>
+            </ul>
+            <div class="info">&lt;媒体効果&gt;</div>
+            <ul class="stats">
+                <li><a href="./weapon_perks.html#headstone">墓石</a></li>
+                <li>ステイシスの破片回収時、マガジンが <b>5発</b> オーバーフローする。最大でマガジンの <b>200%</b> までオーバーフローさせられる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="necrochasm"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/52e8bb636771f4731da3f73f06fcad04.jpg" class="h3">ネクロカズム</h3>
+        <div class="base"><b>カースブリンガー</b> - この武器を使用して精密攻撃でトドメを刺すと、標的がカースド・スロールのように爆発する。カースド・スロール爆発によってトドメを刺すとマガジンが補充される。</div>
+        <div class="indepth">
+            <div class="info">&lt;フレーム&gt;</div>
+            <ul class="stats">
+                <li>速射フレーム</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>ウェポンズ・オブ・ソロウ</b>に分類される。</li>
+                <li>この武器で精密キルをすると<b>爆発</b>を発生させ、周囲の敵に <b><span class="pve">528</span><span class="pvp">130</span></b> ダメージを与えて <b>2秒間</b> の<b>毒</b>を付与する。</li>
+                <li>毒は <b>0.5秒ごと</b> に <span class="pve"><b>92</b></span><span class="pvp">[?]</span> ダメージを与える。爆発および毒のダメージは、戦闘員の種類によるスケーリングを受ける。</li>
+                <li>この爆発で敵をキルすると、マガジンが<b>全弾リロード</b>される。</li>
+                <li>爆発によるキル、もしくは毒に冒された敵のキルをすることでも、同様に爆発が発生する。</li>
+                <li>また、この武器での精密キル後にリロードするか、爆発によるキルをすると、<b>7秒間</b> <b>自暴自棄</b>が発動する。</li>
+                <li>自暴自棄発動中は、この武器の発射後ディレイ変化率が <b>x0.8</b> になり、安定性が <b>+6</b> 、照準補佐が <b>+10</b> される。</li>
+            </ul>
+            <div class="info">&lt;媒体効果&gt;</div>
+            <ul class="stats">
+                <li><a href="./weapon_perks.html#outlaw">アウトロー</a></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1454,15 +1549,16 @@
         <p>存在するものについては基になったフレーム名を記載しているが、エキゾチック武器は特筆しない限りフレームの内在効果（軽量フレームの移動速度向上など）を受けない。</p>
 
         <a name="coldheart"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/01de9a1a16ed563ac911c0c95d15ab88.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>コールドハート</h3>
-        <div class="base"><b>冷却フュージョン</b> - この武器が安定した冷たいフュージョンパワーのレーザーを撃ち出す。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2a2a95b819312fc6fef728911cfd6fa2.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>コールドハート</h3>
+        <div class="base"><b>冷却フュージョン</b> - フュージョンパワーを利用して安定した低温アークレーザーを撃つ。レーザーが当たっている時間が長いほど、標的に大きなダメージを与える。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>レーザーを当て続けると<b>ダメージが増加</b>し、<b>41発</b> 当て続けることでダメージ増加量は <b>+80%</b> で最大化される。ダメージ増加は <b>1秒後</b> にリセットされる。</li>
-                <li>ダメージが最大化すると、安定性とリロード速度が <b>+100</b> される。</li>
-                <li>最大までダメージが増加した状態で撃ち続けると、<b><a href="./class_arc.html#ionic_trace">イオントレース</a>が生成</b>される。この効果には <b>2秒間</b> のクールダウンがある。</li>
-                <li>イオントレースを取得すると、ダメージの増加速度が上がり、<b>33発</b> で最大になる。</li>
+                <li>エネルギーの蓄積量に応じて、この武器が与えるダメージが最大 <b>+80%</b> 増加する。</li>
+                <li>この武器で <b>0.267秒以上</b> ダメージを与えると、毎秒 <b>40%</b> ずつエネルギーが生成される。</li>
+                <li>イオントレースを取得すると、<b>0.5秒</b> かけてエネルギーを <b>50%</b> 生成する。</li>
+                <li>エネルギーが <b>1.05秒以上</b> 生成されていない場合、蓄積されたエネルギーは <b>0.2秒</b> かけて消滅する。</li>
+                <li>エネルギーが最大まで蓄積されているとき、この武器の安定性が <b>+100</b>、リロード速度が <b>+100</b> 増加し、ヒット時に<b><a href="./class_arc.html#ionic_trace">イオントレース</a>が生成</b>される。生成には <b>2秒間</b> のクールダウンがある。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1473,7 +1569,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="fighting_lion"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4392251920264f64bfed200ea894adb4.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ファイティング・ライオン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/836a2f75cfa67de87a8a73f3c61f7f78.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ファイティング・ライオン</h3>
         <div class="base"><b>時間差工作</b> - グレネード弾が物に当たると跳ね返る。発射後、ボタンを離すと爆発する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1490,13 +1586,13 @@
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>リロード速度: <b>+30</b></li>
-                <li>この武器を射撃してから <b>3秒間</b> 、他の武器のハンドリングを <b>+100</b> し、精度を <b>+30%</b> 向上させる。</li>
+                <li>この武器を射撃してから <b>3秒間</b> 、他の武器のハンドリングが <b>+100</b> 増加し、精度コーンサイズが <b>-30%</b> 縮小する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="sunshot"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7e2480b7abb1091ad6fe981641fcfe92.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>サンショット</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f45a7d8e52bf0d88bbd43d4354878313.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>サンショット</h3>
         <div class="base"><b>サンバーン</b> - この武器が炸裂弾を発射し、サンショットのダメージを受けた標的を示す。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1508,7 +1604,7 @@
                 <li>他の順応フレームのハンドキャノンと違い、発射レートが <b>150</b> となっている。</li>
                 <li><a href="./weapon_perks.html#explosive_payload">爆発ペイロード</a>のような爆発弾を発射する。</li>
                 <li>撃たれた敵が<b>ハイライト表示</b>される。</li>
-                <li>キルをするとソーラー爆発を起こし、<b><span class="pve">255</span><span class="pvp">160</span></b> ダメージとともに <b>x10</b> <span class="balloon ash">(<b>x15</b>)</span> の<a href="./class_solar.html#scorch">スコーチ</a>を付与する。</li>
+                <li>この武器でキルをするとソーラー爆発を起こし、<b><span class="pve">380</span><span class="pvp">160</span></b> ダメージとともに <b>x10</b> <span class="balloon ash">(<b>x15</b>)</span> の<a href="./class_solar.html#scorch">スコーチ</a>を付与する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1519,19 +1615,18 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="graviton_lance"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/492d92346c4325dada5455281ea00053.jpg" class="h3"><span class="w-icons void">&#xe144;</span>グラビトン・ランス</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ce9043979a6e35bf4d3952f5cf251a49.jpg" class="h3"><span class="w-icons void">&#xe144;</span>グラビトン・ランス</h3>
         <div class="base"><b>ブラックホール</b> - バースト射撃の2発目が時空に穴を開け、距離による減衰なしに反動と大ダメージを発生させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>2点バーストで発射する。2発目は反動が大きい代わりにダメージが <b>+271%</b> 増加しており、<b>距離減衰が発生しない。</b></li>
-                <li>キルをすると半径 <b>3m</b> の爆発を起こし、<b>ボイドオーブ</b>を出現させる。</li>
-                <li>ボイドオーブは<b>敵を追尾</b>しダメージを与える。</li>
+                <li>2点バーストで発射する。1発目は <b>19</b> ダメージを与え、<b>反動が発生しない。</b>2発目は <b>25.6</b> ダメージを与え、<b>距離減衰が発生しない。</b></li>
+                <li>この武器でキルをすると半径 <b>3m</b> の爆発を起こし、<b><span class="pve">270</span><span class="pvp">100</span></b> ダメージを与えて<b>ボイドオーブ</b>を出現させる。</li>
+                <li>ボイドオーブは<b>敵を追尾</b>し、<b>1</b> の直撃ダメージと <b><span class="pve">40</span><span class="pvp">20</span></b> の爆発ダメージを与える。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>射程距離: <b>+20</b></li>
-                <li>照準補佐: <b>+15</b></li>
                 <li><a href="./weapon_perks.html#vorpal_weapon">ヴォーパル武器</a></li>
                 <li><a href="./weapon_perks.html#turnabout">報復</a></li>
             </ul>
@@ -1539,14 +1634,14 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="skyburners_oath"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/69589d312320228022173ef7ef543a40.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>スカイバーナーの誓い</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fc7d4da29a642c1117897e6a4b8db543.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>スカイバーナーの誓い</h3>
         <div class="base"><b>スラグライフル</b> - 起爆性スラグ弾を撃ち出す。照準モードで発射すると、スラグ弾が高速で真っすぐ撃ち出される。腰だめ撃ちで発射すると、爆発が大きくなり、標的にスコーチ状態を付与する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>腰だめ撃ちの弾は放物線状に飛び、着弾地点から <b>4m以内</b> の敵に<a href="./class_solar.html#scorch">スコーチ</a>を <span class="further"><s>x3</s> <b>x5</b> <span class="balloon ash">(<s>x5</s> <b>x10</b>)</span></span> 付与する。</li>
+                <li>腰だめ撃ちの弾は放物線状に飛び、着弾地点から <b>4m以内</b> の敵に<a href="./class_solar.html#scorch">スコーチ</a>を <b>x5</b> <span class="balloon ash">(<b>x10</b>)</span> 付与する。</li>
                 <li>ADS中の弾は<b>弾速が上がり、直線状に飛ぶ</b>が、スコーチ効果はない。</li>
-                <li>カバルへのダメージが <b>+18%</b> 増加し、<b>ファランクスの盾を貫通</b>する。</li>
+                <li>この武器はカバルへのダメージが <b>+18%</b> 増加し、<b>ファランクスの盾を貫通</b>する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1556,7 +1651,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="riskrunner"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d8fc70e24fd1ddae0546c21ff1cf86d4.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>リスクランナー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0b7fa10956ee9f16899ce1838c3c0e31.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>リスクランナー</h3>
         <div class="base"><b>アーク伝導体</b> - アークダメージを受けると、武器の威力が増し、さらにアークダメージへの耐性が上がる。敵を倒すと、このオーバーチャージ状態の持続時間が延びる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1565,16 +1660,18 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>アークダメージを受けると<b>アーク伝導体</b>が <b>6秒間</b> 発動する。</li>
+                <li>アークダメージを受けると<b>アーク伝導体</b>が <b>6秒間</b> 発動する。再発動はできない。</li>
                 <li>
                     アーク伝導体:
                     <ul class="stats2">
                         <li>武器ダメージが <b>+10%</b> 、ハンドリングが <b>+100</b> 増加する。</li>
                         <li>アーク属性のダメージを <b><span class="pve">-50%</span><span class="pvp">-15%</span></b> 軽減する。</li>
                         <li>撃った弾がマガジンに戻ってくる。</li>
-                        <li>撃った弾が周囲 <b>8m</b> の敵に雷を連鎖させてダメージを与える。</li>
+                        <li>それぞれ <b>0.2秒以内</b> に <b>2～3発</b> この武器をヒットさせると、 <b>8m以内</b> の敵に雷が連鎖して <span class="pve"><b>19</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
+                        <li>このダメージを受けた敵は、より大きな連鎖ダメージを発生させ、<b>8m以内</b> の敵に <span class="pve"><b>22</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
+                        <li>この連鎖ダメージは最大 <b>4体</b> まで連鎖するが、このダメージを <b>0.33秒以内</b> に受けていない敵のみを対象に連鎖する。</li>
                         <li>アーク効果である「<a href="./class_arc.html#jolted">ショック状態</a>」とは異なるため、これがトリガーになる効果は発動しない。</li>
-                        <li>この武器で敵をキルすると効果時間が <b>+3秒</b> 延びる。</li>
+                        <li>この武器で敵をキルすると、<b>効果時間がリセット</b>される。</li>
                     </ul>
                 </li>
             </ul>
@@ -1586,7 +1683,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="hard_light"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8070b4aa8ef05ed33005d0ea314c575f.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ハードライト</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/94e6e474b4488d5a198b5dcbad534c3e.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ハードライト</h3>
         <div class="base"><b>気まぐれな光</b> - この武器から放たれた弾は距離によるダメージ減衰が軽減され、標的を貫通し、硬い物に当たると跳ね返る。跳ね返った後は、弾のダメージ量が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1597,12 +1694,12 @@
             <ul class="stats">
                 <li>リロードボタンを長押しすると、ボイド→アーク→ソーラー→ボイドといった順番に<b>属性を変更</b>できる。</li>
                 <li>属性に応じて<b>武器のステータスが変化</b>する。</li>
-                <li>距離減衰が発生しづらく、ダメージが <b>x0.7</b> を下回ることはなくなっている。</li>
+                <li>距離減衰が発生しづらく、ダメージが <b>x0.7</b> を下回ることはない（通常は x0.5）。</li>
                 <li>弾は <b>2回まで壁や床で跳ね返り</b>、1回でも跳ね返った弾は <b><span class="pve">+100%</span><span class="pvp">+35%</span></b> 増加したダメージ</b>を与える。</li>
                 <li>属性によるステータス変化量:
                     <ul>
                         <li><span class="w-icons void">&#xe144;</span>: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
-                        <li><span class="w-icons arc">&#xe143;</span>: ハンドリング <b>+20</b> 、射程距離 <b>+5</b></li>
+                        <li><span class="w-icons arc">&#xe143;</span>: ハンドリング <b>+25</b> 、射程距離 <b>+5</b></li>
                         <li><span class="w-icons solar">&#xe140;</span>: リロード速度 <b>+35</b> 、空中効果 <b>+20</b></li>
                     </ul>
                 </li>
@@ -1615,7 +1712,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="merciless"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2539a0478ce440192272f16529dcc37d.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>マーシレス</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f3714197408d2c8935a2ce7be69a210c.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>マーシレス</h3>
         <div class="base"><b>運動量保存</b> - 放った投射物が敵を倒しきれなかった場合、次に敵を倒すまで武器のチャージ速度が上昇する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1624,11 +1721,11 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>敵に弾が1回ヒットするごとに、<b>運動量保存</b>のスタックが付与される。</li>
-                <li>運動量保存のスタック1個につき、この武器のダメージが <b>-0.84%</b> 減少する代わりに、チャージ時間が <b>x0.97</b> 短縮される。</li>
+                <li>敵に弾がヒットするごとに、<b>運動量保存</b>のスタックが付与される。</li>
+                <li>運動量保存のスタック1個につき、この武器のダメージが <b>-0.84%</b> 減少する代わりに、チャージ時間が <b>x0.93</b> 短縮される。</li>
                 <li><b>15個</b> で効果は最大化され、ダメージは <b>-11.93%</b> 減少するが、チャージ時間は <b>x0.2</b> まで短縮できる。</li>
                 <li>この効果は <b>5秒間</b> 持続し、敵に弾をヒットさせるたびに効果時間はリセットされる。</li>
-                <li>キルをすると <b>6秒間</b> リロード時間が <b>x0.66</b> され、敵を倒してから <b>6秒以内</b> にリロードすると、<b>4.5秒間</b> この武器のダメージが <b>+50%</b> 増加する。</li>
+                <li>この武器でキルをすると <b>6秒間</b> この武器のリロード時間が <b>x0.66</b> され、敵を倒してから <b>6秒以内</b> にリロードすると、<b>4.5秒間</b> この武器のダメージが <b>+50%</b> 増加する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1639,8 +1736,8 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="borealis"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/390a627fb3ce18808c6288c1664b3738.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ボレアリス</h3>
-        <div class="base"><b>基本仕様</b> - この武器のダメージタイプをソーラー、アーク、ボイドの間で切り替える。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5d7ff61746d3ce613b3bb3d4667e6d2a.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ボレアリス</h3>
+        <div class="base"><b>基本仕様</b> - この武器のダメージタイプをソーラー、アーク、ボイドの間で切り替える。選択したダメージタイプによって異なるステータスを付与する。ソーラー - リロード速度と空中効果が向上。アーク - ハンドリングと射程距離が向上。ボイド - 安定性と照準補佐が向上。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
             <ul class="stats">
@@ -1656,7 +1753,7 @@
                 <li>属性によるステータス変化量:
                     <ul>
                         <li><span class="w-icons void">&#xe144;</span>: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
-                        <li><span class="w-icons arc">&#xe143;</span>: ハンドリング <b>+20</b> 、射程距離 <b>+5</b></li>
+                        <li><span class="w-icons arc">&#xe143;</span>: ハンドリング <b>+25</b> 、射程距離 <b>+5</b></li>
                         <li><span class="w-icons solar">&#xe140;</span>: リロード速度 <b>+35</b> 、空中効果 <b>+20</b></li>
                     </ul>
                 </li>
@@ -1669,16 +1766,18 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="prometheus_lens"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/779288b69aa050c126c827ec5bb44c47.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>プロメテウス・レンズ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/76817c6b9ad482a19a180819fbe85def.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>プロメテウス・レンズ</h3>
         <div class="base"><b>プリズム・インフェルノ</b> - ソーラーのトレースビームを撃ち出し、ダメージを発生させる高熱のフィールドを生成する。このフィールドは、武器が発射している間、大きくなる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <ul class="stats">
-                    <li>レーザーを撃ち続けると、範囲内の敵に<a href="./class_solar.html#scorch">スコーチ</a>を付与する<b>燃焼フィールド</b>をゆっくりと展開する。</li>
+                    <li>それぞれ <b>1.5秒以内</b> にレーザーを <b>20回</b> ヒットさせると、<a href="./class_solar.html#scorch">スコーチ</a>を <b>x10</b> <span class="balloon ash">(<b>x20</b>)</span> 付与する。</li>
+                    <li>レーザーを <b>0.45秒以上</b> 撃ち続けると、着弾地点を中心に<b>燃焼フィールド</b>を展開する。</li>
                     <li><b>4秒間</b> 撃ち続けると、燃焼フィールドは <b>1m</b> で最大化される。</li>
-                    <li>燃焼フィールドは、<b>2.5秒</b> ごとにスコーチを <b>x10</b> <span class="balloon ash">(<b>x20</b>)</span> 付与する。</li>
-                    <li>キルをすると全弾リロードされる。</li>
+                    <li>燃焼フィールドは、範囲内の敵に <b>0.1秒</b> ごとに <span class="pve"><b>13.47</b></span><span class="pvp">[?]</span> ダメージを与え、スコーチを <b>x10</b> <span class="balloon ash">(<b>x20</b>)</span> 付与する。</li>
+                    <li>この武器によって最初に付与されたスコーチやそれによる<a href="./class_solar.html#ignition">点火</a>は、通常のものよりもダメージが <b>+10%</b> 高くなっている。</li>
+                    <li>この武器でキルをすると、<b>全弾リロード</b>される。</li>
                 </ul>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -1691,15 +1790,15 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="telesto"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/977b96607460863e36260a5428bdd4c3.jpg" class="h3"><span class="w-icons void">&#xe144;</span>テレスト</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/44cffedea1b6bc9800da018f2bd431dd.jpg" class="h3"><span class="w-icons void">&#xe144;</span>テレスト</h3>
         <div class="base"><b>無慈悲な執行</b> - フュージョンライフルの弾丸がくっつき、遅延型のボイド爆発が発生する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <ul class="stats">
-                    <li><b>粘着性の爆発弾</b>を発射する。敵が接近したり、敵にくっついたりすると即座に爆発する。</li>
-                    <li>敵が来ないまま <b>5秒間</b> 経過すると自動的に爆発する。</li>
-                    <li>複数キルをすると、この武器とキネティックウェポンが全弾リロードされる。</li>
+                    <li><b>粘着性の爆発弾</b>を発射する。敵が接近したり、敵に接着したりすると即座に爆発する。</li>
+                    <li>敵が来ないまま <b>5秒間</b> 経過すると自動的に爆発する。地面や壁に接着した弾は破壊されない。</li>
+                    <li>この武器で複数キルをすると、この武器とキネティックウェポンが全弾リロードされる。</li>
                 </ul>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -1711,7 +1810,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="polaris_lance"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3bac8dcce9fec2943b7fa5608849d6bc.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ポラリス・ランス</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a22adf5ee0096e1cb9a6e212ee591b70.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ポラリス・ランス</h3>
         <div class="base"><b>5発目の悪夢</b> - 精密ショットを達成すると、マガジンに弾薬が戻される。精密ショットを4回達成すると、その次のショットが時間差で爆発するソーラー炸裂弾になる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1725,8 +1824,8 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>精密ヒットをすると、マガジンが <b>1発</b> リロードされる。</li>
-                <li>4回精密ヒットをすると、次の弾が<b>ソーラー爆発</b>を起こす。</li>
-                <li>爆発の範囲は <b>2m</b> でダメージ量は通常弾より <b>+95%</b> 増加しており、爆発を受けた敵に <b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> の<a href="./class_solar.html#scorch">スコーチ</a>を付与する。</li>
+                <li>4回精密ヒットをすると、次の弾が<b>爆発</b>を起こし、<b>2m以内</b> の敵に <span class="pve"><b>101</b></span><span class="pvp"><b>78</b></span> ダメージを与える。</li>
+                <li>この爆発を受けた敵は、<b>x40</b> <span class="balloon ash">(<b>x60</b>)</span> の<a href="./class_solar.html#scorch">スコーチ</a>が付与される。</li>
                 <li>リロードをするか、爆発弾準備完了から <b>6秒間</b> 撃たずにいると、カウントはリセットされる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -1746,7 +1845,7 @@
         -->
 
         <a name="trinity_ghoul"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fd7b661576c13c450d0d729d5bbf7333.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>トリニティ・グール</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ab33a7c7024299b28d8c6410d63e5bb5.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>トリニティ・グール</h3>
         <div class="base"><b>電子分裂</b> - 発射後に分裂する矢を放つ。照準をするか弓を完全に引き絞ることで集弾性能を上げることができる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1755,39 +1854,41 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>一度に3本の矢を発射する。</li>
-                <li>精密キルをすると<b>稲妻の杖</b>が発動し、次に撃った矢が周囲 <b>8m</b> の敵に雷を連鎖させるようになる。</li>
-                <li>直撃した矢に落ちた雷は <span class="pve"><b>16.5</b></span><span class="pvp"><b>10</b></span> ダメージを、連鎖した雷は <span class="pve"><b>66</b></span><span class="pvp"><b>51</b></span> ダメージを与える。</li>
+                <li>一度に3本の矢を発射する。弓を最大まで引くかADSをすると、矢の拡散が抑えられる。</li>
+                <li>この武器で精密キルをすると<b>稲妻の杖</b>が発動し、次に撃った矢が <b>8m以内</b> の敵に雷を連鎖させるようになる。</li>
+                <li>直撃した矢に落ちた雷は <span class="pve"><b>13</b></span><span class="pvp"><b>10</b></span> ダメージを、連鎖した雷は <span class="pve"><b>95</b></span><span class="pvp"><b>50.3</b></span> ダメージを与える。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>発射時間: <b>-108</b></li>
-                <li><b>あらゆるアークキルで</b>稲妻の杖が発動するようになる。</li>
+                <li><b>あらゆるアーク属性のキルで</b>稲妻の杖が発動するようになる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="wave_splitter"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e775a68f8846dc95cdd2823774b7b26d.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ウェーブスプリッター</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ba5b1654cbc06d0ce057f5d99b315b7e.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ウェーブスプリッター</h3>
         <div class="base"><b>ハーモニックレーザー</b> - レーザーダメージには3段階のパワーレベルがあり、トリガーを引き続けていると変化する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>3種類のパワーレベルの間でランダムに変化する。パワーレベルによってダメージ量が変化する。</li>
-                <li>パワーレベルによるダメージ増加量は低い順に <b>0%</b>、<b>+32.3%</b> 、<b>+68.7%</b> 。</li>
-                <li>力のオーブを拾うと全弾リロードされ、<b>10秒間</b> パワーレベルが<b>最大に固定</b>される。これが有効な間、<b>2秒以上</b> 継続してダメージを与えた敵に対して<b><a href="./class_void.html#suppression">抑制</a></b>を付与する。</li>
+                <li>パワーレベルによるダメージ増加量は低い順に <b>0%</b>、<b><span class="pve">+32.3%</span><span class="pvp">+3%</span></b> 、<b><span class="pve">+68.7%</span><span class="pvp">+6.25%</span></b> 。</li>
+                <li>力のオーブを拾うと全弾リロードされ、<b>10秒間</b> パワーレベルが<b>最大に固定</b>される。オーブを追加で拾うことで、効果時間を最大 <b>20秒</b> まで延長可能。</li>
+                <li>これが有効な間、<b>2秒以上</b> 継続してダメージを与えた敵に対して<b><a href="./class_void.html#suppression">抑制</a></b>を <b>7秒間</b> 付与する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="lord_of_wolves"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cad0bc80784d4029898b3a142c13da03.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ウルブズ・ロード</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6bd65ae8981e4cac3c00825abedd3fbb.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ウルブズ・ロード</h3>
         <div class="base"><b>榴弾ランチャー</b> - 短射程のソーラーダメージのバーストを発生させる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>リロードボタンを長押しすると、精度が落ちる代わりに、より早く連射でき、ダメージも高い、<b>狼の解放</b>モードへと切り替え可能。</li>
-                <li>狼の解放モードは通常より <b>60%</b> 早く連射でき<span class="pve">、ダメージが <b>+40%</b> 増加す</span>る。</li>
+                <li><b>5点バースト</b>で発射する。</li>
+                <li>リロードボタンを長押しすると、精度が落ちる代わりに、より早く連射でき、ダメージも高い<b>狼の解放</b>モードへと切り替え可能。</li>
+                <li>狼の解放モードは<b>10点バースト</b>射撃となり、通常より <b>60%</b> 早く連射でき<span class="pve">、ダメージが <b>+40%</b> 増加す</span>る。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1807,7 +1908,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="jotunn"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/507250e2d087e20c9c2572113dae8f72.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ヨトゥン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ec202c839348294926428ecb5a7423eb.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ヨトゥン</h3>
         <div class="base"><b>チャージショット</b> - 長押しで、当たると爆発して燃える追跡型弾丸をチャージ。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -1817,7 +1918,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>敵を追尾</b>し、<b>着弾時に爆発</b>する弾を発射する。</li>
-                <li>爆発時、<b>周囲を燃焼</b>させ、範囲内の敵に <b>0.25秒</b> ごとにダメージを与える。最大で <b>7回</b> のダメージを与えられる。</li>
+                <li>爆発時、<b>周囲を燃焼</b>させ、範囲内の敵に <b>0.25秒</b> ごとに <span class="pve">[?]</span><span class="pvp"><b>8</b></span> ダメージを <b>7回</b> 与える。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1828,12 +1929,12 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="le_monarque"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0c71441bf8ee516b5a2001532d1f8d01.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ル・モナーク</h3>
-        <div class="base"><b>毒の矢</b> - 完全に引いた直後の弓の矢は毒の矢になる。精密ショットを達成すると近くにいる敵に毒が広がる。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5f858cb4661c605d18e3dc0b62cc4aaa.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ル・モナーク</h3>
+        <div class="base"><b>毒の矢</b> - 弓を最大まで引き絞ってから素早く放つと、矢が毒矢になる。毒矢で精密ショットを達成すると戦闘員がスタン状態になり、近くにいる戦闘員に毒が広がる。<span class="w-icons overload">&#xe071;</span>オーバーロード・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
             <ul class="stats">
-                <li>精密フレーム</li>
+                <li>軽量フレーム</li>
             </ul>
             <div class="info">&lt;付属効果&gt;</div>
             <ul class="stats">
@@ -1842,9 +1943,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b><a href="./weapon_parts.html#lightweight_frame">軽量フレーム</a>の内在効果</b>を得る。</li>
-                <li>最大まで引いた瞬間に発射すると、命中した矢が <b>0.5秒</b> ごとに <b><span class="pve">29</span><span class="pvp">1.88</span></b> の毒ダメージを <b>6回</b> 与える。</li>
-                <li>毒には <b><span class="w-icons overload">&#xe071;</span> オーバーロード効果</b>がある。</li>
-                <li>毒矢で精密ヒットをすると、毒を半径 <b>3m以内</b> にいる他の敵に拡散させる。</li>
+                <li>最大まで引いた瞬間に発射すると、命中した矢が <b>1.75秒間</b> の<b>毒</b>を与える。</li>
+                <li>毒は <b>0.5秒</b> ごとに <b><span class="pve">43</span><span class="pvp">2.5</span></b> の毒ダメージを <b>6回</b> 与える。このダメージには <b><span class="w-icons overload">&#xe071;</span> オーバーロード効果</b>がある。</li>
+                <li>毒矢で精密ヒットをすると、毒を <b>3m以内</b> にいる他の敵に拡散させる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1856,7 +1957,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="tarrabah"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6cc7802bb9e22fbd1d8a0b4d70bdf531.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ターラバ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/88ea7e35e14f29c4cda6588cb258333b.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ターラバ</h3>
         <div class="base"><b>飢えた獣</b> - ダメージを与えた時、または受けた時にパワーを蓄積する。パワーがフルになったらビーストを放つ。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1876,10 +1977,10 @@
                 <li>飢えた獣:
                     <ul class="stats2">
                         <li>武器の通常ヒットダメージが <b>+187%</b> 、精密ダメージが <b>+99%</b> 増加する。</li>
-                        <li>さらに発射レートが <b>900</b> まで上がり、リロード速度が <b>+100</b> 、リロード時間が <b>x0.8</b> される。</li>
+                        <li>さらに発射後ディレイ変化率が <b>x0.8</b> まで変化し、リロード速度が <b>+100</b> 、ハンドリングが <b>+100</b> 、リロード時間が <b>x0.8</b> される。</li>
                         <li>また、自身の可動性が <b>+100</b> 、スライディング距離が <b>+33%</b> 増加する。</li>
-                        <li>効果時間は <b>8秒間</b> だが、敵に弾を当てると効果時間が <b><span class="pve">0.05秒</span><span class="pvp">0.1秒</span></b> 追加される。</li>
-                        <li><span class="pve">効果時間が <b>3秒</b> を切った状態で、<a href="./enemy_classification.html#rank-and-file">一般兵</a>か<a href="./enemy_classification.html#elite">エリート</a>を撃った場合は効果時間がさらに <b>0.3秒</b> 追加される。最大で <b>3秒</b> まで追加できる。</span></li>
+                        <li>効果時間は <b>8秒間</b> だが、敵に弾を当てると効果時間が <b><span class="pve">+0.05秒</span><span class="pvp">+0.06秒</span></b> 延長される。</li>
+                        <li><span class="pve">効果時間が <b>3秒</b> を切った状態で、<a href="./enemy_classification.html#rank-and-file">一般兵</a>か<a href="./enemy_classification.html#elite">エリート</a>を撃った場合は効果時間がさらに <b>+0.3秒</b> 延長される。最大で <b>3秒</b> まで延長できる。</span></li>
                     </ul>
                 </li>
             </ul>
@@ -1896,16 +1997,17 @@
         -->
 
         <a name="erianas_vow"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/021e6564a148be166ebd04a38979a025.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>エリアナの誓い</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/588133859fa98c801d8a9d66ea6aae2f.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>エリアナの誓い</h3>
         <div class="base"><b>睨み</b> - この武器は特殊なシールド貫通弾を発射する。スコープ付き。<span class="w-icons barrier">&#xe070;</span>バリア・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b></li>
                 <li><b>特殊弾を使用</b>する。</li>
-                <li>ADSをした最初の射撃で<b>一見の死</b>が付与され、ダメージが <b>+33%</b> 増加する。</li>
+                <li>ADSをした最初の射撃時、<b>一見の死</b>が付与される。</li>
+                <li>一見の死発動中は、この武器のダメージが <b>+32.5%</b> 増加する。</li>
                 <li>精密ヒットをするか、属性シールドを撃つと一見の死が<b>維持される。</b></li>
-                <li>射撃せずに <b>3秒</b> 経過するともう一度発動する。</li>
+                <li>射撃せずに <b>3秒</b> 経過すると、もう一度発動する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -1916,24 +2018,23 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="divinity"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/097f8146229e7e8693a989952f44c843.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>神性</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c6aa03536fd68b5fca5ad6b83ea0cf1e.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>神性</h3>
         <div class="base"><b>ジャッジメント</b> - この武器で持続的にダメージを与えると、標的を囲って弱体化させスタンさせる。<span class="w-icons overload">&#xe071;</span>オーバーロード・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b><span class="w-icons barrier">&#xe071;</span> オーバーロード効果</b></li>
-                <li>敵に <b>0.65秒間</b> ダメージを与えると、敵が弱体化し、その敵に対する全てのダメージが <span class="balloon univ_debuff"><b><span class="pve">+15%</span><span class="pvp">+7.5%</span></b>
-                    </span> 増加する。</li>
-                <li>神性自体が対象に与えるダメージは <b>+30%</b> 増加する。</li>
-                <li>さらに<b>ケージが形成</b>され、そこにヒットした弾は全て<b>精密ヒットになる。</b></li>
+                <li>それぞれ <b>0.15秒以内</b> に <b><span class="pve">8発</span><span class="pvp">5発</span></b> この武器をヒットさせると、その敵に対する全てのダメージが <span class="balloon univ_debuff"><b><span class="pve">+15%</span><span class="pvp">+7.5%</span></b></span> 増加する。</li>
+                <li>神性自体が対象に与えるダメージは、代わりに <b>+30%</b> 増加する。</li>
+                <li>さらに対象を中心に<b>ケージが形成</b>され、そこにヒットした弾は全て<b>精密ヒットになる。</b></li>
                 <li>爆発物やフュージョンライフルなど、精密ヒット判定がない武器は精密ヒット化しない。</li>
-                <li>敵に <b>70発分</b> ダメージを与え続けると、その敵に追加で <b>625</b> ダメージを与える。</li>
+                <li><b>3.75秒</b> ケージが存在している敵に対しては<b>贖罪</b>が発動し、追加で <b><span class="pve">1060</span><span class="pvp">520</span></b> ダメージを与える。2回目以降の発動は、必要なケージ持続時間が <b>4秒</b> に延長される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="symmetry"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ab8384a7cf91615ca198219436a8808b.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>シンメトリー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/55f9629f4674c351e3a2efd9ab9ca6e9.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>シンメトリー</h3>
         <div class="base"><b>革命</b> - フルオートで射撃する。アークシーカーモードに変更可能。アークシーカー弾は、狙いを定めた戦闘員を追尾する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1946,11 +2047,11 @@
                 <li>リロードボタンを長押しすると、<b>アークシーカーモード</b>に切り替え可能。</li>
                 <li>アークシーカーモード:
                     <ul class="stats2">
-                        <li>敵を追尾し、<b>範囲ダメージ</b>を与える低速弾を発射する。</li>
+                        <li>敵を追尾し、範囲内の敵に <span class="pve"><b>46.5</b></span><span class="pvp">[?]</span> ダメージを与える低速弾を発射する。自傷ダメージはない。</li>
                         <li>モード変更時、ダイナミックチャージの<b>数と同じ量</b>マガジンをリロードする。</li>
-                        <li>さらに<span class="pve"> <b>+30% × チャージの数</b></span><span class="pvp">チャージの数に応じて</span>、シーカーが与えるダメージを増加させる。</li>
+                        <li>さらに、<span class="pve"><b>+30% × チャージの数</b></span><span class="pvp">チャージの数に応じて</span>、シーカーが与えるダメージを増加させる。</li>
                         <li><span class="pvp">チャージ <b>3個～6個</b> で <b>3ヒット</b> 、チャージ <b>7個以上</b> で <b>2ヒット</b> でのキルが可能。</span></li>
-                        <li>発射レートは <b>100</b> に下がる。</li>
+                        <li>発射後ディレイ変化率は <b>x2.7</b> に変化する。</li>
                     </ul>
                 </li>
             </ul>
@@ -1962,7 +2063,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="devils_ruin"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/65acc14a463a14875980a54d6d244a99.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>悪魔の残骸</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/92cdbf57fe2a29cad14d18e33689463b.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>悪魔の残骸</h3>
         <div class="base"><b>ギャップ除去</b> - 可変トリガー。トリガーを押してから離すと弾を1発放つ。長押しで、敵を<span class="w-icons unstoppable">&#xe072;</span>スタンさせる強力なレーザーをチャージする。アンストッパブル・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1971,16 +2072,19 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>弾が1発でもある状態で <b>1秒間</b> 射撃ボタンを長押しすると、レーザーを <b>0.93秒間</b> 発射する。</li>
-                <li>レーザーには <b><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル効果</b> がある。</li>
+                <li>弾が1発でもある状態で <b>1秒間</b> 射撃ボタンを長押しすると、ダメージ減衰距離が <b>+10%</b> 増加したレーザーを発射する。
+                <ul class="stats2">
+                    <li>レーザーは <b>0.93秒間</b> 発射され、毎ヒット <span class="pve">[?]</span><span class="pvp"><b>26</b></span> ダメージを与える。</li>
+                    <li>レーザーのダメージには <b><span class="w-icons unstoppable">&#xe072;</span> アンストッパブル効果</b> がある。</li>
+                </ul>
+                </li>
                 <li>レーザーを撃ち始めると全弾リロードされ、途中で撃ち止めても<b>マガジンは全て消費</b>される。</li>
-                <li>レーザーのダメージは普通に全弾を撃ちきったときより <b>23%</b> 高い。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="tommys_matchbook"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/48bc926c393a48f40e43dec16122c6b3.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>トミーのマッチブック</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/251630147cd942ade9414781e96237ec.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>トミーのマッチブック</h3>
         <div class="base"><b>イグニション・トリガー</b> - 連射すると武器が過熱されてダメージが増加するが、使用者もやけどする。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -1989,26 +2093,27 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><a href="./weapon_perks.html#dynamic_sway_reduction">ブレ軽減</a> と <a href="./weapon_perks.html#hipfire_grip">腰だめ用グリップ</a> の効果を持つ。</li>
-                <li><b>20発</b> 撃ち続けると、<b>オーバーヒート</b>が付与される。</li>
+                <li>腰だめ撃ち時、安定性が <b>+50</b> 増加し、精度コーンサイズが <b>-13%</b> 、精度コーン拡散が -[?]% 減少する。</li>
+                <li>腰だめ撃ち中にADSに移行した場合、安定性の増加効果は引き継がれる。</li>
+                <li>それぞれ <b>0.125秒以内</b> に <b>20発</b> 撃ち続けると、自身に<b>オーバーヒート</b>が付与される。</li>
                 <li>オーバーヒート:
                     <ul class="stats2">
-                        <li>この武器のダメージが <b><span class="pve">+99%</span><span class="pvp">+55%</span></b> 増加する。</li>
+                        <li>この武器のダメージが <b><span class="pve">+99%</span><span class="pvp">+55%</span></b> 増加し、精度コーンサイズが <b>+3.5%</b> 拡大する。</li>
                         <li>しかし、自身が瀕死になるまで <b>0.4秒</b> ごとに <b>16</b> ダメージを受け続ける。</li>
-                        <li>腰だめ撃ちをすると自傷ダメージを <b>12</b> に軽減できる。</li>
+                        <li>腰だめ撃ちをするとこの自傷ダメージを <b>-25%</b> 軽減できる。</li>
                     </ul>
                 </li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li class="further">オーバーヒート発動中、<b>5発ごと</b> に敵に <b>x14</b> <span class="balloon ash">(<b>x21</b>)</span> の<a href="./class_solar.html#scorch">スコーチ</a>を付与する。</li>
-                <li class="further"><s>オーバーヒート発動後の、自然回復開始までの時間を <b>1秒間</b> 短縮する。</s></li>
+                <li>オーバーヒート発動中、<b>5発</b> 撃つたびに敵に <b><span class="pve">x15</span><span class="pvp">x10</span></b> <span class="balloon ash">(<b>x20</b>)</span> の<a href="./class_solar.html#scorch">スコーチ</a>を付与する。</li>
+                <li>また、オーバーヒート発動後の、自然回復開始までの時間を <b>1秒間</b> 短縮する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_fourth_horseman"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e22cf7677ed8903cfb1bbaec8dc0d81a.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>第四の騎士</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/74e1434dd585c5c305f4d331d05895c6.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>第四の騎士</h3>
         <div class="base"><b>稲妻を呼ぶ者</b> - 武器の連射速度が大幅に上昇し、フルオートで射撃する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2038,27 +2143,27 @@
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>装弾数: <b>+1</b></li>
-                <li>リロード速度: <b>+36</b></li>
+                <li>リロード速度: <b>+40</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ruinous_effigy"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c56baa404c0aa497af59b05f13c8d035.jpg" class="h3"><span class="w-icons void">&#xe144;</span>荒廃した彫像</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8787b1c97fe674d51a0450ba546ddb4b.jpg" class="h3"><span class="w-icons void">&#xe144;</span>荒廃した彫像</h3>
         <div class="base"><b>変質</b> - この武器でトドメを刺された敵は、ボイドの変質スフィアに姿を変える。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>この武器でキルした敵を<b>変質スフィア</b>として拾い、攻撃に利用できる。</li>
+                <li>この武器でキルした敵を<b>変質スフィア</b>として拾い、攻撃に利用できる。<b>30秒間</b> 拾わないと消滅する。</li>
                 <li>変質スフィア:
                     <ul class="stats2">
                         <li>使用回数: <b>30回</b></li>
                         <li>武器として使用していない間は、使用回数を毎秒 <b>1回ずつ</b> 消費する。武器を持ち替えると即座に消滅する。</li>
-                        <li><b>通常攻撃</b>は回数を <b>1回</b> 消費して近接攻撃を行い、<b><span class="pve">300</span><span class="pvp">150</span></b> ダメージを与える。空中では、与えるダメージが <b>-25%</b> 減少する。</li>
-                        <li><b>強攻撃</b>は回数を全て消費してスフィアを地面に叩きつけ、半径 <b>5m以内</b> の敵に <b><span class="pve">1500</span><span class="pvp">300</span></b> ダメージを与えて<b><a href="./class_void.html#suppression">抑制状態</a></b>にする。この攻撃に<b>距離減衰はなく</b>、残りの使用回数によってダメージは<b>変動しない</b>。</li>
+                        <li><b>通常攻撃</b>は回数を <b>1回</b> 消費して近接攻撃を行い、<b><span class="pve">300</span><span class="pvp">150</span></b> ダメージを与え<span class="pve">、<b>盲目状態</b>にす</span>る。空中では、与えるダメージが <b>-25%</b> 減少する。</li>
+                        <li><b>強攻撃</b>は回数を全て消費してスフィアを地面に叩きつけ、半径 <b>5m以内</b> の敵に <span class="pve"><b>1500</b></span><span class="pvp"><b>300</b> (オブジェクトに対しては <b>1500</b>)</span> ダメージを与えて<b><a href="./class_void.html#suppression">抑制状態</a></b>にする。この攻撃に<b>距離減衰はなく</b>、残りの使用回数によってダメージは<b>変動しない</b>。</li>
                         <li><b>ガード</b>をすると使用回数を <b>0.25秒</b> ごとに <b>1回ずつ</b> 消費し、自分を中心に<b>吸収フィールド</b>を形成する。このとき、自身が受けるダメージを <b><span class="pve">-80%</span><span class="pvp">-50%</span></b> 軽減する。</li>
-                        <li>吸収フィールド内にいる敵は<span class="pve"><b>盲目状態</b>になり、</span> <b>0.3秒</b> ごとに <b><span class="pve">30</span><span class="pvp">12</span></b> ダメージを受ける。この間、自身のHPを <b>5</b> ずつ回復する。</li>
-                        <li>残り使用回数が1のときに吸収フィールドを形成すると、ガードをやめるか死亡するまでHPの回復効果が<b>無効化</b>され、自身は<b>徐々に増加するダメージ</b>を受ける。このダメージはダメージ軽減効果を無視する。</li>
+                        <li>吸収フィールド内にいる敵は<span class="pve"><b>盲目状態</b>になり、</span> <b>0.3秒</b> ごとに <b><span class="pve">30</span><span class="pvp">12</span></b> ダメージを受ける。この間、ダメージを与えた敵1体につき自身のHPを <b>5</b> ずつ回復する。</li>
+                        <li>残り使用回数が1のときに吸収フィールドを形成すると、ガードをやめるか死亡するまでHPの回復効果が<b>無効化</b>され、自身は <b>0.7秒ごと</b> に<b>徐々に増加するダメージ</b>を受ける。このダメージは最大で一回につき <b>100</b> ダメージで、ダメージ軽減効果を無視する。</li>
                     </ul>
                 </li>
             </ul>
@@ -2070,7 +2175,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="cloudstrike"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c365777c8302772a865d99fb63da8731.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>クラウドストライク</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ce45921edb8e35a249f2c6f5b3abaab5.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>クラウドストライク</h3>
         <div class="base"><b>命ある者の対立</b> - 精密攻撃でトドメを刺すと、標的のいた場所に稲妻が発生する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2079,13 +2184,13 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>2.5秒以内</b> に3回精密ヒットをすると、周囲のダメージを与える<b>雷雲</b>が発生する。
+                <li><b>4秒以内</b> に <b>3回</b> 精密ヒットをすると、周囲の敵にダメージを与える<b>雷雲</b>が発生する。
                     <ul class="stats2">
                         <li>雷雲はストームグレネードと概ね同じ挙動を示す。</li>
-                        <li>1回目の落雷は <b>300</b> ダメージ、2回目の落雷は <b>180</b> ダメージを与える。</li>
+                        <li>1回目の落雷は <b><span class="pve">511</span><span class="pvp">300</span></b> ダメージ、2回目の落雷は <b><span class="pve">307</span><span class="pvp">180</span></b> ダメージを与える。</li>
                     </ul>
                 </li>
-                <li>精密キルをすると、周囲の敵に <b>300</b> ダメージを与える<b>落雷</b>が発生する。</li>
+                <li>この武器で精密キルをすると、周囲の敵に <b><span class="pve">511</span><span class="pvp">300</span></b> ダメージを与える<b>落雷</b>が発生する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -2096,15 +2201,15 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="duality"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ad94d7a9510d40ae68cd51d175c031f9.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>デュアリティ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/084c8f65d56ce5d74718d49b17874315.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>デュアリティ</h3>
         <div class="base"><b>圧縮チャンバー</b> - 腰だめで撃つと拡散型のペレット弾を発射し、狙いを定めると強力なスラグ弾を放つ。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>腰だめ撃ちで<b>ペレット弾</b>、ADS時は <b><span class="pve">711.5</span><span class="pvp">153</span></b> ダメージを与える<b>スラグ弾</b>を発射する。</li>
-                <li>ペレット弾によるキルをすると、<b>黒い翼</b>が付与される。</li>
-                <li>黒い翼発動中は、<b>精密ダメージが増加</b>し、<b>リロード速度が上昇</b>する。</li>
-                <li>効果は <b>7秒間</b> 持続し、スラグ弾で精密ヒットをすると、黒い翼の効果時間を <b>8秒間</b> に延長できる。</li>
+                <li>この武器のペレット弾によるキルをすると、<b>黒い翼</b>が <b>7秒間</b> 付与される。</li>
+                <li>黒い翼発動中は、この武器の<b>精密ダメージが増加</b>し、<b>リロード速度が増加</b>する。</li>
+                <li>この武器のスラグ弾で精密ヒットをすると、黒い翼の効果時間を <b>8秒間</b> に延長できる。</li>
             </ul>
             <table class="list stats">
                 <thead>
@@ -2129,7 +2234,7 @@
                     <tr class="pvp">
                         <th>精密ダメージ増加量</th>
                         <td><b>+8%</b></td>
-                        <td><b>+21%</b></td>
+                        <td><b>+24%</b></td>
                         <td><b>+31%</b></td>
                         <td><b>+39%</b></td>
                         <td><b>+47%</b></td>
@@ -2145,7 +2250,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="ticuus_divination"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7301e9d948c8f56dd9f972eea2a7ccd2.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ティクーの占術</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/39ef1673136f2f463879a83a44f11b0d.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ティクーの占術</h3>
         <div class="base"><b>聖火</b> - この武器を腰だめ撃ちすると複数の追尾弾が発射される。追尾弾に撃たれた標的は、死亡時に爆発するか、他の聖火に巻き込まれると爆発する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2158,8 +2263,8 @@
                 <li>聖火:
                     <ul class="stats2">
                         <li>効果時間: <b><span class="pve">10秒</span><span class="pvp">5秒</span></b></li>
-                        <li>倒されたとき、もしくはこの武器をADSして撃たれたときに<b>爆発</b>し、 <b><span class="pve">190</span><span class="pvp">137</span></b> ダメージを与える。</li>
-                        <li>爆発ダメージを受けた敵が聖火を付与されていた場合、<b>その敵も爆発</b>する。</li>
+                        <li>キルされたとき、もしくはこの武器をADSして撃たれたときに<b>爆発</b>し、 <b><span class="pve">190</span><span class="pvp">137</span></b> ダメージを与える。</li>
+                        <li>この爆発ダメージを受けた敵が聖火を付与されていた場合、<b>その敵も爆発</b>する。</li>
                     </ul>
                 </li>
                 <li>聖火が付与された敵に対して、ADS状態で弓を最大まで引いて精密ヒットをすると、爆発ダメージが <b>+100%</b> 増加する。</li>
@@ -2208,13 +2313,13 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="vex_mythoclast"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a8e1945b653a0cfb35c3652bef2f6092.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ベックス・ミソクラスト</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/111a10b59029fc6a9ca5e821267e6f6c.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ベックス・ミソクラスト</h3>
         <div class="base"><b>永遠の神話破壊者</b> - デフォルトの射撃モードではフルオートで射撃する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>メイン弾を使用</b>し、<b>オートライフル</b>に近い挙動を示す。</li>
-                <li>フルオート状態で敵をキルすると、<b>オーバーチャージ</b>を溜める。</li>
+                <li>この武器のフルオート状態で敵をキルすると、<b>オーバーチャージ</b>を溜める。</li>
                 <li><span class="pve"><a href="./enemy_classification.html#tier">ランク1, 2</a>の敵は1体につき <b>1個</b> 、それ以外の敵は1体につき <b>2個</b> 溜まる。</span></li>
                 <li><span class="pvp">オーバーチャージは、敵1体につき <b>2個</b> 溜めることができる。</span></li>
                 <li>チャージが <b>6個</b> 溜まった状態でリロードボタンを長押しすると、<b>テンポラル・アンリミッター</b>を発動する。</li>
@@ -2228,23 +2333,23 @@
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>キルをすると <b>5秒間</b> 、安定性が <b>+20</b> 、ダメージが <b>+20%</b> 増加し、<b>精度が向上</b>する。</li>
+                <li>この武器でキルをすると、<b>5秒間</b> ダメージが <b>+20%</b> 、安定性が <b>+20</b> 増加し、精度コーンサイズが <b>-20%</b> 縮小する。</li>
                 <li><b>フルオート時のみ</b>有効。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="lorentz_driver"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fe2ece0df57417cf291b462fe3c41c09.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ローレンツドライバー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4d6d145ff3a33a0a30407cc60d7e9e3b.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ローレンツドライバー</h3>
         <div class="base"><b>ラクランジュの目</b> - この武器は標的捕捉システムにより標的を自動的にマークする。マークされた標的にトドメを刺すとテレメトリーのパターンが生成される。死なずにテレメトリーのパターンを3つ入手すると、長時間この武器にボーナスダメージが付与される。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>特殊弾を使用</b>する。</li>
-                <li>精密キルをすると、<b>周囲の敵を引き込んで</b>から<b>爆発</b>を起こす。</li>
+                <li>この武器で精密キルをすると、<b>周囲の敵を引き込んで</b>から<b>爆発</b>を起こし、<span class="pve"><b>301</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
                 <li>使用中、<b>30m以内</b> にいる周囲の敵を<b>自動的にマーク</b>する。<span class="pve">マークされた敵は<b>壁越しに視認</b>できる。</span></li>
                 <li>マークされた敵をキルすると<b>テレメトリー</b>をドロップする。テレメトリーは近づくと入手でき、<b>60秒間</b> 拾わないと消滅する。</li>
-                <li>テレメトリーを <b>3個</b> 入手すると、<b>ラクランジュの目</b>が付与される。</li>
+                <li>テレメトリーを <b>3個</b> 入手すると、<b>ラクランジュの目</b>が付与され、ラクランジュの目発動中はこの武器が<b>強化</b>される。</li>
                 <li>ラクランジュの目:
                     <ul class="stats2">
                         <li>効果時間: <b>30秒</b></li>
@@ -2258,7 +2363,7 @@
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>武器使用中、<b>レーダーが強化</b>される。</li>
-                <li>ラクランジュの目発動中、<b>精密ではないキルでも爆発を発生</b>させるようになる。</li>
+                <li>ラクランジュの目発動中、この武器の<b>精密ではないキルでも爆発を発生</b>させるようになる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2273,7 +2378,7 @@
         -->
 
         <a name="edge_of_action"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c0c030e9553de314f3f9892f27d85557.jpg" class="h3"><span class="w-icons void">&#xe144;</span>行動の果て</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/add494c1e1fbdb062b7f6dc4c179c35b.jpg" class="h3"><span class="w-icons void">&#xe144;</span>行動の果て</h3>
         <div class="base"><b>行動の果て</b> - 前面にシールドを装備した、近接/遠距離の混合型ポールウェポン。 遠距離ダメージを与えるとエネルギーが生成される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2285,14 +2390,14 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>武器エネルギーが最大のとき、リロードボタンを長押しするとモードを変更できる。</li>
-                <li>モード変更すると、射撃時エネルギーをすべて消費して<b>ドーム状のシールド</b>を生成する。</li>
-                <li>シールドのHPは <b>8500</b> あり、<b>20秒間</b> 持続し、中に入ると <b>45HP</b> の<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>を得られる。</li>
+                <li>モード変更すると、弾薬を <b>1発</b> 生成し、射撃時に武器エネルギーをすべて消費して<b>ドーム状のシールド</b>を生成する。</li>
+                <li>シールドは <b>8500 HP</b> で、<b>20秒間</b> 持続し、中に入ると <b>45HP</b> の<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>を得られる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="edge_of_concurrence"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d16148d2696fab485de8dc0cfb407cd7.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>同意の果て</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6301bf4e6d9d9728aaf5f9bea06c6a1a.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>同意の果て</h3>
         <div class="base"><b>同意の果て</b> - 前面にシールドを装備した、近接/遠距離の混合型ポールウェポン。 遠距離ダメージを与えるとエネルギーが生成される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2304,14 +2409,14 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>武器エネルギーが最大のとき、リロードボタンを長押しするとモードを変更できる。</li>
-                <li>モード変更すると、射撃時エネルギーをすべて消費して<b>ライトニングシーカーを生成する。</b></li>
-                <li>シーカーは最大 <b>32m</b> まで敵を追尾して <b>480</b> ダメージを与え、<b>10m以内</b> にいる最大 <b>4体</b> までの敵にも電撃を連鎖させて <b>65</b> ダメージを与える。</li>
+                <li>モード変更すると、弾薬を <b>1発</b> 生成し、射撃時に武器エネルギーをすべて消費して<b>ライトニングシーカーを生成する。</b></li>
+                <li>シーカーは最大 <b>32m</b> まで敵を追尾して <b>480</b> ダメージを与えて<b><a href="./class_arc.html#jolt">ショック状態</a>を付与</b>し、<b>10m以内</b> にいる最大 <b>4体</b> までの敵にも電撃を連鎖させて <b>65</b> ダメージを与える。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="edge_of_intent"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b8f284b625fdb62e8be2701da47adcfd.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>決意の果て</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/beec2a35b2cffd3fac488e0fb8cf25a5.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>決意の果て</h3>
         <div class="base"><b>決意の果て</b> - 前面にシールドを装備した、近接/遠距離の混合型ポールウェポン。 遠距離ダメージを与えるとエネルギーが生成される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2323,16 +2428,15 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>武器エネルギーが最大のとき、リロードボタンを長押しするとモードを変更できる。</li>
-                <li>モード変更すると、射撃時エネルギーをすべて消費して<b>回復タレットを生成する。</b></li>
-                <li>タレットは <b>15秒間</b> 、<b>30m以内</b> の味方を追尾するシーカーを <b>1.25秒</b> ごとに発射する。</li>
-                <li>シーカーはHPを <b>75</b> 回復し、HPの<b>自然再生を開始</b>させる。</li>
-                <li>また、ソーラーのかけら「<a href="./class_solar.html#ember_of_benevolence">慈悲の名残</a>」の効果は、これによっても発動する。</li>
+                <li>モード変更すると、弾薬を <b>1発</b> 生成し、射撃時に武器エネルギーをすべて消費して<b>回復タレットを生成する。</b></li>
+                <li>タレットは <b>15秒間</b> 、<b>30m以内</b> の味方を追尾するシーカーを <b>1.25秒</b> ごとに発射する。シーカーは回復されていない味方を優先的に追尾する。</li>
+                <li>シーカーは着弾地点から <b>8m以内</b> にいる味方に<b><a href="./class_solar.html#cure">回復</a></b>と<b><a href="./class_solar.html#restoration">治癒</a></b>を付与する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="collective_obrigation"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e32acfb7e184421d72a58e134ee21aed.jpg" class="h3"><span class="w-icons void">&#xe144;</span>コレクティブ・オブリゲーション</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/238ab90ba2f858ebb8a5a1797a13fdd4.jpg" class="h3"><span class="w-icons void">&#xe144;</span>コレクティブ・オブリゲーション</h3>
         <div class="base"><b>ボイドリーチ</b> - 抑圧、弱体化、もしくは不安定状態の標的にダメージを与えた際、ボイドのデバフを吸収する。チャージ後にリロード長押しで発射モードを変更する。このモードでは、この武器のダメージは吸収されたものと同じボイドのデバフを与える。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2342,9 +2446,9 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><a href="./class_void.html#suppression">ボイドのデバフ</a>を受けた敵に弾を <b>6発</b> ヒットさせると、その<b>デバフを吸収</b>し、モード変更が可能となる。</li>
-                <li>また、自身がボイドのデバフを<b>受ける</b>か、ボイドのデバフを<b>受けている敵をキル</b>すると、即座に吸収を行う。</li>
+                <li>また、自身がボイドのデバフを<b>受ける</b>か、この武器でボイドのデバフを<b>受けている敵をキル</b>すると、即座に吸収を行う。</li>
                 <li>ただし、自傷によって付与されたデバフは吸収できない。</li>
-                <li>モード変更すると、<b><span class="pve">15秒間</span><span class="pvp">10秒間</span></b> 吸収したデバフを<b>攻撃した敵に与える。</b></li>
+                <li>モード変更すると、<b><span class="pve">15秒間</span><span class="pvp">10秒間</span></b> の間に攻撃した敵に、吸収したデバフを与えることができる。</li>
                 <li><span class="pve">モード変更時、この武器のダメージが <b>+20%</b> 増加する。</span></li>
                 <li>また、ボイドのバフを受けると<b>全弾リロード</b>される。<a href="./class_void.html#devour">吸引</a>の場合、回復効果発動時もリロードされる。</li>
             </ul>
@@ -2352,7 +2456,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="dead_messanger"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/99c98af523a93f7834f2757395169e74.jpg" class="h3"><span class="w-icons void">&#xe144;</span>デッドメッセンジャー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0824b34bb37e0bb7c32b91adf6dcb79e.jpg" class="h3"><span class="w-icons void">&#xe144;</span>デッドメッセンジャー</h3>
         <div class="base"><b>トリナリービジョン</b> - 単発の手持ち式グレネードランチャー。地面に着弾すると、弾から3つのエネルギー波が放たれる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2364,11 +2468,11 @@
                 <li>リロードボタンを長押しすると、ボイド→アーク→ソーラー→ボイドといった順番に<b>属性を変更</b>できる。</li>
                 <li>属性に応じて<b>武器のステータスが変化</b>する。</li>
                 <li>地面に着弾すると、<b>三叉状に波動を生成</b>する。</li>
-                <li>通常の波動フレームより、距離は短くなっている。</li>
+                <li>通常の波動フレームより波及距離は<b>半減</b>し、<b>12.5m</b> となっている。</li>
                 <li>属性によるステータス変化量:
                     <ul>
                         <li><span class="w-icons void">&#xe144;</span>: 安定性 <b>+20</b> 、照準補佐 <b>+10</b></li>
-                        <li><span class="w-icons arc">&#xe143;</span>: ハンドリング <b>+20</b> 、射程距離 <b>+5</b></li>
+                        <li><span class="w-icons arc">&#xe143;</span>: ハンドリング <b>+25</b> 、射程距離 <b>+5</b></li>
                         <li><span class="w-icons solar">&#xe140;</span>: リロード速度 <b>+35</b> 、空中効果 <b>+20</b></li>
                     </ul>
                 </li>
@@ -2381,18 +2485,18 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="trespasser"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f933fd8379602181f0405728e262433e.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>侵入者</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7c997d607157b4f4c9bc5cbd273198e8.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>侵入者</h3>
         <div class="base"><b>悔いなし</b> - 標的を倒した後にリロードすると、次に撃つ弾がより長く、より強力なスーパーバーストになる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>キル後のリロードで、<b>悔いなし</b>が <b>10秒間</b>付与される。</li>
+                <li>この武器でのキル後のリロードで、<b>悔いなし</b>が <b>10秒間</b>付与される。</li>
                 <li>悔いなし:
                     <ul class="stats2">
                         <li>効果時間: <b>10秒</b></li>
                         <li>6点バーストで弾を発射する。発射するとバフは消滅する。</li>
                         <li><span class="pve">このときのみ、この武器のダメージが <b>+200%</b> 増加する。</span></li>
-                        <li>キルをするとマガジンがリロードされ、もう一度6点バースト射撃が可能となる。このときのリロードは<b>手動リロード</b>としてみなされ、リロードによって発動する効果のトリガーになる。</li>
+                        <li>発動中にこの武器でキルをするとマガジンがリロードされ、もう一度6点バースト射撃が可能となる。このときのリロードは<b>手動リロード</b>としてみなされ、リロードによって発動する効果のトリガーになる。</li>
                     </ul>
                 </li>
             </ul>
@@ -2404,15 +2508,15 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="delicate_tomb"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0e220e001b7fbdbc8ef1f30b634e5521.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>脆き墓</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8a626d617f8e503df45142835bb5b659.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>脆き墓</h3>
         <div class="base"><b>裏切り者の船</b> - 腰だめ撃ち時の射撃が横方向に大きく広がる。この武器でトドメを刺すと、一定確率でイオントレースが発生する。強力な敵や敵対するガーディアンを倒すと必ずイオントレースが発生する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>16点バースト</b> による発射を行う。ADS時は、2つの弾を同時に発射する <b>8点バースト</b> になる。</li>
                 <li>腰だめ撃ちのダメージが <b>+20%</b> 増加する。</li>
-                <li>敵をキルすると、<b>16.7%</b> の確率で<b><a href="./class_arc.html#ionic_trace">イオントレース</a></b>が発生する。<b>エリート以上の敵</b>の場合必ず生成される。</li>
-                <li>イオントレースを取得すると、次の弾がダメージ <b>+30%</b> 増加、敵を<b><a href="./class_arc.html#jolted">ショック状態</a></b>にさせるチャージ弾となる。</li>
+                <li>この武器で敵をキルすると、<span class="pve"><b>16.7%</b> の確率で</span><b><a href="./class_arc.html#ionic_trace">イオントレース</a></b>が発生する。<span class="pve"><b>エリート以上の敵</b>の場合必ず生成される。</span></li>
+                <li>イオントレースを取得すると、次の弾が <b><span class="pve">+30%</span><span class="pvp">+7%</span></b> ダメージが増加し、敵を<b><a href="./class_arc.html#jolted">ショック状態</a></b>にさせるチャージ弾となる。</li>
                 <li>チャージ弾は射撃するか <b>14秒間</b> 経つと失われる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -2423,7 +2527,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_manticore"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/383bb659a1489d8ed5800e2793de0be8.jpg" class="h3"><span class="w-icons void">&#xe144;</span>マンティコア</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b52c06c2497831876503dbbe795b1e59.jpg" class="h3"><span class="w-icons void">&#xe144;</span>マンティコア</h3>
         <div class="base"><b>空を駆ける牙</b> - 地上に立っている間にダメージを与えると反重力レパルサーがチャージされる。滞空中にダメージを与えると反重力レパルサーの有効時間が延長される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2432,22 +2536,22 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>地上から敵を攻撃すると <b>反重力リパルサー</b> を <b>+1%</b> チャージする。地上からこの武器でキルをするとさらに <b>+10%</b> チャージする。</li>
-                <li>空中から攻撃をすると、<b>2秒間</b> 反重力リパルサーを消費して<b>滞空</b>する。滞空中、精度のペナルティは<b>完全に無効化</b>される。</li>
-                <li>滞空中、さらに攻撃すると反重力リパルサーを <b>-1%</b> 消費し、滞空時間を <b>0.3秒</b> 延長する。最大 <b>3秒</b> まで延長できる。</li>
-                <li>また、滞空中にヒットさせると、1発ごとにこの武器のダメージが <b>+4%</b> 増加する。最大 <b>+40%</b> まで増加させられる。</li>
+                <li>地上からこの武器でダメージを与えると、<b>反重力リパルサー</b>を <b>1%</b> チャージする。地上からこの武器でキルをするとさらに <b>10%</b> チャージする。</li>
+                <li>空中からこの武器でダメージを与えると、<b>2秒間</b> 反重力リパルサーを消費して<b>滞空</b>する。滞空中、精度のペナルティは<b>完全に無効化</b>され、移動速度のバフやデバフも受けない。</li>
+                <li>滞空中、さらにこの武器でダメージを与えると反重力リパルサーを <b>1%</b> 消費し、滞空時間を <b>0.3秒</b> 延長する。最大 <b>3秒</b> まで延長できる。</li>
+                <li>また、1発ごとに <b>3秒間</b> この武器のダメージが <b>+4%</b> 増加する。追加のヒットで効果時間はリセットされ、最大 <b>+40%</b> まで増加させられる。</li>
                 <li>反重力リパルサーを完全に消費して着地すると、ダメージ増加量はリセットされる。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>敵をキルすると、空中での被ダメージを <span class="further"><s><span class="pve">-40%</span><span class="pvp">-7.5%</span></s> <b><span class="pve">-50%</span><span class="pvp">-12.5%</span></b></span> 軽減する。</li>
-                <li>追加でヒットさせると効果時間が延長され、武器をしまっていても効果は持続する。</li>
+                <li>空中からこの武器で敵をキルすると、<b>5秒間</b> 空中での被ダメージを <b><span class="pve">-50%</span><span class="pvp">-10%</span></b> 軽減する。この武器でダメージを与えると効果時間が延長され、武器をしまっていても効果は持続する。</li>
+                <li>また、上記効果が有効な間、空中からこの武器でダメージを与えると、弾薬が <b>3発</b> リロードされる。この効果には <b>0.6秒間</b> のクールダウンがある。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="hierarcy_of_needs"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a2e591069c81556b41afdc3c61052565.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>必要の階層</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8c32410000243e6024130f755b23fbe6.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>必要の階層</h3>
         <div class="base"><b>ガイダンス・リング</b> - 精密ショットまたはトドメの一撃でガイダンス・リングのエネルギーが蓄積される。ガーディアンが相手の場合はさらに多くのエネルギーが付与される。チャージが最大まで貯まった状態で腰だめ撃ちすると、ガイダンス・リングが出現する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2456,16 +2560,16 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>最大まで引いた状態からの精密ヒットをするか、敵をキルすると、ガイダンス・リングのチャージを <b><span class="pve">1個</span><span class="pvp">2個</span></b> 溜める。</li>
-                <li>精密キルをするとチャージを <b><span class="pve">2個</span><span class="pvp">4個</span></b> 溜める。</li>
+                <li>この武器を最大まで引いた状態から精密ヒットをするか、この武器で敵をキルすると、ガイダンス・リングのチャージを <b><span class="pve">1個</span><span class="pvp">2個</span></b> 溜める。</li>
+                <li>この武器で精密キルをするとチャージを <b><span class="pve">2個</span><span class="pvp">4個</span></b> 溜める。</li>
                 <li>チャージが <b>6個</b> 溜まった状態で最大まで引いて腰だめ撃ちをすると、<b>ガイダンス・リング</b>を <b>12秒間</b> 生成する。</li>
-                <li>ガイダンス・リングを通してこの弓を撃つと、<b>追尾弾</b>を <b>2発</b> 発射する。</li>
-                <li>追尾弾は距離が<b>遠いほど</b>ダメージが増加し、そのダメージは<b>爆発ダメージ</b>として扱われる。</li>
+                <li>ガイダンス・リングを通してこの弓を撃つと、<b>追尾弾</b>を <b>2発</b> 発射し、最大 <b><span class="pve">192</span><span class="pvp">15</span></b> ダメージを与える。</li>
+                <li>追尾弾は最大 <b>80m</b> 飛翔し、飛翔距離が <b>40m</b> を超えると、与えるダメージが <span class="pve"><b>+50%</b></span><span class="pvp"><b>+15 ～ 20%</b> (オブジェクトに対しては <b>+50%</b>)</span> 増加する。</li>
                 <li>ガイダンス・リングは味方と<b>共有できる。</b></li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>ガイダンス・リングを生成するか、追尾弾をヒットさせると、<b>5秒間</b> 発射時間が <b>x0.5</b> され、リロード速度が増加する。</li>
+                <li>ガイダンス・リングを生成するか、追尾弾をヒットさせると、<b>5秒間</b> 発射時間が <b>x0.5</b> され、リロード速度が <b>+100</b> 増加し、リロード時間が x[?] 短縮される。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2480,7 +2584,7 @@
         -->
 
         <a name="vexcalibur"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/567befa9cc67a1d33355abb7fd9328fe.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ベックスカリバー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/735baec8c23ff1416ae6a8c72c729432.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ベックスカリバー</h3>
         <div class="base"><b>M1R 分散マトリクス</b> - 散開発射する。即消費されるシールドを装備。シールドでダメージをブロックすると、徐々に自分と周囲の味方にボイドの2つ目のシールドが付与される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2489,8 +2593,8 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>5発</b> の弾を十字に発射する。</li>
-                <li>武器エネルギーがある状態でガードをすると、自身と <b>15m以内</b> の味方に、<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>を毎秒 <b>11.5HP</b> ずつ付与する。</li>
+                <li><b>5発</b> の弾を十字に発射し、それぞれ <b><span class="pve">86.55</span><span class="pvp">28.85</span></b> ダメージを与える。一発につき、武器エネルギーは <b>8%</b> 回復する。</li>
+                <li>武器エネルギーがある状態でガードをすると、自身と <b>15m以内</b> の味方に、<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>を毎秒 <b>12HP</b> ずつ付与する。</li>
                 <li>オーバーシールドが有効なとき、近接攻撃で与えるダメージが <b>+20%</b> 増加し、近接キルをするとボイドのオーバーシールドが <b>45HP</b> まで回復し、効果時間を <b>10秒</b> <span class="balloon persistence">(<b>12秒</b>)</span> まで延長できる。</span>
                 </li>
             </ul>
@@ -2504,12 +2608,81 @@
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
+        <a name="centrifuse"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8c1a4a500934d67ecdb02455820c9b67.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>セントリヒューズ</h3>
+        <div class="base"><b>オーバーチャージ・コンデンサ</b> - ダッシュやスライディングをしたり、この武器を発射すると静電気が一時的にチャージされ、射程距離とリロード速度が向上する。高チャージ状態でトドメを刺すと爆発が起こり、最大チャージで爆発を起こすと標的を視力喪失状態にする。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <ul class="stats">
+                    <li>ダッシュをすると、弾薬が<b>段階的にリロード</b>される。</li>
+                    <li>ダッシュ、スライディング、この武器の射撃によって<b>チャージが進行</b>し、チャージ量に応じて<b>射程距離とリロード速度が増加</b>する。
+                        <ul class="stats2">
+                            <li>射撃開始から <b>0.267秒以上</b> 射撃を続けると、一秒につき <b>20%</b> のチャージが進行する。</li>
+                            <li>ダッシュ開始から <b>0.25秒以上</b> ダッシュを続けると、一秒につき <b>20%</b> のチャージが進行する。<b>5m/s以上</b> の速度で移動している必要がある。</li>
+                            <li>スライディングをすると、<b>10%</b> のチャージが進行する。</li>
+                        </ul>
+                    </li>
+                    <li>上記の行動を <b>1.1秒以上</b> していないと、チャージは毎秒 <b>-33%</b> ずつ減少する。手動でリロードをするとチャージは <b>0%</b> にリセットされる。</li>
+                    <li>チャージが <b>40%以上</b> 溜まった状態でこの武器によるキルをすると、爆発が発生し、周囲の敵に <b><span class="pve">159</span><span class="pvp">76</span></b> ダメージを与える。チャージが最大だった場合は、追加で<b><a href="./class_arc.html#blind">視力喪失状態</a>を付与</b>する。</li>
+                </ul>
+            </ul>
+            <div class="info">&lt;媒体効果&gt;</div>
+            <ul class="stats">
+                <li>毎秒 <b>7%</b> ずつ自動的にチャージされるようになり、<a href="./class_arc.html#amplified">増幅</a>中はチャージが<b>減少しなくなる。</b>手動リロードによるチャージのリセットは発生する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="tessellation"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1c2e9282803d516be01561423a0ea282.jpg" class="h3">テッセレーション</h3>
+        <div class="base"><b>特質: 決定不能</b> - この[武器|道具|トポロジー]のダメージタイプが、装備したサブクラスに合わせて変化する。トドメを刺すとグレネードエネルギーが付与される。</div>
+        <div class="indepth">
+            <div class="info">&lt;フレーム&gt;</div>
+            <ul class="stats">
+                <li>順応フレーム</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <ul class="stats">
+                    <li>武器の属性が、自動的に<b>自身のサブクラスと同じ属性</b>に変化する。</li>
+                    <li>この武器でキルをすると、グレネードエネルギーが <b>20%</b> 回復する。</li>
+                    <li>リロードボタンを長押しすると、グレネードエネルギーを <b>100%</b> 消費して、次の射撃を<b>爆発する投射物</b>に変化させる。</li>
+                    <li>投射物はロケットのように飛翔し、<b>6m以内</b> の敵に <span class="pve"><b>138.4</b></span><span class="pvp"><b>48</b></span> の直撃ダメージと <span class="pve"><b>2410</b></span><span class="pvp">[?]</span> の爆発ダメージを与える。</li>
+                    <li>この投射物で敵をキルすると、同属性の<b>爆発</b>が発生して <b>3m以内</b> の敵にダメージを与える。</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ex_diris"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/238ab90ba2f858ebb8a5a1797a13fdd4.jpg" class="h3"><span class="w-icons void">&#xe144;</span>エクス・ディリス</h3>
+        <div class="base"><b>汚染元素合成</b> - この武器は持続的にダメージを与えたり受けたりすると激高状態となり、その状態の間は連射速度が上昇する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>リロードが不要で、<b>予備弾薬を消費</b>して射撃を行う。</li>
+                <li>放物線を描く投射物を発射し、<span class="pve"><b>172</b></span><span class="pvp">[?]</span> の直撃ダメージと <span class="pve"><b>297</b></span><span class="pvp">[?]</span> の爆発ダメージを与える。</li>
+                <li>ヒット時に激高を <b>25%</b> チャージする。激高のチャージ状態に応じて、発射後ディレイ変化率が最大で <b>0.7x</b> まで変化する。</li>
+                <li>瀕死 (<b>70HP以下</b>) になると、激高は<b>最大まで</b>チャージされる。</li>
+                <li>激高のチャージは <b>9.5秒</b> かけて減少していく。瀕死時は減少しない。</li>
+                <li>この武器でキルをすると、最も近い敵を追尾して爆発するアークの<b>ロイヤルモス</b>を生成する。生成には <b>4秒間</b> のクールダウンがある。</li>
+                <li>モスは爆発時、最大で <span class="pve"><b>525</b></span><span class="pvp"><b>31</b> (オブジェクトに対しては <b>201</b>)</span> ダメージを与える。モスによる自爆ダメージはなく、モスのダメージは武器ダメージとして扱われる。</li>
+                <li><a href="exotic_armor.html#mothkeepers_wraps">モスキーパーのラップ</a>装備時は、アークのロイヤルモスと同時に<b>ボイドのロイヤルモス</b>を生成する。ボイドのモスは最も近い味方を追尾し、<b>22.5HP</b> の<a href="./class_void.html#overshield">ボイドのオーバーシールド</a>を付与する。</li>
+            </ul>
+        </div>
+        <div class="info">&lt;媒体効果&gt;</div>
+        <ul class="stats">
+            <li>この武器でキルをすると<b><a href="./class_arc.html#amplified">増幅</a>状態</b>になる。増幅中のヒットで、激高が <b>50%</b> チャージされるようになる。</li>
+        </ul>
+    <div class="back"><a href="#" id="page-top">▲</a></div>
+
         <a name="power"></a>
         <h2>パワーウェポン</h2>
         <p>存在するものについては基になったフレーム名を記載しているが、エキゾチック武器は特筆しない限りフレームの内在効果（軽量フレームの移動速度向上など）を受けない。</p>
 
         <a name="the_prospector"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/814b087177b19c7f187f22280e845b1e.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>ザ・プロスペクター</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/09e0e23b932b8b713549ce8d8f4c5f4d.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>ザ・プロスペクター</h3>
         <div class="base"><b>爆裂</b> - グレネード弾を発射し、離すと発射した全グレネード弾が同時に爆発する。グレネード弾が表面に付着し、標的に火をつける。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -2531,13 +2704,13 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="tractor_cannon"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b95e68c761e400c2fe5cf3c46999d689.jpg" class="h3"><span class="w-icons void">&#xe144;</span>トラクターキャノン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6afd31f787ff68d32e1f574686494606.jpg" class="h3"><span class="w-icons void">&#xe144;</span>トラクターキャノン</h3>
         <div class="base"><b>撃退力</b> - この武器は大きな衝撃波を発生させる。当たった敵はノックバックしてスキルが使用できなくなり、全ての攻撃に対する被ダメージ量が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ボイドの<b>衝撃波</b>を発生させ、敵を<b>ノックバック</b>させる。<span class="pve">ボス・ミニボスにはノックバック効果はない。</span></li>
-                <li>衝撃波を受けた敵は受けるダメージ量が <b><span class="balloon univ_debuff"><span class="pve">+30%</span><span class="pvp">+50%</span></span></b> 増加し、<b><a href="./class_void.html#suppression">抑制</a>が付与</b>される。</li>
+                <li>衝撃波を受けた敵は <b>10秒間</b> 受けるダメージ量が <b><span class="balloon univ_debuff"><span class="pve">+30%</span><span class="pvp">+50%</span></span></b> 増加し、<b><a href="./class_void.html#suppression">抑制</a>が付与</b>される。</li>
                 <li>この武器で敵にダメージを与えると、自身に<b>科学的試み</b>が <b>5秒間</b> 付与される。</li>
                 <li>科学的試み発動中は、すべての武器のハンドリングが <b>+100</b> 増加し、移動速度が最大化 (<b>+12.5%</b>) される。</li>
             </ul>
@@ -2550,14 +2723,14 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="legend_of_acrius"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1ed0827344c3855218be3bca8afb12af.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>アクリウスの伝説</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6de5f786f39bf827de8490e97b672ddb.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>アクリウスの伝説</h3>
         <div class="base"><b>ショックブラスト</b> - この武器が高ダメージのアークエネルギーの爆発を発生させ、敵を貫通する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>大きく拡散する <b>15発</b> のペレットを発射し、<span class="further"><s>9m以内</s> <b>12m以内</b></span> の敵にダメージを与える。</li>
+                <li>大きく拡散する <b>15発</b> のペレットを発射し、<b>12m以内</b> の敵にダメージを与える。</li>
                 <li>このペレットには<b>距離減衰がなく</b>、敵を<b>無制限に貫通</b>する。</li>
-                <li>地上にいる敵を攻撃すると追加で <b>135.2</b> ダメージを与える。</li>
+                <li>地上にいる敵を攻撃すると追加で <span class="pve"><b>135.2</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
                 <li>弾薬を1発でも所持していれば、レーダーの外縁範囲を 64m → <b>94m</b> まで拡大する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -2571,7 +2744,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="darci"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7840cd05c28abe361a115eba355d8996.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>D.A.R.C.I.</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/eec16138c9fe69ff0b5d6c213e5cabb6.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>D.A.R.C.I.</h3>
         <div class="base"><b>パーソナルアシスタント</b> - 敵を狙うと、体力やその他の重要情報がスコープに表示される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2583,7 +2756,8 @@
                 <li>スコープに映った敵の<b>自分との距離、HPとシールド残量(%表示)、パワーレベル</b>を表示する。</li>
                 <li><b>0.5秒間</b> 狙うと敵をハイライト表示する。狙いが外れてから <b>1秒</b> 持続する。<b>150m以上</b> 離れた敵は捕捉できない。</li>
                 <li>敵をハイライトすると精密ダメージが <b>+35%</b> 増加し、射撃した敵を<b><a href="./class_arc.html#jolted">ショック状態</a></b>にする。</li>
-                <li>さらに精度が <b>+50%</b> 増加し、照準補佐が増加し、ひるみと反動が <b>-50%</b> 軽減される。</li>
+                <li>さらに精度コーンサイズが <b>-50%</b> 縮小し、照準補佐が増加し、ひるみと反動が <b>-50%</b> 軽減される。</li>
+                <li>他のスナイパーライフルと違い、スコープ外の視界が見えるようになっている。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -2593,7 +2767,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_wardcriff_coil"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7c419b2fb92344ed57211f7bcaf157b9.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>ワードクリフ・コイル</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/06d12929d1866159aca5cdb60282f908.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>ワードクリフ・コイル</h3>
         <div class="base"><b>危険な科学者</b> - この武器がロケットの雨を降らせる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2609,7 +2783,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_colony"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/374345ed18447e7eb3a4a2bac4f3a694.jpg" class="h3"><span class="w-icons void">&#xe144;</span>コロニー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3ae064e4a93ea26a394ff35171193eed.jpg" class="h3"><span class="w-icons void">&#xe144;</span>コロニー</h3>
         <div class="base"><b>昆虫型ロボットグレネード</b> - この武器のグレネードは虫型ロボットで、標的を追跡し、接近して爆発する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2626,7 +2800,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="worldline_zero"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/701e706076b9b82501aacc12db890d0c.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>ワールドライン・ゼロ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b1f0b22d4c7ffa680f84381b5a4a2e02.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>ワールドライン・ゼロ</h3>
         <div class="base"><b>テセラクト</b> - フルエネルギー状態でダッシュ中に使用すると、ブリンク攻撃を発動する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2640,7 +2814,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>1秒</b> ダッシュすると、<b>束の間の疾走</b>が付与される。</li>
-                <li>束の間の疾走発動中に強攻撃を放つと、使用回数を <b>3回分</b> と、剣のエネルギーを <span class="further"><s>すべて</s> <b>50%</b></span> 消費して前方に <b>10m</b> テレポートし、テレポート先の半径 <b>2m以内</b> の敵にダメージを与え、<span class="further">付近の敵 <b>1体</b> にダメージを<b>連鎖</b>させる。</span></li>
+                <li>束の間の疾走発動中に強攻撃を放つと、使用回数を <b>3回分</b> と、剣のエネルギーを <b>50%</b> 消費して前方に <b>10m</b> テレポートし、テレポート先の半径 <b>2m以内</b> の敵に <span class="pve"><b>330</b></span><span class="pvp">[?]</span> ダメージを <b>5回</b> 与える。連続で発動可能。</li>
                 <li>再発動まで <b>5秒間</b> のクールダウンがある。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
@@ -2651,7 +2825,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="sleeper_simulant"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/06c339b02b1a3b0b5c1322751b177557.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>模倣スリーパー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/af232d6f94c12a4cf1080e659264294f.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>模倣スリーパー</h3>
         <div class="base"><b>眠れる森の美女</b> - 武器のレーザーが敵を貫通し、また硬い物に当たると屈折する。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -2660,7 +2834,7 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>敵を無制限に貫通し、壁や床で <b>5本</b> に分裂し拡散するレーザーを発射する。</li>
+                <li>敵を無制限に貫通、壁や床で <b>5本</b> に分裂し拡散するレーザーを発射して、<span class="pve">[?]</span><span class="pvp"><b>145</b></span> ダメージを与える。</li>
                 <li>レーザーは通常のリニア・フュージョンライフルに比べ、非精密ダメージが高い。</li>
                 <li>また、拡散したレーザーは同じ敵に複数ヒットしない。</li>
                 <li>レーザーは自身にヒットする可能性もある。</li>
@@ -2675,7 +2849,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="whisper_of_the_worm"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7955c1254752ed790fb0f5fa1b483c13.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>虫の囁き</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e47c31826843f6fd0aa863eac6fd093e.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>虫の囁き</h3>
         <div class="base"><b>白い爪</b> - 精密ダメージが高い。素早く3発の精密ショットを達成すると、マガジンが補充される。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2711,19 +2885,20 @@
         -->
 
         <a name="one_thousand_voices"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cb50132d014c78a0419bb23311260fe0.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>無数の声</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/51c53df606cca474dce3cadbf7d5ce28.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>無数の声</h3>
         <div class="base"><b>アハンカーラの目</b> - この武器をチャージすると巨大な死の光線が放たれる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>この武器から <b>0.6秒間</b> ビームが放たれ、着弾した場所を熱して <b><span class="pve">17.5</span><span class="pvp">11</span></b> ダメージを与える。</li>
-                <li>熱された場所は <b>0.4秒後</b> に爆発し、<b><span class="pve">230</span><span class="pvp">100</span></b> ダメージと <b>x10</b> <span class="balloon ash">(<b>x15</b>)</span> の<a href="./class_solar.html#scorch">スコーチ</a>を付与する。</li>
+                <li>熱された場所は <b>0.7秒後</b> に爆発し、<b><span class="pve">230</span><span class="pvp">100</span></b> ダメージと <b>x10</b> <span class="balloon ash">(<b>x15</b>)</span> の<a href="./class_solar.html#scorch">スコーチ</a>を付与する。ビームの最後のダメージを受けた場所は爆発しない。</li>
+                <li>この武器によって最初に付与されたスコーチやそれによる<a href="./class_solar.html#ignition">点火</a>は、通常のものよりもダメージが <b>+25%</b> 高くなっている。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="two-tailed_fox"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/db73528358622aca68f3606390bd7f27.jpg" class="h3"><span class="w-icons void">&#xe144;</span>二尾の狐</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c065e1c0d03d9648fcad7762031eede9.jpg" class="h3"><span class="w-icons void">&#xe144;</span>二尾の狐</h3>
         <div class="base"><b>ツインテール</b> - 1つの標的を追尾する、ボイドとソーラーの2種類のロケットを撃つ。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2734,20 +2909,21 @@
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>2発目の発射時、<b>アーク属性のロケット</b>が追加され、このダメージを受けた敵は<b><a href="./class_arc.html#jolted">ショック状態</a></b>になる。</li>
+                <li><b>アーク属性のロケット</b>が3発目として発射され、<span class="pve"><b>107</b></span><span class="pvp">[?]</span> の直撃ダメージと <span class="pve"><b>375</b></span><span class="pvp">[?]</span> の爆発ダメージを与える。</li>
+                <li>このダメージを受けた敵は<b><a href="./class_arc.html#jolted">ショック状態</a></b>になる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="black_talon"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bf2ab15ec0780ed4e2cd2dfe193117a6.jpg" class="h3"><span class="w-icons void">&#xe144;</span>黒い爪</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b40fd2d06867196af70a4bce290f15fc.jpg" class="h3"><span class="w-icons void">&#xe144;</span>黒い爪</h3>
         <div class="base"><b>クロウの翼</b> - 投射物による強攻撃を行う。強攻撃はフルエネルギー状態だとより威力を増す。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>攻撃をすると、<b>684</b> ダメージを与え、着弾時 <b>3m</b> の爆発を起こす投射物を発射する。発射時、剣の使用回数を <b>4回</b> 、エネルギーを <b>50%</b> 消費する。</li>
-                <li>剣のエネルギーが100%でない状態で攻撃をすると、投射物のダメージは <b>455</b> に減少し、着弾時に爆発を発生させなくなるが、消費する使用回数は <b>1回</b> になる。</li>
-                <li>投射物のダメージは、<a href="./enemy_classification.html#rank-and-file">一般兵</a>に対してのみ <b>+30%</b> 増加する。</li>
+                <li>攻撃をすると、<b><span class="pve">684</span><span class="pvp">456</span></b> ダメージを与え、着弾時 <b>3m</b> の爆発を起こす投射物を発射する。発射時、剣の使用回数を <b>4回</b> 、エネルギーを <b>50%</b> 消費する。</li>
+                <li>剣のエネルギーが100%でない状態で攻撃をすると、投射物のダメージは <b><span class="pve">455</span><span class="pvp">152</span></b> に減少し、着弾時に爆発を発生させなくなるが、消費する使用回数は <b>1回</b> になる。</li>
+                <li><span class="pve">投射物のダメージは、<a href="./enemy_classification.html#rank-and-file">一般兵</a>に対してのみ <b>+30%</b> 増加する。</span></li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
@@ -2757,7 +2933,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_queenbreaker"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ada52c29c412bbc292760f5e6a23fe72.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>クイーンブレーカー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cc919daae4f005e9da7f2065fe8e29c4.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>クイーンブレーカー</h3>
         <div class="base"><b>ワイヤーライフル</b> - 高精度の長射程アークボルトを発射する。近くにいる標的に連鎖し、当たった標的は視力喪失状態になる。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div> 以下から選択可能。
@@ -2768,7 +2944,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ヒット時、敵を<b><a href="./class_arc.html#blind">視力喪失状態</a></b>にする。</li>
-                <li>ヒットした敵から別の敵に<b>電撃が連鎖</b>し、そのダメージを受けた敵も視力喪失状態になる。最大で <b>5体</b> まで連続で連鎖できる。</li>
+                <li>ヒットした敵から最大 <b>5体</b> の敵に<b>電撃が連鎖</b>して <span class="pve"><b>243</b></span><span class="pvp">[?]</span> ダメージを与え、そのダメージを受けた敵も視力喪失状態になる。</li>
                 <li>サイトを<b>狙撃手の照準器</b>と<b>戦闘照準器</b>から選択できる。</li>
                 <li>狙撃手の照準器:
                     <ul class="stats2">
@@ -2793,7 +2969,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="thunderlord"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ddfe8daa6f2093efae32bd6f70ef36c5.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>サンダーロード</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/4a08027f7b5752f84d183ecc61682c3e.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>サンダーロード</h3>
         <div class="base"><b>大規模破壊</b> - この武器で倒すと上空から落雷が発生する。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2811,18 +2987,17 @@
                 <li><a href="./weapon_perks.html#dynamic_sway_reduction">ブレ軽減</a>の効果を持つ。</li>
                 <li>撃ち続けると、<a href="./weapon_perks.html#zen_moment">禅モーメント</a>のような反動制御を発揮する。</li>
                 <li>連続して <b>13発</b> 射撃するごとに発射レートが <b>450</b> → <b>600</b> → <b>720</b> と変化する。</li>
-                <li>連続して <b>13発</b> ヒットさせるか、敵をキルすると<b>落雷を発生させる。</b></li>
-                <li>落雷は<a href="./weapon_perks.html#dragonfly">ドラゴンフライ</a>と同じような動作を示す。</li>
+                <li>この武器を連続して <b>13発</b> ヒットさせるか、この武器で敵をキルすると<b>落雷を発生</b>させて、周囲の敵に <b><span class="pve">284</span><span class="pvp">65</span></b> ダメージを与える。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
-                <li>落雷を発生させると、マガジンの <b>10%</b> をリロードする。</li>
+                <li>落雷を発生させると、マガジンを <b>7発</b> リロードする。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="anarchy"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/140b9a1877eb689ff0e9c18f95f53029.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>アナーキー</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f24e3336a1142847d6bf47b56b492eea.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>アナーキー</h3>
         <div class="base"><b>アークの罠</b> - 表面に付着して、他の放った爆弾とアークボルトの連鎖を発生させる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -2836,21 +3011,21 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>弾は壁や床に接着し、<b>トラップ</b>として準備状態になる。この状態では <b>30秒後</b> に爆発する。</li>
-                <li>敵が接近するとトラップが起動し、<b>10秒間</b> 、敵に <b>0.5秒</b> ごとに継続して <b><span class="pve">145</span><span class="pvp">67.5</span></b> ダメージを与える。</li>
-                <li><b>15m以内</b> に他の弾を設置すると<b>ワイヤーが接続</b>され、ワイヤーに触れた敵にも継続的なダメージを与える。このとき、ワイヤーが与えるダメージは通常より <b>x2</b> に増加したダメージになる。</li>
+                <li>敵が接近するとトラップが <b>10秒間</b> 起動し、敵に <b>0.5秒ごと</b> に継続して <b><span class="pve">145</span><span class="pvp">67.5</span></b> ダメージを与える。</li>
+                <li><b>15m以内</b> に他の弾を設置すると<b>ワイヤーが接続</b>され、ワイヤーに触れた敵にも継続的なダメージを与える。このとき、ワイヤーが与えるダメージは通常より <b>x2</b> に増加したダメージになる。最大で <b>6個</b> まで設置できる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="truth"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/29fa7e1d919034759424e4e233b59b57.jpg" class="h3"><span class="w-icons void">&#xe144;</span>トゥルース</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b5021df721b66b6ab71e73b23e7b5392.jpg" class="h3"><span class="w-icons void">&#xe144;</span>トゥルース</h3>
         <div class="base"><b>プロトタイプのトゥルーシーカー</b> - この武器のロケットにはトラッキング機能がある。照準モードの間にターゲットをロックする。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>マガジンに <b>3発</b> のロケットを装填できる。</li>
                 <li>ADS時に敵を<b>ロックオン</b>し、発射後その敵を<b>精密に追尾</b>する。</li>
-                <li>ロケットは敵の <b>1m以内</b> に近づくと<b>自動的に爆発する。</b>そのため、直撃ダメージが存在しない。</li>
+                <li>ロケットは敵に接近すると<b>自動的に爆発する。</b>そのため、直撃ダメージが存在しない。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2865,7 +3040,7 @@
         -->
 
         <a name="deathbringer"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bad350071ec8c83c32c3795df872a9dc.jpg" class="h3"><span class="w-icons void">&#xe144;</span>死を齎す者</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5cb4c8ec3cabaaa6a29ac7513ee30ca0.jpg" class="h3"><span class="w-icons void">&#xe144;</span>死を齎す者</h3>
         <div class="base"><b>ダーク・デリバランス</b> - 遠隔爆破可能な投射物を発射し、戦闘員に触れるとボイドオーブを生成する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2883,7 +3058,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="xenophage"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2828804450abc6575609258a3479b19a.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ゼノファジ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/de34570a93281dc201690cfd146e6d24.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ゼノファジ</h3>
         <div class="base"><b>パイロトキシン弾</b> - 強力な爆発性の弾薬を放つ。</div>
         <div class="indepth">
             <div class="info">&lt;付属効果&gt;</div>
@@ -2894,7 +3069,7 @@
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li><b>爆発弾</b>を発射する。</li>
-                <li>弾の合計ダメージのうち、半分は弾の直撃ダメージ、半分は爆発ダメージとなる。</li>
+                <li>弾は <b><span class="pve">252</span><span class="pvp">75</span></b> の直撃ダメージと <b><span class="pve">1126</span><span class="pvp">75</span></b> の爆発ダメージを与える。</li>
                 <li>爆発ダメージには<b>距離減衰と精密判定が存在しない。</b></li>
                 <li>フルオートで撃たないと本来の発射レートよりも低くなるため注意が必要。</li>
             </ul>
@@ -2902,7 +3077,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="leviathans_breath"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f062142edf3a76e89920f34147d69947.jpg" class="h3"><span class="w-icons void">&#xe144;</span>リヴァイアサンの息吹</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fd892bb713040300ad944590892b0e50.jpg" class="h3"><span class="w-icons void">&#xe144;</span>リヴァイアサンの息吹</h3>
         <div class="base"><b>大物ハンター</b> - シールドの剥がれた戦闘員をスタンさせる巨大なヘビーボルトを放つ。<span class="w-icons unstoppable">&#xe072;</span>アンストッパブル・チャンピオンに効果的。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
@@ -2921,16 +3096,16 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="heir_apparent"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c7c44d140ec56dfdc5a1159947aa1aab.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>後継者</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/273379dd44efda777c53b3902a3a1eee.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>後継者</h3>
         <div class="base"><b>ヘビースラグ放射砲</b> - 武器を回転させる。フル回転にならないと発射できない。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ADSをするとバレルが回転する。<b>1.5秒</b> で最大まで回転し、発射可能になる。</li>
-                <li>HPが最大かつ発射可能のとき、<b>アークシールド</b>を纏う。</li>
+                <li>ADSをするとバレルが回転する。<b>1.5秒</b> で最大まで回転し、武器が発射可能になる。</li>
+                <li>HPが最大かつ武器が発射可能のとき、<b>アークシールド</b>を纏う。</li>
                 <li>アークシールドは最大回転から <b>1秒後</b> に付与され、<b>80HP</b> まで回復する。</li>
                 <li>アークシールドは<b>精密ダメージを無効化</b>し、キネティックダメージを <b>-50%</b> 、属性ダメージを <b>-15%</b> 軽減する。 </li>
-                <li>アークダメージのみ軽減せず、これによってシールドが破壊されると、この武器の使用者は <b>130</b> ダメージを受ける。</li>
+                <li>アークダメージのみ軽減せず、これによってシールドが破壊されると、この武器の使用者と近くにいる味方は <b>130</b> ダメージを受ける。</li>
                 <li>シールド破壊時に発生するこのダメージに、他のダメージ耐性は適用されない。</li>
             </ul>
             </li>
@@ -2943,63 +3118,88 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="eyes_of_tomorrow"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/29ddc714cb21c8c57d4dbfe36362e58c.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>明日の眼差し</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9caeff89015f02ad52e6fefe95398b01.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>明日の眼差し</h3>
         <div class="base"><b>全てを見る目</b> - この武器は複数の標的を同時に追跡して攻撃することができる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>ADS時に敵を最大 <b>6体まで ロックオン</b>し、その敵を<b>正確に追尾</b>するミサイルを <b>6発</b> 発射する。</li>
-                <li>一回の射撃で <b>4体以上</b> の敵をキルすると、<span class="further">弾薬が <b>1発</b> 生成され、</span><b>順応兵器</b>が付与される。</li>
-                <li>順応兵器発動時は、次に発射するこの武器の全ミサイルのダメージが <b>+50%</b> 増加する。6発目のミサイルを射撃すると効果は失われる。</li>
+                <li>ADS時に敵を最大 <b>6体まで ロックオン</b>し、その敵をすべて<b>追尾</b>するミサイルを <b>6発</b> 発射する。</li>
+                <li>一回の射撃で <b>4体以上</b> の敵をキルすると、弾薬が <b>1発</b> 生成され、<b>順応兵器</b>が付与される。</li>
+                <li>順応兵器発動時は、次に発射するこの武器の全ミサイルのダメージが <b>+50%</b> 増加する。6発目のミサイルを射撃する前に武器を持ち替えると、効果を維持できる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="salvations_grip"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/010d673dd0841e7c071344cc787c1bcd.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>救済の柄</h3>
-        <div class="base"><b>冷凍キャノン</b> - 長押しでチャージし、離すと発射する。この武器の投射物はステイシス・クリスタルを生成して近くの標的を凍結状態にする。</div>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f7a37e909fe6f923501f2175dc3784b6.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>救済の柄</h3>
+        <div class="base"><b>冷凍キャノン</b> - 長押しでチャージし、離すと発射する。この武器のチャージ投射物は着弾時にステイシス・クリスタルのパターンを生成して、近くの標的を凍結状態にする。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>射撃ボタンを長押しするとチャージし、離すと発射する。</li>
-                <li class="further">未チャージ状態の発射は<b>特殊な榴弾</b>を放ち、<a href="./class_stasis.html#freeze">凍結</a>状態の敵や<a href="./class_stasis.html#stasis_crystal">ステイシス・クリスタル</a>に対して大きなダメージを与える。</li>
-                <li class="further">この榴弾でクリスタルを <b>3個以上</b> 破壊すると、マガジンがリロードされる。</li>
-                <li class="further">チャージした発射は<b>ステイシス・クリスタルを生成</b>し、周囲の敵を<b>凍結</b>させる。</li>
-                <li class="further"><s>着弾地点に、チャージ時間に応じた大きさの<b><a href="./class_stasis.html#stasis_crystal">ステイシス・クリスタル</a>を生成</b>し、周囲の敵を<b><a href="./class_stasis.html#freeze">凍結</a></b>させる。</s></li>
-                <li class="further"><s>サイズは<b>小×1 ～ 大×3</b> の間で変動する。<b>2秒間</b> チャージするとサイズは最大化される。</s></li>
+                <li>未チャージ状態の発射は、<a href="./class_stasis.html#freeze">凍結</a>状態の敵や<a href="./class_stasis.html#stasis_crystal">ステイシス・クリスタル</a>に対してダメージが <b>+25%</b> 増加する<b>特殊な榴弾</b>を放つ。</li>
+                <li>チャージした発射はステイシス・クリスタルを <b>6個</b> V字状に生成し、周囲の敵を<b>凍結</b>させる。</li>
+                <li>クリスタルを <b>3個以上</b> 破壊すると、マガジンがリロードされる。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="the_lament"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9976b41a3b121e9c191fa0b313eb6bf9.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>悲嘆</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f6844ca3eb572c546e97a340c24531d5.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>悲嘆</h3>
         <div class="base"><b>バンシーの嘆き</b> - 長押しで刃を回転させる。ダメージが上昇し、全ての攻撃に<span class="w-icons barrier">&#xe070;</span>シールド貫通効果が付与される。回転攻撃でダメージを与えるとスタックが溜まる。スタックが溜まるとダメージが上昇し、強攻撃に対するダメージ耐性が上がる。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
                 <li>ダメージを与えるたびに <b>10HP</b> 回復する。</li>
-                <li>ガードすると刃が回転し、<b>バンシーの嘆き</b>と <b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b>が付与され、<b>独自モーション</b>での攻撃が可能となる。</li>
+                <li>ガードすると刃が回転し、<b>バンシーの嘆き x1</b> と <b><span class="w-icons barrier">&#xe070;</span> アンチバリア効果</b>が付与され、<b>独自モーション</b>での攻撃が可能となる。</li>
                 <li>刃が回転した状態で攻撃すると、バンシーの嘆きのスタックがチャージされる。最大で <b>x9</b> まで溜められる。</li>
-                <li>バンシーの嘆きのスタックが <b>2個以上</b> のとき、通常攻撃のダメージが <b>+33%</b> 増加し、スタック数に応じて、強攻撃の<b>ダメージが増加</b>する。</li>
-                <li>刃が回転中の通常攻撃は <b>3回</b> ヒットし、1回は通常と<b>同じダメージ</b>を、2回は通常攻撃の <b>25%</b> と同等のダメージを与える。後者はバンシーの嘆きによるダメージ増加効果を受けない。</li>
-                <li>また、強攻撃は使用回数を <b>2回分</b> 消費し、<b>3回</b> ヒットする。</li>
+                <li>スタックは攻撃を停止したとき、剣のエネルギーを使い切ったとき、強攻撃を使用したときに消滅する。</li>
+                <li>刃が回転中の通常攻撃は <span class="pve"><b>531</b></span><span class="pvp">[?]</span> ダメージを与え、ヒットから <b>0.1秒後</b> に追加で <span class="pve"><b>133</b></span><span class="pvp">[?]</span> ダメージを <b>2回</b> 与える。</li>
+                <li>この攻撃は、コンボ攻撃中の2回目以降、最初にヒットするダメージが <b>+33%</b> 増加する。追加で発生するダメージは、この増加効果を受けない。</li>
+                <li>刃が回転中の強攻撃は <span class="pve"><b>133</b></span><span class="pvp">[?]</span> ダメージを <b>2回</b> 与え、ヒットから <b>0.1秒後</b> に追加で <span class="pve"><b>708</b></span><span class="pvp">[?]</span> ダメージを与える。</li>
+                <li>この攻撃はバンシーの嘆きのスタック数に応じてダメージが増加する。</li>
+                <caption>強攻撃のダメージ増加量:</caption>
+                <table class="list stats">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>1x</th>
+                            <th>2x</th>
+                            <th>3x</th>
+                            <th>4x</th>
+                            <th>5x</th>
+                            <th>6x</th>
+                            <th>7x</th>
+                            <th>8x</th>
+                            <th>9x</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>ダメージ増加量</th>
+                            <td colspan="3" style="text-align: center;">+0%</td>
+                            <td colspan="3" style="text-align: center;"><b>+100%</b></td>
+                            <td colspan="3" style="text-align: center;"><b>+233%</b> (初撃ダメージ), <b>+185%</b> (追加ダメージ)</td>
+                        </tr>
+                    </tbody>
+                </table>    
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="gjallarhorn"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e6c6190dc297e8e09c1a32b2dab9aae4.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ギャラルホルン</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b62083eed6a4708e581fc9a061bcc8e9.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>ギャラルホルン</h3>
         <div class="base"><b>ウルフパック弾</b> - 発射された弾が爆発し、追尾型のクラスターミサイルへと分裂する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>15m以内</b> に味方がいると、この武器の<b>ハンドリングとリロード速度が大幅に向上</b>する。</li>
+                <li><b>15m以内</b> に味方がいると、この武器のハンドリングが <b>+50</b> 、リロード速度が <b>+50</b> 増加し、リロード時間が <b>x0.9</b> に短縮される。</li>
                 <li>ロケットは爆発時に、<b>8個</b> の<b>クラスターミサイル</b>に分裂する。</li>
                 <li>クラスターミサイルは<b>敵を追尾</b>し、追加でダメージを与える。</li>
                 <li>また、発射時、周囲の味方に <b>パックハンター</b>を <b>12秒間</b> 付与する。</li>
                 <li>パックハンター発動中は、エキゾチックでない他のロケットランチャーにも<b>クラスターミサイルが付与</b>される。
                     <ul class="stats2">
-                        <li>クラスターミサイルの属性は、<b>ロケットランチャーの属性に依存</b>する。フレームによってダメージが変化することはない。</li>
+                        <li>クラスターミサイルの属性は、<b>ロケットランチャーの属性に依存</b>する。ロケットランチャーのフレームによってダメージが変化することはない。</li>
                     </ul>
                 </li>
             </ul>
@@ -3021,7 +3221,7 @@
         -->
 
         <a name="parasite"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/74a333ec054ed39ceeebad66bd98d8fd.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>パラサイト</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0a71a14d8614d619a40649f09b28b466.jpg" class="h3"><span class="w-icons solar">&#xe140;</span>パラサイト</h3>
         <div class="base"><b>ワームの飢え</b> - 着弾時に爆発するハイヴワームを発射する。爆発の大きさとダメージは、この武器を発射する直前に倒した敵の数によって変化する。</div>
         <div class="indepth">
             <div class="info">&lt;関連項目&gt;</div>
@@ -3032,57 +3232,56 @@
                 <li>敵をキルすると<b>ワームの飢え</b>のスタックをチャージする。</li>
                 <li>
                     <ul class="stats2">
-                        <li>ランク1, 2の敵は <b>1個</b> 、ランク3, 4の敵は <b>4個</b> 、ランク2のエリート、ミニボス、ボスは <b>5個</b> チャージされる。</li>
+                        <li><span class="pve">ランク1, 2の敵は <b>1個</b> 、ランク3, 4の敵は <b>4個</b> 、ミニボス、ボスは <b>5個</b> チャージされる。</span><span class="pvp">一体につき <b>5個</b> チャージされる。</span></li>
                         <li>スタック1個につきこの武器のダメージが <b>+10%</b> 増加し、<b>爆発範囲が増加</b>する。</li>
-                        <li>スタックは最大20xまで溜められ、射撃時消滅する。</li>
+                        <li>スタックは最大 <b>x20</b> まで溜められ、射撃時消滅する。</li>
                     </ul>
                 </li>
                 <li>この武器による自傷ダメージを受けると、<b>ワームの副産物</b>が <b>10秒間</b> 付与される。</li>
-                <li>ワームの副産物発動中は、すべての武器ダメージが <b>+15%</b> 増加する。</li>
+                <li>ワームの副産物発動中は、この武器以外のすべての武器ダメージが <b>+15%</b> 増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="grand_overture"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e52215994fc192c2eb88dfa2a415d291.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>壮麗なる序曲</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bc76e54c9cd266c09d8e08036ebcfd42.jpg" class="h3"><span class="w-icons arc">&#xe143;</span>壮麗なる序曲</h3>
         <div class="base"><b>コロッサスの怒り</b> - トリガーを引いている間フルオートで発射される、チャージ時間のあるヘビースラグランチャー。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
+                <li><b>1秒</b> かけてチャージを行うスラグランチャーを発射し、<b><span class="pve">1243</span><span class="pvp">259</span></b> ダメージを与える。</li>
                 <li>スラグランチャーを敵にヒットさせると<b>ミサイルを装填</b>する。最大で <b>20発</b> 装填できる。</li>
                 <li>リロードボタンを長押しすると、装填したミサイルを<b>5点バーストで発射する</b>モードに移行する。</li>
-                <li>ミサイルは直撃時に <b>400</b> ダメージ、爆発で <b>31</b> ダメージを与える。</li>
+                <li>ミサイルは一発につき <b><span class="pve">400</span><span class="pvp">185</span></b> の直撃ダメージと、<b><span class="pve">31</span><span class="pvp">41</span></b> の爆発ダメージを与える。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>安定性: <b>+20</b></li>
                 <li>ハンドリング: <b>+20</b></li>
-                <li>ミサイルで敵を<b><a href="./class_arc.html#blind">視力喪失状態</a></b>にし、さらにミサイルでのキル時、<b>敵が爆発する。</b></li>
+                <li>ミサイルのヒット時、敵を<b><a href="./class_arc.html#blind">視力喪失状態</a></b>にする。また、ミサイルでのキル時、<b>敵が爆発する。</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="heartshadow"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b1af4c7452901649712fd979096ce388.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ハートシャドウ</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/94c6933727fa885fb2002a8c7aee5e42.jpg" class="h3"><span class="w-icons void">&#xe144;</span>ハートシャドウ</h3>
         <div class="base"><b>隠し刃</b> - 剣エネルギーがフル状態の時に強攻撃を行うと不可視状態になり、爆発性のボイドの投射物を発射する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>チャージされた強攻撃をすると、扇状に<b>投射物</b>を放ち、<b>6.3秒間</b> <a href="./class_void.html#invisibility">透明化</a>する。</li>
-                <li>透明化開始から <span class="further"><s>1秒以降</s> <b>0.25秒以降</b></span> の透明化中と、透明化解除から <b>2.5秒間</b> はこの剣のダメージが <b>+25%</b> 増加し、<span class="further"><b><a href="./class_void.html#weaken">弱体化</a></b>を付与する。</span></li>
-                <li>また、透明化中に投射物をヒットさせると、弱体化を <b><span class="pve">6秒間</span><span class="pvp">3秒間</span></b> 付与する。</b>
-                </li>
+                <li>地上でチャージされた強攻撃をすると、扇状に投射物を <b>4個</b> 放ち、爆発して <span class="pve"><b>505</b></span><span class="pvp">[?]</span> ダメージを与える。<span class="pve">一般兵に対しては、ダメージが <b>+30%</b> 増加する。</span>自身は <b>6.3秒間</b> <a href="./class_void.html#invisibility">透明化</a>する。</li>
+                <li>透明化開始から <b>0.25秒以降</b> の透明化中と、透明化解除から <b>2.5秒間</b> はこの剣のダメージが <b>+25%</b> 増加し、攻撃時に<b><a href="./class_void.html#weaken">弱体化</a></b>を <b><span class="pve">6秒間</span><span class="pvp">3秒間</span></b> 付与する。</li>
             </ul>
             <div class="info">&lt;媒体効果&gt;</div>
             <ul class="stats">
                 <li>弾薬数: <b>+6</b></li>
-                <li>透明化中の<b>移動速度が増加</b>する。</li>
+                <li>透明化中の前方への移動速度が <b>+12.5%</b> 増加する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="deterministic_chaos"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0cbb8ff2f562afe7edd1ec782327984a.jpg" class="h3"><span class="w-icons void">&#xe144;</span>決定的混沌</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d657cc9dae47ecaec19038f18f335c18.jpg" class="h3"><span class="w-icons void">&#xe144;</span>決定的混沌</h3>
         <div class="base"><b>ヘビーメタル</b> - トリガーを引いたまま発射される4発目の弾は重撃弾となり、命中時に標的を弱体化させる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -3098,7 +3297,7 @@
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="winterbite"></a>
-        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/039970bc980cc7e8ac01479765eed6e6.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>ウィンターバイト</h3>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fdc14f2b28c77f9627f0629fdb540b76.jpg" class="h3"><span class="w-icons stasis">&#xe139;</span>ウィンターバイト</h3>
         <div class="base"><b>大型凍結グレイブ</b> - 大型のエネルギーの球を発射すると、近くにいる標的をロックオンし凍結させる。</div>
         <div class="indepth">
             <div class="info">&lt;フレーム&gt;</div>
@@ -3107,8 +3306,9 @@
             </ul>
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>凍結オーブ</b>を発射する。オーブは <b>20m以内</b> にいる<a href="./class_stasis.html#freeze">凍結</a>していない敵に対して、<b>爆発性の投射物</b>を放ち、投射物の着弾地点付近にいる敵を<b>凍結</b>させる。</li>
-                <li>凍結オーブは <b>9.5m/s</b> の速度で飛翔し、着弾時に<b>爆発</b>する。爆発ダメージを受けた敵も<b>凍結</b>する。</li>
+                <li><b>凍結オーブ</b>を発射する。オーブは <b>20m以内</b> にいる<a href="./class_stasis.html#freeze">凍結</a>していない敵に対して、<b>0.5秒ごと</b> に<b>爆発性の投射物</b>を放ち、投射物の着弾地点付近にいる敵に <span class="pve"><b>60</b></span><span class="pvp"><b>10.6</b></span> ダメージを与えて<b>凍結</b>させる。</li>
+                <li>凍結オーブは <b>9.5m/s</b> の速度で飛翔し、着弾時に<b>爆発</b>して <b><span class="pve">1140</span><span class="pvp">250</span></b> ダメージを与える。爆発ダメージを受けた敵も<b>凍結</b>する。</li>
+                <li>凍結オーブのヒット時、武器エネルギーは <b>25%</b> 回復する。</li>
                 <li>さらに、弾が一発でも装填されていれば、この武器が与える近接ダメージが <b>+50%</b> 増加し、攻撃時に<a href="./class_stasis.html#slow">遅延</a>を <b>x40</b> 付与する。</li>
             </ul>
         </div>
@@ -3128,8 +3328,6 @@
 
         <a href="https://docs.google.com/spreadsheets/d/1WaxvbLx7UoSZaBqdFr1u32F2uWVLo-CJunJB4nlGUE4/edit#gid=441434520">The Destiny Data Compendium</a><br>
         <a href="https://www.light.gg/">light.gg</a><br>
-        <a href="https://www.reddit.com/r/squeaksqueak/comments/og33wi/this_post_describes_everything_we_know_about_what/?utm_source=share&utm_medium=web2x&context=3">This post describes everything we know about what Rat Pack does, including the RPM increase per stack. Learn about Rat King here.</a><br>
-        <a href="https://youtu.be/BTQAvmrIZEw">Forerunner's Catalyst is the Most Unique Masterwork in Destiny 2 (Halo Frag Grenades)</a>
 
         <a name="challenge_log"></a>
         <h2>更新履歴</h2>
