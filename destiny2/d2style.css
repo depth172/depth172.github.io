@@ -5,6 +5,7 @@
 
 .balloon {
     text-decoration: underline dotted #44444499 1px;
+    cursor: help;
 }
 
 .ash,
@@ -16,7 +17,7 @@
 }
 
 .w-icons {
-    cursor: default;
+    cursor: help;
     user-select: none;
     color: #444444;
 }
