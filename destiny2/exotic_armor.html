@@ -473,12 +473,12 @@
             <ul class="stats">
                 <li>サブマシンガン装備中:
                     <ul class="stats2">
-                        <li>可動性: <b>+50</b></li>
-                        <li>ハンドリング: <b>+100</b></li>
-                        <li>持ち替え速度: <b>x0.6</b></li>
+                        <li>可動性: <b>+25</b></li>
+                        <li>ハンドリング: <b>+50</b></li>
+                        <li>持ち替え速度: <b>x0.8</b></li>
                         <li>ダッシュ速度: <b>+6.25%</b></li>
                         <li>スライディング距離: <b>+33%</b></li>
-                        <li>ADS中移動速度ペナルティ: -25% → <b>-9%</b></li>
+                        <li>ADS中移動速度ペナルティ: <b>-33%</b></li>
                     </ul>
                 </li>
                 <li>使用していないサブマシンガンを <b>1秒後</b> に全弾リロードする。</li>
@@ -600,12 +600,12 @@
 
         <a name="wormgod_caress"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3baea5888219c87acd58d177ae70f2c2.jpg" class="h3">ワームゴッド・カレス</h3>
-        <div class="base"><b>燃える拳</b> - 近接キルをすると、一定時間、近接ダメージが増加する。追加でキルするとその時間が伸び、効果も上がる。</div>
+        <div class="base"><b>燃える拳</b> - 近接攻撃またはフィニッシャーで標的を倒すと、近接ダメージが徐々に増加する。この効果は時間と共に減衰する。燃える拳のレベルが高いほど、武器ダメージが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li>近接キル時に<b>燃える拳</b>のスタックが増加する。スタックは一定時間で減衰していく。</li>
-                <li>燃える拳発動中は<b>近接攻撃・近接スキルのダメージが増加</b>する。スタックが <b>x4以上</b> のときは、追加で武器ダメージも増加する。</li>
+                <li>近接キルもしくはフィニッシャーをすると、<b>燃える拳</b>のスタックが増加する。<b>2秒間</b> 近接キルかフィニッシャーをしないと、スタックは時間をかけて減衰していく。</li>
+                <li>燃える拳発動中は<b>近接攻撃・近接スキルのダメージが増加</b>する。スタックが <b><span class="pve">x2以上</span><span class="pvp">x3以上</span></b> のときは、追加で武器ダメージも増加する。</li>
                 <li>グレイブの近接攻撃でも発動し、効果を受けられる。</li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
@@ -622,12 +622,44 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>ダメージ増加量</th>
+                        <th>減衰時間</th>
+                        <td><b>9.5秒</b></td>
+                        <td><b>10秒</b></td>
+                        <td><b>4秒</b></td>
+                        <td><b>4秒</b></td>
+                        <td><b>3秒</b></td>
+                    </tr>
+                    <tr>
+                        <th>近接ダメージ増加量</th>
                         <td><b>+55%</b></td>
                         <td><b>+110%</b></td>
                         <td><b>+165%</b></td>
                         <td><b>+220%</b></td>
                         <td><b>+275%</b></td>
+                    </tr>
+                    <tr>
+                        <th>グレイブ近接ダメージ増加量</th>
+                        <td><b>+40%</b></td>
+                        <td><b>+80%</b></td>
+                        <td><b>+120%</b></td>
+                        <td><b>+160%</b></td>
+                        <td><b>+200%</b></td>
+                    </tr>
+                    <tr class="pve">
+                        <th>武器ダメージ増加量</th>
+                        <td>0%</td>
+                        <td><span class="univ_buff balloon"><b>+20%</b></span></td>
+                        <td><span class="univ_buff balloon"><b>+25%</b></span></td>
+                        <td><span class="univ_buff balloon"><b>+30%</b></span></td>
+                        <td><span class="univ_buff balloon"><b>+35%</b></span></td>
+                    </tr>
+                    <tr class="pvp">
+                        <th>武器ダメージ増加量</th>
+                        <td>0%</td>
+                        <td>0%</td>
+                        <td><span class="univ_buff balloon"><b>+20%</b></span></td>
+                        <td><span class="univ_buff balloon"><b>+25%</b></span></td>
+                        <td><span class="univ_buff balloon"><b>+25%</b></span></td>
                     </tr>
                 </tbody>
             </table>
@@ -807,12 +839,12 @@
 
         <a name="peregrine_greaves"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/49750e0306908fb302124ba9cab65606.jpg" class="h3">ペレグリン・グリーブ</h3>
-        <div class="base"><b>ペレグリン・ストライク</b> - 空中でショルダーチャージスキル(振動ストライク、ハンマーストライク、シールドバッシュ)を使用すると、追加ダメージを与える。全ての武器の空中効果ステータスに小さな恩恵を与える。</div>
+        <div class="base"><b>ペレグリン・ストライク</b> - 空中でショルダーチャージスキル(振動ストライク、ハンマーストライク、シールドバッシュ)を使用すると、追加ダメージを与える。ショルダーチャージでミニボス、トーメンターまたはチャンピオンにダメージを与えると近接エネルギーが返却される。全ての武器の空中効果ステータスに小さな恩恵を与える。</div>
         <div class="indepth">
             <div class="info">&lt;効果詳細&gt;</div>
             <ul class="stats">
-                <li><b>2秒間</b> ダッシュした後に空中で突進スキルを使用すると、そのダメージが <b>+225%</b> 増加する。</li>
-                <li>また、ミニボス、チャンピオン、トーメンターに対してはさらに<b>ダメージが増加</b>し、ヒット時に<b>近接エネルギーが回復</b>する。</li>
+                <li><b>2秒間</b> ダッシュした後、<b>0.5秒以上</b> 空中に滞空してから突進スキルを使用すると、そのダメージが <b>+225%</b> 増加する。</li>
+                <li>また、ミニボス、チャンピオン、トーメンターに対しては、代わりにダメージが <b>+1000%</b> 増加し、ヒット時に近接エネルギーを<b>消費しなくなる。</b></li>
                 <li>ただし、<a href="./class_stasis.html#freeze">凍結</a>状態の敵に対してはダメージ増加が適用されない。</li>
                 <li>また、すべての武器の空中効果を恒常的に <b>+20</b> 増加させる。</li>
             </ul>

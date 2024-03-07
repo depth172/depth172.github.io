@@ -137,6 +137,7 @@
                         <li><a href="#alacrity">迅速</a></li>
                         <li><a href="#skulking_wolf">潜む狼</a></li>
                         <li><a href="#hot_swap">ホット・スワップ</a></li>
+                        <li><a href="#advanced_reflexes">抜群の反射神経</a></li>
                         <li><a href="#psychohack">サイコハック</a></li>
                         <li><a href="#nanotech_tracer_rockets">ナノテクトレーサー・ロケット</a></li>
                         <li><a href="#field-tested">現場試験済み</a></li>
@@ -150,15 +151,19 @@
                         <li><a href="#unsated_hunger">満たされない飢え</a></li>
                         <li><a href="#disaster_plan">災害対策</a></li>
                         <li><a href="#head_rush">ヘッドラッシュ</a></li>
+                        <li><a href="#dragons_vengeance">竜の復讐</a></li>
+                        <li><a href="#nano-munitions">ナノ弾薬</a></li>
                         <li><a href="#explosive_pact">爆発契約</a></li>
                         <li><a href="#bray_inheritence">ブレイ家の遺産</a></li>
                         <li><a href="#souldrinker">ソウルドリンカー</a></li>
                         <li><a href="#runneth_over">装填過多</a></li>
                         <li><a href="#harmonic_resonance">調和する共振</a></li>
                         <li><a href="#cursed_thrall">カースド・スロール</a></li>
+                        <li><a href="#crossing_over">転換</a></li>
                         <li><a href="#bitterspite">ビタースパイト</a></li>
                         <li><a href="#tex_balanced_stock">テックス・バランスストック</a></li>
                         <li><a href="#restoration_ritual">回復の儀式</a></li>
+                        <li><a href="#sundering">分断</a></li>
                         <li><a href="#classy_contender">クラス候補</a></li>
                         <li><a href="#dream_work">ドリームワーク</a></li>
                         <li><a href="#search_party">捜索隊</a></li>
@@ -188,6 +193,8 @@
                         <li><a href="#collective_action">集団行動</a></li>
                         <li><a href="#vorpal_weapon">ヴォーパル武器</a></li>
                         <li><a href="#redirection">方向修正</a></li>
+                        <li><a href="#deconstruct">解体</a></li>
+                        <li><a href="#onslaught">猛襲</a></li>
                         <li><a href="#cascade_point">連鎖ポイント</a></li>
                         <li><a href="#feeding_frenzy">狂乱索餌</a></li>
                         <li><a href="#outlaw">アウトロー</a></li>
@@ -204,6 +211,7 @@
                         <li><a href="#headstone">墓石</a></li>
                         <li><a href="#chill_clip">チルクリップ</a></li>
                         <li><a href="#hatchling">雛</a></li>
+                        <li><a href="#slice">スライス</a></li>
                         <li><a href="#demolitionist">解体業者</a></li>
                         <li><a href="#pugilist">拳闘士</a></li>
                         <li><a href="#wellspring">源泉</a></li>
@@ -284,6 +292,7 @@
                         <li><a href="#auto-loading_holster">自動装填ホルスター</a></li>
                         <li><a href="#clown_cartridge">道化師のカートリッジ</a></li>
                         <li><a href="#rewind_rounds">巻き戻し弾</a></li>
+                        <li><a href="#attrition_orbs">アトリションオーブ</a></li>
                         <li><a href="#iron_gaze">鉄の眼差し</a></li>
                         <li><a href="#iron_grip">鉄の掌握</a></li>
                         <li><a href="#iron_reach">アイアン・リーチ</a></li>
@@ -331,6 +340,7 @@
                         <li><a href="#flash_counter">フラッシュカウンター</a></li>
                         <li><a href="#valiant_charge">勇敢なる突撃</a></li>
                         <li><a href="#energy_transfer">エネルギー転送</a></li>
+                        <li><a href="#beacon_rounds">信号弾</a></li>
                         <li><a href="#close_to_melee">近接に接近</a></li>
                         <li><a href="#replenishing_aegis">補充イージス</a></li>
                         <li><a href="#tilting_at_windmills">無謀な挑戦</a></li>
@@ -535,7 +545,7 @@
 
         <a name="major_spec"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/19b199473a1a93989ba4b57def1d6a6e.png" class="h3">メジャー特化</h3>
-        <div class="base">装備した武器がエリートとミニボスに与えるダメージを増加させる。</div>
+        <div class="base">装備した武器がエリートに与えるダメージを増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;関連項目&gt;</div>
             <a href="./enemy_classification.html#quick_table">敵の分類について</a>
@@ -548,7 +558,7 @@
 
         <a name="boss_spec"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b8f6da973a2d201be84f2d62f8c20284.png" class="h3">ボス特化</h3>
-        <div class="base">装備した武器がボスとビークルに与えるダメージを増加させる。</div>
+        <div class="base">装備した武器がミニボス、ボス、ビークルに与えるダメージを増加させる。</div>
         <div class="indepth">
             <div class="info">&lt;関連項目&gt;</div>
             <a href="./enemy_classification.html#quick_table">敵の分類について</a>
@@ -838,8 +848,14 @@
                 <li>リロード量: <b>25%</b></li>
                 <li>効果時間: <b>7秒</b></li>
                 <li>持ち替え後: <b>維持</b></li>
-                <li>発射時間 (<span class="w-icons bow">&#xe099;</span>): <b>-15%</b></li>
-                <li>ADS時の移動速度ペナルティ: <b>-5%</b></li>
+                <li>発射時間 (<span class="w-icons bow">&#xe099;</span>): <b>x0.85</b></li>
+                <li>チャージ速度 (<span class="w-icons sword">&#xe153;</span>): +[?]</li>
+                <li>ADS時の移動速度ペナルティ:
+                    <ul class="stats2">
+                        <li><span class="w-icons bow">&#xe099;</span>: <b>-9.5%</b></li>
+                        <li>それ以外の武器: <b>-10%</b></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -866,14 +882,38 @@
             <div class="info">&lt;備考&gt;</div>
             ナディール製の武器に付与される。
             <div class="info">&lt;発動条件詳細&gt;</div>
-            <b>1秒間</b> 射撃しないでいると効果は失われる。
+            <b>2秒間</b> 射撃しないでいると効果は失われる。
             <div class="info">&lt;効果量&gt;</div>
-            <ul class="stats">
-                <li>射程距離: 最大 <b>+10</b></li>
-                <li>精度コーンサイズ: 最大 +[?]</li>
-                <li>投射物速度 (<span class="w-icons glheavy">&#xe113;</span>): 最大 +[?]</li>
-                <li>移動距離 (<span class="w-icons sword">&#xe153;</span>): 最大 +[?]</li>
-            </ul>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                        <th>4x</th>
+                        <th>5x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>射程距離</th>
+                        <td><b>+2</b></td>
+                        <td><b>+4</b></td>
+                        <td><b>+6</b></td>
+                        <td><b>+8</b></td>
+                        <td><b>+10</b></td>
+                    </tr>
+                    <tr>
+                        <th>精度コーンサイズ</th>
+                        <td><b>-1.5%</b></td>
+                        <td><b>-3%</b></td>
+                        <td><b>-4.5%</b></td>
+                        <td><b>-6%</b></td>
+                        <td><b>-7.5%</b></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -914,14 +954,14 @@
             ストライクやナイトフォール限定で入手できる武器に付与される。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>HP回復量: <b>7</b></li>
+                <li>HP回復量: <b>10</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="one_quiet_moment"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5dee055d9ec357e47521bcf18e8d9b0f.png" class="h3">ある静寂の瞬間</h3>
-        <div class="base">非戦闘時、この武器のリロード速度が上昇する。この武器でキルをすると、再発動までの時間が短くなる。</div>
+        <div class="base">非戦闘時、この武器のリロード速度が上昇する。剣の場合、自身の移動速度が上昇する。この武器でキルをすると、再発動までの時間が短くなる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             クルーシブル限定で入手できる武器に付与される。
@@ -932,6 +972,7 @@
             <ul class="stats">
                 <li>リロード速度: <b>+40</b></li>
                 <li>リロード時間: <b>x0.95</b></li>
+                <li>移動速度 (<span class="w-icons sword">&#xe153;</span>): <b>+25%</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1007,7 +1048,7 @@
 
         <a name="hot_swap"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/314d86b1452f673b72f1eee9d506586d.png" class="h3">ホット・スワップ</h3>
-        <div class="base">ダメージを受けてからこの武器に持ち替えると、この武器のハンドリングが増加する。剣の場合はチャージ時間、ガード耐性、ガード持続時間が増加する。</div>
+        <div class="base">ダメージを受けてからこの武器に持ち替えると、この武器のハンドリングが増加する。剣の場合はチャージ速度、ガード耐性、ガード持続時間が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             永遠の挑戦限定で入手できる武器に付与される。
@@ -1016,9 +1057,26 @@
                 <li>効果時間: <b>4秒</b></li>
                 <li>持ち替え後: <b>維持</b></li>
                 <li>ハンドリング: <b>+30</b></li>
-                <li>チャージ時間 (<span class="w-icons sword">&#xe153;</span>): <b>+100</b></li>
+                <li>チャージ速度 (<span class="w-icons sword">&#xe153;</span>): <b>+100</b></li>
                 <li>ガード耐性 (<span class="w-icons sword">&#xe153;</span>): <b>+100</b></li>
                 <li>ガード持続時間 (<span class="w-icons sword">&#xe153;</span>): <b>+100</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="advanced_reflexes"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/705d34b04c45fd66f8cecefe1dab8068.png" class="h3">抜群の反射神経</h3>
+        <div class="base">ダメージを受けた直後にADSもしくはガードすると、自身の可動性と、この武器のハンドリング、チャージ速度が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            夢見る都市で入手できる武器に付与される。
+            <br>効果中の再発動はできない。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>7.5秒</b></li>
+                <li>可動性: <b>+30</b></li>
+                <li>ハンドリング: <b>+30</b></li>
+                <li>チャージ速度 (<span class="w-icons sword">&#xe153;</span>): <b>+20</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1030,6 +1088,16 @@
             <div class="info">&lt;備考&gt;</div>
             玉座の世界で入手できる武器に付与される。
             <br>効果中の再発動はできない。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            <ul class="stats">
+                <li>必要ヒット数:
+                    <ul class="stats2">
+                        <li><span class="w-icons smg">&#xe107;</span>: <b>13発</b></li>
+                        <li><span class="w-icons sidearm">&#xe109;</span>: <b>12発</b></li>
+                        <li><span class="w-icons bow">&#xe099;</span> / <span class="w-icons glaive">&#xe156;</span> / <span class="w-icons rocket">&#xe108;</span>: <b>3発</b></li>
+                    </ul>
+                </li>
+            </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <span class="pve"><b>5秒</b></span><span class="pvp"><b>3秒</b></span></li>
@@ -1046,7 +1114,18 @@
             ネオムナで入手できる武器に付与される。
             <br>ロケットの属性は武器の属性と同じものとなる。
             <div class="info">&lt;発動条件詳細&gt;</div>
-            発射後、次のヒット数カウントを開始するまで <b>1秒間</b> のクールダウンがある。
+            <ul class="stats">
+                <li>必要ヒット数:
+                    <ul class="stats2">
+                        <li><span class="w-icons hc">&#xe103;</span> / <span class="w-icons pulse">&#xe101;</span> / <span class="w-icons smg">&#xe107;</span>: マガジンの <b>45%</b></li>
+                        <li><span class="w-icons sr">&#xe105;</span>: マガジンの <b>50%</b></li>
+                        <li><span class="w-icons fusion">&#xe106;</span>: マガジンの [?]%</li>
+                        <li><span class="w-icons glheavy">&#xe113;</span>: マガジンの <b>30%</b></li>
+                        <li><span class="w-icons mg">&#xe154;</span>: マガジンの <b>25%</b></li>
+                    </ul>
+                </li>
+            </ul>
+            発動後、次のヒット数カウントを開始するまで <b>1秒間</b> のクールダウンがある。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ダメージ: <span class="pve"><b>22.4</b></span><span class="pvp"><b>14</b></span> (直撃) + <span class="pve"><b>24</b></span><span class="pvp"><b>15</b></span> (爆発)</li>
@@ -1392,6 +1471,41 @@
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
+        <a name="dragons_vengeance"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8a949815acddd92fcf5aa1daa6de8da2.png" class="h3">竜の復讐</h3>
+        <div class="base">自身が瀕死になるか、味方が死亡すると、この武器のマガジンが全弾リロードされ、射程距離、ハンドリングが増加し、チャージ時間、発射時間が短縮される。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            望みのシーズンの武器に付与される。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>11秒</b></li>
+                <li>射程距離: <b>+5</b></li>
+                <li>ハンドリング: <b>+10</b></li>
+                <li>チャージ時間 (<span class="w-icons fusion">&#xe106;</span>): <b>x0.975</b></li>
+                <li>発射時間 (<span class="w-icons bow">&#xe099;</span>): <b>x0.975</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="nano-munitions"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/3af17bb526ecf91b31a3cab210bbf744.png" class="h3">ナノ弾薬</h3>
+        <div class="base">味方が近くにいる間、次にマガジンがなくなった際に自動的にリロードされる弾薬を補充する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            不死のシーズンの復刻武器に付与される。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            <b>15m</b> の範囲内に味方がいると発動する。
+            <br>発動条件を満たしている間、<b>3秒</b> ごとに、ナノ弾薬のスタックが1個付与される。最大で <b>7個</b> まで累積できる。
+            <br>スタックのある状態で弾薬を使い切ると、スタックを1個消費してリロードする。このとき、スタック累積のタイマーはリセットされる。
+            <br>ヘビー弾武器に持ち替えると、スタックはすべて消滅する。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>リロード量: <b>25%</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
         <a name="explosive_pact"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1dbfce413bb144936a3f4a5f83cf623b.png" class="h3">爆発契約</h3>
         <div class="base">グレネードを投げると、安定性とリロード速度が増加する。グレネードでキルをするか、回復グレネードの場合は味方にオーブが拾われると追加のスタックが付与される。</div>
@@ -1475,10 +1589,12 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             レイド「門弟の誓い」で入手できる武器に付与される。
-            <br>ヒット数と回復量の比率は武器によって異なる。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            ヒット数と回復量の比率は装弾数に依存する。
+            <br>グレイブの近接攻撃は、ヒット数に含まれない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>回復量: <b>20～80 HP</b></li>
+                <li>マガジンの100%をヒットさせると、<b>50 HP</b> 回復する。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1559,6 +1675,29 @@
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
+        <a name="crossing_over"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/864b117b673162efe764921b13399b52.png" class="h3">転換</h3>
+        <div class="base">この武器のマガジンが半分以上の場合は射程距離とハンドリングが、半分以下の場合はこの武器の与えるダメージが増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            迷宮「予言」で入手できる武器に付与される。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>光:
+                    <ul class="stats2">
+                        <li>射程距離: 最大 <b>+10</b></li>
+                        <li>ハンドリング: 最大 +[?]</li>
+                    </ul>
+                </li>
+                <li>暗黒:
+                    <ul class="stats2">
+                        <li>ダメージ増加量: 最大 <b>+3%</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
         <a name="bitterspite"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f8b7f71e2a9dbb4ad23fe0f31b644f95.png" class="h3">ビタースパイト</h3>
         <div class="base">敵からダメージを受けると、この武器の次のリロード速度が増加する。</div>
@@ -1604,7 +1743,7 @@
 
         <a name="tex_balanced_stock"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/fda0d944e47165312dd193665560fadb.png" class="h3">テックス・バランスストック</h3>
-        <div class="base">この武器を腰だめ撃ちして複数回ヒットさせると、この武器のハンドリング、リロード速度、ADS時の移動速度が増加する。</div>
+        <div class="base">この武器を腰だめ撃ちして複数回ヒットさせると、この武器の射程距離、ハンドリング、リロード速度、腰だめ撃ちの精度、ADS時の移動速度が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             迷宮「監視者のスパイア」で入手できる武器に付与される。
@@ -1616,8 +1755,9 @@
                 <li>持ち替え後: <b>維持</b></li>
                 <li>ハンドリング: <b>+20</b></li>
                 <li>リロード速度: <b>+20</b></li>
-                <li>リロード時間: <b>x0.95</b></li>
-                <li>ADS時の移動速度ペナルティ: <b>-5%</b></li>
+                <li>リロード時間: <b>x0.9</b></li>
+                <li>腰だめ撃ち時の精密判定角度: <b>+1.5°</b></li>
+                <li>ADS時の移動速度ペナルティ: <b>-10%</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -1631,6 +1771,22 @@
             <div class="info">&lt;発動条件詳細&gt;</div>
             対象の武器をしまっていても発動する。
             <br>一度発動すると効果は失われる。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="sundering"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/877a57624bf7ca0e5e946f666a5b0a4b.png" class="h3">分断</h3>
+        <div class="base">この武器で構造物やビークルを破壊するか、敵のシールドを破壊すると、この武器のリロード速度が増加し、発射時間が短縮される。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            迷宮「ウォーロードの旧跡」で入手できる武器に付与される。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>7秒</b></li>
+                <li>リロード速度: <b>+40</b></li>
+                <li>リロード時間: x[?]</li>
+                <li>発射時間 (<span class="w-icons bow">&#xe099;</span>): x[?]</li>
+            </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -2268,7 +2424,7 @@
                 <tbody>
                     <tr>
                         <th>必要射撃数</th>
-                        <td><b>12.5%</b></td>
+                        <td><b>12.5%</b> (<span class="w-icons smg">&#xe107;</span>: <b>20%</b>)</td>
                         <td><b>35.5%</b></td>
                         <td><b>54.5%</b></td>
                         <td><b>74.5%</b></td>
@@ -2341,12 +2497,12 @@
                 <tbody>
                     <tr>
                         <th>ダメージ増加量</th>
-                        <td><b>+4.33%</b></td>
-                        <td><b>+8.66%</b></td>
-                        <td><b>+13%</b></td>
-                        <td><b>+17.33%</b></td>
-                        <td><b>+21.66%</b></td>
-                        <td><b>+26%</b></td>
+                        <td><b>+5%</b></td>
+                        <td><b>+10%</b></td>
+                        <td><b>+15%</b></td>
+                        <td><b>+20%</b></td>
+                        <td><b>+25%</b></td>
+                        <td><b>+30%</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -2380,7 +2536,7 @@
             <ul class="stats">
                 <li>効果時間: <b>10秒</b></li>
                 <li>持ち替え後: <b>維持</b></li>
-                <li>ダメージ増加量: <b>+35%</b></li>
+                <li>ダメージ増加量: <b>+30%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             効果時間が増加する。
@@ -2415,11 +2571,6 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/bc5130b227ee577f2678ec2d2c97bf4a.png" class="h3">ヴォーパル武器</h3>
         <div class="base"><span class="pve">ミニボス、ボス、ビークル</span><span class="pvp">スーパースキルを使用中のガーディアン</span>に対して、この武器が与えるダメージが増加する。</div>
         <div class="indepth">
-            <div class="pvp">
-                <div class="info pvp">&lt;備考&gt;</div>
-                敵の発動しているスーパースキルによってダメージ倍率が変動する。
-                <br>ゴールデンガンなどの被ダメージ耐性がないものに対してはあまりダメージは出ず、アークポールやノヴァワープといった被ダメージ耐性が強くなるものに対してはより強力なダメージ増加が得られる。
-            </div>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>ダメージ増加量:
@@ -2429,9 +2580,9 @@
                         <li><span class="pve">ヘビー弾: <b>+10%</b></span></li>
                     </ul>
                     <ul class="stats2">
-                        <li><span class="pvp">メイン弾: 最大 <b>+40 ～ 50%</b></span></li>
-                        <li><span class="pvp">特殊弾: 最大 <b>+10 ～ 20%</b></span></li>
-                        <li><span class="pvp">ヘビー弾: 最大 <b>+5 ～ 10%</b></span></li>
+                        <li><span class="pvp">メイン弾: <b>+60%</b></span></li>
+                        <li><span class="pvp">特殊弾: <b>+20%</b></span></li>
+                        <li><span class="pvp">ヘビー弾: <b>+20%</b></span></li>
                     </ul>
                 </li>
             </ul>
@@ -2502,6 +2653,71 @@
                     </tbody>
                 </table>
     
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="deconstruct"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/91de2fd6a7756ba07d301a93e1e1cf29.png" class="h3">解体</h3>
+        <div class="base">この武器を複数回ヒットさせると、弾薬がリロードされ、構造物やビークルに対してこの武器が与えるダメージが増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            リロード時、弾薬は<b>生成される（予備弾薬を消費しない）</b>。
+            <br>リロード効果にクールダウンはなく、必要ヒット数を満たすたびに発動する。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            それぞれ <b>6秒以内</b> に一定回数ヒットさせると発動する。
+            <br>必要ヒット数: <b>マガジンサイズ ÷ 2 + 2</b> (切り捨て)
+            <br>メイン弾を使用する武器の場合、必要ヒット数が<b>半分</b>となる。
+            <br>また、構造物やビークルに対してダメージを与えた場合、ヒット数のカウントが、メイン弾武器の場合は <b>1.5倍</b> 、特殊弾武器の場合は <b>2倍</b> となる。
+            <br>発動中、追加でヒットさせると効果時間が延長される。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>5秒</b></li>
+                <li>弾薬回復量: <b>10%</b> (切り上げ)</li>
+                <li>対構造物ダメージ増加量: <b>+40%</b></li>
+            </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果時間が増加する。
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="onslaught"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/7e07db21ba2b35751507256e46230616.png" class="h3">猛襲</h3>
+        <div class="base">この武器でキルをすると、この武器の発射レートとリロード速度が増加する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: <b>4.5秒</b></li>
+                <li>持ち替え後: <b>維持</b></li>
+            </ul>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>発射後ディレイ変化率</th>
+                        <td><b>x0.84</b></td>
+                        <td><b>x0.72</b></td>
+                        <td><b>x0.63</b></td>
+                    </tr>
+                    <tr>
+                        <th>リロード速度</th>
+                        <td><b>+15</b></td>
+                        <td><b>+25</b></td>
+                        <td><b>+35</b></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 4.5秒 → <b>5秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -2628,6 +2844,16 @@
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/cee13d00e65346dacc05562c80f537da.png" class="h3">啓発的アクション</h3>
         <div class="base">この武器を複数回ヒットさせると、この武器のハンドリングとリロード速度が増加する。</div>
         <div class="indepth">
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            一部の単発武器は、一回のヒットにつき複数のスタックが付与される。
+            <ul class="stats">
+                <li>スタック付与数:
+                    <ul class="stats2">
+                        <li><span class="w-icons bow">&#xe099;</span>: [?]個</li>
+                        <li><span class="w-icons hc">&#xe103;</span>: <b>3個</b></li>
+                    </ul>
+                </li>
+            </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>2秒</b></li>
@@ -2641,27 +2867,54 @@
                         <th>3x</th>
                         <th>4x</th>
                         <th>5x</th>
+                        <th>6x</th>
+                        <th>7x</th>
+                        <th>8x</th>
+                        <th>9x</th>
+                        <th>10x</th>
+                        <th>11x</th>
+                        <th>12x</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th>ハンドリング</th>
-                        <td><b>+10</b></td>
+                        <td><b>+2</b></td>
+                        <td><b>+7</b></td>
+                        <td><b>+12</b></td>
+                        <td><b>+15</b></td>
                         <td><b>+20</b></td>
+                        <td><b>+25</b></td>
                         <td><b>+30</b></td>
+                        <td><b>+35</b></td>
+                        <td><b>+38</b></td>
                         <td><b>+40</b></td>
+                        <td><b>+45</b></td>
                         <td><b>+50</b></td>
                     </tr>
                     <tr>
                         <th>リロード速度</th>
-                        <td><b>+10</b></td>
+                        <td><b>+2</b></td>
+                        <td><b>+7</b></td>
+                        <td><b>+12</b></td>
+                        <td><b>+15</b></td>
                         <td><b>+20</b></td>
+                        <td><b>+25</b></td>
                         <td><b>+30</b></td>
+                        <td><b>+35</b></td>
+                        <td><b>+38</b></td>
                         <td><b>+40</b></td>
+                        <td><b>+45</b></td>
                         <td><b>+50</b></td>
                     </tr>
                 </tbody>
             </table>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果がさらに強化される。
+            <ul class="stats2">
+                <li>最大ハンドリング: +50 → <b>+55</b></li>
+                <li>最大リロード速度: +50 → <b>+55</b></li>
+            </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -2824,13 +3077,14 @@
         <div class="base">この武器で同じ敵を複数回攻撃すると、衝撃波が発生して周囲の敵にダメージを与える。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            発動すると対象の敵の足元にフィールドが生成され、<b>1秒ごと</b> に <b>3回</b> の衝撃波を発生させ、それぞれダメージを与える。
+            発動すると対象の敵の足元にフィールドが生成され、<b>1秒</b> ごとに <b>3回</b> の衝撃波を発生させ、それぞれダメージを与える。
             <div class="info">&lt;発動条件詳細&gt;</div>
             それぞれ <b>3秒以内</b> に一定回数ヒットさせると発動する。
             発動に必要なヒット数は、武器の種類によって異なる。
             <ul class="stats">
                 <li>必要ヒット数:
                     <ul class="stats2">
+                        <li><span class="w-icons auto">&#xe100;</span>: <b>12発</b></li>
                         <li><span class="w-icons smg">&#xe107;</span>: <b>14発</b></li>
                         <li><span class="w-icons pulse">&#xe101;</span>: <b>11発</b></li>
                         <li><span class="w-icons sidearm">&#xe109;</span>: <b>11発</b></li>
@@ -2852,10 +3106,11 @@
             <ul class="stats2">
                 <li>必要ヒット数:
                     <ul class="stats3">
+                        <li><span class="w-icons auto">&#xe100;</span>: 12発</li>
                         <li><span class="w-icons smg">&#xe107;</span>: 14発</li>
                         <li><span class="w-icons pulse">&#xe101;</span>: 11発 → <b>10発</b></li>
                         <li><span class="w-icons sidearm">&#xe109;</span>: 11発 → <b>7発</b></li>
-                        <li><span class="w-icons hc">&#xe103;</span> / <span class="w-icons scout">&#xe102;</span>: 6発 → [?]発</li>
+                        <li><span class="w-icons hc">&#xe103;</span> / <span class="w-icons scout">&#xe102;</span>: 6発 → <b>5発</b></li>
                         <li><span class="w-icons sr">&#xe105;</span>: 3発 → <b>2発</b></li>
                     </ul>
                 </li>
@@ -2868,11 +3123,11 @@
         <div class="base">この武器でキルをすると爆発が起こり、周囲の敵に<a href="./class_solar.html#scorch">スコーチ</a>を付与する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            爆発自体にダメージは発生しない。
-            <br>スコーチのダメージ量は、武器自体にかかったバフによって増加させることができる。
+            スコーチのダメージ量は、武器自体にかかったバフによって増加させることができる。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果範囲: <b><span class="pve">4m</span><span class="pvp">8m</span></b></li>
+                <li>ダメージ: 最大 <b>30</b></li>
                 <ul class="stats2">
                     <li><span class="pve">強力な敵をキルすると、爆発の範囲が <b>8m</b> まで増加する。</span></li>
                 </ul>
@@ -2939,16 +3194,14 @@
             <ul class="stats">
                 <li>効果範囲: <b>4m</b></li>
                 <li>遅延付与数: <b>x40</b></li>
-                <li><span class="pve">遅延効果時間: <b>4秒</b> <span class="balloon durance">(<b>8秒</b>)</span></span>
-                        </li>
-                        <li><span class="pvp">遅延効果時間: <b>1.5秒</b> <span class="balloon durance">(<b>2秒</b>)</span></span>
-                        </li>
-                    </ul>
-                    <div class="info">&lt;強化特性&gt;</div>
-                    恒常的に安定性が増加する。
-                    <ul class="stats2">
-                        <li>安定性: <b>+5</b></li>
-                    </ul>
+                <li><span class="pve">遅延効果時間: <b>4秒</b> <span class="balloon durance">(<b>8秒</b>)</span></span></li>
+                <li><span class="pvp">遅延効果時間: <b>1.5秒</b> <span class="balloon durance">(<b>2秒</b>)</span></span></li>
+            </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            恒常的に安定性が増加する。
+            <ul class="stats2">
+                <li>安定性: <b>+5</b></li>
+            </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -2957,12 +3210,29 @@
         <div class="base">この武器で精密キルをするか、複数キルをすると、敵のいた位置に<a href="./class_strand.html#threadling">スレッドリング</a>を生成する。</div>
         <div class="indepth">
             <div class="info">&lt;発動条件詳細&gt;</div>
-            複数キルで発動するのは、精密ヒットが不可能な武器のみ。
-            <br>その場合は、それぞれ <b>3秒以内</b> に <b>3体以上</b> キルすると発動する。
+            複数キルの場合は、それぞれ <b>3秒以内</b> に <b>3体以上</b> キルすると発動する。
             <div class="info">&lt;強化特性&gt;</div>
             恒常的にハンドリングが増加する。
             <ul class="stats2">
                 <li>ハンドリング: <b>+5</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="slice"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/1874354fc06817cf75a451d2ad1419e1.png" class="h3">スライス</h3>
+        <div class="base">クラススキルを使用してから一定時間、この武器の射撃で敵を<a href="./class_strand.html#sever">切断状態</a>にする。</div>
+        <div class="indepth">
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            このパークがついた武器をしまっている状態でも発動する。
+            <ul class="stats">
+                <li>効果時間: <b>8秒</b></li>
+                <li>発動可能な弾数: <b>5発</b></li>
+            </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            効果時間が増加する。
+            <ul class="stats2">
+                <li>効果時間: 8秒 → <b>9秒</b></li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -3106,7 +3376,7 @@
             敵を倒してから <b>5.3秒</b> 以内にリロードする必要がある。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>付与スタック数: <b>x1</b></li>
+                <li>自身には <b>x2</b> 、周囲の味方には <b>x1</b> の治癒を付与する。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             リロードまでの許容時間が増加する。
@@ -3121,8 +3391,10 @@
             このパークにおける「戦闘」とは、<b>5秒以内</b> に何らかのダメージを受けるか与えることを意味する。
             <div class="info">&lt;発動条件詳細&gt;</div>
             戦闘が <b>12秒以上</b> 続くと発動する。<b>7秒間</b> 戦闘が発生しないと効果は失われる。
+            <br>戦闘が続く限り、効果時間はリセットされ続ける。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
+                <li>効果時間: <b>7.2秒</b></li>
                 <li>ダメージ増加量: <b>+15%</b></li>
                 <li>リロード速度: <b>+100</b></li>
                 <li>ハンドリング: <b>+100</b></li>
@@ -3225,7 +3497,7 @@
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>効果時間が延長される。</li>
+                <li>効果時間が増加する。</li>
                 <ul class="stats2">
                     <li>効果時間: 7秒 → <b>8秒</b></li>
                 </ul>
@@ -3241,7 +3513,7 @@
             ADS中の移動速度ペナルティに関しては、<a href="./base_stats.html#mobility">可動性</a>の項目を参照。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>ADS中の移動速度ペナルティ: <b>-2.5%</b></li>
+                <li>ADS中の移動速度ペナルティ: <b>-10%</b></li>
                 <li>照準補佐: <b>+10</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -3258,6 +3530,7 @@
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
             <span class="w-icons pulse">&#xe101;</span> / <span class="w-icons fusion">&#xe106;</span>: バースト射撃のうち一発目のみ効果がある。
+            <br>特殊弾を使用する武器は、効果量が<b>半減</b>する。
             <div class="info">&lt;発動条件詳細&gt;</div>
             射撃せずに <b>3.1秒</b> 経過するともう一度発動する。
             <div class="info">&lt;効果量&gt;</div>
@@ -3588,12 +3861,16 @@
 
         <a name="loose_change"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/27411cde4538bb1fdc2d70088233eb2c.png" class="h3">ルーズチェンジ</h3>
-        <div class="base">敵に属性デバフを与えると、この武器のリロード速度が増加する。</div>
+        <div class="base">敵に属性デバフを与えると、この武器のリロード速度、照準補佐、ADS中の移動速度が増加する。</div>
         <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            ADS中の移動速度ペナルティに関しては、<a href="./base_stats.html#mobility">可動性</a>の項目を参照。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>4.5秒</b></li>
                 <li>リロード速度: <b>+50</b></li>
+                <li>照準補佐: <b>+20</b></li>
+                <li>ADS中の移動速度ペナルティ: <b>-20%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             効果時間がさらに強化される。
@@ -3778,12 +4055,18 @@
         <div class="base">ダッシュを中断すると、リロード速度が増加する。<a href="./class_arc.html#amplified">増幅状態</a>の場合、さらに増加する。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            発動中に一瞬ダッシュを挟むことで、効果を継続させられる。
+            発動中、再度ダッシュすると効果時間がリセットされる。
             <div class="info">&lt;発動条件詳細&gt;</div>
             最低 <b>3秒間</b> ダッシュしていないと発動しない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>3秒</b></li>
+                <li>リロード速度: <b>+20</b></li>
+                <li>増幅中:
+                    <ul class="stats2">
+                        <li>リロード速度: <b>+60</b></li>
+                    </ul>
+                </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
@@ -4057,6 +4340,8 @@
                     ダメージ増加量:
                     <ul class="stats2">
                         <li><span class="w-icons sword">&#xe153;</span>: <b>+35%</b></li>
+                        <li><span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glheavy">&#xe113;</span>: <b>+35%</b> (爆発ダメージ), <b>+40%</b> (直撃ダメージ)</li>
+                        <li><a href="./exotic_weapons.html#gjallarhorn">ウルフパック弾</a>: <b>+35%</b></li>
                         <li>それ以外の武器: <b>+40%</b></li>
                     </ul>
                 </li>
@@ -4068,6 +4353,8 @@
                     ダメージ増加量:
                     <ul class="stats3">
                         <li><span class="w-icons sword">&#xe153;</span>: +35% → <b>+41.8%</b></li>
+                        <li><span class="w-icons rocket">&#xe108;</span> / <span class="w-icons glheavy">&#xe113;</span>: +35% → <b>+41.8%</b> (爆発ダメージ), +40% → <b>+47%</b> (直撃ダメージ)</li>
+                        <li><a href="./exotic_weapons.html#gjallarhorn">ウルフパック弾</a>: +35% → <b>+41.8%</b></li>
                         <li>それ以外の武器: +40% → <b>+47%</b></li>
                     </ul>
                 </li>
@@ -4159,14 +4446,14 @@
             <ul class="stats">
                 <li>射程距離: <b>+10</b></li>
                 <li>リロード速度: <b>+30</b></li>
-                <li>精度: +[?]%</li>
+                <li>精度コーン拡大: <b>-5%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             効果がさらに強化される。
             <ul class="stats2">
-                <li>射程距離: +10 → <b>+12</b></li>
-                <li>リロード速度: +30 → <b>+32</b></li>
-                <li>精度: +[?]%</li>
+                <li>射程距離: +10</li>
+                <li>リロード速度: +30 → <b>+35</b></li>
+                <li>精度コーン拡大: -5% → -[?]%</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -4465,9 +4752,9 @@
             <ul class="stats">
                 <li>ダメージ増加量:
                     <ul class="stats2">
-                        <li>オーバーシールド: <b><span class="pve">+125%</span><span class="pvp">+20%</span></b></li>
-                        <li><span class="pve">属性シールド / バリア: <b>+125%</b></span></li>
-                        <li><span class="pvp">ウィーブメイル使用中のガーディアン: <b>+20%</b></span></li>
+                        <li>オーバーシールド<span class="pve"> / 属性シールド</span>: <b><span class="pve">+125%</span><span class="pvp">+20%</span></b></li>
+                        <li><span class="pve">チャンピオンのバリア: <b>+50%</b></span></li>
+                        <li><span class="pvp">ウィーブメイル使用中のガーディアン(通常ヒットのみ): <b>+20%</b></span></li>
                     </ul>
                 </li>
             </ul>
@@ -4532,7 +4819,21 @@
         <div class="base">グレネードを投げると、この武器をしまうまで、この武器の属性がサブクラスと同じものになる。</div>
         <div class="indepth">
             <div class="info">&lt;備考&gt;</div>
-            属性が変化すると、キネティック属性固有のダメージボーナスは失われる。
+            キネティック属性の武器の場合、属性が変化すると、固有のダメージボーナスは失われる。
+            <div class="info">&lt;強化特性&gt;</div>
+            恒常的にハンドリングが増加する。
+            <ul class="stats2">
+                <li>ハンドリング: <b>+5</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="permeability"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8b9d5337822da200425e0422b7376c24.png" class="h3">パーミアビリティ</h3>
+        <div class="base">クラススキルを使用すると、この武器をしまうまで、この武器の属性がサブクラスと同じものになる。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            キネティック属性の武器の場合、属性が変化すると、固有のダメージボーナスは失われる。
             <div class="info">&lt;強化特性&gt;</div>
             恒常的にハンドリングが増加する。
             <ul class="stats2">
@@ -4724,7 +5025,7 @@
                 <li>最大で <b>+150%</b> まで増加する。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
-            恒常的にリロード速度が増加し、キルごとの許容時間が延長される。
+            恒常的にリロード速度が増加し、キルごとの許容時間が増加する。
             <ul class="stats2">
                 <li>リロード速度: <b>+5</b></li>
                 <li>それぞれ 7秒以内 → <b>8秒以内</b> のキルで、増加量が変化する。</li>
@@ -4741,15 +5042,17 @@
             <div class="info">&lt;発動条件詳細&gt;</div>
             取り出す前の武器の残弾数によって、マガジンの最大量が変化する。
             <br><b>例</b>: マガジンが空の状態では、最大でも <b>+50%</b> までしか増加させられない。
-            <br>マガジンが <b>+150%</b> 以上増加している場合、再発動させることはできない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>1キルごとに <b>+10%</b>（特殊/ヘビー弾は <b>+20%</b>）ずつマガジンが増える。</li>
                 <li>一回で増加させられるマガジンサイズは <b>+150%</b> まで。</li>
-                <li>最大で <b>+300%</b> まで増加する。</li>
+                <li>最大で <b>+200%</b> まで増加する。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             キルごとの弾薬増加量が増加する。
+            <ul class="stats2">
+                <li>1キルごとに +10% → <b>+12.5%</b>（特殊/ヘビー弾は +20% → <b>+22.5%</b>）ずつマガジンが増える。</li>
+            </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -4844,9 +5147,15 @@
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>マガジン増加量: <b>+10% ～ +50%</b></li>
+                <ul class="stats2">
+                    <li>平均して <b>+30%</b> 増加する。</li>
+                </ul>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             より多い装弾数になる確率が増加する。
+            <ul class="stats2">
+                <li>平均して +30% → <b>+33%</b> 増加する。</li>
+            </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -4858,7 +5167,7 @@
             必要ヒット数とリロード量のどちらも、端数は切り上げられる。
             <div class="info">&lt;発動条件詳細&gt;</div>
             発動には、最低でもマガジンの <b>28.5%</b> をヒットさせる必要がある。
-            <br>発動から <b>1秒間</b> のヒット数はカウントされない。
+            <br>発動直後から <b>1秒間</b> のヒット数はカウントされない。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>リロード量: ヒット数の <b>60%</b></li>
@@ -4868,6 +5177,27 @@
             <ul class="stats2">
                 <li>リロード量: ヒット数の 60% → <b>70%</b></li>
             </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="attrition_orbs"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/c2092fae6ae58ca77a7f9b4434e688ef.png" class="h3">アトリションオーブ</h3>
+        <div class="base">この武器を複数回ヒットさせると、力のオーブが生成される。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            このパークで生成される力のオーブは、拾った際のスーパーエネルギーの回復量が <b>0.8%</b> となっている（サイフォンで生成した場合は <b>2.5%</b>）。
+            <div class="info">&lt;発動条件詳細&gt;</div>
+            <ul class="stats">
+                <li>必要ヒット数:
+                    <ul class="stats2">
+                        <li><span class="w-icons bow">&#xe099;</span>: <b>5発</b></li>
+                        <li><span class="w-icons sword">&#xe153;</span>: <b>10発</b></li>
+                        <li>その他の武器: マガジンの <b>67% + 2</b> (端数切り捨て)</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            生成される力のオーブのスーパーエネルギー回復量が増加する。
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -4963,7 +5293,7 @@
         <div class="base">この武器でのバースト射撃中、ボディショット後の精密ダメージ倍率と照準補佐が一時的に増加する。</div>
         <div class="indepth">
             <div class="info">&lt;付与対象&gt;</div>
-            <span class="w-icons pulse">&#xe101;</span> / <span class="w-icons sidearm">&#xe109;</span> (高反射)
+            <span class="w-icons pulse">&#xe101;</span> / <span class="w-icons sidearm">&#xe109;</span>
             <div class="info">&lt;備考&gt;</div>
             発動後に通常ヒットをすると効果時間がリセットされる。
             <div class="info">&lt;効果量&gt;</div>
@@ -4985,7 +5315,7 @@
         <div class="base">この武器で精密キルをしてからリロードすると、この武器の発射レートが増加する。</div>
         <div class="indepth">
             <div class="info">&lt;付与対象&gt;</div>
-            <span class="w-icons pulse">&#xe101;</span> / <span class="w-icons sidearm">&#xe109;</span> (リミナル・ヴィジル)
+            <span class="w-icons pulse">&#xe101;</span> / <span class="w-icons sidearm">&#xe109;</span>
             <div class="info">&lt;備考&gt;</div>
             発動後にも精密キルをしてリロードすることで、効果時間をリセットできる。
             <br>変化後の実効発射レート (RPM) は、(変化前のRPM ÷ ディレイ変化率) で計算可能。
@@ -5059,16 +5389,24 @@
 
         <a name="danger_zone"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9f570c66f1cee6d088846ea54250a2ff.png" class="h3">危険地帯</h3>
-        <div class="base">敵に囲まれると、この武器の爆発範囲が増加する。</div>
+        <div class="base">敵に囲まれると、この武器の爆発範囲が増加し、自爆ダメージが軽減される。
+        </div>
         <div class="indepth">
             <div class="info">&lt;付与対象&gt;</div>
-            <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons rocket">&#xe108;</span>
+            <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span> / <span class="w-icons rocket">&#xe108;</span>
             <div class="info">&lt;発動条件詳細&gt;</div>
             <b>15m</b> の範囲内に敵が <b>3体以上</b> いると発動する。
             <br>発動条件を満たさなくなると <b>約4秒</b> で効果が切れる。
+            <br><span class="w-icons rocket">&#xe108;</span>: 発動中、自身が爆風に触れると<b>大きくノックバック</b>する。
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>爆発範囲が <b>100</b> に設定され、自爆ダメージが <b>40%</b> 軽減される。</li>
+                <li>爆発範囲増加量: +[?]%</li>
+                <li>自爆ダメージ軽減量:
+                    <ul class="stats2">
+                        <li><span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>: <b>-40%</b></li>
+                        <li><span class="w-icons rocket">&#xe108;</span>: -[?]%</li>
+                    </ul>        
+                </li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
             恒常的に爆発範囲が増加する。
@@ -5217,28 +5555,41 @@
             弾のペレット <b>12個</b> 全てをヒットさせると発動する。
             <br>ヒットから <b>1.22秒以内</b> に近接攻撃を行う必要がある。
             <br><a href="./class_stasis.html#freeze">凍結</a>した敵に対する近接攻撃ダメージ増加とは重複せず、効果の高いほうが優先される。
-            <br>多段ヒットする近接スキルは初弾のヒットのみ適用される。
             <div class="info">&lt;備考&gt;</div>
             敵の種類によってダメージ増加量が変化する。
             <br>以下のスキルには<b>ダメージ増加が適用されない</b>。
             <ul>
-                <li><a href="./class_solar.html#throwing_hammer">ハンマー投げ</a></li>
-                <li><a href="./class_void.html#shield_throw">シールド投げ</a></li>
-                <li><a href="./class_stasis.html#withering_blade">衰弱の刃</a></li>
-                <li><a href="./class_solar.html#celestial_fire">天の炎</a></li>
-                <li><a href="./class_solar.html#incinerator_snap">焼却の指鳴らし</a></li>
-                <li><a href="./class_void.html#pocket_singularity">懐中特異点</a></li>
-                <li><a href="./class_stasis.html#penumbral_blast">半影爆発</a></li>
+                <li>タイタン
+                    <ul>
+                        <li><a href="./class_solar.html#throwing_hammer">ハンマー投げ</a></li>
+                        <li><a href="./class_solar.html#consecration">聖別</a></li>
+                        <li><a href="./class_arc.html#thunderclap">雷鳴</a></li>
+                        <li><a href="./class_void.html#shield_throw">シールド投げ</a></li>
+                        <li><a href="./class_strand.html#flechette_storm">フレシェット・ストーム</a></li>
+                    </ul>
+                </li>
+                <li>ハンター
+                    <ul>
+                        <li><a href="./class_solar.html#proximity_explosive_knife">近接爆破ナイフ</a>の範囲ダメージ</li>
+                        <li><a href="./class_arc.html#tempest_strike">嵐の打撃</a></li>
+                        <li><a href="./class_void.html#snare_bomb">スネア爆弾</a>の範囲ダメージ</li>
+                        <li><a href="./class_stasis.html#withering_blade">衰弱の刃</a></li>
+                        <li><a href="./class_strand.html#threaded_spike">スレッドスパイク</a></li>
+                    </ul>
+                </li>
+                <li>ウォーロック
+                    <ul>
+                        <li><a href="./class_arc.html#chain_lightning">連鎖する雷</a>を除く全スキル</li>
+                    </ul>
+                </li>
             </ul>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li>ダメージ増加量:
-                    <ul class="stats2">
-                        <li>通常の近接攻撃: <b>+100%</b></li>
-                        <li>近接スキル: <b>+40%</b></li>
-                        <li>ボスやビークルに対しては、上記に加え <b>x1.25</b> の追加のダメージ増加効果がある。</li>
-                    </ul>
-                </li>
+                <li>ダメージ増加量: <b>+100%</b></li>
+                <ul class="stats2">
+                    <li>通常の近接攻撃、<a href="./class_arc.html#combination_blow">コンボ攻撃</a>、<a href="./class_arc.html#disorienting_blow">混乱攻撃</a>、<a href="./class_arc.html#chain_lightning">連鎖する雷</a>、<a href="./class_strand.html#grapple">グラップリング近接</a>の場合、ボスやビークルに対しては、<b>+150%</b> の増加量となる。</li>
+                </ul>
+
                 <li><a href="./exotic_armor.html#liars_handshake">ライアーハンドシェイク</a>を装備した場合、このパークによるダメージ増加量は一律で <b>+40%</b> となる。</li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -5275,16 +5626,13 @@
 
         <a name="barrel_constrictor"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/2471cb66f0a5ccc2d7654d6a0bbb3bcb.png" class="h3">バレル収縮</h3>
-        <div class="base">この武器で敵をキルすると、次の射撃のペレット拡散が軽減される。</div>
+        <div class="base">この武器で敵をキルすると、この武器のペレット拡散が軽減される。</div>
         <div class="indepth">
             <div class="info">&lt;付与対象&gt;</div>
             <span class="w-icons shotgun">&#xe104;</span> (精密スラグフレームを除く)
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>効果時間: <b>8秒</b></li>
-                <ul class="stats2">
-                    <li>発動中に射撃すると、効果は失われる。</li>
-                </ul>
                 <li>拡散軽減率: <b>-20%</b></li>
             </ul>
             <div class="info">&lt;強化特性&gt;</div>
@@ -5297,18 +5645,13 @@
 
         <a name="dual_loader"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/628a238007fc97c4d4a85d0cd6933dba.png" class="h3">デュアルローダー</h3>
-        <div class="base">一度に2発リロードするが、リロード速度は低下する。</div>
+        <div class="base">リロード時、一度に2発リロードする。</div>
         <div class="indepth">
             <div class="info">&lt;付与対象&gt;</div>
             <span class="w-icons shotgun">&#xe104;</span>
-            <div class="info">&lt;効果量&gt;</div>
-            <ul class="stats">
-                <li>リロード速度: <b>-35</b></li>
-            </ul>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>一度に 2発 → <b>3発</b> リロードする。</li>
-                <li>リロード速度の減少量は変化しない。</li>
+                <li>リロード時、一度に 2発 → <b>3発</b> リロードする。</li>
             </ul>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
@@ -5442,11 +5785,12 @@
             <span class="w-icons bow">&#xe099;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
-                <li><b>リロード速度上昇</b></li>
+                <li>リロード速度: +[?]</li>
                 <li>リロード時間: <b>x0.8</b></li>
                 <li>最大維持時間: <b>+25%</b></li>
             </ul>
-            </ul>
+            <div class="info">&lt;強化特性&gt;</div>
+            しゃがみ中、安定性とリロード速度が追加で増加する。
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
@@ -5548,7 +5892,7 @@
             </table>
             <div class="info">&lt;強化特性&gt;</div>
             <ul class="stats">
-                <li>効果時間が延長される。</li>
+                <li>効果時間が増加する。</li>
                 <ul class="stats2">
                     <li>効果時間: 3.5秒 → <b>4秒</b></li>
                 </ul>
@@ -5653,7 +5997,7 @@
         <div class="base">この武器を構えると、短時間、攻撃時の移動距離が増加する。</div>
         <div class="indepth">
             <div class="info">&lt;付与対象&gt;</div>
-            <span class="w-icons sword">&#xe153;</span> (半真実 / 片割れ)
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;備考&gt;</div>
             再発動できるまで <b>3秒間</b> のクールダウンがある。
             <br>剣で攻撃すると効果は消滅する。
@@ -5682,7 +6026,7 @@
         <div class="base">この武器の強力な剣攻撃で、敵を<a href="./class_stasis.html#slow">遅延</a>させる。</div>
         <div class="indepth">
             <div class="info">&lt;付与対象&gt;</div>
-            <span class="w-icons sword">&#xe153;</span> (ゼファー)
+            <span class="w-icons sword">&#xe153;</span>
             <div class="info">&lt;効果量&gt;</div>
             <ul class="stats">
                 <li>遅延付与数:
@@ -5800,6 +6144,43 @@
                     <li>近接攻撃: 1ダメージにつき 1.5% → <b>1.55%</b></li>
                 </ul>
             </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="beacon_rounds"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/53b269a1760611b75170abde8ff1032c.png" class="h3">信号弾</h3>
+        <div class="base">この武器の投射物でキルをすると、この武器の投射物の追尾性能が向上する。</div>
+        <div class="indepth">
+            <div class="info">&lt;付与対象&gt;</div>
+            <span class="w-icons sidearm">&#xe109;</span> (ロケット搭載フレーム) / <span class="w-icons glaive">&#xe156;</span>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>効果時間: [?]秒
+                    <ul class="stats2">
+                        <li>敵にダメージを与えると、効果時間が延長される。</li>
+                    </ul>
+                </li>
+            </ul>
+            <table class="list stats">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>1x</th>
+                        <th>2x</th>
+                        <th>3x</th>
+                        <th>4x</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>追尾性能増加量</th>
+                        <td>+[?]%</td>
+                        <td>+[?]%</td>
+                        <td>+[?]%</td>
+                        <td>+[?]%</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="back"><a href="#" id="page-top">▲</a></div>
 
