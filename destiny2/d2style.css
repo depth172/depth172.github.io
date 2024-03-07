@@ -22,31 +22,6 @@
     color: #444444;
 }
 
-.solar {
-    margin-inline: 0.37em;
-    color: #e7601d;
-}
-
-.arc {
-    margin-inline: 0.29em;
-    color: #81b5e4;
-}
-
-.void {
-    margin-inline: 0.27em;
-    color: #b07cdb;
-}
-
-.stasis {
-    margin-inline: 0.3em;
-    color: #5e7afd;
-}
-
-.strand {
-    margin-inline: 0.48em;
-    color: #37da66;
-}
-
 body {
     font-family: 'Yu Gothic', Destiny_Keys;
 }
@@ -224,23 +199,25 @@ table.buff {
 }
 
 .debuff tr {
-    background: hsl(273, 57%, 87%);
-}
-
-.debuff td {
-    text-align: left;
+    background: #e0cbf1;
 }
 
 .buff tr {
-    background: hsl(20, 71%, 81%);
+    background: #f1c3ac;
 }
 
+.debuff td,
 .buff td {
     text-align: left;
 }
 
 th.icon {
     background: #737f81;
+    padding: 0em;
+}
+
+th.icon_head {
+    background: #ccdae4;
     padding: 0em;
 }
 
@@ -278,11 +255,11 @@ img.table {
 }
 
 .debuff td.icon {
-    background: hsl(273, 12%, 42%);
+    background: #6c5e78;
 }
 
 .buff td.icon {
-    background: hsl(20, 31%, 31%);
+    background: #684737;
 }
 
 td.name {
@@ -314,14 +291,12 @@ td.name {
 h3.item {
     border-bottom: 2px solid #646464;
     position: relative;
-    height: 2em;
+    height: 2.2em;
     background: #d2deff;
-    padding-left: 0;
-    padding-top: 0;
-    line-height: 3em;
+    padding: 0.33em 0em;
     margin-top: 0.3em;
-    padding-bottom: 0.85em;
-    margin-bottom: 0.4em;
+    padding-bottom: 0.4em;
+    margin-bottom: 0.5em;
 }
 
 p img,
@@ -335,15 +310,7 @@ img.h3 {
     margin: 0 0.4em;
     width: 2.3em;
     height: 2.3em;
-    transform: translate(0, -18%);
-}
-
-img.stasis {
-    background: #000000;
-}
-
-th.stasis {
-    background: #000000;
+    vertical-align: middle;
 }
 
 .diamond {
@@ -351,11 +318,13 @@ th.stasis {
     position: relative;
     background: #000000;
     border: 2px solid #5e5e5e;
-    margin: 0 0.4em;
-    margin-right: 1em;
+    margin: 0.4em;
+    margin-left: 0.7em;
+    margin-right: 0.7em;
     width: 1.5em;
     height: 1.5em;
-    transform: rotate(45deg) translate(35%, 8%);
+    vertical-align: middle;
+    transform: rotate(45deg);
 }
 
 img.diamond_c {
@@ -364,6 +333,7 @@ img.diamond_c {
     top: -5.4px;
     left: -5.4px;
     max-width: 140%;
+    vertical-align: middle;
     transform: rotate(-45deg);
 }
 
@@ -584,4 +554,138 @@ th.sorter-false {
     .btn_area {
         width: 100%;
     }
+}
+
+@media (prefers-color-scheme: dark) {
+    .balloon {
+        text-decoration: underline dotted #ffffff99 1px;
+    }
+    
+    .w-icons {
+        color: #d2d2d2;
+    }
+      
+    div .pve {
+        background: #1b2e44;
+    }
+    
+    div .pvp {
+        background: #513838;
+    }
+
+    .further {
+        color: #7fec63;
+    }    
+    
+    #hover-balloon {
+        background-color: #333;
+        box-shadow: 0px 1px 2px 0px #FFFFFF80;
+    }
+
+    .univ_buff {
+        color: #db7c4c;
+    }
+    
+    .univ_debuff {
+        color: #c79cea;
+    }
+
+    dt {
+        background: #2b3132;
+    }
+    
+    .list th,
+    .debuff th,
+    .buff th {
+        background: #141617;
+    }
+
+    .debuff tr {
+        background: #1e1428;
+    }
+    
+    .buff tr {
+        background: #261811;
+    } 
+
+    td.icon {
+        background: #313637;
+    }
+
+    .debuff td.icon {
+        background: #2f1f3c;
+    }
+    
+    .buff td.icon {
+        background: #3d2a21;
+    }
+
+    .disable {
+        background-color: #443131;
+    }
+    
+    .neutral {
+        background-color: #515331;
+    }
+    
+    .enable {
+        background-color: #2e4129;
+    }
+
+    h3.item {
+        border-bottom: 2px solid #4b4b4b;
+        background: #2c3344;
+    }
+
+    img.h3 {
+        background: #2f3435;
+        border: 2px solid #5a5959;
+    }
+    
+    img.table_icon {
+        background: #2f3435;
+        border: 2px solid #5a5959;
+    }
+    
+    .base {
+        background: #292c2c;
+    }    
+
+    .info {
+        color: #dfc3c3;
+    }
+
+}
+
+.solar {
+    margin-inline: 0.37em;
+    color: #e7601d;
+}
+
+.arc {
+    margin-inline: 0.29em;
+    color: #81b5e4;
+}
+
+.void {
+    margin-inline: 0.27em;
+    color: #b07cdb;
+}
+
+.stasis {
+    margin-inline: 0.3em;
+    color: #5e7afd;
+}
+
+.strand {
+    margin-inline: 0.48em;
+    color: #37da66;
+}
+
+img.stasis {
+    background: #000000;
+}
+
+th.stasis {
+    background: #000000;
 }

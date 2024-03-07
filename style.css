@@ -104,6 +104,7 @@ img {
 
 img.illustration {
     margin-block: 0.4em;
+    vertical-align: middle;
 }
 
 img.picture {
@@ -190,7 +191,6 @@ details {
 
 .toc {
     padding: 10px;
-    background: #d8f1f8;
     border: 1px solid #cccccc;
 }
 
@@ -323,4 +323,50 @@ p.intro {
         height: auto;
         width: 60%
     }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #202527;
+        color: #fff;
+    }
+    .main {
+        background: #182126;
+        border: 1px solid #525252;
+    }
+    a {
+        color: #6097ff;
+    }
+        
+    a:active {
+        color: #0e6b3e;
+    }
+    
+    .top_guide a {
+        color: #6d658d;
+    }
+
+    hr {
+        border-top: 2px solid #777;
+        border-bottom: 3px solid #777;
+    }
+    
+    hr.title {
+        border-top: 2px solid #777;
+    }
+
+    h2 {
+        border-bottom: 2px solid #3f3f3f;
+    }
+    
+    h3 {
+        border-bottom: 2px solid #646464;
+        background: #2b2d34;
+    }
+
+    details,
+    .toc {
+        background: #1d2425;
+    }
+        
 }
