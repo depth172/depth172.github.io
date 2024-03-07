@@ -20,6 +20,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="d2style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@340&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
 
     <!-- 表示内容切り替え用スクリプト -->
@@ -280,7 +283,9 @@
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
             遅延が付与された敵は<span class="pve"><b>射撃の精度が大幅に低下</b>する。
+            <br><img src="./img/slow.jpg" class="illustration" height="280px">
             <br>プレイヤーの場合は</span>移動速度が <b>-40%</b> 、ジャンプ高度が <b>-60%</b> 減少し、<b>崖に捕まることができなくなり、</b>武器の安定性、ハンドリング、リロード速度、反動方向が <b>-75%</b> 減少し、<b>ひるみが増加</b>する。
+            <span class="pvp"><br><img src="./img/slow.jpg" class="illustration" height="280px"></span>
             <br>減少の計算は武器パーク等効果の計算より後に行われる。
             <br>また、遅延が付与された <span class="w-icons overload">&#xe071;</span> オーバーロード・チャンピオンは<b>スタン</b>する。
             <br>遅延のスタック数がx100になると<b><a href="#freeze">凍結</a></b>する。
@@ -291,6 +296,7 @@
         <div class="indepth">
             <div class="info">&lt;説明&gt;</div>
             凍結すると、<b>完全に動きが停止</b>し、射撃と移動ができなくなる。
+            <br><img src="./img/freeze.jpg" class="illustration" height="280px">
             <br><span class="pve">戦闘員に対する凍結状態は <b>6秒後</b> に、ガーディアンに対する</span>凍結状態は <b>1.35秒後</b> に自動的に解除される。
             <br>凍結状態の敵に対しては、通常の近接攻撃で与えるダメージが [?]% 増加し、特殊弾/ヘビー弾武器とスキルが与えるダメージが <b>+5%</b> 増加し、メイン弾武器が与えるダメージが <b><span class="pve">-5%</span><span class="pvp">-50%</span></b> 軽減される。
             <span class="pve"><br>また、<a href="./enemy_classification.html#boss">ボス</a>は凍結しても<b>動きを停止せず</b>、凍結から <b>3秒後</b> 自動的に<a href="#shatter">粉砕</a>する。</span>
@@ -558,7 +564,7 @@
         <table class="list grenade">
             <thead>
                 <tr>
-                    <th class="icon" style="background: #ccdae4;"></th>
+                    <th class="icon_head"></th>
                     <th>名称</th>
                     <th>タイプ</th>
                     <th>ダメージ</th>
