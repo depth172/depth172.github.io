@@ -442,18 +442,6 @@ th.tablesorter-headerDesc {
     border-bottom: #222 2px solid;
 }
 
-.sorter-false {
-    background-image: none;
-}
-
-th.sorter-false {
-    padding-right: 0.4em;
-}
-
-.tablesorter td .none {
-    display: none;
-}
-
 .overlay {
     display: none;
     top: 0;
@@ -594,10 +582,32 @@ th.sorter-false {
         background: #2b3132;
     }
     
+    .tablesorter td {
+        background: #182126;
+    }
+
     .list th,
+    .tablesorter-header,
     .debuff th,
     .buff th {
         background: #141617;
+    }
+
+    .tablesorter-headerUnSorted {
+        background-image: url('../img/sort_dark.png');
+        background-repeat: no-repeat;
+        background-position: center right;
+        padding-bottom: 2px;
+    }
+    
+    th.tablesorter-headerAsc {
+        background-image: url('../img/sort_u_dark.png');
+        border-bottom: #eee 2px solid;
+    }
+    
+    th.tablesorter-headerDesc {
+        background-image: url('../img/sort_d_dark.png');
+        border-bottom: #eee 2px solid;
     }
 
     .debuff tr {
@@ -635,6 +645,10 @@ th.sorter-false {
     h3.item {
         border-bottom: 2px solid #4b4b4b;
         background: #2c3344;
+    }
+    
+    th.icon {
+        background: #313637;
     }
 
     img.h3 {
@@ -688,4 +702,16 @@ img.stasis {
 
 th.stasis {
     background: #000000;
+}
+
+.sorter-false {
+    background-image: none;
+}
+
+th.sorter-false {
+    padding-right: 0.4em;
+}
+
+.tablesorter td .none {
+    display: none;
 }
