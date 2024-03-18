@@ -25,6 +25,11 @@
     <!-- 表示内容切り替え用スクリプト -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    
+    <!-- 並べ替えスクリプト -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="tablesorter.js"></script>
 
     <!-- 共通ページ読み込み -->
     <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
@@ -54,9 +59,7 @@
         <hr>
         <div id="header" class="title_bar"></div>
 
-        <p class="intro">主に武器の3列目・4列目に付与されるパークや、武器改造パーツに関する様々な性能をまとめたページです。</p>
-
-        <p>バレルやマガジンなどの、1・2列目につくパークについては<a href="./weapon_parts.html">こちら</a>をご覧ください。</p>
+        <p class="intro">武器に付与されるパークや、武器改造パーツに関する様々な性能をまとめたページです。</p>
 
         <h2>目次</h2>
         <div class="toc">
@@ -99,6 +102,43 @@
                         <li><a href="#adept_impact">熟練の威力</a></li>
                         <li><a href="#adept_icarus_grip">イカロスグリップ(熟練)</a></li>
                         <li><a href="#adept_big_ones_spec">大物技術兵(熟練)</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>フレーム</summary>
+                    <ul>
+                        <li><a href="#adaptive_frame">順応フレーム</a></li>
+                        <li><a href="#aggressive_frame">好戦的なフレーム</a></li>
+                        <li><a href="#precision_frame">精密フレーム</a></li>
+                        <li><a href="#lightweight_frame">軽量フレーム</a></li>
+                        <li><a href="#high-impact_frame">高威力フレーム</a></li>
+                        <li><a href="#rapid-fire_frame">速射フレーム</a></li>
+                        <li><a href="#rocket-assisted_frame">ロケット搭載フレーム</a></li>
+                        <li><a href="#legacy_pr-55_frame">レガシーPR-55フレーム</a></li>
+                        <li><a href="#mida_synergy">MIDAシナジー</a></li>
+                        <li><a href="#together_forever">永遠の友</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>バレル・マガジン</summary>
+                    <li><a href="#barrel_magazine">ステータス早見表</a></li>
+                    <ul>
+                        <li><a href="#full_choke">フルチョーク</a></li>
+                        <li><a href="#smoothbore">滑腔砲</a></li>
+                        <li><a href="#alloy_magazine">合金マガジン</a></li>
+                        <li><a href="#armor-piecing_rounds">アーマー貫通弾</a></li>
+                        <li><a href="#high-caliber_rounds">大口径弾</a></li>
+                        <li><a href="#ricochet_rounds">跳飛弾</a></li>
+                        <li><a href="#assault_mag">アサルトマガジン</a></li>
+                        <li><a href="#swap_mag">スワップマガジン</a></li>
+                        <li><a href="#seraph_rounds">セラフ弾</a></li>
+                        <li><a href="#phase_mag">フェーズマガジン</a></li>
+                        <li><a href="#accelerated_coils">加速コイル</a></li>
+                        <li><a href="#liquid_coils">液体コイル</a></li>
+                        <li><a href="#spike_grenades">スパイクグレネード</a></li>
+                        <li><a href="#sticky_grenades">粘着グレネード</a></li>
+                        <li><a href="#disorienting_grenades">混乱グレネード</a></li>
+                        <li><a href="#impact_casing">衝撃ケーシング</a></li>
                     </ul>
                 </details>
                 <details>
@@ -572,7 +612,7 @@
         <a name="adept_mod"></a>
         <h2>熟練改造パーツ</h2>
 
-        <p>熟練改造パーツは武器名の最初に「新・」とつく武器、もしくは最後に「(時間超越)」がつく武器にのみ装備可能。</p>
+        <p>熟練改造パーツはナイトフォールの玄人難易度のクリア、オシリスの試練での不敗達成、レイドの達人難易度の挑戦クリアで入手可能で、同アクティビティで入手できる武器にのみ装備可能。</p>
 
         <a name="adept_range"></a>
         <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/35aed9767de39e5a057d71c37cff1107.png" class="h3">熟練の射程距離</h3>
@@ -766,6 +806,2335 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
         -->
+
+        <a name="frame"></a>
+        <h2>フレーム</h2>
+        <p>フレームは、武器の種類を区別する。また、多くの武器の発射レートに影響する。</p>
+
+        <a name="adaptive_frame"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/967fb4abc6ab98f74639d6c08e5f56ee.png" class="h3">順応フレーム</h3>
+        <div class="base">バランスがいいグリップ。信頼性が高く、頑丈。</div>
+        <div class="indepth">
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
+            <ul class="stats">
+                <li><span class="w-icons sidearm">&#xe109;</span>: 一部3点バーストで撃てるものも存在する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="aggressive_frame"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/64209c4fd20513b33109c374179d0958.png" class="h3">好戦的なフレーム</h3>
+        <div class="base">高ダメージだが、反動が大きい。</div>
+        <div class="indepth">
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
+            <ul class="stats">
+                <li><span class="w-icons shotgun">&#xe104;</span>: 敵をキルすると、<b>4秒間</b> 発射後ディレイ変化率が <b>x0.75</b> になる。</li>
+                <li><span class="w-icons fusion">&#xe106;</span>: ボルトを<b>水平方向に発射</b>する。</li>
+                <li><span class="w-icons sword">&#xe153;</span>: 強攻撃で<b>スラム攻撃</b>ができる。タイタンしか装備できない。</li>
+                <li><span class="w-icons linear">&#xe152;</span>: <b>3点バースト射撃</b>をする。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="precision_frame"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/e9dd736124e8ef94048901a279a5bb18.png" class="h3">精密フレーム</h3>
+        <div class="base">この武器の反動パターンが縦ブレで予測しやすい。</div>
+        <div class="indepth">
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
+            <ul class="stats">
+                <li><span class="w-icons rocket">&#xe108;</span>: デフォルトで<b><a href="./weapon_perks.html#tracking_module">追跡モジュール</a></b>の効果を持つ。</li>
+                <li><span class="w-icons hc">&#xe103;</span>: 空中効果が <b>+25</b> される。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>縦反動: <b>-20%</b></li>
+                <li><span class="w-icons fusion">&#xe106;</span> のみ <b>-10%</b> となっている。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="lightweight_frame"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/6db8cd21c2b3e6fffeb6f111d6c70dd2.png" class="h3">軽量フレーム</h3>
+        <div class="base">優れたハンドリング。この武器を装備すると素早く移動できる。</div>
+        <div class="indepth">
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
+            <ul class="stats">
+                <li><span class="w-icons sword">&#xe153;</span>: 強攻撃で<b>ダッシュ攻撃</b>ができる。ハンターしか装備できない。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>可動性: <b>+20</b></li>
+                <li>前方への移動速度: <b>+6.25%</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="high-impact_frame"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/34573143849cf910d2381554bb57a10d.png" class="h3">高威力フレーム</h3>
+        <div class="base">連射速度は遅いが大ダメージを与える。照準モード時に静止していると、命中精度が向上する。</div>
+        <div class="indepth">
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
+            <ul class="stats">
+                <li><span class="w-icons fusion">&#xe106;</span>: 一回に発射するボルトが <b>5発</b> となっている。</li>
+                <li><span class="w-icons rocket">&#xe108;</span>: 爆発ダメージの比重が大きく、他のフレームと比較して直撃ダメージは低い。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>移動速度 <b>2.8 m/s以下</b> かつADS中:
+                    <ul class="stats2">
+                        <li>精度: <b>+20%</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="rapid-fire_frame"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/801d62d1f9783bee81d5700c54c24fda.png" class="h3">速射フレーム</h3>
+        <div class="base">手持ちの弾数が増加する。マガジンが空の時に僅かにリロード速度が上昇する。</div>
+        <div class="indepth">
+            <div class="info">&lt;武器ごとの追加効果&gt;</div>
+            <ul class="stats">
+                <li><span class="w-icons shotgun">&#xe104;</span>: マガジンが空のときだけでなく、<b>常に</b>リロード時間が短縮される。</li>
+                <li><span class="w-icons fusion">&#xe106;</span>: 一回に発射するボルトが <b>9発</b> となっている。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>マガジンが空のとき:
+                    <ul class="stats2">
+                        <li>リロード時間: <b>x0.8</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="rocket-assisted_frame"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0362f949c16fe72358a5c7bb93be3f60.png" class="h3">ロケット搭載フレーム</h3>
+        <div class="base">ピストルは自走式ロケット弾を発射する。着弾時に爆発し、大ダメージを与える。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li><b>特殊弾を使用</b>し、敵を追尾するロケットを射出する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="legacy_pr-55_frame"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a3402f39212e2996a198d4c3882ef15d.png" class="h3">レガシーPR-55フレーム</h3>
+        <div class="base">腰だめ撃ち時の命中精度、安定性、標的捕捉が飛躍的に向上するカスタマイズフレーム。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            <ul class="stats">
+                <li>BxR-55 バトラーにのみ付与される。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="mida_synergy"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/d8d316f540b241ebab16b4c9a6e73d18.png" class="h3">MIDAシナジー</h3>
+        <div class="base">優れたハンドリング。この軽量の武器を使用していると素早く移動できる。MIDAマルチツールが同時に装備されていると、さらに速度ボーナスが発生する。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            <ul class="stats">
+                <li>MIDAミニツール、カルス・ミニツールにのみ付与される。</li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>可動性: <b>+20</b></li>
+                <li>前方への移動速度: <b>+6.25%</b></li>
+                <li><a href="./exotic_weapons.html#mida_multi-tool">MIDAマルチツール</a>装備時:
+                    <ul class="stats2">
+                        <li>前方への移動速度: +6.25% → <b>+10%</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="together_forever"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/ac2d4bc57f95c31467ac3e8155e0ea20.png" class="h3">永遠の友</h3>
+        <div class="base">この武器のグリップは信頼性が高く丈夫で、グリップも握りやすい。キルでシュトゥルムがリロードされ、ボーナス弾薬が1発付与される。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            <ul class="stats">
+                <li>ドラング、ドラング(バロック)にのみ付与される。</li>
+            </ul>
+            <div class="info">&lt;効果詳細&gt;</div>
+            <ul class="stats">
+                <li>敵をキルすると、<a href="./exotic_weapons.html#sturm">シュトゥルム</a>を全弾リロードし、<b>ボーナス弾薬を付与</b>する。</li>
+                <li>ボーナス弾薬は最大 <b>99発</b> まで蓄積できる。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="barrel_magazine"></a>
+        <h2>バレル・マガジン</h2>
+        <p>バレルとマガジンは、武器の各種ステータスを決定する。武器によって付与される種類は異なる。<br>一部のバレルやマガジンは、ステータス以外の追加効果をもたらすものもある。</p>
+
+        <details>
+            <summary>バレルステータス早見表（一般武器用）</summary>
+            <table class="tablesorter" id="barrel_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th class="sort">射</th>
+                        <th class="sort">安</th>
+                        <th class="sort">ハ</th>
+                        <th class="sort">反</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/8f7fb54687aa52a9c2595d90ce9c9417.png" class="table"></th>
+                        <td class="name">矢の抑制</td>
+                        <td class="num"><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">+30</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/0b451cbccc7f11f6aec9c153e59474cb.png" class="table"></th>
+                        <td class="name">搭載型補正器</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">-5</td>
+                        <td class="num">+10</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/7730e1732ed7ef91afce50277639c493.png" class="table"></th>
+                        <td class="name">螺旋ライフリング</td>
+                        <td class="num">+5</td>
+                        <td class="num">+5</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d9e5e8fa07a84c29252b78b0e7b3106d.png" class="table"></th>
+                        <td class="name">拡張バレル</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-10</td>
+                        <td class="num">+10</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/260eba9dd149dbb94b1306c9ed4dd8db.png" class="table"></th>
+                        <td class="name">溝付きバレル</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/40a4bdcf0f5a4e492927f9569eaf529d.png" class="table"></th>
+                        <td class="name">フル口径</td>
+                        <td class="num">+15</td>
+                        <td class="num">-10</td>
+                        <td class="num">-5</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/2b9eb6d4489cffc18c10223279198bcc.png" class="table"></th>
+                        <td class="name">鉄槌ライフリング</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/7d7aaccee29cf450d4057a9de871cdc8.png" class="table"></th>
+                        <td class="name">多角ライフリング</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/7d1bb6a623f14959a47156ee71acfc3a.png" class="table"></th>
+                        <td class="name">小口径</td>
+                        <td class="num">+7</td>
+                        <td class="num">+7</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>マガジンステータス早見表（一般武器用1）</summary>
+            <table class="tablesorter" id="magazine_table1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>安</th>
+                        <th>リ速</th>
+                        <th>リ時</th>
+                        <th>空</th>
+                        <th>マ</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/069170916c98748b7b3e33b80bd7d689.png" class="table"></th>
+                        <td class="name"><a href="#alloy_magazine">合金マガジン</a></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>x0.85</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>マガジンが<br>空のときのみ</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d9f468cce26fe35d9db413e2f8451127.png" class="table"></th>
+                        <td class="name">追加マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+20</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/66cfea124e24e73cca1ce6370b44ca7e.png" class="table"></th>
+                        <td class="name">拡張マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-20</td>
+                        <td><span class="none">x1</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">+30</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f0e309a267b25279a871d182f8910bcc.png" class="table"></th>
+                        <td class="name">戦略的マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d85024478504205359c7fb52dbc4f6b6.png" class="table"></th>
+                        <td class="name">高精度弾</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/6c6e1cc341487a8afd0b0c714a229255.png" class="table"></th>
+                        <td class="name">安定弾</td>
+                        <td class="num">-5</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">x1</span></td>
+                        <td class="num">+7</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f95e67e4ff37466505d66d3fa1030782.png" class="table"></th>
+                        <td class="name">フレアマグウェル</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>マガジンステータス早見表（一般武器用2）</summary>
+            <table class="tablesorter" id="magazine_table2">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>安</th>
+                        <th>リ速</th>
+                        <th>リ時</th>
+                        <th>マ</th>
+                        <th>空</th>
+                        <th>追加効果</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/069170916c98748b7b3e33b80bd7d689.png" class="table"></th>
+                        <td class="name"><a href="#alloy_magazine">合金マガジン</a></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>x0.85</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                        <td>マガジンが<br>空のときのみ</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d9f468cce26fe35d9db413e2f8451127.png" class="table"></th>
+                        <td class="name">追加マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">x1</span></td>
+                        <td class="num">+20</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/66cfea124e24e73cca1ce6370b44ca7e.png" class="table"></th>
+                        <td class="name">拡張マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-20</td>
+                        <td><span class="none">x1</span></td>
+                        <td class="num">+30</td>
+                        <td class="num">+10</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/736b486ddb80beefacb4f09b5ad016eb.png" class="table"></th>
+                        <td class="name">軽量マガジン</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f95e67e4ff37466505d66d3fa1030782.png" class="table"></th>
+                        <td class="name">フレアマグウェル</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b311ef00478243e21e2a5eec3a59f9d8.png" class="table"></th>
+                        <td class="name"><a href="#armor-piecing_rounds">アーマー貫通弾</a></td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>シールドダメージ増加: +5%<br>敵を1体貫通</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/9d1c49edb2d2b24c74067742c09fd5a5.png" class="table"></th>
+                        <td class="name"><a href="#high-caliber_rounds">大口径弾</a></td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>敵ひるみ量増加: +6～11%</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/0a494d0442b32aff8c30d8b2b53561bd.png" class="table"></th>
+                        <td class="name"><a href="#ricochet_rounds">跳飛弾</a></td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>壁・床・障害物で跳弾</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <details>
+            <summary>バレルステータス早見表（ペレットショットガン用）</summary>
+            <table class="tablesorter" id="barrel_table_sg">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>安</th>
+                        <th>ハ</th>
+                        <th>追加効果</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/7730e1732ed7ef91afce50277639c493.png" class="table"></th>
+                        <td class="name">螺旋ライフリング</td>
+                        <td class="num">+5</td>
+                        <td class="num">+5</td>
+                        <td class="num">+5</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/7d1bb6a623f14959a47156ee71acfc3a.png" class="table"></th>
+                        <td class="name">小口径</td>
+                        <td class="num">+7</td>
+                        <td class="num">+7</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/79d5f1f469d3290cfb849f4b3e6fc16b.png" class="table"></th>
+                        <td class="name">螺旋溝バレル</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-15</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d9e5e8fa07a84c29252b78b0e7b3106d.png" class="table"></th>
+                        <td class="name">バレルシュラウド</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">+10</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/629246e67fc8690d56b5478b0262131a.png" class="table"></th>
+                        <td class="name"><a href="#full_choke">フルチョーク</a></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>
+                            弾の拡散を3.75%低減する
+                            <br>弾の精密ダメージ 約-7.6%
+                        </td>
+                        <td>ADS時のみ</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/893c134549afba522b3cbd2e43fdf4fa.png" class="table"></th>
+                        <td class="name"><a href="#smoothbore">滑腔砲</a></td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>弾の拡散が7.5%増大</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>マガジンステータス早見表 (<span class="w-icons shotgun">&#xe104;</span>)</summary>
+            <table class="tablesorter" id="magazine_table_sg">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>安</th>
+                        <th>リ速</th>
+                        <th>マ</th>
+                        <th>空</th>
+                        <th>発レ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d9f468cce26fe35d9db413e2f8451127.png" class="table"></th>
+                        <td class="name">追加マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+20</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/66cfea124e24e73cca1ce6370b44ca7e.png" class="table"></th>
+                        <td class="name">拡張マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-20</td>
+                        <td class="num">+30</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f0e309a267b25279a871d182f8910bcc.png" class="table"></th>
+                        <td class="name">戦略的マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/736b486ddb80beefacb4f09b5ad016eb.png" class="table"></th>
+                        <td class="name">軽量マガジン</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/953cfdeb2703978b1ab449b991b98989.png" class="table"></th>
+                        <td class="name"><a href="#assault_mag">アサルトマガジン</a></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d85024478504205359c7fb52dbc4f6b6.png" class="table"></th>
+                        <td class="name">高精度弾</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/6c6e1cc341487a8afd0b0c714a229255.png" class="table"></th>
+                        <td class="name">安定弾</td>
+                        <td class="num">-5</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+7</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <details>
+            <summary>バッテリーステータス早見表 (<span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span>)</summary>
+            <table class="tablesorter" id="battery_table_fr">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>威</th>
+                        <th>射</th>
+                        <th>安</th>
+                        <th>リ速</th>
+                        <th>マ</th>
+                        <th>チ時</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/0ee59b61e99c52c85c2ea18ab705f700.png" class="table"></th>
+                        <td class="name">強化バッテリー</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+20</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/a278b79aba1d341d2a070c0e48d9129a.png" class="table"></th>
+                        <td class="name">イオンバッテリー</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-20</td>
+                        <td class="num">+40</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/eaa6fcec699a88e768782068d5e509e1.png" class="table"></th>
+                        <td class="name">投射フューズ</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/8a273117023794757631a34803314351.png" class="table"></th>
+                        <td class="name">粒子リピーター</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/a51d91da9fb0a4c8f45b2ffa89e51ad7.png" class="table"></th>
+                        <td class="name"><a href="#accelerated_coils">加速コイル</a></td>
+                        <td class="num">-5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-20</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/01e813d983526b009b4e1c700a1d0081.png" class="table"></th>
+                        <td class="name"><a href="#liquid_coils">液体コイル</a></td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>バッテリーステータス早見表 (<span class="w-icons trace">&#xe138;</span>)</summary>
+            <table class="tablesorter" id="battery_table_tr">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>安</th>
+                        <th>ハ</th>
+                        <th>リ速</th>
+                        <th>マ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/0ee59b61e99c52c85c2ea18ab705f700.png" class="table"></th>
+                        <td class="name">強化バッテリー</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+20</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/a278b79aba1d341d2a070c0e48d9129a.png" class="table"></th>
+                        <td class="name">イオンバッテリー</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-20</td>
+                        <td class="num">+40</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/eaa6fcec699a88e768782068d5e509e1.png" class="table"></th>
+                        <td class="name">投射フューズ</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/8a273117023794757631a34803314351.png" class="table"></th>
+                        <td class="name">粒子リピーター</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ae0d075c978d54c9fcda3cad72e58f62.png" class="table"></th>
+                        <td class="name">戦略的バッテリー</td>
+                        <td class="num">+5</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/006ff9fe30b0ef0309b499f364803b6b.png" class="table"></th>
+                        <td class="name">軽量バッテリー</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <details>
+            <summary>ランチャーバレルステータス早見表</summary>
+            <table class="tablesorter" id="launcher_barrel_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>爆</th>
+                        <th>速</th>
+                        <th>安</th>
+                        <th>ハ</th>
+                        <th>反</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/0a783b44bf9fc49b4bed0a93dfa21d5d.png" class="table"></th>
+                        <td class="name">コンファインローンチ</td>
+                        <td class="num">+10</td>
+                        <td class="num">-10</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/6fda396e0f2fa3c2eceac79e39f9c44b.png" class="table"></th>
+                        <td class="name">カウンターマス</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">+10</td>
+                        <td class="num">+30</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/8bedf618841b334417b8f95c2aa35d57.png" class="table"></th>
+                        <td class="name">ハードローンチ</td>
+                        <td class="num">-5</td>
+                        <td class="num">+15</td>
+                        <td class="num">-10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/5059f4059a4c59d0003f8fedf8987b78.png" class="table"></th>
+                        <td class="name">リニア・コンペンセイター</td>
+                        <td class="num">+5</td>
+                        <td class="num">+5</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/dfad5d8b00b79c4393943b791a624874.png" class="table"></th>
+                        <td class="name">クイックローンチ</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/5c9fe3f49086b4d6cecc3431751edc02.png" class="table"></th>
+                        <td class="name">高性能ドリフト制御</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                        <td class="num">+10</td>
+                        <td class="num">+15</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d255c9140cf640cfc820f995d1c1e96a.png" class="table"></th>
+                        <td class="name">ボラタイルローンチ</td>
+                        <td class="num">+15</td>
+                        <td class="num">-5</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-5</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>マガジンステータス早見表 (<span class="w-icons glheavy">&#xe113;</span>)</summary>
+            <table class="tablesorter" id="magazine_table_gl1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>爆</th>
+                        <th>速</th>
+                        <th>安</th>
+                        <th>リ速</th>
+                        <th>マ</th>
+                        <th>追加効果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/2a2b757cd73305126990cd19ad011a2c.png" class="table"></th>
+                        <td class="name">高速弾</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e02a542e5162c002112c21b6fdf2e86b.png" class="table"></th>
+                        <td class="name">合金ケーシング</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-10</td>
+                        <td class="num">+30</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/05302d5b12e5f68541622766f18d3797.png" class="table"></th>
+                        <td class="name"><a href="#spike_grenades">スパイクグレネード</a></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>直撃ダメージ増加: +12.5%</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/2102943d96718ba437952118be346b1b.png" class="table"></th>
+                        <td class="name">近接検知グレネード</td>
+                        <td class="num">-20</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>敵付近で自動起爆</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/03a5a8b81c9fc5575a8a9bda79e0f8db.png" class="table"></th>
+                        <td class="name">拡張ドラム</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-20</td>
+                        <td class="num">+30</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1e81b08badb2fa8ce16e9df925294f45.png" class="table"></th>
+                        <td class="name">爆薬オードナンス</td>
+                        <td class="num">+10</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-15</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/89e6a61d84c55c679d578fe6a689da27.png" class="table"></th>
+                        <td class="name">ミニフラグ</td>
+                        <td class="num">-10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">+20</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>マガジンステータス早見表 (<span class="w-icons glspecial">&#xe155;</span>)</summary>
+            <table class="tablesorter" id="magazine_table_gl2">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>爆</th>
+                        <th>速</th>
+                        <th>安</th>
+                        <th>リ速</th>
+                        <th>追加効果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/2a2b757cd73305126990cd19ad011a2c.png" class="table"></th>
+                        <td class="name">高速弾</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/3ec484f0a65df7da9bbc5582c708574b.png" class="table"></th>
+                        <td class="name">爆縮弾</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">-5</td>
+                        <td class="num">+15</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/05302d5b12e5f68541622766f18d3797.png" class="table"></th>
+                        <td class="name"><a href="#spike_grenades">スパイクグレネード</a></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td>直撃ダメージ増加: +50%</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/2102943d96718ba437952118be346b1b.png" class="table"></th>
+                        <td class="name">近接検知グレネード</td>
+                        <td class="num">-20</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>敵付近で自動起爆</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f31c68952868e70325b992a4783db908.png" class="table"></th>
+                        <td class="name"><a href="#disorienting_grenades">混乱グレネード</a></td>
+                        <td class="num">-200</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>爆発時、敵を盲目状態にする<br>威力低下: -25%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>マガジンステータス早見表 (ロケット搭載フレーム)</summary>
+            <table class="tablesorter" id="magazine_table_rp">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>爆</th>
+                        <th>速</th>
+                        <th>安</th>
+                        <th>リ速</th>
+                        <th>リ時</th>
+                        <th>マ</th>
+                        <th>空</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d9f468cce26fe35d9db413e2f8451127.png" class="table"></th>
+                        <td class="name">追加マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+20</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/66cfea124e24e73cca1ce6370b44ca7e.png" class="table"></th>
+                        <td class="name">拡張マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-20</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+30</td>
+                        <td class="num">+10</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f0e309a267b25279a871d182f8910bcc.png" class="table"></th>
+                        <td class="name">戦略的マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/069170916c98748b7b3e33b80bd7d689.png" class="table"></th>
+                        <td class="name"><a href="#alloy_magazine">合金マガジン</a></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">0.85x</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>マガジンが<br>空のときのみ</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/2a2b757cd73305126990cd19ad011a2c.png" class="table"></th>
+                        <td class="name">高速弾</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/3ec484f0a65df7da9bbc5582c708574b.png" class="table"></th>
+                        <td class="name">爆縮弾</td>
+                        <td class="num">-10</td>
+                        <td class="num">+10</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1e81b08badb2fa8ce16e9df925294f45.png" class="table"></th>
+                        <td class="name">爆薬オードナンス</td>
+                        <td class="num">+10</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-15</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>マガジンステータス早見表 (<span class="w-icons rocket">&#xe108;</span>)</summary>
+            <table class="tablesorter" id="magazine_table_rl">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>爆</th>
+                        <th>速</th>
+                        <th>安</th>
+                        <th>リ速</th>
+                        <th>追加効果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e02a542e5162c002112c21b6fdf2e86b.png" class="table"></th>
+                        <td class="name">合金ケーシング</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-10</td>
+                        <td class="num">+30</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/2a2b757cd73305126990cd19ad011a2c.png" class="table"></th>
+                        <td class="name">高速弾</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/3ec484f0a65df7da9bbc5582c708574b.png" class="table"></th>
+                        <td class="name">爆縮弾</td>
+                        <td class="num">-10</td>
+                        <td class="num">+10</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/19deadeab109c6a2907900d6fe0d6142.png" class="table"></th>
+                        <td class="name">ブラックパウダー</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-10</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/8eff94634227ae7261579b31c4ad6024.png" class="table"></th>
+                        <td class="name"><a href="#impact_casing">衝撃ケーシング</a></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td>直撃ダメージ増加: +10%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <details>
+            <summary>弓の弦ステータス早見表</summary>
+            <table class="tablesorter" id="bowstring_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>命</th>
+                        <th>安</th>
+                        <th>ハ</th>
+                        <th>発時</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/6796bbe4e3f485fc610700d581d18475.png" class="table"></th>
+                        <td class="name">扱いやすい弦</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/7ac5f641c349090716f486180d57b0af.png" class="table"></th>
+                        <td class="name">弾性の弦</td>
+                        <td class="num">-10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">-72</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/78ed6849d9edee066fbf127e8321784b.png" class="table"></th>
+                        <td class="name">しなやかな弦</td>
+                        <td class="num">-5</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">-36</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/347e9dbe7a237097160dcf797bcac19a.png" class="table"></th>
+                        <td class="name">高反発性の弦</td>
+                        <td class="num">+15</td>
+                        <td class="num">-5</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+36</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/a2d4be4d60a82efbd0ce54f7bc1c3c3d.png" class="table"></th>
+                        <td class="name">普通の弦</td>
+                        <td class="num">+5</td>
+                        <td class="num">+5</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/9305314cd9b45f686fc10c3e8c02370f.png" class="table"></th>
+                        <td class="name">ポリマー性の弦</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-36</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c21fc6c0bd351dc516012a853dfeecbd.png" class="table"></th>
+                        <td class="name">触毛の弦</td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+        <details>
+            <summary>矢ステータス早見表</summary>
+            <table class="tablesorter" id="arrow_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>命</th>
+                        <th>安</th>
+                        <th>ハ</th>
+                        <th>リ速</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d9e1105b539034b94a2f195245860893.png" class="table"></th>
+                        <td class="name">カーボン製の矢</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/92192e1f865a985b853ca28f5321c1ba.png" class="table"></th>
+                        <td class="name">コンパクトな矢</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">+10</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/6c976951bad73f6645cf909496e5171b.png" class="table"></th>
+                        <td class="name">ファイバーグラス製の矢</td>
+                        <td class="num">+15</td>
+                        <td class="num">-5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/2f3417365352f6368bad28daab355c2c.png" class="table"></th>
+                        <td class="name">らせん状の矢羽根</td>
+                        <td class="num">+5</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/cdd881b20ae276fe6b81edd6bdd794fe.png" class="table"></th>
+                        <td class="name">自然な矢羽根</td>
+                        <td class="num">-5</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/92a450ce220653b3f2d625d43aceb667.png" class="table"></th>
+                        <td class="name">真っ直ぐな矢羽根</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <details>
+            <summary>ブレードステータス早見表</summary>
+            <table class="tablesorter" id="blade_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>威力</th>
+                        <th>回数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/8390e18bed6857847be890f4d07a9583.png" class="table"></th>
+                        <td class="name">磨かれた刃</td>
+                        <td class="num">+2</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/974bb52d2a830e83bb142699b31e567c.png" class="table"></th>
+                        <td class="name">空腹の刃</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+4</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/694a093ed0c7718b05cdf1ebaa3dd648.png" class="table"></th>
+                        <td class="name">鍛えられた刃</td>
+                        <td class="num">+1</td>
+                        <td class="num">+2</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d9a508b43ae6935d68fc5030c90b5b4a.png" class="table"></th>
+                        <td class="name">ギザギザの刃</td>
+                        <td class="num">+4</td>
+                        <td class="num">-4</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1478f8a31179ca5306f1316e4018f9bd.png" class="table"></th>
+                        <td class="name">忍耐の刃</td>
+                        <td class="num">-2</td>
+                        <td class="num">+7</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>ガードステータス早見表</summary>
+            <table class="tablesorter" id="guard_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>耐性</th>
+                        <th>持続</th>
+                        <th>チ時</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/9f43984d3d2818ea3cc3aa6a6be82c85.png" class="table"></th>
+                        <td class="name">バランスガード</td>
+                        <td class="num">70</td>
+                        <td class="num">55</td>
+                        <td class="num">32</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/6ec0f787c192f27f4039140af9be1af9.png" class="table"></th>
+                        <td class="name">ヘビーガード</td>
+                        <td class="num">76</td>
+                        <td class="num">69</td>
+                        <td class="num">26</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d182dd5e1da7a10583dfb9f65ff026bc.png" class="table"></th>
+                        <td class="name">バーストガード</td>
+                        <td class="num">80</td>
+                        <td class="num">20</td>
+                        <td class="num">32</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f41732ca49953994397e5ab50fdc3a2e.png" class="table"></th>
+                        <td class="name">スタミナガード</td>
+                        <td class="num">60</td>
+                        <td class="num">84</td>
+                        <td class="num">32</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/328c503080c2593ce690ded51dc6f5e5.png" class="table"></th>
+                        <td class="name">剣士のガード</td>
+                        <td class="num">64</td>
+                        <td class="num">55</td>
+                        <td class="num">38</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <details>
+            <summary>ハフトステータス早見表</summary>
+            <table class="tablesorter" id="haft_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>シ続</th>
+                        <th>ハ</th>
+                        <th>リ速</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/5d6a2a27f0a4a1b66d84f8073a7240b1.png" class="table"></th>
+                        <td class="name">弾道チューニング</td>
+                        <td class="num">+15</td>
+                        <td class="num">-10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d8b1d1ce11135074d7448314b0381356.png" class="table"></th>
+                        <td class="name">低インピーダンス巻線</td>
+                        <td class="num">-10</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f9f9e68826c8f28498afb1525a27062f.png" class="table"></th>
+                        <td class="name">強化型トラスロッド</td>
+                        <td class="num">-5</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+15</td>
+                        <td class="num">-5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/a5baa71112f0616ff78bbeacad7b10b2.png" class="table"></th>
+                        <td class="name">過冷却加速器</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-5</td>
+                        <td class="num">-5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/3992f0e9424be473f729e3b5eb81be78.png" class="table"></th>
+                        <td class="name">予備の蓄え</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-10</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/1a823b316085917d38071d2c4465b8a1.png" class="table"></th>
+                        <td class="name">軽量エミッター</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-10</td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>マガジンステータス早見表 (<span class="w-icons glaive">&#xe156;</span>)</summary>
+            <table class="tablesorter" id="magazine_table_glaive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>リ速</th>
+                        <th>リ時</th>
+                        <th>マ</th>
+                        <th>空</th>
+                        <th>追加効果</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/069170916c98748b7b3e33b80bd7d689.png" class="table"></th>
+                        <td class="name"><a href="#alloy_magazine">合金マガジン</a></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>x0.85</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                        <td>マガジンが<br>空のときのみ</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d9f468cce26fe35d9db413e2f8451127.png" class="table"></th>
+                        <td class="name">追加マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">x1</span></td>
+                        <td class="num">+20</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/66cfea124e24e73cca1ce6370b44ca7e.png" class="table"></th>
+                        <td class="name">拡張マガジン</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">-20</td>
+                        <td><span class="none">x1</span></td>
+                        <td class="num">+30</td>
+                        <td class="num">+10</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/736b486ddb80beefacb4f09b5ad016eb.png" class="table"></th>
+                        <td class="name">軽量マガジン</td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d85024478504205359c7fb52dbc4f6b6.png" class="table"></th>
+                        <td class="name">高精度弾</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/189373621216db573964bfc8a3632999.png" class="table"></th>
+                        <td class="name"><a href="#swap_mag">スワップマガジン</a></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">x1</span></td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td>持ち替え速度: x0.9</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <details>
+            <summary>サイト・スコープステータス早見表（一般武器用1）</summary>
+            <table class="tablesorter" id="sight_table1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>ハ</th>
+                        <th>ズ</th>
+                        <th>追加効果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f1a06db7e6d7df4282f7ebdaca12b769.png" class="table"></th>
+                        <td class="name">ヒットマーク IS</td>
+                        <td class="num">+2</td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/8624b5c2c44539d0b9416f210e43a2b2.png" class="table"></th>
+                        <td class="name">クリーンショット IS</td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                        <td class="num">+1</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e43da5dcb1d2a05616be6f695eede7a1.png" class="table"></th>
+                        <td class="name">レッド・ドット MICRO</td>
+                        <td class="num">+9</td>
+                        <td class="num">+7</td>
+                        <td class="num">+2</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/e43da5dcb1d2a05616be6f695eede7a1.png" class="table"></th>
+                        <td class="name">レッド・ドット 2 MOA</td>
+                        <td class="num">+6</td>
+                        <td class="num">+10</td>
+                        <td class="num">+2</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/becbc42b412c5539173aa46b692364ab.png" class="table"></th>
+                        <td class="name">ライフルスコープ SSF</td>
+                        <td class="num">+6</td>
+                        <td class="num">-3</td>
+                        <td class="num">+5</td>
+                        <td>敵をハイライト表示</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/becbc42b412c5539173aa46b692364ab.png" class="table"></th>
+                        <td class="name">ライフルスコープ ST</td>
+                        <td class="num">+12</td>
+                        <td class="num">-11</td>
+                        <td class="num">+6</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>サイト・スコープステータス早見表（一般武器用2）</summary>
+            <table class="tablesorter" id="sight_table2">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>ハ</th>
+                        <th>ズ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f0e645d8798c4547c7362bddaee24672.png" class="table"></th>
+                        <td class="name">IS 2 クラシック</td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f0e645d8798c4547c7362bddaee24672.png" class="table"></th>
+                        <td class="name">IS 5 サークル</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/3f4c176e47a8515034fbadf28a160223.png" class="table"></th>
+                        <td class="name">モデル6 ループ</td>
+                        <td class="num">+9</td>
+                        <td class="num">+8</td>
+                        <td class="num">+1</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/3f4c176e47a8515034fbadf28a160223.png" class="table"></th>
+                        <td class="name">モデル8 レッド</td>
+                        <td class="num">+13</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>サイト・スコープステータス早見表（オモロン近中距離武器用）</summary>
+            <table class="tablesorter" id="sight_table_omolon">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>ハ</th>
+                        <th>ズ</th>
+                        <th>追加効果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/8624b5c2c44539d0b9416f210e43a2b2.png" class="table"></th>
+                        <td class="name">キャンドル PS</td>
+                        <td class="num">+3</td>
+                        <td class="num">+13</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/bbe1384636c4ab98264723933b4f8096.png" class="table"></th>
+                        <td class="name">スパーク PS</td>
+                        <td class="num">+6</td>
+                        <td class="num">+9</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/c684cac8ae1847b4e0cbe6582136ef0c.png" class="table"></th>
+                        <td class="name">ジョルト PS</td>
+                        <td class="num">+6</td>
+                        <td class="num">+9</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/90cb0b7769131d06c5d84ec47d29d01c.png" class="table"></th>
+                        <td class="name">トーチ HS3</td>
+                        <td class="num">+13</td>
+                        <td class="num">-5</td>
+                        <td class="num">+3</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ba418ab702fcd53be6bb7c88cc146b63.png" class="table"></th>
+                        <td class="name">フラッシュ HS5</td>
+                        <td class="num">+10</td>
+                        <td class="num">+3</td>
+                        <td class="num">+4</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/651222eee6720d1b0c4088173ca89439.png" class="table"></th>
+                        <td class="name">インパルス MS3</td>
+                        <td class="num">+12</td>
+                        <td class="num">-10</td>
+                        <td class="num">+6</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/ac45e65ab8f836fa45c641f5becab6e1.png" class="table"></th>
+                        <td class="name">シグナル MS5</td>
+                        <td class="num">+10</td>
+                        <td class="num">-3</td>
+                        <td class="num">+5</td>
+                        <td>敵をハイライト表示</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/df172a148d2ce7b9d41dd76665748fc1.png" class="table"></th>
+                        <td class="name">トランスミッション MS7</td>
+                        <td class="num">+10</td>
+                        <td class="num">-5</td>
+                        <td class="num">+5</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>サイト・スコープステータス早見表（スロス近中距離武器用）</summary>
+            <table class="tablesorter" id="sight_table_suros">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>ハ</th>
+                        <th>ズ</th>
+                        <th>追加効果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f9d4f0af9b9bf8489812b242bdb00dec.png" class="table"></th>
+                        <td class="name">SLO-10 ポスト</td>
+                        <td class="num">+5</td>
+                        <td class="num">+10</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/73efb6e784b985692b4961171387e8af.png" class="table"></th>
+                        <td class="name">SLO-12 ポスト</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+15</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/06a70b1ca877e033ec582ba868485b56.png" class="table"></th>
+                        <td class="name">SLO-21 ポスト</td>
+                        <td class="num">+3</td>
+                        <td class="num">+12</td>
+                        <td><span class="none">0</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/5efdbf431c9b8bdddc9946ae45c108f8.png" class="table"></th>
+                        <td class="name">SPO-26 フロント</td>
+                        <td class="num">+7</td>
+                        <td class="num">+10</td>
+                        <td class="num">+2</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/a286ae38e673cc4080717f52a075fd5d.png" class="table"></th>
+                        <td class="name">SPO-28 フロント</td>
+                        <td class="num">+11</td>
+                        <td class="num">+5</td>
+                        <td class="num">+3</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/184934c8054df2d4d66af49c04d09654.png" class="table"></th>
+                        <td class="name">SPO-57 フロント</td>
+                        <td class="num">+15</td>
+                        <td class="num">-5</td>
+                        <td class="num">+4</td>
+                        <td>敵をハイライト表示</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/4fda4ccd8f1c5a50af8d45e32f1c6091.png" class="table"></th>
+                        <td class="name">SRO-37 オキュラー</td>
+                        <td class="num">+10</td>
+                        <td class="num">-3</td>
+                        <td class="num">+5</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/6617e5972d4fc6e2f064e92e1b639625.png" class="table"></th>
+                        <td class="name">SRO-41 オキュラー</td>
+                        <td class="num">+8</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td>敵をハイライト表示</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/d39e277cab12145e4e1615b00177363e.png" class="table"></th>
+                        <td class="name">SRO-52 オキュラー</td>
+                        <td class="num">+13</td>
+                        <td class="num">-7</td>
+                        <td class="num">+6</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>サイトステータス早見表 (<span class="w-icons hc">&#xe103;</span>)</summary>
+            <table class="tablesorter" id="sight_table_hc">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>安</th>
+                        <th>ハ</th>
+                        <th>照</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/388a2235cfe0a6d9449aec30f8e962cd.png" class="table"></th>
+                        <td class="name">ファストドロー HCS</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">+15</td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/388a2235cfe0a6d9449aec30f8e962cd.png" class="table"></th>
+                        <td class="name">ステディーハンド HCS</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">+10</td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/388a2235cfe0a6d9449aec30f8e962cd.png" class="table"></th>
+                        <td class="name">トゥルーサイト HCS</td>
+                        <td class="num">+3</td>
+                        <td class="num">+3</td>
+                        <td class="num">+3</td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/388a2235cfe0a6d9449aec30f8e962cd.png" class="table"></th>
+                        <td class="name">ヒットマーク HCS</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/388a2235cfe0a6d9449aec30f8e962cd.png" class="table"></th>
+                        <td class="name">クロスファイア HCS</td>
+                        <td class="num">+7</td>
+                        <td class="num">-5</td>
+                        <td class="num">-5</td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/388a2235cfe0a6d9449aec30f8e962cd.png" class="table"></th>
+                        <td class="name">シュアショット HCS</td>
+                        <td class="num">+10</td>
+                        <td class="num">-10</td>
+                        <td class="num">-10</td>
+                        <td class="num">+5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>サイトステータス早見表 (<span class="w-icons sidearm">&#xe109;</span>)</summary>
+            <table class="tablesorter" id="sight_table_sa">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>安</th>
+                        <th>ハ</th>
+                        <th>照</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/687240e502cf2c8546f70d1d7589aaf2.png" class="table"></th>
+                        <td class="name">クイックドット SAS</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                        <td class="num">+15</td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/687240e502cf2c8546f70d1d7589aaf2.png" class="table"></th>
+                        <td class="name">コントロール SAS</td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+10</td>
+                        <td class="num">+10</td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/687240e502cf2c8546f70d1d7589aaf2.png" class="table"></th>
+                        <td class="name">ショートスペック SAS</td>
+                        <td class="num">+3</td>
+                        <td class="num">+3</td>
+                        <td class="num">+3</td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/687240e502cf2c8546f70d1d7589aaf2.png" class="table"></th>
+                        <td class="name">タクティク SAS</td>
+                        <td class="num">+5</td>
+                        <td><span class="none">0</span></td>
+                        <td><span class="none">0</span></td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/687240e502cf2c8546f70d1d7589aaf2.png" class="table"></th>
+                        <td class="name">ターゲット SAS</td>
+                        <td class="num">+8</td>
+                        <td class="num">-5</td>
+                        <td class="num">-5</td>
+                        <td class="num">+5</td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/687240e502cf2c8546f70d1d7589aaf2.png" class="table"></th>
+                        <td class="name">ファーポイント SAS</td>
+                        <td class="num">+13</td>
+                        <td class="num">-10</td>
+                        <td class="num">-10</td>
+                        <td class="num">+5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>スコープステータス早見表 (ハッケ製<span class="w-icons sr">&#xe105;</span>)</summary>
+            <table class="tablesorter" id="sight_table_sr">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>射</th>
+                        <th>ハ</th>
+                        <th>ズ</th>
+                        <th>追加効果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/f666015056a8b7c2da2de3e7d2f2b2e4.png" class="table"></th>
+                        <td class="name">ATA スカウト</td>
+                        <td class="num">+5</td>
+                        <td class="num">+13</td>
+                        <td class="num">+11</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/b4249ce58f1082000837830a5130f35e.png" class="table"></th>
+                        <td class="name">ATB ロングレンジ</td>
+                        <td class="num">+15</td>
+                        <td class="num">-10</td>
+                        <td class="num">+16</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/479f34b84c04f99f1f994c734488759e.png" class="table"></th>
+                        <td class="name">ATC レックス</td>
+                        <td class="num">-5</td>
+                        <td class="num">+15</td>
+                        <td class="num">+10</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th class="icon"><img src="https://www.bungie.net/common/destiny2_content/icons/6289983d3231ea1742d77c2e0fb42e82.png" class="table"></th>
+                        <td class="name">ATD ラプター</td>
+                        <td class="num">+9</td>
+                        <td class="num">+5</td>
+                        <td class="num">+12</td>
+                        <td>敵をハイライト表示</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="full_choke"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/629246e67fc8690d56b5478b0262131a.png" class="h3">フルチョーク</h3>
+        <div class="base">固く締められたバレル。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons shotgun">&#xe104;</span>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>ADS時:
+                    <ul class="stats2">
+                        <li>弾の拡散を <b>3.75%</b> 低減する。</li>
+                        <li>弾の精密ダメージ倍率が x1.1078 → <b>x1.0294</b> に設定される（精密ダメージが <b>-7.6%</b> 減少する）。</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="smoothbore"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/893c134549afba522b3cbd2e43fdf4fa.png" class="h3">滑腔砲</h3>
+        <div class="base">滑らかなショットガンバレル。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons shotgun">&#xe104;</span>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>射程距離: <b>+15</b></li>
+                <li>弾の拡散が <b>7.5%</b> 増大する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="alloy_magazine"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/069170916c98748b7b3e33b80bd7d689.png" class="h3">合金マガジン</h3>
+        <div class="base">マガジンが空のとき、リロード速度が上昇する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>残弾が0のときにリロード開始時:
+                    <ul class="stats2">
+                        <li>リロード時間: <b>x0.85</b></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="armor-piecing_rounds"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/b311ef00478243e21e2a5eec3a59f9d8.png" class="h3">アーマー貫通弾</h3>
+        <div class="base">敵のシールドに追加ダメージを与え、標的を貫通する。</div>
+        <div class="indepth">
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>射程距離: <b>+5</b></li>
+                <li>シールドへのダメージ増加量: <b>+5%</b></li>
+                <li>敵を <b>1体</b> まで貫通する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="high-caliber_rounds"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/9d1c49edb2d2b24c74067742c09fd5a5.png" class="h3">大口径弾</h3>
+        <div class="base">発射した弾が当たった時、敵がより遠くに押しやられる。</div>
+        <div class="indepth">
+            <div class="info">&lt;関連項目&gt;</div>
+            <a href="./enemy_classification.html#tier">敵のランクについて</a>
+            <div class="info">&lt;備考&gt;</div>
+            <span class="pve">ランク1～2の敵を複数回ひるませることが可能。</span>
+            <span class="pve"><br>また、ランク3以上の敵にも通常より早くひるみ効果が発生する。</span>
+            <span class="pvp">敵が受けるひるみ量が増加する。増加量は武器のフレームによって異なる。</span>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>射程距離: <b>+5</b></li>
+                <li><span class="pvp">ひるみ増加: <b>+5～10%</b></span></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="ricochet_rounds"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/0a494d0442b32aff8c30d8b2b53561bd.png" class="h3">跳飛弾</h3>
+        <div class="base">弾丸が硬い物に当たると跳ね返る。</div>
+        <div class="indepth">
+            <div class="info">&lt;備考&gt;</div>
+            跳弾が<b>必ず</b>発生し、反射の角度がより鋭くなる。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>射程距離: <b>+5</b></li>
+                <li>安定性: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="assault_mag"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/953cfdeb2703978b1ab449b991b98989.png" class="h3">アサルトマガジン</h3>
+        <div class="base">このショットガンのマガジンが素早い戦闘に最適化される。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons shotgun">&#xe104;</span>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>安定性: <b>+15</b></li>
+                <li>発射レート: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="swap_mag"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/189373621216db573964bfc8a3632999.png" class="h3">スワップマガジン</h3>
+        <div class="base">この武器の取り出し、射撃準備が早くなる。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glaive">&#xe156;</span>
+            <div class="info">&lt;備考&gt;</div>
+            ハンドリングは変化せず、アニメーション速度に倍率がかかる。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>取り出し/収納速度: <b>x0.9</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="seraph_rounds"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/5e825cbfd6fbcef65358f27334368681.png" class="h3">セラフ弾</h3>
+        <div class="base">弾薬が標的を貫通し、また硬い物に当たると跳ね返る。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            IKELOS武器（SGを除く）
+            <div class="info">&lt;備考&gt;</div>
+            跳弾が<b>必ず</b>発生し、反射の角度がより鋭くなる。
+            <span class="pve"><br>ランク1～2の敵を複数回ひるませることが可能。</span>
+            <span class="pve"><br>また、ランク3以上の敵にも通常より早くひるみ効果が発生する。</span>
+            <span class="pvp"><br>敵が受けるひるみ量が増加する。増加量は武器のフレームによって異なる。</span>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>射程距離: <b>+3</b></li>
+                <li>安定性: <b>+7</b></li>
+                <li><span class="pvp">ひるみ増加: <b>+5～10%</b></span></li>
+                <li>敵を <b>1体</b> まで貫通する。</li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="phase_mag"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a51d91da9fb0a4c8f45b2ffa89e51ad7.png" class="h3">フェーズマガジン</h3>
+        <div class="base">発射レートとマガジンサイズを低下させ、ダメージを増加させる。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons smg">&#xe107;</span> (ランダム・バリアブル)
+            <div class="info">&lt;備考&gt;</div>
+            <b>精密フレームと同等</b>の威力・発射レートになる。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>威力: <b>+10</b></li>
+                <li>発射レート: <b>-300</b></li>
+                <li>マガジンサイズ: <b>-5</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="accelerated_coils"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/a51d91da9fb0a4c8f45b2ffa89e51ad7.png" class="h3">加速コイル</h3>
+        <div class="base">チャージ時間が短縮される。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>チャージ時間: <b>-20</b></li>
+                <li>威力: <b>-5</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="liquid_coils"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/01e813d983526b009b4e1c700a1d0081.png" class="h3">液体コイル</h3>
+        <div class="base">チャージ速度を犠牲にしてダメージを増加させる。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons fusion">&#xe106;</span> / <span class="w-icons linear">&#xe152;</span>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>威力: <b>+5</b></li>
+                <li>チャージ時間: <b>+20</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="spike_grenades"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/05302d5b12e5f68541622766f18d3797.png" class="h3">スパイクグレネード</h3>
+        <div class="base">グレネード弾が命中した時の威力が上昇する。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glspecial">&#xe155;</span> / <span class="w-icons glheavy">&#xe113;</span>
+            <div class="info">&lt;備考&gt;</div>
+            <b>爆発ダメージは増加しない。</b>
+            <br>爆発ダメージと直撃ダメージの比率は爆発範囲によって変化する。
+            <ul class="stats">
+                <li><span class="w-icons glspecial">&#xe155;</span>
+                    <ul class="stats2">
+                        <li>爆発範囲 0 → 爆発ダメージ <b>50%</b> : 直撃ダメージ <b>50%</b></li>
+                        <li>爆発範囲 100 → 爆発ダメージ <b>75%</b> : 直撃ダメージ <b>25%</b></li>
+                    </ul>
+                </li>
+                <li><span class="w-icons glheavy">&#xe113;</span>
+                    <ul class="stats2">
+                        <li>爆発範囲 0 → 爆発ダメージ [?]% : 直撃ダメージ [?]%</li>
+                        <li>爆発範囲 100 → 爆発ダメージ [?]% : 直撃ダメージ [?]%</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>ダメージ増加量:
+                    <ul class="stats2">
+                        <li><span class="w-icons glspecial">&#xe155;</span>: <b>+50%</b>
+                            <ul class="stats3">
+                                <li>合計ダメージ増加量は <b>+12.5% ～ +25%</b> 。</li>
+                            </ul>
+                        </li>
+                        <li><span class="w-icons glheavy">&#xe113;</span>: <b>+12.5%</b>
+                            <ul class="stats3">
+                                <li>合計ダメージ増加量は +[?]% 。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>安定性: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="disorienting_grenades"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/f31c68952868e70325b992a4783db908.png" class="h3">混乱グレネード</h3>
+        <div class="base">爆発すると一時的に目つぶし効果を発生させるグレネード。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons glspecial">&#xe155;</span>
+            <div class="info">&lt;備考&gt;</div>
+            <span class="pve">盲目状態の敵は射撃を停止し、移動速度が低下する。</span>
+            <span class="pvp">盲目状態になると視界がホワイトアウトする。</span>
+            <br>目つぶし効果の範囲は実際の爆発範囲よりも広く、ダメージが無くても効果だけが発動する場合がある。
+            <br>アーク効果である「<a href="#blind">視力喪失状態</a>」とは異なるため、これがトリガーになる効果は発動しない。
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>爆発時、付近にいた敵を <b>4.5秒間</b> 盲目状態にする。</li>
+                <li>爆発範囲: <b>-200</b></li>
+                <li>威力: <b>-25%</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
+
+        <a name="impact_casing"></a>
+        <h3 class="item"><img src="https://www.bungie.net/common/destiny2_content/icons/8eff94634227ae7261579b31c4ad6024.png" class="h3">衝撃ケーシング</h3>
+        <div class="base">直撃の威力が上昇する。</div>
+        <div class="indepth">
+            <div class="info">&lt;装備可能武器&gt;</div>
+            <span class="w-icons rocket">&#xe108;</span>
+            <div class="info">&lt;備考&gt;</div>
+            <b>爆発ダメージは上がらない</b>ため、全体の威力で見ると <b>約+2.2%</b> 程の増加量となる。<br>
+            <div class="info">&lt;効果量&gt;</div>
+            <ul class="stats">
+                <li>ダメージ増加量: <b>+10%</b></li>
+                <li>安定性: <b>+10</b></li>
+            </ul>
+        </div>
+        <div class="back"><a href="#" id="page-top">▲</a></div>
 
         <a name="origin_traits"></a>
         <h2>起源特性</h2>

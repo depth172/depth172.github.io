@@ -176,6 +176,16 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+    $('#magazine_table_rp').tablesorter({
+        headers: {
+            0: { sorter: false },
+            1: { sorter: false },
+            9: { sorter: false },
+        }
+    });
+});
+
+$(document).ready(function() {
     $('#magazine_table_rl').tablesorter({
         headers: {
             0: { sorter: false },
