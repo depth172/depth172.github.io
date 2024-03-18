@@ -1,0 +1,16 @@
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" id="share-button" class="twitter-share-button" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<span>最終更新日: <time id="modify"></time></span>
+<script>
+    var year = last.getFullYear();
+    var month = last.getMonth() + 1;
+    var date = last.getDate();
+
+    var lm = document.getElementById('modify');
+    lm.textContent = year + '年' + month + '月' + date + '日';
+
+    var share_button = document.getElementById('share-button');
+    var title = document.querySelector('title').textContent.slice( 0, -17 );
+    share_button.setAttribute("data-text", title)
+    share_button.setAttribute("data-url", "https://depth172.github.io" + window.location.pathname)
+</script>

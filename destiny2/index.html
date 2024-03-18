@@ -22,23 +22,25 @@
     <link rel="stylesheet" href="d2style.css">
     <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
 
+    <!-- 共通ページ読み込み -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+        $(function() {
+            $("#buttons").load("./common/buttons.html");
+            $("#header").load("./common/header.html");
+        });
+        
+        // このページの最終更新日を設定
+        var last = new Date(document.lastModified);
+    </script>
+
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="overlay-button">
-        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
-        <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-        <script>
-            kofiWidgetOverlay.draw('depth172', {
-                'type': 'floating-chat',
-                'floating-chat.donateButton.text': 'Support me',
-                'floating-chat.donateButton.background-color': '#00b9fe',
-                'floating-chat.donateButton.text-color': '#fff'
-            });
-        </script>
-    </div>
+    <div id="buttons"></div>
 
     <div class="main">
         <div class="top_logo">
@@ -47,20 +49,7 @@
         <span class="top_guide"><a href="../">depth's Toybox</a></span>
         <h1>Destiny 2</h1>
         <hr>
-        <div class="title_bar">
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 まとめ" data-url="https://depth172.github.io/destiny2/" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <span>最終更新日: <time id="modify"></time></span>
-            <script>
-                var last = new Date(document.lastModified);
-                var year = last.getFullYear();
-                var month = last.getMonth() + 1;
-                var date = last.getDate();
-
-                var target = document.getElementById('modify');
-                target.textContent = year + '年' + month + '月' + date + '日';
-            </script>
-        </div>
+        <div id="header" class="title_bar"></div>
 
         <p class="intro">しばらくDestiny 2にお熱なのでゲーム内外問わずいろいろ作っています。<br>プレイ中に個人的にあって便利だと思うものを、日本人プレイヤーへの共有のために翻訳して公開したりもしています。</p>
 

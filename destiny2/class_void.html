@@ -25,31 +25,25 @@
     <!-- 表示内容切り替え用スクリプト -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script src="./modetoggle.js"></script>
-    <script src="./hoverwindow.js"></script>
+
+    <!-- 共通ページ読み込み -->
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+        $(function() {
+            $("#buttons").load("./common/buttons_switch.html");
+            $("#header").load("./common/header.html");
+        });
+        
+        // このページの最終更新日を設定
+        var last = new Date(document.lastModified);
+    </script>
 
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="overlay-button">
-        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
-        <button class="toggle_button" id="p_toggle"><img class="pve" src="https://www.bungie.net/common/destiny2_content/icons/3642cf9e2acd174dcab5b5f9e3a3a45d.png"><img class="pvp" src="https://www.bungie.net/common/destiny2_content/icons/DestinyActivityModeDefinition_fb3e9149c43f7a2e8f8b66cbea7845fe.png"></button>
-        <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-        <script>
-            kofiWidgetOverlay.draw('depth172', {
-                'type': 'floating-chat',
-                'floating-chat.donateButton.text': 'Support me',
-                'floating-chat.donateButton.background-color': '#00b9fe',
-                'floating-chat.donateButton.text-color': '#fff'
-            });
-        </script>
-    </div>
-
-    <div id="hover-balloon">
-        <span id="info"></span>
-    </div>
+    <div id="buttons"></div>
 
     <div class="main" id="main">
         <div class="top_logo">
@@ -58,20 +52,7 @@
         <span class="top_guide"><a href="../">depth's Toybox</a> > <a href="./">Destiny 2</a></span>
         <h1>クラス解説 - <span class="void">&#xe144;</span>ボイド</h1>
         <hr>
-        <div class="title_bar">
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Destiny 2 クラス解説 - ボイド" data-url="http://depth172.github.io/destiny2/class_void.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <span>最終更新日: <time id="modify"></time></span>
-            <script>
-                var last = new Date(document.lastModified);
-                var year = last.getFullYear();
-                var month = last.getMonth() + 1;
-                var date = last.getDate();
-
-                var target = document.getElementById('modify');
-                target.textContent = year + '年' + month + '月' + date + '日';
-            </script>
-        </div>
+        <div id="header" class="title_bar"></div>
 
         <p class="intro">Destiny 2のボイドに関する効果、サブクラスのスキル、特性、かけらなどについて解説します。</p>
 
@@ -1250,7 +1231,11 @@
         <a name="challenge_log"></a>
         <h2>更新履歴</h2>
 
-        <a href="https://github.com/depth172/depth172.github.io/commits/gh-pages/destiny2/class_void.html">過去のページを確認する</a>
+        <a id="challenge-link">過去のページを確認する</a>
+        <script>
+            var challenge_log = document.getElementById('challenge-link');
+            challenge_log.setAttribute("href", "https://github.com/depth172/depth172.github.io/commits/gh-pages" + window.location.pathname)
+        </script>
 
         <a name="comments"></a>
         <!-- begin wwww.htmlcommentbox.com -->
