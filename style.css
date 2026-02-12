@@ -1,372 +1,79 @@
-html,
-body {
+* {
     margin: 0;
     padding: 0;
 }
 
+:root {
+	--background: #c6e7ff;
+	--main-color: #eff8fe;
+	--accent-background: #e1f0fa;
+	--foreground: #111;
+	--accent-foreground: #1d2225;
+}
+
 body {
-    background: #c6f2ff;
+    background: var(--background);
+		color: var(--foreground);
     font-family: 'Yu Gothic';
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		margin: 1rem auto;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-.main {
-    position: relative;
-    background: #eef8ff;
-    width: 900px;
-    margin: 30px auto;
-    padding: 30px;
-    border: 1px solid #cccccc;
-    line-break: strict;
+main {
+	max-width: 1200px;
+	width: 1800%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	padding: 1rem;
+
+	background-color: var(--main-color);
+	border: solid 1px #2c3942;
 }
 
-.overlay-button {
-    position: fixed;
-    width: fit-content;
-    height: max-content;
-    text-align: center;
-    margin-inline: auto;
-    bottom: 0.7em;
-    right: 2em;
-    z-index: 5000;
+.main-logo {
+	width: 100%;
 }
 
-#page-top.fixed {
-    background: #fff;
-    color: #737373;
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    margin: 1em;
-    line-height: 4em;
-    border: solid 1px;
-    border-radius: 50%;
-    box-shadow: 0 2px 10px -6px rgba(0, 0, 0, .5), 0 3px 10px -4px rgba(0, 0, 0, .2);
+.main-logo img {
+	width: 50%;
+	min-width: 450px;
+	margin: 0 auto;
+	display: block;
 }
 
-.for_sp {
-    display: none;
-}
+.intro {
+	width: fit-content;
+	text-align: center;
 
-hr {
-    border: 0;
-    padding: 1.5px;
-    border-top: 2px solid #bbb;
-    border-bottom: 3px solid #bbb;
-}
-
-hr.title {
-    border: 0;
-    margin: 0.35em 0;
-    border-top: 2px solid #bbb;
-}
-
-h1 {
-    margin-top: 0.2em;
-    margin-bottom: 0em;
+	padding: 0.3rem 1rem;
+	background-color: var(--accent-background);
+	border-radius: 0.5rem;
 }
 
 h2 {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    border-bottom: 2px solid #292929;
+	width: 100%;
+	line-height: 80%;
+	margin: 1rem 1rem 0;
+	border-bottom: solid 2px var(--accent-foreground)
 }
 
-h3 {
-    box-decoration-break: clone;
-    border-bottom: 2px solid #646464;
-    position: relative;
-    background: #d2deff;
-    padding-left: 0.7em;
-    padding-top: 0.7em;
-    padding-bottom: 0.1em;
+h2 .jp {
+	font-size: 70%;
 }
 
-.text {
-    padding-left: 0.3em;
-    padding-bottom: 0.5em;
-}
-
-.caption {
-    text-align: center;
-    font-size: 80%;
-    margin-bottom: 1em;
-}
-
-img {
-    vertical-align: bottom;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-img.illustration {
-    margin-block: 0.4em;
-    vertical-align: middle;
-}
-
-img.picture {
-    display: block;
-    margin: auto;
-    margin-block: 0.4em;
-}
-
-.power {
-    font-weight: bold;
-    font-size: 172%
-}
-
-.weak {
-    color: #999;
-    font-size: 85%;
-}
-
-ul {
-    margin-top: 0.2em;
-    margin-bottom: 0.8em;
-}
-
-li ul {
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-}
-
-a {
-    color: #063999;
-}
-
-a:hover {
-    color: #01bef8;
-}
-
-a:active {
-    color: #138f53;
-}
-
-a[href^="http"]:after,
-a[href^="//"]:after {
-    margin: 0 0 0 3px;
-    font-family: "Font Awesome 5 Free";
-    content: '\f35d';
-    font-size: 70%;
-    font-weight: 900;
-}
-
-a[href^="https://depth172.github.io/"]:after,
-#HCB_comment_box a:after {
-    margin: inherit;
-    font-family: inherit;
-    content: '';
-    font-weight: inherit;
-}
-
-.footer {
-    font-size: 70%;
-    text-align: right;
-}
-
-.footer a {
-    color: #2885a1;
-}
-
-h4 {
-    margin: 0.1em;
-    margin-top: 0.5em
-}
-
-summary {
-    user-select: none;
-    cursor: pointer;
-}
-
-details {
-    background: #d8f1f8;
-    width: 93.5%;
-    margin: 10px;
-    padding: 15px;
-    border: 1px solid #cccccc;
-}
-
-.toc {
-    padding: 10px;
-    border: 1px solid #cccccc;
-}
-
-.toc details {
-    background: none;
-    width: 93.5%;
-    margin: 0px;
-    padding: 0px;
-    padding-left: 0.6em;
-    border: none;
-}
-
-.portrait {
-    width: 250px;
-    border: 2px solid #2b539c;
-}
-
-.top_guide a {
-    color: #2f2a46;
-    text-decoration: none;
-}
-
-.back {
-    font-size: 90%;
-    text-align: right;
-}
-
-.back a {
-    color: #7da6b3;
-    text-decoration: none;
-}
-
-.title {
-    text-align: center;
-    padding: 0px 0px;
-    font-size: 300%;
-    font-weight: bold;
-}
-
-.title img {
-    width: 60%;
-}
-
-.top_logo {
-    float: right;
-}
-
-.fab,
-.fas {
-    padding: 0.6em;
-}
-
-ul li ul li i.fas {
-    padding: 0.3em 0.4em;
-    padding-left: 0em;
-}
-
-.title_bar {
-    text-align: right;
-}
-
-.top_logo img {
-    height: 83px
-}
-
-.title_bar span {
-    vertical-align: top;
-    font-size: 80%;
-}
-
-p.intro {
-    margin-top: 0em;
-}
-
-.center {
-    text-align: center;
-}
-
-#HCB_comment_box h3 {
-    font-size: 130%;
-    padding: 10px 0px;
-    border: none;
-    background: none;
-}
-
-#HCB_comment_box p {
-    margin: 0px;
-}
-
-@media screen and (max-width: 850px) {
-    .overlay-button {
-        right: 0.7em;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .main {
-        width: 92%;
-        margin: auto;
-        padding: 15px;
-    }
-    .for_pc {
-        display: none;
-    }
-    .for_sp {
-        display: inline;
-    }
-    .overlay-button {
-        position: fixed;
-        bottom: 0.5em;
-    }
-    hr.title {
-        border: 0;
-        margin: 0.35em 0;
-        border-top: 2px solid #bbb;
-    }
-    details {
-        width: 90%;
-        margin: 5px;
-        padding: 15px;
-    }
-    .title img {
-        width: 80%;
-    }
-    .top_logo {
-        float: none;
-        text-align: center;
-    }
-    .top_logo img {
-        height: auto;
-        width: 60%
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #202527;
-        color: #fff;
-    }
-    .main {
-        background: #182126;
-        border: 1px solid #525252;
-    }
-    a {
-        color: #6097ff;
-    }
-        
-    a:active {
-        color: #0e6b3e;
-    }
-    
-    .top_guide a {
-        color: #6d658d;
-    }
-
-    hr {
-        border-top: 2px solid #777;
-        border-bottom: 3px solid #777;
-    }
-    
-    hr.title {
-        border-top: 2px solid #777;
-    }
-
-    h2 {
-        border-bottom: 2px solid #3f3f3f;
-    }
-    
-    h3 {
-        border-bottom: 2px solid #646464;
-        background: #2b2d34;
-    }
-
-    details,
-    .toc {
-        background: #1d2425;
-    }
-        
+h2 .divider {
+	font-size: 70%;
 }
