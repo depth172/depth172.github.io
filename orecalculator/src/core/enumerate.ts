@@ -19,10 +19,11 @@ export interface EnumResult {
   truncated: boolean;
 }
 
+export const defaultMax = (kind: Skill['kind']): number => (kind === 'up' ? SLOTS : 1);
+
 /** コスト合計 ≤ capacity となる6枠の多重集合を列挙する。 */
 export function enumerate(skills: Skill[], opt: EnumOptions): EnumResult {
   const limit = opt.limit ?? 20000;
-  const defaultMax = (kind: Skill['kind']) => (kind === 'up' ? SLOTS : 1);
   const usable = skills
     .filter((s) => usableAt(s, opt.level, opt.reelCount))
     .filter((s) => (opt.max?.[s.id] ?? defaultMax(s.kind)) > 0)

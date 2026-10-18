@@ -69,10 +69,16 @@ export function usableAt(s: Skill, level: number, reelCount: number): boolean {
 }
 
 
-/** 表示順: ミス系・低下 → ためる → 通常技 → 上昇 */
+/** 表示順: ミス系 → 低下 → 通常技・ためる(コストの低い順) → 上昇 */
 export function categoryRank(s: Skill): number {
   if (s.kind === 'normal') return s.isMiss ? 0 : 2;
-  return { charge: 1, up: 3, down: 0 }[s.kind];
+  return { charge: 2, up: 3, down: 1 }[s.kind];
 }
 
-export const byCategory = (a: Skill, b: Skill): number => categoryRank(a) - categoryRank(b);
+/** level を指定するとそのリールでのコストで比較する(未指定は基本コスト) */
+export const byCategoryAt =
+  (level?: number) =>
+  (a: Skill, b: Skill): number =>
+    categoryRank(a) - categoryRank(b) || (level ? costAt(a, level) - costAt(b, level) : a.cost - b.cost);
+
+export const byCategory = byCategoryAt();

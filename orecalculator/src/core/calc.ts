@@ -30,6 +30,7 @@ export function validate(monster: Monster): string[] {
 export interface CalcResult {
   bySkill: Map<string, number>; // 実行される技(通常・ミス・ためる)ID -> 確率
   dropMiss: number; // 低下5回によるミス
+  next: number[]; // 次ターンの開始リール(index = ★-1)の確率。技が実行されたリールを引き継ぎ、ためるは1つ上
 }
 
 /**
@@ -40,26 +41,30 @@ export interface CalcResult {
 export function calc(monster: Monster, startLevel: number): CalcResult {
   const byId = new Map(monster.skills.map((s) => [s.id, s]));
   const memo = new Map<string, CalcResult>();
+  const n = monster.reels.length;
 
   const f = (level: number, downs: number): CalcResult => {
     const key = `${level}:${downs}`;
     const cached = memo.get(key);
     if (cached) return cached;
-    const res: CalcResult = { bySkill: new Map(), dropMiss: 0 };
+    const res: CalcResult = { bySkill: new Map(), dropMiss: 0, next: new Array<number>(n).fill(0) };
     const reel = monster.reels[level - 1];
     const w = 1 / SLOTS;
     const add = (sub: CalcResult) => {
       for (const [id, p] of sub.bySkill) res.bySkill.set(id, (res.bySkill.get(id) ?? 0) + p * w);
       res.dropMiss += sub.dropMiss * w;
+      sub.next.forEach((p, i) => (res.next[i] += p * w));
     };
     for (const id of reel.slots) {
       const s = byId.get(id)!;
       if (s.kind === 'normal' || s.kind === 'charge') {
         res.bySkill.set(id, (res.bySkill.get(id) ?? 0) + w);
+        res.next[Math.min(s.kind === 'charge' ? level : level - 1, n - 1)] += w;
       } else if (s.kind === 'up') {
         add(f(level + 1, downs));
       } else if (downs + 1 >= MAX_DOWN) {
         res.dropMiss += w;
+        res.next[0] += w;
       } else {
         add(f(1, downs + 1));
       }
@@ -68,4 +73,30 @@ export function calc(monster: Monster, startLevel: number): CalcResult {
     return res;
   };
   return f(startLevel, 0);
+}
+
+export interface TurnResult {
+  bySkill: Map<string, number>;
+  dropMiss: number;
+}
+
+/** 開始リール startLevel から turns ターンぶんの、ターンごとの実行確率 */
+export function calcTurns(monster: Monster, startLevel: number, turns: number): TurnResult[] {
+  const per = monster.reels.map((r) => calc(monster, r.level));
+  let dist = new Array<number>(monster.reels.length).fill(0);
+  dist[startLevel - 1] = 1;
+  const out: TurnResult[] = [];
+  for (let t = 0; t < turns; t++) {
+    const turn: TurnResult = { bySkill: new Map(), dropMiss: 0 };
+    const next = new Array<number>(dist.length).fill(0);
+    dist.forEach((w, i) => {
+      if (!w) return;
+      for (const [id, p] of per[i].bySkill) turn.bySkill.set(id, (turn.bySkill.get(id) ?? 0) + w * p);
+      turn.dropMiss += w * per[i].dropMiss;
+      per[i].next.forEach((p, q) => (next[q] += w * p));
+    });
+    out.push(turn);
+    dist = next;
+  }
+  return out;
 }

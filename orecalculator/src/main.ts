@@ -1,10 +1,12 @@
 ﻿import './style.css';
-import { calc, slotCost, validate } from './core/calc.ts';
+import { calcTurns, slotCost, validate } from './core/calc.ts';
 import { CHANGE_LABEL, applyChange, isChangeValid, pickChange, revertChange, type ChangeSet } from './core/change.ts';
 import { estimateCapacity } from './core/capacity.ts';
 import { enumerate, type EnumResult } from './core/enumerate.ts';
+import { optimizeForTarget, type RankResult } from './core/optimize.ts';
+import { cloudEnabled, getStatus, getUserName, initCloud, schedulePush, signIn, signOut } from './core/cloud.ts';
 import { exportMonster, importMonster, load, newMonster, newReel, save, syncShiftSkills, uid } from './core/store.ts';
-import { CAPACITY_RANKS, SLOTS, byCategory, capacityAt, costAt, r1, tierOf, usableAt, type Monster, type Skill, type SkillKind } from './core/types.ts';
+import { CAPACITY_RANKS, SLOTS, byCategory, byCategoryAt, capacityAt, costAt, r1, tierOf, usableAt, type Monster, type Skill, type SkillKind } from './core/types.ts';
 
 const store = load();
 const KIND_LABEL: Record<SkillKind, string> = { normal: '通常', charge: 'ためる', up: '★移動(上昇)', down: '★移動(低下)' };
@@ -18,10 +20,12 @@ interface SimState {
   result: EnumResult | null;
 }
 const sim: SimState = { level: 1, rank: 'A', min: {}, max: {}, result: null };
+const probView = { start: 1, turns: 5 };
+const best: { target: string; start: number; turns: number; result: RankResult[] | null } = { target: '', start: 1, turns: 3, result: null };
 const changeLog: { monsterId: string; set: ChangeSet }[] = [];
 let changeMsg = '';
 let forceDouble = false;
-let pressCount = 0;
+const pressCountOf = (id: string): number => store.pressCounts?.[id] ?? 0;
 let pending: { monsterId: string; set: ChangeSet } | null = null;
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
@@ -41,7 +45,7 @@ function skillLabel(s: Skill, level: number): string {
 }
 
 function slotSelect(m: Monster, value: string, attr: string, level: number, blinkTo?: string): string {
-  const opts = [...m.skills].sort(byCategory).filter((s) => s.id === value || usableAt(s, level, m.reels.length)).map((s) => `<option value="${s.id}"${s.id === value ? ' selected' : ''}>${esc(skillLabel(s, level))}</option>`);
+  const opts = [...m.skills].sort(byCategoryAt(level)).filter((s) => s.id === value || usableAt(s, level, m.reels.length)).map((s) => `<option value="${s.id}"${s.id === value ? ' selected' : ''}>${esc(skillLabel(s, level))}</option>`);
   const sel = m.skills.find((s) => s.id === value);
   const to = blinkTo ? m.skills.find((s) => s.id === blinkTo) : undefined;
   if (sel && to) {
@@ -123,7 +127,9 @@ function renderReels(m: Monster): string {
         .join('');
       const estText = est.lower === null
         ? '6枠すべてを入力したサンプルがありません'
-        : `推定キャパ: ${est.lower} ～ ${est.upper === null ? '上限不明' : r1(est.upper - 0.1)}`;
+        : est.unique !== undefined
+          ? `推定キャパ: ${est.unique}`
+          : `推定キャパ: ${est.lower} ～ ${est.upper === null ? '上限不明' : r1(est.upper - 0.2)}`;
       return `<div class="reel"><h3>${STARS(r.level)}</h3>
         <div class="row">キャパ(コマ潜)<input type="number" step="0.1" class="num" data-a="cap" data-r="${ri}" value="${r.capacity}"></div>
         <div class="row">コスト合計 <b>${total}</b> / 残り <b class="${rest < 0 ? 'bad' : ''}">${rest}</b></div>
@@ -145,19 +151,26 @@ function renderReels(m: Monster): string {
 function renderProb(m: Monster): string {
   const errors = validate(m);
   if (errors.length) return `<section><h2>実行確率</h2>${errors.map((e) => `<div class="bad">${esc(e)}</div>`).join('')}</section>`;
-  const results = m.reels.map((r) => calc(m, r.level));
+  const startLevel = m.reels.some((r) => r.level === probView.start) ? probView.start : 1;
+  const results = calcTurns(m, startLevel, probView.turns);
   const used = m.skills.filter((s) => s.kind !== 'up' && s.kind !== 'down' && m.reels.some((r) => r.slots.includes(s.id))).sort(byCategory);
   const downIds = new Set(m.skills.filter((s) => s.kind === 'down').map((s) => s.id));
   const hasDown = m.reels.some((r) => r.slots.some((id) => downIds.has(id)));
-  const head = m.reels.map((r) => `<th>開始 ${STARS(r.level)}</th>`).join('');
-  const row = (label: string, get: (i: number) => number) =>
-    `<tr><td>${label}</td>${results.map((_, i) => `<td class="p">${pct(get(i))}</td>`).join('')}</tr>`;
+  const head = results.map((_, i) => `<th>${i + 1}ターン目</th>`).join('') + '<th>期待回数</th>';
+  const row = (label: string, get: (i: number) => number) => {
+    const sum = results.reduce((a, _, i) => a + get(i), 0);
+    return `<tr><td>${label}</td>${results.map((_, i) => `<td class="p">${pct(get(i))}</td>`).join('')}<td class="p">${sum.toFixed(2)}</td></tr>`;
+  };
   const body = used.map((s) => row(esc(s.name) + (s.isMiss ? '(リール上ミス)' : ''), (i) => results[i].bySkill.get(s.id) ?? 0)).join('');
   const missCount = used.filter((s) => s.isMiss).length;
   const showMissTotal = (hasDown && missCount >= 1) || missCount >= 2;
   const missTotal = (i: number) => results[i].dropMiss + used.filter((s) => s.isMiss).reduce((a, s) => a + (results[i].bySkill.get(s.id) ?? 0), 0);
-  return `<section><h2>実行確率(開始リール別)</h2><table><tr><th>技</th>${head}</tr>${body}
-    ${hasDown ? row('ミス(低下5回)', (i) => results[i].dropMiss) : ''}${showMissTotal ? row('ミス合計', missTotal) : ''}</table></section>`;
+  const startOptions = m.reels.map((r) => `<option value="${r.level}"${r.level === startLevel ? ' selected' : ''}>${STARS(r.level)}</option>`).join('');
+  return `<section><h2>実行確率(経過ターン別)</h2>
+    <div class="row">開始リール <select data-a="prob-start">${startOptions}</select> ターン数 <input type="number" class="num" min="1" max="10" data-a="prob-turns" value="${probView.turns}"></div>
+    <table><tr><th>技</th>${head}</tr>${body}
+    ${hasDown ? row('ミス(低下5回)', (i) => results[i].dropMiss) : ''}${showMissTotal ? row('ミス合計', missTotal) : ''}</table>
+    <div>次ターンは、技が実行されたリール(ためるは1つ上、低下5回ミスは★1)から開始します。</div></section>`;
 }
 
 function renderSim(m: Monster): string {
@@ -181,7 +194,7 @@ function renderSim(m: Monster): string {
       .map((l, i) => {
         const slots = l.ids
           .map((id) => byId.get(id))
-          .sort((a, b) => (a && b ? byCategory(a, b) : 0))
+          .sort((a, b) => (a && b ? byCategoryAt(sim.level)(a, b) : 0))
           .map((s) => {
             const c = s ? costAt(s, sim.level) : 0;
             return `<li class="${s ? tier(s, c) : ''}"><span>${esc(s?.name ?? '?')}</span><span class="c">${c}</span></li>`;
@@ -200,6 +213,33 @@ function renderSim(m: Monster): string {
     個体ランク <select data-a="sim-rank">${rankOptions}</select> キャパ ${capacity}
     <button data-a="sim-run">列挙</button></div>
     <details data-d="sim-filter"${isOpen('sim-filter')}><summary>絞り込み(各技の最小/最大枠数)</summary><table><tr><th>技</th><th>最小</th><th>最大</th></tr>${rows}</table></details>${result}</section>`;
+}
+
+function renderBest(m: Monster): string {
+  const targets = m.skills.filter((s) => s.kind === 'normal' && !s.isMiss).sort(byCategory);
+  if (!targets.some((s) => s.id === best.target)) { best.target = targets[0]?.id ?? ''; best.result = null; }
+  const options = targets.map((s) => `<option value="${s.id}"${s.id === best.target ? ' selected' : ''}>${esc(s.name)}</option>`).join('');
+  const byId = new Map(m.skills.map((s) => [s.id, s]));
+  const rows = (best.result ?? [])
+    .map((r, ri) => {
+      if (!r.layouts || r.probability === null) return `<tr><th>${r.rank} (${r.stage}%)</th><td>構成不可</td></tr>`;
+      const cards = r.layouts
+        .map((ids, i) => {
+          const level = m.reels[i].level;
+          const list = ids.map((id) => byId.get(id)!).sort(byCategoryAt(level));
+          const total = r1(list.reduce((a, s) => a + costAt(s, level), 0));
+          const slots = list.map((s) => `<li class="${tier(s, costAt(s, level))}"><span>${esc(s.name)}</span><span class="c">${costAt(s, level)}</span></li>`).join('');
+          return `<div class="card"><div>${STARS(level)}</div><ol class="reel-col">${slots}</ol><div class="total">合計 ${total} / ${capacityAt(m.reels[i].capacity, r.stage)}</div></div>`;
+        })
+        .join('');
+      return `<tr><th>${r.rank} (${r.stage}%)<br>${best.turns > 1 ? `期待${(r.expected ?? 0).toFixed(2)}回<br>` : ''}1T目 ${pct(r.probability)}${best.turns > 1 ? `<br><small>${r.perTurn.map((p, k) => `${k + 1}T ${pct(p)}`).join('<br>')}</small>` : ''}<br><button data-a="best-apply" data-i="${ri}">リールに反映</button></th><td><div class="cards">${cards}</div></td></tr>`;
+    })
+    .join('');
+  const startOptions = m.reels.map((r) => `<option value="${r.level}"${r.level === best.start ? ' selected' : ''}>${STARS(r.level)}</option>`).join('');
+  return `<section><h2>最大確率構成</h2>
+    <div class="row">狙う技 <select data-a="best-target">${options}</select> 開始リール <select data-a="best-start">${startOptions}</select> ターン数 <input type="number" class="num" min="1" max="10" data-a="best-turns" value="${best.turns}"> <button data-a="best-run">計算</button></div>
+    <div>入力済みのキャパ・コストで、開始リールから指定ターン数の間に狙う技が実行される期待回数が最大になる構成を各ランクで求めます。次ターンは、技が実行されたリール(ためるは1つ上)から開始します。ターン数1なら1ターン目の確率のみで比較します。</div>
+    ${best.result ? `<table class="best">${rows}</table>` : ''}</section>`;
 }
 
 function renderChange(m: Monster): string {
@@ -224,17 +264,33 @@ function renderChange(m: Monster): string {
     <button data-a="cc-clear"${log.length ? '' : ' disabled'}>履歴クリア</button>
     <label><input type="checkbox" data-a="cc-force-double"${forceDouble ? ' checked' : ''}>ダブル変化を強制</label></div>
     ${ask}<div class="bad">${esc(changeMsg)}</div>
-    <div>変化ボタンを押した回数: <b>${pressCount}</b></div><ol class="cc-log">${rows}</ol></section>`;
+    <div>変化ボタンを押した回数: <b>${pressCountOf(m.id)}</b></div><ol class="cc-log">${rows}</ol></section>`;
+}
+
+const STATUS_LABEL = { disabled: '', 'signed-out': '未ログイン', idle: '同期済み', syncing: '同期中...', error: '同期エラー' } as const;
+
+function renderAuth(): string {
+  if (!cloudEnabled) return '';
+  const st = getStatus();
+  if (st === 'signed-out') return '<button data-a="login">Discordでログインして同期</button>';
+  return `<span>${esc(getUserName())} - ${STATUS_LABEL[st]}</span><button data-a="logout">ログアウト</button>`;
+}
+
+// 全体を再描画すると入力中の欄が失われるため、ログイン表示だけ差し替える
+function renderAuthOnly(): void {
+  const el = document.querySelector('#auth');
+  if (el) el.innerHTML = renderAuth();
 }
 
 function render(): void {
   const m = cur();
   document.querySelector<HTMLDivElement>('#app')!.innerHTML =
-    `<h1>オレカバトル2 リール計算ツール</h1>${renderHeader(m)}${renderSkills(m)}${renderReels(m)}${renderProb(m)}${renderChange(m)}${renderSim(m)}`;
+    `<h1>オレカバトル2 リール計算ツール</h1><div id="auth" class="row">${renderAuth()}</div>${renderHeader(m)}${renderSkills(m)}${renderReels(m)}${renderProb(m)}${renderChange(m)}${renderSim(m)}${renderBest(m)}`;
 }
 
 function commit(): void {
   save(store);
+  schedulePush();
   render();
 }
 
@@ -258,11 +314,14 @@ function handle(el: HTMLElement, isClick: boolean): void {
 
   if (isClick) {
     switch (a) {
+      case 'login': void signIn(); return;
+      case 'logout': void signOut(); return;
       case 'new': { const n = newMonster(undefined, m.reels.length); store.monsters.push(n); store.currentId = n.id; sim.result = null; return commit(); }
       case 'dup': { const n = { ...structuredClone(m), id: uid(), name: m.name + ' (コピー)' }; store.monsters.push(n); store.currentId = n.id; sim.result = null; return commit(); }
       case 'del':
         if (store.monsters.length > 1 && confirm(`「${m.name}」を削除しますか?`)) {
           store.monsters = store.monsters.filter((x) => x.id !== m.id);
+          if (store.pressCounts) delete store.pressCounts[m.id];
           store.currentId = store.monsters[0].id;
           sim.result = null;
           return commit();
@@ -301,11 +360,11 @@ function handle(el: HTMLElement, isClick: boolean): void {
       case 'sm-add': m.reels[r].samples.push({ slots: new Array<string>(SLOTS).fill('') }); return commit();
       case 'sm-del': m.reels[r].samples.splice(k, 1); return commit();
       case 'cc-run': {
-        pressCount++;
+        (store.pressCounts ??= {})[m.id] = pressCountOf(m.id) + 1;
         const c = pickChange(m, { legacy: el.dataset.legacy === '1', forceDouble });
         changeMsg = c ? '' : forceDouble ? 'ダブル変化できる組み合わせがありません(ダブル変化はLv9以下のみ)' : '変化できる技がありません(リールが未入力、またはキャパ内に収まる候補がありません)';
         pending = c ? { monsterId: m.id, set: c } : null;
-        return render();
+        return commit();
       }
       case 'cc-yes':
         if (pending) {
@@ -328,19 +387,32 @@ function handle(el: HTMLElement, isClick: boolean): void {
         return commit();
       }
       case 'cc-clear':
-        pressCount = 0;
+        if (store.pressCounts) delete store.pressCounts[m.id];
         for (let j = changeLog.length - 1; j >= 0; j--) if (changeLog[j].monsterId === m.id) changeLog.splice(j, 1);
         changeMsg = '';
+        return commit();
+      case 'best-run': {
+        best.result = optimizeForTarget(m, { target: best.target, turns: best.turns, start: best.start });
         return render();
+      }
       case 'sim-run': {
         const reel = m.reels[sim.level - 1];
         const stage = CAPACITY_RANKS.find(({ rank }) => rank === sim.rank)?.stage ?? 100;
         sim.result = enumerate(m.skills, { capacity: capacityAt(reel.capacity, stage), level: reel.level, reelCount: m.reels.length, min: sim.min, max: sim.max });
         return render();
       }
+      case 'best-apply': {
+        const byId = new Map(m.skills.map((s) => [s.id, s]));
+        const layouts = best.result?.[i]?.layouts;
+        if (!layouts) return;
+        m.reels.forEach((r, k) => {
+          r.slots = [...layouts[k]].sort((x, y) => byCategoryAt(r.level)(byId.get(x)!, byId.get(y)!));
+        });
+        return commit();
+      }
       case 'sim-apply': {
         const byId = new Map(m.skills.map((s) => [s.id, s]));
-        m.reels[sim.level - 1].slots = [...sim.result!.layouts[i].ids].sort((x, y) => byCategory(byId.get(x)!, byId.get(y)!));
+        m.reels[sim.level - 1].slots = [...sim.result!.layouts[i].ids].sort((x, y) => byCategoryAt(sim.level)(byId.get(x)!, byId.get(y)!));
         return commit();
       }
     }
@@ -367,6 +439,11 @@ function handle(el: HTMLElement, isClick: boolean): void {
     case 'cap': m.reels[r].capacity = num(val); return commit();
     case 'slot': m.reels[r].slots[i] = val; return commit();
     case 'sm-slot': m.reels[r].samples[k].slots[i] = val; return commit();
+    case 'best-start': best.start = Number(val); best.result = null; return render();
+    case 'prob-start': probView.start = Number(val); return render();
+    case 'prob-turns': probView.turns = Math.min(10, Math.max(1, Math.floor(Number(val)) || 1)); return render();
+    case 'best-turns': best.turns = Math.min(10, Math.max(1, Math.floor(Number(val)) || 1)); best.result = null; return;
+    case 'best-target': best.target = val; best.result = null; return render();
     case 'sim-level': sim.level = Number(val); sim.result = null; return render();
     case 'sim-rank': sim.rank = val as SimState['rank']; sim.result = null; return render();
     case 'sim-min': sim.min[el.dataset.id!] = num(val); return;
@@ -391,3 +468,4 @@ app.addEventListener(
 app.addEventListener('change', (e) => handle(e.target as HTMLElement, false));
 
 render();
+initCloud(store, { onRemoteApplied: () => { sim.result = null; render(); }, onChange: renderAuthOnly });

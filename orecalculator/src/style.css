@@ -98,3 +98,6 @@ textarea { width: 100%; box-sizing: border-box; }
   .skill-table td:first-child input { width: 120px; }
   .skill-table select { max-width: 150px; }
 }
+
+table.best th { text-align: left; vertical-align: top; white-space: nowrap; }
+table.best td { overflow-x: auto; }

@@ -6,6 +6,10 @@ const KEY = 'orecalculator:v1';
 export interface Store {
   monsters: Monster[];
   currentId: string;
+  /** モンスターIDごとの変化ボタンを押した回数 */
+  pressCounts?: Record<string, number>;
+  /** 最終更新(ms)。クラウド同期の新旧判定に使う */
+  updatedAt?: number;
 }
 
 export const uid = () => Math.random().toString(36).slice(2, 10);
@@ -60,8 +64,15 @@ export function load(): Store {
   return { monsters: [m], currentId: m.id };
 }
 
-export function save(store: Store): void {
+/** touch=false はクラウドから取り込んだ場合など、更新時刻を進めたくないとき */
+export function save(store: Store, touch = true): void {
+  if (touch) store.updatedAt = Date.now();
   localStorage.setItem(KEY, JSON.stringify(store));
+}
+
+export function isValidStore(s: unknown): s is Store {
+  const x = s as Store | null;
+  return !!x && Array.isArray(x.monsters) && x.monsters.length > 0 && typeof x.currentId === 'string';
 }
 
 export function exportMonster(m: Monster): string {
