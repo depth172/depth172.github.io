@@ -6,20 +6,23 @@ body {
 
 body {
     background: #c6f2ff;
-    font-family: 'Yu Gothic';
 }
 
 html {
     scroll-behavior: smooth;
 }
 
+.main,
+section {
+    background: #eef8ff;
+    border: 1px solid #cccccc;
+}
+
 .main {
     position: relative;
-    background: #eef8ff;
     width: 900px;
     margin: 30px auto;
     padding: 30px;
-    border: 1px solid #cccccc;
     line-break: strict;
 }
 
@@ -330,7 +333,7 @@ p.intro {
         background: #202527;
         color: #fff;
     }
-    .main {
+    .main, main {
         background: #182126;
         border: 1px solid #525252;
     }

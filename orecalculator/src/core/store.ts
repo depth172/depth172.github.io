@@ -1,4 +1,5 @@
-﻿import type { Monster, Reel } from './types.ts';
+﻿import type { ChangeSet } from './change.ts';
+import type { Monster, Reel } from './types.ts';
 import { SLOTS } from './types.ts';
 
 const KEY = 'orecalculator:v1';
@@ -8,6 +9,8 @@ export interface Store {
   currentId: string;
   /** モンスターIDごとの変化ボタンを押した回数 */
   pressCounts?: Record<string, number>;
+  /** モンスターIDごとの変化履歴(古い順) */
+  changeLogs?: Record<string, ChangeSet[]>;
   /** 最終更新(ms)。クラウド同期の新旧判定に使う */
   updatedAt?: number;
 }
@@ -76,7 +79,7 @@ export function isValidStore(s: unknown): s is Store {
 }
 
 export function exportMonster(m: Monster): string {
-  return JSON.stringify(m, null, 2);
+  return JSON.stringify(m);
 }
 
 export function importMonster(json: string): Monster {

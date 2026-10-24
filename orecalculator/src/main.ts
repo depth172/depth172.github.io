@@ -1,279 +1,43 @@
-﻿import './style.css';
-import { calcTurns, slotCost, validate } from './core/calc.ts';
-import { CHANGE_LABEL, applyChange, isChangeValid, pickChange, revertChange, type ChangeSet } from './core/change.ts';
-import { estimateCapacity } from './core/capacity.ts';
-import { enumerate, type EnumResult } from './core/enumerate.ts';
-import { optimizeForTarget, type RankResult } from './core/optimize.ts';
-import { cloudEnabled, getStatus, getUserName, initCloud, schedulePush, signIn, signOut } from './core/cloud.ts';
-import { exportMonster, importMonster, load, newMonster, newReel, save, syncShiftSkills, uid } from './core/store.ts';
-import { CAPACITY_RANKS, SLOTS, byCategory, byCategoryAt, capacityAt, costAt, r1, tierOf, usableAt, type Monster, type Skill, type SkillKind } from './core/types.ts';
+import '../../style.css';
+import './style.css';
+import { openModal } from './ui/modal.ts';
+import { applyChange, isChangeValid, pickChange, revertChange } from './core/change.ts';
+import { enumerate } from './core/enumerate.ts';
+import { optimizeForTarget } from './core/optimize.ts';
+import { initCloud, schedulePush, signIn, signOut } from './core/cloud.ts';
+import { exportMonster, importMonster, newMonster, newReel, save, syncShiftSkills, uid } from './core/store.ts';
+import { CAPACITY_RANKS, SLOTS, byCategoryAt, capacityAt, r1, type Monster, type SkillKind } from './core/types.ts';
+import { best, changeLogOf, cur, openSet, pressCountOf, probView, sim, store, ui, type SimState } from './state.ts';
+import { renderAuth } from './views/auth.ts';
+import { bestTargets, renderBest } from './views/best.ts';
+import { renderChange } from './views/change.ts';
+import { renderHeader } from './views/header.ts';
+import { renderProb } from './views/prob.ts';
+import { renderReelSettings, renderReels } from './views/reels.ts';
+import { renderMonsterConfig } from './views/mconfig.ts';
+import { renderSkills } from './views/skills.ts';
 
-const store = load();
-const KIND_LABEL: Record<SkillKind, string> = { normal: '通常', charge: 'ためる', up: '★移動(上昇)', down: '★移動(低下)' };
-const STARS = (n: number) => '★'.repeat(n);
+let activeReelSettings: number | null = null;
 
-interface SimState {
-  level: number;
-  rank: (typeof CAPACITY_RANKS)[number]['rank'];
-  min: Record<string, number>;
-  max: Record<string, number>;
-  result: EnumResult | null;
-}
-const sim: SimState = { level: 1, rank: 'A', min: {}, max: {}, result: null };
-const probView = { start: 1, turns: 5 };
-const best: { target: string; start: number; turns: number; result: RankResult[] | null } = { target: '', start: 1, turns: 3, result: null };
-const changeLog: { monsterId: string; set: ChangeSet }[] = [];
-let changeMsg = '';
-let forceDouble = false;
-const pressCountOf = (id: string): number => store.pressCounts?.[id] ?? 0;
-let pending: { monsterId: string; set: ChangeSet } | null = null;
-
-const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
-const cur = (): Monster => store.monsters.find((m) => m.id === store.currentId) ?? store.monsters[0];
-// 再描画で details が閉じないよう開閉状態を保持する
-const openSet = new Set<string>();
-const isOpen = (key: string) => (openSet.has(key) ? ' open' : '');
-const pct = (p: number) => (p * 100).toFixed(2).replace(/\.?0+$/, '') + '%';
-
-/** 移動系(ためる含む)はオレンジ、それ以外はコストで色分け */
-function tier(s: Skill, cost: number): string {
-  return tierOf(s, cost);
-}
-
-function skillLabel(s: Skill, level: number): string {
-  return `${s.name || '(無名)'} [${costAt(s, level)}]`;
-}
-
-function slotSelect(m: Monster, value: string, attr: string, level: number, blinkTo?: string): string {
-  const opts = [...m.skills].sort(byCategoryAt(level)).filter((s) => s.id === value || usableAt(s, level, m.reels.length)).map((s) => `<option value="${s.id}"${s.id === value ? ' selected' : ''}>${esc(skillLabel(s, level))}</option>`);
-  const sel = m.skills.find((s) => s.id === value);
-  const to = blinkTo ? m.skills.find((s) => s.id === blinkTo) : undefined;
-  if (sel && to) {
-    const face = (s: Skill, c: string) => `<div class="${tier(s, costAt(s, level))} ${c}"><select tabindex="-1"><option>${esc(skillLabel(s, level))}</option></select></div>`;
-    return `<li class="swap">${face(sel, 'a')}${face(to, 'b')}</li>`;
-  }
-  const cls = sel ? tier(sel, costAt(sel, level)) : 'empty';
-  return `<li class="${cls}"><select ${attr}><option value="">--</option>${opts.join('')}</select></li>`;
-}
-
-function renderHeader(m: Monster): string {
-  const opts = store.monsters.map((x) => `<option value="${x.id}"${x.id === m.id ? ' selected' : ''}>${esc(x.name)}</option>`).join('');
-  const cls = [1, 2, 3, 4].map((n) => `<option value="${n}"${n === m.reels.length ? ' selected' : ''}>${STARS(n)}</option>`).join('');
-  const capacityIsA = m.capacityIsA ?? false;
-  return `<section><h2>モンスター</h2>
-    <div class="row">
-      <select data-a="select">${opts}</select>
-      <button data-a="new">新規</button><button data-a="dup">複製</button><button data-a="del">削除</button>
-      <button data-a="export">JSON出力</button><button data-a="import">JSON読込</button>
-    </div>
-    <div class="row">名前 <input data-a="name" value="${esc(m.name)}"> クラス(リール数) <select data-a="class">${cls}</select>
-      <label><input type="checkbox" data-a="capacity-is-a"${capacityIsA ? ' checked' : ''}>コマンド潜在個体</label></div>
-    <textarea id="io" class="hidden" rows="6" placeholder="JSONを貼り付けて「読込実行」"></textarea>
-    <button id="io-run" class="hidden" data-a="import-run">読込実行</button>
-  </section>`;
-}
-
-function fromSelect(m: Monster, s: Skill, i: number): string {
-  const opts = [
-    '<option value="">どのリールでも</option>',
-    ...m.reels.map((r) => `<option value="${r.level}"${s.fromLevel === r.level ? ' selected' : ''}>${STARS(r.level)}で発生</option>`),
-  ];
-  return `<select data-a="sk-from" data-i="${i}">${opts.join('')}</select>`;
-}
-
-function renderSkills(m: Monster): string {
-  const rows = m.skills
-    .map((s, i) => {
-      const kinds = (Object.keys(KIND_LABEL) as SkillKind[]).map((k) => `<option value="${k}"${k === s.kind ? ' selected' : ''}>${KIND_LABEL[k]}</option>`).join('');
-      return `<tr><td><input data-a="sk-name" data-i="${i}" value="${esc(s.name)}"></td>
-        <td><input type="number" step="0.1" class="num" data-a="sk-cost" data-i="${i}" value="${s.cost}"></td>
-        ${m.reels.map((r) => `<td><input type="number" step="0.1" class="num" placeholder="基本" data-a="sk-lcost" data-i="${i}" data-r="${r.level}" value="${s.costByLevel?.[r.level] ?? ''}"></td>`).join('')}
-        <td><select data-a="sk-kind" data-i="${i}">${kinds}</select>${s.kind === 'normal' || s.kind === 'charge' ? '' : fromSelect(m, s, i)}</td>
-        <td>${s.kind === 'normal' ? `<input type="checkbox" data-a="sk-miss" data-i="${i}"${s.isMiss ? ' checked' : ''}>` : ''}</td>
-        <td><button data-a="sk-del" data-i="${i}">×</button></td></tr>`;
-    })
-    .join('');
-  return `<section><h2>技</h2>
-    <div class="skill-table-scroll"><table class="skill-table"><thead><tr><th>名前</th><th>コスト(基本)</th>${m.reels.map((r) => `<th>${STARS(r.level)}</th>`).join('')}<th>種別</th><th>ミス</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
-    <button data-a="sk-add">技を追加</button></section>`;
-}
-
-function pendingTo(m: Monster, ri: number, si: number): string | undefined {
-  const p = pending;
-  if (!p || p.monsterId !== m.id || !isChangeValid(m, p.set)) return undefined;
-  return p.set.changes.find((c) => c.reelIndex === ri && c.slotIndex === si)?.to;
-}
-
-function renderReels(m: Monster): string {
-  return `<section><h2>リール</h2><div class="reels">${m.reels
-    .map((r, ri) => {
-      const total = slotCost(r, m.skills, r.level);
-      const capacityIsA = m.capacityIsA ?? false;
-      const capacity = capacityAt(r.capacity, capacityIsA ? 100 : 99);
-      const rest = r1(capacity - total);
-      const hasFullLayout = r.slots.length === SLOTS && r.slots.every((id) => m.skills.some((s) => s.id === id));
-      const candidateRanks = CAPACITY_RANKS
-        .filter(({ rank }) => rank !== 'A')
-        .filter(({ stage }) => total <= capacityAt(r.capacity, stage))
-        .map(({ rank }) => rank);
-      const minimumRank = candidateRanks.at(-1);
-      const slots = `<ol class="reel-col edit">${r.slots.map((v, si) => slotSelect(m, v, `data-a="slot" data-r="${ri}" data-i="${si}"`, r.level, pendingTo(m, ri, si))).join('')}</ol>`;
-      const est = estimateCapacity(r, m.skills, m.reels.length);
-      const samples = r.samples
-        .map(
-          (sm, ki) => `<div class="card sample"><ol class="reel-col edit">${sm.slots.map((v, si) => slotSelect(m, v, `data-a="sm-slot" data-r="${ri}" data-k="${ki}" data-i="${si}"`, r.level)).join('')}</ol>
-          合計 ${slotCost(sm, m.skills, r.level)} <button data-a="sm-del" data-r="${ri}" data-k="${ki}">×</button></div>`,
-        )
-        .join('');
-      const estText = est.lower === null
-        ? '6枠すべてを入力したサンプルがありません'
-        : est.unique !== undefined
-          ? `推定キャパ: ${est.unique}`
-          : `推定キャパ: ${est.lower} ～ ${est.upper === null ? '上限不明' : r1(est.upper - 0.2)}`;
-      return `<div class="reel"><h3>${STARS(r.level)}</h3>
-        <div class="row">キャパ(コマ潜)<input type="number" step="0.1" class="num" data-a="cap" data-r="${ri}" value="${r.capacity}"></div>
-        <div class="row">コスト合計 <b>${total}</b> / 残り <b class="${rest < 0 ? 'bad' : ''}">${rest}</b></div>
-        ${!hasFullLayout
-          ? '<div class="row">6枠入力してください</div>'
-          : !capacityIsA
-            ? `<div class="row ${minimumRank ? 'fit' : 'bad'}">${minimumRank ? `実現可能ランク: ${minimumRank}` : 'コマンド潜在以外で実現不可'}</div>`
-            : ''}
-        ${slots}
-        <details data-d="sample-${ri}"${isOpen(`sample-${ri}`)}><summary>wikiサンプルからキャパを逆算</summary>
-					<div class="capacity-estimate">${estText}</div>
-					<div class="cards">${samples}</div>
-          <button data-a="sm-add" data-r="${ri}">サンプル追加</button>
-        </details></div>`;
-    })
-    .join('')}</div></section>`;
-}
-
-function renderProb(m: Monster): string {
-  const errors = validate(m);
-  if (errors.length) return `<section><h2>実行確率</h2>${errors.map((e) => `<div class="bad">${esc(e)}</div>`).join('')}</section>`;
-  const startLevel = m.reels.some((r) => r.level === probView.start) ? probView.start : 1;
-  const results = calcTurns(m, startLevel, probView.turns);
-  const used = m.skills.filter((s) => s.kind !== 'up' && s.kind !== 'down' && m.reels.some((r) => r.slots.includes(s.id))).sort(byCategory);
-  const downIds = new Set(m.skills.filter((s) => s.kind === 'down').map((s) => s.id));
-  const hasDown = m.reels.some((r) => r.slots.some((id) => downIds.has(id)));
-  const head = results.map((_, i) => `<th>${i + 1}ターン目</th>`).join('') + '<th>期待回数</th>';
-  const row = (label: string, get: (i: number) => number) => {
-    const sum = results.reduce((a, _, i) => a + get(i), 0);
-    return `<tr><td>${label}</td>${results.map((_, i) => `<td class="p">${pct(get(i))}</td>`).join('')}<td class="p">${sum.toFixed(2)}</td></tr>`;
-  };
-  const body = used.map((s) => row(esc(s.name) + (s.isMiss ? '(リール上ミス)' : ''), (i) => results[i].bySkill.get(s.id) ?? 0)).join('');
-  const missCount = used.filter((s) => s.isMiss).length;
-  const showMissTotal = (hasDown && missCount >= 1) || missCount >= 2;
-  const missTotal = (i: number) => results[i].dropMiss + used.filter((s) => s.isMiss).reduce((a, s) => a + (results[i].bySkill.get(s.id) ?? 0), 0);
-  const startOptions = m.reels.map((r) => `<option value="${r.level}"${r.level === startLevel ? ' selected' : ''}>${STARS(r.level)}</option>`).join('');
-  return `<section><h2>実行確率(経過ターン別)</h2>
-    <div class="row">開始リール <select data-a="prob-start">${startOptions}</select> ターン数 <input type="number" class="num" min="1" max="10" data-a="prob-turns" value="${probView.turns}"></div>
-    <table><tr><th>技</th>${head}</tr>${body}
-    ${hasDown ? row('ミス(低下5回)', (i) => results[i].dropMiss) : ''}${showMissTotal ? row('ミス合計', missTotal) : ''}</table>
-    <div>次ターンは、技が実行されたリール(ためるは1つ上、低下5回ミスは★1)から開始します。</div></section>`;
-}
-
-function renderSim(m: Monster): string {
+// 表示側は状態を書き換えないため、描画前に表示用の状態を現在のモンスターに合わせる
+function syncViewState(m: Monster): void {
   if (sim.level > m.reels.length) sim.level = 1;
-  const levels = m.reels.map((r) => `<option value="${r.level}"${r.level === sim.level ? ' selected' : ''}>${STARS(r.level)}</option>`).join('');
-  const rankOptions = CAPACITY_RANKS
-    .map(({ rank, stage }) => `<option value="${rank}"${rank === sim.rank ? ' selected' : ''}>${rank} (${stage}%)</option>`)
-    .join('');
-  const rows = m.skills
-    .map(
-      (s) => `<tr><td>${esc(skillLabel(s, sim.level))}</td>
-      <td><input type="number" class="num" min="0" max="${SLOTS}" data-a="sim-min" data-id="${s.id}" value="${sim.min[s.id] ?? 0}"></td>
-      <td><input type="number" class="num" min="0" max="${SLOTS}" data-a="sim-max" data-id="${s.id}" value="${sim.max[s.id] ?? (s.kind === 'up' ? SLOTS : 1)}"></td></tr>`,
-    )
-    .join('');
-  let result = '';
-  if (sim.result) {
-    const byId = new Map(m.skills.map((s) => [s.id, s]));
-    const shown = sim.result.layouts.slice(0, 200);
-    const cards = shown
-      .map((l, i) => {
-        const slots = l.ids
-          .map((id) => byId.get(id))
-          .sort((a, b) => (a && b ? byCategoryAt(sim.level)(a, b) : 0))
-          .map((s) => {
-            const c = s ? costAt(s, sim.level) : 0;
-            return `<li class="${s ? tier(s, c) : ''}"><span>${esc(s?.name ?? '?')}</span><span class="c">${c}</span></li>`;
-          })
-          .join('');
-        return `<div class="card"><ol class="reel-col">${slots}</ol><div class="total">合計 ${l.cost}</div><button data-a="sim-apply" data-i="${i}">適用</button></div>`;
-      })
-      .join('');
-    result = `<div>${sim.result.layouts.length}通り${sim.result.truncated ? '(上限で打ち切り。条件を絞ってください)' : ''}、上位${shown.length}件を表示(コスト合計の大きい順)</div>
-      <div class="cards">${cards}</div>`;
+  if (!bestTargets(m).some((s) => s.id === best.target)) {
+    best.target = bestTargets(m)[0]?.id ?? '';
+    best.result = null;
   }
-  const selectedRank = CAPACITY_RANKS.find(({ rank }) => rank === sim.rank) ?? CAPACITY_RANKS[0];
-  const capacity = capacityAt(m.reels[sim.level - 1].capacity, selectedRank.stage);
-  return `<section><h2>構成シミュレーション</h2>
-    <div class="row">リール <select data-a="sim-level">${levels}</select>
-    個体ランク <select data-a="sim-rank">${rankOptions}</select> キャパ ${capacity}
-    <button data-a="sim-run">列挙</button></div>
-    <details data-d="sim-filter"${isOpen('sim-filter')}><summary>絞り込み(各技の最小/最大枠数)</summary><table><tr><th>技</th><th>最小</th><th>最大</th></tr>${rows}</table></details>${result}</section>`;
-}
-
-function renderBest(m: Monster): string {
-  const targets = m.skills.filter((s) => s.kind === 'normal' && !s.isMiss).sort(byCategory);
-  if (!targets.some((s) => s.id === best.target)) { best.target = targets[0]?.id ?? ''; best.result = null; }
-  const options = targets.map((s) => `<option value="${s.id}"${s.id === best.target ? ' selected' : ''}>${esc(s.name)}</option>`).join('');
-  const byId = new Map(m.skills.map((s) => [s.id, s]));
-  const rows = (best.result ?? [])
-    .map((r, ri) => {
-      if (!r.layouts || r.probability === null) return `<tr><th>${r.rank} (${r.stage}%)</th><td>構成不可</td></tr>`;
-      const cards = r.layouts
-        .map((ids, i) => {
-          const level = m.reels[i].level;
-          const list = ids.map((id) => byId.get(id)!).sort(byCategoryAt(level));
-          const total = r1(list.reduce((a, s) => a + costAt(s, level), 0));
-          const slots = list.map((s) => `<li class="${tier(s, costAt(s, level))}"><span>${esc(s.name)}</span><span class="c">${costAt(s, level)}</span></li>`).join('');
-          return `<div class="card"><div>${STARS(level)}</div><ol class="reel-col">${slots}</ol><div class="total">合計 ${total} / ${capacityAt(m.reels[i].capacity, r.stage)}</div></div>`;
-        })
-        .join('');
-      return `<tr><th>${r.rank} (${r.stage}%)<br>${best.turns > 1 ? `期待${(r.expected ?? 0).toFixed(2)}回<br>` : ''}1T目 ${pct(r.probability)}${best.turns > 1 ? `<br><small>${r.perTurn.map((p, k) => `${k + 1}T ${pct(p)}`).join('<br>')}</small>` : ''}<br><button data-a="best-apply" data-i="${ri}">リールに反映</button></th><td><div class="cards">${cards}</div></td></tr>`;
-    })
-    .join('');
-  const startOptions = m.reels.map((r) => `<option value="${r.level}"${r.level === best.start ? ' selected' : ''}>${STARS(r.level)}</option>`).join('');
-  return `<section><h2>最大確率構成</h2>
-    <div class="row">狙う技 <select data-a="best-target">${options}</select> 開始リール <select data-a="best-start">${startOptions}</select> ターン数 <input type="number" class="num" min="1" max="10" data-a="best-turns" value="${best.turns}"> <button data-a="best-run">計算</button></div>
-    <div>入力済みのキャパ・コストで、開始リールから指定ターン数の間に狙う技が実行される期待回数が最大になる構成を各ランクで求めます。次ターンは、技が実行されたリール(ためるは1つ上)から開始します。ターン数1なら1ターン目の確率のみで比較します。</div>
-    ${best.result ? `<table class="best">${rows}</table>` : ''}</section>`;
-}
-
-function renderChange(m: Monster): string {
-  const byId = new Map(m.skills.map((s) => [s.id, s]));
-  const name = (id: string) => esc(byId.get(id)?.name || '(無名)');
-  const describe = (set: ChangeSet) =>
-    set.changes.map((c) => `${STARS(c.reelIndex + 1)} ${c.slotIndex + 1}枠目: ${name(c.from)} → <b>${name(c.to)}</b>`).join(' / ') + (set.kind === 'up' ? '' : ` 【${CHANGE_LABEL[set.kind]}】`);
-  const log = changeLog.filter((e) => e.monsterId === m.id);
-  const rows = log
-    .map((e, i) => `<li>${i + 1}. ${describe(e.set)}</li>`)
-    .reverse()
-    .join('');
   // 編集などで提案時と状態が変わっていたら破棄する
-  const p = pending;
-  if (p && (p.monsterId !== m.id || !isChangeValid(m, p.set))) pending = null;
-  const ask = pending
-    ? `<div class="row">${describe(pending.set)} に変化できます。変化させますか?
-        <button data-a="cc-yes">変化させる</button><button data-a="cc-no">変化させない</button></div>`
-    : '';
-  return `<section><h2>コマンド変化シミュレーター</h2>
-    <div class="row"><button data-a="cc-run" data-legacy="0"${pending ? ' disabled' : ''}>バトル終了(Lv10以上)</button><button data-a="cc-run" data-legacy="1"${pending ? ' disabled' : ''}>バトル終了(Lv9以下)</button><button data-a="cc-undo"${log.length ? '' : ' disabled'}>1回戻す</button>
-    <button data-a="cc-clear"${log.length ? '' : ' disabled'}>履歴クリア</button>
-    <label><input type="checkbox" data-a="cc-force-double"${forceDouble ? ' checked' : ''}>ダブル変化を強制</label></div>
-    ${ask}<div class="bad">${esc(changeMsg)}</div>
-    <div>変化ボタンを押した回数: <b>${pressCountOf(m.id)}</b></div><ol class="cc-log">${rows}</ol></section>`;
+  if (ui.pending && (ui.pending.monsterId !== m.id || !isChangeValid(m, ui.pending.set))) ui.pending = null;
 }
 
-const STATUS_LABEL = { disabled: '', 'signed-out': '未ログイン', idle: '同期済み', syncing: '同期中...', error: '同期エラー' } as const;
-
-function renderAuth(): string {
-  if (!cloudEnabled) return '';
-  const st = getStatus();
-  if (st === 'signed-out') return '<button data-a="login">Discordでログインして同期</button>';
-  return `<span>${esc(getUserName())} - ${STATUS_LABEL[st]}</span><button data-a="logout">ログアウト</button>`;
+function renderChangeView(m: Monster): string {
+  return renderChange(m, {
+    log: changeLogOf(m.id),
+    pending: ui.pending,
+    message: ui.changeMsg,
+    forceDouble: ui.forceDouble,
+    pressCount: pressCountOf(m.id),
+  });
 }
 
 // 全体を再描画すると入力中の欄が失われるため、ログイン表示だけ差し替える
@@ -282,16 +46,84 @@ function renderAuthOnly(): void {
   if (el) el.innerHTML = renderAuth();
 }
 
+const SCROLL_SELECTORS = ['.content-container', '.sub-content-container', '.skill-table-scroll'];
+let lastViewKey = '';
+
 function render(): void {
   const m = cur();
-  document.querySelector<HTMLDivElement>('#app')!.innerHTML =
-    `<h1>オレカバトル2 リール計算ツール</h1><div id="auth" class="row">${renderAuth()}</div>${renderHeader(m)}${renderSkills(m)}${renderReels(m)}${renderProb(m)}${renderChange(m)}${renderSim(m)}${renderBest(m)}`;
+  syncViewState(m);
+	const subContent = {
+    probability: renderProb(m, probView),
+    change: renderChangeView(m),
+    best: renderBest(m, best)
+  }[ui.activeSubTab];
+  const content = {
+    reels: `
+			${renderReels(m, ui.pending)}
+			<div class="sub-content">
+				<div class="tabs sub-tabs">
+					<button data-a="tab" data-sub-tab="probability" class="${ui.activeSubTab === 'probability' ? 'active' : ''}">選択確率</button>
+					<button data-a="tab" data-sub-tab="change" class="${ui.activeSubTab === 'change' ? 'active' : ''}">コマンド変化</button>
+					<button data-a="tab" data-sub-tab="best" class="${ui.activeSubTab === 'best' ? 'active' : ''}">理論値シミュ</button>
+				</div>
+				<div class="sub-content-container">
+					${subContent}
+				</div>
+			</div>
+		`,
+    monster: `
+  			${renderMonsterConfig(m, store.monsters)}${renderSkills(m)}`
+  }[ui.activeTab];
+
+  // 再描画でDOMが作り直されるため、同じタブ内ならスクロール位置を引き継ぐ
+  const viewKey = `${ui.activeTab}/${ui.activeSubTab}`;
+  const keep = viewKey === lastViewKey;
+  const saved = SCROLL_SELECTORS.map((sel) => {
+    const el = document.querySelector<HTMLElement>(sel);
+    return { top: el?.scrollTop ?? 0, left: el?.scrollLeft ?? 0 };
+  });
+  lastViewKey = viewKey;
+
+  document.querySelector<HTMLDivElement>('#app')!.innerHTML =`
+		${renderHeader(m)}
+		<main class="content">
+			<div class="tabs main-tabs">
+				<button data-a="tab" data-main-tab="reels" id="tab-reels" class="${ui.activeTab === 'reels' ? 'active' : ''}">リール</button>
+				<button data-a="tab" data-main-tab="monster" id="tab-monster" class="${ui.activeTab === 'monster' ? 'active' : ''}">モンスター</button>
+			</div>
+			<div class="content-container${ui.activeTab === 'reels' ? ' reels-content-container' : ''}">
+				${content}
+			</div>
+		</main>
+	`;
+
+  if (!keep) return;
+  SCROLL_SELECTORS.forEach((sel, i) => {
+    const el = document.querySelector<HTMLElement>(sel);
+    if (el) {
+      el.scrollTop = saved[i].top;
+      el.scrollLeft = saved[i].left;
+    }
+  });
+}
+
+function showReelSettings(ri: number): void {
+  const reel = cur().reels[ri];
+  if (!reel) return;
+  activeReelSettings = ri;
+  openModal(`キャパシティ設定 (` + `★`.repeat(reel.level) + `)`, renderReelSettings(cur(), ri));
+}
+
+function refreshReelSettings(): void {
+  if (activeReelSettings === null) return;
+  showReelSettings(activeReelSettings);
 }
 
 function commit(): void {
   save(store);
   schedulePush();
   render();
+  refreshReelSettings();
 }
 
 function resizeReels(m: Monster, n: number): void {
@@ -312,16 +144,30 @@ function handle(el: HTMLElement, isClick: boolean): void {
   const val = (el as HTMLInputElement).value;
   const checked = (el as HTMLInputElement).checked;
 
+  if (['cap', 'slot', 'sm-add', 'sm-del', 'sm-slot'].includes(a) && !m.reels[r]) return;
+
   if (isClick) {
     switch (a) {
+      case 'modal-preview':
+        activeReelSettings = null;
+        openModal('モーダルの表示確認', '<p>ここに表示したい内容を配置できます。</p>');
+        return;
       case 'login': void signIn(); return;
       case 'logout': void signOut(); return;
-      case 'new': { const n = newMonster(undefined, m.reels.length); store.monsters.push(n); store.currentId = n.id; sim.result = null; return commit(); }
+			case 'tab': {
+				const tab = el.dataset.mainTab;
+				const subTab = el.dataset.subTab;
+				if (tab) ui.activeTab = tab as typeof ui.activeTab;
+				if (subTab) ui.activeSubTab = subTab as typeof ui.activeSubTab;
+				return render();
+			}
+			case 'new': { const n = newMonster(undefined, m.reels.length); store.monsters.push(n); store.currentId = n.id; sim.result = null; return commit(); }
       case 'dup': { const n = { ...structuredClone(m), id: uid(), name: m.name + ' (コピー)' }; store.monsters.push(n); store.currentId = n.id; sim.result = null; return commit(); }
       case 'del':
         if (store.monsters.length > 1 && confirm(`「${m.name}」を削除しますか?`)) {
           store.monsters = store.monsters.filter((x) => x.id !== m.id);
           if (store.pressCounts) delete store.pressCounts[m.id];
+          if (store.changeLogs) delete store.changeLogs[m.id];
           store.currentId = store.monsters[0].id;
           sim.result = null;
           return commit();
@@ -331,11 +177,14 @@ function handle(el: HTMLElement, isClick: boolean): void {
         const io = document.querySelector<HTMLTextAreaElement>('#io')!;
         io.classList.remove('hidden');
         io.value = exportMonster(m);
+        document.querySelector('#default')!.classList.add('hidden');
         return;
       }
       case 'import':
         document.querySelector('#io')!.classList.remove('hidden');
         document.querySelector('#io-run')!.classList.remove('hidden');
+        document.querySelector('#default')!.classList.add('hidden');
+        
         return;
       case 'import-run':
         try {
@@ -361,35 +210,32 @@ function handle(el: HTMLElement, isClick: boolean): void {
       case 'sm-del': m.reels[r].samples.splice(k, 1); return commit();
       case 'cc-run': {
         (store.pressCounts ??= {})[m.id] = pressCountOf(m.id) + 1;
-        const c = pickChange(m, { legacy: el.dataset.legacy === '1', forceDouble });
-        changeMsg = c ? '' : forceDouble ? 'ダブル変化できる組み合わせがありません(ダブル変化はLv9以下のみ)' : '変化できる技がありません(リールが未入力、またはキャパ内に収まる候補がありません)';
-        pending = c ? { monsterId: m.id, set: c } : null;
+        const c = pickChange(m, { legacy: el.dataset.legacy === '1', forceDouble: ui.forceDouble });
+        ui.changeMsg = c ? '' : ui.forceDouble ? 'ダブル変化できる組み合わせがありません(ダブル変化はLv9以下のみ)' : '変化できる技がありません(リールが未入力、またはキャパ内に収まる候補がありません)';
+        ui.pending = c ? { monsterId: m.id, set: c } : null;
         return commit();
       }
       case 'cc-yes':
-        if (pending) {
-          applyChange(m, pending.set);
-          changeLog.push(pending);
-          pending = null;
+        if (ui.pending) {
+          applyChange(m, ui.pending.set);
+          ((store.changeLogs ??= {})[m.id] ??= []).push(ui.pending.set);
+          ui.pending = null;
         }
         return commit();
       case 'cc-no':
-        pending = null;
-        changeMsg = '変化させませんでした';
+        ui.pending = null;
+        ui.changeMsg = '変化させませんでした';
         return render();
       case 'cc-undo': {
-        const idx = changeLog.findLastIndex((e) => e.monsterId === m.id);
-        if (idx >= 0) {
-          revertChange(m, changeLog[idx].set);
-          changeLog.splice(idx, 1);
-        }
-        changeMsg = '';
+        const last = store.changeLogs?.[m.id]?.pop();
+        if (last) revertChange(m, last);
+        ui.changeMsg = '';
         return commit();
       }
       case 'cc-clear':
         if (store.pressCounts) delete store.pressCounts[m.id];
-        for (let j = changeLog.length - 1; j >= 0; j--) if (changeLog[j].monsterId === m.id) changeLog.splice(j, 1);
-        changeMsg = '';
+        if (store.changeLogs) delete store.changeLogs[m.id];
+        ui.changeMsg = '';
         return commit();
       case 'best-run': {
         best.result = optimizeForTarget(m, { target: best.target, turns: best.turns, start: best.start });
@@ -421,7 +267,7 @@ function handle(el: HTMLElement, isClick: boolean): void {
 
   switch (a) {
     case 'select': store.currentId = val; sim.result = null; return commit();
-    case 'cc-force-double': forceDouble = checked; return;
+    case 'cc-force-double': ui.forceDouble = checked; return;
     case 'name': m.name = val; return commit();
     case 'class': resizeReels(m, Number(val)); sim.result = null; return commit();
     case 'capacity-is-a': m.capacityIsA = checked; sim.result = null; return commit();
@@ -453,8 +299,15 @@ function handle(el: HTMLElement, isClick: boolean): void {
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 app.addEventListener('click', (e) => {
-  const t = (e.target as HTMLElement).closest<HTMLElement>('button[data-a]');
-  if (t) handle(t, true);
+  const target = e.target as HTMLElement;
+  const button = target.closest<HTMLElement>('button[data-a]');
+  if (button) {
+    handle(button, true);
+    return;
+  }
+  if (target.closest('button, input, select, textarea, a, .reel-col')) return;
+  const reel = target.closest<HTMLElement>('.reel[data-r]');
+  if (reel && !reel.classList.contains('disabled')) showReelSettings(Number(reel.dataset.r));
 });
 app.addEventListener(
   'toggle',
@@ -466,6 +319,18 @@ app.addEventListener(
   true,
 );
 app.addEventListener('change', (e) => handle(e.target as HTMLElement, false));
+
+const modal = document.querySelector<HTMLDialogElement>('#app-modal');
+modal?.addEventListener('click', (e) => {
+  const button = (e.target as HTMLElement).closest<HTMLElement>('button[data-a]');
+  if (button) handle(button, true);
+});
+modal?.addEventListener('change', (e) => handle(e.target as HTMLElement, false));
+modal?.addEventListener('close', () => { activeReelSettings = null; });
+app.addEventListener('click', (e) => {
+  const t = (e.target as HTMLElement).closest<HTMLElement>('button[data-action]');
+  if (t && modal) modal.showModal();
+});
 
 render();
 initCloud(store, { onRemoteApplied: () => { sim.result = null; render(); }, onChange: renderAuthOnly });

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
@@ -9,6 +9,17 @@
   </head>
   <body>
     <div id="app"></div>
+    <dialog id="app-modal" aria-labelledby="app-modal-title">
+      <div class="modal-frame">
+        <header class="modal-header">
+          <h2 id="app-modal-title"></h2>
+          <form method="dialog">
+            <button type="submit" aria-label="閉じる">閉じる</button>
+          </form>
+        </header>
+        <div id="app-modal-content" class="modal-content"></div>
+      </div>
+    </dialog>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
