@@ -376,6 +376,7 @@ textarea {
 .reels .reel-col.edit li {
   height: 1.5rem;
   text-align: center;
+	overflow: hidden;
 }
 .reels .reel-col.edit select {
   height: 100%;
