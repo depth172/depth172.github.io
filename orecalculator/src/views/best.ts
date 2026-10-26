@@ -1,17 +1,29 @@
-import { byCategory, byCategoryAt, CAPACITY_RANKS, capacityAt, costAt, r1, type Monster, type Skill } from '../core/types.ts';
+import { byCategory, byCategoryAt, CAPACITY_RANKS, capacityAt, capacityRankOf, costAt, r1, type Monster, type Skill } from '../core/types.ts';
 import type { BestState } from '../state.ts';
 import { STARS, esc, pct, skillLabel, tier } from './common.ts';
 
 export const bestTargets = (m: Monster): Skill[] => m.skills.filter((s) => s.kind === 'normal' && !s.isMiss).sort(byCategory);
+const fillerSkills = (m: Monster, target: string): Skill[] =>
+  m.skills.filter((s) => s.kind === 'normal' && s.id !== target).sort(byCategory);
 
 export function renderBest(m: Monster, best: BestState): string {
   const options = bestTargets(m).map((s) => `<option value="${s.id}"${s.id === best.target ? ' selected' : ''}>${esc(s.name)}</option>`).join('');
+  const priorityOptions = fillerSkills(m, best.target)
+    .map((s) => `<option value="${s.id}"${s.id === best.prioritySkill ? ' selected' : ''}>${esc(s.name || '(無名)')}</option>`)
+    .join('');
+  const capacityRank = capacityRankOf(m);
   const byId = new Map(m.skills.map((s) => [s.id, s]));
   const results = (best.result ?? [])
     .map((r, ri) => {
-      const summary = `<div class="best-result-summary"><b>${r.rank} (${r.stage}%)</b>
-        ${r.probability === null ? '' : `${best.turns > 1 ? `期待${(r.expected ?? 0).toFixed(2)}回　` : ''}${best.turns > 1 ? `　${r.perTurn.map((p, k) => `${k + 1}T ${pct(p)}`).join('　')}` : ''}`}
-        <button data-a="best-apply" data-i="${ri}">リールに反映</button></div>`;
+      const summary = `
+				<div class="best-result-summary">
+					<h4>キャパシティランク${r.rank}</h4>
+					<div>${r.probability === null ? '' : `${best.turns > 1 ? `期待: <b>${(r.expected ?? 0).toFixed(2)}</b> 回　` : ''}</div>
+					<div class="best-result-probability">
+						${best.turns > 1 ? `${r.perTurn.map((p, k) => `<div>${k + 1}ターン目: <span class="prob">${pct(p)}</span></div>`).join('')}` : ''}`}
+					</div>
+				</div>
+			`;
       if (!r.layouts || r.probability === null) return `<div class="best-result">${summary}<div>構成不可</div></div>`;
       const cards = r.layouts
         .map((ids, i) => {
@@ -23,8 +35,8 @@ export function renderBest(m: Monster, best: BestState): string {
             .filter(({ rank }) => rank !== 'A')
             .filter(({ stage }) => total <= capacityAt(m.reels[i].capacity, stage))
             .at(-1)?.rank;
-          const rankText = m.capacityIsA
-            ? ''
+          const rankText = capacityRank
+            ? `指定ランク: ${capacityRank}`
             : minimumRank
               ? `必要ランク: ${minimumRank}`
               : 'コマンド潜在限定';
@@ -35,18 +47,18 @@ export function renderBest(m: Monster, best: BestState): string {
             <ol class="reel-col edit">${slots}</ol></div>`;
         })
         .join(''); 
-      return `<div class="best-result">${summary}<div class="reels">${cards}</div></div>`;
+      return `<div class="best-result">${summary}<div class="reels">${cards}</div><button data-a="best-apply" data-i="${ri}">リールに反映</button></div>`;
     })
     .join('');
-  const startOptions = m.reels.map((r) => `<option value="${r.level}"${r.level === best.start ? ' selected' : ''}>${STARS(r.level)}</option>`).join('');
   return `
 		<div>
 			<h2>最大確率構成</h2>
-			<div class="row">
-				狙う技 <select data-a="best-target">${options}</select>
-				ターン数 <input type="number" class="num" min="1" max="10" data-a="best-turns" value="${best.turns}">
-				開始リール <select data-a="best-start">${startOptions}</select> 
-				<button data-a="best-run">計算</button>
+			<div class="best-config">
+				<div><label><span>第一候補</span><select data-a="best-target">${options}</select></label></div>
+				<div><label><span>第二候補</span><select data-a="best-priority"><option value="">指定なし（ためるを優先）</option>${priorityOptions}</select></label></div>
+				<div><label><span>評価するターン数</span><input type="number" class="num" min="1" max="10" data-a="best-turns" value="${best.turns}"></label></div>
+				<div><label class="checkbox"><input type="checkbox" data-a="best-early-weight"${best.earlyTurnWeighting ? ' checked' : ''}><span>早期ターンを重視</span></label></div>
+				<div><button data-a="best-run">計算</button></div>
 			</div>
 			${best.result ? `<div class="best-results">${results}</div>` : `<div>入力済みのキャパ・コストで、開始リールから指定ターン数の間に狙う技が実行される期待回数が最大になる構成を求めます。</div>`}
 		</div>

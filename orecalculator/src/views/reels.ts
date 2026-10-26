@@ -1,7 +1,7 @@
 import { slotCost } from '../core/calc.ts';
 import { estimateCapacity } from '../core/capacity.ts';
 import { isChangeValid } from '../core/change.ts';
-import { CAPACITY_RANKS, SLOTS, capacityAt, r1, type Monster } from '../core/types.ts';
+import { CAPACITY_RANKS, SLOTS, capacityAt, capacityRankOf, r1, type Monster } from '../core/types.ts';
 import type { ChangeEntry } from '../state.ts';
 import { STARS, slotSelect } from './common.ts';
 
@@ -19,8 +19,9 @@ export function renderReels(m: Monster, pending: ChangeEntry | null): string {
           <div class="row reel-summary">-</div><div class="row reel-rank">&nbsp;</div>${emptySlots}</div>`;
       }
       const total = slotCost(r, m.skills, r.level);
-      const capacityIsA = m.capacityIsA ?? false;
-      const capacity = capacityAt(r.capacity, capacityIsA ? 100 : 99);
+      const capacityRank = capacityRankOf(m);
+      const capacityStage = CAPACITY_RANKS.find(({ rank }) => rank === capacityRank)?.stage ?? 99;
+      const capacity = capacityAt(r.capacity, capacityStage);
       const hasFullLayout = r.slots.length === SLOTS && r.slots.every((id) => m.skills.some((s) => s.id === id));
       const candidateRanks = CAPACITY_RANKS
         .filter(({ rank }) => rank !== 'A')
@@ -30,8 +31,8 @@ export function renderReels(m: Monster, pending: ChangeEntry | null): string {
       const slots = `<ol class="reel-col edit">${r.slots.map((v, si) => slotSelect(m, v, `data-a="slot" data-r="${ri}" data-i="${si}"`, r.level, pendingTo(m, pending, ri, si))).join('')}</ol>`;
       const rankText = !hasFullLayout
         ? ''
-        : capacityIsA
-          ? ''
+        : capacityRank
+          ? `指定ランク: ${capacityRank}`
           : minimumRank
             ? `必要ランク: ${minimumRank}`
             : '実現不可';

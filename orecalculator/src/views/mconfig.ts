@@ -1,10 +1,16 @@
-import type { Monster } from '../core/types.ts';
+import { CAPACITY_RANKS, capacityRankOf, type Monster } from '../core/types.ts';
 import { STARS, esc } from './common.ts';
 
 export function renderMonsterConfig(m: Monster, monsters: readonly Monster[]): string {
 	const opts = monsters.map((x) => `<option value="${x.id}"${x.id === m.id ? ' selected' : ''}>${esc(x.name)}</option>`).join('');
 	const cls = [1, 2, 3, 4].map((n) => `<option value="${n}"${n === m.reels.length ? ' selected' : ''}>${STARS(n)}</option>`).join('');
-	const capacityIsA = m.capacityIsA ?? false;
+	const capacityRank = capacityRankOf(m);
+	const capacityIsA = capacityRank === 'A';
+	const selectedCapacityRank = capacityIsA ? '' : capacityRank ?? '';
+	const capacityRankOptions = CAPACITY_RANKS
+		.filter(({ rank }) => rank !== 'A')
+		.map(({ rank, stage }) => `<option value="${rank}"${rank === capacityRank ? ' selected' : ''}>${rank} (${stage}%)</option>`)
+		.join('');
 	return `
 	<div>
 		<h2>モンスター選択</h2>
@@ -33,8 +39,17 @@ export function renderMonsterConfig(m: Monster, monsters: readonly Monster[]): s
 			</div>
 			<div>
 				<label>
-					コマンド潜在個体?
+					<span>コマンド潜在個体?</span>
 					<input type="checkbox" data-a="capacity-is-a"${capacityIsA ? ' checked' : ''}>
+				</label>
+			</div>
+			<div class="${capacityIsA ? 'hidden' : ''}">
+				<label>
+					<span>キャパシティランク</span>
+					<select data-a="capacity-rank">
+						<option value=""${selectedCapacityRank === '' ? ' selected' : ''}>未指定</option>
+						${capacityRankOptions}
+					</select>
 				</label>
 			</div>
 		</div>

@@ -6,7 +6,7 @@ import { enumerate } from './core/enumerate.ts';
 import { optimizeForTarget } from './core/optimize.ts';
 import { initCloud, schedulePush, signIn, signOut } from './core/cloud.ts';
 import { exportMonster, importMonster, newMonster, newReel, save, syncShiftSkills, uid } from './core/store.ts';
-import { CAPACITY_RANKS, SLOTS, byCategoryAt, capacityAt, r1, type Monster, type SkillKind } from './core/types.ts';
+import { CAPACITY_RANKS, SLOTS, byCategoryAt, capacityAt, capacityRankOf, r1, type Monster, type SkillKind } from './core/types.ts';
 import { best, changeLogOf, cur, openSet, pressCountOf, probView, sim, store, ui, type SimState } from './state.ts';
 import { renderAuth } from './views/auth.ts';
 import { bestTargets, renderBest } from './views/best.ts';
@@ -24,6 +24,12 @@ function syncViewState(m: Monster): void {
   if (sim.level > m.reels.length) sim.level = 1;
   if (!bestTargets(m).some((s) => s.id === best.target)) {
     best.target = bestTargets(m)[0]?.id ?? '';
+    best.result = null;
+  }
+  if (best.prioritySkill && (best.prioritySkill === best.target || !m.skills.some((s) =>
+    s.id === best.prioritySkill && s.kind === 'normal',
+  ))) {
+    best.prioritySkill = '';
     best.result = null;
   }
   // 編集などで提案時と状態が変わっていたら破棄する
@@ -75,7 +81,7 @@ function render(): void {
   			${renderMonsterConfig(m, store.monsters)}${renderSkills(m)}`
   }[ui.activeTab];
 
-  // 再描画でDOMが作り直されるため、同じタブ内ならスクロール位置を引き継ぐ
+  // 再描画で details が閉じないよう開閉状態を保持する
   const viewKey = `${ui.activeTab}/${ui.activeSubTab}`;
   const keep = viewKey === lastViewKey;
   const saved = SCROLL_SELECTORS.map((sel) => {
@@ -238,7 +244,14 @@ function handle(el: HTMLElement, isClick: boolean): void {
         ui.changeMsg = '';
         return commit();
       case 'best-run': {
-        best.result = optimizeForTarget(m, { target: best.target, turns: best.turns, start: best.start });
+        best.result = optimizeForTarget(m, {
+          target: best.target,
+          capacityRank: capacityRankOf(m),
+          prioritySkill: best.prioritySkill,
+          turns: best.turns,
+          start: best.start,
+          earlyTurnWeighting: best.earlyTurnWeighting,
+        });
         return render();
       }
       case 'sim-run': {
@@ -270,7 +283,12 @@ function handle(el: HTMLElement, isClick: boolean): void {
     case 'cc-force-double': ui.forceDouble = checked; return;
     case 'name': m.name = val; return commit();
     case 'class': resizeReels(m, Number(val)); sim.result = null; return commit();
-    case 'capacity-is-a': m.capacityIsA = checked; sim.result = null; return commit();
+    case 'capacity-is-a':
+      m.capacityIsA = checked;
+      if (!checked && m.capacityRank === 'A') delete m.capacityRank;
+      best.result = null;
+      sim.result = null;
+      return commit();
     case 'sk-name': m.skills[i].name = val; return commit();
     case 'sk-cost': m.skills[i].cost = num(val); return commit();
     case 'sk-lcost': {
@@ -290,6 +308,17 @@ function handle(el: HTMLElement, isClick: boolean): void {
     case 'prob-turns': probView.turns = Math.min(10, Math.max(1, Math.floor(Number(val)) || 1)); return render();
     case 'best-turns': best.turns = Math.min(10, Math.max(1, Math.floor(Number(val)) || 1)); best.result = null; return;
     case 'best-target': best.target = val; best.result = null; return render();
+    case 'best-priority': best.prioritySkill = val; best.result = null; return;
+    case 'best-early-weight': best.earlyTurnWeighting = checked; best.result = null; return render();
+    case 'capacity-rank': {
+      const rank = CAPACITY_RANKS.find(({ rank }) => rank !== 'A' && rank === val)?.rank;
+      if (val && !rank) return;
+      m.capacityRank = rank;
+      m.capacityIsA = false;
+      best.result = null;
+      sim.result = null;
+      return commit();
+    }
     case 'sim-level': sim.level = Number(val); sim.result = null; return render();
     case 'sim-rank': sim.rank = val as SimState['rank']; sim.result = null; return render();
     case 'sim-min': sim.min[el.dataset.id!] = num(val); return;

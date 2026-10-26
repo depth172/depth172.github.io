@@ -30,6 +30,7 @@ export interface Monster {
   name: string;
   skills: Skill[];
   reels: Reel[]; // 長さ = クラス(1..4)
+  capacityRank?: CapacityRank; // 指定時はこの個体ランクのキャパを使う
   capacityIsA?: boolean; // ゲーム内でA個体と確認できた場合
 }
 
@@ -47,6 +48,11 @@ export const CAPACITY_RANKS = [
   { rank: 'F', stage: 95 },
 ] as const;
 
+export type CapacityRank = (typeof CAPACITY_RANKS)[number]['rank'];
+
+export function capacityRankOf(m: Monster): CapacityRank | undefined {
+  return m.capacityIsA ? 'A' : m.capacityRank;
+}
 
 /** 技の色(移動系はオレンジ、それ以外はコストで区分) */
 export type CostTier = 'gold' | 'silver' | 'bronze' | 'beige';

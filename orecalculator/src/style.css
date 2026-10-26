@@ -324,6 +324,39 @@ textarea {
   border-radius: 6px;
   cursor: pointer;
 }
+
+.best-config {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.best-config label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.best-config label.checkbox {
+  display: flex;
+	flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.best-config button {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+}
+
+.best-config button:hover {
+  background: #eee;
+}
+
 .best-results {
   display: flex;
   flex-direction: column;
@@ -334,14 +367,39 @@ textarea {
   width: 100%;
 }
 .best-result-summary {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 6px 12px;
-  margin-bottom: 6px;
-  text-align: center;
+	display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+	margin-bottom: 0.5rem;
 }
+
+.best-result-probability {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+	font-size: 0.85rem;
+	opacity: 0.85;
+	margin: 0 0.5rem;
+}
+
+.best-result-probability .prob {
+	font-size: 1rem;
+}
+
+.best-result button {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.best-result button:hover {
+  background: #eee;
+}
+
 .best-results .reel {
   cursor: default;
 }

@@ -22,8 +22,10 @@ export interface ProbViewState {
 
 export interface BestState {
   target: string;
+  prioritySkill: string;
   start: number;
   turns: number;
+  earlyTurnWeighting: boolean;
   result: RankResult[] | null;
 }
 
@@ -35,7 +37,7 @@ export interface ChangeEntry {
 export const store = load();
 export const sim: SimState = { level: 1, rank: 'A', min: {}, max: {}, result: null };
 export const probView: ProbViewState = { start: 1, turns: 5 };
-export const best: BestState = { target: '', start: 1, turns: 3, result: null };
+export const best: BestState = { target: '', prioritySkill: '', start: 1, turns: 3, earlyTurnWeighting: false, result: null };
 export const ui: { activeTab: Tab; activeSubTab: SubTab; changeMsg: string; forceDouble: boolean; pending: ChangeEntry | null } = {
   activeTab: 'reels',
 	activeSubTab: 'probability',

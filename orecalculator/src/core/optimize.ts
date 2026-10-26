@@ -1,5 +1,5 @@
 import { defaultMax } from './enumerate.ts';
-import { CAPACITY_RANKS, MAX_DOWN, SLOTS, capacityAt, costAt, r1, usableAt, type Monster, type Skill } from './types.ts';
+import { CAPACITY_RANKS, MAX_DOWN, SLOTS, capacityAt, costAt, r1, usableAt, type CapacityRank, type Monster, type Skill } from './types.ts';
 
 interface Candidate {
   t: number; // 狙う技の枠数
@@ -14,8 +14,11 @@ interface Candidate {
 
 export interface OptimizeOptions {
   target: string;
+  capacityRank?: CapacityRank;
+  prioritySkill?: string; // 穴埋め時、指定した技を最優先する(未指定ならためる)
   start?: number; // 開始リール(★の数、既定1)
   turns?: number; // 評価するターン数(既定1)。リールは実行された技のリールを次ターンも引き継ぐ
+  earlyTurnWeighting?: boolean; // 有効時は早いターンほど重く評価する(n, n-1, ..., 1)
   max?: Record<string, number>; // 技ごとの最大枠数(狙う技の既定は6、他は構成シミュレーションの既定)
 }
 
@@ -76,7 +79,11 @@ function reelCandidates(m: Monster, level: number, opt: OptimizeOptions): Candid
   const downs = usable.filter((s) => s.kind === 'down').map(entry);
   const fillers = usable
     .filter((s) => (s.kind === 'normal' || s.kind === 'charge') && s.id !== opt.target)
-    .map((s) => ({ ...entry(s), cap: SLOTS, pri: s.kind === 'charge' ? 0 : s.isMiss ? 2 : 1 }))
+    .map((s) => ({
+      ...entry(s),
+      cap: SLOTS,
+      pri: s.id === opt.prioritySkill ? 0 : s.kind === 'charge' ? 1 : s.isMiss ? 3 : 2,
+    }))
     .sort((a, b) => a.pri - b.pri || b.cost - a.cost);
 
   const result: Candidate[] = [];
@@ -152,7 +159,9 @@ export function optimizeForTarget(m: Monster, opt: OptimizeOptions): RankResult[
   const start = Math.min(m.reels.length, Math.max(1, Math.floor(opt.start ?? 1))) - 1;
   const byId = new Map(m.skills.map((s) => [s.id, s]));
 
-  return CAPACITY_RANKS.map(({ rank, stage }) => {
+  return CAPACITY_RANKS
+    .filter(({ rank }) => opt.capacityRank === undefined || rank === opt.capacityRank)
+    .map(({ rank, stage }) => {
     const lists = all.map((cands, i) => {
       const capacity = capacityAt(m.reels[i].capacity, stage);
       // 同じ(上昇, 低下)なら狙う技が多いほど有利なので、成立する最大の枠数だけ残す
@@ -172,20 +181,24 @@ export function optimizeForTarget(m: Monster, opt: OptimizeOptions): RankResult[
     });
     if (lists.some((l) => l.length === 0)) return { rank, stage, probability: null, expected: null, perTurn: [], layouts: null };
 
-    let bestE = -1;
+    let bestScore = -1;
     let bestKey: number[] = [-Infinity, -Infinity, -Infinity];
     let bestSel: Candidate[] | null = null;
     const sel: Candidate[] = [];
     const dfs = (i: number) => {
       if (i === lists.length) {
-        const e = perTurn(sel, turns, start).reduce((a, b) => a + b, 0);
+        const turnProbabilities = perTurn(sel, turns, start);
+        const score = turnProbabilities.reduce(
+          (sum, probability, turn) => sum + probability * (opt.earlyTurnWeighting ? turns - turn : 1),
+          0,
+        );
         const cost = sel.reduce((a, c) => a + c.cost, 0);
         // 同率なら、技が多く・低下が少なく・コストが高い構成を優先(到達しないリールや他要因で移動した場合にも強い)
         const key = [sel.reduce((a, c) => a + c.t, 0), -sel.reduce((a, c) => a + c.d, 0), cost];
         const lex = key.findIndex((v, k) => v !== bestKey[k]);
-        const better = e > bestE + 1e-12 || (Math.abs(e - bestE) <= 1e-12 && lex >= 0 && key[lex] > bestKey[lex]);
+        const better = score > bestScore + 1e-12 || (Math.abs(score - bestScore) <= 1e-12 && lex >= 0 && key[lex] > bestKey[lex]);
         if (better) {
-          bestE = e;
+          bestScore = score;
           bestKey = key;
           bestSel = [...sel];
         }
@@ -199,6 +212,6 @@ export function optimizeForTarget(m: Monster, opt: OptimizeOptions): RankResult[
     dfs(0);
     const chosen = bestSel as Candidate[] | null;
     const pt = chosen ? perTurn(chosen, turns, start) : [];
-    return { rank, stage, probability: pt[0] ?? null, expected: bestE, perTurn: pt, layouts: chosen ? chosen.map((c) => c.ids) : null };
-  });
+    return { rank, stage, probability: pt[0] ?? null, expected: chosen ? pt.reduce((a, b) => a + b, 0) : null, perTurn: pt, layouts: chosen ? chosen.map((c) => c.ids) : null };
+    });
 }
