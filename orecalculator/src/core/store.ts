@@ -42,7 +42,7 @@ export function syncShiftSkills(m: Monster): void {
   if (removed.size > 0) {
     m.skills = m.skills.filter((s) => !removed.has(s.id));
     const clear = (arr: string[]) => arr.forEach((v, j) => { if (removed.has(v)) arr[j] = ''; });
-    m.reels.forEach((r) => { clear(r.slots); r.samples.forEach((s) => clear(s.slots)); });
+    m.reels.forEach((r) => { clear(r.slots); if (r.initialSlots) clear(r.initialSlots); r.samples.forEach((s) => clear(s.slots)); });
   }
   for (let lv = 1; lv < n; lv++) {
     if (m.skills.some((s) => s.kind === 'up' && s.fromLevel === lv)) continue;

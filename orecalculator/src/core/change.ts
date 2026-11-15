@@ -16,15 +16,13 @@ export interface ChangeSet {
   changes: Change[];
 }
 
-/** 劣化: 下がるコストの上限(これ以上離れた技へは劣化しない) */
-export const DEGRADE_MAX_DROP = 1;
 /** 劣化・ダブル変化が起こる条件: リールの残りキャパ(キャパ − 合計コスト)がこの値以下 */
 export const DEGRADE_MAX_REST = 1;
 /** バトル終了ごとにダブル変化になる確率 */
 export const DOUBLE_CHANCE = 0.1;
 
-/** 旧仕様(レベル9以下)用: 移動技の枠が変化対象に選ばれる相対的な重み(通常枠は 1) */
-export const SHIFT_SLOT_WEIGHT = 0.05;
+/** 旧仕様(レベル9以下)用: 移動技の枠・枠組が変化対象に選ばれる相対的な重み */
+export const SHIFT_SLOT_WEIGHT = 0.01;
 /** 旧仕様用: リールの残りキャパがこの値以下なら「キャパ上限近く」として移動技の重み低下を無効にする */
 export const NEAR_CAPACITY_REST = 1;
 /** 旧仕様用: 変化先の色ごとの重み(同じ色の中は同じ確率。高い色ほど選ばれやすい。移動系も色はコストで判定) */
@@ -32,10 +30,10 @@ export const TIER_WEIGHT: Record<CostTier, number> = { beige: 1, bronze: 3, silv
 /** 旧仕様用: 低ティア(ベージュ・ブロンズ)の移動系が変化先に選ばれる重みの倍率 */
 export const LOW_TIER_SHIFT_BOOST = 1.5;
 const LOW_TIERS: CostTier[] = ['beige', 'bronze'];
-/** 旧仕様用: 変化前よりコストが高くない技(同コスト・劣化)が変化先に選ばれる相対的な重み(高い技は 1) */
-export const NON_HIGHER_WEIGHT = 0.1;
-/** 劣化・ダブル変化で移動技を保護する(重みを下げる)が、移動技以外の候補がこの数以下なら保護を無視する */
-export const PROTECT_IGNORE_MAX_FREE = 1;
+/** 旧仕様用: 劣化する変化先の相対的な重み */
+export const DEGRADE_TARGET_WEIGHT = 0.1;
+/** キャパ上限付近では、移動元の単独変化の合計を通常技の劣化の合計に対してこの比率以下にする */
+export const MAX_SHIFT_TO_DEGRADE_CHANCE = 0.01;
 
 export const isShift = (s: Skill): boolean => s.kind !== 'normal' && s.kind !== 'down';
 
@@ -75,8 +73,8 @@ const legacyTargetWeightRules: ((c: Ctx) => number)[] = [
   (c) => TIER_WEIGHT[costTier(costAt(c.to, c.reel.level))],
   // 低ティアの移動系は若干出やすい
   (c) => (isShift(c.to) && LOW_TIERS.includes(costTier(costAt(c.to, c.reel.level))) ? LOW_TIER_SHIFT_BOOST : 1),
-  // 変化前よりコストが高い技が優先される(同コスト以下も全く選ばれないわけではない)
-  (c) => (costAt(c.to, c.reel.level) > costAt(c.from, c.reel.level) ? 1 : NON_HIGHER_WEIGHT),
+  // 劣化する変化先は選ばれにくい。
+  (c) => (r1(costAt(c.from, c.reel.level) - costAt(c.to, c.reel.level)) > 0 ? DEGRADE_TARGET_WEIGHT : 1),
 ];
 
 /** 新仕様(Lv10以上): ミスはほぼ変化先にならない(ミスからの変化は通常どおり起こる) */
@@ -89,7 +87,6 @@ interface Group {
   pool: Change[][];
   poolWeights?: number[]; // 候補ごとの重み(未指定は一様)
   poolKinds?: ChangeKind[]; // 候補ごとの種別(未指定は kind)
-  protect?: boolean; // 劣化が起こりうる枠(移動技の保護判定の対象)
   shifts: number; // 変化前の技のうち移動技の数
 }
 
@@ -110,9 +107,9 @@ function draw(groups: Group[], rng: () => number): ChangeSet | null {
   return pick(idx < 0 ? w.length - 1 : idx);
 }
 
-/** 劣化・ダブル変化用: 移動技を含む候補の重みを下げる。移動技以外の候補がほぼないときは無視 */
+/** 移動技を含む候補の重みを下げる。 */
 function protectShift(groups: Group[]): Group[] {
-  if (groups.filter((g) => g.shifts === 0).length <= PROTECT_IGNORE_MAX_FREE) return groups;
+  if (!groups.some((g) => g.shifts === 0)) return groups;
   for (const g of groups) g.weight *= SHIFT_SLOT_WEIGHT ** g.shifts;
   return groups;
 }
@@ -120,6 +117,14 @@ function protectShift(groups: Group[]): Group[] {
 function singleGroups(m: Monster, legacy: boolean, byId: Map<string, Skill>): Group[] {
   const groups: Group[] = [];
   m.reels.forEach((reel, reelIndex) => {
+    const rest = r1(reel.capacity - slotCost(reel, m.skills, reel.level));
+    const canDegrade = legacy && rest <= DEGRADE_MAX_REST;
+    const usableSkills = canDegrade
+      ? m.skills.filter((skill) => usableAt(skill, reel.level, m.reels.length))
+      : [];
+    const lowerDrops = new Map<number, { nearest: number; extraNormal: number | null }>();
+    const shiftGroups: Group[] = [];
+    let normalDegradeWeight = 0;
     reel.slots.forEach((fromId, slotIndex) => {
       const from = byId.get(fromId);
       if (!from) return;
@@ -131,37 +136,65 @@ function singleGroups(m: Monster, legacy: boolean, byId: Map<string, Skill>): Gr
         if (fitsCapacity(c)) fit.push(c);
       }
       const toChange = (c: Ctx): Change[] => [{ reelIndex, slotIndex, from: from.id, to: c.to.id }];
-      const rest = r1(reel.capacity - slotCost(reel, m.skills, reel.level));
-      // 旧仕様: 高い技が優先。同コストは常に候補、劣化(下がる幅が上限以内)は残りキャパが小さいときだけ候補
-      const canDegrade = legacy && rest <= DEGRADE_MAX_REST;
+      let lowerSteps = lowerDrops.get(fromCost);
+      if (canDegrade && lowerSteps === undefined) {
+        const drops = [...new Set(usableSkills
+          .map((skill) => r1(fromCost - costAt(skill, reel.level)))
+          .filter((drop) => drop > 0))].sort((a, b) => a - b);
+        const nearest = drops[0] ?? Infinity;
+        const hasShiftAtNearest = usableSkills.some((skill) =>
+          isShift(skill) && r1(fromCost - costAt(skill, reel.level)) === nearest);
+        const extraNormal = hasShiftAtNearest && drops.length > 1 && usableSkills.some((skill) =>
+          skill.kind === 'normal' && r1(fromCost - costAt(skill, reel.level)) === drops[1])
+          ? drops[1]
+          : null;
+        lowerSteps = { nearest, extraNormal };
+        lowerDrops.set(fromCost, lowerSteps);
+      }
+      // 直下の段階が移動技なら、その次の段階にある通常技も劣化候補に加える。
       const pool = legacy
         ? fit.filter((c) => {
             const drop = r1(fromCost - costAt(c.to, reel.level));
-            return drop <= 0 || (canDegrade && drop <= DEGRADE_MAX_DROP);
+            return drop <= 0 || (canDegrade &&
+              (drop === lowerSteps?.nearest || (drop === lowerSteps?.extraNormal && c.to.kind === 'normal')));
           })
         : fit;
       if (pool.length === 0) return;
-      groups.push({
+      const poolKinds = pool.map((c): ChangeKind => (r1(fromCost - costAt(c.to, reel.level)) > 0 ? 'degrade' : 'up'));
+      const poolWeights = pool.map((c) => (legacy ? legacyTargetWeightRules.reduce((w, rule) => w * rule(c), 1) : newTargetWeight(c)));
+      const group: Group = {
         weight: canDegrade ? 1 : slotWeight(m, reel, from, byId, legacy),
         shifts: isShift(from) ? 1 : 0,
-        protect: canDegrade,
         kind: 'up',
         pool: pool.map(toChange),
-        poolKinds: pool.map((c): ChangeKind => (r1(fromCost - costAt(c.to, reel.level)) > 0 ? 'degrade' : 'up')),
-        poolWeights: pool.map((c) => (legacy ? legacyTargetWeightRules.reduce((w, rule) => w * rule(c), 1) : newTargetWeight(c))),
-      });
+        poolKinds,
+        poolWeights,
+      };
+      groups.push(group);
+      if (canDegrade && group.shifts) shiftGroups.push(group);
+      else if (canDegrade && from.kind === 'normal') {
+        const total = poolWeights.reduce((sum, weight) => sum + weight, 0);
+        const degraded = poolWeights.reduce((sum, weight, i) => sum + (poolKinds[i] === 'degrade' ? weight : 0), 0);
+        normalDegradeWeight += group.weight * degraded / total;
+      }
     });
+    if (normalDegradeWeight > 0 && shiftGroups.length) {
+      const shiftWeight = shiftGroups.reduce((sum, group) => sum + group.weight, 0);
+      const factor = Math.min(1, MAX_SHIFT_TO_DEGRADE_CHANCE * normalDegradeWeight / shiftWeight);
+      for (const group of shiftGroups) group.weight *= factor;
+    }
   });
-  protectShift(groups.filter((g) => g.protect));  return groups;
+  return groups;
 }
 
-/** 旧仕様(Lv9以下)でのみ起こる。同一リールの2枠が同時に変化する。移動技の保護は、移動技以外の候補がほぼないときだけ無視。片方が良化・片方が劣化し、合計は元のコスト以上かつキャパ以内 */
+/** 旧仕様(Lv9以下)でのみ起こる。同一リールの2枠が同時に変化する。移動技を含まない有効な枠組があれば、そのリールの移動技を保護する。片方が良化・片方が劣化し、合計は元のコスト以上かつキャパ以内 */
 function doubleGroups(m: Monster, byId: Map<string, Skill>): Group[] {
   const groups: Group[] = [];
   m.reels.forEach((reel, reelIndex) => {
     const rest = r1(reel.capacity - slotCost(reel, m.skills, reel.level));
     if (rest > DEGRADE_MAX_REST) return;
     const targets = m.skills.filter((s) => usableAt(s, reel.level, m.reels.length));
+    const reelGroups: Group[] = [];
     for (let i = 0; i < reel.slots.length; i++) {
       for (let j = i + 1; j < reel.slots.length; j++) {
         const a = byId.get(reel.slots[i]);
@@ -185,15 +218,58 @@ function doubleGroups(m: Monster, byId: Map<string, Skill>): Group[] {
           }
         }
         if (pool.length === 0) continue;
-        groups.push({ weight: 1, kind: 'double', pool, shifts: Number(isShift(a)) + Number(isShift(b)) });
+        reelGroups.push({ weight: 1, kind: 'double', pool, shifts: Number(isShift(a)) + Number(isShift(b)) });
       }
     }
+    groups.push(...protectShift(reelGroups));
   });
-  return protectShift(groups);
+  return groups;
 }
 export interface PickOptions {
   legacy: boolean;
   forceDouble?: boolean;
+}
+
+export interface WeightedChange {
+  set: ChangeSet;
+  probability: number;
+}
+
+function appendDistribution(groups: Group[], chance: number, add: (set: ChangeSet, probability: number) => void): void {
+  const total = groups.reduce((sum, group) => sum + group.weight, 0);
+  if (!total || !chance) return;
+  for (const group of groups) {
+    const weights = group.poolWeights;
+    const sum = weights ? weights.reduce((a, b) => a + b, 0) : group.pool.length;
+    group.pool.forEach((changes, i) => add(
+      { kind: group.poolKinds?.[i] ?? group.kind, changes },
+      chance * group.weight / total * (weights?.[i] ?? 1) / sum,
+    ));
+  }
+}
+
+/** 抽選と同じ候補・重みから、1バトルで提案される確率を列挙する。 */
+export function changeDistribution(m: Monster, options: PickOptions, aggregate = false): WeightedChange[] {
+  const { legacy, forceDouble = false } = options;
+  const byId = new Map(m.skills.map((skill) => [skill.id, skill]));
+  const doubles = legacy ? doubleGroups(m, byId) : [];
+  const results: WeightedChange[] = [];
+  const grouped = new Map<string, WeightedChange>();
+  const add = (set: ChangeSet, probability: number) => {
+    if (!aggregate) { results.push({ set, probability }); return; }
+    const changes = set.changes.map((c) => JSON.stringify([c.reelIndex, c.from, c.to])).sort();
+    const key = JSON.stringify([set.kind, changes]);
+    const previous = grouped.get(key);
+    if (previous) previous.probability += probability;
+    else { const result = { set, probability }; grouped.set(key, result); results.push(result); }
+  };
+  if (forceDouble) appendDistribution(doubles, 1, add);
+  else {
+    const doubleChance = doubles.length ? DOUBLE_CHANCE : 0;
+    appendDistribution(doubles, doubleChance, add);
+    appendDistribution(singleGroups(m, legacy, byId), 1 - doubleChance, add);
+  }
+  return results;
 }
 
 export function pickChange(m: Monster, { legacy, forceDouble = false }: PickOptions, rng: () => number = Math.random): ChangeSet | null {

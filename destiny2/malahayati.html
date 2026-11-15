@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Malahayatiについて - depth's Toybox</title>
+    <meta name="description" content="推しを布教する回、第一回。芹沢あさひについて。">
+
+    <!-- Twitterバナーの設定 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@depth172">
+    <meta name="twitter:title" content="Malahayatiについて - depth's Toybox">
+    <meta name="twitter:description" content="Destiny2の最新情報を自動的に告知してくれるbot、Malahayatiについて説明・解説しているページです。">
+    <meta name="twitter:image" content="https://depth172.github.io/img/card-summary.png">
+
+    <!-- デザイン関連 -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/7e6c6b6f8c.js" crossorigin="anonymous"></script>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6523185041724408" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="overlay-button">
+        <a href="#" id="page-top" class="fixed"><i class="fa-solid fa-chevron-up"></i></a><br>
+    </div>
+
+    <div id="hover-balloon">
+        <span id="info"></span>
+    </div>
+
+    <div class="main">
+        <div class="top_logo">
+            <a href="../"><img src="../img/banner_transparent.png"></a>
+        </div>
+        <span class="top_guide"><a href="../">depth's Toybox</a></span>
+        <h1>Malahayatiについて</h1>
+        <hr>
+        <div class="title_bar">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="芹沢あさひ - 好きなもの語り" data-url="https://depth172.github.io/favorites/asahi_serizawa.html" data-hashtags="depthToybox" data-lang="ja" data-show-count="false">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span>最終更新日: <time id="modify"></time></span>
+            <script>
+                var last = new Date(document.lastModified);
+                var year = last.getFullYear();
+                var month = last.getMonth() + 1;
+                var date = last.getDate();
+
+                var target = document.getElementById('modify');
+                target.textContent = year + '年' + month + '月' + date + '日';
+            </script>
+        </div>
+
+        <p class="intro">Destiny 2の最新情報を伝えるbot、Malahayatiについての解説とか説明とか裏話とか。</p>
+
+        <h2>目次</h2>
+
+        <div class="toc">
+            <ul>
+                <li><a href="#whatis">Malahayatiとは？</a></li>
+                <li><a href="#reason">このbotを作った経緯</a></li>
+                <ul>
+                    <li><a href="#concentration">圧倒的集中力とストイックさ</a></li>
+                    <li><a href="#innocent">純粋無垢の精神</a></li>
+                    <li><a href="#visual">ビジュアルの良さ</a></li>
+                    <li><a href="#gap">ギャップを感じられる瞬間、いろいろ</a></li>
+                </ul>
+                <li><a href="#summary">まとめ（的なもの）</a></li>
+                <li><a href="#extra">おまけ</a></li>
+                <li><a href="#source">出典</a></li>
+                <li><a href="#comments">コメント</a></li>
+            </ul>
+        </div>
+
+        <!-- ここから内容 -->
+
+        <a name="whatis"></a>
+        <h2>Malahayatiとは？</h2>
+        <div class="text">
+            <img class="picture" width="600px" src="./img/malahayati.png">
+            Twitter(現X)上で稼働中の、失われたセクターやナイトフォール、バンシー44の販売武器など、毎日毎週変わる情報を変わったタイミングで取得してTLに流すbotです。まだ見たことない人は<a href="https://twitter.com/MalahayatiD2bot">@MalahayatiD2bot</a>を見に行ってみてください。
+        </div>
+
+        <a name="reason"></a>
+        <h2>このbotを作った経緯</h2>
+        <div class="text">
+            このサイトの<a href="../destiny2/">情報まとめ</a>を作るために情報収集をしていたとき、<a href="https://data.destinysets.com/">Destiny Data Sets</a>というサイトを見つけました。いわゆる開発用に、Bungie APIの中身を見やすい形で色々見られるって場所です。そこでいろんなアイテムの情報とかを眺めながら、「APIっておもれえな～～～」とか思ってたわけです。
+            <br>ぼくもなにか作ろうかな……とか思っていつものようにTwitterのTLを眺めていたら、ふと
+            <div class="power">Destiny2関連で日本語の完全自動botってなくね！？！？</div>
+            って閃きました。ぼくは開発者である以前に<b>承認欲求モンスター</b>なので、伸びそうだったり先人がいなさそうなコンテンツにはどんどん切り込みたくなっちゃいます。ちょうど実践的なアプリも作ってみたい欲があったので練習台としてやってみることにしました。
+        </div>
+
+        <a name="introduction"></a>
+        <h2>機能解説</h2>
+        <div class="text">
+            botのそれぞれの部分がどのように動いてるかについて解説します。とはいえぼくもプログラムを書くのは全然うまくないので、結構パワーで処理してる部分もあります。良く言えば理解はしやすいです。
+        </div>
+
+        <a name="source"></a>
+        <h2>出典</h2>
+        <a href="https://shinycolors.enza.fun/">アイドルマスター シャイニーカラーズ</a><br>
+
+        <a name="comments"></a>
+        <!-- begin wwww.htmlcommentbox.com -->
+        <script type="text/javascript" src="../js/htmlcommentbox.js"></script>
+
+        <div id="HCB_comment_box">コメントを読み込んでいます...</div>
+        <link rel="stylesheet" type="text/css" href="/css/twitter-bootstrap.css" />
+        <script type="text/javascript" id="hcb">
+            if (!window.hcb_user) {
+                hcb_user = {};
+            }(function() {
+                var s = document.createElement("script"),
+                    l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
+                    h = "https://www.htmlcommentbox.com";
+                s.setAttribute("type", "text/javascript");
+                s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%240S16uY.Oh6y9MR3cBrjg21" + "&opts=16798&num=10&ts=1642331857298");
+                if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s);
+            })();
+        </script>
+        <!-- end www.htmlcommentbox.com -->
+
+        <hr>
+        <div class="footer"><a href="#" id="page-top">一番上に戻る ▲</a></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+{
+  "id": "3wgvktay",
+  "name": "魔王レオナーレ",
+  "reels": [
+    {
+      "level": 1,
+      "slots": [
+        "ifpgvpik",
+        "cr7izhvw",
+        "bvy7q3go",
+        "ai9cdjam",
+        "ai9cdjam",
+        "p93vw1g9"
+      ],
+      "samples": [],
+      "capacity": 16.8,
+      "initialSlots": [
+        "ifpgvpik",
+        "cr7izhvw",
+        "bvy7q3go",
+        "ai9cdjam",
+        "ai9cdjam",
+        "p93vw1g9"
+      ]
+    },
+    {
+      "level": 2,
+      "slots": [
+        "ifpgvpik",
+        "bvy7q3go",
+        "5eubnrr1",
+        "5eubnrr1",
+        "ektv2n4o",
+        "p93vw1g9"
+      ],
+      "samples": [],
+      "capacity": 21,
+      "initialSlots": [
+        "ifpgvpik",
+        "bvy7q3go",
+        "5eubnrr1",
+        "5eubnrr1",
+        "ektv2n4o",
+        "p93vw1g9"
+      ]
+    },
+    {
+      "level": 3,
+      "slots": [
+        "cr7izhvw",
+        "p93vw1g9",
+        "p93vw1g9",
+        "5eubnrr1",
+        "o6dwl6rg",
+        "5is0tn1i"
+      ],
+      "samples": [],
+      "capacity": 24.6,
+      "initialSlots": [
+        "cr7izhvw",
+        "p93vw1g9",
+        "p93vw1g9",
+        "5eubnrr1",
+        "o6dwl6rg",
+        "5is0tn1i"
+      ]
+    },
+    {
+      "level": 4,
+      "slots": [
+        "bvy7q3go",
+        "p93vw1g9",
+        "p93vw1g9",
+        "tis5d3yj",
+        "tis5d3yj",
+        "5is0tn1i"
+      ],
+      "samples": [],
+      "capacity": 29.4,
+      "initialSlots": [
+        "bvy7q3go",
+        "p93vw1g9",
+        "p93vw1g9",
+        "tis5d3yj",
+        "tis5d3yj",
+        "5is0tn1i"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "ai9cdjam",
+      "cost": 3,
+      "kind": "up",
+      "name": "★→★★",
+      "fromLevel": 1
+    },
+    {
+      "id": "ektv2n4o",
+      "cost": 4,
+      "kind": "up",
+      "name": "★★→★★★",
+      "fromLevel": 2
+    },
+    {
+      "id": "o6dwl6rg",
+      "cost": 5,
+      "kind": "up",
+      "name": "★★★→★★★★",
+      "fromLevel": 3
+    },
+    {
+      "id": "3id44e63",
+      "cost": 1,
+      "kind": "charge",
+      "name": "ためる",
+      "costByLevel": {
+        "1": 1,
+        "2": 1.4,
+        "3": 1.8
+      }
+    },
+    {
+      "id": "ifpgvpik",
+      "cost": 0,
+      "kind": "normal",
+      "name": "ほほえんでいる",
+      "isMiss": true
+    },
+    {
+      "id": "cr7izhvw",
+      "cost": 1,
+      "kind": "normal",
+      "name": "こうげき"
+    },
+    {
+      "id": "bvy7q3go",
+      "cost": 2,
+      "kind": "normal",
+      "name": "こうげき!"
+    },
+    {
+      "id": "5eubnrr1",
+      "cost": 2.4,
+      "kind": "normal",
+      "name": "銃電中"
+    },
+    {
+      "id": "p93vw1g9",
+      "cost": 3.6,
+      "kind": "normal",
+      "name": "メェ"
+    },
+    {
+      "id": "tis5d3yj",
+      "cost": 5.2,
+      "kind": "normal",
+      "name": "大行侵"
+    },
+    {
+      "id": "5is0tn1i",
+      "cost": 4.8,
+      "kind": "normal",
+      "name": "魔王の一撃"
+    }
+  ],
+  "capacityIsA": true
+}

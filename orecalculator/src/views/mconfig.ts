@@ -1,5 +1,6 @@
 import { CAPACITY_RANKS, capacityRankOf, type Monster } from '../core/types.ts';
-import { STARS, esc } from './common.ts';
+import { STARS, esc, slotSelect } from './common.ts';
+import { SLOTS } from '../core/types.ts';
 
 export function renderMonsterConfig(m: Monster, monsters: readonly Monster[]): string {
 	const opts = monsters.map((x) => `<option value="${x.id}"${x.id === m.id ? ' selected' : ''}>${esc(x.name)}</option>`).join('');
@@ -20,7 +21,9 @@ export function renderMonsterConfig(m: Monster, monsters: readonly Monster[]): s
 			</div>
 			<div class="monster-buttons">
 				<button data-a="new">新規</button>
+				<button data-a="master-open">マスターから作成</button>
 				<button data-a="dup">複製</button>
+				<button data-a="evolution-open">進化</button>
 				<button data-a="del">削除</button>
 				<button data-a="export">JSON出力</button>
 				<button data-a="import">JSON読込</button>
@@ -54,4 +57,19 @@ export function renderMonsterConfig(m: Monster, monsters: readonly Monster[]): s
 			</div>
 		</div>
 	</div>`;
+}
+
+export function renderInitialReels(m: Monster): string {
+  const reels = m.reels.map((reel, ri) => {
+    const slots = reel.initialSlots ?? new Array<string>(SLOTS).fill('');
+    return `<div class="card initial-reel"><h3>${STARS(reel.level)}</h3>
+      <ol class="reel-col edit">${slots.map((id, si) => slotSelect(m, id, `data-a="initial-slot" data-r="${ri}" data-i="${si}"`, reel.level)).join('')}</ol>
+      <button data-a="initial-copy" data-r="${ri}">現在のリールからコピー</button>
+    </div>`;
+  }).join('');
+  return `<section><h2>初期入手時のリール</h2>
+    <p>初期状態を個体ごとに保存します。現在のリールとは別に編集できます。</p>
+    <div class="cards">${reels}</div>
+    <button data-a="initial-apply">初期配置を現在のリールに適用</button>
+  </section>`;
 }

@@ -12,7 +12,7 @@ export const cloudEnabled = SUPABASE_URL !== '' && SUPABASE_ANON_KEY !== '';
 
 export type CloudStatus = 'disabled' | 'signed-out' | 'idle' | 'syncing' | 'error';
 
-const client: SupabaseClient | null = cloudEnabled
+export const client: SupabaseClient | null = cloudEnabled
   ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { auth: { flowType: 'pkce' } })
   : null;
 

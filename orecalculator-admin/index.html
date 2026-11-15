@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="admin-token" content="ADMIN_TOKEN_PLACEHOLDER">
+  <title>オレカ計算機 マスター管理</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header><h1>オレカ計算機 マスター管理</h1><p>共通マスターを編集します。変更内容は一般公開されます。</p></header>
+  <main>
+    <nav aria-label="管理対象"><button data-tab="skills">技</button><button data-tab="monsters">モンスター</button><button data-tab="evolutions">進化</button></nav>
+    <p id="status" role="status" aria-live="polite"></p>
+    <div class="workspace">
+      <section><h2 id="list-title"></h2><button id="new" type="button">新規作成</button><div id="list"></div></section>
+      <section><h2 id="edit-title">編集</h2><div id="editor"><p>項目を選択してください。</p></div></section>
+    </div>
+  </main>
+</body>
+</html>

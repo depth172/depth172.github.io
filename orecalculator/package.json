@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "admin": "node ../orecalculator-admin/server.mjs",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },

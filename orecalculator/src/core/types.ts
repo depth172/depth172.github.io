@@ -23,11 +23,13 @@ export interface Reel {
   capacity: number;
   slots: string[]; // 長さ SLOTS、未入力は ""
   samples: Sample[];
+  initialSlots?: string[]; // 未設定の場合は初期配置を未入力として扱う
 }
 
 export interface Monster {
   id: string;
   name: string;
+  masterId?: string;
   skills: Skill[];
   reels: Reel[]; // 長さ = クラス(1..4)
   capacityRank?: CapacityRank; // 指定時はこの個体ランクのキャパを使う
@@ -52,6 +54,12 @@ export type CapacityRank = (typeof CAPACITY_RANKS)[number]['rank'];
 
 export function capacityRankOf(m: Monster): CapacityRank | undefined {
   return m.capacityIsA ? 'A' : m.capacityRank;
+}
+
+/** 画面表示と同じランクで変化判定に使用するキャパを求める。未指定時はB相当。 */
+export function withActualCapacities(m: Monster): Monster {
+  const stage = CAPACITY_RANKS.find(({ rank }) => rank === capacityRankOf(m))?.stage ?? 99;
+  return { ...m, reels: m.reels.map((reel) => ({ ...reel, capacity: capacityAt(reel.capacity, stage) })) };
 }
 
 /** 技の色(移動系はオレンジ、それ以外はコストで区分) */

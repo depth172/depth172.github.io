@@ -287,6 +287,44 @@ textarea {
   background: #ffb55e;
 }
 
+.miss-plan-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+.miss-plan-step {
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid #888;
+  border-radius: 6px;
+}
+.miss-plan-step h3 {
+  margin: 0 0 4px;
+}
+.miss-plan-examples {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+.miss-plan-reel li {
+  min-height: 1.75rem;
+  overflow-wrap: anywhere;
+}
+.miss-plan-reel li.miss-plan-changed {
+  position: relative;
+  outline: 2px solid #d22;
+  outline-offset: -2px;
+}
+.miss-plan-before {
+  text-decoration: line-through;
+}
+.miss-plan-description {
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
 .reel-col.edit {
   box-sizing: border-box;
   width: 100%;
@@ -912,6 +950,35 @@ button[data-a="cc-no"] {
     background: #232d32;
   }
 
+  #app section {
+    background: #182126;
+    border-color: #525252;
+  }
+
+  .card,
+  th,
+  td,
+  .reels .reel {
+    border-color: #59646a;
+  }
+
+  #app :is([data-a="initial-copy"], [data-a="initial-apply"], [data-a="miss-plan-run"], [data-a="miss-plan-cancel"], [data-a="sm-add"], [data-a="sm-del"]),
+  #app-modal :is([data-a="sm-add"], [data-a="sm-del"], .modal-header button) {
+    background: #384b55;
+    color: #fff;
+    border: 1px solid #71838c;
+  }
+
+  #app :is([data-a="initial-copy"], [data-a="initial-apply"], [data-a="miss-plan-run"], [data-a="miss-plan-cancel"]):not(:disabled):hover,
+  #app-modal :is([data-a="sm-add"], [data-a="sm-del"], .modal-header button):not(:disabled):hover {
+    background: #4a6370;
+  }
+
+  #app :is([data-a="initial-copy"], [data-a="initial-apply"], [data-a="miss-plan-run"], [data-a="miss-plan-cancel"]):disabled {
+    opacity: 0.6;
+  }
+
+
 	.sub-content-container {
 		background: #232d32;
 	}
@@ -930,12 +997,54 @@ button[data-a="cc-no"] {
     color: #fff;
 		cursor: pointer;
   }
+  input, select, textarea {
+    border-color: #71838c;
+  }
+
+  textarea {
+    background: #222;
+    color: #fff;
+  }
+
+  .reel-col.edit li.empty {
+    background: #313d43;
+    color: #fff;
+  }
+
+  .reel-col.edit select,
+  .reel-col li.swap select {
+    background: transparent;
+    color: #222;
+  }
+
+  .reel-col.edit li.empty select {
+    color: #fff;
+  }
+
+  .reel-col select option {
+    background: #222;
+    color: #fff;
+  }
+
+  .skill-row input,
+  .skill-row select {
+    background: #fff9;
+    color: #222;
+    border-color: #444;
+  }
+
+  .skill-row select option {
+    background: #222;
+    color: #fff;
+  }
+
+
 	.fit {
     color: #43ee43;
   }
 
 	.bad {
-    color: #b44747;
+    color: #ff8a8a;
   }
   .skill-table th:first-child {
     background: #333;
